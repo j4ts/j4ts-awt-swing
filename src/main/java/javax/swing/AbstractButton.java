@@ -818,5 +818,43 @@ public abstract class AbstractButton extends JComponent implements ItemSelectabl
 			fireItemStateChanged(event);
 		}
 	}
+	
+	ButtonModel model;
 
+    public ButtonModel getModel() {
+        return model;
+    }
+
+    public void setModel(ButtonModel newModel) {
+
+        ButtonModel oldModel = getModel();
+
+        if (oldModel != null) {
+            oldModel.removeChangeListener(changeListener);
+            oldModel.removeActionListener(actionListener);
+            oldModel.removeItemListener(itemListener);
+            changeListener = null;
+            actionListener = null;
+            itemListener = null;
+        }
+
+        model = newModel;
+
+        if (newModel != null) {
+            changeListener = createChangeListener();
+            actionListener = createActionListener();
+            itemListener = createItemListener();
+            newModel.addChangeListener(changeListener);
+            newModel.addActionListener(actionListener);
+            newModel.addItemListener(itemListener);
+
+            super.setEnabled(newModel.isEnabled());
+
+        } else {
+            mnemonic = '\0';
+        }
+
+    }
+	
+	
 }

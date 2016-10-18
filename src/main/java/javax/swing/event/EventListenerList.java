@@ -55,6 +55,21 @@ public class EventListenerList implements Serializable {
 		return result;
 	}
 
+	// hack
+	public <T extends EventListener> T[] getListeners(String t) {
+		Object[] lList = listenerList;
+		int n = getListenerCount(lList, t);
+		T[] result = array(new jsweet.lang.Array<T>(n));// (T[])Array.newInstance(t,
+														// n);
+		int j = 0;
+		for (int i = lList.length - 2; i >= 0; i -= 2) {
+			if (lList[i] == t) {
+				result[j++] = any(lList[i + 1]);
+			}
+		}
+		return result;
+	}
+	
 	public int getListenerCount() {
 		return listenerList.length / 2;
 	}
@@ -64,6 +79,12 @@ public class EventListenerList implements Serializable {
 		return getListenerCount(lList, t);
 	}
 
+	
+	public int getListenerCount(String t) {
+		Object[] lList = listenerList;
+		return getListenerCount(lList, t);
+	}
+	
 	private int getListenerCount(Object[] list, Class<?> t) {
 		int count = 0;
 		for (int i = 0; i < list.length; i += 2) {
@@ -73,6 +94,15 @@ public class EventListenerList implements Serializable {
 		return count;
 	}
 
+	private int getListenerCount(Object[] list, String t) {
+		int count = 0;
+		for (int i = 0; i < list.length; i += 2) {
+			if (t == list[i])
+				count++;
+		}
+		return count;
+	}
+	
 	public synchronized <T extends EventListener> void add(Class<T> t, T l) {
 		if (l == null) {
 			// In an ideal world, we would do an assertion here
@@ -80,9 +110,10 @@ public class EventListenerList implements Serializable {
 			// something wrong
 			return;
 		}
-		if (l.getClass() != t) {
-			throw new IllegalArgumentException("Listener " + l + " is not of type " + t);
-		}
+		// if (l.getClass() != t) {
+		// throw new IllegalArgumentException("Listener " + l + " is not of type
+		// " + t);
+		// }
 		if (listenerList == NULL_ARRAY) {
 			// if this is the first listener added,
 			// initialize the lists
@@ -107,9 +138,10 @@ public class EventListenerList implements Serializable {
 			// something wrong
 			return;
 		}
-		if (l.getClass() != t) {
-			throw new IllegalArgumentException("Listener " + l + " is not of type " + t);
-		}
+		// if (l.getClass() != t) {
+		// throw new IllegalArgumentException("Listener " + l + " is not of type
+		// " + t);
+		// }
 		// Is l on the list?
 		int index = -1;
 		for (int i = listenerList.length - 2; i >= 0; i -= 2) {

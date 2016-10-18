@@ -35,9 +35,13 @@ public class Panel extends Container {
 	@Override
 	public void setBackground(Color background) {
 		super.setBackground(background);
-		htmlElement.style.backgroundColor = null;
-		if (background != null) {
-			htmlCanvas.style.backgroundColor = background.toHTML();
+		if (htmlElement != null) {
+			htmlElement.style.backgroundColor = null;
+		}
+		if (htmlCanvas != null) {
+			if (background != null) {
+				htmlCanvas.style.backgroundColor = background.toHTML();
+			}
 		}
 	}
 

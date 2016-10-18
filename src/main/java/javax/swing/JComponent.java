@@ -24,15 +24,14 @@
  */
 package javax.swing;
 
-
 import java.awt.Container;
 import java.io.Serializable;
 
 import javax.swing.event.EventListenerList;
 
-public abstract class JComponent extends Container implements Serializable
-{
+@SuppressWarnings("serial")
+public abstract class JComponent extends Container implements Serializable {
 
-    protected EventListenerList listenerList = new EventListenerList();
+	protected EventListenerList listenerList = new EventListenerList();
 
 }

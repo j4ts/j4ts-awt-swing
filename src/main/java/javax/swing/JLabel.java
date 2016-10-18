@@ -109,14 +109,17 @@ public class JLabel extends JComponent implements SwingConstants {
 	@Override
 	public void initHTML() {
 		super.initHTML();
-		for (Node n : getHTMLElement().childNodes) {
-			getHTMLElement().removeChild(n);
+		while (getHTMLElement().firstChild != null) {
+			getHTMLElement().removeChild(getHTMLElement().firstChild);
 		}
 		if (defaultIcon != null) {
 			htmlImageElement = defaultIcon.getInternalHTMLImageElement();
 		}
 		htmlLabelElement = document.createElement(StringTypes.label);
-		htmlElement.appendChild(htmlImageElement);
+		if (defaultIcon != null) {
+			htmlElement.appendChild(htmlImageElement);
+		}
+		htmlLabelElement.innerHTML = getText();
 		htmlElement.appendChild(htmlLabelElement);
 	}
 
@@ -129,8 +132,8 @@ public class JLabel extends JComponent implements SwingConstants {
 		String oldValue = this.text;
 		this.text = text;
 		firePropertyChange("text", oldValue, text);
-		if (htmlElement != null) {
-			htmlElement.innerHTML = text;
+		if (htmlLabelElement != null) {
+			htmlLabelElement.innerHTML = text;
 		}
 
 	}

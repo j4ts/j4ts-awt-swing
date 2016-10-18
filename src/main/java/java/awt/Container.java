@@ -30,12 +30,24 @@ public abstract class Container extends Component {
 
 	LayoutManager layoutMgr;
 	Component[] components = {};
+	Insets insets;
 
 	public LayoutManager getLayout() {
 		return layoutMgr;
 	}
 
 	public void setLayout(LayoutManager mgr) {
+		if (layoutMgr != null) {
+			if (components.length == 0) {
+				if (htmlElement != null) {
+					while (htmlElement.firstChild != null) {
+						htmlElement.removeChild(htmlElement.firstChild);
+					}
+				}
+			} else {
+				throw new RuntimeException("cannot change layout dynamically with the current implementation");
+			}
+		}
 		layoutMgr = mgr;
 		layoutMgr.layoutContainer(this);
 	}
@@ -53,17 +65,38 @@ public abstract class Container extends Component {
 	}
 
 	public Component add(Component component) {
-		add(null, component);
+		add((String) null, component);
 		return component;
 	}
 
+	public Component add(Component c, int index) {
+		components = array(components).splice(index, 0, c);
+		return c;
+	}
+
 	public Component add(String name, Component component) {
+		addImpl(component, null, -1);
+		return component;
+	}
+
+	public void add(Component component, Object constraints) {
+		addImpl(component, constraints, -1);
+	}
+
+	public void add(Component component, Object constraints, int index) {
+		addImpl(component, constraints, index);
+	}
+
+	protected void addImpl(Component component, Object constraints, int index) {
 		array(components).push(component);
 		component.initHTML();
 		if (layoutMgr != null) {
-			layoutMgr.onComponentAdded(this, component, -1);
+			if (constraints != null && layoutMgr instanceof LayoutManager2) {
+				((LayoutManager2) layoutMgr).addLayoutComponent(component, constraints);
+			} else {
+				layoutMgr.onComponentAdded(this, component, -1);
+			}
 		}
-		return component;
 	}
 
 	@Override
@@ -74,4 +107,36 @@ public abstract class Container extends Component {
 		}
 	}
 
+	public int getComponentCount() {
+		return components.length;
+	}
+
+	public void remove(int index) {
+		components = array(components).slice(index, 1);
+	}
+
+	public Component getComponent(int n) {
+		return components[n];
+	}
+
+	public Component[] getComponents() {
+		return components;
+	}
+
+	public void removeAll() {
+		components = new Component[0];
+	}
+
+	public void remove(Component c) {
+		int i = (int) array(components).indexOf(c);
+		remove(i);
+	}
+
+	public Insets getInsets() {
+		return insets;
+	}
+
+	public void setInsets(Insets insets) {
+		this.insets = insets;
+	}
 }

@@ -78,11 +78,9 @@ public class Checkbox extends Component implements ItemSelectable {
 		}
 	}
 
-	// TODO: JSweet overload does not work for parameter swapping
-	// public Checkbox(String label, CheckboxGroup group, boolean state) throws
-	// HeadlessException {
-	// this(label, state, group);
-	// }
+	public Checkbox(String label, CheckboxGroup group, boolean state) throws HeadlessException {
+		this(label, state, group);
+	}
 
 	@Override
 	public HTMLLabelElement getHTMLElement() {

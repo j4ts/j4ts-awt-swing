@@ -56,6 +56,7 @@ var java;
             function AWTEvent(source, id) {
                 var _this = this;
                 if (((source != null) || source === null) && ((typeof id === 'number') || id === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     _super.call(this, source);
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                     this.id = 0;
@@ -75,8 +76,10 @@ var java;
                     })();
                 }
                 else if (((source != null && source instanceof java.awt.Event) || source === null) && id === undefined) {
-                    var event = source;
+                    var __args = Array.prototype.slice.call(arguments);
+                    var event = __args[0];
                     {
+                        var __args = Array.prototype.slice.call(arguments);
                         var source = event.target;
                         var id = event.id;
                         _super.call(this, source);
@@ -144,6 +147,12 @@ var java;
             };
             AWTEvent.prototype.isConsumed = function () {
                 return this.consumed;
+            };
+            /**
+             * Returns the event type.
+             */
+            AWTEvent.prototype.getID = function () {
+                return this.id;
             };
             /**
              * The event mask for selecting component events.
@@ -241,6 +250,573 @@ var java;
         }(java.util.EventObject));
         awt.AWTEvent = AWTEvent;
         AWTEvent["__classname"] = "java.awt.AWTEvent";
+    })(awt = java.awt || (java.awt = {}));
+})(java || (java = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var java;
+(function (java) {
+    var awt;
+    (function (awt) {
+        var BasicStroke = (function () {
+            function BasicStroke(width, cap, join, miterlimit, dash, dash_phase) {
+                if (width === void 0) { width = 1.0; }
+                if (cap === void 0) { cap = BasicStroke.CAP_SQUARE; }
+                if (join === void 0) { join = BasicStroke.JOIN_MITER; }
+                if (miterlimit === void 0) { miterlimit = 10.0; }
+                if (dash === void 0) { dash = null; }
+                if (dash_phase === void 0) { dash_phase = 0.0; }
+                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Stroke"] });
+                this.width = 0;
+                this.join = 0;
+                this.cap = 0;
+                this.miterlimit = 0;
+                this.dash_phase = 0;
+                if (width < 0.0) {
+                    throw new java.lang.IllegalArgumentException("negative width");
+                }
+                if (cap !== BasicStroke.CAP_BUTT && cap !== BasicStroke.CAP_ROUND && cap !== BasicStroke.CAP_SQUARE) {
+                    throw new java.lang.IllegalArgumentException("illegal end cap value");
+                }
+                if (join === BasicStroke.JOIN_MITER) {
+                    if (miterlimit < 1.0) {
+                        throw new java.lang.IllegalArgumentException("miter limit < 1");
+                    }
+                }
+                else if (join !== BasicStroke.JOIN_ROUND && join !== BasicStroke.JOIN_BEVEL) {
+                    throw new java.lang.IllegalArgumentException("illegal line join value");
+                }
+                if (dash != null) {
+                    if (dash_phase < 0.0) {
+                        throw new java.lang.IllegalArgumentException("negative dash phase");
+                    }
+                    var allzero = true;
+                    for (var i = 0; i < dash.length; i++) {
+                        var d = dash[i];
+                        if (d > 0.0) {
+                            allzero = false;
+                        }
+                        else if (d < 0.0) {
+                            throw new java.lang.IllegalArgumentException("negative dash length");
+                        }
+                    }
+                    if (allzero) {
+                        throw new java.lang.IllegalArgumentException("dash lengths all zero");
+                    }
+                }
+                this.width = width;
+                this.cap = cap;
+                this.join = join;
+                this.miterlimit = miterlimit;
+                if (dash != null) {
+                    this.dash = (dash).splice(0, dash.length);
+                }
+                this.dash_phase = dash_phase;
+            }
+            BasicStroke.prototype.createStrokedShape = function (s) {
+                return null;
+            };
+            BasicStroke.prototype.getLineWidth = function () {
+                return this.width;
+            };
+            BasicStroke.prototype.getEndCap = function () {
+                return this.cap;
+            };
+            BasicStroke.prototype.getLineJoin = function () {
+                return this.join;
+            };
+            BasicStroke.prototype.getMiterLimit = function () {
+                return this.miterlimit;
+            };
+            BasicStroke.prototype.getDashArray = function () {
+                if (this.dash == null) {
+                    return null;
+                }
+                return (this.dash).splice(0, this.dash.length);
+            };
+            BasicStroke.prototype.getDashPhase = function () {
+                return this.dash_phase;
+            };
+            BasicStroke.prototype.hashCode = function () {
+                var hash = javaemul.internal.FloatHelper.floatToIntBits(this.width);
+                hash = hash * 31 + this.join;
+                hash = hash * 31 + this.cap;
+                hash = hash * 31 + javaemul.internal.FloatHelper.floatToIntBits(this.miterlimit);
+                if (this.dash != null) {
+                    hash = hash * 31 + javaemul.internal.FloatHelper.floatToIntBits(this.dash_phase);
+                    for (var i = 0; i < this.dash.length; i++) {
+                        hash = hash * 31 + javaemul.internal.FloatHelper.floatToIntBits(this.dash[i]);
+                    }
+                }
+                return hash;
+            };
+            BasicStroke.prototype.equals = function (obj) {
+                if (!(obj != null && obj instanceof java.awt.BasicStroke)) {
+                    return false;
+                }
+                var bs = obj;
+                if (this.width !== bs.width) {
+                    return false;
+                }
+                if (this.join !== bs.join) {
+                    return false;
+                }
+                if (this.cap !== bs.cap) {
+                    return false;
+                }
+                if (this.miterlimit !== bs.miterlimit) {
+                    return false;
+                }
+                if (this.dash != null) {
+                    if (this.dash_phase !== bs.dash_phase) {
+                        return false;
+                    }
+                    if (!java.util.Arrays.equals(this.dash, bs.dash)) {
+                        return false;
+                    }
+                }
+                else if (bs.dash != null) {
+                    return false;
+                }
+                return true;
+            };
+            BasicStroke.JOIN_MITER = 0;
+            BasicStroke.JOIN_ROUND = 1;
+            BasicStroke.JOIN_BEVEL = 2;
+            BasicStroke.CAP_BUTT = 0;
+            BasicStroke.CAP_ROUND = 1;
+            BasicStroke.CAP_SQUARE = 2;
+            return BasicStroke;
+        }());
+        awt.BasicStroke = BasicStroke;
+        BasicStroke["__classname"] = "java.awt.BasicStroke";
+    })(awt = java.awt || (java.awt = {}));
+})(java || (java = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var java;
+(function (java) {
+    var awt;
+    (function (awt) {
+        var BorderLayout = (function () {
+            /**
+             * Constructs a border layout with the specified gaps between components.
+             * The horizontal gap is specified by <code>hgap</code> and the vertical gap
+             * is specified by <code>vgap</code>.
+             *
+             * @param hgap
+             * the horizontal gap.
+             * @param vgap
+             * the vertical gap.
+             */
+            function BorderLayout(hgap, vgap) {
+                if (hgap === void 0) { hgap = 0; }
+                if (vgap === void 0) { vgap = 0; }
+                this.created = false;
+                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.LayoutManager2", "java.awt.LayoutManager", "java.io.Serializable"] });
+                this.hgap = 0;
+                this.vgap = 0;
+                this.hgap = hgap;
+                this.vgap = vgap;
+            }
+            BorderLayout.prototype.onComponentAdded = function (parent, component, position) {
+            };
+            BorderLayout.PAGE_START_$LI$ = function () { if (BorderLayout.PAGE_START == null)
+                BorderLayout.PAGE_START = BorderLayout.BEFORE_FIRST_LINE; return BorderLayout.PAGE_START; };
+            ;
+            BorderLayout.PAGE_END_$LI$ = function () { if (BorderLayout.PAGE_END == null)
+                BorderLayout.PAGE_END = BorderLayout.AFTER_LAST_LINE; return BorderLayout.PAGE_END; };
+            ;
+            BorderLayout.LINE_START_$LI$ = function () { if (BorderLayout.LINE_START == null)
+                BorderLayout.LINE_START = BorderLayout.BEFORE_LINE_BEGINS; return BorderLayout.LINE_START; };
+            ;
+            BorderLayout.LINE_END_$LI$ = function () { if (BorderLayout.LINE_END == null)
+                BorderLayout.LINE_END = BorderLayout.AFTER_LINE_ENDS; return BorderLayout.LINE_END; };
+            ;
+            /**
+             * Returns the horizontal gap between components.
+             *
+             * @since JDK1.1
+             */
+            BorderLayout.prototype.getHgap = function () {
+                return this.hgap;
+            };
+            /**
+             * Sets the horizontal gap between components.
+             *
+             * @param hgap
+             * the horizontal gap between components
+             * @since JDK1.1
+             */
+            BorderLayout.prototype.setHgap = function (hgap) {
+                this.hgap = hgap;
+            };
+            /**
+             * Returns the vertical gap between components.
+             *
+             * @since JDK1.1
+             */
+            BorderLayout.prototype.getVgap = function () {
+                return this.vgap;
+            };
+            /**
+             * Sets the vertical gap between components.
+             *
+             * @param vgap
+             * the vertical gap between components
+             * @since JDK1.1
+             */
+            BorderLayout.prototype.setVgap = function (vgap) {
+                this.vgap = vgap;
+            };
+            /**
+             * Adds the specified component to the layout, using the specified
+             * constraint object. For border layouts, the constraint must be one of the
+             * following constants: <code>NORTH</code>, <code>SOUTH</code>,
+             * <code>EAST</code>, <code>WEST</code>, or <code>CENTER</code>.
+             * <p>
+             * Most applications do not call this method directly. This method is called
+             * when a component is added to a container using the
+             * <code>Container.add</code> method with the same argument types.
+             *
+             * @param comp
+             * the component to be added.
+             * @param constraints
+             * an object that specifies how and where the component is added
+             * to the layout.
+             * @see java.awt.Container#add(java.awt.Component, java.lang.Object)
+             * @exception IllegalArgumentException
+             * if the constraint object is not a string, or if it not one
+             * of the five specified constants.
+             * @since JDK1.1
+             */
+            BorderLayout.prototype.addLayoutComponent$java_awt_Component$java_lang_Object = function (comp, constraints) {
+                if ((constraints == null) || (typeof constraints === 'string')) {
+                    this.addLayoutComponent(constraints, comp);
+                }
+                else {
+                    throw new java.lang.IllegalArgumentException("cannot add to layout: constraint must be a string (or null)");
+                }
+            };
+            /**
+             * @deprecated replaced by
+             * <code>addLayoutComponent(Component, Object)</code>.
+             */
+            BorderLayout.prototype.addLayoutComponent = function (name, comp) {
+                var _this = this;
+                if (((typeof name === 'string') || name === null) && ((comp != null && comp instanceof java.awt.Component) || comp === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    return (function () {
+                        if (name == null) {
+                            name = "Center";
+                        }
+                        var pos = 4;
+                        if (("Center" === name)) {
+                            _this.center = comp;
+                            pos = 4;
+                        }
+                        else if (("North" === name)) {
+                            _this.north = comp;
+                            pos = 2;
+                        }
+                        else if (("South" === name)) {
+                            _this.south = comp;
+                            pos = 7;
+                        }
+                        else if (("East" === name)) {
+                            _this.east = comp;
+                            pos = 5;
+                        }
+                        else if (("West" === name)) {
+                            _this.west = comp;
+                            pos = 3;
+                        }
+                        else if ((BorderLayout.BEFORE_FIRST_LINE === name)) {
+                            _this.firstLine = comp;
+                        }
+                        else if ((BorderLayout.AFTER_LAST_LINE === name)) {
+                            _this.lastLine = comp;
+                        }
+                        else if ((BorderLayout.BEFORE_LINE_BEGINS === name)) {
+                            _this.firstItem = comp;
+                        }
+                        else if ((BorderLayout.AFTER_LINE_ENDS === name)) {
+                            _this.lastItem = comp;
+                        }
+                        else {
+                            throw new java.lang.IllegalArgumentException("cannot add to layout: unknown constraint: " + name);
+                        }
+                        _this.add(comp, pos);
+                    })();
+                }
+                else if (((name != null && name instanceof java.awt.Component) || name === null) && ((comp != null) || comp === null)) {
+                    return this.addLayoutComponent$java_awt_Component$java_lang_Object(name, comp);
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            /**
+             * Removes the specified component from this border layout. This method is
+             * called when a container calls its <code>remove</code> or
+             * <code>removeAll</code> methods. Most applications do not call this method
+             * directly.
+             *
+             * @param comp
+             * the component to be removed.
+             * @see java.awt.Container#remove(java.awt.Component)
+             * @see java.awt.Container#removeAll()
+             */
+            BorderLayout.prototype.removeLayoutComponent = function (comp) {
+                if (comp === this.center) {
+                    this.center = null;
+                }
+                else if (comp === this.north) {
+                    this.north = null;
+                }
+                else if (comp === this.south) {
+                    this.south = null;
+                }
+                else if (comp === this.east) {
+                    this.east = null;
+                }
+                else if (comp === this.west) {
+                    this.west = null;
+                }
+                if (comp === this.firstLine) {
+                    this.firstLine = null;
+                }
+                else if (comp === this.lastLine) {
+                    this.lastLine = null;
+                }
+                else if (comp === this.firstItem) {
+                    this.firstItem = null;
+                }
+                else if (comp === this.lastItem) {
+                    this.lastItem = null;
+                }
+            };
+            BorderLayout.prototype.getLayoutComponent$java_lang_Object = function (constraints) {
+                if ((BorderLayout.CENTER === constraints)) {
+                    return this.center;
+                }
+                else if ((BorderLayout.NORTH === constraints)) {
+                    return this.north;
+                }
+                else if ((BorderLayout.SOUTH === constraints)) {
+                    return this.south;
+                }
+                else if ((BorderLayout.WEST === constraints)) {
+                    return this.west;
+                }
+                else if ((BorderLayout.EAST === constraints)) {
+                    return this.east;
+                }
+                else if ((BorderLayout.PAGE_START_$LI$() === constraints)) {
+                    return this.firstLine;
+                }
+                else if ((BorderLayout.PAGE_END_$LI$() === constraints)) {
+                    return this.lastLine;
+                }
+                else if ((BorderLayout.LINE_START_$LI$() === constraints)) {
+                    return this.firstItem;
+                }
+                else if ((BorderLayout.LINE_END_$LI$() === constraints)) {
+                    return this.lastItem;
+                }
+                else {
+                    throw new java.lang.IllegalArgumentException("cannot get component: unknown constraint: " + constraints);
+                }
+            };
+            BorderLayout.prototype.getLayoutComponent = function (target, constraints) {
+                var _this = this;
+                if (((target != null && target instanceof java.awt.Container) || target === null) && ((constraints != null) || constraints === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    return (function () {
+                        var ltr = true;
+                        var result = null;
+                        if ((BorderLayout.NORTH === constraints)) {
+                            result = (_this.firstLine != null) ? _this.firstLine : _this.north;
+                        }
+                        else if ((BorderLayout.SOUTH === constraints)) {
+                            result = (_this.lastLine != null) ? _this.lastLine : _this.south;
+                        }
+                        else if ((BorderLayout.WEST === constraints)) {
+                            result = ltr ? _this.firstItem : _this.lastItem;
+                            if (result == null) {
+                                result = _this.west;
+                            }
+                        }
+                        else if ((BorderLayout.EAST === constraints)) {
+                            result = ltr ? _this.lastItem : _this.firstItem;
+                            if (result == null) {
+                                result = _this.east;
+                            }
+                        }
+                        else if ((BorderLayout.CENTER === constraints)) {
+                            result = _this.center;
+                        }
+                        else {
+                            throw new java.lang.IllegalArgumentException("cannot get component: invalid constraint: " + constraints);
+                        }
+                        return result;
+                    })();
+                }
+                else if (((target != null) || target === null) && constraints === undefined) {
+                    return this.getLayoutComponent$java_lang_Object(target);
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            BorderLayout.prototype.getConstraints = function (comp) {
+                if (comp == null) {
+                    return null;
+                }
+                if (comp === this.center) {
+                    return BorderLayout.CENTER;
+                }
+                else if (comp === this.north) {
+                    return BorderLayout.NORTH;
+                }
+                else if (comp === this.south) {
+                    return BorderLayout.SOUTH;
+                }
+                else if (comp === this.west) {
+                    return BorderLayout.WEST;
+                }
+                else if (comp === this.east) {
+                    return BorderLayout.EAST;
+                }
+                else if (comp === this.firstLine) {
+                    return BorderLayout.PAGE_START_$LI$();
+                }
+                else if (comp === this.lastLine) {
+                    return BorderLayout.PAGE_END_$LI$();
+                }
+                else if (comp === this.firstItem) {
+                    return BorderLayout.LINE_START_$LI$();
+                }
+                else if (comp === this.lastItem) {
+                    return BorderLayout.LINE_END_$LI$();
+                }
+                return null;
+            };
+            BorderLayout.prototype.maximumLayoutSize = function (target) {
+                return new java.awt.Dimension(javaemul.internal.IntegerHelper.MAX_VALUE, javaemul.internal.IntegerHelper.MAX_VALUE);
+            };
+            BorderLayout.prototype.getLayoutAlignmentX = function (parent) {
+                return 0.5;
+            };
+            BorderLayout.prototype.getLayoutAlignmentY = function (parent) {
+                return 0.5;
+            };
+            BorderLayout.prototype.invalidateLayout = function (target) {
+            };
+            BorderLayout.prototype.layoutContainer = function (parent) {
+                if (!this.created) {
+                    this.parent = parent;
+                    this.created = true;
+                    var div = parent.getHTMLElement();
+                    this.table = document.createElement("table");
+                    this.table.style.width = "100%";
+                    this.table.style.height = "100%";
+                    this.table.style.left = "0px";
+                    this.table.style.right = "0px";
+                    this.table.style.zIndex = "0";
+                    for (var j = 0; j < 3; j++) {
+                        var row = document.createElement("tr");
+                        this.table.appendChild(row);
+                        if (j === 0 || j === 2) {
+                            row.style.height = "0%";
+                        }
+                        for (var i = 0; i < 3; i++) {
+                            var col = document.createElement("td");
+                            row.appendChild(col);
+                            if (i === 0 || i === 2) {
+                                col.style.width = "0%";
+                            }
+                        }
+                    }
+                    div.appendChild(this.table);
+                }
+            };
+            BorderLayout.prototype.add = function (component, position) {
+                var pos = 0;
+                for (var j = 0; j < 3; j++) {
+                    var row = this.table.childNodes[j];
+                    for (var i = 0; i < 3; i++) {
+                        var col = row.childNodes[i];
+                        if (pos++ === position) {
+                            col.appendChild(component.getHTMLElement());
+                            component.getHTMLElement().style.width = "100%";
+                            component.getHTMLElement().style.height = "100%";
+                            return;
+                        }
+                    }
+                }
+            };
+            /**
+             * Returns a string representation of the state of this border layout.
+             *
+             * @return a string representation of this border layout.
+             */
+            BorderLayout.prototype.toString = function () {
+                return this.constructor["__classname"] + "[hgap=" + this.hgap + ",vgap=" + this.vgap + "]";
+            };
+            /**
+             * The north layout constraint (top of container).
+             */
+            BorderLayout.NORTH = "North";
+            /**
+             * The south layout constraint (bottom of container).
+             */
+            BorderLayout.SOUTH = "South";
+            /**
+             * The east layout constraint (right side of container).
+             */
+            BorderLayout.EAST = "East";
+            /**
+             * The west layout constraint (left side of container).
+             */
+            BorderLayout.WEST = "West";
+            /**
+             * The center layout constraint (middle of container).
+             */
+            BorderLayout.CENTER = "Center";
+            /**
+             * Synonym for PAGE_START. Exists for compatibility with previous versions.
+             * PAGE_START is preferred.
+             *
+             * @see #PAGE_START
+             * @since 1.2
+             */
+            BorderLayout.BEFORE_FIRST_LINE = "First";
+            /**
+             * Synonym for PAGE_END. Exists for compatibility with previous versions.
+             * PAGE_END is preferred.
+             *
+             * @see #PAGE_END
+             * @since 1.2
+             */
+            BorderLayout.AFTER_LAST_LINE = "Last";
+            /**
+             * Synonym for LINE_START. Exists for compatibility with previous versions.
+             * LINE_START is preferred.
+             *
+             * @see #LINE_START
+             * @since 1.2
+             */
+            BorderLayout.BEFORE_LINE_BEGINS = "Before";
+            /**
+             * Synonym for LINE_END. Exists for compatibility with previous versions.
+             * LINE_END is preferred.
+             *
+             * @see #LINE_END
+             * @since 1.2
+             */
+            BorderLayout.AFTER_LINE_ENDS = "After";
+            BorderLayout.serialVersionUID = -8658291919501921765;
+            return BorderLayout;
+        }());
+        awt.BorderLayout = BorderLayout;
+        BorderLayout["__classname"] = "java.awt.BorderLayout";
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -347,6 +923,10 @@ var java;
                  */
                 this.falpha = 0.0;
                 if (((typeof r === 'number') || r === null) && ((typeof g === 'number') || g === null) && ((typeof b === 'number') || b === null) && ((typeof a === 'number') || a === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    this.frgbvalue = null;
+                    this.fvalue = null;
+                    this.falpha = 0.0;
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Paint", "java.io.Serializable"] });
                     this.value = 0;
                     (function () {
@@ -355,11 +935,16 @@ var java;
                     })();
                 }
                 else if (((typeof r === 'number') || r === null) && ((typeof g === 'number') || g === null) && ((typeof b === 'number') || b === null) && ((typeof a === 'number') || a === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     {
+                        var __args = Array.prototype.slice.call(arguments);
                         var r = ((r * 255 + 0.5) | 0);
                         var g = ((g * 255 + 0.5) | 0);
                         var b = ((b * 255 + 0.5) | 0);
                         var a = ((a * 255 + 0.5) | 0);
+                        this.frgbvalue = null;
+                        this.fvalue = null;
+                        this.falpha = 0.0;
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Paint", "java.io.Serializable"] });
                         this.value = 0;
                         (function () {
@@ -377,8 +962,13 @@ var java;
                     })();
                 }
                 else if (((typeof r === 'number') || r === null) && ((typeof g === 'number') || g === null) && ((typeof b === 'number') || b === null) && a === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
                     {
+                        var __args = Array.prototype.slice.call(arguments);
                         var a = 255;
+                        this.frgbvalue = null;
+                        this.fvalue = null;
+                        this.falpha = 0.0;
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Paint", "java.io.Serializable"] });
                         this.value = 0;
                         (function () {
@@ -390,12 +980,18 @@ var java;
                     })();
                 }
                 else if (((typeof r === 'number') || r === null) && ((typeof g === 'number') || g === null) && ((typeof b === 'number') || b === null) && a === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
                     {
+                        var __args = Array.prototype.slice.call(arguments);
                         var r = ((r * 255 + 0.5) | 0);
                         var g = ((g * 255 + 0.5) | 0);
                         var b = ((b * 255 + 0.5) | 0);
                         {
+                            var __args = Array.prototype.slice.call(arguments);
                             var a = 255;
+                            this.frgbvalue = null;
+                            this.fvalue = null;
+                            this.falpha = 0.0;
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Paint", "java.io.Serializable"] });
                             this.value = 0;
                             (function () {
@@ -417,8 +1013,12 @@ var java;
                     })();
                 }
                 else if (((typeof r === 'number') || r === null) && ((typeof g === 'boolean') || g === null) && b === undefined && a === undefined) {
-                    var rgba = r;
-                    var hasalpha = g;
+                    var __args = Array.prototype.slice.call(arguments);
+                    var rgba = __args[0];
+                    var hasalpha = __args[1];
+                    this.frgbvalue = null;
+                    this.fvalue = null;
+                    this.falpha = 0.0;
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Paint", "java.io.Serializable"] });
                     this.value = 0;
                     (function () {
@@ -431,7 +1031,11 @@ var java;
                     })();
                 }
                 else if (((typeof r === 'number') || r === null) && g === undefined && b === undefined && a === undefined) {
-                    var rgb = r;
+                    var __args = Array.prototype.slice.call(arguments);
+                    var rgb = __args[0];
+                    this.frgbvalue = null;
+                    this.fvalue = null;
+                    this.falpha = 0.0;
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Paint", "java.io.Serializable"] });
                     this.value = 0;
                     (function () {
@@ -532,6 +1136,7 @@ var java;
              */
             Color.testColorValueRange = function (r, g, b, a) {
                 if (((typeof r === 'number') || r === null) && ((typeof g === 'number') || g === null) && ((typeof b === 'number') || b === null) && ((typeof a === 'number') || a === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         var rangeError = false;
                         var badComponentString = "";
@@ -802,6 +1407,7 @@ var java;
              */
             Color.getColor = function (nm, v) {
                 if (((typeof nm === 'string') || nm === null) && ((v != null && v instanceof java.awt.Color) || v === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         var intval = javaemul.internal.IntegerHelper.getInteger(nm);
                         if (intval == null) {
@@ -1201,6 +1807,10 @@ var java;
     (function (awt) {
         var Component = (function () {
             function Component() {
+                this.preferredSize = new java.awt.Dimension();
+                this.minimumSize = new java.awt.Dimension();
+                this.mouseWheelListeners = [];
+                this.mouseListeners = [];
                 Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent"] });
                 this.enabled = false;
                 this.valid = false;
@@ -1208,10 +1818,32 @@ var java;
             }
             Component.prototype.bindHTML = function (htmlElement) {
                 if (this.htmlElement != null) {
-                    throw new Error("already bound");
+                    if (htmlElement.tagName === this.htmlElement.tagName) {
+                        var nodes = new Array();
+                        for (var index121 = 0; index121 < this.htmlElement.childNodes.length; index121++) {
+                            var n = this.htmlElement.childNodes[index121];
+                            {
+                                nodes.push(n);
+                            }
+                        }
+                        for (var index122 = 0; index122 < nodes.length; index122++) {
+                            var n = nodes[index122];
+                            {
+                                this.htmlElement.removeChild(n);
+                                htmlElement.appendChild(n);
+                            }
+                        }
+                        this.htmlElement = htmlElement;
+                        this.initHTML();
+                    }
+                    else {
+                        throw new Error("already bound (incompatible node types): " + htmlElement.tagName + " != " + this.htmlElement.tagName);
+                    }
                 }
-                this.htmlElement = htmlElement;
-                this.initHTML();
+                else {
+                    this.htmlElement = htmlElement;
+                    this.initHTML();
+                }
             };
             Component.prototype.getHTMLElement = function () {
                 if (this.htmlElement == null) {
@@ -1261,6 +1893,7 @@ var java;
             Component.prototype.setSize = function (width, height) {
                 var _this = this;
                 if (((typeof width === 'number') || width === null) && ((typeof height === 'number') || height === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         _this.width = width;
                         _this.height = height;
@@ -1282,6 +1915,7 @@ var java;
             Component.prototype.getPropertyChangeListeners = function (propertyName) {
                 var _this = this;
                 if (((typeof propertyName === 'string') || propertyName === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         if (_this.changeSupport == null) {
                             return new Array(0);
@@ -1319,6 +1953,7 @@ var java;
             Component.prototype.addPropertyChangeListener = function (propertyName, listener) {
                 var _this = this;
                 if (((typeof propertyName === 'string') || propertyName === null) && ((listener != null && listener["__interfaces"] != null && listener["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0) || listener === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         if (listener == null) {
                             return;
@@ -1338,6 +1973,7 @@ var java;
             Component.prototype.removePropertyChangeListener = function (propertyName, listener) {
                 var _this = this;
                 if (((typeof propertyName === 'string') || propertyName === null) && ((listener != null && listener["__interfaces"] != null && listener["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0) || listener === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         if (listener == null || _this.changeSupport == null) {
                             return;
@@ -1398,7 +2034,7 @@ var java;
             Component.prototype.setVisible = function (visible) {
                 this.visible = visible;
                 if (this.htmlElement != null) {
-                    this.htmlElement.style.display = "none";
+                    this.htmlElement.style.visibility = visible ? "visible" : "hidden";
                 }
             };
             Component.prototype.getName = function () {
@@ -1446,6 +2082,98 @@ var java;
                     this.paint(g);
                 }
             };
+            Component.prototype.getPreferredSize = function () {
+                return this.preferredSize;
+            };
+            Component.prototype.setPreferredSize = function (preferredSize) {
+                this.preferredSize = preferredSize;
+            };
+            Component.prototype.getIgnoreRepaint = function () {
+                return false;
+            };
+            Component.prototype.setIgnoreRepaint = function (ignoreRepaint) {
+            };
+            Component.prototype.getParent = function () {
+                return this.parent;
+            };
+            Component.prototype.getSize = function () {
+                return new java.awt.Dimension(this.width, this.height);
+            };
+            Component.prototype.revalidate = function () {
+                if (this.getHTMLElement() != null) {
+                    this.initHTML();
+                }
+            };
+            Component.prototype.invalidate = function () {
+            };
+            Component.prototype.repaint = function () {
+                this.paint(this.getGraphics());
+            };
+            Component.prototype.addFocusListener = function (l) {
+            };
+            Component.prototype.getMinimumSize = function () {
+                return this.minimumSize;
+            };
+            Component.prototype.setMinimumSize = function (minimumSize) {
+                this.minimumSize = minimumSize;
+            };
+            Component.prototype.setLocation = function (x, y) {
+                var _this = this;
+                if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    return (function () {
+                        _this.x = x;
+                        _this.y = y;
+                    })();
+                }
+                else if (((x != null && x instanceof java.awt.Point) || x === null) && y === undefined) {
+                    return this.setLocation$java_awt_Point(x);
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            Component.prototype.setLocation$java_awt_Point = function (p) {
+                this.x = p.x;
+                this.y = p.y;
+            };
+            Component.prototype.getCursor = function () {
+                return this.cursor;
+            };
+            Component.prototype.setCursor = function (cursor) {
+                this.cursor = cursor;
+            };
+            Component.prototype.addMouseWheelListener = function (l) {
+                if (l == null) {
+                    return;
+                }
+                (this.mouseWheelListeners).push(l);
+            };
+            Component.prototype.removeMouseWheelListener = function (l) {
+                if (l == null) {
+                    return;
+                }
+                (this.mouseWheelListeners).splice((this.mouseWheelListeners).indexOf(l), 1);
+            };
+            Component.prototype.getMouseWheelListeners = function () {
+                return this.mouseWheelListeners;
+            };
+            Component.prototype.addMouseListener = function (l) {
+                if (l == null) {
+                    return;
+                }
+                (this.mouseListeners).push(l);
+            };
+            Component.prototype.removeMouseListener = function (l) {
+                if (l == null) {
+                    return;
+                }
+                (this.mouseListeners).splice((this.mouseListeners).indexOf(l), 1);
+            };
+            Component.prototype.getMouseListeners = function () {
+                return this.mouseListeners;
+            };
+            Component.prototype.requestFocus = function () {
+            };
             Component.TOP_ALIGNMENT = 0.0;
             Component.CENTER_ALIGNMENT = 0.5;
             Component.BOTTOM_ALIGNMENT = 1.0;
@@ -1456,6 +2184,205 @@ var java;
         }());
         awt.Component = Component;
         Component["__classname"] = "java.awt.Component";
+    })(awt = java.awt || (java.awt = {}));
+})(java || (java = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var java;
+(function (java) {
+    var awt;
+    (function (awt) {
+        /**
+         * A class to encapsulate the bitmap representation of the mouse cursor.
+         *
+         * @see Component#setCursor
+         * @author Amy Fowler
+         */
+        var Cursor = (function () {
+            /**
+             * Creates a new custom cursor object with the specified name.
+             * <p>
+             * Note: this constructor should only be used by AWT implementations as part
+             * of their support for custom cursors. Applications should use
+             * Toolkit.createCustomCursor().
+             *
+             * @param name
+             * the user-visible name of the cursor.
+             * @see java.awt.Toolkit#createCustomCursor
+             */
+            function Cursor(name) {
+                var _this = this;
+                /**
+                 * The chosen cursor type initially set to the <code>DEFAULT_CURSOR</code>.
+                 *
+                 * @serial
+                 * @see #getType()
+                 */
+                this.type = Cursor.DEFAULT_CURSOR;
+                if (((typeof name === 'string') || name === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    this.type = Cursor.DEFAULT_CURSOR;
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
+                    (function () {
+                        _this.type = Cursor.CUSTOM_CURSOR;
+                        _this.name = name;
+                    })();
+                }
+                else if (((typeof name === 'number') || name === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    var type = __args[0];
+                    this.type = Cursor.DEFAULT_CURSOR;
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
+                    (function () {
+                        if (type < Cursor.DEFAULT_CURSOR || type > Cursor.MOVE_CURSOR) {
+                            throw new java.lang.IllegalArgumentException("illegal cursor type");
+                        }
+                        _this.type = type;
+                        _this.name = java.awt.Toolkit.getProperty(Cursor.cursorProperties_$LI$()[type][0], Cursor.cursorProperties_$LI$()[type][1]);
+                    })();
+                }
+                else
+                    throw new Error('invalid overload');
+            }
+            Cursor.predefined_$LI$ = function () { if (Cursor.predefined == null)
+                Cursor.predefined = new Array(14); return Cursor.predefined; };
+            ;
+            Cursor.predefinedPrivate_$LI$ = function () { if (Cursor.predefinedPrivate == null)
+                Cursor.predefinedPrivate = new Array(14); return Cursor.predefinedPrivate; };
+            ;
+            Cursor.cursorProperties_$LI$ = function () { if (Cursor.cursorProperties == null)
+                Cursor.cursorProperties = [["AWT.DefaultCursor", "Default Cursor"], ["AWT.CrosshairCursor", "Crosshair Cursor"], ["AWT.TextCursor", "Text Cursor"], ["AWT.WaitCursor", "Wait Cursor"], ["AWT.SWResizeCursor", "Southwest Resize Cursor"], ["AWT.SEResizeCursor", "Southeast Resize Cursor"], ["AWT.NWResizeCursor", "Northwest Resize Cursor"], ["AWT.NEResizeCursor", "Northeast Resize Cursor"], ["AWT.NResizeCursor", "North Resize Cursor"], ["AWT.SResizeCursor", "South Resize Cursor"], ["AWT.WResizeCursor", "West Resize Cursor"], ["AWT.EResizeCursor", "East Resize Cursor"], ["AWT.HandCursor", "Hand Cursor"], ["AWT.MoveCursor", "Move Cursor"]]; return Cursor.cursorProperties; };
+            ;
+            /**
+             * Returns a cursor object with the specified predefined type.
+             *
+             * @param type
+             * the type of predefined cursor
+             * @return the specified predefined cursor
+             * @throws IllegalArgumentException
+             * if the specified cursor type is invalid
+             */
+            Cursor.getPredefinedCursor = function (type) {
+                if (type < Cursor.DEFAULT_CURSOR || type > Cursor.MOVE_CURSOR) {
+                    throw new java.lang.IllegalArgumentException("illegal cursor type");
+                }
+                var c = Cursor.predefinedPrivate_$LI$()[type];
+                if (c == null) {
+                    Cursor.predefinedPrivate_$LI$()[type] = c = new Cursor(type);
+                }
+                if (Cursor.predefined_$LI$()[type] == null) {
+                    Cursor.predefined_$LI$()[type] = c;
+                }
+                return c;
+            };
+            /**
+             * Returns a system-specific custom cursor object matching the specified
+             * name. Cursor names are, for example: "Invalid.16x16"
+             *
+             * @param name
+             * a string describing the desired system-specific custom cursor
+             * @return the system specific custom cursor named
+             * @exception HeadlessException
+             * if <code>GraphicsEnvironment.isHeadless</code> returns
+             * true
+             */
+            Cursor.getSystemCustomCursor = function (name) {
+                return null;
+            };
+            /**
+             * Return the system default cursor.
+             */
+            Cursor.getDefaultCursor = function () {
+                return Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR);
+            };
+            /**
+             * Returns the type for this cursor.
+             */
+            Cursor.prototype.getType = function () {
+                return this.type;
+            };
+            /**
+             * Returns the name of this cursor.
+             *
+             * @return a localized description of this cursor.
+             * @since 1.2
+             */
+            Cursor.prototype.getName = function () {
+                return this.name;
+            };
+            /**
+             * Returns a string representation of this cursor.
+             *
+             * @return a string representation of this cursor.
+             * @since 1.2
+             */
+            Cursor.prototype.toString = function () {
+                return this.constructor["__classname"] + "[" + this.getName() + "]";
+            };
+            /**
+             * The default cursor type (gets set if no cursor is defined).
+             */
+            Cursor.DEFAULT_CURSOR = 0;
+            /**
+             * The crosshair cursor type.
+             */
+            Cursor.CROSSHAIR_CURSOR = 1;
+            /**
+             * The text cursor type.
+             */
+            Cursor.TEXT_CURSOR = 2;
+            /**
+             * The wait cursor type.
+             */
+            Cursor.WAIT_CURSOR = 3;
+            /**
+             * The south-west-resize cursor type.
+             */
+            Cursor.SW_RESIZE_CURSOR = 4;
+            /**
+             * The south-east-resize cursor type.
+             */
+            Cursor.SE_RESIZE_CURSOR = 5;
+            /**
+             * The north-west-resize cursor type.
+             */
+            Cursor.NW_RESIZE_CURSOR = 6;
+            /**
+             * The north-east-resize cursor type.
+             */
+            Cursor.NE_RESIZE_CURSOR = 7;
+            /**
+             * The north-resize cursor type.
+             */
+            Cursor.N_RESIZE_CURSOR = 8;
+            /**
+             * The south-resize cursor type.
+             */
+            Cursor.S_RESIZE_CURSOR = 9;
+            /**
+             * The west-resize cursor type.
+             */
+            Cursor.W_RESIZE_CURSOR = 10;
+            /**
+             * The east-resize cursor type.
+             */
+            Cursor.E_RESIZE_CURSOR = 11;
+            /**
+             * The hand cursor type.
+             */
+            Cursor.HAND_CURSOR = 12;
+            /**
+             * The move cursor type.
+             */
+            Cursor.MOVE_CURSOR = 13;
+            /**
+             * The type associated with all custom cursors.
+             */
+            Cursor.CUSTOM_CURSOR = -1;
+            Cursor.serialVersionUID = 8028237497568985504;
+            return Cursor;
+        }());
+        awt.Cursor = Cursor;
+        Cursor["__classname"] = "java.awt.Cursor";
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -1741,11 +2668,118 @@ var java;
 (function (java) {
     var awt;
     (function (awt) {
+        var event;
+        (function (event) {
+            /**
+             * An abstract adapter class for receiving window events.
+             * The methods in this class are empty. This class exists as
+             * convenience for creating listener objects.
+             * <P>
+             * Extend this class to create a <code>WindowEvent</code> listener
+             * and override the methods for the events of interest. (If you implement the
+             * <code>WindowListener</code> interface, you have to define all of
+             * the methods in it. This abstract class defines null methods for them
+             * all, so you can only have to define methods for events you care about.)
+             * <P>
+             * Create a listener object using the extended class and then register it with
+             * a Window using the window's <code>addWindowListener</code>
+             * method. When the window's status changes by virtue of being opened,
+             * closed, activated or deactivated, iconified or deiconified,
+             * the relevant method in the listener
+             * object is invoked, and the <code>WindowEvent</code> is passed to it.
+             *
+             * @see WindowEvent
+             * @see WindowListener
+             * @see <a href="http://docs.oracle.com/javase/tutorial/uiswing/events/windowlistener.html">Tutorial: Writing a Window Listener</a>
+             *
+             * @author Carl Quinn
+             * @author Amy Fowler
+             * @author David Mendenhall
+             * @since 1.1
+             */
+            var WindowAdapter = (function () {
+                function WindowAdapter() {
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "java.awt.event.WindowListener", "java.awt.event.WindowFocusListener", "java.awt.event.WindowStateListener"] });
+                }
+                /**
+                 * Invoked when a window has been opened.
+                 */
+                WindowAdapter.prototype.windowOpened = function (e) {
+                };
+                /**
+                 * Invoked when a window is in the process of being closed.
+                 * The close operation can be overridden at this point.
+                 */
+                WindowAdapter.prototype.windowClosing = function (e) {
+                };
+                /**
+                 * Invoked when a window has been closed.
+                 */
+                WindowAdapter.prototype.windowClosed = function (e) {
+                };
+                /**
+                 * Invoked when a window is iconified.
+                 */
+                WindowAdapter.prototype.windowIconified = function (e) {
+                };
+                /**
+                 * Invoked when a window is de-iconified.
+                 */
+                WindowAdapter.prototype.windowDeiconified = function (e) {
+                };
+                /**
+                 * Invoked when a window is activated.
+                 */
+                WindowAdapter.prototype.windowActivated = function (e) {
+                };
+                /**
+                 * Invoked when a window is de-activated.
+                 */
+                WindowAdapter.prototype.windowDeactivated = function (e) {
+                };
+                /**
+                 * Invoked when a window state is changed.
+                 * @since 1.4
+                 */
+                WindowAdapter.prototype.windowStateChanged = function (e) {
+                };
+                /**
+                 * Invoked when the Window is set to be the focused Window, which means
+                 * that the Window, or one of its subcomponents, will receive keyboard
+                 * events.
+                 *
+                 * @since 1.4
+                 */
+                WindowAdapter.prototype.windowGainedFocus = function (e) {
+                };
+                /**
+                 * Invoked when the Window is no longer the focused Window, which means
+                 * that keyboard events will no longer be delivered to the Window or any of
+                 * its subcomponents.
+                 *
+                 * @since 1.4
+                 */
+                WindowAdapter.prototype.windowLostFocus = function (e) {
+                };
+                return WindowAdapter;
+            }());
+            event.WindowAdapter = WindowAdapter;
+            WindowAdapter["__classname"] = "java.awt.event.WindowAdapter";
+        })(event = awt.event || (awt.event = {}));
+    })(awt = java.awt || (java.awt = {}));
+})(java || (java = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var java;
+(function (java) {
+    var awt;
+    (function (awt) {
         var Event = (function () {
             function Event(target, when, id, x, y, key, modifiers, arg) {
                 var _this = this;
                 this.consumed = false;
                 if (((target != null) || target === null) && ((typeof when === 'number') || when === null) && ((typeof id === 'number') || id === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof key === 'number') || key === null) && ((typeof modifiers === 'number') || modifiers === null) && ((arg != null) || arg === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    this.consumed = false;
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                     this.data = 0;
                     this.when = 0;
@@ -1788,8 +2822,11 @@ var java;
                     })();
                 }
                 else if (((target != null) || target === null) && ((typeof when === 'number') || when === null) && ((typeof id === 'number') || id === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof key === 'number') || key === null) && ((typeof modifiers === 'number') || modifiers === null) && arg === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
                     {
+                        var __args = Array.prototype.slice.call(arguments);
                         var arg = null;
+                        this.consumed = false;
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                         this.data = 0;
                         this.when = 0;
@@ -1835,14 +2872,17 @@ var java;
                     })();
                 }
                 else if (((target != null) || target === null) && ((typeof when === 'number') || when === null) && ((id != null) || id === null) && x === undefined && y === undefined && key === undefined && modifiers === undefined && arg === undefined) {
-                    var id = when;
-                    var arg = id;
+                    var __args = Array.prototype.slice.call(arguments);
+                    var id = __args[1];
+                    var arg = __args[2];
                     {
+                        var __args = Array.prototype.slice.call(arguments);
                         var when = 0;
                         var x = 0;
                         var y = 0;
                         var key = 0;
                         var modifiers = 0;
+                        this.consumed = false;
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                         this.data = 0;
                         this.when = 0;
@@ -2111,6 +3151,13 @@ var java;
                 this.align = align;
             };
             FlowLayout.prototype.addLayoutComponent = function (name, component) {
+                if (((typeof name === 'string') || name === null) && ((component != null && component instanceof java.awt.Component) || component === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    return (function () {
+                    })();
+                }
+                else
+                    throw new Error('invalid overload');
             };
             FlowLayout.prototype.removeLayoutComponent = function (component) {
             };
@@ -2181,6 +3228,7 @@ var java;
             function Font(name, style, sizePts) {
                 var _this = this;
                 if (((typeof name === 'string') || name === null) && ((typeof style === 'number') || style === null) && ((typeof sizePts === 'number') || sizePts === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                     this.style = 0;
                     this.size = 0;
@@ -2194,7 +3242,8 @@ var java;
                     })();
                 }
                 else if (((name != null && name instanceof java.awt.Font) || name === null) && style === undefined && sizePts === undefined) {
-                    var font = name;
+                    var __args = Array.prototype.slice.call(arguments);
+                    var font = __args[0];
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                     this.style = 0;
                     this.size = 0;
@@ -2568,6 +3617,7 @@ var java;
                 function AffineTransform(m00, m10, m01, m11, m02, m12, state) {
                     var _this = this;
                     if (((typeof m00 === 'number') || m00 === null) && ((typeof m10 === 'number') || m10 === null) && ((typeof m01 === 'number') || m01 === null) && ((typeof m11 === 'number') || m11 === null) && ((typeof m02 === 'number') || m02 === null) && ((typeof m12 === 'number') || m12 === null) && ((typeof state === 'number') || state === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                         this.m00 = 0;
                         this.m10 = 0;
@@ -2589,6 +3639,7 @@ var java;
                         })();
                     }
                     else if (((typeof m00 === 'number') || m00 === null) && ((typeof m10 === 'number') || m10 === null) && ((typeof m01 === 'number') || m01 === null) && ((typeof m11 === 'number') || m11 === null) && ((typeof m02 === 'number') || m02 === null) && ((typeof m12 === 'number') || m12 === null) && state === undefined) {
+                        var __args = Array.prototype.slice.call(arguments);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                         this.m00 = 0;
                         this.m10 = 0;
@@ -2609,6 +3660,7 @@ var java;
                         })();
                     }
                     else if (((typeof m00 === 'number') || m00 === null) && ((typeof m10 === 'number') || m10 === null) && ((typeof m01 === 'number') || m01 === null) && ((typeof m11 === 'number') || m11 === null) && ((typeof m02 === 'number') || m02 === null) && ((typeof m12 === 'number') || m12 === null) && state === undefined) {
+                        var __args = Array.prototype.slice.call(arguments);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                         this.m00 = 0;
                         this.m10 = 0;
@@ -2629,7 +3681,8 @@ var java;
                         })();
                     }
                     else if (((m00 != null && m00 instanceof java.awt.geom.AffineTransform) || m00 === null) && m10 === undefined && m01 === undefined && m11 === undefined && m02 === undefined && m12 === undefined && state === undefined) {
-                        var Tx = m00;
+                        var __args = Array.prototype.slice.call(arguments);
+                        var Tx = __args[0];
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                         this.m00 = 0;
                         this.m10 = 0;
@@ -2651,7 +3704,8 @@ var java;
                         })();
                     }
                     else if (((m00 != null && m00 instanceof Array) || m00 === null) && m10 === undefined && m01 === undefined && m11 === undefined && m02 === undefined && m12 === undefined && state === undefined) {
-                        var flatmatrix = m00;
+                        var __args = Array.prototype.slice.call(arguments);
+                        var flatmatrix = __args[0];
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                         this.m00 = 0;
                         this.m10 = 0;
@@ -2674,7 +3728,8 @@ var java;
                         })();
                     }
                     else if (((m00 != null && m00 instanceof Array) || m00 === null) && m10 === undefined && m01 === undefined && m11 === undefined && m02 === undefined && m12 === undefined && state === undefined) {
-                        var flatmatrix = m00;
+                        var __args = Array.prototype.slice.call(arguments);
+                        var flatmatrix = __args[0];
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                         this.m00 = 0;
                         this.m10 = 0;
@@ -2697,6 +3752,7 @@ var java;
                         })();
                     }
                     else if (m00 === undefined && m10 === undefined && m01 === undefined && m11 === undefined && m02 === undefined && m12 === undefined && state === undefined) {
+                        var __args = Array.prototype.slice.call(arguments);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                         this.m00 = 0;
                         this.m10 = 0;
@@ -2867,6 +3923,7 @@ var java;
                  */
                 AffineTransform.getRotateInstance = function (vecx, vecy, anchorx, anchory) {
                     if (((typeof vecx === 'number') || vecx === null) && ((typeof vecy === 'number') || vecy === null) && ((typeof anchorx === 'number') || anchorx === null) && ((typeof anchory === 'number') || anchory === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             var Tx = new AffineTransform();
                             Tx.setToRotation(vecx, vecy, anchorx, anchory);
@@ -2925,6 +3982,7 @@ var java;
                  */
                 AffineTransform.getQuadrantRotateInstance = function (numquadrants, anchorx, anchory) {
                     if (((typeof numquadrants === 'number') || numquadrants === null) && ((typeof anchorx === 'number') || anchorx === null) && ((typeof anchory === 'number') || anchory === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             var Tx = new AffineTransform();
                             Tx.setToQuadrantRotation(numquadrants, anchorx, anchory);
@@ -3647,6 +4705,7 @@ var java;
                 AffineTransform.prototype.rotate = function (vecx, vecy, anchorx, anchory) {
                     var _this = this;
                     if (((typeof vecx === 'number') || vecx === null) && ((typeof vecy === 'number') || vecy === null) && ((typeof anchorx === 'number') || anchorx === null) && ((typeof anchory === 'number') || anchory === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             _this.translate(anchorx, anchory);
                             _this.rotate(vecx, vecy);
@@ -3711,6 +4770,7 @@ var java;
                 AffineTransform.prototype.quadrantRotate = function (numquadrants, anchorx, anchory) {
                     var _this = this;
                     if (((typeof numquadrants === 'number') || numquadrants === null) && ((typeof anchorx === 'number') || anchorx === null) && ((typeof anchory === 'number') || anchory === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             switch ((numquadrants & 3)) {
                                 case 0:
@@ -4081,6 +5141,7 @@ var java;
                 AffineTransform.prototype.setToRotation = function (vecx, vecy, anchorx, anchory) {
                     var _this = this;
                     if (((typeof vecx === 'number') || vecx === null) && ((typeof vecy === 'number') || vecy === null) && ((typeof anchorx === 'number') || anchorx === null) && ((typeof anchory === 'number') || anchory === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             _this.setToRotation(vecx, vecy);
                             var sin = _this.m10;
@@ -4180,6 +5241,7 @@ var java;
                 AffineTransform.prototype.setToQuadrantRotation = function (numquadrants, anchorx, anchory) {
                     var _this = this;
                     if (((typeof numquadrants === 'number') || numquadrants === null) && ((typeof anchorx === 'number') || anchorx === null) && ((typeof anchory === 'number') || anchory === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             switch ((numquadrants & 3)) {
                                 case 0:
@@ -4341,6 +5403,7 @@ var java;
                 AffineTransform.prototype.setTransform = function (m00, m10, m01, m11, m02, m12) {
                     var _this = this;
                     if (((typeof m00 === 'number') || m00 === null) && ((typeof m10 === 'number') || m10 === null) && ((typeof m01 === 'number') || m01 === null) && ((typeof m11 === 'number') || m11 === null) && ((typeof m02 === 'number') || m02 === null) && ((typeof m12 === 'number') || m12 === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             _this.m00 = m00;
                             _this.m10 = m10;
@@ -5008,6 +6071,7 @@ var java;
                 AffineTransform.prototype.transform = function (ptSrc, srcOff, ptDst, dstOff, numPts) {
                     var _this = this;
                     if (((ptSrc != null && ptSrc instanceof Array) || ptSrc === null) && ((typeof srcOff === 'number') || srcOff === null) && ((ptDst != null && ptDst instanceof Array) || ptDst === null) && ((typeof dstOff === 'number') || dstOff === null) && ((typeof numPts === 'number') || numPts === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             var state = _this.state;
                             while ((--numPts >= 0)) {
@@ -5647,6 +6711,7 @@ var java;
                 AffineTransform.prototype.inverseTransform = function (srcPts, srcOff, dstPts, dstOff, numPts) {
                     var _this = this;
                     if (((srcPts != null && srcPts instanceof Array) || srcPts === null) && ((typeof srcOff === 'number') || srcOff === null) && ((dstPts != null && dstPts instanceof Array) || dstPts === null) && ((typeof dstOff === 'number') || dstOff === null) && ((typeof numPts === 'number') || numPts === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             var M00;
                             var M01;
@@ -5868,6 +6933,7 @@ var java;
                 AffineTransform.prototype.deltaTransform = function (srcPts, srcOff, dstPts, dstOff, numPts) {
                     var _this = this;
                     if (((srcPts != null && srcPts instanceof Array) || srcPts === null) && ((typeof srcOff === 'number') || srcOff === null) && ((dstPts != null && dstPts instanceof Array) || dstPts === null) && ((typeof dstOff === 'number') || dstOff === null) && ((typeof numPts === 'number') || numPts === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             var M00;
                             var M01;
@@ -6360,6 +7426,7 @@ var java;
                 ArcIterator.prototype.currentSegment = function (coords) {
                     var _this = this;
                     if (((coords != null && coords instanceof Array) || coords === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if (_this.isDone()) {
                                 throw new java.util.NoSuchElementException("arc iterator out of bounds");
@@ -6546,6 +7613,7 @@ var java;
                 function Area(s) {
                     var _this = this;
                     if (((s != null && s["__interfaces"] != null && s["__interfaces"].indexOf("java.awt.Shape") >= 0) || s === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable"] });
                         (function () {
                             if (s != null && s instanceof java.awt.geom.Area) {
@@ -6557,6 +7625,7 @@ var java;
                         })();
                     }
                     else if (s === undefined) {
+                        var __args = Array.prototype.slice.call(arguments);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable"] });
                         (function () {
                             _this.curves = Area.EmptyCurves_$LI$();
@@ -7008,6 +8077,7 @@ var java;
                 Area.prototype.contains = function (x, y, w, h) {
                     var _this = this;
                     if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if (w < 0 || h < 0) {
                                 return false;
@@ -7047,6 +8117,7 @@ var java;
                 Area.prototype.intersects = function (x, y, w, h) {
                     var _this = this;
                     if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if (w < 0 || h < 0) {
                                 return false;
@@ -7108,6 +8179,7 @@ var java;
                 Area.prototype.getPathIterator = function (at, flatness) {
                     var _this = this;
                     if (((at != null && at instanceof java.awt.geom.AffineTransform) || at === null) && ((typeof flatness === 'number') || flatness === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             return new java.awt.geom.FlatteningPathIterator(_this.getPathIterator(at), flatness);
                         })();
@@ -7159,6 +8231,7 @@ var java;
                 AreaIterator.prototype.currentSegment = function (coords) {
                     var _this = this;
                     if (((coords != null && coords instanceof Array) || coords === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             var dcoords = new Array(6);
                             var segtype = _this.currentSegment(dcoords);
@@ -7419,6 +8492,7 @@ var java;
                  */
                 CubicCurve2D.getFlatnessSq = function (x1, y1, ctrlx1, ctrly1, ctrlx2, ctrly2, x2, y2) {
                     if (((typeof x1 === 'number') || x1 === null) && ((typeof y1 === 'number') || y1 === null) && ((typeof ctrlx1 === 'number') || ctrlx1 === null) && ((typeof ctrly1 === 'number') || ctrly1 === null) && ((typeof ctrlx2 === 'number') || ctrlx2 === null) && ((typeof ctrly2 === 'number') || ctrly2 === null) && ((typeof x2 === 'number') || x2 === null) && ((typeof y2 === 'number') || y2 === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             return Math.max(java.awt.geom.Line2D.ptSegDistSq(x1, y1, x2, y2, ctrlx1, ctrly1), java.awt.geom.Line2D.ptSegDistSq(x1, y1, x2, y2, ctrlx2, ctrly2));
                         })();
@@ -7464,6 +8538,7 @@ var java;
                  */
                 CubicCurve2D.getFlatness = function (x1, y1, ctrlx1, ctrly1, ctrlx2, ctrly2, x2, y2) {
                     if (((typeof x1 === 'number') || x1 === null) && ((typeof y1 === 'number') || y1 === null) && ((typeof ctrlx1 === 'number') || ctrlx1 === null) && ((typeof ctrly1 === 'number') || ctrly1 === null) && ((typeof ctrlx2 === 'number') || ctrlx2 === null) && ((typeof ctrly2 === 'number') || ctrly2 === null) && ((typeof x2 === 'number') || x2 === null) && ((typeof y2 === 'number') || y2 === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             return Math.sqrt(CubicCurve2D.getFlatnessSq(x1, y1, ctrlx1, ctrly1, ctrlx2, ctrly2, x2, y2));
                         })();
@@ -7628,6 +8703,7 @@ var java;
                  */
                 CubicCurve2D.subdivide = function (src, srcoff, left, leftoff, right, rightoff) {
                     if (((src != null && src instanceof Array) || src === null) && ((typeof srcoff === 'number') || srcoff === null) && ((left != null && left instanceof Array) || left === null) && ((typeof leftoff === 'number') || leftoff === null) && ((right != null && right instanceof Array) || right === null) && ((typeof rightoff === 'number') || rightoff === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             var x1 = src[srcoff + 0];
                             var y1 = src[srcoff + 1];
@@ -7721,6 +8797,7 @@ var java;
                  */
                 CubicCurve2D.solveCubic = function (eqn, res) {
                     if (((eqn != null && eqn instanceof Array) || eqn === null) && ((res != null && res instanceof Array) || res === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             var d = eqn[3];
                             if (d === 0) {
@@ -7971,6 +9048,7 @@ var java;
                 CubicCurve2D.prototype.intersects = function (x, y, w, h) {
                     var _this = this;
                     if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if (w <= 0 || h <= 0) {
                                 return false;
@@ -8001,6 +9079,7 @@ var java;
                 CubicCurve2D.prototype.contains = function (x, y, w, h) {
                     var _this = this;
                     if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if (w <= 0 || h <= 0) {
                                 return false;
@@ -8089,6 +9168,7 @@ var java;
                 CubicCurve2D.prototype.getPathIterator = function (at, flatness) {
                     var _this = this;
                     if (((at != null && at instanceof java.awt.geom.AffineTransform) || at === null) && ((typeof flatness === 'number') || flatness === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             return new java.awt.geom.FlatteningPathIterator(_this.getPathIterator(at), flatness);
                         })();
@@ -8164,6 +9244,7 @@ var java;
                     function Float(x1, y1, ctrlx1, ctrly1, ctrlx2, ctrly2, x2, y2) {
                         var _this = this;
                         if (((typeof x1 === 'number') || x1 === null) && ((typeof y1 === 'number') || y1 === null) && ((typeof ctrlx1 === 'number') || ctrlx1 === null) && ((typeof ctrly1 === 'number') || ctrly1 === null) && ((typeof ctrlx2 === 'number') || ctrlx2 === null) && ((typeof ctrly2 === 'number') || ctrly2 === null) && ((typeof x2 === 'number') || x2 === null) && ((typeof y2 === 'number') || y2 === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
@@ -8179,6 +9260,7 @@ var java;
                             })();
                         }
                         else if (x1 === undefined && y1 === undefined && ctrlx1 === undefined && ctrly1 === undefined && ctrlx2 === undefined && ctrly2 === undefined && x2 === undefined && y2 === undefined) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
@@ -8339,6 +9421,7 @@ var java;
                     Float.prototype.setCurve = function (x1, y1, ctrlx1, ctrly1, ctrlx2, ctrly2, x2, y2) {
                         var _this = this;
                         if (((typeof x1 === 'number') || x1 === null) && ((typeof y1 === 'number') || y1 === null) && ((typeof ctrlx1 === 'number') || ctrlx1 === null) && ((typeof ctrly1 === 'number') || ctrly1 === null) && ((typeof ctrlx2 === 'number') || ctrlx2 === null) && ((typeof ctrly2 === 'number') || ctrly2 === null) && ((typeof x2 === 'number') || x2 === null) && ((typeof y2 === 'number') || y2 === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             return (function () {
                                 _this.x1 = x1;
                                 _this.y1 = y1;
@@ -8426,6 +9509,7 @@ var java;
                     function Double(x1, y1, ctrlx1, ctrly1, ctrlx2, ctrly2, x2, y2) {
                         var _this = this;
                         if (((typeof x1 === 'number') || x1 === null) && ((typeof y1 === 'number') || y1 === null) && ((typeof ctrlx1 === 'number') || ctrlx1 === null) && ((typeof ctrly1 === 'number') || ctrly1 === null) && ((typeof ctrlx2 === 'number') || ctrlx2 === null) && ((typeof ctrly2 === 'number') || ctrly2 === null) && ((typeof x2 === 'number') || x2 === null) && ((typeof y2 === 'number') || y2 === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
@@ -8441,6 +9525,7 @@ var java;
                             })();
                         }
                         else if (x1 === undefined && y1 === undefined && ctrlx1 === undefined && ctrly1 === undefined && ctrlx2 === undefined && ctrly2 === undefined && x2 === undefined && y2 === undefined) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
@@ -8702,6 +9787,7 @@ var java;
                 CubicIterator.prototype.currentSegment = function (coords) {
                     var _this = this;
                     if (((coords != null && coords instanceof Array) || coords === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if (_this.isDone()) {
                                 throw new java.util.NoSuchElementException("cubic iterator iterator out of bounds");
@@ -8954,6 +10040,7 @@ var java;
                 EllipseIterator.prototype.currentSegment = function (coords) {
                     var _this = this;
                     if (((coords != null && coords instanceof Array) || coords === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if (_this.isDone()) {
                                 throw new java.util.NoSuchElementException("ellipse iterator out of bounds");
@@ -9163,6 +10250,7 @@ var java;
                 FlatteningPathIterator.prototype.next = function (doNext) {
                     var _this = this;
                     if (((typeof doNext === 'boolean') || doNext === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             var level;
                             if (_this.holdIndex >= _this.holdEnd) {
@@ -9283,6 +10371,7 @@ var java;
                 FlatteningPathIterator.prototype.currentSegment = function (coords) {
                     var _this = this;
                     if (((coords != null && coords instanceof Array) || coords === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if (_this.isDone()) {
                                 throw new java.util.NoSuchElementException("flattening iterator out of bounds");
@@ -9368,6 +10457,7 @@ var java;
                  */
                 function IllegalPathStateException(s) {
                     if (((typeof s === 'string') || s === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         _super.call(this, s);
                         this.message = s;
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
@@ -9375,6 +10465,7 @@ var java;
                         })();
                     }
                     else if (s === undefined) {
+                        var __args = Array.prototype.slice.call(arguments);
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                         (function () {
@@ -9580,6 +10671,7 @@ var java;
                 Line2D.prototype.relativeCCW = function (px, py) {
                     var _this = this;
                     if (((typeof px === 'number') || px === null) && ((typeof py === 'number') || py === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             return Line2D.relativeCCW(_this.getX1(), _this.getY1(), _this.getX2(), _this.getY2(), px, py);
                         })();
@@ -9666,6 +10758,7 @@ var java;
                 Line2D.prototype.intersectsLine = function (x1, y1, x2, y2) {
                     var _this = this;
                     if (((typeof x1 === 'number') || x1 === null) && ((typeof y1 === 'number') || y1 === null) && ((typeof x2 === 'number') || x2 === null) && ((typeof y2 === 'number') || y2 === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             return Line2D.linesIntersect(x1, y1, x2, y2, _this.getX1(), _this.getY1(), _this.getX2(), _this.getY2());
                         })();
@@ -9798,6 +10891,7 @@ var java;
                 Line2D.prototype.ptSegDistSq = function (px, py) {
                     var _this = this;
                     if (((typeof px === 'number') || px === null) && ((typeof py === 'number') || py === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             return Line2D.ptSegDistSq(_this.getX1(), _this.getY1(), _this.getX2(), _this.getY2(), px, py);
                         })();
@@ -9847,6 +10941,7 @@ var java;
                 Line2D.prototype.ptSegDist = function (px, py) {
                     var _this = this;
                     if (((typeof px === 'number') || px === null) && ((typeof py === 'number') || py === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             return Line2D.ptSegDist(_this.getX1(), _this.getY1(), _this.getX2(), _this.getY2(), px, py);
                         })();
@@ -9963,6 +11058,7 @@ var java;
                 Line2D.prototype.ptLineDistSq = function (px, py) {
                     var _this = this;
                     if (((typeof px === 'number') || px === null) && ((typeof py === 'number') || py === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             return Line2D.ptLineDistSq(_this.getX1(), _this.getY1(), _this.getX2(), _this.getY2(), px, py);
                         })();
@@ -10011,6 +11107,7 @@ var java;
                 Line2D.prototype.ptLineDist = function (px, py) {
                     var _this = this;
                     if (((typeof px === 'number') || px === null) && ((typeof py === 'number') || py === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             return Line2D.ptLineDist(_this.getX1(), _this.getY1(), _this.getX2(), _this.getY2(), px, py);
                         })();
@@ -10078,6 +11175,7 @@ var java;
                 Line2D.prototype.intersects = function (x, y, w, h) {
                     var _this = this;
                     if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             return _this.intersects(new java.awt.geom.Rectangle2D.Double(x, y, w, h));
                         })();
@@ -10119,6 +11217,7 @@ var java;
                  */
                 Line2D.prototype.contains = function (x, y, w, h) {
                     if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             return false;
                         })();
@@ -10197,6 +11296,7 @@ var java;
                 Line2D.prototype.getPathIterator = function (at, flatness) {
                     var _this = this;
                     if (((at != null && at instanceof java.awt.geom.AffineTransform) || at === null) && ((typeof flatness === 'number') || flatness === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             return new java.awt.geom.LineIterator(_this, at);
                         })();
@@ -10254,6 +11354,7 @@ var java;
                     function Float(x1, y1, x2, y2) {
                         var _this = this;
                         if (((typeof x1 === 'number') || x1 === null) && ((typeof y1 === 'number') || y1 === null) && ((typeof x2 === 'number') || x2 === null) && ((typeof y2 === 'number') || y2 === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
@@ -10265,8 +11366,9 @@ var java;
                             })();
                         }
                         else if (((x1 != null && x1 instanceof java.awt.geom.Point2D) || x1 === null) && ((y1 != null && y1 instanceof java.awt.geom.Point2D) || y1 === null) && x2 === undefined && y2 === undefined) {
-                            var p1 = x1;
-                            var p2 = y1;
+                            var __args = Array.prototype.slice.call(arguments);
+                            var p1 = __args[0];
+                            var p2 = __args[1];
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
@@ -10278,6 +11380,7 @@ var java;
                             })();
                         }
                         else if (x1 === undefined && y1 === undefined && x2 === undefined && y2 === undefined) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
@@ -10366,6 +11469,7 @@ var java;
                     Float.prototype.setLine = function (x1, y1, x2, y2) {
                         var _this = this;
                         if (((typeof x1 === 'number') || x1 === null) && ((typeof y1 === 'number') || y1 === null) && ((typeof x2 === 'number') || x2 === null) && ((typeof y2 === 'number') || y2 === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             return (function () {
                                 _this.x1 = x1;
                                 _this.y1 = y1;
@@ -10442,6 +11546,7 @@ var java;
                     function Double(x1, y1, x2, y2) {
                         var _this = this;
                         if (((typeof x1 === 'number') || x1 === null) && ((typeof y1 === 'number') || y1 === null) && ((typeof x2 === 'number') || x2 === null) && ((typeof y2 === 'number') || y2 === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
@@ -10453,8 +11558,9 @@ var java;
                             })();
                         }
                         else if (((x1 != null && x1 instanceof java.awt.geom.Point2D) || x1 === null) && ((y1 != null && y1 instanceof java.awt.geom.Point2D) || y1 === null) && x2 === undefined && y2 === undefined) {
-                            var p1 = x1;
-                            var p2 = y1;
+                            var __args = Array.prototype.slice.call(arguments);
+                            var p1 = __args[0];
+                            var p2 = __args[1];
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
@@ -10466,6 +11572,7 @@ var java;
                             })();
                         }
                         else if (x1 === undefined && y1 === undefined && x2 === undefined && y2 === undefined) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
@@ -10672,6 +11779,7 @@ var java;
                 LineIterator.prototype.currentSegment = function (coords) {
                     var _this = this;
                     if (((coords != null && coords instanceof Array) || coords === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if (_this.isDone()) {
                                 throw new java.util.NoSuchElementException("line iterator out of bounds");
@@ -10984,6 +12092,7 @@ var java;
                 Point2D.prototype.distanceSq = function (px, py) {
                     var _this = this;
                     if (((typeof px === 'number') || px === null) && ((typeof py === 'number') || py === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             px -= _this.getX();
                             py -= _this.getY();
@@ -11028,6 +12137,7 @@ var java;
                 Point2D.prototype.distance = function (px, py) {
                     var _this = this;
                     if (((typeof px === 'number') || px === null) && ((typeof py === 'number') || py === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             px -= _this.getX();
                             py -= _this.getY();
@@ -11134,6 +12244,7 @@ var java;
                     function Float(x, y) {
                         var _this = this;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
@@ -11144,6 +12255,7 @@ var java;
                             })();
                         }
                         else if (x === undefined && y === undefined) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
@@ -11192,6 +12304,7 @@ var java;
                     Float.prototype.setLocation = function (x, y) {
                         var _this = this;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             return (function () {
                                 _this.x = x;
                                 _this.y = y;
@@ -11244,6 +12357,7 @@ var java;
                     function Double(x, y) {
                         var _this = this;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
@@ -11254,6 +12368,7 @@ var java;
                             })();
                         }
                         else if (x === undefined && y === undefined) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
@@ -11500,6 +12615,7 @@ var java;
                  */
                 QuadCurve2D.getFlatnessSq = function (x1, y1, ctrlx, ctrly, x2, y2) {
                     if (((typeof x1 === 'number') || x1 === null) && ((typeof y1 === 'number') || y1 === null) && ((typeof ctrlx === 'number') || ctrlx === null) && ((typeof ctrly === 'number') || ctrly === null) && ((typeof x2 === 'number') || x2 === null) && ((typeof y2 === 'number') || y2 === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             return java.awt.geom.Line2D.ptSegDistSq(x1, y1, x2, y2, ctrlx, ctrly);
                         })();
@@ -11533,6 +12649,7 @@ var java;
                  */
                 QuadCurve2D.getFlatness = function (x1, y1, ctrlx, ctrly, x2, y2) {
                     if (((typeof x1 === 'number') || x1 === null) && ((typeof y1 === 'number') || y1 === null) && ((typeof ctrlx === 'number') || ctrlx === null) && ((typeof ctrly === 'number') || ctrly === null) && ((typeof x2 === 'number') || x2 === null) && ((typeof y2 === 'number') || y2 === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             return java.awt.geom.Line2D.ptSegDist(x1, y1, x2, y2, ctrlx, ctrly);
                         })();
@@ -11689,6 +12806,7 @@ var java;
                  */
                 QuadCurve2D.subdivide = function (src, srcoff, left, leftoff, right, rightoff) {
                     if (((src != null && src instanceof Array) || src === null) && ((typeof srcoff === 'number') || srcoff === null) && ((left != null && left instanceof Array) || left === null) && ((typeof leftoff === 'number') || leftoff === null) && ((right != null && right instanceof Array) || right === null) && ((typeof rightoff === 'number') || rightoff === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             var x1 = src[srcoff + 0];
                             var y1 = src[srcoff + 1];
@@ -11780,6 +12898,7 @@ var java;
                  */
                 QuadCurve2D.solveQuadratic = function (eqn, res) {
                     if (((eqn != null && eqn instanceof Array) || eqn === null) && ((res != null && res instanceof Array) || res === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             var a = eqn[2];
                             var b = eqn[1];
@@ -11927,6 +13046,7 @@ var java;
                 QuadCurve2D.prototype.intersects = function (x, y, w, h) {
                     var _this = this;
                     if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if (w <= 0 || h <= 0) {
                                 return false;
@@ -12035,6 +13155,7 @@ var java;
                 QuadCurve2D.prototype.contains = function (x, y, w, h) {
                     var _this = this;
                     if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if (w <= 0 || h <= 0) {
                                 return false;
@@ -12111,6 +13232,7 @@ var java;
                 QuadCurve2D.prototype.getPathIterator = function (at, flatness) {
                     var _this = this;
                     if (((at != null && at instanceof java.awt.geom.AffineTransform) || at === null) && ((typeof flatness === 'number') || flatness === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             return new java.awt.geom.FlatteningPathIterator(_this.getPathIterator(at), flatness);
                         })();
@@ -12180,6 +13302,7 @@ var java;
                     function Float(x1, y1, ctrlx, ctrly, x2, y2) {
                         var _this = this;
                         if (((typeof x1 === 'number') || x1 === null) && ((typeof y1 === 'number') || y1 === null) && ((typeof ctrlx === 'number') || ctrlx === null) && ((typeof ctrly === 'number') || ctrly === null) && ((typeof x2 === 'number') || x2 === null) && ((typeof y2 === 'number') || y2 === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
@@ -12193,6 +13316,7 @@ var java;
                             })();
                         }
                         else if (x1 === undefined && y1 === undefined && ctrlx === undefined && ctrly === undefined && x2 === undefined && y2 === undefined) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
@@ -12313,6 +13437,7 @@ var java;
                     Float.prototype.setCurve = function (x1, y1, ctrlx, ctrly, x2, y2) {
                         var _this = this;
                         if (((typeof x1 === 'number') || x1 === null) && ((typeof y1 === 'number') || y1 === null) && ((typeof ctrlx === 'number') || ctrlx === null) && ((typeof ctrly === 'number') || ctrly === null) && ((typeof x2 === 'number') || x2 === null) && ((typeof y2 === 'number') || y2 === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             return (function () {
                                 _this.x1 = x1;
                                 _this.y1 = y1;
@@ -12386,6 +13511,7 @@ var java;
                     function Double(x1, y1, ctrlx, ctrly, x2, y2) {
                         var _this = this;
                         if (((typeof x1 === 'number') || x1 === null) && ((typeof y1 === 'number') || y1 === null) && ((typeof ctrlx === 'number') || ctrlx === null) && ((typeof ctrly === 'number') || ctrly === null) && ((typeof x2 === 'number') || x2 === null) && ((typeof y2 === 'number') || y2 === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
@@ -12399,6 +13525,7 @@ var java;
                             })();
                         }
                         else if (x1 === undefined && y1 === undefined && ctrlx === undefined && ctrly === undefined && x2 === undefined && y2 === undefined) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
@@ -12627,6 +13754,7 @@ var java;
                 QuadIterator.prototype.currentSegment = function (coords) {
                     var _this = this;
                     if (((coords != null && coords instanceof Array) || coords === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if (_this.isDone()) {
                                 throw new java.util.NoSuchElementException("quad iterator iterator out of bounds");
@@ -12891,6 +14019,7 @@ var java;
                 RectangularShape.prototype.setFrameFromDiagonal = function (x1, y1, x2, y2) {
                     var _this = this;
                     if (((typeof x1 === 'number') || x1 === null) && ((typeof y1 === 'number') || y1 === null) && ((typeof x2 === 'number') || x2 === null) && ((typeof y2 === 'number') || y2 === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if (x2 < x1) {
                                 var t = x1;
@@ -12945,6 +14074,7 @@ var java;
                 RectangularShape.prototype.setFrameFromCenter = function (centerX, centerY, cornerX, cornerY) {
                     var _this = this;
                     if (((typeof centerX === 'number') || centerX === null) && ((typeof centerY === 'number') || centerY === null) && ((typeof cornerX === 'number') || cornerX === null) && ((typeof cornerY === 'number') || cornerY === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             var halfW = Math.abs(cornerX - centerX);
                             var halfH = Math.abs(cornerY - centerY);
@@ -13055,6 +14185,7 @@ var java;
                 RectangularShape.prototype.getPathIterator = function (at, flatness) {
                     var _this = this;
                     if (((at != null && at instanceof java.awt.geom.AffineTransform) || at === null) && ((typeof flatness === 'number') || flatness === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             return new java.awt.geom.FlatteningPathIterator(_this.getPathIterator(at), flatness);
                         })();
@@ -13169,6 +14300,7 @@ var java;
                 RectIterator.prototype.currentSegment = function (coords) {
                     var _this = this;
                     if (((coords != null && coords instanceof Array) || coords === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if (_this.isDone()) {
                                 throw new java.util.NoSuchElementException("rect iterator out of bounds");
@@ -13348,6 +14480,7 @@ var java;
                 RoundRectIterator.prototype.currentSegment = function (coords) {
                     var _this = this;
                     if (((coords != null && coords instanceof Array) || coords === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if (_this.isDone()) {
                                 throw new java.util.NoSuchElementException("roundrect iterator out of bounds");
@@ -13420,6 +14553,7 @@ var java;
             Graphics.prototype.create = function (x, y, width, height) {
                 var _this = this;
                 if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof width === 'number') || width === null) && ((typeof height === 'number') || height === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         var g = _this.create();
                         if (g == null)
@@ -13438,6 +14572,7 @@ var java;
             Graphics.prototype.getClipBounds$ = function () { throw new Error('cannot invoke abstract overloaded method... check your argument(s) type(s)'); };
             Graphics.prototype.setClip = function (x, y, width, height) {
                 if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof width === 'number') || width === null) && ((typeof height === 'number') || height === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                 }
                 else if (((x != null && x["__interfaces"] != null && x["__interfaces"].indexOf("java.awt.Shape") >= 0) || x === null) && y === undefined && width === undefined && height === undefined) {
                     return this.setClip$java_awt_Shape(x);
@@ -13490,6 +14625,7 @@ var java;
             };
             Graphics.prototype.drawPolygon = function (xPoints, yPoints, nPoints) {
                 if (((xPoints != null && xPoints instanceof Array) || xPoints === null) && ((yPoints != null && yPoints instanceof Array) || yPoints === null) && ((typeof nPoints === 'number') || nPoints === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                 }
                 else if (((xPoints != null && xPoints instanceof java.awt.Polygon) || xPoints === null) && yPoints === undefined && nPoints === undefined) {
                     return this.drawPolygon$java_awt_Polygon(xPoints);
@@ -13502,6 +14638,7 @@ var java;
             };
             Graphics.prototype.fillPolygon = function (xPoints, yPoints, nPoints) {
                 if (((xPoints != null && xPoints instanceof Array) || xPoints === null) && ((yPoints != null && yPoints instanceof Array) || yPoints === null) && ((typeof nPoints === 'number') || nPoints === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                 }
                 else if (((xPoints != null && xPoints instanceof java.awt.Polygon) || xPoints === null) && yPoints === undefined && nPoints === undefined) {
                     return this.fillPolygon$java_awt_Polygon(xPoints);
@@ -13519,6 +14656,7 @@ var java;
             Graphics.prototype.drawImage$java_awt_Image$int$int$int$int$int$int$int$int$java_awt_image_ImageObserver = function (img, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, observer) { throw new Error('cannot invoke abstract overloaded method... check your argument(s) type(s)'); };
             Graphics.prototype.drawImage = function (img, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, bgcolor, observer) {
                 if (((img != null && img instanceof java.awt.Image) || img === null) && ((typeof dx1 === 'number') || dx1 === null) && ((typeof dy1 === 'number') || dy1 === null) && ((typeof dx2 === 'number') || dx2 === null) && ((typeof dy2 === 'number') || dy2 === null) && ((typeof sx1 === 'number') || sx1 === null) && ((typeof sy1 === 'number') || sy1 === null) && ((typeof sx2 === 'number') || sx2 === null) && ((typeof sy2 === 'number') || sy2 === null) && ((bgcolor != null && bgcolor instanceof java.awt.Color) || bgcolor === null) && ((observer != null && observer["__interfaces"] != null && observer["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0) || observer === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return false;
                 }
                 else if (((img != null && img instanceof java.awt.Image) || img === null) && ((typeof dx1 === 'number') || dx1 === null) && ((typeof dy1 === 'number') || dy1 === null) && ((typeof dx2 === 'number') || dx2 === null) && ((typeof dy2 === 'number') || dy2 === null) && ((typeof sx1 === 'number') || sx1 === null) && ((typeof sy1 === 'number') || sy1 === null) && ((typeof sx2 === 'number') || sx2 === null) && ((typeof sy2 === 'number') || sy2 === null) && ((bgcolor != null && bgcolor["__interfaces"] != null && bgcolor["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0) || bgcolor === null) && observer === undefined) {
@@ -13555,6 +14693,7 @@ var java;
             Graphics.prototype.getClipBounds = function (r) {
                 var _this = this;
                 if (((r != null && r instanceof java.awt.Rectangle) || r === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         var clipRect = _this.getClipBounds();
                         if (clipRect != null) {
@@ -13597,6 +14736,13 @@ var java;
                 this.cols = cols;
             }
             GridLayout.prototype.addLayoutComponent = function (name, component) {
+                if (((typeof name === 'string') || name === null) && ((component != null && component instanceof java.awt.Component) || component === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    return (function () {
+                    })();
+                }
+                else
+                    throw new Error('invalid overload');
             };
             GridLayout.prototype.removeLayoutComponent = function (component) {
             };
@@ -13650,6 +14796,50 @@ var java;
 (function (java) {
     var awt;
     (function (awt) {
+        /**
+         * Signals that an AWT component is not in an appropriate state for
+         * the requested operation.
+         *
+         * @author      Jonni Kanerva
+         */
+        var IllegalComponentStateException = (function (_super) {
+            __extends(IllegalComponentStateException, _super);
+            /**
+             * Constructs an IllegalComponentStateException with the specified detail
+             * message.  A detail message is a String that describes this particular
+             * exception.
+             * @param s the String that contains a detailed message
+             */
+            function IllegalComponentStateException(s) {
+                if (((typeof s === 'string') || s === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    _super.call(this, s);
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
+                    (function () {
+                    })();
+                }
+                else if (s === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    _super.call(this);
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
+                    (function () {
+                    })();
+                }
+                else
+                    throw new Error('invalid overload');
+            }
+            IllegalComponentStateException.serialVersionUID = -1889339587208144238;
+            return IllegalComponentStateException;
+        }(java.lang.IllegalStateException));
+        awt.IllegalComponentStateException = IllegalComponentStateException;
+        IllegalComponentStateException["__classname"] = "java.awt.IllegalComponentStateException";
+    })(awt = java.awt || (java.awt = {}));
+})(java || (java = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var java;
+(function (java) {
+    var awt;
+    (function (awt) {
         var image;
         (function (image) {
             var ImageObserver;
@@ -13677,10 +14867,26 @@ var java;
                 this.source.src = src;
             }
             Image.prototype.getWidth = function (observer) {
-                return (this.source.width | 0);
+                var _this = this;
+                if (((observer != null && observer["__interfaces"] != null && observer["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0) || observer === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    return (function () {
+                        return (_this.source.width | 0);
+                    })();
+                }
+                else
+                    throw new Error('invalid overload');
             };
             Image.prototype.getHeight = function (observer) {
-                return (this.source.height | 0);
+                var _this = this;
+                if (((observer != null && observer["__interfaces"] != null && observer["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0) || observer === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    return (function () {
+                        return (_this.source.height | 0);
+                    })();
+                }
+                else
+                    throw new Error('invalid overload');
             };
             Image.prototype.flush = function () {
             };
@@ -13788,10 +14994,46 @@ var java;
 (function (java) {
     var awt;
     (function (awt) {
+        var NoLayout = (function () {
+            function NoLayout() {
+                this.created = false;
+                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.LayoutManager"] });
+            }
+            NoLayout.prototype.addLayoutComponent = function (name, component) {
+                if (((typeof name === 'string') || name === null) && ((component != null && component instanceof java.awt.Component) || component === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    return (function () {
+                    })();
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            NoLayout.prototype.removeLayoutComponent = function (component) {
+            };
+            NoLayout.prototype.layoutContainer = function (parent) {
+            };
+            NoLayout.prototype.onComponentAdded = function (parent, component, position) {
+                var div = parent.getHTMLElement();
+                div.appendChild(component.getHTMLElement());
+                component.getHTMLElement().style.width = "100%";
+                component.getHTMLElement().style.height = "100%";
+            };
+            return NoLayout;
+        }());
+        awt.NoLayout = NoLayout;
+        NoLayout["__classname"] = "java.awt.NoLayout";
+    })(awt = java.awt || (java.awt = {}));
+})(java || (java = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var java;
+(function (java) {
+    var awt;
+    (function (awt) {
         var Polygon = (function () {
             function Polygon(xpoints, ypoints, npoints) {
                 var _this = this;
                 if (((xpoints != null && xpoints instanceof Array) || xpoints === null) && ((ypoints != null && ypoints instanceof Array) || ypoints === null) && ((typeof npoints === 'number') || npoints === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.io.Serializable"] });
                     this.npoints = 0;
                     (function () {
@@ -13807,6 +15049,7 @@ var java;
                     })();
                 }
                 else if (xpoints === undefined && ypoints === undefined && npoints === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.io.Serializable"] });
                     this.npoints = 0;
                     (function () {
@@ -13988,6 +15231,7 @@ var java;
             Polygon.prototype.intersects = function (x, y, w, h) {
                 var _this = this;
                 if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         if (_this.npoints <= 0 || !_this.getBoundingBox().intersects(x, y, w, h)) {
                             return false;
@@ -14008,6 +15252,7 @@ var java;
             Polygon.prototype.contains = function (x, y, w, h) {
                 var _this = this;
                 if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         if (_this.npoints <= 0 || !_this.getBoundingBox().intersects(x, y, w, h)) {
                             return false;
@@ -14043,6 +15288,7 @@ var java;
             Polygon.prototype.getPathIterator = function (at, flatness) {
                 var _this = this;
                 if (((at != null && at instanceof java.awt.geom.AffineTransform) || at === null) && ((typeof flatness === 'number') || flatness === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         return _this.getPathIterator(at);
                     })();
@@ -14091,6 +15337,7 @@ var java;
                 PolygonPathIterator.prototype.currentSegment = function (coords) {
                     var _this = this;
                     if (((coords != null && coords instanceof Array) || coords === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if (_this.index >= _this.poly.npoints) {
                                 return java.awt.geom.PathIterator.SEG_CLOSE;
@@ -14179,6 +15426,290 @@ var java;
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var java;
+(function (java) {
+    var beans;
+    (function (beans) {
+        var ChangeListenerMap = (function () {
+            function ChangeListenerMap() {
+            }
+            ChangeListenerMap.prototype.newProxy = function (name, listener) {
+                if (((typeof name === 'string') || name === null) && ((listener != null) || listener === null)) {
+                    return this.newProxy$java_lang_String$java_util_EventListener(name, listener);
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            ChangeListenerMap.prototype.newProxy$java_lang_String$java_util_EventListener = function (name, listener) { throw new Error('cannot invoke abstract overloaded method... check your argument(s) type(s)'); };
+            ChangeListenerMap.prototype.add = function (name, listener) {
+                if (this.map == null) {
+                    this.map = new java.util.HashMap();
+                }
+                var array = this.map.get(name);
+                var size = (array != null) ? array.length : 0;
+                var clone = this.newArray(size + 1);
+                clone[size] = listener;
+                if (array != null) {
+                    java.lang.System.arraycopy(array, 0, clone, 0, size);
+                }
+                this.map.put(name, clone);
+            };
+            ChangeListenerMap.prototype.remove = function (name, listener) {
+                if (this.map != null) {
+                    var array = this.map.get(name);
+                    if (array != null) {
+                        for (var i = 0; i < array.length; i++) {
+                            if (listener.equals(array[i])) {
+                                var size = array.length - 1;
+                                if (size > 0) {
+                                    var clone = this.newArray(size);
+                                    java.lang.System.arraycopy(array, 0, clone, 0, i);
+                                    java.lang.System.arraycopy(array, i + 1, clone, i, size - i);
+                                    this.map.put(name, clone);
+                                }
+                                else {
+                                    this.map.remove(name);
+                                    if (this.map.isEmpty()) {
+                                        this.map = null;
+                                    }
+                                }
+                                break;
+                            }
+                        }
+                    }
+                }
+            };
+            /**
+             * Returns the list of listeners for the specified property.
+             *
+             * @param name
+             * the name of the property
+             * @return the corresponding list of listeners
+             */
+            ChangeListenerMap.prototype.get = function (name) {
+                return (this.map != null) ? this.map.get(name) : null;
+            };
+            /**
+             * Sets new list of listeners for the specified property.
+             *
+             * @param name
+             * the name of the property
+             * @param listeners
+             * new list of listeners
+             */
+            ChangeListenerMap.prototype.set = function (name, listeners) {
+                if (listeners != null) {
+                    if (this.map == null) {
+                        this.map = new java.util.HashMap();
+                    }
+                    this.map.put(name, listeners);
+                }
+                else if (this.map != null) {
+                    this.map.remove(name);
+                    if (this.map.isEmpty()) {
+                        this.map = null;
+                    }
+                }
+            };
+            /**
+             * Returns all listeners in the map.
+             *
+             * @return an array of all listeners
+             */
+            ChangeListenerMap.prototype.getListeners$ = function () {
+                if (this.map == null) {
+                    return this.newArray(0);
+                }
+                var list = new java.util.ArrayList();
+                var listeners = this.map.get(null);
+                if (listeners != null) {
+                    for (var index123 = 0; index123 < listeners.length; index123++) {
+                        var listener = listeners[index123];
+                        {
+                            list.add(listener);
+                        }
+                    }
+                }
+                for (var index124 = this.map.entrySet().iterator(); index124.hasNext();) {
+                    var entry = index124.next();
+                    {
+                        var name = entry.getKey();
+                        if (name != null) {
+                            {
+                                var array126 = entry.getValue();
+                                for (var index125 = 0; index125 < array126.length; index125++) {
+                                    var listener = array126[index125];
+                                    {
+                                        list.add(this.newProxy(name, listener));
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                return list.toArray(this.newArray(list.size()));
+            };
+            /**
+             * Returns listeners that have been associated with the named property.
+             *
+             * @param name
+             * the name of the property
+             * @return an array of listeners for the named property
+             */
+            ChangeListenerMap.prototype.getListeners = function (name) {
+                var _this = this;
+                if (((typeof name === 'string') || name === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    return (function () {
+                        if (name != null) {
+                            var listeners = _this.get(name);
+                            if (listeners != null) {
+                                return (listeners).slice(0);
+                            }
+                        }
+                        return _this.newArray(0);
+                    })();
+                }
+                else if (name === undefined) {
+                    return this.getListeners$();
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            /**
+             * Indicates whether the map contains at least one listener to be notified.
+             *
+             * @param name
+             * the name of the property
+             * @return {@code true} if at least one listener exists or {@code false}
+             * otherwise
+             */
+            ChangeListenerMap.prototype.hasListeners = function (name) {
+                if (this.map == null) {
+                    return false;
+                }
+                var array = this.map.get(null);
+                return (array != null) || ((name != null) && (null != this.map.get(name)));
+            };
+            /**
+             * Returns a set of entries from the map. Each entry is a pair consisted of
+             * the property name and the corresponding list of listeners.
+             *
+             * @return a set of entries from the map
+             */
+            ChangeListenerMap.prototype.getEntries = function () {
+                return (this.map != null) ? this.map.entrySet() : java.util.Collections.emptySet();
+            };
+            ChangeListenerMap.prototype.extract = function (listener) {
+                if (((listener != null) || listener === null)) {
+                    return this.extract$java_util_EventListener(listener);
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            /**
+             * Extracts a real listener from the proxy listener. It is necessary because
+             * default proxy class is not serializable.
+             *
+             * @return a real listener
+             */
+            ChangeListenerMap.prototype.extract$java_util_EventListener = function (listener) { throw new Error('cannot invoke abstract overloaded method... check your argument(s) type(s)'); };
+            return ChangeListenerMap;
+        }());
+        beans.ChangeListenerMap = ChangeListenerMap;
+        ChangeListenerMap["__classname"] = "java.beans.ChangeListenerMap";
+    })(beans = java.beans || (java.beans = {}));
+})(java || (java = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var java;
+(function (java) {
+    var beans;
+    (function (beans) {
+        var PropertyChangeEvent = (function (_super) {
+            __extends(PropertyChangeEvent, _super);
+            function PropertyChangeEvent(source, propertyName, oldValue, newValue) {
+                _super.call(this, source);
+                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
+                this.propertyName = propertyName;
+                this.newValue = newValue;
+                this.oldValue = oldValue;
+            }
+            PropertyChangeEvent.prototype.getPropertyName = function () {
+                return this.propertyName;
+            };
+            PropertyChangeEvent.prototype.getNewValue = function () {
+                return this.newValue;
+            };
+            PropertyChangeEvent.prototype.getOldValue = function () {
+                return this.oldValue;
+            };
+            PropertyChangeEvent.prototype.setPropagationId = function (propagationId) {
+                this.propagationId = propagationId;
+            };
+            PropertyChangeEvent.prototype.getPropagationId = function () {
+                return this.propagationId;
+            };
+            PropertyChangeEvent.prototype.toString = function () {
+                var sb = new java.lang.StringBuilder(/* getName */ this.constructor["__classname"]);
+                sb.append("[propertyName=").append(this.getPropertyName());
+                this.appendTo(sb);
+                sb.append("; oldValue=").append(this.getOldValue());
+                sb.append("; newValue=").append(this.getNewValue());
+                sb.append("; propagationId=").append(this.getPropagationId());
+                sb.append("; source=").append(this.getSource());
+                return sb.append("]").toString();
+            };
+            PropertyChangeEvent.prototype.appendTo = function (sb) {
+            };
+            PropertyChangeEvent.serialVersionUID = 7042693688939648123;
+            return PropertyChangeEvent;
+        }(java.util.EventObject));
+        beans.PropertyChangeEvent = PropertyChangeEvent;
+        PropertyChangeEvent["__classname"] = "java.beans.PropertyChangeEvent";
+    })(beans = java.beans || (java.beans = {}));
+})(java || (java = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var java;
+(function (java) {
+    var beans;
+    (function (beans) {
+        var PropertyChangeListenerProxy = (function (_super) {
+            __extends(PropertyChangeListenerProxy, _super);
+            /**
+             * Constructor which binds the {@code PropertyChangeListener}
+             * to a specific property.
+             *
+             * @param propertyName  the name of the property to listen on
+             * @param listener      the listener object
+             */
+            function PropertyChangeListenerProxy(propertyName, listener) {
+                _super.call(this, listener);
+                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "java.beans.PropertyChangeListener"] });
+                this.propertyName = propertyName;
+            }
+            /**
+             * Forwards the property change event to the listener delegate.
+             *
+             * @param event  the property change event
+             */
+            PropertyChangeListenerProxy.prototype.propertyChange = function (event) {
+                this.getListener().propertyChange(event);
+            };
+            /**
+             * Returns the name of the named property associated with the listener.
+             *
+             * @return the name of the named property associated with the listener
+             */
+            PropertyChangeListenerProxy.prototype.getPropertyName = function () {
+                return this.propertyName;
+            };
+            return PropertyChangeListenerProxy;
+        }(java.util.EventListenerProxy));
+        beans.PropertyChangeListenerProxy = PropertyChangeListenerProxy;
+        PropertyChangeListenerProxy["__classname"] = "java.beans.PropertyChangeListenerProxy";
+    })(beans = java.beans || (java.beans = {}));
+})(java || (java = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
 var javax;
 (function (javax) {
     var imageio;
@@ -14201,6 +15732,463 @@ var javax;
 (function (javax) {
     var swing;
     (function (swing) {
+        /**
+         * This class provides default implementations for the JFC <code>Action</code>
+         * interface. Standard behaviors like the get and set methods for
+         * <code>Action</code> object properties (icon, text, and enabled) are defined
+         * here. The developer need only subclass this abstract class and define the
+         * <code>actionPerformed</code> method.
+         * <p>
+         * <strong>Warning:</strong> Serialized objects of this class will not be
+         * compatible with future Swing releases. The current serialization support is
+         * appropriate for short term storage or RMI between applications running the
+         * same version of Swing. As of 1.4, support for long term storage of all
+         * JavaBeans&trade; has been added to the <code>java.beans</code> package.
+         * Please see {@link java.beans.XMLEncoder}.
+         *
+         * @author Georges Saab
+         * @see Action
+         */
+        var AbstractAction = (function () {
+            /**
+             * Creates an {@code Action} with the specified name and small icon.
+             *
+             * @param name
+             * the name ({@code Action.NAME}) for the action; a value of
+             * {@code null} is ignored
+             * @param icon
+             * the small icon ({@code Action.SMALL_ICON}) for the action; a
+             * value of {@code null} is ignored
+             */
+            function AbstractAction(name, icon) {
+                var _this = this;
+                /**
+                 * Specifies whether action is enabled; the default is true.
+                 */
+                this.enabled = true;
+                if (((typeof name === 'string') || name === null) && ((icon != null && icon["__interfaces"] != null && icon["__interfaces"].indexOf("javax.swing.Icon") >= 0) || icon === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        this.enabled = true;
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "java.lang.Cloneable", "java.awt.event.ActionListener", "javax.swing.Action", "java.io.Serializable"] });
+                        (function () {
+                            _this.putValue(javax.swing.Action.NAME, name);
+                        })();
+                    }
+                    (function () {
+                        _this.putValue(javax.swing.Action.SMALL_ICON, icon);
+                    })();
+                }
+                else if (((typeof name === 'string') || name === null) && icon === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    this.enabled = true;
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "java.lang.Cloneable", "java.awt.event.ActionListener", "javax.swing.Action", "java.io.Serializable"] });
+                    (function () {
+                        _this.putValue(javax.swing.Action.NAME, name);
+                    })();
+                }
+                else if (name === undefined && icon === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    this.enabled = true;
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "java.lang.Cloneable", "java.awt.event.ActionListener", "javax.swing.Action", "java.io.Serializable"] });
+                    (function () {
+                    })();
+                }
+                else
+                    throw new Error('invalid overload');
+            }
+            /**
+             * Sets the enabled state of a component from an Action.
+             *
+             * @param c
+             * the Component to set the enabled state on
+             * @param a
+             * the Action to set the enabled state from, may be null
+             */
+            AbstractAction.setEnabledFromAction = function (c, a) {
+                c.setEnabled((a != null) ? a.isEnabled() : true);
+            };
+            /**
+             * Sets the tooltip text of a component from an Action.
+             *
+             * @param c
+             * the Component to set the tooltip text on
+             * @param a
+             * the Action to set the tooltip text from, may be null
+             */
+            AbstractAction.setToolTipTextFromAction = function (c, a) {
+            };
+            AbstractAction.hasSelectedKey = function (a) {
+                return (a != null && a.getValue(javax.swing.Action.SELECTED_KEY) != null);
+            };
+            AbstractAction.isSelected = function (a) {
+                return (javaemul.internal.BooleanHelper.TRUE === a.getValue(javax.swing.Action.SELECTED_KEY));
+            };
+            /**
+             * Gets the <code>Object</code> associated with the specified key.
+             *
+             * @param key
+             * a string containing the specified <code>key</code>
+             * @return the binding <code>Object</code> stored with this key; if there
+             * are no keys, it will return <code>null</code>
+             * @see Action#getValue
+             */
+            AbstractAction.prototype.getValue = function (key) {
+                if (key === "enabled") {
+                    return this.enabled;
+                }
+                if (this.arrayTable == null) {
+                    return null;
+                }
+                return this.arrayTable.get(key);
+            };
+            /**
+             * Sets the <code>Value</code> associated with the specified key.
+             *
+             * @param key
+             * the <code>String</code> that identifies the stored object
+             * @param newValue
+             * the <code>Object</code> to store using this key
+             * @see Action#putValue
+             */
+            AbstractAction.prototype.putValue = function (key, newValue) {
+                var oldValue = null;
+                if (key === "enabled") {
+                    if (newValue == null || !(typeof newValue === 'boolean')) {
+                        newValue = false;
+                    }
+                    oldValue = this.enabled;
+                    this.enabled = newValue;
+                }
+                else {
+                    if (this.arrayTable == null) {
+                        this.arrayTable = new java.util.HashMap();
+                    }
+                    if (this.arrayTable.containsKey(key))
+                        oldValue = this.arrayTable.get(key);
+                    if (newValue == null) {
+                        this.arrayTable.remove(key);
+                    }
+                    else {
+                        this.arrayTable.put(key, newValue);
+                    }
+                }
+                this.firePropertyChange(key, oldValue, newValue);
+            };
+            /**
+             * Returns true if the action is enabled.
+             *
+             * @return true if the action is enabled, false otherwise
+             * @see Action#isEnabled
+             */
+            AbstractAction.prototype.isEnabled = function () {
+                return this.enabled;
+            };
+            /**
+             * Sets whether the {@code Action} is enabled. The default is {@code true}.
+             *
+             * @param newValue
+             * {@code true} to enable the action, {@code false} to disable it
+             * @see Action#setEnabled
+             */
+            AbstractAction.prototype.setEnabled = function (newValue) {
+                var oldValue = this.enabled;
+                if (oldValue !== newValue) {
+                    this.enabled = newValue;
+                    this.firePropertyChange("enabled", javaemul.internal.BooleanHelper.valueOf(oldValue), javaemul.internal.BooleanHelper.valueOf(newValue));
+                }
+            };
+            /**
+             * Returns an array of <code>Object</code>s which are keys for which values
+             * have been set for this <code>AbstractAction</code>, or <code>null</code>
+             * if no keys have values set.
+             *
+             * @return an array of key objects, or <code>null</code> if no keys have
+             * values set
+             * @since 1.3
+             */
+            AbstractAction.prototype.getKeys = function () {
+                if (this.arrayTable == null) {
+                    return null;
+                }
+                var keys = new Array(this.arrayTable.size());
+                keys = this.arrayTable.keySet().toArray(keys);
+                return keys;
+            };
+            /**
+             * Supports reporting bound property changes. This method can be called when
+             * a bound property has changed and it will send the appropriate
+             * <code>PropertyChangeEvent</code> to any registered
+             * <code>PropertyChangeListeners</code>.
+             */
+            AbstractAction.prototype.firePropertyChange = function (propertyName, oldValue, newValue) {
+                if (this.changeSupport == null || (oldValue != null && newValue != null && (oldValue === newValue))) {
+                    return;
+                }
+                this.changeSupport.firePropertyChange(propertyName, oldValue, newValue);
+            };
+            /**
+             * Adds a <code>PropertyChangeListener</code> to the listener list. The
+             * listener is registered for all properties.
+             * <p>
+             * A <code>PropertyChangeEvent</code> will get fired in response to setting
+             * a bound property, e.g. <code>setFont</code>, <code>setBackground</code>,
+             * or <code>setForeground</code>. Note that if the current component is
+             * inheriting its foreground, background, or font from its container, then
+             * no event will be fired in response to a change in the inherited property.
+             *
+             * @param listener
+             * The <code>PropertyChangeListener</code> to be added
+             *
+             * @see Action#addPropertyChangeListener
+             */
+            AbstractAction.prototype.addPropertyChangeListener = function (listener) {
+                if (this.changeSupport == null) {
+                    this.changeSupport = new javax.swing.event.SwingPropertyChangeSupport(this);
+                }
+                this.changeSupport.addPropertyChangeListener(listener);
+            };
+            /**
+             * Removes a <code>PropertyChangeListener</code> from the listener list.
+             * This removes a <code>PropertyChangeListener</code> that was registered
+             * for all properties.
+             *
+             * @param listener
+             * the <code>PropertyChangeListener</code> to be removed
+             *
+             * @see Action#removePropertyChangeListener
+             */
+            AbstractAction.prototype.removePropertyChangeListener = function (listener) {
+                if (this.changeSupport == null) {
+                    return;
+                }
+                this.changeSupport.removePropertyChangeListener(listener);
+            };
+            /**
+             * Returns an array of all the <code>PropertyChangeListener</code>s added to
+             * this AbstractAction with addPropertyChangeListener().
+             *
+             * @return all of the <code>PropertyChangeListener</code>s added or an empty
+             * array if no listeners have been added
+             * @since 1.4
+             */
+            AbstractAction.prototype.getPropertyChangeListeners = function () {
+                if (this.changeSupport == null) {
+                    return new Array(0);
+                }
+                return this.changeSupport.getPropertyChangeListeners();
+            };
+            /**
+             * Clones the abstract action. This gives the clone its own copy of the
+             * key/value list, which is not handled for you by
+             * <code>Object.clone()</code>.
+             */
+            AbstractAction.prototype.clone = function () {
+                var newAction = javaemul.internal.ObjectHelper.clone(this);
+                {
+                    if (this.arrayTable != null) {
+                        newAction.arrayTable = new java.util.Hashtable(this.arrayTable);
+                    }
+                }
+                ;
+                return newAction;
+            };
+            return AbstractAction;
+        }());
+        swing.AbstractAction = AbstractAction;
+        AbstractAction["__classname"] = "javax.swing.AbstractAction";
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        /**
+         * The abstract definition for the data model that provides
+         * a <code>List</code> with its contents.
+         * <p>
+         * <strong>Warning:</strong>
+         * Serialized objects of this class will not be compatible with
+         * future Swing releases. The current serialization support is
+         * appropriate for short term storage or RMI between applications running
+         * the same version of Swing.  As of 1.4, support for long term storage
+         * of all JavaBeans&trade;
+         * has been added to the <code>java.beans</code> package.
+         * Please see {@link java.beans.XMLEncoder}.
+         *
+         * @param <E> the type of the elements of this model
+         *
+         * @author Hans Muller
+         */
+        var AbstractListModel = (function () {
+            function AbstractListModel() {
+                this.listenerList = new javax.swing.event.EventListenerList();
+                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.ListModel", "java.io.Serializable"] });
+            }
+            /**
+             * Adds a listener to the list that's notified each time a change
+             * to the data model occurs.
+             *
+             * @param l the <code>ListDataListener</code> to be added
+             */
+            AbstractListModel.prototype.addListDataListener = function (l) {
+                this.listenerList.add("javax.swing.event.ListDataListener", l);
+            };
+            /**
+             * Removes a listener from the list that's notified each time a
+             * change to the data model occurs.
+             *
+             * @param l the <code>ListDataListener</code> to be removed
+             */
+            AbstractListModel.prototype.removeListDataListener = function (l) {
+                this.listenerList.remove("javax.swing.event.ListDataListener", l);
+            };
+            /**
+             * Returns an array of all the list data listeners
+             * registered on this <code>AbstractListModel</code>.
+             *
+             * @return all of this model's <code>ListDataListener</code>s,
+             * or an empty array if no list data listeners
+             * are currently registered
+             *
+             * @see #addListDataListener
+             * @see #removeListDataListener
+             *
+             * @since 1.4
+             */
+            AbstractListModel.prototype.getListDataListeners = function () {
+                return this.listenerList.getListeners("javax.swing.event.ListDataListener");
+            };
+            /**
+             * <code>AbstractListModel</code> subclasses must call this method
+             * <b>after</b>
+             * one or more elements of the list change.  The changed elements
+             * are specified by the closed interval index0, index1 -- the endpoints
+             * are included.  Note that
+             * index0 need not be less than or equal to index1.
+             *
+             * @param source the <code>ListModel</code> that changed, typically "this"
+             * @param index0 one end of the new interval
+             * @param index1 the other end of the new interval
+             * @see EventListenerList
+             * @see DefaultListModel
+             */
+            AbstractListModel.prototype.fireContentsChanged = function (source, index0, index1) {
+                var listeners = this.listenerList.getListenerList();
+                var e = null;
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === "javax.swing.event.ListDataListener") {
+                        if (e == null) {
+                            e = new javax.swing.event.ListDataEvent(source, javax.swing.event.ListDataEvent.CONTENTS_CHANGED, index0, index1);
+                        }
+                        listeners[i + 1].contentsChanged(e);
+                    }
+                }
+            };
+            /**
+             * <code>AbstractListModel</code> subclasses must call this method
+             * <b>after</b>
+             * one or more elements are added to the model.  The new elements
+             * are specified by a closed interval index0, index1 -- the enpoints
+             * are included.  Note that
+             * index0 need not be less than or equal to index1.
+             *
+             * @param source the <code>ListModel</code> that changed, typically "this"
+             * @param index0 one end of the new interval
+             * @param index1 the other end of the new interval
+             * @see EventListenerList
+             * @see DefaultListModel
+             */
+            AbstractListModel.prototype.fireIntervalAdded = function (source, index0, index1) {
+                var listeners = this.listenerList.getListenerList();
+                var e = null;
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === "javax.swing.event.ListDataListener") {
+                        if (e == null) {
+                            e = new javax.swing.event.ListDataEvent(source, javax.swing.event.ListDataEvent.INTERVAL_ADDED, index0, index1);
+                        }
+                        listeners[i + 1].intervalAdded(e);
+                    }
+                }
+            };
+            /**
+             * <code>AbstractListModel</code> subclasses must call this method
+             * <b>after</b> one or more elements are removed from the model.
+             * <code>index0</code> and <code>index1</code> are the end points
+             * of the interval that's been removed.  Note that <code>index0</code>
+             * need not be less than or equal to <code>index1</code>.
+             *
+             * @param source the <code>ListModel</code> that changed, typically "this"
+             * @param index0 one end of the removed interval,
+             * including <code>index0</code>
+             * @param index1 the other end of the removed interval,
+             * including <code>index1</code>
+             * @see EventListenerList
+             * @see DefaultListModel
+             */
+            AbstractListModel.prototype.fireIntervalRemoved = function (source, index0, index1) {
+                var listeners = this.listenerList.getListenerList();
+                var e = null;
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === "javax.swing.event.ListDataListener") {
+                        if (e == null) {
+                            e = new javax.swing.event.ListDataEvent(source, javax.swing.event.ListDataEvent.INTERVAL_REMOVED, index0, index1);
+                        }
+                        listeners[i + 1].intervalRemoved(e);
+                    }
+                }
+            };
+            /**
+             * Returns an array of all the objects currently registered as
+             * <code><em>Foo</em>Listener</code>s
+             * upon this model.
+             * <code><em>Foo</em>Listener</code>s
+             * are registered using the <code>add<em>Foo</em>Listener</code> method.
+             * <p>
+             * You can specify the <code>listenerType</code> argument
+             * with a class literal, such as <code><em>Foo</em>Listener.class</code>.
+             * For example, you can query a list model
+             * <code>m</code>
+             * for its list data listeners
+             * with the following code:
+             *
+             * <pre>ListDataListener[] ldls = (ListDataListener[])(m.getListeners(ListDataListener.class));</pre>
+             *
+             * If no such listeners exist,
+             * this method returns an empty array.
+             *
+             * @param listenerType  the type of listeners requested;
+             * this parameter should specify an interface
+             * that descends from <code>java.util.EventListener</code>
+             * @return an array of all objects registered as
+             * <code><em>Foo</em>Listener</code>s
+             * on this model,
+             * or an empty array if no such
+             * listeners have been added
+             * @exception ClassCastException if <code>listenerType</code> doesn't
+             * specify a class or interface that implements
+             * <code>java.util.EventListener</code>
+             *
+             * @see #getListDataListeners
+             *
+             * @since 1.3
+             */
+            AbstractListModel.prototype.getListeners = function (listenerType) {
+                return this.listenerList.getListeners(listenerType);
+            };
+            return AbstractListModel;
+        }());
+        swing.AbstractListModel = AbstractListModel;
+        AbstractListModel["__classname"] = "javax.swing.AbstractListModel";
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
         var Action;
         (function (Action) {
             Action.DEFAULT = "Default";
@@ -14215,6 +16203,1645 @@ var javax;
             Action.DISPLAYED_MNEMONIC_INDEX_KEY = "SwingDisplayedMnemonicIndexKey";
             Action.LARGE_ICON_KEY = "SwingLargeIconKey";
         })(Action = swing.Action || (swing.Action = {}));
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        /**
+         * A package-private PropertyChangeListener which listens for property changes
+         * on an Action and updates the properties of an ActionEvent source.
+         * <p>
+         * Subclasses must override the actionPropertyChanged method, which is invoked
+         * from the propertyChange method as long as the target is still valid.
+         * </p>
+         * <p>
+         * WARNING WARNING WARNING WARNING WARNING WARNING:<br>
+         * Do NOT create an annonymous inner class that extends this! If you do a strong
+         * reference will be held to the containing class, which in most cases defeats
+         * the purpose of this class.
+         *
+         * @param T
+         * the type of JComponent the underlying Action is attached to
+         *
+         * @author Georges Saab
+         * @see AbstractButton
+         */
+        var ActionPropertyChangeListener = (function () {
+            function ActionPropertyChangeListener(c, a) {
+                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "java.beans.PropertyChangeListener", "java.io.Serializable"] });
+                this.setTarget(c);
+                this.action = a;
+            }
+            ActionPropertyChangeListener.prototype.propertyChange = function (e) {
+                var target = this.getTarget();
+                if (target == null) {
+                    this.getAction().removePropertyChangeListener(this);
+                }
+                else {
+                    this.actionPropertyChanged(target, this.getAction(), e);
+                }
+            };
+            ActionPropertyChangeListener.prototype.actionPropertyChanged = function (cb, action, e) {
+                if (((cb != null) || cb === null) && ((action != null && action["__interfaces"] != null && action["__interfaces"].indexOf("javax.swing.Action") >= 0) || action === null) && ((e != null && e instanceof java.beans.PropertyChangeEvent) || e === null)) {
+                    return this.actionPropertyChanged$javax_swing_JComponent$javax_swing_Action$java_beans_PropertyChangeEvent(cb, action, e);
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            ActionPropertyChangeListener.prototype.actionPropertyChanged$javax_swing_JComponent$javax_swing_Action$java_beans_PropertyChangeEvent = function (target, action, e) { throw new Error('cannot invoke abstract overloaded method... check your argument(s) type(s)'); };
+            ActionPropertyChangeListener.prototype.setTarget = function (c) {
+                this.target = c;
+            };
+            ActionPropertyChangeListener.prototype.getTarget = function () {
+                return this.target;
+            };
+            ActionPropertyChangeListener.prototype.getAction = function () {
+                return this.action;
+            };
+            return ActionPropertyChangeListener;
+        }());
+        swing.ActionPropertyChangeListener = ActionPropertyChangeListener;
+        ActionPropertyChangeListener["__classname"] = "javax.swing.ActionPropertyChangeListener";
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        var BoxLayout = (function () {
+            function BoxLayout(target, axis) {
+                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.LayoutManager2", "java.awt.LayoutManager", "java.io.Serializable"] });
+                this.axis = 0;
+                if (axis !== BoxLayout.X_AXIS && axis !== BoxLayout.Y_AXIS && axis !== BoxLayout.LINE_AXIS && axis !== BoxLayout.PAGE_AXIS) {
+                    throw new Error("Invalid axis");
+                }
+                this.axis = axis;
+                this.target = target;
+            }
+            BoxLayout.prototype.getTarget = function () {
+                return this.target;
+            };
+            BoxLayout.prototype.getAxis = function () {
+                return this.axis;
+            };
+            BoxLayout.prototype.invalidateLayout = function (target) {
+            };
+            BoxLayout.prototype.addLayoutComponent = function (name, comp) {
+                if (((typeof name === 'string') || name === null) && ((comp != null && comp instanceof java.awt.Component) || comp === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    return (function () {
+                    })();
+                }
+                else if (((name != null && name instanceof java.awt.Component) || name === null) && ((comp != null) || comp === null)) {
+                    return this.addLayoutComponent$java_awt_Component$java_lang_Object(name, comp);
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            BoxLayout.prototype.removeLayoutComponent = function (comp) {
+            };
+            BoxLayout.prototype.addLayoutComponent$java_awt_Component$java_lang_Object = function (comp, constraints) {
+                if (this.axis === BoxLayout.X_AXIS || this.axis === BoxLayout.LINE_AXIS) {
+                    var tr = this.table.firstChild;
+                    if (tr == null) {
+                        tr = document.createElement("tr");
+                        this.table.appendChild(tr);
+                    }
+                    var td = document.createElement("td");
+                    td.appendChild(comp.getHTMLElement());
+                    tr.appendChild(td);
+                }
+                else {
+                    var tr = document.createElement("tr");
+                    var td = document.createElement("td");
+                    tr.appendChild(td);
+                    td.appendChild(comp.getHTMLElement());
+                    this.table.appendChild(tr);
+                }
+            };
+            BoxLayout.prototype.maximumLayoutSize = function (target) {
+                return null;
+            };
+            BoxLayout.prototype.getLayoutAlignmentX = function (target) {
+                return 0;
+            };
+            BoxLayout.prototype.getLayoutAlignmentY = function (target) {
+                return 0;
+            };
+            BoxLayout.prototype.layoutContainer = function (target) {
+                if (this.table == null) {
+                    this.table = document.createElement("table");
+                    var div = target.getHTMLElement();
+                    div.appendChild(this.table);
+                }
+            };
+            BoxLayout.prototype.onComponentAdded = function (parent, component, position) {
+            };
+            BoxLayout.X_AXIS = 0;
+            BoxLayout.Y_AXIS = 1;
+            BoxLayout.LINE_AXIS = 2;
+            BoxLayout.PAGE_AXIS = 3;
+            return BoxLayout;
+        }());
+        swing.BoxLayout = BoxLayout;
+        BoxLayout["__classname"] = "javax.swing.BoxLayout";
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        var ButtonGroup = (function () {
+            function ButtonGroup() {
+                this.buttons = new java.util.Vector();
+                this.selection = null;
+                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
+            }
+            ButtonGroup.prototype.add = function (b) {
+                if (b == null) {
+                    return;
+                }
+                this.buttons.addElement(b);
+                if (b.isSelected()) {
+                    if (this.selection == null) {
+                        this.selection = b.getModel();
+                    }
+                    else {
+                        b.setSelected(false);
+                    }
+                }
+                b.getModel().setGroup(this);
+            };
+            ButtonGroup.prototype.remove = function (b) {
+                if (b == null) {
+                    return;
+                }
+                this.buttons.removeElement(b);
+                if (b.getModel() === this.selection) {
+                    this.selection = null;
+                }
+                b.getModel().setGroup(null);
+            };
+            ButtonGroup.prototype.clearSelection = function () {
+                if (this.selection != null) {
+                    var oldSelection = this.selection;
+                    this.selection = null;
+                    oldSelection.setSelected(false);
+                }
+            };
+            ButtonGroup.prototype.getElements = function () {
+                return this.buttons.elements();
+            };
+            ButtonGroup.prototype.getSelection = function () {
+                return this.selection;
+            };
+            ButtonGroup.prototype.setSelected = function (m, b) {
+                if (b && m != null && m !== this.selection) {
+                    var oldSelection = this.selection;
+                    this.selection = m;
+                    if (oldSelection != null) {
+                        oldSelection.setSelected(false);
+                    }
+                    m.setSelected(true);
+                }
+            };
+            ButtonGroup.prototype.isSelected = function (m) {
+                return (m === this.selection);
+            };
+            ButtonGroup.prototype.getButtonCount = function () {
+                if (this.buttons == null) {
+                    return 0;
+                }
+                else {
+                    return this.buttons.size();
+                }
+            };
+            return ButtonGroup;
+        }());
+        swing.ButtonGroup = ButtonGroup;
+        ButtonGroup["__classname"] = "javax.swing.ButtonGroup";
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        /**
+         * A generic implementation of BoundedRangeModel.
+         * <p>
+         * <strong>Warning:</strong>
+         * Serialized objects of this class will not be compatible with
+         * future Swing releases. The current serialization support is
+         * appropriate for short term storage or RMI between applications running
+         * the same version of Swing.  As of 1.4, support for long term storage
+         * of all JavaBeans&trade;
+         * has been added to the <code>java.beans</code> package.
+         * Please see {@link java.beans.XMLEncoder}.
+         *
+         * @author David Kloba
+         * @author Hans Muller
+         * @see BoundedRangeModel
+         */
+        var DefaultBoundedRangeModel = (function () {
+            /**
+             * Initializes value, extent, minimum and maximum. Adjusting is false.
+             * Throws an <code>IllegalArgumentException</code> if the following
+             * constraints aren't satisfied:
+             * <pre>
+             * min &lt;= value &lt;= value+extent &lt;= max
+             * </pre>
+             */
+            function DefaultBoundedRangeModel(value, extent, min, max) {
+                var _this = this;
+                /**
+                 * Only one <code>ChangeEvent</code> is needed per model instance since the
+                 * event's only (read-only) state is the source property.  The source
+                 * of events generated here is always "this".
+                 */
+                this.changeEvent = null;
+                /**
+                 * The listeners waiting for model changes.
+                 */
+                this.listenerList = new javax.swing.event.EventListenerList();
+                this.value = 0;
+                this.extent = 0;
+                this.min = 0;
+                this.max = 100;
+                this.isAdjusting = false;
+                if (((typeof value === 'number') || value === null) && ((typeof extent === 'number') || extent === null) && ((typeof min === 'number') || min === null) && ((typeof max === 'number') || max === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    this.changeEvent = null;
+                    this.listenerList = new javax.swing.event.EventListenerList();
+                    this.value = 0;
+                    this.extent = 0;
+                    this.min = 0;
+                    this.max = 100;
+                    this.isAdjusting = false;
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.BoundedRangeModel", "java.io.Serializable"] });
+                    (function () {
+                        if ((max >= min) && (value >= min) && ((value + extent) >= value) && ((value + extent) <= max)) {
+                            _this.value = value;
+                            _this.extent = extent;
+                            _this.min = min;
+                            _this.max = max;
+                        }
+                        else {
+                            throw new java.lang.IllegalArgumentException("invalid range properties");
+                        }
+                    })();
+                }
+                else if (value === undefined && extent === undefined && min === undefined && max === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    this.changeEvent = null;
+                    this.listenerList = new javax.swing.event.EventListenerList();
+                    this.value = 0;
+                    this.extent = 0;
+                    this.min = 0;
+                    this.max = 100;
+                    this.isAdjusting = false;
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.BoundedRangeModel", "java.io.Serializable"] });
+                    (function () {
+                    })();
+                }
+                else
+                    throw new Error('invalid overload');
+            }
+            /**
+             * Returns the model's current value.
+             * @return the model's current value
+             * @see #setValue
+             * @see BoundedRangeModel#getValue
+             */
+            DefaultBoundedRangeModel.prototype.getValue = function () {
+                return this.value;
+            };
+            /**
+             * Returns the model's extent.
+             * @return the model's extent
+             * @see #setExtent
+             * @see BoundedRangeModel#getExtent
+             */
+            DefaultBoundedRangeModel.prototype.getExtent = function () {
+                return this.extent;
+            };
+            /**
+             * Returns the model's minimum.
+             * @return the model's minimum
+             * @see #setMinimum
+             * @see BoundedRangeModel#getMinimum
+             */
+            DefaultBoundedRangeModel.prototype.getMinimum = function () {
+                return this.min;
+            };
+            /**
+             * Returns the model's maximum.
+             * @return  the model's maximum
+             * @see #setMaximum
+             * @see BoundedRangeModel#getMaximum
+             */
+            DefaultBoundedRangeModel.prototype.getMaximum = function () {
+                return this.max;
+            };
+            /**
+             * Sets the current value of the model. For a slider, that
+             * determines where the knob appears. Ensures that the new
+             * value, <I>n</I> falls within the model's constraints:
+             * <pre>
+             * minimum &lt;= value &lt;= value+extent &lt;= maximum
+             * </pre>
+             *
+             * @see BoundedRangeModel#setValue
+             */
+            DefaultBoundedRangeModel.prototype.setValue = function (n) {
+                n = Math.min(n, javaemul.internal.IntegerHelper.MAX_VALUE - this.extent);
+                var newValue = Math.max(n, this.min);
+                if (newValue + this.extent > this.max) {
+                    newValue = this.max - this.extent;
+                }
+                this.setRangeProperties(newValue, this.extent, this.min, this.max, this.isAdjusting);
+            };
+            /**
+             * Sets the extent to <I>n</I> after ensuring that <I>n</I>
+             * is greater than or equal to zero and falls within the model's
+             * constraints:
+             * <pre>
+             * minimum &lt;= value &lt;= value+extent &lt;= maximum
+             * </pre>
+             * @see BoundedRangeModel#setExtent
+             */
+            DefaultBoundedRangeModel.prototype.setExtent = function (n) {
+                var newExtent = Math.max(0, n);
+                if (this.value + newExtent > this.max) {
+                    newExtent = this.max - this.value;
+                }
+                this.setRangeProperties(this.value, newExtent, this.min, this.max, this.isAdjusting);
+            };
+            /**
+             * Sets the minimum to <I>n</I> after ensuring that <I>n</I>
+             * that the other three properties obey the model's constraints:
+             * <pre>
+             * minimum &lt;= value &lt;= value+extent &lt;= maximum
+             * </pre>
+             * @see #getMinimum
+             * @see BoundedRangeModel#setMinimum
+             */
+            DefaultBoundedRangeModel.prototype.setMinimum = function (n) {
+                var newMax = Math.max(n, this.max);
+                var newValue = Math.max(n, this.value);
+                var newExtent = Math.min(newMax - newValue, this.extent);
+                this.setRangeProperties(newValue, newExtent, n, newMax, this.isAdjusting);
+            };
+            /**
+             * Sets the maximum to <I>n</I> after ensuring that <I>n</I>
+             * that the other three properties obey the model's constraints:
+             * <pre>
+             * minimum &lt;= value &lt;= value+extent &lt;= maximum
+             * </pre>
+             * @see BoundedRangeModel#setMaximum
+             */
+            DefaultBoundedRangeModel.prototype.setMaximum = function (n) {
+                var newMin = Math.min(n, this.min);
+                var newExtent = Math.min(n - newMin, this.extent);
+                var newValue = Math.min(n - newExtent, this.value);
+                this.setRangeProperties(newValue, newExtent, newMin, n, this.isAdjusting);
+            };
+            /**
+             * Sets the <code>valueIsAdjusting</code> property.
+             *
+             * @see #getValueIsAdjusting
+             * @see #setValue
+             * @see BoundedRangeModel#setValueIsAdjusting
+             */
+            DefaultBoundedRangeModel.prototype.setValueIsAdjusting = function (b) {
+                this.setRangeProperties(this.value, this.extent, this.min, this.max, b);
+            };
+            /**
+             * Returns true if the value is in the process of changing
+             * as a result of actions being taken by the user.
+             *
+             * @return the value of the <code>valueIsAdjusting</code> property
+             * @see #setValue
+             * @see BoundedRangeModel#getValueIsAdjusting
+             */
+            DefaultBoundedRangeModel.prototype.getValueIsAdjusting = function () {
+                return this.isAdjusting;
+            };
+            /**
+             * Sets all of the <code>BoundedRangeModel</code> properties after forcing
+             * the arguments to obey the usual constraints:
+             * <pre>
+             * minimum &lt;= value &lt;= value+extent &lt;= maximum
+             * </pre>
+             * <p>
+             * At most, one <code>ChangeEvent</code> is generated.
+             *
+             * @see BoundedRangeModel#setRangeProperties
+             * @see #setValue
+             * @see #setExtent
+             * @see #setMinimum
+             * @see #setMaximum
+             * @see #setValueIsAdjusting
+             */
+            DefaultBoundedRangeModel.prototype.setRangeProperties = function (newValue, newExtent, newMin, newMax, adjusting) {
+                if (newMin > newMax) {
+                    newMin = newMax;
+                }
+                if (newValue > newMax) {
+                    newMax = newValue;
+                }
+                if (newValue < newMin) {
+                    newMin = newValue;
+                }
+                if ((Math.round(newExtent) + Math.round(newValue)) > newMax) {
+                    newExtent = newMax - newValue;
+                }
+                if (newExtent < 0) {
+                    newExtent = 0;
+                }
+                var isChange = (newValue !== this.value) || (newExtent !== this.extent) || (newMin !== this.min) || (newMax !== this.max) || (adjusting !== this.isAdjusting);
+                if (isChange) {
+                    this.value = newValue;
+                    this.extent = newExtent;
+                    this.min = newMin;
+                    this.max = newMax;
+                    this.isAdjusting = adjusting;
+                    this.fireStateChanged();
+                }
+            };
+            /**
+             * Adds a <code>ChangeListener</code>.  The change listeners are run each
+             * time any one of the Bounded Range model properties changes.
+             *
+             * @param l the ChangeListener to add
+             * @see #removeChangeListener
+             * @see BoundedRangeModel#addChangeListener
+             */
+            DefaultBoundedRangeModel.prototype.addChangeListener = function (l) {
+                this.listenerList.add("javax.swing.event.ChangeListener", l);
+            };
+            /**
+             * Removes a <code>ChangeListener</code>.
+             *
+             * @param l the <code>ChangeListener</code> to remove
+             * @see #addChangeListener
+             * @see BoundedRangeModel#removeChangeListener
+             */
+            DefaultBoundedRangeModel.prototype.removeChangeListener = function (l) {
+                this.listenerList.remove("javax.swing.event.ChangeListener", l);
+            };
+            /**
+             * Returns an array of all the change listeners
+             * registered on this <code>DefaultBoundedRangeModel</code>.
+             *
+             * @return all of this model's <code>ChangeListener</code>s
+             * or an empty
+             * array if no change listeners are currently registered
+             *
+             * @see #addChangeListener
+             * @see #removeChangeListener
+             *
+             * @since 1.4
+             */
+            DefaultBoundedRangeModel.prototype.getChangeListeners = function () {
+                return this.listenerList.getListeners("javax.swing.event.ChangeListener");
+            };
+            /**
+             * Runs each <code>ChangeListener</code>'s <code>stateChanged</code> method.
+             *
+             * @see #setRangeProperties
+             * @see EventListenerList
+             */
+            DefaultBoundedRangeModel.prototype.fireStateChanged = function () {
+                var listeners = this.listenerList.getListenerList();
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === "javax.swing.event.ChangeListener") {
+                        if (this.changeEvent == null) {
+                            this.changeEvent = new javax.swing.event.ChangeEvent(this);
+                        }
+                        listeners[i + 1].stateChanged(this.changeEvent);
+                    }
+                }
+            };
+            /**
+             * Returns a string that displays all of the
+             * <code>BoundedRangeModel</code> properties.
+             */
+            DefaultBoundedRangeModel.prototype.toString = function () {
+                var modelString = "value=" + this.getValue() + ", " + "extent=" + this.getExtent() + ", " + "min=" + this.getMinimum() + ", " + "max=" + this.getMaximum() + ", " + "adj=" + this.getValueIsAdjusting();
+                return this.constructor["__classname"] + "[" + modelString + "]";
+            };
+            /**
+             * Returns an array of all the objects currently registered as
+             * <code><em>Foo</em>Listener</code>s
+             * upon this model.
+             * <code><em>Foo</em>Listener</code>s
+             * are registered using the <code>add<em>Foo</em>Listener</code> method.
+             * <p>
+             * You can specify the <code>listenerType</code> argument
+             * with a class literal, such as <code><em>Foo</em>Listener.class</code>.
+             * For example, you can query a <code>DefaultBoundedRangeModel</code>
+             * instance <code>m</code>
+             * for its change listeners
+             * with the following code:
+             *
+             * <pre>ChangeListener[] cls = (ChangeListener[])(m.getListeners(ChangeListener.class));</pre>
+             *
+             * If no such listeners exist,
+             * this method returns an empty array.
+             *
+             * @param listenerType  the type of listeners requested;
+             * this parameter should specify an interface
+             * that descends from <code>java.util.EventListener</code>
+             * @return an array of all objects registered as
+             * <code><em>Foo</em>Listener</code>s
+             * on this model,
+             * or an empty array if no such
+             * listeners have been added
+             * @exception ClassCastException if <code>listenerType</code> doesn't
+             * specify a class or interface that implements
+             * <code>java.util.EventListener</code>
+             *
+             * @see #getChangeListeners
+             *
+             * @since 1.3
+             */
+            DefaultBoundedRangeModel.prototype.getListeners = function (listenerType) {
+                return this.listenerList.getListeners(listenerType);
+            };
+            return DefaultBoundedRangeModel;
+        }());
+        swing.DefaultBoundedRangeModel = DefaultBoundedRangeModel;
+        DefaultBoundedRangeModel["__classname"] = "javax.swing.DefaultBoundedRangeModel";
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        var DefaultButtonModel = (function () {
+            function DefaultButtonModel() {
+                this.stateMask = 0;
+                this.actionCommand = null;
+                this.group = null;
+                this.mnemonic = 0;
+                this.changeEvent = null;
+                this.listenerList = new javax.swing.event.EventListenerList();
+                this.menuItem = false;
+                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "javax.swing.ButtonModel", "java.io.Serializable"] });
+                this.stateMask = 0;
+                this.setEnabled(true);
+            }
+            DefaultButtonModel.ARMED_$LI$ = function () { if (DefaultButtonModel.ARMED == null)
+                DefaultButtonModel.ARMED = 1 << 0; return DefaultButtonModel.ARMED; };
+            ;
+            DefaultButtonModel.SELECTED_$LI$ = function () { if (DefaultButtonModel.SELECTED == null)
+                DefaultButtonModel.SELECTED = 1 << 1; return DefaultButtonModel.SELECTED; };
+            ;
+            DefaultButtonModel.PRESSED_$LI$ = function () { if (DefaultButtonModel.PRESSED == null)
+                DefaultButtonModel.PRESSED = 1 << 2; return DefaultButtonModel.PRESSED; };
+            ;
+            DefaultButtonModel.ENABLED_$LI$ = function () { if (DefaultButtonModel.ENABLED == null)
+                DefaultButtonModel.ENABLED = 1 << 3; return DefaultButtonModel.ENABLED; };
+            ;
+            DefaultButtonModel.ROLLOVER_$LI$ = function () { if (DefaultButtonModel.ROLLOVER == null)
+                DefaultButtonModel.ROLLOVER = 1 << 4; return DefaultButtonModel.ROLLOVER; };
+            ;
+            DefaultButtonModel.prototype.setActionCommand = function (actionCommand) {
+                this.actionCommand = actionCommand;
+            };
+            DefaultButtonModel.prototype.getActionCommand = function () {
+                return this.actionCommand;
+            };
+            DefaultButtonModel.prototype.isArmed = function () {
+                return (this.stateMask & DefaultButtonModel.ARMED_$LI$()) !== 0;
+            };
+            DefaultButtonModel.prototype.isSelected = function () {
+                return (this.stateMask & DefaultButtonModel.SELECTED_$LI$()) !== 0;
+            };
+            DefaultButtonModel.prototype.isEnabled = function () {
+                return (this.stateMask & DefaultButtonModel.ENABLED_$LI$()) !== 0;
+            };
+            DefaultButtonModel.prototype.isPressed = function () {
+                return (this.stateMask & DefaultButtonModel.PRESSED_$LI$()) !== 0;
+            };
+            DefaultButtonModel.prototype.isRollover = function () {
+                return (this.stateMask & DefaultButtonModel.ROLLOVER_$LI$()) !== 0;
+            };
+            DefaultButtonModel.prototype.setArmed = function (b) {
+                if (this.isMenuItem()) {
+                    if ((this.isArmed() === b)) {
+                        return;
+                    }
+                }
+                else {
+                    if ((this.isArmed() === b) || !this.isEnabled()) {
+                        return;
+                    }
+                }
+                if (b) {
+                    this.stateMask |= DefaultButtonModel.ARMED_$LI$();
+                }
+                else {
+                    this.stateMask &= ~DefaultButtonModel.ARMED_$LI$();
+                }
+                this.fireStateChanged();
+            };
+            DefaultButtonModel.prototype.setEnabled = function (b) {
+                if (this.isEnabled() === b) {
+                    return;
+                }
+                if (b) {
+                    this.stateMask |= DefaultButtonModel.ENABLED_$LI$();
+                }
+                else {
+                    this.stateMask &= ~DefaultButtonModel.ENABLED_$LI$();
+                    this.stateMask &= ~DefaultButtonModel.ARMED_$LI$();
+                    this.stateMask &= ~DefaultButtonModel.PRESSED_$LI$();
+                }
+                this.fireStateChanged();
+            };
+            DefaultButtonModel.prototype.setSelected = function (b) {
+                if (this.isSelected() === b) {
+                    return;
+                }
+                if (b) {
+                    this.stateMask |= DefaultButtonModel.SELECTED_$LI$();
+                }
+                else {
+                    this.stateMask &= ~DefaultButtonModel.SELECTED_$LI$();
+                }
+                this.fireItemStateChanged(new java.awt.event.ItemEvent(this, java.awt.event.ItemEvent.ITEM_STATE_CHANGED_$LI$(), this, b ? java.awt.event.ItemEvent.SELECTED : java.awt.event.ItemEvent.DESELECTED));
+                this.fireStateChanged();
+            };
+            DefaultButtonModel.prototype.setPressed = function (b) {
+                if ((this.isPressed() === b) || !this.isEnabled()) {
+                    return;
+                }
+                if (b) {
+                    this.stateMask |= DefaultButtonModel.PRESSED_$LI$();
+                }
+                else {
+                    this.stateMask &= ~DefaultButtonModel.PRESSED_$LI$();
+                }
+                if (!this.isPressed() && this.isArmed()) {
+                    var modifiers = 0;
+                    this.fireActionPerformed(new java.awt.event.ActionEvent(this, java.awt.event.ActionEvent.ACTION_PERFORMED_$LI$(), this.getActionCommand(), 0, modifiers));
+                }
+                this.fireStateChanged();
+            };
+            DefaultButtonModel.prototype.setRollover = function (b) {
+                if ((this.isRollover() === b) || !this.isEnabled()) {
+                    return;
+                }
+                if (b) {
+                    this.stateMask |= DefaultButtonModel.ROLLOVER_$LI$();
+                }
+                else {
+                    this.stateMask &= ~DefaultButtonModel.ROLLOVER_$LI$();
+                }
+                this.fireStateChanged();
+            };
+            DefaultButtonModel.prototype.setMnemonic = function (key) {
+                this.mnemonic = key;
+                this.fireStateChanged();
+            };
+            DefaultButtonModel.prototype.getMnemonic = function () {
+                return this.mnemonic;
+            };
+            DefaultButtonModel.prototype.addChangeListener = function (l) {
+                this.listenerList.add("javax.swing.event.ChangeListener", l);
+            };
+            DefaultButtonModel.prototype.removeChangeListener = function (l) {
+                this.listenerList.remove("javax.swing.event.ChangeListener", l);
+            };
+            DefaultButtonModel.prototype.getChangeListeners = function () {
+                return this.listenerList.getListeners("javax.swing.event.ChangeListener");
+            };
+            DefaultButtonModel.prototype.fireStateChanged = function () {
+                var listeners = this.listenerList.getListenerList();
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === "javax.swing.event.ChangeListener") {
+                        if (this.changeEvent == null)
+                            this.changeEvent = new javax.swing.event.ChangeEvent(this);
+                        listeners[i + 1].stateChanged(this.changeEvent);
+                    }
+                }
+            };
+            DefaultButtonModel.prototype.addActionListener = function (l) {
+                this.listenerList.add("java.awt.event.ActionListener", l);
+            };
+            DefaultButtonModel.prototype.removeActionListener = function (l) {
+                this.listenerList.remove("java.awt.event.ActionListener", l);
+            };
+            DefaultButtonModel.prototype.getActionListeners = function () {
+                return this.listenerList.getListeners("java.awt.event.ActionListener");
+            };
+            DefaultButtonModel.prototype.fireActionPerformed = function (e) {
+                var listeners = this.listenerList.getListenerList();
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === "java.awt.event.ActionListener") {
+                        listeners[i + 1].actionPerformed(e);
+                    }
+                }
+            };
+            DefaultButtonModel.prototype.addItemListener = function (l) {
+                this.listenerList.add("java.awt.event.ItemListener", l);
+            };
+            DefaultButtonModel.prototype.removeItemListener = function (l) {
+                this.listenerList.remove("java.awt.event.ItemListener", l);
+            };
+            DefaultButtonModel.prototype.getItemListeners = function () {
+                return this.listenerList.getListeners("java.awt.event.ItemListener");
+            };
+            DefaultButtonModel.prototype.fireItemStateChanged = function (e) {
+                var listeners = this.listenerList.getListenerList();
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === "java.awt.event.ItemListener") {
+                        listeners[i + 1].itemStateChanged(e);
+                    }
+                }
+            };
+            DefaultButtonModel.prototype.getListeners = function (listenerType) {
+                return this.listenerList.getListeners(listenerType);
+            };
+            DefaultButtonModel.prototype.getSelectedObjects = function () {
+                return null;
+            };
+            DefaultButtonModel.prototype.setGroup = function (group) {
+                this.group = group;
+            };
+            DefaultButtonModel.prototype.getGroup = function () {
+                return this.group;
+            };
+            DefaultButtonModel.prototype.isMenuItem = function () {
+                return this.menuItem;
+            };
+            DefaultButtonModel.prototype.setMenuItem = function (menuItem) {
+                this.menuItem = menuItem;
+            };
+            return DefaultButtonModel;
+        }());
+        swing.DefaultButtonModel = DefaultButtonModel;
+        DefaultButtonModel["__classname"] = "javax.swing.DefaultButtonModel";
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        /**
+         * Default data model for list selections.
+         * <p>
+         * <strong>Warning:</strong>
+         * Serialized objects of this class will not be compatible with
+         * future Swing releases. The current serialization support is
+         * appropriate for short term storage or RMI between applications running
+         * the same version of Swing.  As of 1.4, support for long term storage
+         * of all JavaBeans&trade;
+         * has been added to the <code>java.beans</code> package.
+         * Please see {@link java.beans.XMLEncoder}.
+         *
+         * @author Philip Milne
+         * @author Hans Muller
+         * @see ListSelectionModel
+         */
+        var DefaultListSelectionModel = (function () {
+            function DefaultListSelectionModel() {
+                this.selectionMode = javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION;
+                this.minIndex = DefaultListSelectionModel.MAX_$LI$();
+                this.maxIndex = DefaultListSelectionModel.MIN;
+                this.anchorIndex = -1;
+                this.leadIndex = -1;
+                this.firstAdjustedIndex = DefaultListSelectionModel.MAX_$LI$();
+                this.lastAdjustedIndex = DefaultListSelectionModel.MIN;
+                this.isAdjusting = false;
+                this.firstChangedIndex = DefaultListSelectionModel.MAX_$LI$();
+                this.lastChangedIndex = DefaultListSelectionModel.MIN;
+                this.value = new java.util.BitSet(32);
+                this.listenerList = new javax.swing.event.EventListenerList();
+                this.leadAnchorNotificationEnabled = true;
+                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.ListSelectionModel", "java.lang.Cloneable", "java.io.Serializable"] });
+            }
+            DefaultListSelectionModel.MAX_$LI$ = function () { if (DefaultListSelectionModel.MAX == null)
+                DefaultListSelectionModel.MAX = javaemul.internal.IntegerHelper.MAX_VALUE; return DefaultListSelectionModel.MAX; };
+            ;
+            /**
+             * {@inheritDoc}
+             */
+            DefaultListSelectionModel.prototype.getMinSelectionIndex = function () {
+                return this.isSelectionEmpty() ? -1 : this.minIndex;
+            };
+            /**
+             * {@inheritDoc}
+             */
+            DefaultListSelectionModel.prototype.getMaxSelectionIndex = function () {
+                return this.maxIndex;
+            };
+            /**
+             * {@inheritDoc}
+             */
+            DefaultListSelectionModel.prototype.getValueIsAdjusting = function () {
+                return this.isAdjusting;
+            };
+            /**
+             * {@inheritDoc}
+             */
+            DefaultListSelectionModel.prototype.getSelectionMode = function () {
+                return this.selectionMode;
+            };
+            /**
+             * {@inheritDoc}
+             * @throws IllegalArgumentException {@inheritDoc}
+             */
+            DefaultListSelectionModel.prototype.setSelectionMode = function (selectionMode) {
+                switch ((selectionMode)) {
+                    case javax.swing.ListSelectionModel.SINGLE_SELECTION:
+                    case javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION:
+                    case javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION:
+                        this.selectionMode = selectionMode;
+                        break;
+                    default:
+                        throw new java.lang.IllegalArgumentException("invalid selectionMode");
+                }
+            };
+            /**
+             * {@inheritDoc}
+             */
+            DefaultListSelectionModel.prototype.isSelectedIndex = function (index) {
+                return ((index < this.minIndex) || (index > this.maxIndex)) ? false : this.value.get(index);
+            };
+            /**
+             * {@inheritDoc}
+             */
+            DefaultListSelectionModel.prototype.isSelectionEmpty = function () {
+                return (this.minIndex > this.maxIndex);
+            };
+            /**
+             * {@inheritDoc}
+             */
+            DefaultListSelectionModel.prototype.addListSelectionListener = function (l) {
+                this.listenerList.add("javax.swing.event.ListSelectionListener", l);
+            };
+            /**
+             * {@inheritDoc}
+             */
+            DefaultListSelectionModel.prototype.removeListSelectionListener = function (l) {
+                this.listenerList.remove("javax.swing.event.ListSelectionListener", l);
+            };
+            /**
+             * Returns an array of all the list selection listeners
+             * registered on this <code>DefaultListSelectionModel</code>.
+             *
+             * @return all of this model's <code>ListSelectionListener</code>s
+             * or an empty
+             * array if no list selection listeners are currently registered
+             *
+             * @see #addListSelectionListener
+             * @see #removeListSelectionListener
+             *
+             * @since 1.4
+             */
+            DefaultListSelectionModel.prototype.getListSelectionListeners = function () {
+                return this.listenerList.getListeners("javax.swing.event.ListSelectionListener");
+            };
+            /**
+             * Notifies listeners that we have ended a series of adjustments.
+             */
+            DefaultListSelectionModel.prototype.fireValueChanged$boolean = function (isAdjusting) {
+                if (this.lastChangedIndex === DefaultListSelectionModel.MIN) {
+                    return;
+                }
+                var oldFirstChangedIndex = this.firstChangedIndex;
+                var oldLastChangedIndex = this.lastChangedIndex;
+                this.firstChangedIndex = DefaultListSelectionModel.MAX_$LI$();
+                this.lastChangedIndex = DefaultListSelectionModel.MIN;
+                this.fireValueChanged(oldFirstChangedIndex, oldLastChangedIndex, isAdjusting);
+            };
+            /**
+             * Notifies <code>ListSelectionListeners</code> that the value
+             * of the selection, in the closed interval <code>firstIndex</code>,
+             * <code>lastIndex</code>, has changed.
+             */
+            DefaultListSelectionModel.prototype.fireValueChanged$int$int = function (firstIndex, lastIndex) {
+                this.fireValueChanged(firstIndex, lastIndex, this.getValueIsAdjusting());
+            };
+            /**
+             * @param firstIndex the first index in the interval
+             * @param lastIndex the last index in the interval
+             * @param isAdjusting true if this is the final change in a series of
+             * adjustments
+             * @see EventListenerList
+             */
+            DefaultListSelectionModel.prototype.fireValueChanged = function (firstIndex, lastIndex, isAdjusting) {
+                var _this = this;
+                if (((typeof firstIndex === 'number') || firstIndex === null) && ((typeof lastIndex === 'number') || lastIndex === null) && ((typeof isAdjusting === 'boolean') || isAdjusting === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    return (function () {
+                        var listeners = _this.listenerList.getListenerList();
+                        var e = null;
+                        for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                            if (listeners[i] === "javax.swing.event.ListSelectionListener") {
+                                if (e == null) {
+                                    e = new javax.swing.event.ListSelectionEvent(_this, firstIndex, lastIndex, isAdjusting);
+                                }
+                                listeners[i + 1].valueChanged(e);
+                            }
+                        }
+                    })();
+                }
+                else if (((typeof firstIndex === 'number') || firstIndex === null) && ((typeof lastIndex === 'number') || lastIndex === null) && isAdjusting === undefined) {
+                    return this.fireValueChanged$int$int(firstIndex, lastIndex);
+                }
+                else if (((typeof firstIndex === 'boolean') || firstIndex === null) && lastIndex === undefined && isAdjusting === undefined) {
+                    return this.fireValueChanged$boolean(firstIndex);
+                }
+                else if (firstIndex === undefined && lastIndex === undefined && isAdjusting === undefined) {
+                    return this.fireValueChanged$();
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            DefaultListSelectionModel.prototype.fireValueChanged$ = function () {
+                if (this.lastAdjustedIndex === DefaultListSelectionModel.MIN) {
+                    return;
+                }
+                if (this.getValueIsAdjusting()) {
+                    this.firstChangedIndex = Math.min(this.firstChangedIndex, this.firstAdjustedIndex);
+                    this.lastChangedIndex = Math.max(this.lastChangedIndex, this.lastAdjustedIndex);
+                }
+                var oldFirstAdjustedIndex = this.firstAdjustedIndex;
+                var oldLastAdjustedIndex = this.lastAdjustedIndex;
+                this.firstAdjustedIndex = DefaultListSelectionModel.MAX_$LI$();
+                this.lastAdjustedIndex = DefaultListSelectionModel.MIN;
+                this.fireValueChanged(oldFirstAdjustedIndex, oldLastAdjustedIndex);
+            };
+            /**
+             * Returns an array of all the objects currently registered as
+             * <code><em>Foo</em>Listener</code>s
+             * upon this model.
+             * <code><em>Foo</em>Listener</code>s
+             * are registered using the <code>add<em>Foo</em>Listener</code> method.
+             * <p>
+             * You can specify the <code>listenerType</code> argument
+             * with a class literal, such as <code><em>Foo</em>Listener.class</code>.
+             * For example, you can query a <code>DefaultListSelectionModel</code>
+             * instance <code>m</code>
+             * for its list selection listeners
+             * with the following code:
+             *
+             * <pre>ListSelectionListener[] lsls = (ListSelectionListener[])(m.getListeners(ListSelectionListener.class));</pre>
+             *
+             * If no such listeners exist,
+             * this method returns an empty array.
+             *
+             * @param listenerType  the type of listeners requested;
+             * this parameter should specify an interface
+             * that descends from <code>java.util.EventListener</code>
+             * @return an array of all objects registered as
+             * <code><em>Foo</em>Listener</code>s
+             * on this model,
+             * or an empty array if no such
+             * listeners have been added
+             * @exception ClassCastException if <code>listenerType</code> doesn't
+             * specify a class or interface that implements
+             * <code>java.util.EventListener</code>
+             *
+             * @see #getListSelectionListeners
+             *
+             * @since 1.3
+             */
+            DefaultListSelectionModel.prototype.getListeners = function (listenerType) {
+                return this.listenerList.getListeners(listenerType);
+            };
+            DefaultListSelectionModel.prototype.markAsDirty = function (r) {
+                if (r === -1) {
+                    return;
+                }
+                this.firstAdjustedIndex = Math.min(this.firstAdjustedIndex, r);
+                this.lastAdjustedIndex = Math.max(this.lastAdjustedIndex, r);
+            };
+            DefaultListSelectionModel.prototype.set = function (r) {
+                if (this.value.get(r)) {
+                    return;
+                }
+                this.value.set(r);
+                this.markAsDirty(r);
+                this.minIndex = Math.min(this.minIndex, r);
+                this.maxIndex = Math.max(this.maxIndex, r);
+            };
+            DefaultListSelectionModel.prototype.clear = function (r) {
+                if (!this.value.get(r)) {
+                    return;
+                }
+                this.value.clear(r);
+                this.markAsDirty(r);
+                if (r === this.minIndex) {
+                    for (this.minIndex = this.minIndex + 1; this.minIndex <= this.maxIndex; this.minIndex++) {
+                        if (this.value.get(this.minIndex)) {
+                            break;
+                        }
+                    }
+                }
+                if (r === this.maxIndex) {
+                    for (this.maxIndex = this.maxIndex - 1; this.minIndex <= this.maxIndex; this.maxIndex--) {
+                        if (this.value.get(this.maxIndex)) {
+                            break;
+                        }
+                    }
+                }
+                if (this.isSelectionEmpty()) {
+                    this.minIndex = DefaultListSelectionModel.MAX_$LI$();
+                    this.maxIndex = DefaultListSelectionModel.MIN;
+                }
+            };
+            /**
+             * Sets the value of the leadAnchorNotificationEnabled flag.
+             * @see             #isLeadAnchorNotificationEnabled()
+             */
+            DefaultListSelectionModel.prototype.setLeadAnchorNotificationEnabled = function (flag) {
+                this.leadAnchorNotificationEnabled = flag;
+            };
+            /**
+             * Returns the value of the <code>leadAnchorNotificationEnabled</code> flag.
+             * When <code>leadAnchorNotificationEnabled</code> is true the model
+             * generates notification events with bounds that cover all the changes to
+             * the selection plus the changes to the lead and anchor indices.
+             * Setting the flag to false causes a narrowing of the event's bounds to
+             * include only the elements that have been selected or deselected since
+             * the last change. Either way, the model continues to maintain the lead
+             * and anchor variables internally. The default is true.
+             * <p>
+             * Note: It is possible for the lead or anchor to be changed without a
+             * change to the selection. Notification of these changes is often
+             * important, such as when the new lead or anchor needs to be updated in
+             * the view. Therefore, caution is urged when changing the default value.
+             *
+             * @return  the value of the <code>leadAnchorNotificationEnabled</code> flag
+             * @see             #setLeadAnchorNotificationEnabled(boolean)
+             */
+            DefaultListSelectionModel.prototype.isLeadAnchorNotificationEnabled = function () {
+                return this.leadAnchorNotificationEnabled;
+            };
+            DefaultListSelectionModel.prototype.updateLeadAnchorIndices = function (anchorIndex, leadIndex) {
+                if (this.leadAnchorNotificationEnabled) {
+                    if (this.anchorIndex !== anchorIndex) {
+                        this.markAsDirty(this.anchorIndex);
+                        this.markAsDirty(anchorIndex);
+                    }
+                    if (this.leadIndex !== leadIndex) {
+                        this.markAsDirty(this.leadIndex);
+                        this.markAsDirty(leadIndex);
+                    }
+                }
+                this.anchorIndex = anchorIndex;
+                this.leadIndex = leadIndex;
+            };
+            DefaultListSelectionModel.prototype.contains = function (a, b, i) {
+                return (i >= a) && (i <= b);
+            };
+            DefaultListSelectionModel.prototype.changeSelection = function (clearMin, clearMax, setMin, setMax, clearFirst) {
+                if (clearFirst === void 0) { clearFirst = true; }
+                for (var i = Math.min(setMin, clearMin); i <= Math.max(setMax, clearMax); i++) {
+                    var shouldClear = this.contains(clearMin, clearMax, i);
+                    var shouldSet = this.contains(setMin, setMax, i);
+                    if (shouldSet && shouldClear) {
+                        if (clearFirst) {
+                            shouldClear = false;
+                        }
+                        else {
+                            shouldSet = false;
+                        }
+                    }
+                    if (shouldSet) {
+                        this.set(i);
+                    }
+                    if (shouldClear) {
+                        this.clear(i);
+                    }
+                }
+                this.fireValueChanged();
+            };
+            /**
+             * {@inheritDoc}
+             */
+            DefaultListSelectionModel.prototype.clearSelection = function () {
+                this.removeSelectionIntervalImpl(this.minIndex, this.maxIndex, false);
+            };
+            /**
+             * Changes the selection to be between {@code index0} and {@code index1}
+             * inclusive. {@code index0} doesn't have to be less than or equal to
+             * {@code index1}.
+             * <p>
+             * In {@code SINGLE_SELECTION} selection mode, only the second index
+             * is used.
+             * <p>
+             * If this represents a change to the current selection, then each
+             * {@code ListSelectionListener} is notified of the change.
+             * <p>
+             * If either index is {@code -1}, this method does nothing and returns
+             * without exception. Otherwise, if either index is less than {@code -1},
+             * an {@code IndexOutOfBoundsException} is thrown.
+             *
+             * @param index0 one end of the interval.
+             * @param index1 other end of the interval
+             * @throws IndexOutOfBoundsException if either index is less than {@code -1}
+             * (and neither index is {@code -1})
+             * @see #addListSelectionListener
+             */
+            DefaultListSelectionModel.prototype.setSelectionInterval = function (index0, index1) {
+                if (index0 === -1 || index1 === -1) {
+                    return;
+                }
+                if (this.getSelectionMode() === javax.swing.ListSelectionModel.SINGLE_SELECTION) {
+                    index0 = index1;
+                }
+                this.updateLeadAnchorIndices(index0, index1);
+                var clearMin = this.minIndex;
+                var clearMax = this.maxIndex;
+                var setMin = Math.min(index0, index1);
+                var setMax = Math.max(index0, index1);
+                this.changeSelection(clearMin, clearMax, setMin, setMax);
+            };
+            /**
+             * Changes the selection to be the set union of the current selection
+             * and the indices between {@code index0} and {@code index1} inclusive.
+             * <p>
+             * In {@code SINGLE_SELECTION} selection mode, this is equivalent
+             * to calling {@code setSelectionInterval}, and only the second index
+             * is used. In {@code SINGLE_INTERVAL_SELECTION} selection mode, this
+             * method behaves like {@code setSelectionInterval}, unless the given
+             * interval is immediately adjacent to or overlaps the existing selection,
+             * and can therefore be used to grow it.
+             * <p>
+             * If this represents a change to the current selection, then each
+             * {@code ListSelectionListener} is notified of the change. Note that
+             * {@code index0} doesn't have to be less than or equal to {@code index1}.
+             * <p>
+             * If either index is {@code -1}, this method does nothing and returns
+             * without exception. Otherwise, if either index is less than {@code -1},
+             * an {@code IndexOutOfBoundsException} is thrown.
+             *
+             * @param index0 one end of the interval.
+             * @param index1 other end of the interval
+             * @throws IndexOutOfBoundsException if either index is less than {@code -1}
+             * (and neither index is {@code -1})
+             * @see #addListSelectionListener
+             * @see #setSelectionInterval
+             */
+            DefaultListSelectionModel.prototype.addSelectionInterval = function (index0, index1) {
+                if (index0 === -1 || index1 === -1) {
+                    return;
+                }
+                if (this.getSelectionMode() === javax.swing.ListSelectionModel.SINGLE_SELECTION) {
+                    this.setSelectionInterval(index0, index1);
+                    return;
+                }
+                this.updateLeadAnchorIndices(index0, index1);
+                var clearMin = DefaultListSelectionModel.MAX_$LI$();
+                var clearMax = DefaultListSelectionModel.MIN;
+                var setMin = Math.min(index0, index1);
+                var setMax = Math.max(index0, index1);
+                if (this.getSelectionMode() === javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION && (setMax < this.minIndex - 1 || setMin > this.maxIndex + 1)) {
+                    this.setSelectionInterval(index0, index1);
+                    return;
+                }
+                this.changeSelection(clearMin, clearMax, setMin, setMax);
+            };
+            /**
+             * Changes the selection to be the set difference of the current selection
+             * and the indices between {@code index0} and {@code index1} inclusive.
+             * {@code index0} doesn't have to be less than or equal to {@code index1}.
+             * <p>
+             * In {@code SINGLE_INTERVAL_SELECTION} selection mode, if the removal
+             * would produce two disjoint selections, the removal is extended through
+             * the greater end of the selection. For example, if the selection is
+             * {@code 0-10} and you supply indices {@code 5,6} (in any order) the
+             * resulting selection is {@code 0-4}.
+             * <p>
+             * If this represents a change to the current selection, then each
+             * {@code ListSelectionListener} is notified of the change.
+             * <p>
+             * If either index is {@code -1}, this method does nothing and returns
+             * without exception. Otherwise, if either index is less than {@code -1},
+             * an {@code IndexOutOfBoundsException} is thrown.
+             *
+             * @param index0 one end of the interval
+             * @param index1 other end of the interval
+             * @throws IndexOutOfBoundsException if either index is less than {@code -1}
+             * (and neither index is {@code -1})
+             * @see #addListSelectionListener
+             */
+            DefaultListSelectionModel.prototype.removeSelectionInterval = function (index0, index1) {
+                this.removeSelectionIntervalImpl(index0, index1, true);
+            };
+            DefaultListSelectionModel.prototype.removeSelectionIntervalImpl = function (index0, index1, changeLeadAnchor) {
+                if (index0 === -1 || index1 === -1) {
+                    return;
+                }
+                if (changeLeadAnchor) {
+                    this.updateLeadAnchorIndices(index0, index1);
+                }
+                var clearMin = Math.min(index0, index1);
+                var clearMax = Math.max(index0, index1);
+                var setMin = DefaultListSelectionModel.MAX_$LI$();
+                var setMax = DefaultListSelectionModel.MIN;
+                if (this.getSelectionMode() !== javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION && clearMin > this.minIndex && clearMax < this.maxIndex) {
+                    clearMax = this.maxIndex;
+                }
+                this.changeSelection(clearMin, clearMax, setMin, setMax);
+            };
+            DefaultListSelectionModel.prototype.setState = function (index, state) {
+                if (state) {
+                    this.set(index);
+                }
+                else {
+                    this.clear(index);
+                }
+            };
+            /**
+             * Insert length indices beginning before/after index. If the value
+             * at index is itself selected and the selection mode is not
+             * SINGLE_SELECTION, set all of the newly inserted items as selected.
+             * Otherwise leave them unselected. This method is typically
+             * called to sync the selection model with a corresponding change
+             * in the data model.
+             */
+            DefaultListSelectionModel.prototype.insertIndexInterval = function (index, length, before) {
+                var insMinIndex = (before) ? index : index + 1;
+                var insMaxIndex = (insMinIndex + length) - 1;
+                for (var i = this.maxIndex; i >= insMinIndex; i--) {
+                    this.setState(i + length, this.value.get(i));
+                }
+                var setInsertedValues = ((this.getSelectionMode() === javax.swing.ListSelectionModel.SINGLE_SELECTION) ? false : this.value.get(index));
+                for (var i = insMinIndex; i <= insMaxIndex; i++) {
+                    this.setState(i, setInsertedValues);
+                }
+                var leadIndex = this.leadIndex;
+                if (leadIndex > index || (before && leadIndex === index)) {
+                    leadIndex = this.leadIndex + length;
+                }
+                var anchorIndex = this.anchorIndex;
+                if (anchorIndex > index || (before && anchorIndex === index)) {
+                    anchorIndex = this.anchorIndex + length;
+                }
+                if (leadIndex !== this.leadIndex || anchorIndex !== this.anchorIndex) {
+                    this.updateLeadAnchorIndices(anchorIndex, leadIndex);
+                }
+                this.fireValueChanged();
+            };
+            /**
+             * Remove the indices in the interval index0,index1 (inclusive) from
+             * the selection model.  This is typically called to sync the selection
+             * model width a corresponding change in the data model.  Note
+             * that (as always) index0 need not be &lt;= index1.
+             */
+            DefaultListSelectionModel.prototype.removeIndexInterval = function (index0, index1) {
+                var rmMinIndex = Math.min(index0, index1);
+                var rmMaxIndex = Math.max(index0, index1);
+                var gapLength = (rmMaxIndex - rmMinIndex) + 1;
+                for (var i = rmMinIndex; i <= this.maxIndex; i++) {
+                    this.setState(i, this.value.get(i + gapLength));
+                }
+                var leadIndex = this.leadIndex;
+                if (leadIndex === 0 && rmMinIndex === 0) {
+                }
+                else if (leadIndex > rmMaxIndex) {
+                    leadIndex = this.leadIndex - gapLength;
+                }
+                else if (leadIndex >= rmMinIndex) {
+                    leadIndex = rmMinIndex - 1;
+                }
+                var anchorIndex = this.anchorIndex;
+                if (anchorIndex === 0 && rmMinIndex === 0) {
+                }
+                else if (anchorIndex > rmMaxIndex) {
+                    anchorIndex = this.anchorIndex - gapLength;
+                }
+                else if (anchorIndex >= rmMinIndex) {
+                    anchorIndex = rmMinIndex - 1;
+                }
+                if (leadIndex !== this.leadIndex || anchorIndex !== this.anchorIndex) {
+                    this.updateLeadAnchorIndices(anchorIndex, leadIndex);
+                }
+                this.fireValueChanged();
+            };
+            /**
+             * {@inheritDoc}
+             */
+            DefaultListSelectionModel.prototype.setValueIsAdjusting = function (isAdjusting) {
+                if (isAdjusting !== this.isAdjusting) {
+                    this.isAdjusting = isAdjusting;
+                    this.fireValueChanged(isAdjusting);
+                }
+            };
+            /**
+             * Returns a string that displays and identifies this
+             * object's properties.
+             *
+             * @return a <code>String</code> representation of this object
+             */
+            DefaultListSelectionModel.prototype.toString = function () {
+                var s = ((this.getValueIsAdjusting()) ? "~" : "=") + this.value.toString();
+                return this.constructor["__classname"] + " " + ('' + this.hashCode()) + " " + s;
+            };
+            /**
+             * Returns a clone of this selection model with the same selection.
+             * <code>listenerLists</code> are not duplicated.
+             *
+             * @exception CloneNotSupportedException if the selection model does not
+             * both (a) implement the Cloneable interface and (b) define a
+             * <code>clone</code> method.
+             */
+            DefaultListSelectionModel.prototype.clone = function () {
+                var clone = javaemul.internal.ObjectHelper.clone(this);
+                clone.value = this.value.clone();
+                clone.listenerList = new javax.swing.event.EventListenerList();
+                return clone;
+            };
+            /**
+             * {@inheritDoc}
+             */
+            DefaultListSelectionModel.prototype.getAnchorSelectionIndex = function () {
+                return this.anchorIndex;
+            };
+            /**
+             * {@inheritDoc}
+             */
+            DefaultListSelectionModel.prototype.getLeadSelectionIndex = function () {
+                return this.leadIndex;
+            };
+            /**
+             * Set the anchor selection index, leaving all selection values unchanged.
+             * If leadAnchorNotificationEnabled is true, send a notification covering
+             * the old and new anchor cells.
+             *
+             * @see #getAnchorSelectionIndex
+             * @see #setLeadSelectionIndex
+             */
+            DefaultListSelectionModel.prototype.setAnchorSelectionIndex = function (anchorIndex) {
+                this.updateLeadAnchorIndices(anchorIndex, this.leadIndex);
+                this.fireValueChanged();
+            };
+            /**
+             * Set the lead selection index, leaving all selection values unchanged.
+             * If leadAnchorNotificationEnabled is true, send a notification covering
+             * the old and new lead cells.
+             *
+             * @param leadIndex the new lead selection index
+             *
+             * @see #setAnchorSelectionIndex
+             * @see #setLeadSelectionIndex
+             * @see #getLeadSelectionIndex
+             *
+             * @since 1.5
+             */
+            DefaultListSelectionModel.prototype.moveLeadSelectionIndex = function (leadIndex) {
+                if (leadIndex === -1) {
+                    if (this.anchorIndex !== -1) {
+                        return;
+                    }
+                }
+                this.updateLeadAnchorIndices(this.anchorIndex, leadIndex);
+                this.fireValueChanged();
+            };
+            /**
+             * Sets the lead selection index, ensuring that values between the
+             * anchor and the new lead are either all selected or all deselected.
+             * If the value at the anchor index is selected, first clear all the
+             * values in the range [anchor, oldLeadIndex], then select all the values
+             * values in the range [anchor, newLeadIndex], where oldLeadIndex is the old
+             * leadIndex and newLeadIndex is the new one.
+             * <p>
+             * If the value at the anchor index is not selected, do the same thing in
+             * reverse selecting values in the old range and deselecting values in the
+             * new one.
+             * <p>
+             * Generate a single event for this change and notify all listeners.
+             * For the purposes of generating minimal bounds in this event, do the
+             * operation in a single pass; that way the first and last index inside the
+             * ListSelectionEvent that is broadcast will refer to cells that actually
+             * changed value because of this method. If, instead, this operation were
+             * done in two steps the effect on the selection state would be the same
+             * but two events would be generated and the bounds around the changed
+             * values would be wider, including cells that had been first cleared only
+             * to later be set.
+             * <p>
+             * This method can be used in the <code>mouseDragged</code> method
+             * of a UI class to extend a selection.
+             *
+             * @see #getLeadSelectionIndex
+             * @see #setAnchorSelectionIndex
+             */
+            DefaultListSelectionModel.prototype.setLeadSelectionIndex = function (leadIndex) {
+                var anchorIndex = this.anchorIndex;
+                if (leadIndex === -1) {
+                    if (anchorIndex === -1) {
+                        this.updateLeadAnchorIndices(anchorIndex, leadIndex);
+                        this.fireValueChanged();
+                    }
+                    return;
+                }
+                else if (anchorIndex === -1) {
+                    return;
+                }
+                if (this.leadIndex === -1) {
+                    this.leadIndex = leadIndex;
+                }
+                var shouldSelect = this.value.get(this.anchorIndex);
+                if (this.getSelectionMode() === javax.swing.ListSelectionModel.SINGLE_SELECTION) {
+                    anchorIndex = leadIndex;
+                    shouldSelect = true;
+                }
+                var oldMin = Math.min(this.anchorIndex, this.leadIndex);
+                var oldMax = Math.max(this.anchorIndex, this.leadIndex);
+                var newMin = Math.min(anchorIndex, leadIndex);
+                var newMax = Math.max(anchorIndex, leadIndex);
+                this.updateLeadAnchorIndices(anchorIndex, leadIndex);
+                if (shouldSelect) {
+                    this.changeSelection(oldMin, oldMax, newMin, newMax);
+                }
+                else {
+                    this.changeSelection(newMin, newMax, oldMin, oldMax, false);
+                }
+            };
+            DefaultListSelectionModel.MIN = -1;
+            return DefaultListSelectionModel;
+        }());
+        swing.DefaultListSelectionModel = DefaultListSelectionModel;
+        DefaultListSelectionModel["__classname"] = "javax.swing.DefaultListSelectionModel";
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        /**
+         * A generic implementation of SingleSelectionModel.
+         * <p>
+         * <strong>Warning:</strong>
+         * Serialized objects of this class will not be compatible with
+         * future Swing releases. The current serialization support is
+         * appropriate for short term storage or RMI between applications running
+         * the same version of Swing.  As of 1.4, support for long term storage
+         * of all JavaBeans&trade;
+         * has been added to the <code>java.beans</code> package.
+         * Please see {@link java.beans.XMLEncoder}.
+         *
+         * @author Dave Moore
+         */
+        var DefaultSingleSelectionModel = (function () {
+            function DefaultSingleSelectionModel() {
+                this.changeEvent = null;
+                /**
+                 * The collection of registered listeners
+                 */
+                this.listenerList = new javax.swing.event.EventListenerList();
+                this.index = -1;
+                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.SingleSelectionModel", "java.io.Serializable"] });
+            }
+            DefaultSingleSelectionModel.prototype.getSelectedIndex = function () {
+                return this.index;
+            };
+            DefaultSingleSelectionModel.prototype.setSelectedIndex = function (index) {
+                if (this.index !== index) {
+                    this.index = index;
+                    this.fireStateChanged();
+                }
+            };
+            DefaultSingleSelectionModel.prototype.clearSelection = function () {
+                this.setSelectedIndex(-1);
+            };
+            DefaultSingleSelectionModel.prototype.isSelected = function () {
+                var ret = false;
+                if (this.getSelectedIndex() !== -1) {
+                    ret = true;
+                }
+                return ret;
+            };
+            /**
+             * Adds a <code>ChangeListener</code> to the button.
+             */
+            DefaultSingleSelectionModel.prototype.addChangeListener = function (l) {
+                this.listenerList.add("javax.swing.event.ChangeListener", l);
+            };
+            /**
+             * Removes a <code>ChangeListener</code> from the button.
+             */
+            DefaultSingleSelectionModel.prototype.removeChangeListener = function (l) {
+                this.listenerList.remove("javax.swing.event.ChangeListener", l);
+            };
+            /**
+             * Returns an array of all the change listeners
+             * registered on this <code>DefaultSingleSelectionModel</code>.
+             *
+             * @return all of this model's <code>ChangeListener</code>s
+             * or an empty
+             * array if no change listeners are currently registered
+             *
+             * @see #addChangeListener
+             * @see #removeChangeListener
+             *
+             * @since 1.4
+             */
+            DefaultSingleSelectionModel.prototype.getChangeListeners = function () {
+                return this.listenerList.getListeners("javax.swing.event.ChangeListener");
+            };
+            /**
+             * Notifies all listeners that have registered interest for
+             * notification on this event type.  The event instance
+             * is created lazily.
+             * @see EventListenerList
+             */
+            DefaultSingleSelectionModel.prototype.fireStateChanged = function () {
+                var listeners = this.listenerList.getListenerList();
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === "javax.swing.event.ChangeListener") {
+                        if (this.changeEvent == null)
+                            this.changeEvent = new javax.swing.event.ChangeEvent(this);
+                        listeners[i + 1].stateChanged(this.changeEvent);
+                    }
+                }
+            };
+            /**
+             * Returns an array of all the objects currently registered as
+             * <code><em>Foo</em>Listener</code>s
+             * upon this model.
+             * <code><em>Foo</em>Listener</code>s
+             * are registered using the <code>add<em>Foo</em>Listener</code> method.
+             * <p>
+             * You can specify the <code>listenerType</code> argument
+             * with a class literal, such as <code><em>Foo</em>Listener.class</code>.
+             * For example, you can query a <code>DefaultSingleSelectionModel</code>
+             * instance <code>m</code>
+             * for its change listeners
+             * with the following code:
+             *
+             * <pre>ChangeListener[] cls = (ChangeListener[])(m.getListeners(ChangeListener.class));</pre>
+             *
+             * If no such listeners exist,
+             * this method returns an empty array.
+             *
+             * @param listenerType  the type of listeners requested;
+             * this parameter should specify an interface
+             * that descends from <code>java.util.EventListener</code>
+             * @return an array of all objects registered as
+             * <code><em>Foo</em>Listener</code>s
+             * on this model,
+             * or an empty array if no such
+             * listeners have been added
+             * @exception ClassCastException if <code>listenerType</code> doesn't
+             * specify a class or interface that implements
+             * <code>java.util.EventListener</code>
+             *
+             * @see #getChangeListeners
+             *
+             * @since 1.3
+             */
+            DefaultSingleSelectionModel.prototype.getListeners = function (listenerType) {
+                return this.listenerList.getListeners(listenerType);
+            };
+            return DefaultSingleSelectionModel;
+        }());
+        swing.DefaultSingleSelectionModel = DefaultSingleSelectionModel;
+        DefaultSingleSelectionModel["__classname"] = "javax.swing.DefaultSingleSelectionModel";
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        /**
+         * Drop modes, used to determine the method by which a component
+         * tracks and indicates a drop location during drag and drop.
+         *
+         * @author Shannon Hickey
+         * @see JTable#setDropMode
+         * @see JList#setDropMode
+         * @see JTree#setDropMode
+         * @see javax.swing.text.JTextComponent#setDropMode
+         * @since 1.6
+         */
+        (function (DropMode) {
+            DropMode[DropMode["USE_SELECTION"] = 0] = "USE_SELECTION";
+            DropMode[DropMode["ON"] = 1] = "ON";
+            DropMode[DropMode["INSERT"] = 2] = "INSERT";
+            DropMode[DropMode["INSERT_ROWS"] = 3] = "INSERT_ROWS";
+            DropMode[DropMode["INSERT_COLS"] = 4] = "INSERT_COLS";
+            DropMode[DropMode["ON_OR_INSERT"] = 5] = "ON_OR_INSERT";
+            DropMode[DropMode["ON_OR_INSERT_ROWS"] = 6] = "ON_OR_INSERT_ROWS";
+            DropMode[DropMode["ON_OR_INSERT_COLS"] = 7] = "ON_OR_INSERT_COLS";
+        })(swing.DropMode || (swing.DropMode = {}));
+        var DropMode = swing.DropMode;
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -14256,6 +17883,29 @@ var javax;
                     return this.listenerList;
                 };
                 EventListenerList.prototype.getListeners = function (t) {
+                    var _this = this;
+                    if (((t != null && t instanceof java.lang.Class) || t === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
+                        return (function () {
+                            var lList = _this.listenerList;
+                            var n = _this.getListenerCount(lList, t);
+                            var result = new Array(n);
+                            var j = 0;
+                            for (var i = lList.length - 2; i >= 0; i -= 2) {
+                                if (lList[i] === t) {
+                                    result[j++] = lList[i + 1];
+                                }
+                            }
+                            return result;
+                        })();
+                    }
+                    else if (((typeof t === 'string') || t === null)) {
+                        return this.getListeners$java_lang_String(t);
+                    }
+                    else
+                        throw new Error('invalid overload');
+                };
+                EventListenerList.prototype.getListeners$java_lang_String = function (t) {
                     var lList = this.listenerList;
                     var n = this.getListenerCount(lList, t);
                     var result = new Array(n);
@@ -14274,8 +17924,13 @@ var javax;
                     var lList = this.listenerList;
                     return this.getListenerCount(lList, t);
                 };
+                EventListenerList.prototype.getListenerCount$java_lang_String = function (t) {
+                    var lList = this.listenerList;
+                    return this.getListenerCount(lList, t);
+                };
                 EventListenerList.prototype.getListenerCount = function (list, t) {
                     if (((list != null && list instanceof Array) || list === null) && ((t != null && t instanceof java.lang.Class) || t === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             var count = 0;
                             for (var i = 0; i < list.length; i += 2) {
@@ -14285,8 +17940,14 @@ var javax;
                             return count;
                         })();
                     }
+                    else if (((list != null && list instanceof Array) || list === null) && ((typeof t === 'string') || t === null)) {
+                        return this.getListenerCount$java_lang_Object_A$java_lang_String(list, t);
+                    }
                     else if (((list != null && list instanceof java.lang.Class) || list === null) && t === undefined) {
                         return this.getListenerCount$java_lang_Class(list);
+                    }
+                    else if (((typeof list === 'string') || list === null) && t === undefined) {
+                        return this.getListenerCount$java_lang_String(list);
                     }
                     else if (list === undefined && t === undefined) {
                         return this.getListenerCount$();
@@ -14294,12 +17955,17 @@ var javax;
                     else
                         throw new Error('invalid overload');
                 };
+                EventListenerList.prototype.getListenerCount$java_lang_Object_A$java_lang_String = function (list, t) {
+                    var count = 0;
+                    for (var i = 0; i < list.length; i += 2) {
+                        if (t === list[i])
+                            count++;
+                    }
+                    return count;
+                };
                 EventListenerList.prototype.add = function (t, l) {
                     if (l == null) {
                         return;
-                    }
-                    if (l.constructor !== t) {
-                        throw new java.lang.IllegalArgumentException("Listener " + l + " is not of type " + t);
                     }
                     if (this.listenerList === EventListenerList.NULL_ARRAY_$LI$()) {
                         this.listenerList = [t, l];
@@ -14316,9 +17982,6 @@ var javax;
                 EventListenerList.prototype.remove = function (t, l) {
                     if (l == null) {
                         return;
-                    }
-                    if (l.constructor !== t) {
-                        throw new java.lang.IllegalArgumentException("Listener " + l + " is not of type " + t);
                     }
                     var index = -1;
                     for (var i = this.listenerList.length - 2; i >= 0; i -= 2) {
@@ -14352,6 +18015,231 @@ var javax;
             }());
             event.EventListenerList = EventListenerList;
             EventListenerList["__classname"] = "javax.swing.event.EventListenerList";
+        })(event = swing.event || (swing.event = {}));
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        var event;
+        (function (event) {
+            var ListDataEvent = (function (_super) {
+                __extends(ListDataEvent, _super);
+                function ListDataEvent(source, type, index0, index1) {
+                    _super.call(this, source);
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
+                    this.type = 0;
+                    this.index0 = 0;
+                    this.index1 = 0;
+                    this.type = type;
+                    this.index0 = Math.min(index0, index1);
+                    this.index1 = Math.max(index0, index1);
+                }
+                ListDataEvent.prototype.getType = function () {
+                    return this.type;
+                };
+                ListDataEvent.prototype.getIndex0 = function () {
+                    return this.index0;
+                };
+                ListDataEvent.prototype.getIndex1 = function () {
+                    return this.index1;
+                };
+                ListDataEvent.prototype.toString = function () {
+                    return this.constructor["__classname"] + "[type=" + this.type + ",index0=" + this.index0 + ",index1=" + this.index1 + "]";
+                };
+                ListDataEvent.CONTENTS_CHANGED = 0;
+                ListDataEvent.INTERVAL_ADDED = 1;
+                ListDataEvent.INTERVAL_REMOVED = 2;
+                return ListDataEvent;
+            }(java.util.EventObject));
+            event.ListDataEvent = ListDataEvent;
+            ListDataEvent["__classname"] = "javax.swing.event.ListDataEvent";
+        })(event = swing.event || (swing.event = {}));
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        var event;
+        (function (event) {
+            /**
+             * An event that characterizes a change in selection. The change is limited to a
+             * a single inclusive interval. The selection of at least one index within the
+             * range will have changed. A decent {@code ListSelectionModel} implementation
+             * will keep the range as small as possible. {@code ListSelectionListeners} will
+             * generally query the source of the event for the new selected status of each
+             * potentially changed row.
+             * <p>
+             * <strong>Warning:</strong>
+             * Serialized objects of this class will not be compatible with
+             * future Swing releases. The current serialization support is
+             * appropriate for short term storage or RMI between applications running
+             * the same version of Swing.  As of 1.4, support for long term storage
+             * of all JavaBeans&trade;
+             * has been added to the <code>java.beans</code> package.
+             * Please see {@link java.beans.XMLEncoder}.
+             *
+             * @author Hans Muller
+             * @author Ray Ryan
+             * @see ListSelectionModel
+             */
+            var ListSelectionEvent = (function (_super) {
+                __extends(ListSelectionEvent, _super);
+                /**
+                 * Represents a change in selection status between {@code firstIndex} and
+                 * {@code lastIndex}, inclusive. {@code firstIndex} is less than or equal to
+                 * {@code lastIndex}. The selection of at least one index within the range will
+                 * have changed.
+                 *
+                 * @param firstIndex the first index in the range, &lt;= lastIndex
+                 * @param lastIndex the last index in the range, &gt;= firstIndex
+                 * @param isAdjusting whether or not this is one in a series of
+                 * multiple events, where changes are still being made
+                 */
+                function ListSelectionEvent(source, firstIndex, lastIndex, isAdjusting) {
+                    _super.call(this, source);
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
+                    this.firstIndex = 0;
+                    this.lastIndex = 0;
+                    this.isAdjusting = false;
+                    this.firstIndex = firstIndex;
+                    this.lastIndex = lastIndex;
+                    this.isAdjusting = isAdjusting;
+                }
+                /**
+                 * Returns the index of the first row whose selection may have changed.
+                 * {@code getFirstIndex() &lt;= getLastIndex()}
+                 *
+                 * @return the first row whose selection value may have changed,
+                 * where zero is the first row
+                 */
+                ListSelectionEvent.prototype.getFirstIndex = function () {
+                    return this.firstIndex;
+                };
+                /**
+                 * Returns the index of the last row whose selection may have changed.
+                 * {@code getLastIndex() &gt;= getFirstIndex()}
+                 *
+                 * @return the last row whose selection value may have changed,
+                 * where zero is the first row
+                 */
+                ListSelectionEvent.prototype.getLastIndex = function () {
+                    return this.lastIndex;
+                };
+                /**
+                 * Returns whether or not this is one in a series of multiple events,
+                 * where changes are still being made. See the documentation for
+                 * {@link javax.swing.ListSelectionModel#setValueIsAdjusting} for
+                 * more details on how this is used.
+                 *
+                 * @return {@code true} if this is one in a series of multiple events,
+                 * where changes are still being made
+                 */
+                ListSelectionEvent.prototype.getValueIsAdjusting = function () {
+                    return this.isAdjusting;
+                };
+                /**
+                 * Returns a {@code String} that displays and identifies this
+                 * object's properties.
+                 *
+                 * @return a String representation of this object
+                 */
+                ListSelectionEvent.prototype.toString = function () {
+                    var properties = " source=" + this.getSource() + " firstIndex= " + this.firstIndex + " lastIndex= " + this.lastIndex + " isAdjusting= " + this.isAdjusting + " ";
+                    return this.constructor["__classname"] + "[" + properties + "]";
+                };
+                return ListSelectionEvent;
+            }(java.util.EventObject));
+            event.ListSelectionEvent = ListSelectionEvent;
+            ListSelectionEvent["__classname"] = "javax.swing.event.ListSelectionEvent";
+        })(event = swing.event || (swing.event = {}));
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        var event;
+        (function (event) {
+            /**
+             * MenuEvent is used to notify interested parties that
+             * the menu which is the event source has been posted,
+             * selected, or canceled.
+             * <p>
+             * <strong>Warning:</strong>
+             * Serialized objects of this class will not be compatible with
+             * future Swing releases. The current serialization support is
+             * appropriate for short term storage or RMI between applications running
+             * the same version of Swing.  As of 1.4, support for long term storage
+             * of all JavaBeans&trade;
+             * has been added to the <code>java.beans</code> package.
+             * Please see {@link java.beans.XMLEncoder}.
+             *
+             * @author Georges Saab
+             * @author David Karlton
+             */
+            var MenuEvent = (function (_super) {
+                __extends(MenuEvent, _super);
+                /**
+                 * Constructs a MenuEvent object.
+                 *
+                 * @param source  the Object that originated the event
+                 * (typically <code>this</code>)
+                 */
+                function MenuEvent(source) {
+                    _super.call(this, source);
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
+                }
+                return MenuEvent;
+            }(java.util.EventObject));
+            event.MenuEvent = MenuEvent;
+            MenuEvent["__classname"] = "javax.swing.event.MenuEvent";
+        })(event = swing.event || (swing.event = {}));
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        var event;
+        (function (event) {
+            /**
+             * PopupMenuEvent only contains the source of the event which is the JPoupMenu
+             * sending the event
+             * <p>
+             * <strong>Warning:</strong>
+             * Serialized objects of this class will not be compatible with
+             * future Swing releases. The current serialization support is
+             * appropriate for short term storage or RMI between applications running
+             * the same version of Swing.  As of 1.4, support for long term storage
+             * of all JavaBeans&trade;
+             * has been added to the <code>java.beans</code> package.
+             * Please see {@link java.beans.XMLEncoder}.
+             *
+             * @author Arnaud Weber
+             */
+            var PopupMenuEvent = (function (_super) {
+                __extends(PopupMenuEvent, _super);
+                /**
+                 * Constructs a PopupMenuEvent object.
+                 *
+                 * @param source  the Object that originated the event
+                 * (typically <code>this</code>)
+                 */
+                function PopupMenuEvent(source) {
+                    _super.call(this, source);
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
+                }
+                return PopupMenuEvent;
+            }(java.util.EventObject));
+            event.PopupMenuEvent = PopupMenuEvent;
+            PopupMenuEvent["__classname"] = "javax.swing.event.PopupMenuEvent";
         })(event = swing.event || (swing.event = {}));
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
@@ -14414,6 +18302,7 @@ var javax;
             function ImageIcon(filename, description) {
                 var _this = this;
                 if (((typeof filename === 'string') || filename === null) && ((typeof description === 'string') || description === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.Icon", "java.io.Serializable"] });
                     this.loadStatus = 0;
                     this.width = 0;
@@ -14429,8 +18318,10 @@ var javax;
                     })();
                 }
                 else if (((filename != null && filename instanceof java.awt.Image) || filename === null) && ((typeof description === 'string') || description === null)) {
-                    var image = filename;
+                    var __args = Array.prototype.slice.call(arguments);
+                    var image = __args[0];
                     {
+                        var __args = Array.prototype.slice.call(arguments);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.Icon", "java.io.Serializable"] });
                         this.loadStatus = 0;
                         this.width = 0;
@@ -14445,7 +18336,9 @@ var javax;
                     })();
                 }
                 else if (((typeof filename === 'string') || filename === null) && description === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
                     {
+                        var __args = Array.prototype.slice.call(arguments);
                         var description = filename;
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.Icon", "java.io.Serializable"] });
                         this.loadStatus = 0;
@@ -14465,7 +18358,8 @@ var javax;
                     })();
                 }
                 else if (((filename != null && filename instanceof java.awt.Image) || filename === null) && description === undefined) {
-                    var image = filename;
+                    var __args = Array.prototype.slice.call(arguments);
+                    var image = __args[0];
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.Icon", "java.io.Serializable"] });
                     this.loadStatus = 0;
                     this.width = 0;
@@ -14476,6 +18370,7 @@ var javax;
                     })();
                 }
                 else if (filename === undefined && description === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.Icon", "java.io.Serializable"] });
                     this.loadStatus = 0;
                     this.width = 0;
@@ -14534,6 +18429,56 @@ var javax;
         }());
         swing.ImageIcon = ImageIcon;
         ImageIcon["__classname"] = "javax.swing.ImageIcon";
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        var ListSelectionModel;
+        (function (ListSelectionModel) {
+            /**
+             * A value for the selectionMode property: select one list index
+             * at a time.
+             *
+             * @see #setSelectionMode
+             */
+            ListSelectionModel.SINGLE_SELECTION = 0;
+            /**
+             * A value for the selectionMode property: select one contiguous
+             * range of indices at a time.
+             *
+             * @see #setSelectionMode
+             */
+            ListSelectionModel.SINGLE_INTERVAL_SELECTION = 1;
+            /**
+             * A value for the selectionMode property: select one or more
+             * contiguous ranges of indices at a time.
+             *
+             * @see #setSelectionMode
+             */
+            ListSelectionModel.MULTIPLE_INTERVAL_SELECTION = 2;
+        })(ListSelectionModel = swing.ListSelectionModel || (swing.ListSelectionModel = {}));
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        /**
+         * A MenuSelectionManager owns the selection in menu hierarchy.
+         *
+         * @author Arnaud Weber
+         */
+        var MenuSelectionManager = (function () {
+            function MenuSelectionManager() {
+            }
+            return MenuSelectionManager;
+        }());
+        swing.MenuSelectionManager = MenuSelectionManager;
+        MenuSelectionManager["__classname"] = "javax.swing.MenuSelectionManager";
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -14628,6 +18573,47 @@ var javax;
              */
             SwingConstants.PREVIOUS = 13;
         })(SwingConstants = swing.SwingConstants || (swing.SwingConstants = {}));
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        var text;
+        (function (text) {
+            var Position;
+            (function (Position) {
+                /**
+                 * A typesafe enumeration to indicate bias to a position
+                 * in the model.  A position indicates a location between
+                 * two characters.  The bias can be used to indicate an
+                 * interest toward one of the two sides of the position
+                 * in boundary conditions where a simple offset is
+                 * ambiguous.
+                 */
+                var Bias = (function () {
+                    function Bias(name) {
+                        this.name = name;
+                    }
+                    Bias.Forward_$LI$ = function () { if (Bias.Forward == null)
+                        Bias.Forward = new Position.Bias("Forward"); return Bias.Forward; };
+                    ;
+                    Bias.Backward_$LI$ = function () { if (Bias.Backward == null)
+                        Bias.Backward = new Position.Bias("Backward"); return Bias.Backward; };
+                    ;
+                    /**
+                     * string representation
+                     */
+                    Bias.prototype.toString = function () {
+                        return this.name;
+                    };
+                    return Bias;
+                }());
+                Position.Bias = Bias;
+                Bias["__classname"] = "javax.swing.text.Position.Bias";
+            })(Position = text.Position || (text.Position = {}));
+        })(text = swing.text || (swing.text = {}));
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -15106,6 +19092,20 @@ var javax;
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        var WindowConstants;
+        (function (WindowConstants) {
+            WindowConstants.DO_NOTHING_ON_CLOSE = 0;
+            WindowConstants.HIDE_ON_CLOSE = 1;
+            WindowConstants.DISPOSE_ON_CLOSE = 2;
+            WindowConstants.EXIT_ON_CLOSE = 3;
+        })(WindowConstants = swing.WindowConstants || (swing.WindowConstants = {}));
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
 var sun;
 (function (sun) {
     var awt;
@@ -15238,6 +19238,7 @@ var sun;
                 };
                 Crossings.findCrossings = function (curves, xlo, ylo, xhi, yhi) {
                     if (((curves != null && curves instanceof java.util.Vector) || curves === null) && ((typeof xlo === 'number') || xlo === null) && ((typeof ylo === 'number') || ylo === null) && ((typeof xhi === 'number') || xhi === null) && ((typeof yhi === 'number') || yhi === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             var cross = new Crossings.EvenOdd(xlo, ylo, xhi, yhi);
                             var enum_ = curves.elements();
@@ -15344,6 +19345,7 @@ var sun;
                 Crossings.prototype.accumulateLine = function (x0, y0, x1, y1, direction) {
                     var _this = this;
                     if (((typeof x0 === 'number') || x0 === null) && ((typeof y0 === 'number') || y0 === null) && ((typeof x1 === 'number') || x1 === null) && ((typeof y1 === 'number') || y1 === null) && ((typeof direction === 'number') || direction === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if (_this.yhi <= y0 || _this.ylo >= y1) {
                                 return false;
@@ -16257,6 +20259,7 @@ var sun;
                 };
                 Curve.prototype.getSubCurve = function (ystart, yend, dir) {
                     if (((typeof ystart === 'number') || ystart === null) && ((typeof yend === 'number') || yend === null) && ((typeof dir === 'number') || dir === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return null;
                     }
                     else if (((typeof ystart === 'number') || ystart === null) && ((typeof yend === 'number') || yend === null) && dir === undefined) {
@@ -16590,6 +20593,7 @@ var sun;
                 CurveLink.prototype.absorb = function (curve, ystart, yend, etag) {
                     var _this = this;
                     if (((curve != null && curve instanceof sun.awt.geom.Curve) || curve === null) && ((typeof ystart === 'number') || ystart === null) && ((typeof yend === 'number') || yend === null) && ((typeof etag === 'number') || etag === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if (_this.curve !== curve || _this.etag !== etag || _this.ybot < ystart || _this.ytop > yend) {
                                 return false;
@@ -17183,20 +21187,114 @@ var java;
     (function (awt) {
         var Checkbox = (function (_super) {
             __extends(Checkbox, _super);
-            function Checkbox(label, state, group) {
-                if (label === void 0) { label = ""; }
-                if (state === void 0) { state = false; }
-                if (group === void 0) { group = null; }
-                _super.call(this);
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent"] });
-                this.state = false;
-                this.label = label;
-                this.state = state;
-                this.group = group;
-                this.itemListeners = new Array();
-                if (state && (group != null)) {
-                    group.setSelectedCheckbox(this);
+            function Checkbox(label, group, state) {
+                var _this = this;
+                if (((typeof label === 'string') || label === null) && ((group != null && group instanceof java.awt.CheckboxGroup) || group === null) && ((typeof state === 'boolean') || state === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        _super.call(this);
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent"] });
+                        this.state = false;
+                        (function () {
+                            _this.label = label;
+                            _this.state = state;
+                            _this.group = group;
+                            _this.itemListeners = new Array();
+                            if (state && (group != null)) {
+                                group.setSelectedCheckbox(_this);
+                            }
+                        })();
+                    }
+                    (function () {
+                    })();
                 }
+                else if (((typeof label === 'string') || label === null) && ((typeof group === 'boolean') || group === null) && ((state != null && state instanceof java.awt.CheckboxGroup) || state === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    var state = __args[1];
+                    var group = __args[2];
+                    _super.call(this);
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent"] });
+                    this.state = false;
+                    (function () {
+                        _this.label = label;
+                        _this.state = state;
+                        _this.group = group;
+                        _this.itemListeners = new Array();
+                        if (state && (group != null)) {
+                            group.setSelectedCheckbox(_this);
+                        }
+                    })();
+                }
+                else if (((typeof label === 'string') || label === null) && ((typeof group === 'boolean') || group === null) && state === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    var state = __args[1];
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var group = null;
+                        _super.call(this);
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent"] });
+                        this.state = false;
+                        (function () {
+                            _this.label = label;
+                            _this.state = state;
+                            _this.group = group;
+                            _this.itemListeners = new Array();
+                            if (state && (group != null)) {
+                                group.setSelectedCheckbox(_this);
+                            }
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else if (((typeof label === 'string') || label === null) && group === undefined && state === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var state = false;
+                        var group = null;
+                        _super.call(this);
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent"] });
+                        this.state = false;
+                        (function () {
+                            _this.label = label;
+                            _this.state = state;
+                            _this.group = group;
+                            _this.itemListeners = new Array();
+                            if (state && (group != null)) {
+                                group.setSelectedCheckbox(_this);
+                            }
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else if (label === undefined && group === undefined && state === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var label = "";
+                        var state = false;
+                        var group = null;
+                        _super.call(this);
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent"] });
+                        this.state = false;
+                        (function () {
+                            _this.label = label;
+                            _this.state = state;
+                            _this.group = group;
+                            _this.itemListeners = new Array();
+                            if (state && (group != null)) {
+                                group.setSelectedCheckbox(_this);
+                            }
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else
+                    throw new Error('invalid overload');
             }
             Checkbox.prototype.getHTMLElement = function () {
                 return _super.prototype.getHTMLElement.call(this);
@@ -17324,8 +21422,8 @@ var java;
                 return result;
             };
             Checkbox.prototype.processItemEvent = function (e) {
-                for (var index121 = 0; index121 < this.itemListeners.length; index121++) {
-                    var listener = this.itemListeners[index121];
+                for (var index127 = 0; index127 < this.itemListeners.length; index127++) {
+                    var listener = this.itemListeners[index127];
                     {
                         listener.itemStateChanged(e);
                     }
@@ -17377,8 +21475,8 @@ var java;
                     _this.processItemEvent(new java.awt.event.ItemEvent(_this, 0, option.innerHTML, java.awt.event.ItemEvent.SELECTED));
                     return e;
                 };
-                for (var index122 = 0; index122 < this.getHTMLElement().childNodes.length; index122++) {
-                    var n = this.getHTMLElement().childNodes[index122];
+                for (var index128 = 0; index128 < this.getHTMLElement().childNodes.length; index128++) {
+                    var n = this.getHTMLElement().childNodes[index128];
                     {
                         this.getHTMLElement().removeChild(n);
                     }
@@ -17445,6 +21543,7 @@ var java;
             Choice.prototype.remove = function (item) {
                 var _this = this;
                 if (((typeof item === 'string') || item === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         {
                             var index = _this.pItems.indexOf(item);
@@ -17523,6 +21622,7 @@ var java;
             Choice.prototype.select = function (str) {
                 var _this = this;
                 if (((typeof str === 'string') || str === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         var index = _this.pItems.indexOf(str);
                         if (index >= 0) {
@@ -17564,8 +21664,8 @@ var java;
                 return result;
             };
             Choice.prototype.processItemEvent = function (e) {
-                for (var index123 = 0; index123 < this.itemListeners.length; index123++) {
-                    var listener = this.itemListeners[index123];
+                for (var index129 = 0; index129 < this.itemListeners.length; index129++) {
+                    var listener = this.itemListeners[index129];
                     {
                         listener.itemStateChanged(e);
                     }
@@ -17599,6 +21699,19 @@ var java;
                 return this.layoutMgr;
             };
             Container.prototype.setLayout = function (mgr) {
+                if (this.layoutMgr != null) {
+                    if (this.components.length === 0) {
+                        if (this.htmlElement != null) {
+                            while ((this.htmlElement.firstChild != null)) {
+                                this.htmlElement.removeChild(this.htmlElement.firstChild);
+                            }
+                            ;
+                        }
+                    }
+                    else {
+                        throw new Error("cannot change layout dynamically with the current implementation");
+                    }
+                }
                 this.layoutMgr = mgr;
                 this.layoutMgr.layoutContainer(this);
             };
@@ -17614,32 +21727,103 @@ var java;
                 this.add(null, component);
                 return component;
             };
-            Container.prototype.add = function (name, component) {
+            Container.prototype.add$java_awt_Component$int = function (c, index) {
+                this.components = (this.components).splice(index, 0, c);
+                return c;
+            };
+            Container.prototype.add$java_lang_String$java_awt_Component = function (name, component) {
+                this.addImpl(component, null, -1);
+                return component;
+            };
+            Container.prototype.add$java_awt_Component$java_lang_Object = function (component, constraints) {
+                this.addImpl(component, constraints, -1);
+            };
+            Container.prototype.add = function (component, constraints, index) {
                 var _this = this;
-                if (((typeof name === 'string') || name === null) && ((component != null && component instanceof java.awt.Component) || component === null)) {
+                if (((component != null && component instanceof java.awt.Component) || component === null) && ((constraints != null) || constraints === null) && ((typeof index === 'number') || index === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
-                        (_this.components).push(component);
-                        component.initHTML();
-                        if (_this.layoutMgr != null) {
-                            _this.layoutMgr.onComponentAdded(_this, component, -1);
-                        }
-                        return component;
+                        _this.addImpl(component, constraints, index);
                     })();
                 }
-                else if (((name != null && name instanceof java.awt.Component) || name === null) && component === undefined) {
-                    return this.add$java_awt_Component(name);
+                else if (((typeof component === 'string') || component === null) && ((constraints != null && constraints instanceof java.awt.Component) || constraints === null) && index === undefined) {
+                    return this.add$java_lang_String$java_awt_Component(component, constraints);
+                }
+                else if (((component != null && component instanceof java.awt.Component) || component === null) && ((typeof constraints === 'number') || constraints === null) && index === undefined) {
+                    return this.add$java_awt_Component$int(component, constraints);
+                }
+                else if (((component != null && component instanceof java.awt.Component) || component === null) && ((constraints != null) || constraints === null) && index === undefined) {
+                    return this.add$java_awt_Component$java_lang_Object(component, constraints);
+                }
+                else if (((component != null && component instanceof java.awt.Component) || component === null) && constraints === undefined && index === undefined) {
+                    return this.add$java_awt_Component(component);
                 }
                 else
                     throw new Error('invalid overload');
             };
+            Container.prototype.addImpl = function (component, constraints, index) {
+                (this.components).push(component);
+                component.initHTML();
+                if (this.layoutMgr != null) {
+                    if (constraints != null && (this.layoutMgr != null && this.layoutMgr["__interfaces"] != null && this.layoutMgr["__interfaces"].indexOf("java.awt.LayoutManager2") >= 0)) {
+                        this.layoutMgr.addLayoutComponent(component, constraints);
+                    }
+                    else {
+                        this.layoutMgr.onComponentAdded(this, component, -1);
+                    }
+                }
+            };
             Container.prototype.doPaintInternal = function () {
                 _super.prototype.doPaintInternal.call(this);
-                for (var index124 = 0; index124 < this.components.length; index124++) {
-                    var c = this.components[index124];
+                for (var index130 = 0; index130 < this.components.length; index130++) {
+                    var c = this.components[index130];
                     {
                         c.doPaintInternal();
                     }
                 }
+            };
+            Container.prototype.getComponentCount = function () {
+                return this.components.length;
+            };
+            Container.prototype.remove = function (item) {
+                if (((item != null && item instanceof java.awt.Component) || item === null)) {
+                    return this.remove$java_awt_Component(item);
+                }
+                else if (((typeof item === 'number') || item === null)) {
+                    return this.remove$int(item);
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            Container.prototype.remove$int = function (index) {
+                this.components = (this.components).slice(index, 1);
+            };
+            Container.prototype.getComponent = function (n) {
+                var _this = this;
+                if (((typeof n === 'number') || n === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    return (function () {
+                        return _this.components[n];
+                    })();
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            Container.prototype.getComponents = function () {
+                return this.components;
+            };
+            Container.prototype.removeAll = function () {
+                this.components = new Array(0);
+            };
+            Container.prototype.remove$java_awt_Component = function (c) {
+                var i = ((this.components).indexOf(c) | 0);
+                this.remove(i);
+            };
+            Container.prototype.getInsets = function () {
+                return this.insets;
+            };
+            Container.prototype.setInsets = function (insets) {
+                this.insets = insets;
             };
             return Container;
         }(java.awt.Component));
@@ -17804,6 +21988,7 @@ var java;
                 function ActionEvent(source, id, command, when, modifiers) {
                     var _this = this;
                     if (((source != null) || source === null) && ((typeof id === 'number') || id === null) && ((typeof command === 'string') || command === null) && ((typeof when === 'number') || when === null) && ((typeof modifiers === 'number') || modifiers === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         _super.call(this, source, id);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                         this.when = 0;
@@ -17815,8 +22000,10 @@ var java;
                         })();
                     }
                     else if (((source != null) || source === null) && ((typeof id === 'number') || id === null) && ((typeof command === 'string') || command === null) && ((typeof when === 'number') || when === null) && modifiers === undefined) {
-                        var modifiers = when;
+                        var __args = Array.prototype.slice.call(arguments);
+                        var modifiers = __args[3];
                         {
+                            var __args = Array.prototype.slice.call(arguments);
                             var when = 0;
                             _super.call(this, source, id);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
@@ -17832,9 +22019,12 @@ var java;
                         })();
                     }
                     else if (((source != null) || source === null) && ((typeof id === 'number') || id === null) && ((typeof command === 'string') || command === null) && when === undefined && modifiers === undefined) {
+                        var __args = Array.prototype.slice.call(arguments);
                         {
+                            var __args = Array.prototype.slice.call(arguments);
                             var modifiers = 0;
                             {
+                                var __args = Array.prototype.slice.call(arguments);
                                 var when = 0;
                                 _super.call(this, source, id);
                                 Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
@@ -17940,6 +22130,7 @@ var java;
             function Dimension(width, height) {
                 var _this = this;
                 if (((typeof width === 'number') || width === null) && ((typeof height === 'number') || height === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     _super.call(this);
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                     this.width = 0;
@@ -17950,8 +22141,10 @@ var java;
                     })();
                 }
                 else if (((width != null && width instanceof java.awt.Dimension) || width === null) && height === undefined) {
-                    var d = width;
+                    var __args = Array.prototype.slice.call(arguments);
+                    var d = __args[0];
                     {
+                        var __args = Array.prototype.slice.call(arguments);
                         var width = d.width;
                         var height = d.height;
                         _super.call(this);
@@ -17967,7 +22160,9 @@ var java;
                     })();
                 }
                 else if (width === undefined && height === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
                     {
+                        var __args = Array.prototype.slice.call(arguments);
                         var width = 0;
                         var height = 0;
                         _super.call(this);
@@ -18055,6 +22250,7 @@ var java;
             Dimension.prototype.setSize = function (width, height) {
                 var _this = this;
                 if (((typeof width === 'number') || width === null) && ((typeof height === 'number') || height === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         _this.width = width;
                         _this.height = height;
@@ -18164,6 +22360,7 @@ var java;
                 function Path2D(rule, initialTypes) {
                     var _this = this;
                     if (((typeof rule === 'number') || rule === null) && ((typeof initialTypes === 'number') || initialTypes === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable"] });
                         this.numTypes = 0;
                         this.numCoords = 0;
@@ -18174,6 +22371,7 @@ var java;
                         })();
                     }
                     else if (rule === undefined && initialTypes === undefined) {
+                        var __args = Array.prototype.slice.call(arguments);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable"] });
                         this.numTypes = 0;
                         this.numCoords = 0;
@@ -18409,6 +22607,7 @@ var java;
                 Path2D.prototype.append = function (s, connect) {
                     var _this = this;
                     if (((s != null && s["__interfaces"] != null && s["__interfaces"].indexOf("java.awt.Shape") >= 0) || s === null) && ((typeof connect === 'boolean') || connect === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             _this.append(s.getPathIterator(null), connect);
                         })();
@@ -18661,6 +22860,7 @@ var java;
                  */
                 Path2D.contains = function (pi, x, y, w, h) {
                     if (((pi != null && pi["__interfaces"] != null && pi["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0) || pi === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if ((Number.NaN === x + w) || (Number.NaN === y + h)) {
                                 return false;
@@ -18736,6 +22936,7 @@ var java;
                 Path2D.prototype.contains = function (x, y, w, h) {
                     var _this = this;
                     if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if ((Number.NaN === x + w) || (Number.NaN === y + h)) {
                                 return false;
@@ -18816,6 +23017,7 @@ var java;
                  */
                 Path2D.intersects = function (pi, x, y, w, h) {
                     if (((pi != null && pi["__interfaces"] != null && pi["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0) || pi === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if ((Number.NaN === x + w) || (Number.NaN === y + h)) {
                                 return false;
@@ -18884,6 +23086,7 @@ var java;
                 Path2D.prototype.intersects = function (x, y, w, h) {
                     var _this = this;
                     if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if ((Number.NaN === x + w) || (Number.NaN === y + h)) {
                                 return false;
@@ -18934,6 +23137,7 @@ var java;
                 Path2D.prototype.getPathIterator = function (at, flatness) {
                     var _this = this;
                     if (((at != null && at instanceof java.awt.geom.AffineTransform) || at === null) && ((typeof flatness === 'number') || flatness === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             return new java.awt.geom.FlatteningPathIterator(_this.getPathIterator(at), flatness);
                         })();
@@ -19005,6 +23209,7 @@ var java;
                     function Float(s, at) {
                         var _this = this;
                         if (((s != null && s["__interfaces"] != null && s["__interfaces"].indexOf("java.awt.Shape") >= 0) || s === null) && ((at != null && at instanceof java.awt.geom.AffineTransform) || at === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             (function () {
@@ -19026,8 +23231,9 @@ var java;
                             })();
                         }
                         else if (((typeof s === 'number') || s === null) && ((typeof at === 'number') || at === null)) {
-                            var rule = s;
-                            var initialCapacity = at;
+                            var __args = Array.prototype.slice.call(arguments);
+                            var rule = __args[0];
+                            var initialCapacity = __args[1];
                             _super.call(this, rule, initialCapacity);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             (function () {
@@ -19035,7 +23241,9 @@ var java;
                             })();
                         }
                         else if (((s != null && s["__interfaces"] != null && s["__interfaces"].indexOf("java.awt.Shape") >= 0) || s === null) && at === undefined) {
+                            var __args = Array.prototype.slice.call(arguments);
                             {
+                                var __args = Array.prototype.slice.call(arguments);
                                 var at = null;
                                 _super.call(this);
                                 Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
@@ -19061,8 +23269,10 @@ var java;
                             })();
                         }
                         else if (((typeof s === 'number') || s === null) && at === undefined) {
-                            var rule = s;
+                            var __args = Array.prototype.slice.call(arguments);
+                            var rule = __args[0];
                             {
+                                var __args = Array.prototype.slice.call(arguments);
                                 var initialCapacity = java.awt.geom.Path2D.INIT_SIZE;
                                 _super.call(this, rule, initialCapacity);
                                 Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
@@ -19074,7 +23284,9 @@ var java;
                             })();
                         }
                         else if (s === undefined && at === undefined) {
+                            var __args = Array.prototype.slice.call(arguments);
                             {
+                                var __args = Array.prototype.slice.call(arguments);
                                 var rule = java.awt.geom.Path2D.WIND_NON_ZERO_$LI$();
                                 var initialCapacity = java.awt.geom.Path2D.INIT_SIZE;
                                 _super.call(this, rule, initialCapacity);
@@ -19181,6 +23393,7 @@ var java;
                     Float.prototype.moveTo = function (x, y) {
                         var _this = this;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             return (function () {
                                 if (_this.numTypes > 0 && _this.pointTypes[_this.numTypes - 1] === java.awt.geom.Path2D.SEG_MOVETO_$LI$()) {
                                     _this.floatCoords[_this.numCoords - 2] = x;
@@ -19229,6 +23442,7 @@ var java;
                     Float.prototype.lineTo = function (x, y) {
                         var _this = this;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             return (function () {
                                 _this.needRoom(true, 2);
                                 _this.pointTypes[_this.numTypes++] = java.awt.geom.Path2D.SEG_LINETO_$LI$();
@@ -19279,6 +23493,7 @@ var java;
                     Float.prototype.quadTo = function (x1, y1, x2, y2) {
                         var _this = this;
                         if (((typeof x1 === 'number') || x1 === null) && ((typeof y1 === 'number') || y1 === null) && ((typeof x2 === 'number') || x2 === null) && ((typeof y2 === 'number') || y2 === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             return (function () {
                                 _this.needRoom(true, 4);
                                 _this.pointTypes[_this.numTypes++] = java.awt.geom.Path2D.SEG_QUADTO_$LI$();
@@ -19337,6 +23552,7 @@ var java;
                     Float.prototype.curveTo = function (x1, y1, x2, y2, x3, y3) {
                         var _this = this;
                         if (((typeof x1 === 'number') || x1 === null) && ((typeof y1 === 'number') || y1 === null) && ((typeof x2 === 'number') || x2 === null) && ((typeof y2 === 'number') || y2 === null) && ((typeof x3 === 'number') || x3 === null) && ((typeof y3 === 'number') || y3 === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             return (function () {
                                 _this.needRoom(true, 6);
                                 _this.pointTypes[_this.numTypes++] = java.awt.geom.Path2D.SEG_CUBICTO_$LI$();
@@ -19462,6 +23678,7 @@ var java;
                     Float.prototype.append = function (pi, connect) {
                         var _this = this;
                         if (((pi != null && pi["__interfaces"] != null && pi["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0) || pi === null) && ((typeof connect === 'boolean') || connect === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             return (function () {
                                 var coords = new Array(6);
                                 while ((!pi.isDone())) {
@@ -19597,6 +23814,7 @@ var java;
                         CopyIterator.prototype.currentSegment = function (coords) {
                             var _this = this;
                             if (((coords != null && coords instanceof Array) || coords === null)) {
+                                var __args = Array.prototype.slice.call(arguments);
                                 return (function () {
                                     var type = _this.path.pointTypes[_this.typeIdx];
                                     var numCoords = java.awt.geom.Path2D.Iterator.curvecoords_$LI$()[type];
@@ -19637,6 +23855,7 @@ var java;
                         TxIterator.prototype.currentSegment = function (coords) {
                             var _this = this;
                             if (((coords != null && coords instanceof Array) || coords === null)) {
+                                var __args = Array.prototype.slice.call(arguments);
                                 return (function () {
                                     var type = _this.path.pointTypes[_this.typeIdx];
                                     var numCoords = java.awt.geom.Path2D.Iterator.curvecoords_$LI$()[type];
@@ -19690,6 +23909,7 @@ var java;
                     function Double(s, at) {
                         var _this = this;
                         if (((s != null && s["__interfaces"] != null && s["__interfaces"].indexOf("java.awt.Shape") >= 0) || s === null) && ((at != null && at instanceof java.awt.geom.AffineTransform) || at === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             (function () {
@@ -19711,8 +23931,9 @@ var java;
                             })();
                         }
                         else if (((typeof s === 'number') || s === null) && ((typeof at === 'number') || at === null)) {
-                            var rule = s;
-                            var initialCapacity = at;
+                            var __args = Array.prototype.slice.call(arguments);
+                            var rule = __args[0];
+                            var initialCapacity = __args[1];
                             _super.call(this, rule, initialCapacity);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             (function () {
@@ -19720,7 +23941,9 @@ var java;
                             })();
                         }
                         else if (((s != null && s["__interfaces"] != null && s["__interfaces"].indexOf("java.awt.Shape") >= 0) || s === null) && at === undefined) {
+                            var __args = Array.prototype.slice.call(arguments);
                             {
+                                var __args = Array.prototype.slice.call(arguments);
                                 var at = null;
                                 _super.call(this);
                                 Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
@@ -19746,8 +23969,10 @@ var java;
                             })();
                         }
                         else if (((typeof s === 'number') || s === null) && at === undefined) {
-                            var rule = s;
+                            var __args = Array.prototype.slice.call(arguments);
+                            var rule = __args[0];
                             {
+                                var __args = Array.prototype.slice.call(arguments);
                                 var initialCapacity = java.awt.geom.Path2D.INIT_SIZE;
                                 _super.call(this, rule, initialCapacity);
                                 Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
@@ -19759,7 +23984,9 @@ var java;
                             })();
                         }
                         else if (s === undefined && at === undefined) {
+                            var __args = Array.prototype.slice.call(arguments);
                             {
+                                var __args = Array.prototype.slice.call(arguments);
                                 var rule = java.awt.geom.Path2D.WIND_NON_ZERO_$LI$();
                                 var initialCapacity = java.awt.geom.Path2D.INIT_SIZE;
                                 _super.call(this, rule, initialCapacity);
@@ -20101,6 +24328,7 @@ var java;
                     Double.prototype.append = function (pi, connect) {
                         var _this = this;
                         if (((pi != null && pi["__interfaces"] != null && pi["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0) || pi === null) && ((typeof connect === 'boolean') || connect === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             return (function () {
                                 var coords = new Array(6);
                                 while ((!pi.isDone())) {
@@ -20236,6 +24464,7 @@ var java;
                         CopyIterator.prototype.currentSegment = function (coords) {
                             var _this = this;
                             if (((coords != null && coords instanceof Array) || coords === null)) {
+                                var __args = Array.prototype.slice.call(arguments);
                                 return (function () {
                                     var type = _this.path.pointTypes[_this.typeIdx];
                                     var numCoords = java.awt.geom.Path2D.Iterator.curvecoords_$LI$()[type];
@@ -20276,6 +24505,7 @@ var java;
                         TxIterator.prototype.currentSegment = function (coords) {
                             var _this = this;
                             if (((coords != null && coords instanceof Array) || coords === null)) {
+                                var __args = Array.prototype.slice.call(arguments);
                                 return (function () {
                                     var type = _this.path.pointTypes[_this.typeIdx];
                                     var numCoords = java.awt.geom.Path2D.Iterator.curvecoords_$LI$()[type];
@@ -20332,6 +24562,7 @@ var java;
             function Point(x, y) {
                 var _this = this;
                 if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     _super.call(this);
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                     this.x = 0;
@@ -20342,8 +24573,10 @@ var java;
                     })();
                 }
                 else if (((x != null && x instanceof java.awt.Point) || x === null) && y === undefined) {
-                    var p = x;
+                    var __args = Array.prototype.slice.call(arguments);
+                    var p = __args[0];
                     {
+                        var __args = Array.prototype.slice.call(arguments);
                         var x = p.x;
                         var y = p.y;
                         _super.call(this);
@@ -20359,7 +24592,9 @@ var java;
                     })();
                 }
                 else if (x === undefined && y === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
                     {
+                        var __args = Array.prototype.slice.call(arguments);
                         var x = 0;
                         var y = 0;
                         _super.call(this);
@@ -20432,6 +24667,7 @@ var java;
             Point.prototype.setLocation = function (x, y) {
                 var _this = this;
                 if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         _this.move(x, y);
                     })();
@@ -20642,6 +24878,7 @@ var java;
                  */
                 Arc2D.prototype.setArc = function (x, y, w, h, angSt, angExt, closure) {
                     if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null) && ((typeof angSt === 'number') || angSt === null) && ((typeof angExt === 'number') || angExt === null) && ((typeof closure === 'number') || closure === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                     }
                     else if (((x != null && x instanceof java.awt.geom.Point2D) || x === null) && ((y != null && y instanceof java.awt.geom.Dimension2D) || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null) && ((typeof angSt === 'number') || angSt === null) && angExt === undefined && closure === undefined) {
                         return this.setArc$java_awt_geom_Point2D$java_awt_geom_Dimension2D$double$double$int(x, y, w, h, angSt);
@@ -20788,6 +25025,7 @@ var java;
                 Arc2D.prototype.setAngleStart = function (p) {
                     var _this = this;
                     if (((p != null && p instanceof java.awt.geom.Point2D) || p === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             var dx = _this.getHeight() * (p.getX() - _this.getCenterX());
                             var dy = _this.getWidth() * (p.getY() - _this.getCenterY());
@@ -20818,6 +25056,7 @@ var java;
                 Arc2D.prototype.setAngles = function (x1, y1, x2, y2) {
                     var _this = this;
                     if (((typeof x1 === 'number') || x1 === null) && ((typeof y1 === 'number') || y1 === null) && ((typeof x2 === 'number') || x2 === null) && ((typeof y2 === 'number') || y2 === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             var x = _this.getCenterX();
                             var y = _this.getCenterY();
@@ -20887,6 +25126,7 @@ var java;
                 Arc2D.prototype.setFrame = function (x, y, w, h) {
                     var _this = this;
                     if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             _this.setArc(x, y, w, h, _this.getAngleStart(), _this.getAngleExtent(), _this.type);
                         })();
@@ -21084,6 +25324,7 @@ var java;
                 Arc2D.prototype.intersects = function (x, y, w, h) {
                     var _this = this;
                     if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             var aw = _this.getWidth();
                             var ah = _this.getHeight();
@@ -21176,6 +25417,7 @@ var java;
                 Arc2D.prototype.contains = function (x, y, w, h, origrect) {
                     var _this = this;
                     if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null) && ((origrect != null && origrect instanceof java.awt.geom.Rectangle2D) || origrect === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if (!(_this.contains(x, y) && _this.contains(x + w, y) && _this.contains(x, y + h) && _this.contains(x + w, y + h))) {
                                 return false;
@@ -21328,6 +25570,7 @@ var java;
                     function Float(x, y, w, h, start, extent, type) {
                         var _this = this;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null) && ((typeof start === 'number') || start === null) && ((typeof extent === 'number') || extent === null) && ((typeof type === 'number') || type === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this, type);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
@@ -21346,10 +25589,11 @@ var java;
                             })();
                         }
                         else if (((x != null && x instanceof java.awt.geom.Rectangle2D) || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null) && start === undefined && extent === undefined && type === undefined) {
-                            var ellipseBounds = x;
-                            var start = y;
-                            var extent = w;
-                            var type = h;
+                            var __args = Array.prototype.slice.call(arguments);
+                            var ellipseBounds = __args[0];
+                            var start = __args[1];
+                            var extent = __args[2];
+                            var type = __args[3];
                             _super.call(this, type);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
@@ -21368,7 +25612,8 @@ var java;
                             })();
                         }
                         else if (((typeof x === 'number') || x === null) && y === undefined && w === undefined && h === undefined && start === undefined && extent === undefined && type === undefined) {
-                            var type = x;
+                            var __args = Array.prototype.slice.call(arguments);
+                            var type = __args[0];
                             _super.call(this, type);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
@@ -21381,6 +25626,7 @@ var java;
                             })();
                         }
                         else if (x === undefined && y === undefined && w === undefined && h === undefined && start === undefined && extent === undefined && type === undefined) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this, java.awt.geom.Arc2D.OPEN);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
@@ -21467,6 +25713,7 @@ var java;
                     Float.prototype.setArc = function (x, y, w, h, angSt, angExt, closure) {
                         var _this = this;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null) && ((typeof angSt === 'number') || angSt === null) && ((typeof angExt === 'number') || angExt === null) && ((typeof closure === 'number') || closure === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             return (function () {
                                 _this.setArcType(closure);
                                 _this.x = x;
@@ -21542,6 +25789,7 @@ var java;
                     function Double(x, y, w, h, start, extent, type) {
                         var _this = this;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null) && ((typeof start === 'number') || start === null) && ((typeof extent === 'number') || extent === null) && ((typeof type === 'number') || type === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this, type);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
@@ -21560,10 +25808,11 @@ var java;
                             })();
                         }
                         else if (((x != null && x instanceof java.awt.geom.Rectangle2D) || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null) && start === undefined && extent === undefined && type === undefined) {
-                            var ellipseBounds = x;
-                            var start = y;
-                            var extent = w;
-                            var type = h;
+                            var __args = Array.prototype.slice.call(arguments);
+                            var ellipseBounds = __args[0];
+                            var start = __args[1];
+                            var extent = __args[2];
+                            var type = __args[3];
                             _super.call(this, type);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
@@ -21582,7 +25831,8 @@ var java;
                             })();
                         }
                         else if (((typeof x === 'number') || x === null) && y === undefined && w === undefined && h === undefined && start === undefined && extent === undefined && type === undefined) {
-                            var type = x;
+                            var __args = Array.prototype.slice.call(arguments);
+                            var type = __args[0];
                             _super.call(this, type);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
@@ -21595,6 +25845,7 @@ var java;
                             })();
                         }
                         else if (x === undefined && y === undefined && w === undefined && h === undefined && start === undefined && extent === undefined && type === undefined) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this, java.awt.geom.Arc2D.OPEN);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
@@ -21681,6 +25932,7 @@ var java;
                     Double.prototype.setArc = function (x, y, w, h, angSt, angExt, closure) {
                         var _this = this;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null) && ((typeof angSt === 'number') || angSt === null) && ((typeof angExt === 'number') || angExt === null) && ((typeof closure === 'number') || closure === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             return (function () {
                                 _this.setArcType(closure);
                                 _this.x = x;
@@ -21809,6 +26061,7 @@ var java;
                 Ellipse2D.prototype.intersects = function (x, y, w, h) {
                     var _this = this;
                     if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if (w <= 0.0 || h <= 0.0) {
                                 return false;
@@ -21952,6 +26205,7 @@ var java;
                     function Float(x, y, w, h) {
                         var _this = this;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
@@ -21963,6 +26217,7 @@ var java;
                             })();
                         }
                         else if (x === undefined && y === undefined && w === undefined && h === undefined) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
@@ -22034,6 +26289,7 @@ var java;
                     Float.prototype.setFrame = function (x, y, w, h) {
                         var _this = this;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             return (function () {
                                 _this.x = x;
                                 _this.y = y;
@@ -22104,6 +26360,7 @@ var java;
                     function Double(x, y, w, h) {
                         var _this = this;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
@@ -22115,6 +26372,7 @@ var java;
                             })();
                         }
                         else if (x === undefined && y === undefined && w === undefined && h === undefined) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
@@ -22337,6 +26595,7 @@ var java;
                 Rectangle2D.prototype.intersectsLine = function (x1, y1, x2, y2) {
                     var _this = this;
                     if (((typeof x1 === 'number') || x1 === null) && ((typeof y1 === 'number') || y1 === null) && ((typeof x2 === 'number') || x2 === null) && ((typeof y2 === 'number') || y2 === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             var out1;
                             var out2;
@@ -22409,6 +26668,7 @@ var java;
                  */
                 Rectangle2D.prototype.outcode = function (x, y) {
                     if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return 0;
                     }
                     else if (((x != null && x instanceof java.awt.geom.Point2D) || x === null) && y === undefined) {
@@ -22511,6 +26771,7 @@ var java;
                 Rectangle2D.prototype.intersects = function (x, y, w, h) {
                     var _this = this;
                     if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if (_this.isEmpty() || w <= 0 || h <= 0) {
                                 return false;
@@ -22714,6 +26975,7 @@ var java;
                 Rectangle2D.prototype.getPathIterator = function (at, flatness) {
                     var _this = this;
                     if (((at != null && at instanceof java.awt.geom.AffineTransform) || at === null) && ((typeof flatness === 'number') || flatness === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             return new java.awt.geom.RectIterator(_this, at);
                         })();
@@ -22825,6 +27087,7 @@ var java;
                     function Float(x, y, w, h) {
                         var _this = this;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
@@ -22836,6 +27099,7 @@ var java;
                             })();
                         }
                         else if (x === undefined && y === undefined && w === undefined && h === undefined) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
@@ -22907,6 +27171,7 @@ var java;
                     Float.prototype.setRect = function (x, y, w, h) {
                         var _this = this;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             return (function () {
                                 _this.x = x;
                                 _this.y = y;
@@ -22953,6 +27218,7 @@ var java;
                     Float.prototype.outcode = function (x, y) {
                         var _this = this;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             return (function () {
                                 var out = 0;
                                 if (_this.width <= 0) {
@@ -23067,6 +27333,7 @@ var java;
                     function Double(x, y, w, h) {
                         var _this = this;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
@@ -23078,6 +27345,7 @@ var java;
                             })();
                         }
                         else if (x === undefined && y === undefined && w === undefined && h === undefined) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
@@ -23186,6 +27454,7 @@ var java;
                     Double.prototype.outcode = function (x, y) {
                         var _this = this;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             return (function () {
                                 var out = 0;
                                 if (_this.width <= 0) {
@@ -23458,6 +27727,7 @@ var java;
                 RoundRectangle2D.prototype.intersects = function (x, y, w, h) {
                     var _this = this;
                     if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if (_this.isEmpty() || w <= 0 || h <= 0) {
                                 return false;
@@ -23606,6 +27876,7 @@ var java;
                     function Float(x, y, w, h, arcw, arch) {
                         var _this = this;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null) && ((typeof arcw === 'number') || arcw === null) && ((typeof arch === 'number') || arch === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
@@ -23619,6 +27890,7 @@ var java;
                             })();
                         }
                         else if (x === undefined && y === undefined && w === undefined && h === undefined && arcw === undefined && arch === undefined) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
@@ -23717,6 +27989,7 @@ var java;
                     Float.prototype.setRoundRect = function (x, y, w, h, arcw, arch) {
                         var _this = this;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null) && ((typeof arcw === 'number') || arcw === null) && ((typeof arch === 'number') || arch === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             return (function () {
                                 _this.x = x;
                                 _this.y = y;
@@ -23809,6 +28082,7 @@ var java;
                     function Double(x, y, w, h, arcw, arch) {
                         var _this = this;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null) && ((typeof arcw === 'number') || arcw === null) && ((typeof arch === 'number') || arch === null)) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
@@ -23822,6 +28096,7 @@ var java;
                             })();
                         }
                         else if (x === undefined && y === undefined && w === undefined && h === undefined && arcw === undefined && arch === undefined) {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
@@ -24016,6 +28291,7 @@ var java;
             Graphics2D.prototype.drawImage$java_awt_Image$java_awt_geom_AffineTransform$java_awt_image_ImageObserver = function (img, xform, obs) { throw new Error('cannot invoke abstract overloaded method... check your argument(s) type(s)'); };
             Graphics2D.prototype.drawString = function (str, x, y) {
                 if (((typeof str === 'string') || str === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                 }
                 else if (((typeof str === 'string') || str === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null)) {
                     return this.drawString$java_lang_String$float$float(str, x, y);
@@ -24035,6 +28311,7 @@ var java;
             Graphics2D.prototype.rotate$double = function (theta) { throw new Error('cannot invoke abstract overloaded method... check your argument(s) type(s)'); };
             Graphics2D.prototype.rotate = function (theta, x, y) {
                 if (((typeof theta === 'number') || theta === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                 }
                 else if (((typeof theta === 'number') || theta === null) && x === undefined && y === undefined) {
                     return this.rotate$double(theta);
@@ -24059,7 +28336,14 @@ var java;
                 __extends(BufferedImage, _super);
                 function BufferedImage(src) {
                     _super.call(this, src);
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.image.RenderedImage"] });
                 }
+                BufferedImage.prototype.getWidth$ = function () {
+                    return _super.prototype.getWidth.call(this, null);
+                };
+                BufferedImage.prototype.getHeight$ = function () {
+                    return _super.prototype.getHeight.call(this, null);
+                };
                 return BufferedImage;
             }(java.awt.Image));
             image.BufferedImage = BufferedImage;
@@ -24083,6 +28367,443 @@ var java;
         RenderedImage["__classname"] = "java.awt.RenderedImage";
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var java;
+(function (java) {
+    var beans;
+    (function (beans) {
+        var PropertyChangeSupport = (function () {
+            function PropertyChangeSupport(sourceBean) {
+                this.map = new PropertyChangeSupport.PropertyChangeListenerMap();
+                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
+                if (sourceBean == null) {
+                    throw new java.lang.NullPointerException();
+                }
+                this.source = sourceBean;
+            }
+            PropertyChangeSupport.prototype.addPropertyChangeListener$java_beans_PropertyChangeListener = function (listener) {
+                if (listener == null) {
+                    return;
+                }
+                if (listener != null && listener instanceof java.beans.PropertyChangeListenerProxy) {
+                    var proxy = listener;
+                    this.addPropertyChangeListener(proxy.getPropertyName(), proxy.getListener());
+                }
+                else {
+                    this.map.add(null, listener);
+                }
+            };
+            PropertyChangeSupport.prototype.removePropertyChangeListener$java_beans_PropertyChangeListener = function (listener) {
+                if (listener == null) {
+                    return;
+                }
+                if (listener != null && listener instanceof java.beans.PropertyChangeListenerProxy) {
+                    var proxy = listener;
+                    this.removePropertyChangeListener(proxy.getPropertyName(), proxy.getListener());
+                }
+                else {
+                    this.map.remove(null, listener);
+                }
+            };
+            PropertyChangeSupport.prototype.getPropertyChangeListeners$ = function () {
+                return this.map.getListeners();
+            };
+            PropertyChangeSupport.prototype.addPropertyChangeListener = function (propertyName, listener) {
+                var _this = this;
+                if (((typeof propertyName === 'string') || propertyName === null) && ((listener != null && listener["__interfaces"] != null && listener["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0) || listener === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    return (function () {
+                        if (listener == null || propertyName == null) {
+                            return;
+                        }
+                        listener = _this.map.extract(listener);
+                        if (listener != null) {
+                            _this.map.add(propertyName, listener);
+                        }
+                    })();
+                }
+                else if (((propertyName != null && propertyName["__interfaces"] != null && propertyName["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0) || propertyName === null) && listener === undefined) {
+                    return this.addPropertyChangeListener$java_beans_PropertyChangeListener(propertyName);
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            PropertyChangeSupport.prototype.removePropertyChangeListener = function (propertyName, listener) {
+                var _this = this;
+                if (((typeof propertyName === 'string') || propertyName === null) && ((listener != null && listener["__interfaces"] != null && listener["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0) || listener === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    return (function () {
+                        if (listener == null || propertyName == null) {
+                            return;
+                        }
+                        listener = _this.map.extract(listener);
+                        if (listener != null) {
+                            _this.map.remove(propertyName, listener);
+                        }
+                    })();
+                }
+                else if (((propertyName != null && propertyName["__interfaces"] != null && propertyName["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0) || propertyName === null) && listener === undefined) {
+                    return this.removePropertyChangeListener$java_beans_PropertyChangeListener(propertyName);
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            PropertyChangeSupport.prototype.getPropertyChangeListeners = function (propertyName) {
+                var _this = this;
+                if (((typeof propertyName === 'string') || propertyName === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    return (function () {
+                        return _this.map.getListeners(propertyName);
+                    })();
+                }
+                else if (propertyName === undefined) {
+                    return this.getPropertyChangeListeners$();
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            PropertyChangeSupport.prototype.firePropertyChange$java_lang_String$java_lang_Object$java_lang_Object = function (propertyName, oldValue, newValue) {
+                if (oldValue == null || newValue == null || !(oldValue === newValue)) {
+                    this.firePropertyChange(new java.beans.PropertyChangeEvent(this.source, propertyName, oldValue, newValue));
+                }
+            };
+            PropertyChangeSupport.prototype.firePropertyChange = function (propertyName, oldValue, newValue) {
+                var _this = this;
+                if (((typeof propertyName === 'string') || propertyName === null) && ((typeof oldValue === 'number') || oldValue === null) && ((typeof newValue === 'number') || newValue === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    return (function () {
+                        if (oldValue !== newValue) {
+                            _this.firePropertyChange(propertyName, javaemul.internal.IntegerHelper.valueOf(oldValue), javaemul.internal.IntegerHelper.valueOf(newValue));
+                        }
+                    })();
+                }
+                else if (((typeof propertyName === 'string') || propertyName === null) && ((typeof oldValue === 'boolean') || oldValue === null) && ((typeof newValue === 'boolean') || newValue === null)) {
+                    return this.firePropertyChange$java_lang_String$boolean$boolean(propertyName, oldValue, newValue);
+                }
+                else if (((typeof propertyName === 'string') || propertyName === null) && ((oldValue != null) || oldValue === null) && ((newValue != null) || newValue === null)) {
+                    return this.firePropertyChange$java_lang_String$java_lang_Object$java_lang_Object(propertyName, oldValue, newValue);
+                }
+                else if (((propertyName != null && propertyName instanceof java.beans.PropertyChangeEvent) || propertyName === null) && oldValue === undefined && newValue === undefined) {
+                    return this.firePropertyChange$java_beans_PropertyChangeEvent(propertyName);
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            PropertyChangeSupport.prototype.firePropertyChange$java_lang_String$boolean$boolean = function (propertyName, oldValue, newValue) {
+                if (oldValue !== newValue) {
+                    this.firePropertyChange(propertyName, javaemul.internal.BooleanHelper.valueOf(oldValue), javaemul.internal.BooleanHelper.valueOf(newValue));
+                }
+            };
+            PropertyChangeSupport.prototype.firePropertyChange$java_beans_PropertyChangeEvent = function (event) {
+                var oldValue = event.getOldValue();
+                var newValue = event.getNewValue();
+                if (oldValue == null || newValue == null || !(oldValue === newValue)) {
+                    var name = event.getPropertyName();
+                    var common = this.map.get(null);
+                    var named = (name != null) ? this.map.get(name) : null;
+                    PropertyChangeSupport.fire(common, event);
+                    PropertyChangeSupport.fire(named, event);
+                }
+            };
+            PropertyChangeSupport.fire = function (listeners, event) {
+                if (listeners != null) {
+                    for (var index131 = 0; index131 < listeners.length; index131++) {
+                        var listener = listeners[index131];
+                        {
+                            listener.propertyChange(event);
+                        }
+                    }
+                }
+            };
+            PropertyChangeSupport.prototype.fireIndexedPropertyChange$java_lang_String$int$java_lang_Object$java_lang_Object = function (propertyName, index, oldValue, newValue) {
+                if (oldValue == null || newValue == null || !(oldValue === newValue)) {
+                    this.firePropertyChange(new java.beans.IndexedPropertyChangeEvent(this.source, propertyName, oldValue, newValue, index));
+                }
+            };
+            PropertyChangeSupport.prototype.fireIndexedPropertyChange = function (propertyName, index, oldValue, newValue) {
+                var _this = this;
+                if (((typeof propertyName === 'string') || propertyName === null) && ((typeof index === 'number') || index === null) && ((typeof oldValue === 'number') || oldValue === null) && ((typeof newValue === 'number') || newValue === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    return (function () {
+                        if (oldValue !== newValue) {
+                            _this.fireIndexedPropertyChange(propertyName, index, javaemul.internal.IntegerHelper.valueOf(oldValue), javaemul.internal.IntegerHelper.valueOf(newValue));
+                        }
+                    })();
+                }
+                else if (((typeof propertyName === 'string') || propertyName === null) && ((typeof index === 'number') || index === null) && ((typeof oldValue === 'boolean') || oldValue === null) && ((typeof newValue === 'boolean') || newValue === null)) {
+                    return this.fireIndexedPropertyChange$java_lang_String$int$boolean$boolean(propertyName, index, oldValue, newValue);
+                }
+                else if (((typeof propertyName === 'string') || propertyName === null) && ((typeof index === 'number') || index === null) && ((oldValue != null) || oldValue === null) && ((newValue != null) || newValue === null)) {
+                    return this.fireIndexedPropertyChange$java_lang_String$int$java_lang_Object$java_lang_Object(propertyName, index, oldValue, newValue);
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            PropertyChangeSupport.prototype.fireIndexedPropertyChange$java_lang_String$int$boolean$boolean = function (propertyName, index, oldValue, newValue) {
+                if (oldValue !== newValue) {
+                    this.fireIndexedPropertyChange(propertyName, index, javaemul.internal.BooleanHelper.valueOf(oldValue), javaemul.internal.BooleanHelper.valueOf(newValue));
+                }
+            };
+            PropertyChangeSupport.prototype.hasListeners = function (propertyName) {
+                return this.map.hasListeners(propertyName);
+            };
+            PropertyChangeSupport.serialVersionUID = 6401253773779951803;
+            return PropertyChangeSupport;
+        }());
+        beans.PropertyChangeSupport = PropertyChangeSupport;
+        PropertyChangeSupport["__classname"] = "java.beans.PropertyChangeSupport";
+        var PropertyChangeSupport;
+        (function (PropertyChangeSupport) {
+            var PropertyChangeListenerMap = (function (_super) {
+                __extends(PropertyChangeListenerMap, _super);
+                function PropertyChangeListenerMap() {
+                    _super.apply(this, arguments);
+                }
+                PropertyChangeListenerMap.EMPTY_$LI$ = function () { if (PropertyChangeListenerMap.EMPTY == null)
+                    PropertyChangeListenerMap.EMPTY = []; return PropertyChangeListenerMap.EMPTY; };
+                ;
+                PropertyChangeListenerMap.prototype.newArray = function (length) {
+                    return (0 < length) ? new Array(length) : PropertyChangeListenerMap.EMPTY_$LI$();
+                };
+                PropertyChangeListenerMap.prototype.newProxy = function (name, listener) {
+                    if (((typeof name === 'string') || name === null) && ((listener != null && listener["__interfaces"] != null && listener["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0) || listener === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
+                        return (function () {
+                            return new java.beans.PropertyChangeListenerProxy(name, listener);
+                        })();
+                    }
+                    else if (((typeof name === 'string') || name === null) && ((listener != null) || listener === null)) {
+                        return this.newProxy$java_lang_String$java_util_EventListener(name, listener);
+                    }
+                    else
+                        throw new Error('invalid overload');
+                };
+                PropertyChangeListenerMap.prototype.extract = function (listener) {
+                    if (((listener != null && listener["__interfaces"] != null && listener["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0) || listener === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
+                        return (function () {
+                            while ((listener != null && listener instanceof java.beans.PropertyChangeListenerProxy)) {
+                                listener = listener.getListener();
+                            }
+                            ;
+                            return listener;
+                        })();
+                    }
+                    else if (((listener != null) || listener === null)) {
+                        return this.extract$java_util_EventListener(listener);
+                    }
+                    else
+                        throw new Error('invalid overload');
+                };
+                return PropertyChangeListenerMap;
+            }(java.beans.ChangeListenerMap));
+            PropertyChangeSupport.PropertyChangeListenerMap = PropertyChangeListenerMap;
+            PropertyChangeListenerMap["__classname"] = "java.beans.PropertyChangeSupport.PropertyChangeListenerMap";
+        })(PropertyChangeSupport = beans.PropertyChangeSupport || (beans.PropertyChangeSupport = {}));
+    })(beans = java.beans || (java.beans = {}));
+})(java || (java = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var java;
+(function (java) {
+    var beans;
+    (function (beans) {
+        /**
+         * An "IndexedPropertyChange" event gets delivered whenever a component that
+         * conforms to the JavaBeans&trade; specification (a "bean") changes a bound
+         * indexed property. This class is an extension of <code>PropertyChangeEvent</code>
+         * but contains the index of the property that has changed.
+         * <P>
+         * Null values may be provided for the old and the new values if their
+         * true values are not known.
+         * <P>
+         * An event source may send a null object as the name to indicate that an
+         * arbitrary set of if its properties have changed.  In this case the
+         * old and new values should also be null.
+         *
+         * @since 1.5
+         * @author Mark Davidson
+         */
+        var IndexedPropertyChangeEvent = (function (_super) {
+            __extends(IndexedPropertyChangeEvent, _super);
+            /**
+             * Constructs a new <code>IndexedPropertyChangeEvent</code> object.
+             *
+             * @param source  The bean that fired the event.
+             * @param propertyName  The programmatic name of the property that
+             * was changed.
+             * @param oldValue      The old value of the property.
+             * @param newValue      The new value of the property.
+             * @param index index of the property element that was changed.
+             */
+            function IndexedPropertyChangeEvent(source, propertyName, oldValue, newValue, index) {
+                _super.call(this, source, propertyName, oldValue, newValue);
+                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
+                this.index = 0;
+                this.index = index;
+            }
+            /**
+             * Gets the index of the property that was changed.
+             *
+             * @return The index specifying the property element that was
+             * changed.
+             */
+            IndexedPropertyChangeEvent.prototype.getIndex = function () {
+                return this.index;
+            };
+            IndexedPropertyChangeEvent.prototype.appendTo = function (sb) {
+                sb.append("; index=").append(this.getIndex());
+            };
+            IndexedPropertyChangeEvent.serialVersionUID = -320227448495806870;
+            return IndexedPropertyChangeEvent;
+        }(java.beans.PropertyChangeEvent));
+        beans.IndexedPropertyChangeEvent = IndexedPropertyChangeEvent;
+        IndexedPropertyChangeEvent["__classname"] = "java.beans.IndexedPropertyChangeEvent";
+    })(beans = java.beans || (java.beans = {}));
+})(java || (java = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        /**
+         * The default model for combo boxes.
+         *
+         * @param <E> the type of the elements of this model
+         *
+         * @author Arnaud Weber
+         * @author Tom Santos
+         */
+        var DefaultComboBoxModel = (function (_super) {
+            __extends(DefaultComboBoxModel, _super);
+            /**
+             * Constructs a DefaultComboBoxModel object initialized with
+             * an array of objects.
+             *
+             * @param items  an array of Object objects
+             */
+            function DefaultComboBoxModel(items) {
+                var _this = this;
+                if (((items != null && items instanceof Array) || items === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    _super.call(this);
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.MutableComboBoxModel", "javax.swing.ComboBoxModel", "javax.swing.ListModel", "java.io.Serializable"] });
+                    (function () {
+                        _this.objects = new java.util.Vector(items.length);
+                        var i;
+                        var c;
+                        for (i = 0, c = items.length; i < c; i++)
+                            _this.objects.addElement(items[i]);
+                        if (_this.getSize() > 0) {
+                            _this.selectedObject = _this.getElementAt(0);
+                        }
+                    })();
+                }
+                else if (((items != null && items instanceof java.util.Vector) || items === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    var v = __args[0];
+                    _super.call(this);
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.MutableComboBoxModel", "javax.swing.ComboBoxModel", "javax.swing.ListModel", "java.io.Serializable"] });
+                    (function () {
+                        _this.objects = v;
+                        if (_this.getSize() > 0) {
+                            _this.selectedObject = _this.getElementAt(0);
+                        }
+                    })();
+                }
+                else if (items === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    _super.call(this);
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.MutableComboBoxModel", "javax.swing.ComboBoxModel", "javax.swing.ListModel", "java.io.Serializable"] });
+                    (function () {
+                        _this.objects = new java.util.Vector();
+                    })();
+                }
+                else
+                    throw new Error('invalid overload');
+            }
+            /**
+             * Set the value of the selected item. The selected item may be null.
+             *
+             * @param anObject The combo box value or null for no selection.
+             */
+            DefaultComboBoxModel.prototype.setSelectedItem = function (anObject) {
+                if ((this.selectedObject != null && !(this.selectedObject === anObject)) || this.selectedObject == null && anObject != null) {
+                    this.selectedObject = anObject;
+                    this.fireContentsChanged(this, -1, -1);
+                }
+            };
+            DefaultComboBoxModel.prototype.getSelectedItem = function () {
+                return this.selectedObject;
+            };
+            DefaultComboBoxModel.prototype.getSize = function () {
+                return this.objects.size();
+            };
+            DefaultComboBoxModel.prototype.getElementAt = function (index) {
+                if (index >= 0 && index < this.objects.size())
+                    return this.objects.elementAt(index);
+                else
+                    return null;
+            };
+            /**
+             * Returns the index-position of the specified object in the list.
+             *
+             * @param anObject
+             * @return an int representing the index position, where 0 is
+             * the first position
+             */
+            DefaultComboBoxModel.prototype.getIndexOf = function (anObject) {
+                return this.objects.indexOf(anObject);
+            };
+            DefaultComboBoxModel.prototype.addElement = function (anObject) {
+                this.objects.addElement(anObject);
+                this.fireIntervalAdded(this, this.objects.size() - 1, this.objects.size() - 1);
+                if (this.objects.size() === 1 && this.selectedObject == null && anObject != null) {
+                    this.setSelectedItem(anObject);
+                }
+            };
+            DefaultComboBoxModel.prototype.insertElementAt = function (anObject, index) {
+                this.objects.insertElementAt(anObject, index);
+                this.fireIntervalAdded(this, index, index);
+            };
+            DefaultComboBoxModel.prototype.removeElementAt = function (index) {
+                if (this.getElementAt(index) === this.selectedObject) {
+                    if (index === 0) {
+                        this.setSelectedItem(this.getSize() === 1 ? null : this.getElementAt(index + 1));
+                    }
+                    else {
+                        this.setSelectedItem(this.getElementAt(index - 1));
+                    }
+                }
+                this.objects.removeElementAt(index);
+                this.fireIntervalRemoved(this, index, index);
+            };
+            DefaultComboBoxModel.prototype.removeElement = function (anObject) {
+                var index = this.objects.indexOf(anObject);
+                if (index !== -1) {
+                    this.removeElementAt(index);
+                }
+            };
+            /**
+             * Empties the list.
+             */
+            DefaultComboBoxModel.prototype.removeAllElements = function () {
+                if (this.objects.size() > 0) {
+                    var firstIndex = 0;
+                    var lastIndex = this.objects.size() - 1;
+                    this.objects.removeAllElements();
+                    this.selectedObject = null;
+                    this.fireIntervalRemoved(this, firstIndex, lastIndex);
+                }
+                else {
+                    this.selectedObject = null;
+                }
+            };
+            return DefaultComboBoxModel;
+        }(javax.swing.AbstractListModel));
+        swing.DefaultComboBoxModel = DefaultComboBoxModel;
+        DefaultComboBoxModel["__classname"] = "javax.swing.DefaultComboBoxModel";
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
 var javax;
 (function (javax) {
@@ -24348,6 +29069,7 @@ var javax;
                 function StateEdit(anObject, name) {
                     var _this = this;
                     if (((anObject != null && anObject["__interfaces"] != null && anObject["__interfaces"].indexOf("javax.swing.undo.StateEditable") >= 0) || anObject === null) && ((typeof name === 'string') || name === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.undo.UndoableEdit", "java.io.Serializable"] });
                         (function () {
@@ -24355,6 +29077,7 @@ var javax;
                         })();
                     }
                     else if (((anObject != null && anObject["__interfaces"] != null && anObject["__interfaces"].indexOf("javax.swing.undo.StateEditable") >= 0) || anObject === null) && name === undefined) {
+                        var __args = Array.prototype.slice.call(arguments);
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.undo.UndoableEdit", "java.io.Serializable"] });
                         (function () {
@@ -24509,6 +29232,7 @@ var sun;
                 Order0.prototype.getSubCurve = function (ystart, yend, dir) {
                     var _this = this;
                     if (((typeof ystart === 'number') || ystart === null) && ((typeof yend === 'number') || yend === null) && ((typeof dir === 'number') || dir === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             return _this;
                         })();
@@ -24694,6 +29418,7 @@ var sun;
                 Order1.prototype.getSubCurve = function (ystart, yend, dir) {
                     var _this = this;
                     if (((typeof ystart === 'number') || ystart === null) && ((typeof yend === 'number') || yend === null) && ((typeof dir === 'number') || dir === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if (ystart === _this.y0 && yend === _this.y1) {
                                 return _this.getWithDirection(dir);
@@ -25030,6 +29755,7 @@ var sun;
                 Order2.prototype.getSubCurve = function (ystart, yend, dir) {
                     var _this = this;
                     if (((typeof ystart === 'number') || ystart === null) && ((typeof yend === 'number') || yend === null) && ((typeof dir === 'number') || dir === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             var t0;
                             var t1;
@@ -25537,6 +30263,7 @@ var sun;
                 Order3.prototype.getSubCurve = function (ystart, yend, dir) {
                     var _this = this;
                     if (((typeof ystart === 'number') || ystart === null) && ((typeof yend === 'number') || yend === null) && ((typeof dir === 'number') || dir === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if (ystart <= _this.y0 && yend >= _this.y1) {
                                 return _this.getWithDirection(dir);
@@ -26239,6 +30966,154 @@ var java;
     (function (awt) {
         var event;
         (function (event) {
+            /**
+             * A low-level event which indicates that a Component has gained or lost the
+             * input focus. This low-level event is generated by a Component (such as a
+             * TextField). The event is passed to every <code>FocusListener</code> or
+             * <code>FocusAdapter</code> object which registered to receive such events
+             * using the Component's <code>addFocusListener</code> method. (<code>
+             * FocusAdapter</code> objects implement the <code>FocusListener</code>
+             * interface.) Each such listener object gets this <code>FocusEvent</code> when
+             * the event occurs.
+             * <p>
+             * There are two levels of focus events: permanent and temporary. Permanent
+             * focus change events occur when focus is directly moved from one Component to
+             * another, such as through a call to requestFocus() or as the user uses the
+             * TAB key to traverse Components. Temporary focus change events occur when
+             * focus is temporarily lost for a Component as the indirect result of another
+             * operation, such as Window deactivation or a Scrollbar drag. In this case,
+             * the original focus state will automatically be restored once that operation
+             * is finished, or, for the case of Window deactivation, when the Window is
+             * reactivated. Both permanent and temporary focus events are delivered using
+             * the FOCUS_GAINED and FOCUS_LOST event ids; the level may be distinguished in
+             * the event using the isTemporary() method.
+             * <p>
+             * An unspecified behavior will be caused if the {@code id} parameter
+             * of any particular {@code FocusEvent} instance is not
+             * in the range from {@code FOCUS_FIRST} to {@code FOCUS_LAST}.
+             *
+             * @see FocusAdapter
+             * @see FocusListener
+             * @see <a href="http://docs.oracle.com/javase/tutorial/uiswing/events/focuslistener.html">Tutorial: Writing a Focus Listener</a>
+             *
+             * @author Carl Quinn
+             * @author Amy Fowler
+             * @since 1.1
+             */
+            var FocusEvent = (function (_super) {
+                __extends(FocusEvent, _super);
+                /**
+                 * Constructs a <code>FocusEvent</code> object with the
+                 * specified temporary state and opposite <code>Component</code>.
+                 * The opposite <code>Component</code> is the other
+                 * <code>Component</code> involved in this focus change.
+                 * For a <code>FOCUS_GAINED</code> event, this is the
+                 * <code>Component</code> that lost focus. For a
+                 * <code>FOCUS_LOST</code> event, this is the <code>Component</code>
+                 * that gained focus. If this focus change occurs with a native
+                 * application, with a Java application in a different VM,
+                 * or with no other <code>Component</code>, then the opposite
+                 * <code>Component</code> is <code>null</code>.
+                 * <p> This method throws an
+                 * <code>IllegalArgumentException</code> if <code>source</code>
+                 * is <code>null</code>.
+                 *
+                 * @param source     The <code>Component</code> that originated the event
+                 * @param id         An integer indicating the type of event.
+                 * For information on allowable values, see
+                 * the class description for {@link FocusEvent}
+                 * @param temporary  Equals <code>true</code> if the focus change is temporary;
+                 * <code>false</code> otherwise
+                 * @param opposite   The other Component involved in the focus change,
+                 * or <code>null</code>
+                 * @throws IllegalArgumentException if <code>source</code> equals {@code null}
+                 * @see #getSource()
+                 * @see #getID()
+                 * @see #isTemporary()
+                 * @see #getOppositeComponent()
+                 * @since 1.4
+                 */
+                function FocusEvent(source, id, temporary, opposite) {
+                    if (temporary === void 0) { temporary = false; }
+                    if (opposite === void 0) { opposite = null; }
+                    _super.call(this, source, id);
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
+                    this.temporary = false;
+                    this.temporary = temporary;
+                    this.opposite = opposite;
+                }
+                FocusEvent.FOCUS_GAINED_$LI$ = function () { if (FocusEvent.FOCUS_GAINED == null)
+                    FocusEvent.FOCUS_GAINED = FocusEvent.FOCUS_FIRST; return FocusEvent.FOCUS_GAINED; };
+                ;
+                FocusEvent.FOCUS_LOST_$LI$ = function () { if (FocusEvent.FOCUS_LOST == null)
+                    FocusEvent.FOCUS_LOST = 1 + FocusEvent.FOCUS_FIRST; return FocusEvent.FOCUS_LOST; };
+                ;
+                /**
+                 * Identifies the focus change event as temporary or permanent.
+                 *
+                 * @return <code>true</code> if the focus change is temporary;
+                 * <code>false</code> otherwise
+                 */
+                FocusEvent.prototype.isTemporary = function () {
+                    return this.temporary;
+                };
+                /**
+                 * Returns the other Component involved in this focus change. For a
+                 * FOCUS_GAINED event, this is the Component that lost focus. For a
+                 * FOCUS_LOST event, this is the Component that gained focus. If this
+                 * focus change occurs with a native application, with a Java application
+                 * in a different VM or context, or with no other Component, then null is
+                 * returned.
+                 *
+                 * @return the other Component involved in the focus change, or null
+                 * @since 1.4
+                 */
+                FocusEvent.prototype.getOppositeComponent = function () {
+                    return this.opposite;
+                };
+                /**
+                 * Returns a parameter string identifying this event.
+                 * This method is useful for event-logging and for debugging.
+                 *
+                 * @return a string identifying the event and its attributes
+                 */
+                FocusEvent.prototype.paramString = function () {
+                    var typeStr;
+                    switch ((this.id)) {
+                        case FocusEvent.FOCUS_GAINED_$LI$():
+                            typeStr = "FOCUS_GAINED";
+                            break;
+                        case FocusEvent.FOCUS_LOST_$LI$():
+                            typeStr = "FOCUS_LOST";
+                            break;
+                        default:
+                            typeStr = "unknown type";
+                    }
+                    return typeStr + (this.temporary ? ",temporary" : ",permanent") + ",opposite=" + this.getOppositeComponent();
+                };
+                /**
+                 * The first number in the range of ids used for focus events.
+                 */
+                FocusEvent.FOCUS_FIRST = 1004;
+                /**
+                 * The last number in the range of ids used for focus events.
+                 */
+                FocusEvent.FOCUS_LAST = 1005;
+                FocusEvent.serialVersionUID = 523753786457416396;
+                return FocusEvent;
+            }(java.awt.event.ComponentEvent));
+            event.FocusEvent = FocusEvent;
+            FocusEvent["__classname"] = "java.awt.event.FocusEvent";
+        })(event = awt.event || (awt.event = {}));
+    })(awt = java.awt || (java.awt = {}));
+})(java || (java = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var java;
+(function (java) {
+    var awt;
+    (function (awt) {
+        var event;
+        (function (event) {
             var InputEvent = (function (_super) {
                 __extends(InputEvent, _super);
                 function InputEvent(source, id, when, modifiers) {
@@ -26368,8 +31243,8 @@ var java;
                         buf.append("+");
                     }
                     var buttonNumber = 1;
-                    for (var index125 = 0; index125 < InputEvent.BUTTON_DOWN_MASK_$LI$().length; index125++) {
-                        var mask = InputEvent.BUTTON_DOWN_MASK_$LI$()[index125];
+                    for (var index132 = 0; index132 < InputEvent.BUTTON_DOWN_MASK_$LI$().length; index132++) {
+                        var mask = InputEvent.BUTTON_DOWN_MASK_$LI$()[index132];
                         {
                             if ((modifiers & mask) !== 0) {
                                 buf.append("Button" + buttonNumber);
@@ -26396,11 +31271,306 @@ var java;
 (function (java) {
     var awt;
     (function (awt) {
+        var event;
+        (function (event) {
+            /**
+             * A low-level event that indicates that a window has changed its status. This
+             * low-level event is generated by a Window object when it is opened, closed,
+             * activated, deactivated, iconified, or deiconified, or when focus is
+             * transfered into or out of the Window.
+             * <P>
+             * The event is passed to every <code>WindowListener</code>
+             * or <code>WindowAdapter</code> object which registered to receive such
+             * events using the window's <code>addWindowListener</code> method.
+             * (<code>WindowAdapter</code> objects implement the
+             * <code>WindowListener</code> interface.) Each such listener object
+             * gets this <code>WindowEvent</code> when the event occurs.
+             * <p>
+             * An unspecified behavior will be caused if the {@code id} parameter
+             * of any particular {@code WindowEvent} instance is not
+             * in the range from {@code WINDOW_FIRST} to {@code WINDOW_LAST}.
+             *
+             * @author Carl Quinn
+             * @author Amy Fowler
+             *
+             * @see WindowAdapter
+             * @see WindowListener
+             * @see <a href="http://docs.oracle.com/javase/tutorial/uiswing/events/windowlistener.html">Tutorial: Writing a Window Listener</a>
+             *
+             * @since JDK1.1
+             */
+            var WindowEvent = (function (_super) {
+                __extends(WindowEvent, _super);
+                /**
+                 * Constructs a <code>WindowEvent</code> object.
+                 * <p>This method throws an
+                 * <code>IllegalArgumentException</code> if <code>source</code>
+                 * is <code>null</code>.
+                 *
+                 * @param source    The <code>Window</code> object
+                 * that originated the event
+                 * @param id        An integer indicating the type of event.
+                 * For information on allowable values, see
+                 * the class description for {@link WindowEvent}
+                 * @param opposite  The other window involved in the focus or activation
+                 * change, or <code>null</code>
+                 * @param oldState  Previous state of the window for window state change event.
+                 * See {@code #getOldState()} for allowable values
+                 * @param newState  New state of the window for window state change event.
+                 * See {@code #getNewState()} for allowable values
+                 * @throws IllegalArgumentException if <code>source</code> is null
+                 * @see #getWindow()
+                 * @see #getID()
+                 * @see #getOppositeWindow()
+                 * @see #getOldState()
+                 * @see #getNewState()
+                 * @since 1.4
+                 */
+                function WindowEvent(source, id, opposite, oldState, newState) {
+                    var _this = this;
+                    if (((source != null && source instanceof java.awt.Window) || source === null) && ((typeof id === 'number') || id === null) && ((opposite != null && opposite instanceof java.awt.Window) || opposite === null) && ((typeof oldState === 'number') || oldState === null) && ((typeof newState === 'number') || newState === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
+                        _super.call(this, source, id);
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
+                        this.oldState = 0;
+                        this.newState = 0;
+                        (function () {
+                            _this.opposite = opposite;
+                            _this.oldState = oldState;
+                            _this.newState = newState;
+                        })();
+                    }
+                    else if (((source != null && source instanceof java.awt.Window) || source === null) && ((typeof id === 'number') || id === null) && ((typeof opposite === 'number') || opposite === null) && ((typeof oldState === 'number') || oldState === null) && newState === undefined) {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var oldState = __args[2];
+                        var newState = __args[3];
+                        {
+                            var __args = Array.prototype.slice.call(arguments);
+                            var opposite = null;
+                            _super.call(this, source, id);
+                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
+                            this.oldState = 0;
+                            this.newState = 0;
+                            (function () {
+                                _this.opposite = opposite;
+                                _this.oldState = oldState;
+                                _this.newState = newState;
+                            })();
+                        }
+                        (function () {
+                        })();
+                    }
+                    else if (((source != null && source instanceof java.awt.Window) || source === null) && ((typeof id === 'number') || id === null) && ((opposite != null && opposite instanceof java.awt.Window) || opposite === null) && oldState === undefined && newState === undefined) {
+                        var __args = Array.prototype.slice.call(arguments);
+                        {
+                            var __args = Array.prototype.slice.call(arguments);
+                            var oldState = 0;
+                            var newState = 0;
+                            _super.call(this, source, id);
+                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
+                            this.oldState = 0;
+                            this.newState = 0;
+                            (function () {
+                                _this.opposite = opposite;
+                                _this.oldState = oldState;
+                                _this.newState = newState;
+                            })();
+                        }
+                        (function () {
+                        })();
+                    }
+                    else if (((source != null && source instanceof java.awt.Window) || source === null) && ((typeof id === 'number') || id === null) && opposite === undefined && oldState === undefined && newState === undefined) {
+                        var __args = Array.prototype.slice.call(arguments);
+                        {
+                            var __args = Array.prototype.slice.call(arguments);
+                            var opposite = null;
+                            var oldState = 0;
+                            var newState = 0;
+                            _super.call(this, source, id);
+                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
+                            this.oldState = 0;
+                            this.newState = 0;
+                            (function () {
+                                _this.opposite = opposite;
+                                _this.oldState = oldState;
+                                _this.newState = newState;
+                            })();
+                        }
+                        (function () {
+                        })();
+                    }
+                    else
+                        throw new Error('invalid overload');
+                }
+                WindowEvent.WINDOW_OPENED_$LI$ = function () { if (WindowEvent.WINDOW_OPENED == null)
+                    WindowEvent.WINDOW_OPENED = WindowEvent.WINDOW_FIRST; return WindowEvent.WINDOW_OPENED; };
+                ;
+                WindowEvent.WINDOW_CLOSING_$LI$ = function () { if (WindowEvent.WINDOW_CLOSING == null)
+                    WindowEvent.WINDOW_CLOSING = 1 + WindowEvent.WINDOW_FIRST; return WindowEvent.WINDOW_CLOSING; };
+                ;
+                WindowEvent.WINDOW_CLOSED_$LI$ = function () { if (WindowEvent.WINDOW_CLOSED == null)
+                    WindowEvent.WINDOW_CLOSED = 2 + WindowEvent.WINDOW_FIRST; return WindowEvent.WINDOW_CLOSED; };
+                ;
+                WindowEvent.WINDOW_ICONIFIED_$LI$ = function () { if (WindowEvent.WINDOW_ICONIFIED == null)
+                    WindowEvent.WINDOW_ICONIFIED = 3 + WindowEvent.WINDOW_FIRST; return WindowEvent.WINDOW_ICONIFIED; };
+                ;
+                WindowEvent.WINDOW_DEICONIFIED_$LI$ = function () { if (WindowEvent.WINDOW_DEICONIFIED == null)
+                    WindowEvent.WINDOW_DEICONIFIED = 4 + WindowEvent.WINDOW_FIRST; return WindowEvent.WINDOW_DEICONIFIED; };
+                ;
+                WindowEvent.WINDOW_ACTIVATED_$LI$ = function () { if (WindowEvent.WINDOW_ACTIVATED == null)
+                    WindowEvent.WINDOW_ACTIVATED = 5 + WindowEvent.WINDOW_FIRST; return WindowEvent.WINDOW_ACTIVATED; };
+                ;
+                WindowEvent.WINDOW_DEACTIVATED_$LI$ = function () { if (WindowEvent.WINDOW_DEACTIVATED == null)
+                    WindowEvent.WINDOW_DEACTIVATED = 6 + WindowEvent.WINDOW_FIRST; return WindowEvent.WINDOW_DEACTIVATED; };
+                ;
+                WindowEvent.WINDOW_GAINED_FOCUS_$LI$ = function () { if (WindowEvent.WINDOW_GAINED_FOCUS == null)
+                    WindowEvent.WINDOW_GAINED_FOCUS = 7 + WindowEvent.WINDOW_FIRST; return WindowEvent.WINDOW_GAINED_FOCUS; };
+                ;
+                WindowEvent.WINDOW_LOST_FOCUS_$LI$ = function () { if (WindowEvent.WINDOW_LOST_FOCUS == null)
+                    WindowEvent.WINDOW_LOST_FOCUS = 8 + WindowEvent.WINDOW_FIRST; return WindowEvent.WINDOW_LOST_FOCUS; };
+                ;
+                WindowEvent.WINDOW_STATE_CHANGED_$LI$ = function () { if (WindowEvent.WINDOW_STATE_CHANGED == null)
+                    WindowEvent.WINDOW_STATE_CHANGED = 9 + WindowEvent.WINDOW_FIRST; return WindowEvent.WINDOW_STATE_CHANGED; };
+                ;
+                WindowEvent.WINDOW_LAST_$LI$ = function () { if (WindowEvent.WINDOW_LAST == null)
+                    WindowEvent.WINDOW_LAST = WindowEvent.WINDOW_STATE_CHANGED_$LI$(); return WindowEvent.WINDOW_LAST; };
+                ;
+                /**
+                 * Returns the originator of the event.
+                 *
+                 * @return the Window object that originated the event
+                 */
+                WindowEvent.prototype.getWindow = function () {
+                    return (this.source != null && this.source instanceof java.awt.Window) ? this.source : null;
+                };
+                /**
+                 * Returns the other Window involved in this focus or activation change.
+                 * For a WINDOW_ACTIVATED or WINDOW_GAINED_FOCUS event, this is the Window
+                 * that lost activation or focus. For a WINDOW_DEACTIVATED or
+                 * WINDOW_LOST_FOCUS event, this is the Window that gained activation or
+                 * focus. For any other type of WindowEvent, or if the focus or activation
+                 * change occurs with a native application, with a Java application in a
+                 * different VM or context, or with no other Window, null is returned.
+                 *
+                 * @return the other Window involved in the focus or activation change, or
+                 * null
+                 * @since 1.4
+                 */
+                WindowEvent.prototype.getOppositeWindow = function () {
+                    return this.opposite;
+                };
+                /**
+                 * For <code>WINDOW_STATE_CHANGED</code> events returns the
+                 * previous state of the window. The state is
+                 * represented as a bitwise mask.
+                 * <ul>
+                 * <li><code>NORMAL</code>
+                 * <br>Indicates that no state bits are set.
+                 * <li><code>ICONIFIED</code>
+                 * <li><code>MAXIMIZED_HORIZ</code>
+                 * <li><code>MAXIMIZED_VERT</code>
+                 * <li><code>MAXIMIZED_BOTH</code>
+                 * <br>Concatenates <code>MAXIMIZED_HORIZ</code>
+                 * and <code>MAXIMIZED_VERT</code>.
+                 * </ul>
+                 *
+                 * @return a bitwise mask of the previous window state
+                 * @see java.awt.Frame#getExtendedState()
+                 * @since 1.4
+                 */
+                WindowEvent.prototype.getOldState = function () {
+                    return this.oldState;
+                };
+                /**
+                 * For <code>WINDOW_STATE_CHANGED</code> events returns the
+                 * new state of the window. The state is
+                 * represented as a bitwise mask.
+                 * <ul>
+                 * <li><code>NORMAL</code>
+                 * <br>Indicates that no state bits are set.
+                 * <li><code>ICONIFIED</code>
+                 * <li><code>MAXIMIZED_HORIZ</code>
+                 * <li><code>MAXIMIZED_VERT</code>
+                 * <li><code>MAXIMIZED_BOTH</code>
+                 * <br>Concatenates <code>MAXIMIZED_HORIZ</code>
+                 * and <code>MAXIMIZED_VERT</code>.
+                 * </ul>
+                 *
+                 * @return a bitwise mask of the new window state
+                 * @see java.awt.Frame#getExtendedState()
+                 * @since 1.4
+                 */
+                WindowEvent.prototype.getNewState = function () {
+                    return this.newState;
+                };
+                /**
+                 * Returns a parameter string identifying this event.
+                 * This method is useful for event-logging and for debugging.
+                 *
+                 * @return a string identifying the event and its attributes
+                 */
+                WindowEvent.prototype.paramString = function () {
+                    var typeStr;
+                    switch ((this.id)) {
+                        case WindowEvent.WINDOW_OPENED_$LI$():
+                            typeStr = "WINDOW_OPENED";
+                            break;
+                        case WindowEvent.WINDOW_CLOSING_$LI$():
+                            typeStr = "WINDOW_CLOSING";
+                            break;
+                        case WindowEvent.WINDOW_CLOSED_$LI$():
+                            typeStr = "WINDOW_CLOSED";
+                            break;
+                        case WindowEvent.WINDOW_ICONIFIED_$LI$():
+                            typeStr = "WINDOW_ICONIFIED";
+                            break;
+                        case WindowEvent.WINDOW_DEICONIFIED_$LI$():
+                            typeStr = "WINDOW_DEICONIFIED";
+                            break;
+                        case WindowEvent.WINDOW_ACTIVATED_$LI$():
+                            typeStr = "WINDOW_ACTIVATED";
+                            break;
+                        case WindowEvent.WINDOW_DEACTIVATED_$LI$():
+                            typeStr = "WINDOW_DEACTIVATED";
+                            break;
+                        case WindowEvent.WINDOW_GAINED_FOCUS_$LI$():
+                            typeStr = "WINDOW_GAINED_FOCUS";
+                            break;
+                        case WindowEvent.WINDOW_LOST_FOCUS_$LI$():
+                            typeStr = "WINDOW_LOST_FOCUS";
+                            break;
+                        case WindowEvent.WINDOW_STATE_CHANGED_$LI$():
+                            typeStr = "WINDOW_STATE_CHANGED";
+                            break;
+                        default:
+                            typeStr = "unknown type";
+                    }
+                    typeStr += ",opposite=" + this.getOppositeWindow() + ",oldState=" + this.oldState + ",newState=" + this.newState;
+                    return typeStr;
+                };
+                /**
+                 * The first number in the range of ids used for window events.
+                 */
+                WindowEvent.WINDOW_FIRST = 200;
+                WindowEvent.serialVersionUID = -1567959133147912127;
+                return WindowEvent;
+            }(java.awt.event.ComponentEvent));
+            event.WindowEvent = WindowEvent;
+            WindowEvent["__classname"] = "java.awt.event.WindowEvent";
+        })(event = awt.event || (awt.event = {}));
+    })(awt = java.awt || (java.awt = {}));
+})(java || (java = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var java;
+(function (java) {
+    var awt;
+    (function (awt) {
         var Panel = (function (_super) {
             __extends(Panel, _super);
             function Panel(layout) {
                 var _this = this;
                 if (((layout != null && layout["__interfaces"] != null && layout["__interfaces"].indexOf("java.awt.LayoutManager") >= 0) || layout === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     _super.call(this);
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent"] });
                     (function () {
@@ -26408,7 +31578,9 @@ var java;
                     })();
                 }
                 else if (layout === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
                     {
+                        var __args = Array.prototype.slice.call(arguments);
                         var layout = new java.awt.FlowLayout();
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent"] });
@@ -26433,9 +31605,13 @@ var java;
             };
             Panel.prototype.setBackground = function (background) {
                 _super.prototype.setBackground.call(this, background);
-                this.htmlElement.style.backgroundColor = null;
-                if (background != null) {
-                    this.htmlCanvas.style.backgroundColor = background.toHTML();
+                if (this.htmlElement != null) {
+                    this.htmlElement.style.backgroundColor = null;
+                }
+                if (this.htmlCanvas != null) {
+                    if (background != null) {
+                        this.htmlCanvas.style.backgroundColor = background.toHTML();
+                    }
                 }
             };
             Panel.prototype.doPaintInternal = function () {
@@ -26472,6 +31648,391 @@ var java;
         }(java.awt.Container));
         awt.Panel = Panel;
         Panel["__classname"] = "java.awt.Panel";
+    })(awt = java.awt || (java.awt = {}));
+})(java || (java = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var java;
+(function (java) {
+    var awt;
+    (function (awt) {
+        var Window = (function (_super) {
+            __extends(Window, _super);
+            function Window(owner) {
+                var _this = this;
+                if (((owner != null && owner instanceof java.awt.Frame) || owner === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    _super.call(this);
+                    this.focusableWindowState = true;
+                    this.autoRequestFocus = true;
+                    this.isInShow = false;
+                    this.opacity = 1.0;
+                    this.shape = null;
+                    this.isTrayIconWindow = false;
+                    this.windowListeners = new Array();
+                    this.windowStateListeners = new Array();
+                    this.windowFocusListeners = new Array();
+                    this.type = Window.Type.NORMAL;
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent"] });
+                    this.state = 0;
+                    this.alwaysOnTop = false;
+                    (function () {
+                        _this.ownedInit(owner);
+                    })();
+                }
+                else if (((owner != null && owner instanceof java.awt.Window) || owner === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    _super.call(this);
+                    this.focusableWindowState = true;
+                    this.autoRequestFocus = true;
+                    this.isInShow = false;
+                    this.opacity = 1.0;
+                    this.shape = null;
+                    this.isTrayIconWindow = false;
+                    this.windowListeners = new Array();
+                    this.windowStateListeners = new Array();
+                    this.windowFocusListeners = new Array();
+                    this.type = Window.Type.NORMAL;
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent"] });
+                    this.state = 0;
+                    this.alwaysOnTop = false;
+                    (function () {
+                        _this.ownedInit(owner);
+                    })();
+                }
+                else if (owner === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    _super.call(this);
+                    this.focusableWindowState = true;
+                    this.autoRequestFocus = true;
+                    this.isInShow = false;
+                    this.opacity = 1.0;
+                    this.shape = null;
+                    this.isTrayIconWindow = false;
+                    this.windowListeners = new Array();
+                    this.windowStateListeners = new Array();
+                    this.windowFocusListeners = new Array();
+                    this.type = Window.Type.NORMAL;
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent"] });
+                    this.state = 0;
+                    this.alwaysOnTop = false;
+                    (function () {
+                    })();
+                }
+                else
+                    throw new Error('invalid overload');
+            }
+            Window.prototype.getElement = function () {
+                return this.htmlElement;
+            };
+            Window.prototype.createHTML = function () {
+                var _this = this;
+                this.htmlElement = document.createElement("div");
+                this.htmlElement.style.display = "none";
+                window.addEventListener("load", function (e) {
+                    console.info("window onload hook");
+                    if (document.body == null) {
+                        throw new Error("no body found");
+                    }
+                    document.body.appendChild(_this.htmlElement);
+                    _this.doPaintInternal();
+                    return null;
+                });
+            };
+            Window.prototype.initHTML = function () {
+                _super.prototype.initHTML.call(this);
+                if (this.width == null) {
+                    this.htmlElement.style.width = "100%";
+                }
+                if (this.height == null) {
+                    this.htmlElement.style.height = "100%";
+                }
+            };
+            Window.prototype.ownedInit = function (owner) {
+                this.parent = owner;
+                if (owner != null) {
+                    if (owner.isAlwaysOnTop()) {
+                        try {
+                            this.setAlwaysOnTop(true);
+                        }
+                        catch (ignore) {
+                        }
+                        ;
+                    }
+                }
+            };
+            Window.prototype.constructComponentName = function () {
+                {
+                    return Window.base + Window.nameCounter++;
+                }
+                ;
+            };
+            Window.prototype.getIconImages = function () {
+                var icons = this.icons;
+                if (icons == null || icons.size() === 0) {
+                    return new java.util.ArrayList();
+                }
+                return new java.util.ArrayList(icons);
+            };
+            Window.prototype.setIconImages = function (icons) {
+                this.icons = (icons == null) ? new java.util.ArrayList() : new java.util.ArrayList(icons);
+                this.firePropertyChange("iconImage", null, null);
+            };
+            Window.prototype.setIconImage = function (image) {
+                var imageList = new java.util.ArrayList();
+                if (image != null) {
+                    imageList.add(image);
+                }
+                this.setIconImages(imageList);
+            };
+            Window.prototype.pack = function () {
+            };
+            Window.prototype.setMinimumSize = function (minimumSize) {
+                _super.prototype.setMinimumSize.call(this, minimumSize);
+                var size = this.getSize();
+                if (size.width < minimumSize.width || size.height < minimumSize.height) {
+                    var nw = Math.max(this.width, minimumSize.width);
+                    var nh = Math.max(this.height, minimumSize.height);
+                    this.setSize(nw, nh);
+                }
+            };
+            Window.prototype.setVisible = function (visible) {
+                this.visible = visible;
+                if (this.htmlElement != null) {
+                    this.htmlElement.style.display = visible ? "block" : "none";
+                }
+            };
+            Window.prototype.dispose = function () {
+            };
+            Window.prototype.toFront = function () {
+            };
+            Window.prototype.toBack = function () {
+            };
+            Window.prototype.getToolkit = function () {
+                return java.awt.Toolkit.getDefaultToolkit();
+            };
+            Window.prototype.getWarningString = function () {
+                return this.warningString;
+            };
+            Window.prototype.setCursor = function (cursor) {
+                if (cursor == null) {
+                    cursor = java.awt.Cursor.getPredefinedCursor(java.awt.Cursor.DEFAULT_CURSOR);
+                }
+                _super.prototype.setCursor.call(this, cursor);
+            };
+            Window.prototype.addWindowListener = function (l) {
+                if (l == null) {
+                    return;
+                }
+                this.windowListeners.push(l);
+            };
+            Window.prototype.addWindowStateListener = function (l) {
+                if (l == null) {
+                    return;
+                }
+                this.windowStateListeners.push(l);
+            };
+            Window.prototype.addWindowFocusListener = function (l) {
+                if (l == null) {
+                    return;
+                }
+                this.windowFocusListeners.push(l);
+            };
+            Window.prototype.removeWindowListener = function (l) {
+                if (l == null) {
+                    return;
+                }
+                this.windowListeners.splice(this.windowListeners.indexOf(l), 1);
+            };
+            Window.prototype.removeWindowStateListener = function (l) {
+                if (l == null) {
+                    return;
+                }
+                this.windowStateListeners.splice(this.windowStateListeners.indexOf(l), 1);
+            };
+            Window.prototype.removeWindowFocusListener = function (l) {
+                if (l == null) {
+                    return;
+                }
+                this.windowFocusListeners.splice(this.windowFocusListeners.indexOf(l), 1);
+            };
+            Window.prototype.getWindowListeners = function () {
+                return this.windowListeners;
+            };
+            Window.prototype.getWindowFocusListeners = function () {
+                return this.windowFocusListeners;
+            };
+            Window.prototype.getWindowStateListeners = function () {
+                return this.windowStateListeners;
+            };
+            Window.prototype.getListeners = function (listenerType) {
+                if (listenerType === "java.awt.event.WindowFocusListener") {
+                    return this.windowFocusListeners;
+                }
+                else if (listenerType === "java.awt.event.WindowStateListener") {
+                    return this.windowStateListeners;
+                }
+                else if (listenerType === "java.awt.event.WindowListener") {
+                    return this.windowListeners;
+                }
+                return null;
+            };
+            Window.prototype.processWindowEvent = function (e) {
+                for (var index133 = 0; index133 < this.windowListeners.length; index133++) {
+                    var listener = this.windowListeners[index133];
+                    {
+                        switch ((e.getID())) {
+                            case java.awt.event.WindowEvent.WINDOW_OPENED_$LI$():
+                                listener.windowOpened(e);
+                                break;
+                            case java.awt.event.WindowEvent.WINDOW_CLOSING_$LI$():
+                                listener.windowClosing(e);
+                                break;
+                            case java.awt.event.WindowEvent.WINDOW_CLOSED_$LI$():
+                                listener.windowClosed(e);
+                                break;
+                            case java.awt.event.WindowEvent.WINDOW_ICONIFIED_$LI$():
+                                listener.windowIconified(e);
+                                break;
+                            case java.awt.event.WindowEvent.WINDOW_DEICONIFIED_$LI$():
+                                listener.windowDeiconified(e);
+                                break;
+                            case java.awt.event.WindowEvent.WINDOW_ACTIVATED_$LI$():
+                                listener.windowActivated(e);
+                                break;
+                            case java.awt.event.WindowEvent.WINDOW_DEACTIVATED_$LI$():
+                                listener.windowDeactivated(e);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            };
+            Window.prototype.processWindowFocusEvent = function (e) {
+                for (var index134 = 0; index134 < this.windowFocusListeners.length; index134++) {
+                    var listener = this.windowFocusListeners[index134];
+                    {
+                        switch ((e.getID())) {
+                            case java.awt.event.WindowEvent.WINDOW_GAINED_FOCUS_$LI$():
+                                listener.windowGainedFocus(e);
+                                break;
+                            case java.awt.event.WindowEvent.WINDOW_LOST_FOCUS_$LI$():
+                                listener.windowLostFocus(e);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            };
+            Window.prototype.processWindowStateEvent = function (e) {
+                for (var index135 = 0; index135 < this.windowStateListeners.length; index135++) {
+                    var listener = this.windowStateListeners[index135];
+                    {
+                        switch ((e.getID())) {
+                            case java.awt.event.WindowEvent.WINDOW_STATE_CHANGED_$LI$():
+                                listener.windowStateChanged(e);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            };
+            Window.prototype.setAlwaysOnTop = function (alwaysOnTop) {
+            };
+            Window.prototype.isAlwaysOnTopSupported = function () {
+                return false;
+            };
+            Window.prototype.isAlwaysOnTop = function () {
+                return this.alwaysOnTop;
+            };
+            Window.prototype.isActive = function () {
+                return true;
+            };
+            Window.prototype.isFocused = function () {
+                return true;
+            };
+            Window.prototype.setFocusCycleRoot = function (focusCycleRoot) {
+            };
+            Window.prototype.isFocusCycleRoot = function () {
+                return true;
+            };
+            Window.prototype.getFocusCycleRootAncestor = function () {
+                return null;
+            };
+            Window.prototype.isFocusableWindow = function () {
+                return false;
+            };
+            Window.prototype.getFocusableWindowState = function () {
+                return this.focusableWindowState;
+            };
+            Window.prototype.setFocusableWindowState = function (focusableWindowState) {
+                this.focusableWindowState = focusableWindowState;
+            };
+            Window.prototype.setAutoRequestFocus = function (autoRequestFocus) {
+                this.autoRequestFocus = autoRequestFocus;
+            };
+            Window.prototype.isAutoRequestFocus = function () {
+                return this.autoRequestFocus;
+            };
+            Window.prototype.addPropertyChangeListener$java_beans_PropertyChangeListener = function (listener) {
+                _super.prototype.addPropertyChangeListener.call(this, listener);
+            };
+            Window.prototype.addPropertyChangeListener = function (propertyName, listener) {
+                var _this = this;
+                if (((typeof propertyName === 'string') || propertyName === null) && ((listener != null && listener["__interfaces"] != null && listener["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0) || listener === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    return (function () {
+                        _super.prototype.addPropertyChangeListener.call(_this, propertyName, listener);
+                    })();
+                }
+                else if (((propertyName != null && propertyName["__interfaces"] != null && propertyName["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0) || propertyName === null) && listener === undefined) {
+                    return this.addPropertyChangeListener$java_beans_PropertyChangeListener(propertyName);
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            Window.prototype.isShowing = function () {
+                return this.visible;
+            };
+            Window.prototype.setType = function (type) {
+                this.type = type;
+            };
+            Window.prototype.getType = function () {
+                return this.type;
+            };
+            Window.prototype.getOpacity = function () {
+                return this.opacity;
+            };
+            Window.prototype.setOpacity = function (opacity) {
+                if (opacity < 0.0 || opacity > 1.0) {
+                    throw new java.lang.IllegalArgumentException("The value of opacity should be in the range [0.0f .. 1.0f].");
+                }
+                this.opacity = opacity;
+            };
+            Window.prototype.getShape = function () {
+                return this.shape == null ? null : new java.awt.geom.Path2D.Float(this.shape);
+            };
+            Window.prototype.setShape = function (shape) {
+                this.shape = (shape == null) ? null : new java.awt.geom.Path2D.Float(shape);
+            };
+            Window.OPENED = 1;
+            Window.base = "win";
+            Window.nameCounter = 0;
+            return Window;
+        }(java.awt.Container));
+        awt.Window = Window;
+        Window["__classname"] = "java.awt.Window";
+        var Window;
+        (function (Window) {
+            (function (Type) {
+                Type[Type["NORMAL"] = 0] = "NORMAL";
+                Type[Type["UTILITY"] = 1] = "UTILITY";
+                Type[Type["POPUP"] = 2] = "POPUP";
+            })(Window.Type || (Window.Type = {}));
+            var Type = Window.Type;
+        })(Window = awt.Window || (awt.Window = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -26525,6 +32086,7 @@ var java;
                 function GeneralPath(windingRule, pointTypes, numTypes, pointCoords, numCoords) {
                     var _this = this;
                     if (((typeof windingRule === 'number') || windingRule === null) && ((pointTypes != null && pointTypes instanceof Array) || pointTypes === null) && ((typeof numTypes === 'number') || numTypes === null) && ((pointCoords != null && pointCoords instanceof Array) || pointCoords === null) && ((typeof numCoords === 'number') || numCoords === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                         (function () {
@@ -26536,28 +32098,32 @@ var java;
                         })();
                     }
                     else if (((typeof windingRule === 'number') || windingRule === null) && ((typeof pointTypes === 'number') || pointTypes === null) && numTypes === undefined && pointCoords === undefined && numCoords === undefined) {
-                        var rule = windingRule;
-                        var initialCapacity = pointTypes;
+                        var __args = Array.prototype.slice.call(arguments);
+                        var rule = __args[0];
+                        var initialCapacity = __args[1];
                         _super.call(this, rule, initialCapacity);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                         (function () {
                         })();
                     }
                     else if (((windingRule != null && windingRule["__interfaces"] != null && windingRule["__interfaces"].indexOf("java.awt.Shape") >= 0) || windingRule === null) && pointTypes === undefined && numTypes === undefined && pointCoords === undefined && numCoords === undefined) {
-                        var s = windingRule;
+                        var __args = Array.prototype.slice.call(arguments);
+                        var s = __args[0];
                         _super.call(this, s, null);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                         (function () {
                         })();
                     }
                     else if (((typeof windingRule === 'number') || windingRule === null) && pointTypes === undefined && numTypes === undefined && pointCoords === undefined && numCoords === undefined) {
-                        var rule = windingRule;
+                        var __args = Array.prototype.slice.call(arguments);
+                        var rule = __args[0];
                         _super.call(this, rule, java.awt.geom.Path2D.INIT_SIZE);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                         (function () {
                         })();
                     }
                     else if (windingRule === undefined && pointTypes === undefined && numTypes === undefined && pointCoords === undefined && numCoords === undefined) {
+                        var __args = Array.prototype.slice.call(arguments);
                         _super.call(this, java.awt.geom.Path2D.WIND_NON_ZERO_$LI$(), java.awt.geom.Path2D.INIT_SIZE);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                         (function () {
@@ -26683,6 +32249,7 @@ var java;
             function Rectangle(x, y, width, height) {
                 var _this = this;
                 if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof width === 'number') || width === null) && ((typeof height === 'number') || height === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     _super.call(this);
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                     this.x = 0;
@@ -26697,9 +32264,11 @@ var java;
                     })();
                 }
                 else if (((x != null && x instanceof java.awt.Point) || x === null) && ((y != null && y instanceof java.awt.Dimension) || y === null) && width === undefined && height === undefined) {
-                    var p = x;
-                    var d = y;
+                    var __args = Array.prototype.slice.call(arguments);
+                    var p = __args[0];
+                    var d = __args[1];
                     {
+                        var __args = Array.prototype.slice.call(arguments);
                         var x = p.x;
                         var y = p.y;
                         var width = d.width;
@@ -26721,9 +32290,11 @@ var java;
                     })();
                 }
                 else if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && width === undefined && height === undefined) {
-                    var width = x;
-                    var height = y;
+                    var __args = Array.prototype.slice.call(arguments);
+                    var width = __args[0];
+                    var height = __args[1];
                     {
+                        var __args = Array.prototype.slice.call(arguments);
                         var x = 0;
                         var y = 0;
                         _super.call(this);
@@ -26743,8 +32314,10 @@ var java;
                     })();
                 }
                 else if (((x != null && x instanceof java.awt.Rectangle) || x === null) && y === undefined && width === undefined && height === undefined) {
-                    var r = x;
+                    var __args = Array.prototype.slice.call(arguments);
+                    var r = __args[0];
                     {
+                        var __args = Array.prototype.slice.call(arguments);
                         var x = r.x;
                         var y = r.y;
                         var width = r.width;
@@ -26766,8 +32339,10 @@ var java;
                     })();
                 }
                 else if (((x != null && x instanceof java.awt.Point) || x === null) && y === undefined && width === undefined && height === undefined) {
-                    var p = x;
+                    var __args = Array.prototype.slice.call(arguments);
+                    var p = __args[0];
                     {
+                        var __args = Array.prototype.slice.call(arguments);
                         var x = p.x;
                         var y = p.y;
                         var width = 0;
@@ -26789,8 +32364,10 @@ var java;
                     })();
                 }
                 else if (((x != null && x instanceof java.awt.Dimension) || x === null) && y === undefined && width === undefined && height === undefined) {
-                    var d = x;
+                    var __args = Array.prototype.slice.call(arguments);
+                    var d = __args[0];
                     {
+                        var __args = Array.prototype.slice.call(arguments);
                         var x = 0;
                         var y = 0;
                         var width = d.width;
@@ -26812,7 +32389,9 @@ var java;
                     })();
                 }
                 else if (x === undefined && y === undefined && width === undefined && height === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
                     {
+                        var __args = Array.prototype.slice.call(arguments);
                         var x = 0;
                         var y = 0;
                         var width = 0;
@@ -26926,6 +32505,7 @@ var java;
             Rectangle.prototype.setBounds = function (x, y, width, height) {
                 var _this = this;
                 if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof width === 'number') || width === null) && ((typeof height === 'number') || height === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         _this.reshape(x, y, width, height);
                     })();
@@ -27061,6 +32641,7 @@ var java;
             Rectangle.prototype.setLocation = function (x, y) {
                 var _this = this;
                 if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         _this.move(x, y);
                     })();
@@ -27183,6 +32764,7 @@ var java;
             Rectangle.prototype.setSize = function (width, height) {
                 var _this = this;
                 if (((typeof width === 'number') || width === null) && ((typeof height === 'number') || height === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         _this.resize(width, height);
                     })();
@@ -27508,6 +33090,7 @@ var java;
             Rectangle.prototype.add = function (newx, newy) {
                 var _this = this;
                 if (((typeof newx === 'number') || newx === null) && ((typeof newy === 'number') || newy === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         if ((_this.width | _this.height) < 0) {
                             _this.x = newx;
@@ -27734,6 +33317,7 @@ var java;
             Rectangle.prototype.outcode = function (x, y) {
                 var _this = this;
                 if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         var out = 0;
                         if (_this.width <= 0) {
@@ -27836,6 +33420,7 @@ var java;
             WebGraphics2D.prototype.drawString = function (s, x, y) {
                 var _this = this;
                 if (((typeof s === 'string') || s === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         _this.context.fillText(s, x, y);
                     })();
@@ -27884,6 +33469,7 @@ var java;
             WebGraphics2D.prototype.drawPolygon = function (xPoints, yPoints, nPoints) {
                 var _this = this;
                 if (((xPoints != null && xPoints instanceof Array) || xPoints === null) && ((yPoints != null && yPoints instanceof Array) || yPoints === null) && ((typeof nPoints === 'number') || nPoints === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         _this.context.beginPath();
                         if (nPoints <= 0) {
@@ -27912,6 +33498,7 @@ var java;
             WebGraphics2D.prototype.getClipBounds = function (r) {
                 var _this = this;
                 if (((r != null && r instanceof java.awt.Rectangle) || r === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         if (_this.clip == null) {
                             return r;
@@ -28004,6 +33591,7 @@ var java;
             WebGraphics2D.prototype.drawImage = function (img, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, bgcolor, observer) {
                 var _this = this;
                 if (((img != null && img instanceof java.awt.Image) || img === null) && ((typeof dx1 === 'number') || dx1 === null) && ((typeof dy1 === 'number') || dy1 === null) && ((typeof dx2 === 'number') || dx2 === null) && ((typeof dy2 === 'number') || dy2 === null) && ((typeof sx1 === 'number') || sx1 === null) && ((typeof sy1 === 'number') || sy1 === null) && ((typeof sx2 === 'number') || sx2 === null) && ((typeof sy2 === 'number') || sy2 === null) && ((bgcolor != null && bgcolor instanceof java.awt.Color) || bgcolor === null) && ((observer != null && observer["__interfaces"] != null && observer["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0) || observer === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         _this.context["drawImage"](img.source, Math.min(sx1, sx2), Math.min(sy1, sy2), Math.abs(sx2 - sx1), Math.abs(sy2 - sy1), Math.min(dx1, dx2), Math.min(dy1, dy2), Math.abs(dx2 - dx1), Math.abs(dy2 - dy1));
                         return true;
@@ -28049,6 +33637,7 @@ var java;
             WebGraphics2D.prototype.fillPolygon = function (xPoints, yPoints, nPoints) {
                 var _this = this;
                 if (((xPoints != null && xPoints instanceof Array) || xPoints === null) && ((yPoints != null && yPoints instanceof Array) || yPoints === null) && ((typeof nPoints === 'number') || nPoints === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         _this.context.beginPath();
                         if (nPoints <= 0) {
@@ -28102,6 +33691,7 @@ var java;
             WebGraphics2D.prototype.setClip = function (x, y, width, height) {
                 var _this = this;
                 if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof width === 'number') || width === null) && ((typeof height === 'number') || height === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         _this.setClip(new java.awt.Rectangle(x, y, width, height));
                     })();
@@ -28126,6 +33716,7 @@ var java;
             WebGraphics2D.prototype.translate = function (x, y) {
                 var _this = this;
                 if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         _this.context.translate(x, y);
                     })();
@@ -28170,6 +33761,7 @@ var java;
             WebGraphics2D.prototype.rotate = function (theta, x, y) {
                 var _this = this;
                 if (((typeof theta === 'number') || theta === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         _this.context.translate(-x, -y);
                         _this.context.rotate(theta);
@@ -28235,6 +33827,81 @@ var java;
         WebGraphics2D["__classname"] = "java.awt.WebGraphics2D";
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        var event;
+        (function (event) {
+            /**
+             * This subclass of {@code java.beans.PropertyChangeSupport} is almost identical
+             * in functionality. The only difference is if constructed with
+             * {@code SwingPropertyChangeSupport(sourceBean, true)} it ensures listeners are
+             * only ever notified on the <i>Event Dispatch Thread</i>.
+             *
+             * @author Igor Kushnirskiy
+             */
+            var SwingPropertyChangeSupport = (function (_super) {
+                __extends(SwingPropertyChangeSupport, _super);
+                /**
+                 * Constructs a SwingPropertyChangeSupport object.
+                 *
+                 * @param sourceBean
+                 * the bean to be given as the source for any events
+                 * @param notifyOnEDT
+                 * whether to notify listeners on the <i>Event Dispatch
+                 * Thread</i> only
+                 *
+                 * @throws NullPointerException
+                 * if {@code sourceBean} is {@code null}
+                 * @since 1.6
+                 */
+                function SwingPropertyChangeSupport(sourceBean, notifyOnEDT) {
+                    if (notifyOnEDT === void 0) { notifyOnEDT = false; }
+                    _super.call(this, sourceBean);
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
+                    this.notifyOnEDT = false;
+                    this.notifyOnEDT = notifyOnEDT;
+                }
+                /**
+                 * {@inheritDoc}
+                 *
+                 * <p>
+                 * If {@link #isNotifyOnEDT} is {@code true} and called off the <i>Event
+                 * Dispatch Thread</i> this implementation uses
+                 * {@code SwingUtilities.invokeLater} to send out the notification on the
+                 * <i>Event Dispatch Thread</i>. This ensures listeners are only ever
+                 * notified on the <i>Event Dispatch Thread</i>.
+                 *
+                 * @throws NullPointerException
+                 * if {@code evt} is {@code null}
+                 * @since 1.6
+                 */
+                SwingPropertyChangeSupport.prototype.firePropertyChange$java_beans_PropertyChangeEvent = function (evt) {
+                    if (evt == null) {
+                        throw new java.lang.NullPointerException();
+                    }
+                    _super.prototype.firePropertyChange.call(this, evt);
+                };
+                /**
+                 * Returns {@code notifyOnEDT} property.
+                 *
+                 * @return {@code notifyOnEDT} property
+                 * @see #SwingPropertyChangeSupport(Object sourceBean, boolean notifyOnEDT)
+                 * @since 1.6
+                 */
+                SwingPropertyChangeSupport.prototype.isNotifyOnEDT = function () {
+                    return this.notifyOnEDT;
+                };
+                SwingPropertyChangeSupport.serialVersionUID = 7162625831330845068;
+                return SwingPropertyChangeSupport;
+            }(java.beans.PropertyChangeSupport));
+            event.SwingPropertyChangeSupport = SwingPropertyChangeSupport;
+            SwingPropertyChangeSupport["__classname"] = "javax.swing.event.SwingPropertyChangeSupport";
+        })(event = swing.event || (swing.event = {}));
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
 var javax;
 (function (javax) {
@@ -28378,8 +34045,8 @@ var javax;
                  * @see AbstractUndoableEdit#die
                  */
                 UndoManager.prototype.discardAllEdits = function () {
-                    for (var index126 = this.edits.iterator(); index126.hasNext();) {
-                        var e = index126.next();
+                    for (var index136 = this.edits.iterator(); index136.hasNext();) {
+                        var e = index136.next();
                         {
                             e.die();
                         }
@@ -28801,7 +34468,9 @@ var java;
                 function KeyEvent(source, id, when, modifiers, keyCode, keyChar, keyLocation, isProxyActive) {
                     var _this = this;
                     if (((source != null && source instanceof java.awt.Component) || source === null) && ((typeof id === 'number') || id === null) && ((typeof when === 'number') || when === null) && ((typeof modifiers === 'number') || modifiers === null) && ((typeof keyCode === 'number') || keyCode === null) && ((typeof keyChar === 'string') || keyChar === null) && ((typeof keyLocation === 'number') || keyLocation === null) && ((typeof isProxyActive === 'boolean') || isProxyActive === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         {
+                            var __args = Array.prototype.slice.call(arguments);
                             _super.call(this, source, id, when, modifiers);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                             this.isProxyActive = false;
@@ -28840,6 +34509,7 @@ var java;
                         })();
                     }
                     else if (((source != null && source instanceof java.awt.Component) || source === null) && ((typeof id === 'number') || id === null) && ((typeof when === 'number') || when === null) && ((typeof modifiers === 'number') || modifiers === null) && ((typeof keyCode === 'number') || keyCode === null) && ((typeof keyChar === 'string') || keyChar === null) && ((typeof keyLocation === 'number') || keyLocation === null) && isProxyActive === undefined) {
+                        var __args = Array.prototype.slice.call(arguments);
                         _super.call(this, source, id, when, modifiers);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                         this.isProxyActive = false;
@@ -28874,7 +34544,9 @@ var java;
                         })();
                     }
                     else if (((source != null && source instanceof java.awt.Component) || source === null) && ((typeof id === 'number') || id === null) && ((typeof when === 'number') || when === null) && ((typeof modifiers === 'number') || modifiers === null) && ((typeof keyCode === 'number') || keyCode === null) && ((typeof keyChar === 'string') || keyChar === null) && keyLocation === undefined && isProxyActive === undefined) {
+                        var __args = Array.prototype.slice.call(arguments);
                         {
+                            var __args = Array.prototype.slice.call(arguments);
                             var keyLocation = KeyEvent.KEY_LOCATION_UNKNOWN;
                             _super.call(this, source, id, when, modifiers);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
@@ -28913,9 +34585,12 @@ var java;
                         })();
                     }
                     else if (((source != null && source instanceof java.awt.Component) || source === null) && ((typeof id === 'number') || id === null) && ((typeof when === 'number') || when === null) && ((typeof modifiers === 'number') || modifiers === null) && ((typeof keyCode === 'number') || keyCode === null) && keyChar === undefined && keyLocation === undefined && isProxyActive === undefined) {
+                        var __args = Array.prototype.slice.call(arguments);
                         {
+                            var __args = Array.prototype.slice.call(arguments);
                             var keyChar = String.fromCharCode(keyCode);
                             {
+                                var __args = Array.prototype.slice.call(arguments);
                                 var keyLocation = KeyEvent.KEY_LOCATION_UNKNOWN;
                                 _super.call(this, source, id, when, modifiers);
                                 Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
@@ -29764,6 +35439,7 @@ var java;
                 function MouseEvent(source, id, when, modifiers, x, y, xAbs, yAbs, clickCount, popupTrigger, button) {
                     var _this = this;
                     if (((source != null && source instanceof java.awt.Component) || source === null) && ((typeof id === 'number') || id === null) && ((typeof when === 'number') || when === null) && ((typeof modifiers === 'number') || modifiers === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof xAbs === 'number') || xAbs === null) && ((typeof yAbs === 'number') || yAbs === null) && ((typeof clickCount === 'number') || clickCount === null) && ((typeof popupTrigger === 'boolean') || popupTrigger === null) && ((typeof button === 'number') || button === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         _super.call(this, source, id, when, modifiers);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                         this.x = 0;
@@ -29802,10 +35478,12 @@ var java;
                         })();
                     }
                     else if (((source != null && source instanceof java.awt.Component) || source === null) && ((typeof id === 'number') || id === null) && ((typeof when === 'number') || when === null) && ((typeof modifiers === 'number') || modifiers === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof xAbs === 'number') || xAbs === null) && ((typeof yAbs === 'boolean') || yAbs === null) && ((typeof clickCount === 'number') || clickCount === null) && popupTrigger === undefined && button === undefined) {
-                        var clickCount = xAbs;
-                        var popupTrigger = yAbs;
-                        var button = clickCount;
+                        var __args = Array.prototype.slice.call(arguments);
+                        var clickCount = __args[6];
+                        var popupTrigger = __args[7];
+                        var button = __args[8];
                         {
+                            var __args = Array.prototype.slice.call(arguments);
                             var xAbs = 0;
                             var yAbs = 0;
                             _super.call(this, source, id, when, modifiers);
@@ -29860,11 +35538,14 @@ var java;
                         })();
                     }
                     else if (((source != null && source instanceof java.awt.Component) || source === null) && ((typeof id === 'number') || id === null) && ((typeof when === 'number') || when === null) && ((typeof modifiers === 'number') || modifiers === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof xAbs === 'number') || xAbs === null) && ((typeof yAbs === 'boolean') || yAbs === null) && clickCount === undefined && popupTrigger === undefined && button === undefined) {
-                        var clickCount = xAbs;
-                        var popupTrigger = yAbs;
+                        var __args = Array.prototype.slice.call(arguments);
+                        var clickCount = __args[6];
+                        var popupTrigger = __args[7];
                         {
+                            var __args = Array.prototype.slice.call(arguments);
                             var button = MouseEvent.NOBUTTON;
                             {
+                                var __args = Array.prototype.slice.call(arguments);
                                 var xAbs = 0;
                                 var yAbs = 0;
                                 _super.call(this, source, id, when, modifiers);
@@ -30206,7 +35887,7 @@ var java;
             } };
             Applet.__static_initializer_0 = function () {
                 console.info("installing applet onload hook");
-                window.onload = function (e) {
+                window.addEventListener("load", function (e) {
                     console.info("applet onload hook");
                     var divList = document.getElementsByClassName("applet");
                     if (divList.length === 0) {
@@ -30217,8 +35898,8 @@ var java;
                         console.info("installing applet: " + div.getAttribute("data-applet"));
                         var names = div.getAttribute("data-applet").split(".");
                         var constructor = window;
-                        for (var index127 = 0; index127 < names.length; index127++) {
-                            var name = names[index127];
+                        for (var index137 = 0; index137 < names.length; index137++) {
+                            var name = names[index137];
                             {
                                 constructor = constructor[name];
                                 console.info("name: " + name + " -> " + constructor);
@@ -30231,7 +35912,7 @@ var java;
                         applet.doPaintInternal();
                     }
                     return null;
-                };
+                });
             };
             Applet.prototype.init = function () {
             };
@@ -30241,6 +35922,219 @@ var java;
         applet_1.Applet = Applet;
         Applet["__classname"] = "java.applet.Applet";
     })(applet = java.applet || (java.applet = {}));
+})(java || (java = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var java;
+(function (java) {
+    var awt;
+    (function (awt) {
+        var Frame = (function (_super) {
+            __extends(Frame, _super);
+            function Frame(title) {
+                var _this = this;
+                if (((typeof title === 'string') || title === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    _super.call(this);
+                    this.title = "Untitled";
+                    this.resizable = true;
+                    this.undecorated = false;
+                    this.mbManagement = false;
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent"] });
+                    (function () {
+                        _this._frameInit(title);
+                        _this.state = Frame.NORMAL;
+                    })();
+                }
+                else if (title === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var title = "";
+                        _super.call(this);
+                        this.title = "Untitled";
+                        this.resizable = true;
+                        this.undecorated = false;
+                        this.mbManagement = false;
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent"] });
+                        (function () {
+                            _this._frameInit(title);
+                            _this.state = Frame.NORMAL;
+                        })();
+                    }
+                    (function () {
+                        _this.state = Frame.NORMAL;
+                    })();
+                }
+                else
+                    throw new Error('invalid overload');
+            }
+            Frame.DEFAULT_CURSOR_$LI$ = function () { if (Frame.DEFAULT_CURSOR == null)
+                Frame.DEFAULT_CURSOR = java.awt.Cursor.DEFAULT_CURSOR; return Frame.DEFAULT_CURSOR; };
+            ;
+            Frame.CROSSHAIR_CURSOR_$LI$ = function () { if (Frame.CROSSHAIR_CURSOR == null)
+                Frame.CROSSHAIR_CURSOR = java.awt.Cursor.CROSSHAIR_CURSOR; return Frame.CROSSHAIR_CURSOR; };
+            ;
+            Frame.TEXT_CURSOR_$LI$ = function () { if (Frame.TEXT_CURSOR == null)
+                Frame.TEXT_CURSOR = java.awt.Cursor.TEXT_CURSOR; return Frame.TEXT_CURSOR; };
+            ;
+            Frame.WAIT_CURSOR_$LI$ = function () { if (Frame.WAIT_CURSOR == null)
+                Frame.WAIT_CURSOR = java.awt.Cursor.WAIT_CURSOR; return Frame.WAIT_CURSOR; };
+            ;
+            Frame.SW_RESIZE_CURSOR_$LI$ = function () { if (Frame.SW_RESIZE_CURSOR == null)
+                Frame.SW_RESIZE_CURSOR = java.awt.Cursor.SW_RESIZE_CURSOR; return Frame.SW_RESIZE_CURSOR; };
+            ;
+            Frame.SE_RESIZE_CURSOR_$LI$ = function () { if (Frame.SE_RESIZE_CURSOR == null)
+                Frame.SE_RESIZE_CURSOR = java.awt.Cursor.SE_RESIZE_CURSOR; return Frame.SE_RESIZE_CURSOR; };
+            ;
+            Frame.NW_RESIZE_CURSOR_$LI$ = function () { if (Frame.NW_RESIZE_CURSOR == null)
+                Frame.NW_RESIZE_CURSOR = java.awt.Cursor.NW_RESIZE_CURSOR; return Frame.NW_RESIZE_CURSOR; };
+            ;
+            Frame.NE_RESIZE_CURSOR_$LI$ = function () { if (Frame.NE_RESIZE_CURSOR == null)
+                Frame.NE_RESIZE_CURSOR = java.awt.Cursor.NE_RESIZE_CURSOR; return Frame.NE_RESIZE_CURSOR; };
+            ;
+            Frame.N_RESIZE_CURSOR_$LI$ = function () { if (Frame.N_RESIZE_CURSOR == null)
+                Frame.N_RESIZE_CURSOR = java.awt.Cursor.N_RESIZE_CURSOR; return Frame.N_RESIZE_CURSOR; };
+            ;
+            Frame.S_RESIZE_CURSOR_$LI$ = function () { if (Frame.S_RESIZE_CURSOR == null)
+                Frame.S_RESIZE_CURSOR = java.awt.Cursor.S_RESIZE_CURSOR; return Frame.S_RESIZE_CURSOR; };
+            ;
+            Frame.W_RESIZE_CURSOR_$LI$ = function () { if (Frame.W_RESIZE_CURSOR == null)
+                Frame.W_RESIZE_CURSOR = java.awt.Cursor.W_RESIZE_CURSOR; return Frame.W_RESIZE_CURSOR; };
+            ;
+            Frame.E_RESIZE_CURSOR_$LI$ = function () { if (Frame.E_RESIZE_CURSOR == null)
+                Frame.E_RESIZE_CURSOR = java.awt.Cursor.E_RESIZE_CURSOR; return Frame.E_RESIZE_CURSOR; };
+            ;
+            Frame.HAND_CURSOR_$LI$ = function () { if (Frame.HAND_CURSOR == null)
+                Frame.HAND_CURSOR = java.awt.Cursor.HAND_CURSOR; return Frame.HAND_CURSOR; };
+            ;
+            Frame.MOVE_CURSOR_$LI$ = function () { if (Frame.MOVE_CURSOR == null)
+                Frame.MOVE_CURSOR = java.awt.Cursor.MOVE_CURSOR; return Frame.MOVE_CURSOR; };
+            ;
+            Frame.MAXIMIZED_BOTH_$LI$ = function () { if (Frame.MAXIMIZED_BOTH == null)
+                Frame.MAXIMIZED_BOTH = Frame.MAXIMIZED_VERT | Frame.MAXIMIZED_HORIZ; return Frame.MAXIMIZED_BOTH; };
+            ;
+            Frame.prototype._frameInit = function (title) {
+                this.title = title;
+            };
+            Frame.prototype.constructComponentName = function () {
+                {
+                    return Frame.base + Frame.nameCounter++;
+                }
+                ;
+            };
+            Frame.prototype.getTitle = function () {
+                return this.title;
+            };
+            Frame.prototype.setTitle = function (title) {
+                var oldTitle = this.title;
+                if (title == null) {
+                    title = "";
+                }
+                this.title = title;
+                this.firePropertyChange("title", oldTitle, title);
+            };
+            Frame.prototype.getIconImage = function () {
+                var icons = this.icons;
+                if (icons != null) {
+                    if (icons.size() > 0) {
+                        return icons.get(0);
+                    }
+                }
+                return null;
+            };
+            Frame.prototype.setIconImage = function (image) {
+                _super.prototype.setIconImage.call(this, image);
+            };
+            Frame.prototype.isResizable = function () {
+                return this.resizable;
+            };
+            Frame.prototype.setResizable = function (resizable) {
+                var oldResizable = this.resizable;
+                this.resizable = resizable;
+                this.firePropertyChange("resizable", oldResizable, resizable);
+            };
+            Frame.prototype.setUndecorated = function (undecorated) {
+                this.undecorated = undecorated;
+            };
+            Frame.prototype.isUndecorated = function () {
+                return this.undecorated;
+            };
+            /**
+             * Returns a string representing the state of this <code>Frame</code>. This
+             * method is intended to be used only for debugging purposes, and the
+             * content and format of the returned string may vary between
+             * implementations. The returned string may be empty but may not be
+             * <code>null</code>.
+             *
+             * @return the parameter string of this frame
+             */
+            Frame.prototype.paramString = function () {
+                var str = _super.prototype.paramString.call(this);
+                if (this.title != null) {
+                    str += ",title=" + this.title;
+                }
+                if (this.resizable) {
+                    str += ",resizable";
+                }
+                if (this.state === Frame.NORMAL) {
+                    str += ",normal";
+                }
+                else {
+                    if ((this.state & Frame.ICONIFIED) !== 0) {
+                        str += ",iconified";
+                    }
+                    if ((this.state & Frame.MAXIMIZED_BOTH_$LI$()) === Frame.MAXIMIZED_BOTH_$LI$()) {
+                        str += ",maximized";
+                    }
+                    else if ((this.state & Frame.MAXIMIZED_HORIZ) !== 0) {
+                        str += ",maximized_horiz";
+                    }
+                    else if ((this.state & Frame.MAXIMIZED_VERT) !== 0) {
+                        str += ",maximized_vert";
+                    }
+                }
+                return str;
+            };
+            /**
+             * Frame is in the "normal" state. This symbolic constant names a frame
+             * state with all state bits cleared.
+             *
+             * @see #setExtendedState(int)
+             * @see #getExtendedState
+             */
+            Frame.NORMAL = 0;
+            /**
+             * This state bit indicates that frame is iconified.
+             *
+             * @see #setExtendedState(int)
+             * @see #getExtendedState
+             */
+            Frame.ICONIFIED = 1;
+            /**
+             * This state bit indicates that frame is maximized in the horizontal
+             * direction.
+             *
+             * @see #setExtendedState(int)
+             * @see #getExtendedState
+             * @since 1.4
+             */
+            Frame.MAXIMIZED_HORIZ = 2;
+            /**
+             * This state bit indicates that frame is maximized in the vertical
+             * direction.
+             *
+             * @see #setExtendedState(int)
+             * @see #getExtendedState
+             * @since 1.4
+             */
+            Frame.MAXIMIZED_VERT = 4;
+            Frame.base = "frame";
+            Frame.nameCounter = 0;
+            return Frame;
+        }(java.awt.Window));
+        awt.Frame = Frame;
+        Frame["__classname"] = "java.awt.Frame";
+    })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
 var javax;
@@ -30312,7 +36206,14 @@ var javax;
             };
             AbstractButton.prototype.setSelected = function (b) {
             };
-            AbstractButton.prototype.doClick = function () {
+            AbstractButton.prototype.doClick = function (pressTime) {
+                if (pressTime === undefined) {
+                    return this.doClick$();
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            AbstractButton.prototype.doClick$ = function () {
                 $(this.getHTMLElement()).click();
             };
             AbstractButton.prototype.setMargin = function (m) {
@@ -30782,6 +36683,33 @@ var javax;
                 }
                 return this.handler;
             };
+            AbstractButton.prototype.getModel = function () {
+                return this.model;
+            };
+            AbstractButton.prototype.setModel = function (newModel) {
+                var oldModel = this.getModel();
+                if (oldModel != null) {
+                    oldModel.removeChangeListener(this.changeListener);
+                    oldModel.removeActionListener(this.actionListener);
+                    oldModel.removeItemListener(this.itemListener);
+                    this.changeListener = null;
+                    this.actionListener = null;
+                    this.itemListener = null;
+                }
+                this.model = newModel;
+                if (newModel != null) {
+                    this.changeListener = this.createChangeListener();
+                    this.actionListener = this.createActionListener();
+                    this.itemListener = this.createItemListener();
+                    newModel.addChangeListener(this.changeListener);
+                    newModel.addActionListener(this.actionListener);
+                    newModel.addItemListener(this.itemListener);
+                    _super.prototype.setEnabled.call(this, newModel.isEnabled());
+                }
+                else {
+                    this.mnemonic = ('\u0000').charCodeAt(0);
+                }
+            };
             /**
              * Identifies a change in the button's margins.
              */
@@ -30903,11 +36831,630 @@ var javax;
 (function (javax) {
     var swing;
     (function (swing) {
+        var JComboBox = (function (_super) {
+            __extends(JComboBox, _super);
+            function JComboBox(aModel) {
+                var _this = this;
+                if (((aModel != null && aModel["__interfaces"] != null && aModel["__interfaces"].indexOf("javax.swing.ComboBoxModel") >= 0) || aModel === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    _super.call(this);
+                    this.maximumRowCount = 8;
+                    this.__isEditable = false;
+                    this.keySelectionManager = null;
+                    this.actionCommand = "comboBoxChanged";
+                    this.selectedItemReminder = null;
+                    this.firingActionEvent = false;
+                    this.selectingItem = false;
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "javax.swing.event.ListDataListener", "java.awt.event.ActionListener", "java.awt.ItemSelectable", "java.awt.HTMLComponent", "java.io.Serializable"] });
+                    (function () {
+                        _this.setModel(aModel);
+                        _this.init();
+                    })();
+                }
+                else if (((aModel != null && aModel instanceof Array) || aModel === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    var items = __args[0];
+                    _super.call(this);
+                    this.maximumRowCount = 8;
+                    this.__isEditable = false;
+                    this.keySelectionManager = null;
+                    this.actionCommand = "comboBoxChanged";
+                    this.selectedItemReminder = null;
+                    this.firingActionEvent = false;
+                    this.selectingItem = false;
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "javax.swing.event.ListDataListener", "java.awt.event.ActionListener", "java.awt.ItemSelectable", "java.awt.HTMLComponent", "java.io.Serializable"] });
+                    (function () {
+                        _this.setModel(new javax.swing.DefaultComboBoxModel(items));
+                        _this.init();
+                    })();
+                }
+                else if (((aModel != null && aModel instanceof java.util.Vector) || aModel === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    var items = __args[0];
+                    _super.call(this);
+                    this.maximumRowCount = 8;
+                    this.__isEditable = false;
+                    this.keySelectionManager = null;
+                    this.actionCommand = "comboBoxChanged";
+                    this.selectedItemReminder = null;
+                    this.firingActionEvent = false;
+                    this.selectingItem = false;
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "javax.swing.event.ListDataListener", "java.awt.event.ActionListener", "java.awt.ItemSelectable", "java.awt.HTMLComponent", "java.io.Serializable"] });
+                    (function () {
+                        _this.setModel(new javax.swing.DefaultComboBoxModel(items));
+                        _this.init();
+                    })();
+                }
+                else if (aModel === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    _super.call(this);
+                    this.maximumRowCount = 8;
+                    this.__isEditable = false;
+                    this.keySelectionManager = null;
+                    this.actionCommand = "comboBoxChanged";
+                    this.selectedItemReminder = null;
+                    this.firingActionEvent = false;
+                    this.selectingItem = false;
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "javax.swing.event.ListDataListener", "java.awt.event.ActionListener", "java.awt.ItemSelectable", "java.awt.HTMLComponent", "java.io.Serializable"] });
+                    (function () {
+                        _this.setModel(new javax.swing.DefaultComboBoxModel());
+                        _this.init();
+                    })();
+                }
+                else
+                    throw new Error('invalid overload');
+            }
+            JComboBox.prototype.createHTML = function () {
+                this.htmlElement = document.createElement("select");
+            };
+            JComboBox.prototype.getHTMLElement = function () {
+                return this.htmlElement;
+            };
+            JComboBox.prototype.initHTML = function () {
+                var _this = this;
+                _super.prototype.initHTML.call(this);
+                this.getHTMLElement().onchange = function (e) {
+                    var i = (_this.getHTMLElement().selectedIndex | 0);
+                    _this.fireItemStateChanged(new java.awt.event.ItemEvent(_this, 0, _this.getItemAt(i), java.awt.event.ItemEvent.SELECTED));
+                    return e;
+                };
+                for (var index138 = 0; index138 < this.getHTMLElement().childNodes.length; index138++) {
+                    var n = this.getHTMLElement().childNodes[index138];
+                    {
+                        this.getHTMLElement().removeChild(n);
+                    }
+                }
+                for (var i = 0; i < this.getItemCount(); i++) {
+                    var option = document.createElement("option");
+                    option.innerHTML = this.getItemAt(i).toString();
+                    option.value = this.getItemAt(i).toString();
+                    if (this.getSelectedIndex() === i) {
+                        option.selected = true;
+                    }
+                    this.getHTMLElement().appendChild(option);
+                }
+            };
+            JComboBox.prototype.init = function () {
+            };
+            JComboBox.prototype.setModel = function (aModel) {
+                var oldModel = this.dataModel;
+                if (oldModel != null) {
+                    oldModel.removeListDataListener(this);
+                }
+                this.dataModel = aModel;
+                this.dataModel.addListDataListener(this);
+                this.selectedItemReminder = this.dataModel.getSelectedItem();
+                this.firePropertyChange("model", oldModel, this.dataModel);
+            };
+            /**
+             * Returns the data model currently used by the <code>JComboBox</code>.
+             *
+             * @return the <code>ComboBoxModel</code> that provides the displayed list
+             * of items
+             */
+            JComboBox.prototype.getModel = function () {
+                return this.dataModel;
+            };
+            JComboBox.prototype.setLightWeightPopupEnabled = function (aFlag) {
+            };
+            JComboBox.prototype.setEditable = function (aFlag) {
+                var oldFlag = this.__isEditable;
+                this.__isEditable = aFlag;
+                this.firePropertyChange("editable", oldFlag, this.__isEditable);
+            };
+            JComboBox.prototype.isEditable = function () {
+                return this.__isEditable;
+            };
+            JComboBox.prototype.setMaximumRowCount = function (count) {
+                var oldCount = this.maximumRowCount;
+                this.maximumRowCount = count;
+                this.firePropertyChange("maximumRowCount", oldCount, this.maximumRowCount);
+            };
+            JComboBox.prototype.getMaximumRowCount = function () {
+                return this.maximumRowCount;
+            };
+            JComboBox.prototype.setRenderer = function (aRenderer) {
+                var oldRenderer = this.renderer;
+                this.renderer = aRenderer;
+                this.firePropertyChange("renderer", oldRenderer, this.renderer);
+            };
+            JComboBox.prototype.getRenderer = function () {
+                return this.renderer;
+            };
+            JComboBox.prototype.setEditor = function (anEditor) {
+                var oldEditor = this.editor;
+                if (this.editor != null) {
+                    this.editor.removeActionListener(this);
+                }
+                this.editor = anEditor;
+                if (this.editor != null) {
+                    this.editor.addActionListener(this);
+                }
+                this.firePropertyChange("editor", oldEditor, this.editor);
+            };
+            JComboBox.prototype.getEditor = function () {
+                return this.editor;
+            };
+            JComboBox.prototype.setSelectedItem = function (anObject) {
+                var oldSelection = this.selectedItemReminder;
+                var objectToSelect = anObject;
+                if (oldSelection == null || !(oldSelection === anObject)) {
+                    if (anObject != null && !this.isEditable()) {
+                        var found = false;
+                        for (var i = 0; i < this.dataModel.getSize(); i++) {
+                            var element = this.dataModel.getElementAt(i);
+                            if ((anObject === element)) {
+                                found = true;
+                                objectToSelect = element;
+                                break;
+                            }
+                        }
+                        if (!found) {
+                            return;
+                        }
+                    }
+                    this.selectingItem = true;
+                    this.dataModel.setSelectedItem(objectToSelect);
+                    this.selectingItem = false;
+                    if (this.selectedItemReminder !== this.dataModel.getSelectedItem()) {
+                        this.selectedItemChanged();
+                    }
+                }
+                this.fireActionEvent();
+            };
+            JComboBox.prototype.getSelectedItem = function () {
+                return this.dataModel.getSelectedItem();
+            };
+            JComboBox.prototype.setSelectedIndex = function (anIndex) {
+                var size = this.dataModel.getSize();
+                if (anIndex === -1) {
+                    this.setSelectedItem(null);
+                }
+                else if (anIndex < -1 || anIndex >= size) {
+                    throw new java.lang.IllegalArgumentException("setSelectedIndex: " + anIndex + " out of bounds");
+                }
+                else {
+                    this.setSelectedItem(this.dataModel.getElementAt(anIndex));
+                }
+            };
+            JComboBox.prototype.getSelectedIndex = function () {
+                var sObject = this.dataModel.getSelectedItem();
+                var i;
+                var c;
+                var obj;
+                for (i = 0, c = this.dataModel.getSize(); i < c; i++) {
+                    obj = this.dataModel.getElementAt(i);
+                    if (obj != null && obj === sObject)
+                        return i;
+                }
+                return -1;
+            };
+            JComboBox.prototype.getPrototypeDisplayValue = function () {
+                return this.prototypeDisplayValue;
+            };
+            JComboBox.prototype.setPrototypeDisplayValue = function (prototypeDisplayValue) {
+                var oldValue = this.prototypeDisplayValue;
+                this.prototypeDisplayValue = prototypeDisplayValue;
+                this.firePropertyChange("prototypeDisplayValue", oldValue, prototypeDisplayValue);
+            };
+            JComboBox.prototype.addItem = function (item) {
+                this.checkMutableComboBoxModel();
+                this.dataModel.addElement(item);
+            };
+            JComboBox.prototype.insertItemAt = function (item, index) {
+                this.checkMutableComboBoxModel();
+                this.dataModel.insertElementAt(item, index);
+            };
+            JComboBox.prototype.removeItem = function (anObject) {
+                this.checkMutableComboBoxModel();
+                this.dataModel.removeElement(anObject);
+            };
+            JComboBox.prototype.removeItemAt = function (anIndex) {
+                this.checkMutableComboBoxModel();
+                this.dataModel.removeElementAt(anIndex);
+            };
+            JComboBox.prototype.removeAllItems = function () {
+                this.checkMutableComboBoxModel();
+                var model = this.dataModel;
+                var size = model.getSize();
+                if (model != null && model instanceof javax.swing.DefaultComboBoxModel) {
+                    model.removeAllElements();
+                }
+                else {
+                    for (var i = 0; i < size; ++i) {
+                        var element = model.getElementAt(0);
+                        model.removeElement(element);
+                    }
+                }
+                this.selectedItemReminder = null;
+                if (this.isEditable()) {
+                    this.editor.setItem(null);
+                }
+            };
+            JComboBox.prototype.checkMutableComboBoxModel = function () {
+                if (!(this.dataModel != null && this.dataModel["__interfaces"] != null && this.dataModel["__interfaces"].indexOf("javax.swing.MutableComboBoxModel") >= 0))
+                    throw new Error("Cannot use this method with a non-Mutable data model.");
+            };
+            JComboBox.prototype.showPopup = function () {
+                this.setPopupVisible(true);
+            };
+            JComboBox.prototype.hidePopup = function () {
+                this.setPopupVisible(false);
+            };
+            JComboBox.prototype.setPopupVisible = function (v) {
+            };
+            JComboBox.prototype.isPopupVisible = function () {
+                return false;
+            };
+            JComboBox.prototype.addItemListener = function (aListener) {
+                this.listenerList.add("java.awt.event.ItemListener", aListener);
+            };
+            JComboBox.prototype.removeItemListener = function (aListener) {
+                this.listenerList.remove("java.awt.event.ItemListener", aListener);
+            };
+            JComboBox.prototype.getItemListeners = function () {
+                return this.listenerList.getListeners("java.awt.event.ItemListener");
+            };
+            JComboBox.prototype.addActionListener = function (l) {
+                this.listenerList.add("java.awt.event.ActionListener", l);
+            };
+            JComboBox.prototype.removeActionListener = function (l) {
+                if ((l != null) && (this.getAction() === l)) {
+                    this.setAction(null);
+                }
+                else {
+                    this.listenerList.remove("java.awt.event.ActionListener", l);
+                }
+            };
+            JComboBox.prototype.getActionListeners = function () {
+                return this.listenerList.getListeners("java.awt.event.ActionListener");
+            };
+            JComboBox.prototype.addPopupMenuListener = function (l) {
+                this.listenerList.add("javax.swing.event.PopupMenuListener", l);
+            };
+            JComboBox.prototype.removePopupMenuListener = function (l) {
+                this.listenerList.remove("javax.swing.event.PopupMenuListener", l);
+            };
+            JComboBox.prototype.getPopupMenuListeners = function () {
+                return this.listenerList.getListeners("javax.swing.event.PopupMenuListener");
+            };
+            JComboBox.prototype.firePopupMenuWillBecomeVisible = function () {
+                var listeners = this.listenerList.getListenerList();
+                var e = null;
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === "javax.swing.event.PopupMenuListener") {
+                        if (e == null)
+                            e = new javax.swing.event.PopupMenuEvent(this);
+                        listeners[i + 1].popupMenuWillBecomeVisible(e);
+                    }
+                }
+            };
+            JComboBox.prototype.firePopupMenuWillBecomeInvisible = function () {
+                var listeners = this.listenerList.getListenerList();
+                var e = null;
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === "javax.swing.event.PopupMenuListener") {
+                        if (e == null)
+                            e = new javax.swing.event.PopupMenuEvent(this);
+                        listeners[i + 1].popupMenuWillBecomeInvisible(e);
+                    }
+                }
+            };
+            JComboBox.prototype.firePopupMenuCanceled = function () {
+                var listeners = this.listenerList.getListenerList();
+                var e = null;
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === "javax.swing.event.PopupMenuListener") {
+                        if (e == null)
+                            e = new javax.swing.event.PopupMenuEvent(this);
+                        listeners[i + 1].popupMenuCanceled(e);
+                    }
+                }
+            };
+            JComboBox.prototype.setActionCommand = function (aCommand) {
+                this.actionCommand = aCommand;
+            };
+            JComboBox.prototype.getActionCommand = function () {
+                return this.actionCommand;
+            };
+            JComboBox.prototype.setAction = function (a) {
+                var oldValue = this.getAction();
+                if (this.action == null || !this.action.equals(a)) {
+                    this.action = a;
+                    if (oldValue != null) {
+                        this.removeActionListener(oldValue);
+                        oldValue.removePropertyChangeListener(this.actionPropertyChangeListener);
+                        this.actionPropertyChangeListener = null;
+                    }
+                    this.configurePropertiesFromAction(this.action);
+                    if (this.action != null) {
+                        if (!this.isListener("java.awt.event.ActionListener", this.action)) {
+                            this.addActionListener(this.action);
+                        }
+                        this.actionPropertyChangeListener = this.createActionPropertyChangeListener(this.action);
+                        this.action.addPropertyChangeListener(this.actionPropertyChangeListener);
+                    }
+                    this.firePropertyChange("action", oldValue, this.action);
+                }
+            };
+            JComboBox.prototype.isListener = function (c, a) {
+                var _this = this;
+                if (((c != null && c instanceof java.lang.Class) || c === null) && ((a != null && a["__interfaces"] != null && a["__interfaces"].indexOf("java.awt.event.ActionListener") >= 0) || a === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    return (function () {
+                        var isListener = false;
+                        var listeners = _this.listenerList.getListenerList();
+                        for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                            if (listeners[i] === c && listeners[i + 1] === a) {
+                                isListener = true;
+                            }
+                        }
+                        return isListener;
+                    })();
+                }
+                else if (((typeof c === 'string') || c === null) && ((a != null && a["__interfaces"] != null && a["__interfaces"].indexOf("java.awt.event.ActionListener") >= 0) || a === null)) {
+                    return this.isListener$java_lang_String$java_awt_event_ActionListener(c, a);
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            JComboBox.prototype.isListener$java_lang_String$java_awt_event_ActionListener = function (c, a) {
+                var isListener = false;
+                var listeners = this.listenerList.getListenerList();
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === c && listeners[i + 1] === a) {
+                        isListener = true;
+                    }
+                }
+                return isListener;
+            };
+            JComboBox.prototype.getAction = function () {
+                return this.action;
+            };
+            JComboBox.prototype.configurePropertiesFromAction = function (a) {
+                javax.swing.AbstractAction.setEnabledFromAction(this, a);
+                javax.swing.AbstractAction.setToolTipTextFromAction(this, a);
+                this.setActionCommandFromAction(a);
+            };
+            JComboBox.prototype.createActionPropertyChangeListener = function (a) {
+                return new JComboBox.ComboBoxActionPropertyChangeListener(this, a);
+            };
+            JComboBox.prototype.actionPropertyChanged = function (action, propertyName) {
+                if (propertyName === javax.swing.Action.ACTION_COMMAND_KEY) {
+                    this.setActionCommandFromAction(action);
+                }
+                else if (propertyName === "enabled") {
+                    javax.swing.AbstractAction.setEnabledFromAction(this, action);
+                }
+                else if (javax.swing.Action.SHORT_DESCRIPTION === propertyName) {
+                    javax.swing.AbstractAction.setToolTipTextFromAction(this, action);
+                }
+            };
+            JComboBox.prototype.setActionCommandFromAction = function (a) {
+                this.setActionCommand((a != null) ? a.getValue(javax.swing.Action.ACTION_COMMAND_KEY) : null);
+            };
+            JComboBox.prototype.fireItemStateChanged = function (e) {
+                var listeners = this.listenerList.getListenerList();
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === "java.awt.event.ItemListener") {
+                        listeners[i + 1].itemStateChanged(e);
+                    }
+                }
+            };
+            JComboBox.prototype.fireActionEvent = function () {
+                if (!this.firingActionEvent) {
+                    this.firingActionEvent = true;
+                    var e = null;
+                    var listeners = this.listenerList.getListenerList();
+                    var mostRecentEventTime = 0;
+                    var modifiers = 0;
+                    for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                        if (listeners[i] === "java.awt.event.ActionListener") {
+                            if (e == null)
+                                e = new java.awt.event.ActionEvent(this, java.awt.event.ActionEvent.ACTION_PERFORMED_$LI$(), this.getActionCommand(), mostRecentEventTime, modifiers);
+                            listeners[i + 1].actionPerformed(e);
+                        }
+                    }
+                    this.firingActionEvent = false;
+                }
+            };
+            JComboBox.prototype.selectedItemChanged = function () {
+                if (this.selectedItemReminder != null) {
+                    this.fireItemStateChanged(new java.awt.event.ItemEvent(this, java.awt.event.ItemEvent.ITEM_STATE_CHANGED_$LI$(), this.selectedItemReminder, java.awt.event.ItemEvent.DESELECTED));
+                }
+                this.selectedItemReminder = this.dataModel.getSelectedItem();
+                if (this.selectedItemReminder != null) {
+                    this.fireItemStateChanged(new java.awt.event.ItemEvent(this, java.awt.event.ItemEvent.ITEM_STATE_CHANGED_$LI$(), this.selectedItemReminder, java.awt.event.ItemEvent.SELECTED));
+                }
+            };
+            JComboBox.prototype.getSelectedObjects = function () {
+                var selectedObject = this.getSelectedItem();
+                if (selectedObject == null)
+                    return new Array(0);
+                else {
+                    var result = new Array(1);
+                    result[0] = selectedObject;
+                    return result;
+                }
+            };
+            JComboBox.prototype.actionPerformed = function (e) {
+                var newItem = this.getEditor().getItem();
+                this.setPopupVisible(false);
+                this.getModel().setSelectedItem(newItem);
+                var oldCommand = this.getActionCommand();
+                this.setActionCommand("comboBoxEdited");
+                this.fireActionEvent();
+                this.setActionCommand(oldCommand);
+            };
+            JComboBox.prototype.contentsChanged = function (e) {
+                var oldSelection = this.selectedItemReminder;
+                var newSelection = this.dataModel.getSelectedItem();
+                if (oldSelection == null || !(oldSelection === newSelection)) {
+                    this.selectedItemChanged();
+                    if (!this.selectingItem) {
+                        this.fireActionEvent();
+                    }
+                }
+            };
+            JComboBox.prototype.intervalAdded = function (e) {
+                if (this.selectedItemReminder !== this.dataModel.getSelectedItem()) {
+                    this.selectedItemChanged();
+                }
+            };
+            JComboBox.prototype.intervalRemoved = function (e) {
+                this.contentsChanged(e);
+            };
+            JComboBox.prototype.selectWithKeyChar = function (keyChar) {
+                var index;
+                if (this.keySelectionManager == null)
+                    this.keySelectionManager = this.createDefaultKeySelectionManager();
+                index = this.keySelectionManager.selectionForKey(keyChar, this.getModel());
+                if (index !== -1) {
+                    this.setSelectedIndex(index);
+                    return true;
+                }
+                else
+                    return false;
+            };
+            JComboBox.prototype.setEnabled = function (b) {
+                _super.prototype.setEnabled.call(this, b);
+                this.firePropertyChange("enabled", !this.isEnabled(), this.isEnabled());
+            };
+            JComboBox.prototype.configureEditor = function (anEditor, anItem) {
+                anEditor.setItem(anItem);
+            };
+            JComboBox.prototype.processKeyEvent = function (e) {
+                if (e.getKeyCode() === java.awt.event.KeyEvent.VK_TAB) {
+                    this.hidePopup();
+                }
+            };
+            JComboBox.prototype.setKeySelectionManager = function (aManager) {
+                this.keySelectionManager = aManager;
+            };
+            JComboBox.prototype.getKeySelectionManager = function () {
+                return this.keySelectionManager;
+            };
+            JComboBox.prototype.getItemCount = function () {
+                return this.dataModel.getSize();
+            };
+            JComboBox.prototype.getItemAt = function (index) {
+                return this.dataModel.getElementAt(index);
+            };
+            JComboBox.prototype.createDefaultKeySelectionManager = function () {
+                return new JComboBox.DefaultKeySelectionManager(this);
+            };
+            JComboBox.prototype.paramString = function () {
+                var selectedItemReminderString = (this.selectedItemReminder != null ? this.selectedItemReminder.toString() : "");
+                var isEditableString = (this.__isEditable ? "true" : "false");
+                return _super.prototype.paramString.call(this) + ",isEditable=" + isEditableString + ",maximumRowCount=" + this.maximumRowCount + ",selectedItemReminder=" + selectedItemReminderString;
+            };
+            return JComboBox;
+        }(javax.swing.JComponent));
+        swing.JComboBox = JComboBox;
+        JComboBox["__classname"] = "javax.swing.JComboBox";
+        var JComboBox;
+        (function (JComboBox) {
+            var ComboBoxActionPropertyChangeListener = (function (_super) {
+                __extends(ComboBoxActionPropertyChangeListener, _super);
+                function ComboBoxActionPropertyChangeListener(b, a) {
+                    _super.call(this, b, a);
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "java.beans.PropertyChangeListener", "java.io.Serializable"] });
+                }
+                ComboBoxActionPropertyChangeListener.prototype.actionPropertyChanged = function (cb, action, e) {
+                    if (((cb != null && cb instanceof javax.swing.JComboBox) || cb === null) && ((action != null && action["__interfaces"] != null && action["__interfaces"].indexOf("javax.swing.Action") >= 0) || action === null) && ((e != null && e instanceof java.beans.PropertyChangeEvent) || e === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
+                        return (function () {
+                            cb.actionPropertyChanged(action, e.getPropertyName());
+                        })();
+                    }
+                    else if (((cb != null) || cb === null) && ((action != null && action["__interfaces"] != null && action["__interfaces"].indexOf("javax.swing.Action") >= 0) || action === null) && ((e != null && e instanceof java.beans.PropertyChangeEvent) || e === null)) {
+                        return this.actionPropertyChanged$javax_swing_JComponent$javax_swing_Action$java_beans_PropertyChangeEvent(cb, action, e);
+                    }
+                    else
+                        throw new Error('invalid overload');
+                };
+                return ComboBoxActionPropertyChangeListener;
+            }(javax.swing.ActionPropertyChangeListener));
+            JComboBox.ComboBoxActionPropertyChangeListener = ComboBoxActionPropertyChangeListener;
+            ComboBoxActionPropertyChangeListener["__classname"] = "javax.swing.JComboBox.ComboBoxActionPropertyChangeListener";
+            var DefaultKeySelectionManager = (function () {
+                function DefaultKeySelectionManager(__parent) {
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.JComboBox.KeySelectionManager", "java.io.Serializable"] });
+                    this.__parent = __parent;
+                }
+                DefaultKeySelectionManager.prototype.selectionForKey = function (aKey, aModel) {
+                    var i;
+                    var c;
+                    var currentSelection = -1;
+                    var selectedItem = aModel.getSelectedItem();
+                    var v;
+                    var pattern;
+                    if (selectedItem != null) {
+                        for (i = 0, c = aModel.getSize(); i < c; i++) {
+                            if (selectedItem === aModel.getElementAt(i)) {
+                                currentSelection = i;
+                                break;
+                            }
+                        }
+                    }
+                    pattern = ("" + aKey).toLowerCase();
+                    aKey = pattern.charAt(0);
+                    for (i = ++currentSelection, c = aModel.getSize(); i < c; i++) {
+                        var elem = aModel.getElementAt(i);
+                        if (elem != null && elem.toString() != null) {
+                            v = elem.toString().toLowerCase();
+                            if (v.length > 0 && v.charAt(0) === aKey)
+                                return i;
+                        }
+                    }
+                    for (i = 0; i < currentSelection; i++) {
+                        var elem = aModel.getElementAt(i);
+                        if (elem != null && elem.toString() != null) {
+                            v = elem.toString().toLowerCase();
+                            if (v.length > 0 && v.charAt(0) === aKey)
+                                return i;
+                        }
+                    }
+                    return -1;
+                };
+                return DefaultKeySelectionManager;
+            }());
+            JComboBox.DefaultKeySelectionManager = DefaultKeySelectionManager;
+            DefaultKeySelectionManager["__classname"] = "javax.swing.JComboBox.DefaultKeySelectionManager";
+        })(JComboBox = swing.JComboBox || (swing.JComboBox = {}));
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
         var JLabel = (function (_super) {
             __extends(JLabel, _super);
             function JLabel(text, icon, horizontalAlignment) {
                 var _this = this;
                 if (((typeof text === 'string') || text === null) && ((icon != null && icon["__interfaces"] != null && icon["__interfaces"].indexOf("javax.swing.Icon") >= 0) || icon === null) && ((typeof horizontalAlignment === 'number') || horizontalAlignment === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     _super.call(this);
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                     this.mnemonic = 0;
@@ -30937,8 +37484,10 @@ var javax;
                     })();
                 }
                 else if (((typeof text === 'string') || text === null) && ((typeof icon === 'number') || icon === null) && horizontalAlignment === undefined) {
-                    var horizontalAlignment = icon;
+                    var __args = Array.prototype.slice.call(arguments);
+                    var horizontalAlignment = __args[1];
                     {
+                        var __args = Array.prototype.slice.call(arguments);
                         var icon = null;
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
@@ -30972,9 +37521,11 @@ var javax;
                     })();
                 }
                 else if (((text != null && text["__interfaces"] != null && text["__interfaces"].indexOf("javax.swing.Icon") >= 0) || text === null) && ((typeof icon === 'number') || icon === null) && horizontalAlignment === undefined) {
-                    var image = text;
-                    var horizontalAlignment = icon;
+                    var __args = Array.prototype.slice.call(arguments);
+                    var image = __args[0];
+                    var horizontalAlignment = __args[1];
                     {
+                        var __args = Array.prototype.slice.call(arguments);
                         var text = null;
                         var icon = image;
                         _super.call(this);
@@ -31009,7 +37560,9 @@ var javax;
                     })();
                 }
                 else if (((typeof text === 'string') || text === null) && icon === undefined && horizontalAlignment === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
                     {
+                        var __args = Array.prototype.slice.call(arguments);
                         var icon = null;
                         var horizontalAlignment = javax.swing.SwingConstants.LEADING;
                         _super.call(this);
@@ -31044,8 +37597,10 @@ var javax;
                     })();
                 }
                 else if (((text != null && text["__interfaces"] != null && text["__interfaces"].indexOf("javax.swing.Icon") >= 0) || text === null) && icon === undefined && horizontalAlignment === undefined) {
-                    var image = text;
+                    var __args = Array.prototype.slice.call(arguments);
+                    var image = __args[0];
                     {
+                        var __args = Array.prototype.slice.call(arguments);
                         var text = null;
                         var icon = image;
                         var horizontalAlignment = javax.swing.SwingConstants.CENTER;
@@ -31081,7 +37636,9 @@ var javax;
                     })();
                 }
                 else if (text === undefined && icon === undefined && horizontalAlignment === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
                     {
+                        var __args = Array.prototype.slice.call(arguments);
                         var text = "";
                         var icon = null;
                         var horizontalAlignment = javax.swing.SwingConstants.LEADING;
@@ -31124,17 +37681,18 @@ var javax;
             };
             JLabel.prototype.initHTML = function () {
                 _super.prototype.initHTML.call(this);
-                for (var index128 = 0; index128 < this.getHTMLElement().childNodes.length; index128++) {
-                    var n = this.getHTMLElement().childNodes[index128];
-                    {
-                        this.getHTMLElement().removeChild(n);
-                    }
+                while ((this.getHTMLElement().firstChild != null)) {
+                    this.getHTMLElement().removeChild(this.getHTMLElement().firstChild);
                 }
+                ;
                 if (this.defaultIcon != null) {
                     this.htmlImageElement = this.defaultIcon.getInternalHTMLImageElement();
                 }
                 this.htmlLabelElement = document.createElement("label");
-                this.htmlElement.appendChild(this.htmlImageElement);
+                if (this.defaultIcon != null) {
+                    this.htmlElement.appendChild(this.htmlImageElement);
+                }
+                this.htmlLabelElement.innerHTML = this.getText();
                 this.htmlElement.appendChild(this.htmlLabelElement);
             };
             JLabel.prototype.getText = function () {
@@ -31144,8 +37702,8 @@ var javax;
                 var oldValue = this.text;
                 this.text = text;
                 this.firePropertyChange("text", oldValue, text);
-                if (this.htmlElement != null) {
-                    this.htmlElement.innerHTML = text;
+                if (this.htmlLabelElement != null) {
+                    this.htmlLabelElement.innerHTML = text;
                 }
             };
             JLabel.prototype.getIcon = function () {
@@ -31182,6 +37740,7 @@ var javax;
             JLabel.prototype.setDisplayedMnemonic = function (aChar) {
                 var _this = this;
                 if (((typeof aChar === 'string') || aChar === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         var vk = java.awt.event.KeyEvent.getExtendedKeyCodeForChar((aChar).charCodeAt(0));
                         if (vk !== java.awt.event.KeyEvent.VK_UNDEFINED) {
@@ -31365,6 +37924,2863 @@ var javax;
         }(javax.swing.JComponent));
         swing.JLabel = JLabel;
         JLabel["__classname"] = "javax.swing.JLabel";
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        /**
+         * A component that displays a list of objects and allows the user to select one
+         * or more items. A separate model, {@code ListModel}, maintains the contents of
+         * the list.
+         * <p>
+         * It's easy to display an array or Vector of objects, using the {@code JList}
+         * constructor that automatically builds a read-only {@code ListModel} instance
+         * for you:
+         *
+         * <pre>
+         * {
+         * &#64;code
+         * // Create a JList that displays strings from an array
+         *
+         * String[] data = { "one", "two", "three", "four" };
+         * JList<String> myList = new JList<String>(data);
+         *
+         * // Create a JList that displays the superclasses of JList.class, by
+         * // creating it with a Vector populated with this data
+         *
+         * Vector<Class<?>> superClasses = new Vector<Class<?>>();
+         * Class<JList> rootClass = javax.swing.JList.class;
+         * for (Class<?> cls = rootClass; cls != null; cls = cls.getSuperclass()) {
+         * superClasses.addElement(cls);
+         * }
+         * JList<Class<?>> myList = new JList<Class<?>>(superClasses);
+         *
+         * // The automatically created model is stored in JList's "model"
+         * // property, which you can retrieve
+         *
+         * ListModel<Class<?>> model = myList.getModel();
+         * for (int i = 0; i < model.getSize(); i++) {
+         * System.out.println(model.getElementAt(i));
+         * }
+         * }
+         * </pre>
+         * <p>
+         * A {@code ListModel} can be supplied directly to a {@code JList} by way of a
+         * constructor or the {@code setModel} method. The contents need not be static -
+         * the number of items, and the values of items can change over time. A correct
+         * {@code ListModel} implementation notifies the set of
+         * {@code javax.swing.event.ListDataListener}s that have been added to it, each
+         * time a change occurs. These changes are characterized by a
+         * {@code javax.swing.event.ListDataEvent}, which identifies the range of list
+         * indices that have been modified, added, or removed. {@code JList}'s
+         * {@code ListUI} is responsible for keeping the visual representation up to
+         * date with changes, by listening to the model.
+         * <p>
+         * Simple, dynamic-content, {@code JList} applications can use the
+         * {@code DefaultListModel} class to maintain list elements. This class
+         * implements the {@code ListModel} interface and also provides a
+         * <code>java.util.Vector</code>-like API. Applications that need a more custom
+         * <code>ListModel</code> implementation may instead wish to subclass
+         * {@code AbstractListModel}, which provides basic support for managing and
+         * notifying listeners. For example, a read-only implementation of
+         * {@code AbstractListModel}:
+         *
+         * <pre>
+         * {
+         * &#64;code
+         * // This list model has about 2^16 elements. Enjoy scrolling.
+         *
+         * ListModel<String> bigData = new AbstractListModel<String>() {
+         * public int getSize() {
+         * return Short.MAX_VALUE;
+         * }
+         *
+         * public String getElementAt(int index) {
+         * return "Index " + index;
+         * }
+         * };
+         * }
+         * </pre>
+         * <p>
+         * The selection state of a {@code JList} is managed by another separate model,
+         * an instance of {@code ListSelectionModel}. {@code JList} is initialized with
+         * a selection model on construction, and also contains methods to query or set
+         * this selection model. Additionally, {@code JList} provides convenient methods
+         * for easily managing the selection. These methods, such as
+         * {@code setSelectedIndex} and {@code getSelectedValue}, are cover methods that
+         * take care of the details of interacting with the selection model. By default,
+         * {@code JList}'s selection model is configured to allow any combination of
+         * items to be selected at a time; selection mode
+         * {@code MULTIPLE_INTERVAL_SELECTION}. The selection mode can be changed on the
+         * selection model directly, or via {@code JList}'s cover method. Responsibility
+         * for updating the selection model in response to user gestures lies with the
+         * list's {@code ListUI}.
+         * <p>
+         * A correct {@code ListSelectionModel} implementation notifies the set of
+         * {@code javax.swing.event.ListSelectionListener}s that have been added to it
+         * each time a change to the selection occurs. These changes are characterized
+         * by a {@code javax.swing.event.ListSelectionEvent}, which identifies the range
+         * of the selection change.
+         * <p>
+         * The preferred way to listen for changes in list selection is to add
+         * {@code ListSelectionListener}s directly to the {@code JList}. {@code JList}
+         * then takes care of listening to the the selection model and notifying your
+         * listeners of change.
+         * <p>
+         * Responsibility for listening to selection changes in order to keep the list's
+         * visual representation up to date lies with the list's {@code ListUI}.
+         * <p>
+         * <a name="renderer"></a> Painting of cells in a {@code JList} is handled by a
+         * delegate called a cell renderer, installed on the list as the
+         * {@code cellRenderer} property. The renderer provides a
+         * {@code java.awt.Component} that is used like a "rubber stamp" to paint the
+         * cells. Each time a cell needs to be painted, the list's {@code ListUI} asks
+         * the cell renderer for the component, moves it into place, and has it paint
+         * the contents of the cell by way of its {@code paint} method. A default cell
+         * renderer, which uses a {@code JLabel} component to render, is installed by
+         * the lists's {@code ListUI}. You can substitute your own renderer using code
+         * like this:
+         *
+         * <pre>
+         * {
+         * &#64;code
+         * // Display an icon and a string for each object in the list.
+         *
+         * class MyCellRenderer extends JLabel implements ListCellRenderer<Object> {
+         * final static ImageIcon longIcon = new ImageIcon("long.gif");
+         * final static ImageIcon shortIcon = new ImageIcon("short.gif");
+         *
+         * // This is the only method defined by ListCellRenderer.
+         * // We just reconfigure the JLabel each time we're called.
+         *
+         * public Component getListCellRendererComponent(JList<?> list, // the
+         * // list
+         * Object value, // value to display
+         * int index, // cell index
+         * boolean isSelected, // is the cell selected
+         * boolean cellHasFocus) // does the cell have focus
+         * {
+         * String s = value.toString();
+         * setText(s);
+         * setIcon((s.length() > 10) ? longIcon : shortIcon);
+         * if (isSelected) {
+         * setBackground(list.getSelectionBackground());
+         * setForeground(list.getSelectionForeground());
+         * } else {
+         * setBackground(list.getBackground());
+         * setForeground(list.getForeground());
+         * }
+         * setEnabled(list.isEnabled());
+         * setFont(list.getFont());
+         * setOpaque(true);
+         * return this;
+         * }
+         * }
+         *
+         * myList.setCellRenderer(new MyCellRenderer());
+         * }
+         * </pre>
+         * <p>
+         * Another job for the cell renderer is in helping to determine sizing
+         * information for the list. By default, the list's {@code ListUI} determines
+         * the size of cells by asking the cell renderer for its preferred size for each
+         * list item. This can be expensive for large lists of items. To avoid these
+         * calculations, you can set a {@code fixedCellWidth} and
+         * {@code fixedCellHeight} on the list, or have these values calculated
+         * automatically based on a single prototype value:
+         * <a name="prototype_example"></a>
+         *
+         * <pre>
+         * {
+         * &#64;code
+         * JList<String> bigDataList = new JList<String>(bigData);
+         *
+         * // We don't want the JList implementation to compute the width
+         * // or height of all of the list cells, so we give it a string
+         * // that's as big as we'll need for any cell. It uses this to
+         * // compute values for the fixedCellWidth and fixedCellHeight
+         * // properties.
+         *
+         * bigDataList.setPrototypeCellValue("Index 1234567890");
+         * }
+         * </pre>
+         * <p>
+         * {@code JList} doesn't implement scrolling directly. To create a list that
+         * scrolls, make it the viewport view of a {@code JScrollPane}. For example:
+         *
+         * <pre>
+         * JScrollPane scrollPane = new JScrollPane(myList);
+         *
+         * // Or in two steps:
+         * JScrollPane scrollPane = new JScrollPane();
+         * scrollPane.getViewport().setView(myList);
+         * </pre>
+         * <p>
+         * {@code JList} doesn't provide any special handling of double or triple (or N)
+         * mouse clicks, but it's easy to add a {@code MouseListener} if you wish to
+         * take action on these events. Use the {@code locationToIndex} method to
+         * determine what cell was clicked. For example:
+         *
+         * <pre>
+         * MouseListener mouseListener = new MouseAdapter() {
+         * public void mouseClicked(MouseEvent e) {
+         * if (e.getClickCount() == 2) {
+         * int index = list.locationToIndex(e.getPoint());
+         * System.out.println("Double clicked on Item " + index);
+         * }
+         * }
+         * };
+         * list.addMouseListener(mouseListener);
+         * </pre>
+         * <p>
+         * <strong>Warning:</strong> Swing is not thread safe. For more information see
+         * <a href="package-summary.html#threading">Swing's Threading Policy</a>.
+         * <p>
+         * <strong>Warning:</strong> Serialized objects of this class will not be
+         * compatible with future Swing releases. The current serialization support is
+         * appropriate for short term storage or RMI between applications running the
+         * same version of Swing. As of 1.4, support for long term storage of all
+         * JavaBeans&trade; has been added to the <code>java.beans</code> package.
+         * Please see {@link java.beans.XMLEncoder}.
+         * <p>
+         * See <a href=
+         * "http://docs.oracle.com/javase/tutorial/uiswing/components/list.html">How to
+         * Use Lists</a> in <a href="http://docs.oracle.com/javase/tutorial/">
+         * <em>The Java Tutorial</em></a> for further documentation.
+         * <p>
+         *
+         * @see ListModel
+         * @see AbstractListModel
+         * @see DefaultListModel
+         * @see ListSelectionModel
+         * @see DefaultListSelectionModel
+         * @see ListCellRenderer
+         * @see DefaultListCellRenderer
+         *
+         * @param <E>
+         * the type of the elements of this list
+         *
+         * @beaninfo attribute: isContainer false description: A component which allows
+         * for the selection of one or more objects from a list.
+         *
+         * @author Hans Muller
+         */
+        var JList = (function (_super) {
+            __extends(JList, _super);
+            /**
+             * Constructs a {@code JList} that displays elements from the specified,
+             * {@code non-null}, model. All {@code JList} constructors delegate to this
+             * one.
+             *
+             * @param dataModel
+             * the model for the list
+             * @exception IllegalArgumentException
+             * if the model is {@code null}
+             */
+            function JList(dataModel) {
+                var _this = this;
+                if (((dataModel != null && dataModel["__interfaces"] != null && dataModel["__interfaces"].indexOf("javax.swing.ListModel") >= 0) || dataModel === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    _super.call(this);
+                    this.fixedCellWidth = -1;
+                    this.fixedCellHeight = -1;
+                    this.horizontalScrollIncrement = -1;
+                    this.visibleRowCount = 8;
+                    this.dropMode = javax.swing.DropMode.USE_SELECTION;
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
+                    this.dragEnabled = false;
+                    this.layoutOrientation = 0;
+                    (function () {
+                        if (dataModel == null) {
+                            throw new java.lang.IllegalArgumentException("dataModel must be non null");
+                        }
+                        _this.layoutOrientation = JList.VERTICAL;
+                        _this.dataModel = dataModel;
+                        _this.selectionModel = _this.createSelectionModel();
+                    })();
+                }
+                else if (((dataModel != null && dataModel instanceof Array) || dataModel === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    var listData = __args[0];
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var dataModel = new JList.JList$0(this, listData);
+                        _super.call(this);
+                        this.fixedCellWidth = -1;
+                        this.fixedCellHeight = -1;
+                        this.horizontalScrollIncrement = -1;
+                        this.visibleRowCount = 8;
+                        this.dropMode = javax.swing.DropMode.USE_SELECTION;
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
+                        this.dragEnabled = false;
+                        this.layoutOrientation = 0;
+                        (function () {
+                            if (dataModel == null) {
+                                throw new java.lang.IllegalArgumentException("dataModel must be non null");
+                            }
+                            _this.layoutOrientation = JList.VERTICAL;
+                            _this.dataModel = dataModel;
+                            _this.selectionModel = _this.createSelectionModel();
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else if (((dataModel != null && dataModel instanceof java.util.Vector) || dataModel === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    var listData = __args[0];
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var dataModel = new JList.JList$1(this, listData);
+                        _super.call(this);
+                        this.fixedCellWidth = -1;
+                        this.fixedCellHeight = -1;
+                        this.horizontalScrollIncrement = -1;
+                        this.visibleRowCount = 8;
+                        this.dropMode = javax.swing.DropMode.USE_SELECTION;
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
+                        this.dragEnabled = false;
+                        this.layoutOrientation = 0;
+                        (function () {
+                            if (dataModel == null) {
+                                throw new java.lang.IllegalArgumentException("dataModel must be non null");
+                            }
+                            _this.layoutOrientation = JList.VERTICAL;
+                            _this.dataModel = dataModel;
+                            _this.selectionModel = _this.createSelectionModel();
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else if (dataModel === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var dataModel = new JList.JList$2(this);
+                        _super.call(this);
+                        this.fixedCellWidth = -1;
+                        this.fixedCellHeight = -1;
+                        this.horizontalScrollIncrement = -1;
+                        this.visibleRowCount = 8;
+                        this.dropMode = javax.swing.DropMode.USE_SELECTION;
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
+                        this.dragEnabled = false;
+                        this.layoutOrientation = 0;
+                        (function () {
+                            if (dataModel == null) {
+                                throw new java.lang.IllegalArgumentException("dataModel must be non null");
+                            }
+                            _this.layoutOrientation = JList.VERTICAL;
+                            _this.dataModel = dataModel;
+                            _this.selectionModel = _this.createSelectionModel();
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else
+                    throw new Error('invalid overload');
+            }
+            JList.prototype.createHTML = function () {
+            };
+            JList.prototype.updateFixedCellSize = function () {
+                var cr = this.getCellRenderer();
+                var value = this.getPrototypeCellValue();
+                if ((cr != null) && (value != null)) {
+                    var c = cr.getListCellRendererComponent(this, value, 0, false, false);
+                    var f = c.getFont();
+                    c.setFont(this.getFont());
+                    c.setFont(f);
+                }
+            };
+            /**
+             * Returns the "prototypical" cell value -- a value used to calculate a
+             * fixed width and height for cells. This can be {@code null} if there is no
+             * such value.
+             *
+             * @return the value of the {@code prototypeCellValue} property
+             * @see #setPrototypeCellValue
+             */
+            JList.prototype.getPrototypeCellValue = function () {
+                return this.prototypeCellValue;
+            };
+            /**
+             * Sets the {@code prototypeCellValue} property, and then (if the new value
+             * is {@code non-null}), computes the {@code fixedCellWidth} and
+             * {@code fixedCellHeight} properties by requesting the cell renderer
+             * component for the given value (and index 0) from the cell renderer, and
+             * using that component's preferred size.
+             * <p>
+             * This method is useful when the list is too long to allow the
+             * {@code ListUI} to compute the width/height of each cell, and there is a
+             * single cell value that is known to occupy as much space as any of the
+             * others, a so-called prototype.
+             * <p>
+             * While all three of the {@code prototypeCellValue},
+             * {@code fixedCellHeight}, and {@code fixedCellWidth} properties may be
+             * modified by this method, {@code PropertyChangeEvent} notifications are
+             * only sent when the {@code prototypeCellValue} property changes.
+             * <p>
+             * To see an example which sets this property, see the
+             * <a href="#prototype_example">class description</a> above.
+             * <p>
+             * The default value of this property is <code>null</code>.
+             * <p>
+             * This is a JavaBeans bound property.
+             *
+             * @param prototypeCellValue
+             * the value on which to base <code>fixedCellWidth</code> and
+             * <code>fixedCellHeight</code>
+             * @see #getPrototypeCellValue
+             * @see #setFixedCellWidth
+             * @see #setFixedCellHeight
+             * @see JComponent#addPropertyChangeListener
+             * @beaninfo bound: true attribute: visualUpdate true description: The cell
+             * prototype value, used to compute cell width and height.
+             */
+            JList.prototype.setPrototypeCellValue = function (prototypeCellValue) {
+                var oldValue = this.prototypeCellValue;
+                this.prototypeCellValue = prototypeCellValue;
+                if ((prototypeCellValue != null) && !prototypeCellValue.equals(oldValue)) {
+                    this.updateFixedCellSize();
+                }
+                this.firePropertyChange("prototypeCellValue", oldValue, prototypeCellValue);
+            };
+            /**
+             * Returns the value of the {@code fixedCellWidth} property.
+             *
+             * @return the fixed cell width
+             * @see #setFixedCellWidth
+             */
+            JList.prototype.getFixedCellWidth = function () {
+                return this.fixedCellWidth;
+            };
+            /**
+             * Sets a fixed value to be used for the width of every cell in the list. If
+             * {@code width} is -1, cell widths are computed in the {@code ListUI} by
+             * applying <code>getPreferredSize</code> to the cell renderer component for
+             * each list element.
+             * <p>
+             * The default value of this property is {@code -1}.
+             * <p>
+             * This is a JavaBeans bound property.
+             *
+             * @param width
+             * the width to be used for all cells in the list
+             * @see #setPrototypeCellValue
+             * @see #setFixedCellWidth
+             * @see JComponent#addPropertyChangeListener
+             * @beaninfo bound: true attribute: visualUpdate true description: Defines a
+             * fixed cell width when greater than zero.
+             */
+            JList.prototype.setFixedCellWidth = function (width) {
+                var oldValue = this.fixedCellWidth;
+                this.fixedCellWidth = width;
+                this.firePropertyChange("fixedCellWidth", oldValue, this.fixedCellWidth);
+            };
+            /**
+             * Returns the value of the {@code fixedCellHeight} property.
+             *
+             * @return the fixed cell height
+             * @see #setFixedCellHeight
+             */
+            JList.prototype.getFixedCellHeight = function () {
+                return this.fixedCellHeight;
+            };
+            /**
+             * Sets a fixed value to be used for the height of every cell in the list.
+             * If {@code height} is -1, cell heights are computed in the {@code ListUI}
+             * by applying <code>getPreferredSize</code> to the cell renderer component
+             * for each list element.
+             * <p>
+             * The default value of this property is {@code -1}.
+             * <p>
+             * This is a JavaBeans bound property.
+             *
+             * @param height
+             * the height to be used for for all cells in the list
+             * @see #setPrototypeCellValue
+             * @see #setFixedCellWidth
+             * @see JComponent#addPropertyChangeListener
+             * @beaninfo bound: true attribute: visualUpdate true description: Defines a
+             * fixed cell height when greater than zero.
+             */
+            JList.prototype.setFixedCellHeight = function (height) {
+                var oldValue = this.fixedCellHeight;
+                this.fixedCellHeight = height;
+                this.firePropertyChange("fixedCellHeight", oldValue, this.fixedCellHeight);
+            };
+            /**
+             * Returns the object responsible for painting list items.
+             *
+             * @return the value of the {@code cellRenderer} property
+             * @see #setCellRenderer
+             */
+            JList.prototype.getCellRenderer = function () {
+                return this.cellRenderer;
+            };
+            /**
+             * Sets the delegate that is used to paint each cell in the list. The job of
+             * a cell renderer is discussed in detail in the <a href="#renderer">class
+             * level documentation</a>.
+             * <p>
+             * If the {@code prototypeCellValue} property is {@code non-null}, setting
+             * the cell renderer also causes the {@code fixedCellWidth} and
+             * {@code fixedCellHeight} properties to be re-calculated. Only one
+             * <code>PropertyChangeEvent</code> is generated however - for the
+             * <code>cellRenderer</code> property.
+             * <p>
+             * The default value of this property is provided by the {@code ListUI}
+             * delegate, i.e. by the look and feel implementation.
+             * <p>
+             * This is a JavaBeans bound property.
+             *
+             * @param cellRenderer
+             * the <code>ListCellRenderer</code> that paints list cells
+             * @see #getCellRenderer
+             * @beaninfo bound: true attribute: visualUpdate true description: The
+             * component used to draw the cells.
+             */
+            JList.prototype.setCellRenderer = function (cellRenderer) {
+                var oldValue = this.cellRenderer;
+                this.cellRenderer = cellRenderer;
+                if ((cellRenderer != null) && !cellRenderer.equals(oldValue)) {
+                    this.updateFixedCellSize();
+                }
+                this.firePropertyChange("cellRenderer", oldValue, cellRenderer);
+            };
+            /**
+             * Returns the color used to draw the foreground of selected items.
+             * {@code DefaultListCellRenderer} uses this color to draw the foreground of
+             * items in the selected state, as do the renderers installed by most
+             * {@code ListUI} implementations.
+             *
+             * @return the color to draw the foreground of selected items
+             * @see #setSelectionForeground
+             * @see DefaultListCellRenderer
+             */
+            JList.prototype.getSelectionForeground = function () {
+                return this.selectionForeground;
+            };
+            /**
+             * Sets the color used to draw the foreground of selected items, which cell
+             * renderers can use to render text and graphics.
+             * {@code DefaultListCellRenderer} uses this color to draw the foreground of
+             * items in the selected state, as do the renderers installed by most
+             * {@code ListUI} implementations.
+             * <p>
+             * The default value of this property is defined by the look and feel
+             * implementation.
+             * <p>
+             * This is a JavaBeans bound property.
+             *
+             * @param selectionForeground
+             * the {@code Color} to use in the foreground for selected list
+             * items
+             * @see #getSelectionForeground
+             * @see #setSelectionBackground
+             * @see #setForeground
+             * @see #setBackground
+             * @see #setFont
+             * @see DefaultListCellRenderer
+             * @beaninfo bound: true attribute: visualUpdate true description: The
+             * foreground color of selected cells.
+             */
+            JList.prototype.setSelectionForeground = function (selectionForeground) {
+                var oldValue = this.selectionForeground;
+                this.selectionForeground = selectionForeground;
+                this.firePropertyChange("selectionForeground", oldValue, selectionForeground);
+            };
+            /**
+             * Returns the color used to draw the background of selected items.
+             * {@code DefaultListCellRenderer} uses this color to draw the background of
+             * items in the selected state, as do the renderers installed by most
+             * {@code ListUI} implementations.
+             *
+             * @return the color to draw the background of selected items
+             * @see #setSelectionBackground
+             * @see DefaultListCellRenderer
+             */
+            JList.prototype.getSelectionBackground = function () {
+                return this.selectionBackground;
+            };
+            /**
+             * Sets the color used to draw the background of selected items, which cell
+             * renderers can use fill selected cells. {@code DefaultListCellRenderer}
+             * uses this color to fill the background of items in the selected state, as
+             * do the renderers installed by most {@code ListUI} implementations.
+             * <p>
+             * The default value of this property is defined by the look and feel
+             * implementation.
+             * <p>
+             * This is a JavaBeans bound property.
+             *
+             * @param selectionBackground
+             * the {@code Color} to use for the background of selected cells
+             * @see #getSelectionBackground
+             * @see #setSelectionForeground
+             * @see #setForeground
+             * @see #setBackground
+             * @see #setFont
+             * @see DefaultListCellRenderer
+             * @beaninfo bound: true attribute: visualUpdate true description: The
+             * background color of selected cells.
+             */
+            JList.prototype.setSelectionBackground = function (selectionBackground) {
+                var oldValue = this.selectionBackground;
+                this.selectionBackground = selectionBackground;
+                this.firePropertyChange("selectionBackground", oldValue, selectionBackground);
+            };
+            /**
+             * Returns the value of the {@code visibleRowCount} property. See the
+             * documentation for {@link #setVisibleRowCount} for details on how to
+             * interpret this value.
+             *
+             * @return the value of the {@code visibleRowCount} property.
+             * @see #setVisibleRowCount
+             */
+            JList.prototype.getVisibleRowCount = function () {
+                return this.visibleRowCount;
+            };
+            /**
+             * Sets the {@code visibleRowCount} property, which has different meanings
+             * depending on the layout orientation: For a {@code VERTICAL} layout
+             * orientation, this sets the preferred number of rows to display without
+             * requiring scrolling; for other orientations, it affects the wrapping of
+             * cells.
+             * <p>
+             * In {@code VERTICAL} orientation:<br>
+             * Setting this property affects the return value of the
+             * {@link #getPreferredScrollableViewportSize} method, which is used to
+             * calculate the preferred size of an enclosing viewport. See that method's
+             * documentation for more details.
+             * <p>
+             * In {@code HORIZONTAL_WRAP} and {@code VERTICAL_WRAP} orientations:<br>
+             * This affects how cells are wrapped. See the documentation of
+             * {@link #setLayoutOrientation} for more details.
+             * <p>
+             * The default value of this property is {@code 8}.
+             * <p>
+             * Calling this method with a negative value results in the property being
+             * set to {@code 0}.
+             * <p>
+             * This is a JavaBeans bound property.
+             *
+             * @param visibleRowCount
+             * an integer specifying the preferred number of rows to display
+             * without requiring scrolling
+             * @see #getVisibleRowCount
+             * @see #getPreferredScrollableViewportSize
+             * @see #setLayoutOrientation
+             * @see JComponent#getVisibleRect
+             * @see JViewport
+             * @beaninfo bound: true attribute: visualUpdate true description: The
+             * preferred number of rows to display without requiring scrolling
+             */
+            JList.prototype.setVisibleRowCount = function (visibleRowCount) {
+                var oldValue = this.visibleRowCount;
+                this.visibleRowCount = Math.max(0, visibleRowCount);
+                this.firePropertyChange("visibleRowCount", oldValue, visibleRowCount);
+            };
+            /**
+             * Returns the layout orientation property for the list: {@code VERTICAL} if
+             * the layout is a single column of cells, {@code VERTICAL_WRAP} if the
+             * layout is "newspaper style" with the content flowing vertically then
+             * horizontally, or {@code HORIZONTAL_WRAP} if the layout is "newspaper
+             * style" with the content flowing horizontally then vertically.
+             *
+             * @return the value of the {@code layoutOrientation} property
+             * @see #setLayoutOrientation
+             * @since 1.4
+             */
+            JList.prototype.getLayoutOrientation = function () {
+                return this.layoutOrientation;
+            };
+            /**
+             * Defines the way list cells are layed out. Consider a {@code JList} with
+             * five cells. Cells can be layed out in one of the following ways:
+             *
+             * <pre>
+             * VERTICAL:          0
+             * 1
+             * 2
+             * 3
+             * 4
+             *
+             * HORIZONTAL_WRAP:   0  1  2
+             * 3  4
+             *
+             * VERTICAL_WRAP:     0  3
+             * 1  4
+             * 2
+             * </pre>
+             * <p>
+             * A description of these layouts follows:
+             *
+             * <table border="1" summary=
+             * "Describes layouts VERTICAL, HORIZONTAL_WRAP, and VERTICAL_WRAP">
+             * <tr>
+             * <th>
+             * <p style="text-align:left">
+             * Value
+             * </p>
+             * </th>
+             * <th>
+             * <p style="text-align:left">
+             * Description
+             * </p>
+             * </th>
+             * </tr>
+             * <tr>
+             * <td><code>VERTICAL</code>
+             * <td>Cells are layed out vertically in a single column.
+             * <tr>
+             * <td><code>HORIZONTAL_WRAP</code>
+             * <td>Cells are layed out horizontally, wrapping to a new row as necessary.
+             * If the {@code visibleRowCount} property is less than or equal to zero,
+             * wrapping is determined by the width of the list; otherwise wrapping is
+             * done in such a way as to ensure {@code visibleRowCount} rows in the list.
+             * <tr>
+             * <td><code>VERTICAL_WRAP</code>
+             * <td>Cells are layed out vertically, wrapping to a new column as
+             * necessary. If the {@code visibleRowCount} property is less than or equal
+             * to zero, wrapping is determined by the height of the list; otherwise
+             * wrapping is done at {@code visibleRowCount} rows.
+             * </table>
+             * <p>
+             * The default value of this property is <code>VERTICAL</code>.
+             *
+             * @param layoutOrientation
+             * the new layout orientation, one of: {@code VERTICAL},
+             * {@code HORIZONTAL_WRAP} or {@code VERTICAL_WRAP}
+             * @see #getLayoutOrientation
+             * @see #setVisibleRowCount
+             * @see #getScrollableTracksViewportHeight
+             * @see #getScrollableTracksViewportWidth
+             * @throws IllegalArgumentException
+             * if {@code layoutOrientation} isn't one of the allowable
+             * values
+             * @since 1.4
+             * @beaninfo bound: true attribute: visualUpdate true description: Defines
+             * the way list cells are layed out. enum: VERTICAL JList.VERTICAL
+             * HORIZONTAL_WRAP JList.HORIZONTAL_WRAP VERTICAL_WRAP
+             * JList.VERTICAL_WRAP
+             */
+            JList.prototype.setLayoutOrientation = function (layoutOrientation) {
+                var oldValue = this.layoutOrientation;
+                switch ((layoutOrientation)) {
+                    case JList.VERTICAL:
+                    case JList.VERTICAL_WRAP:
+                    case JList.HORIZONTAL_WRAP:
+                        this.layoutOrientation = layoutOrientation;
+                        this.firePropertyChange("layoutOrientation", oldValue, layoutOrientation);
+                        break;
+                    default:
+                        throw new java.lang.IllegalArgumentException("layoutOrientation must be one of: VERTICAL, HORIZONTAL_WRAP or VERTICAL_WRAP");
+                }
+            };
+            /**
+             * Scrolls the list within an enclosing viewport to make the specified cell
+             * completely visible. This calls {@code scrollRectToVisible} with the
+             * bounds of the specified cell. For this method to work, the {@code JList}
+             * must be within a <code>JViewport</code>.
+             * <p>
+             * If the given index is outside the list's range of cells, this method
+             * results in nothing.
+             *
+             * @param index
+             * the index of the cell to make visible
+             * @see JComponent#scrollRectToVisible
+             * @see #getVisibleRect
+             */
+            JList.prototype.ensureIndexIsVisible = function (index) {
+                var cellBounds = this.getCellBounds(index, index);
+                if (cellBounds != null) {
+                }
+            };
+            /**
+             * Turns on or off automatic drag handling. In order to enable automatic
+             * drag handling, this property should be set to {@code true}, and the
+             * list's {@code TransferHandler} needs to be {@code non-null}. The default
+             * value of the {@code dragEnabled} property is {@code false}.
+             * <p>
+             * The job of honoring this property, and recognizing a user drag gesture,
+             * lies with the look and feel implementation, and in particular, the list's
+             * {@code ListUI}. When automatic drag handling is enabled, most look and
+             * feels (including those that subclass {@code BasicLookAndFeel}) begin a
+             * drag and drop operation whenever the user presses the mouse button over
+             * an item and then moves the mouse a few pixels. Setting this property to
+             * {@code true} can therefore have a subtle effect on how selections behave.
+             * <p>
+             * If a look and feel is used that ignores this property, you can still
+             * begin a drag and drop operation by calling {@code exportAsDrag} on the
+             * list's {@code TransferHandler}.
+             *
+             * @param b
+             * whether or not to enable automatic drag handling
+             * @see java.awt.GraphicsEnvironment#isHeadless
+             * @see #getDragEnabled
+             * @see #setTransferHandler
+             * @see TransferHandler
+             * @since 1.4
+             *
+             * @beaninfo description: determines whether automatic drag handling is
+             * enabled bound: false
+             */
+            JList.prototype.setDragEnabled = function (b) {
+                this.dragEnabled = b;
+            };
+            /**
+             * Returns whether or not automatic drag handling is enabled.
+             *
+             * @return the value of the {@code dragEnabled} property
+             * @see #setDragEnabled
+             * @since 1.4
+             */
+            JList.prototype.getDragEnabled = function () {
+                return this.dragEnabled;
+            };
+            /**
+             * Sets the drop mode for this component. For backward compatibility, the
+             * default for this property is <code>DropMode.USE_SELECTION</code>. Usage
+             * of one of the other modes is recommended, however, for an improved user
+             * experience. <code>DropMode.ON</code>, for instance, offers similar
+             * behavior of showing items as selected, but does so without affecting the
+             * actual selection in the list.
+             * <p>
+             * <code>JList</code> supports the following drop modes:
+             * <ul>
+             * <li><code>DropMode.USE_SELECTION</code></li>
+             * <li><code>DropMode.ON</code></li>
+             * <li><code>DropMode.INSERT</code></li>
+             * <li><code>DropMode.ON_OR_INSERT</code></li>
+             * </ul>
+             * The drop mode is only meaningful if this component has a
+             * <code>TransferHandler</code> that accepts drops.
+             *
+             * @param dropMode
+             * the drop mode to use
+             * @throws IllegalArgumentException
+             * if the drop mode is unsupported or <code>null</code>
+             * @see #getDropMode
+             * @see #getDropLocation
+             * @see #setTransferHandler
+             * @see TransferHandler
+             * @since 1.6
+             */
+            JList.prototype.setDropMode = function (dropMode) {
+                if (dropMode != null) {
+                    switch ((dropMode)) {
+                        case javax.swing.DropMode.USE_SELECTION:
+                        case javax.swing.DropMode.ON:
+                        case javax.swing.DropMode.INSERT:
+                        case javax.swing.DropMode.ON_OR_INSERT:
+                            this.dropMode = dropMode;
+                            return;
+                    }
+                }
+                throw new java.lang.IllegalArgumentException(dropMode + ": Unsupported drop mode for list");
+            };
+            /**
+             * Returns the drop mode for this component.
+             *
+             * @return the drop mode for this component
+             * @see #setDropMode
+             * @since 1.6
+             */
+            JList.prototype.getDropMode = function () {
+                return this.dropMode;
+            };
+            /**
+             * Returns the next list element whose {@code toString} value starts with
+             * the given prefix.
+             *
+             * @param prefix
+             * the string to test for a match
+             * @param startIndex
+             * the index for starting the search
+             * @param bias
+             * the search direction, either Position.Bias.Forward or
+             * Position.Bias.Backward.
+             * @return the index of the next list element that starts with the prefix;
+             * otherwise {@code -1}
+             * @exception IllegalArgumentException
+             * if prefix is {@code null} or startIndex is out of bounds
+             * @since 1.4
+             */
+            JList.prototype.getNextMatch = function (prefix, startIndex, bias) {
+                var model = this.getModel();
+                var max = model.getSize();
+                if (prefix == null) {
+                    throw new java.lang.IllegalArgumentException();
+                }
+                if (startIndex < 0 || startIndex >= max) {
+                    throw new java.lang.IllegalArgumentException();
+                }
+                prefix = prefix.toUpperCase();
+                var increment = (bias === javax.swing.text.Position.Bias.Forward_$LI$()) ? 1 : -1;
+                var index = startIndex;
+                do {
+                    var element = model.getElementAt(index);
+                    if (element != null) {
+                        var str;
+                        if (typeof element === 'string') {
+                            str = element.toUpperCase();
+                        }
+                        else {
+                            str = element.toString();
+                            if (str != null) {
+                                str = str.toUpperCase();
+                            }
+                        }
+                        if (str != null && (function (str, searchString, position) {
+                            if (position === void 0) { position = 0; }
+                            return str.substr(position, searchString.length) === searchString;
+                        })(str, prefix)) {
+                            return index;
+                        }
+                    }
+                    index = (index + increment + max) % max;
+                } while ((index !== startIndex));
+                return -1;
+            };
+            /**
+             * Returns the cell index closest to the given location in the list's
+             * coordinate system. To determine if the cell actually contains the
+             * specified location, compare the point against the cell's bounds, as
+             * provided by {@code getCellBounds}. This method returns {@code -1} if the
+             * model is empty
+             * <p>
+             * This is a cover method that delegates to the method of the same name in
+             * the list's {@code ListUI}. It returns {@code -1} if the list has no
+             * {@code ListUI}.
+             *
+             * @param location
+             * the coordinates of the point
+             * @return the cell index closest to the given location, or {@code -1}
+             */
+            JList.prototype.locationToIndex = function (location) {
+                throw new Error("not supported");
+            };
+            /**
+             * Returns the origin of the specified item in the list's coordinate system.
+             * This method returns {@code null} if the index isn't valid.
+             * <p>
+             * This is a cover method that delegates to the method of the same name in
+             * the list's {@code ListUI}. It returns {@code null} if the list has no
+             * {@code ListUI}.
+             *
+             * @param index
+             * the cell index
+             * @return the origin of the cell, or {@code null}
+             */
+            JList.prototype.indexToLocation = function (index) {
+                throw new Error("not supported");
+            };
+            /**
+             * Returns the bounding rectangle, in the list's coordinate system, for the
+             * range of cells specified by the two indices. These indices can be
+             * supplied in any order.
+             * <p>
+             * If the smaller index is outside the list's range of cells, this method
+             * returns {@code null}. If the smaller index is valid, but the larger index
+             * is outside the list's range, the bounds of just the first index is
+             * returned. Otherwise, the bounds of the valid range is returned.
+             * <p>
+             * This is a cover method that delegates to the method of the same name in
+             * the list's {@code ListUI}. It returns {@code null} if the list has no
+             * {@code ListUI}.
+             *
+             * @param index0
+             * the first index in the range
+             * @param index1
+             * the second index in the range
+             * @return the bounding rectangle for the range of cells, or {@code null}
+             */
+            JList.prototype.getCellBounds = function (index0, index1) {
+                throw new Error("not supported");
+            };
+            /**
+             * Returns the data model that holds the list of items displayed by the
+             * <code>JList</code> component.
+             *
+             * @return the <code>ListModel</code> that provides the displayed list of
+             * items
+             * @see #setModel
+             */
+            JList.prototype.getModel = function () {
+                return this.dataModel;
+            };
+            /**
+             * Sets the model that represents the contents or "value" of the list,
+             * notifies property change listeners, and then clears the list's selection.
+             * <p>
+             * This is a JavaBeans bound property.
+             *
+             * @param model
+             * the <code>ListModel</code> that provides the list of items for
+             * display
+             * @exception IllegalArgumentException
+             * if <code>model</code> is <code>null</code>
+             * @see #getModel
+             * @see #clearSelection
+             * @beaninfo bound: true attribute: visualUpdate true description: The
+             * object that contains the data to be drawn by this JList.
+             */
+            JList.prototype.setModel = function (model) {
+                if (model == null) {
+                    throw new java.lang.IllegalArgumentException("model must be non null");
+                }
+                var oldValue = this.dataModel;
+                this.dataModel = model;
+                this.firePropertyChange("model", oldValue, this.dataModel);
+                this.clearSelection();
+            };
+            /**
+             * Constructs a read-only <code>ListModel</code> from an array of items, and
+             * calls {@code setModel} with this model.
+             * <p>
+             * Attempts to pass a {@code null} value to this method results in undefined
+             * behavior and, most likely, exceptions. The created model references the
+             * given array directly. Attempts to modify the array after invoking this
+             * method results in undefined behavior.
+             *
+             * @param listData
+             * an array of {@code E} containing the items to display in the
+             * list
+             * @see #setModel
+             */
+            JList.prototype.setListData = function (listData) {
+                var _this = this;
+                if (((listData != null && listData instanceof Array) || listData === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    return (function () {
+                        _this.setModel(new JList.JList$3(_this, listData));
+                    })();
+                }
+                else if (((listData != null && listData instanceof java.util.Vector) || listData === null)) {
+                    return this.setListData$java_util_Vector(listData);
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            /**
+             * Constructs a read-only <code>ListModel</code> from a <code>Vector</code>
+             * and calls {@code setModel} with this model.
+             * <p>
+             * Attempts to pass a {@code null} value to this method results in undefined
+             * behavior and, most likely, exceptions. The created model references the
+             * given {@code Vector} directly. Attempts to modify the {@code Vector}
+             * after invoking this method results in undefined behavior.
+             *
+             * @param listData
+             * a <code>Vector</code> containing the items to display in the
+             * list
+             * @see #setModel
+             */
+            JList.prototype.setListData$java_util_Vector = function (listData) {
+                this.setModel(new JList.JList$4(this, listData));
+            };
+            /**
+             * Returns an instance of {@code DefaultListSelectionModel}; called during
+             * construction to initialize the list's selection model property.
+             *
+             * @return a {@code DefaultListSelecitonModel}, used to initialize the
+             * list's selection model property during construction
+             * @see #setSelectionModel
+             * @see DefaultListSelectionModel
+             */
+            JList.prototype.createSelectionModel = function () {
+                return new javax.swing.DefaultListSelectionModel();
+            };
+            /**
+             * Returns the current selection model. The selection model maintains the
+             * selection state of the list. See the class level documentation for more
+             * details.
+             *
+             * @return the <code>ListSelectionModel</code> that maintains the list's
+             * selections
+             *
+             * @see #setSelectionModel
+             * @see ListSelectionModel
+             */
+            JList.prototype.getSelectionModel = function () {
+                return this.selectionModel;
+            };
+            /**
+             * Notifies {@code ListSelectionListener}s added directly to the list of
+             * selection changes made to the selection model. {@code JList} listens for
+             * changes made to the selection in the selection model, and forwards
+             * notification to listeners added to the list directly, by calling this
+             * method.
+             * <p>
+             * This method constructs a {@code ListSelectionEvent} with this list as the
+             * source, and the specified arguments, and sends it to the registered
+             * {@code ListSelectionListeners}.
+             *
+             * @param firstIndex
+             * the first index in the range, {@code <= lastIndex}
+             * @param lastIndex
+             * the last index in the range, {@code >= firstIndex}
+             * @param isAdjusting
+             * whether or not this is one in a series of multiple events,
+             * where changes are still being made
+             *
+             * @see #addListSelectionListener
+             * @see #removeListSelectionListener
+             * @see javax.swing.event.ListSelectionEvent
+             * @see EventListenerList
+             */
+            JList.prototype.fireSelectionValueChanged = function (firstIndex, lastIndex, isAdjusting) {
+                var listeners = this.listenerList.getListenerList();
+                var e = null;
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === "javax.swing.event.ListSelectionListener") {
+                        if (e == null) {
+                            e = new javax.swing.event.ListSelectionEvent(this, firstIndex, lastIndex, isAdjusting);
+                        }
+                        listeners[i + 1].valueChanged(e);
+                    }
+                }
+            };
+            /**
+             * Adds a listener to the list, to be notified each time a change to the
+             * selection occurs; the preferred way of listening for selection state
+             * changes. {@code JList} takes care of listening for selection state
+             * changes in the selection model, and notifies the given listener of each
+             * change. {@code ListSelectionEvent}s sent to the listener have a
+             * {@code source} property set to this list.
+             *
+             * @param listener
+             * the {@code ListSelectionListener} to add
+             * @see #getSelectionModel
+             * @see #getListSelectionListeners
+             */
+            JList.prototype.addListSelectionListener = function (listener) {
+                if (this.selectionListener == null) {
+                    this.selectionListener = new JList.ListSelectionHandler(this);
+                    this.getSelectionModel().addListSelectionListener(this.selectionListener);
+                }
+                this.listenerList.add("javax.swing.event.ListSelectionListener", listener);
+            };
+            /**
+             * Removes a selection listener from the list.
+             *
+             * @param listener
+             * the {@code ListSelectionListener} to remove
+             * @see #addListSelectionListener
+             * @see #getSelectionModel
+             */
+            JList.prototype.removeListSelectionListener = function (listener) {
+                this.listenerList.remove("javax.swing.event.ListSelectionListener", listener);
+            };
+            /**
+             * Returns an array of all the {@code ListSelectionListener}s added to this
+             * {@code JList} by way of {@code addListSelectionListener}.
+             *
+             * @return all of the {@code ListSelectionListener}s on this list, or an
+             * empty array if no listeners have been added
+             * @see #addListSelectionListener
+             * @since 1.4
+             */
+            JList.prototype.getListSelectionListeners = function () {
+                return this.listenerList.getListeners("javax.swing.event.ListSelectionListener");
+            };
+            /**
+             * Sets the <code>selectionModel</code> for the list to a non-
+             * <code>null</code> <code>ListSelectionModel</code> implementation. The
+             * selection model handles the task of making single selections, selections
+             * of contiguous ranges, and non-contiguous selections.
+             * <p>
+             * This is a JavaBeans bound property.
+             *
+             * @param selectionModel
+             * the <code>ListSelectionModel</code> that implements the
+             * selections
+             * @exception IllegalArgumentException
+             * if <code>selectionModel</code> is <code>null</code>
+             * @see #getSelectionModel
+             * @beaninfo bound: true description: The selection model, recording which
+             * cells are selected.
+             */
+            JList.prototype.setSelectionModel = function (selectionModel) {
+                if (selectionModel == null) {
+                    throw new java.lang.IllegalArgumentException("selectionModel must be non null");
+                }
+                if (this.selectionListener != null) {
+                    this.selectionModel.removeListSelectionListener(this.selectionListener);
+                    selectionModel.addListSelectionListener(this.selectionListener);
+                }
+                var oldValue = this.selectionModel;
+                this.selectionModel = selectionModel;
+                this.firePropertyChange("selectionModel", oldValue, selectionModel);
+            };
+            /**
+             * Sets the selection mode for the list. This is a cover method that sets
+             * the selection mode directly on the selection model.
+             * <p>
+             * The following list describes the accepted selection modes:
+             * <ul>
+             * <li>{@code ListSelectionModel.SINGLE_SELECTION} - Only one list index can
+             * be selected at a time. In this mode, {@code setSelectionInterval} and
+             * {@code addSelectionInterval} are equivalent, both replacing the current
+             * selection with the index represented by the second argument (the "lead").
+             * <li>{@code ListSelectionModel.SINGLE_INTERVAL_SELECTION} - Only one
+             * contiguous interval can be selected at a time. In this mode,
+             * {@code addSelectionInterval} behaves like {@code setSelectionInterval}
+             * (replacing the current selection}, unless the given interval is
+             * immediately adjacent to or overlaps the existing selection, and can be
+             * used to grow the selection.
+             * <li>{@code ListSelectionModel.MULTIPLE_INTERVAL_SELECTION} - In this
+             * mode, there's no restriction on what can be selected. This mode is the
+             * default.
+             * </ul>
+             *
+             * @param selectionMode
+             * the selection mode
+             * @see #getSelectionMode
+             * @throws IllegalArgumentException
+             * if the selection mode isn't one of those allowed
+             * @beaninfo description: The selection mode. enum: SINGLE_SELECTION
+             * ListSelectionModel.SINGLE_SELECTION SINGLE_INTERVAL_SELECTION
+             * ListSelectionModel.SINGLE_INTERVAL_SELECTION
+             * MULTIPLE_INTERVAL_SELECTION
+             * ListSelectionModel.MULTIPLE_INTERVAL_SELECTION
+             */
+            JList.prototype.setSelectionMode = function (selectionMode) {
+                this.getSelectionModel().setSelectionMode(selectionMode);
+            };
+            /**
+             * Returns the current selection mode for the list. This is a cover method
+             * that delegates to the method of the same name on the list's selection
+             * model.
+             *
+             * @return the current selection mode
+             * @see #setSelectionMode
+             */
+            JList.prototype.getSelectionMode = function () {
+                return this.getSelectionModel().getSelectionMode();
+            };
+            /**
+             * Returns the anchor selection index. This is a cover method that delegates
+             * to the method of the same name on the list's selection model.
+             *
+             * @return the anchor selection index
+             * @see ListSelectionModel#getAnchorSelectionIndex
+             */
+            JList.prototype.getAnchorSelectionIndex = function () {
+                return this.getSelectionModel().getAnchorSelectionIndex();
+            };
+            /**
+             * Returns the lead selection index. This is a cover method that delegates
+             * to the method of the same name on the list's selection model.
+             *
+             * @return the lead selection index
+             * @see ListSelectionModel#getLeadSelectionIndex
+             * @beaninfo description: The lead selection index.
+             */
+            JList.prototype.getLeadSelectionIndex = function () {
+                return this.getSelectionModel().getLeadSelectionIndex();
+            };
+            /**
+             * Returns the smallest selected cell index, or {@code -1} if the selection
+             * is empty. This is a cover method that delegates to the method of the same
+             * name on the list's selection model.
+             *
+             * @return the smallest selected cell index, or {@code -1}
+             * @see ListSelectionModel#getMinSelectionIndex
+             */
+            JList.prototype.getMinSelectionIndex = function () {
+                return this.getSelectionModel().getMinSelectionIndex();
+            };
+            /**
+             * Returns the largest selected cell index, or {@code -1} if the selection
+             * is empty. This is a cover method that delegates to the method of the same
+             * name on the list's selection model.
+             *
+             * @return the largest selected cell index
+             * @see ListSelectionModel#getMaxSelectionIndex
+             */
+            JList.prototype.getMaxSelectionIndex = function () {
+                return this.getSelectionModel().getMaxSelectionIndex();
+            };
+            /**
+             * Returns {@code true} if the specified index is selected, else
+             * {@code false}. This is a cover method that delegates to the method of the
+             * same name on the list's selection model.
+             *
+             * @param index
+             * index to be queried for selection state
+             * @return {@code true} if the specified index is selected, else
+             * {@code false}
+             * @see ListSelectionModel#isSelectedIndex
+             * @see #setSelectedIndex
+             */
+            JList.prototype.isSelectedIndex = function (index) {
+                return this.getSelectionModel().isSelectedIndex(index);
+            };
+            /**
+             * Returns {@code true} if nothing is selected, else {@code false}. This is
+             * a cover method that delegates to the method of the same name on the
+             * list's selection model.
+             *
+             * @return {@code true} if nothing is selected, else {@code false}
+             * @see ListSelectionModel#isSelectionEmpty
+             * @see #clearSelection
+             */
+            JList.prototype.isSelectionEmpty = function () {
+                return this.getSelectionModel().isSelectionEmpty();
+            };
+            /**
+             * Clears the selection; after calling this method, {@code isSelectionEmpty}
+             * will return {@code true}. This is a cover method that delegates to the
+             * method of the same name on the list's selection model.
+             *
+             * @see ListSelectionModel#clearSelection
+             * @see #isSelectionEmpty
+             */
+            JList.prototype.clearSelection = function () {
+                this.getSelectionModel().clearSelection();
+            };
+            /**
+             * Selects the specified interval. Both {@code anchor} and {@code lead}
+             * indices are included. {@code anchor} doesn't have to be less than or
+             * equal to {@code lead}. This is a cover method that delegates to the
+             * method of the same name on the list's selection model.
+             * <p>
+             * Refer to the documentation of the selection model class being used for
+             * details on how values less than {@code 0} are handled.
+             *
+             * @param anchor
+             * the first index to select
+             * @param lead
+             * the last index to select
+             * @see ListSelectionModel#setSelectionInterval
+             * @see DefaultListSelectionModel#setSelectionInterval
+             * @see #createSelectionModel
+             * @see #addSelectionInterval
+             * @see #removeSelectionInterval
+             */
+            JList.prototype.setSelectionInterval = function (anchor, lead) {
+                this.getSelectionModel().setSelectionInterval(anchor, lead);
+            };
+            /**
+             * Sets the selection to be the union of the specified interval with current
+             * selection. Both the {@code anchor} and {@code lead} indices are included.
+             * {@code anchor} doesn't have to be less than or equal to {@code lead}.
+             * This is a cover method that delegates to the method of the same name on
+             * the list's selection model.
+             * <p>
+             * Refer to the documentation of the selection model class being used for
+             * details on how values less than {@code 0} are handled.
+             *
+             * @param anchor
+             * the first index to add to the selection
+             * @param lead
+             * the last index to add to the selection
+             * @see ListSelectionModel#addSelectionInterval
+             * @see DefaultListSelectionModel#addSelectionInterval
+             * @see #createSelectionModel
+             * @see #setSelectionInterval
+             * @see #removeSelectionInterval
+             */
+            JList.prototype.addSelectionInterval = function (anchor, lead) {
+                this.getSelectionModel().addSelectionInterval(anchor, lead);
+            };
+            /**
+             * Sets the selection to be the set difference of the specified interval and
+             * the current selection. Both the {@code index0} and {@code index1} indices
+             * are removed. {@code index0} doesn't have to be less than or equal to
+             * {@code index1}. This is a cover method that delegates to the method of
+             * the same name on the list's selection model.
+             * <p>
+             * Refer to the documentation of the selection model class being used for
+             * details on how values less than {@code 0} are handled.
+             *
+             * @param index0
+             * the first index to remove from the selection
+             * @param index1
+             * the last index to remove from the selection
+             * @see ListSelectionModel#removeSelectionInterval
+             * @see DefaultListSelectionModel#removeSelectionInterval
+             * @see #createSelectionModel
+             * @see #setSelectionInterval
+             * @see #addSelectionInterval
+             */
+            JList.prototype.removeSelectionInterval = function (index0, index1) {
+                this.getSelectionModel().removeSelectionInterval(index0, index1);
+            };
+            /**
+             * Sets the selection model's {@code valueIsAdjusting} property. When
+             * {@code true}, upcoming changes to selection should be considered part of
+             * a single change. This property is used internally and developers
+             * typically need not call this method. For example, when the model is being
+             * updated in response to a user drag, the value of the property is set to
+             * {@code true} when the drag is initiated and set to {@code false} when the
+             * drag is finished. This allows listeners to update only when a change has
+             * been finalized, rather than handling all of the intermediate values.
+             * <p>
+             * You may want to use this directly if making a series of changes that
+             * should be considered part of a single change.
+             * <p>
+             * This is a cover method that delegates to the method of the same name on
+             * the list's selection model. See the documentation for
+             * {@link javax.swing.ListSelectionModel#setValueIsAdjusting} for more
+             * details.
+             *
+             * @param b
+             * the new value for the property
+             * @see ListSelectionModel#setValueIsAdjusting
+             * @see javax.swing.event.ListSelectionEvent#getValueIsAdjusting
+             * @see #getValueIsAdjusting
+             */
+            JList.prototype.setValueIsAdjusting = function (b) {
+                this.getSelectionModel().setValueIsAdjusting(b);
+            };
+            /**
+             * Returns the value of the selection model's {@code isAdjusting} property.
+             * <p>
+             * This is a cover method that delegates to the method of the same name on
+             * the list's selection model.
+             *
+             * @return the value of the selection model's {@code isAdjusting} property.
+             *
+             * @see #setValueIsAdjusting
+             * @see ListSelectionModel#getValueIsAdjusting
+             */
+            JList.prototype.getValueIsAdjusting = function () {
+                return this.getSelectionModel().getValueIsAdjusting();
+            };
+            /**
+             * Returns an array of all of the selected indices, in increasing order.
+             *
+             * @return all of the selected indices, in increasing order, or an empty
+             * array if nothing is selected
+             * @see #removeSelectionInterval
+             * @see #addListSelectionListener
+             */
+            JList.prototype.getSelectedIndices = function () {
+                var sm = this.getSelectionModel();
+                var iMin = sm.getMinSelectionIndex();
+                var iMax = sm.getMaxSelectionIndex();
+                if ((iMin < 0) || (iMax < 0)) {
+                    return new Array(0);
+                }
+                var rvTmp = new Array(1 + (iMax - iMin));
+                var n = 0;
+                for (var i = iMin; i <= iMax; i++) {
+                    if (sm.isSelectedIndex(i)) {
+                        rvTmp[n++] = i;
+                    }
+                }
+                var rv = new Array(n);
+                java.lang.System.arraycopy(rvTmp, 0, rv, 0, n);
+                return rv;
+            };
+            /**
+             * Selects a single cell. Does nothing if the given index is greater than or
+             * equal to the model size. This is a convenience method that uses
+             * {@code setSelectionInterval} on the selection model. Refer to the
+             * documentation for the selection model class being used for details on how
+             * values less than {@code 0} are handled.
+             *
+             * @param index
+             * the index of the cell to select
+             * @see ListSelectionModel#setSelectionInterval
+             * @see #isSelectedIndex
+             * @see #addListSelectionListener
+             * @beaninfo description: The index of the selected cell.
+             */
+            JList.prototype.setSelectedIndex = function (index) {
+                if (index >= this.getModel().getSize()) {
+                    return;
+                }
+                this.getSelectionModel().setSelectionInterval(index, index);
+            };
+            /**
+             * Changes the selection to be the set of indices specified by the given
+             * array. Indices greater than or equal to the model size are ignored. This
+             * is a convenience method that clears the selection and then uses
+             * {@code addSelectionInterval} on the selection model to add the indices.
+             * Refer to the documentation of the selection model class being used for
+             * details on how values less than {@code 0} are handled.
+             *
+             * @param indices
+             * an array of the indices of the cells to select,
+             * {@code non-null}
+             * @see ListSelectionModel#addSelectionInterval
+             * @see #isSelectedIndex
+             * @see #addListSelectionListener
+             * @throws NullPointerException
+             * if the given array is {@code null}
+             */
+            JList.prototype.setSelectedIndices = function (indices) {
+                var sm = this.getSelectionModel();
+                sm.clearSelection();
+                var size = this.getModel().getSize();
+                for (var index139 = 0; index139 < indices.length; index139++) {
+                    var i = indices[index139];
+                    {
+                        if (i < size) {
+                            sm.addSelectionInterval(i, i);
+                        }
+                    }
+                }
+            };
+            /**
+             * Returns an array of all the selected values, in increasing order based on
+             * their indices in the list.
+             *
+             * @return the selected values, or an empty array if nothing is selected
+             * @see #isSelectedIndex
+             * @see #getModel
+             * @see #addListSelectionListener
+             *
+             * @deprecated As of JDK 1.7, replaced by {@link #getSelectedValuesList()}
+             */
+            JList.prototype.getSelectedValues = function () {
+                var sm = this.getSelectionModel();
+                var dm = this.getModel();
+                var iMin = sm.getMinSelectionIndex();
+                var iMax = sm.getMaxSelectionIndex();
+                if ((iMin < 0) || (iMax < 0)) {
+                    return new Array(0);
+                }
+                var rvTmp = new Array(1 + (iMax - iMin));
+                var n = 0;
+                for (var i = iMin; i <= iMax; i++) {
+                    if (sm.isSelectedIndex(i)) {
+                        rvTmp[n++] = dm.getElementAt(i);
+                    }
+                }
+                var rv = new Array(n);
+                java.lang.System.arraycopy(rvTmp, 0, rv, 0, n);
+                return rv;
+            };
+            /**
+             * Returns a list of all the selected items, in increasing order based on
+             * their indices in the list.
+             *
+             * @return the selected items, or an empty list if nothing is selected
+             * @see #isSelectedIndex
+             * @see #getModel
+             * @see #addListSelectionListener
+             *
+             * @since 1.7
+             */
+            JList.prototype.getSelectedValuesList = function () {
+                var sm = this.getSelectionModel();
+                var dm = this.getModel();
+                var iMin = sm.getMinSelectionIndex();
+                var iMax = sm.getMaxSelectionIndex();
+                if ((iMin < 0) || (iMax < 0)) {
+                    return java.util.Collections.emptyList();
+                }
+                var selectedItems = new java.util.ArrayList();
+                for (var i = iMin; i <= iMax; i++) {
+                    if (sm.isSelectedIndex(i)) {
+                        selectedItems.add(dm.getElementAt(i));
+                    }
+                }
+                return selectedItems;
+            };
+            /**
+             * Returns the smallest selected cell index; <i>the selection</i> when only
+             * a single item is selected in the list. When multiple items are selected,
+             * it is simply the smallest selected index. Returns {@code -1} if there is
+             * no selection.
+             * <p>
+             * This method is a cover that delegates to {@code getMinSelectionIndex}.
+             *
+             * @return the smallest selected cell index
+             * @see #getMinSelectionIndex
+             * @see #addListSelectionListener
+             */
+            JList.prototype.getSelectedIndex = function () {
+                return this.getMinSelectionIndex();
+            };
+            /**
+             * Returns the value for the smallest selected cell index; <i>the selected
+             * value</i> when only a single item is selected in the list. When multiple
+             * items are selected, it is simply the value for the smallest selected
+             * index. Returns {@code null} if there is no selection.
+             * <p>
+             * This is a convenience method that simply returns the model value for
+             * {@code getMinSelectionIndex}.
+             *
+             * @return the first selected value
+             * @see #getMinSelectionIndex
+             * @see #getModel
+             * @see #addListSelectionListener
+             */
+            JList.prototype.getSelectedValue = function () {
+                var i = this.getMinSelectionIndex();
+                return (i === -1) ? null : this.getModel().getElementAt(i);
+            };
+            /**
+             * Selects the specified object from the list.
+             *
+             * @param anObject
+             * the object to select
+             * @param shouldScroll
+             * {@code true} if the list should scroll to display the selected
+             * object, if one exists; otherwise {@code false}
+             */
+            JList.prototype.setSelectedValue = function (anObject, shouldScroll) {
+                if (anObject == null)
+                    this.setSelectedIndex(-1);
+                else if (!(anObject === this.getSelectedValue())) {
+                    var i;
+                    var c;
+                    var dm = this.getModel();
+                    for (i = 0, c = dm.getSize(); i < c; i++)
+                        if ((anObject === dm.getElementAt(i))) {
+                            this.setSelectedIndex(i);
+                            if (shouldScroll)
+                                this.ensureIndexIsVisible(i);
+                            return;
+                        }
+                    this.setSelectedIndex(-1);
+                }
+            };
+            /**
+             * Returns a {@code String} representation of this {@code JList}. This
+             * method is intended to be used only for debugging purposes, and the
+             * content and format of the returned {@code String} may vary between
+             * implementations. The returned {@code String} may be empty, but may not be
+             * {@code null}.
+             *
+             * @return a {@code String} representation of this {@code JList}.
+             */
+            JList.prototype.paramString = function () {
+                var selectionForegroundString = (this.selectionForeground != null ? this.selectionForeground.toString() : "");
+                var selectionBackgroundString = (this.selectionBackground != null ? this.selectionBackground.toString() : "");
+                return _super.prototype.paramString.call(this) + ",fixedCellHeight=" + this.fixedCellHeight + ",fixedCellWidth=" + this.fixedCellWidth + ",horizontalScrollIncrement=" + this.horizontalScrollIncrement + ",selectionBackground=" + selectionBackgroundString + ",selectionForeground=" + selectionForegroundString + ",visibleRowCount=" + this.visibleRowCount + ",layoutOrientation=" + this.layoutOrientation;
+            };
+            /**
+             * Indicates a vertical layout of cells, in a single column; the default
+             * layout.
+             *
+             * @see #setLayoutOrientation
+             * @since 1.4
+             */
+            JList.VERTICAL = 0;
+            /**
+             * Indicates a "newspaper style" layout with cells flowing vertically then
+             * horizontally.
+             *
+             * @see #setLayoutOrientation
+             * @since 1.4
+             */
+            JList.VERTICAL_WRAP = 1;
+            /**
+             * Indicates a "newspaper style" layout with cells flowing horizontally then
+             * vertically.
+             *
+             * @see #setLayoutOrientation
+             * @since 1.4
+             */
+            JList.HORIZONTAL_WRAP = 2;
+            return JList;
+        }(javax.swing.JComponent));
+        swing.JList = JList;
+        JList["__classname"] = "javax.swing.JList";
+        var JList;
+        (function (JList) {
+            var ListSelectionHandler = (function () {
+                function ListSelectionHandler(__parent) {
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "javax.swing.event.ListSelectionListener", "java.io.Serializable"] });
+                    this.__parent = __parent;
+                }
+                ListSelectionHandler.prototype.valueChanged = function (e) {
+                    this.__parent.fireSelectionValueChanged(e.getFirstIndex(), e.getLastIndex(), e.getValueIsAdjusting());
+                };
+                return ListSelectionHandler;
+            }());
+            JList.ListSelectionHandler = ListSelectionHandler;
+            ListSelectionHandler["__classname"] = "javax.swing.JList.ListSelectionHandler";
+            var JList$0 = (function (_super) {
+                __extends(JList$0, _super);
+                function JList$0(__parent, listData) {
+                    _super.call(this);
+                    this.listData = listData;
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.ListModel", "java.io.Serializable"] });
+                    this.__parent = __parent;
+                }
+                JList$0.prototype.getSize = function () {
+                    return this.listData.length;
+                };
+                JList$0.prototype.getElementAt = function (i) {
+                    return this.listData[i];
+                };
+                return JList$0;
+            }(javax.swing.AbstractListModel));
+            JList.JList$0 = JList$0;
+            var JList$1 = (function (_super) {
+                __extends(JList$1, _super);
+                function JList$1(__parent, listData) {
+                    _super.call(this);
+                    this.listData = listData;
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.ListModel", "java.io.Serializable"] });
+                    this.__parent = __parent;
+                }
+                JList$1.prototype.getSize = function () {
+                    return this.listData.size();
+                };
+                JList$1.prototype.getElementAt = function (i) {
+                    return this.listData.elementAt(i);
+                };
+                return JList$1;
+            }(javax.swing.AbstractListModel));
+            JList.JList$1 = JList$1;
+            var JList$2 = (function (_super) {
+                __extends(JList$2, _super);
+                function JList$2(__parent) {
+                    _super.call(this);
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.ListModel", "java.io.Serializable"] });
+                    this.__parent = __parent;
+                }
+                JList$2.prototype.getSize = function () {
+                    return 0;
+                };
+                JList$2.prototype.getElementAt = function (i) {
+                    throw new java.lang.IndexOutOfBoundsException("No Data Model");
+                };
+                return JList$2;
+            }(javax.swing.AbstractListModel));
+            JList.JList$2 = JList$2;
+            var JList$3 = (function (_super) {
+                __extends(JList$3, _super);
+                function JList$3(__parent, listData) {
+                    _super.call(this);
+                    this.listData = listData;
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.ListModel", "java.io.Serializable"] });
+                    this.__parent = __parent;
+                }
+                JList$3.prototype.getSize = function () {
+                    return this.listData.length;
+                };
+                JList$3.prototype.getElementAt = function (i) {
+                    return this.listData[i];
+                };
+                return JList$3;
+            }(javax.swing.AbstractListModel));
+            JList.JList$3 = JList$3;
+            var JList$4 = (function (_super) {
+                __extends(JList$4, _super);
+                function JList$4(__parent, listData) {
+                    _super.call(this);
+                    this.listData = listData;
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.ListModel", "java.io.Serializable"] });
+                    this.__parent = __parent;
+                }
+                JList$4.prototype.getSize = function () {
+                    return this.listData.size();
+                };
+                JList$4.prototype.getElementAt = function (i) {
+                    return this.listData.elementAt(i);
+                };
+                return JList$4;
+            }(javax.swing.AbstractListModel));
+            JList.JList$4 = JList$4;
+        })(JList = swing.JList || (swing.JList = {}));
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        var JPanel = (function (_super) {
+            __extends(JPanel, _super);
+            /**
+             * Creates a new JPanel with the specified layout manager and buffering
+             * strategy.
+             *
+             * @param layout
+             * the LayoutManager to use
+             * @param isDoubleBuffered
+             * a boolean, true for double-buffering, which uses additional
+             * memory space to achieve fast, flicker-free updates
+             */
+            function JPanel(layout, isDoubleBuffered) {
+                var _this = this;
+                if (((layout != null && layout["__interfaces"] != null && layout["__interfaces"].indexOf("java.awt.LayoutManager") >= 0) || layout === null) && ((typeof isDoubleBuffered === 'boolean') || isDoubleBuffered === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    _super.call(this);
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
+                    (function () {
+                        _this.setLayout(layout);
+                    })();
+                }
+                else if (((layout != null && layout["__interfaces"] != null && layout["__interfaces"].indexOf("java.awt.LayoutManager") >= 0) || layout === null) && isDoubleBuffered === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var isDoubleBuffered = true;
+                        _super.call(this);
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
+                        (function () {
+                            _this.setLayout(layout);
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else if (((typeof layout === 'boolean') || layout === null) && isDoubleBuffered === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    var isDoubleBuffered = __args[0];
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var layout = new java.awt.FlowLayout();
+                        _super.call(this);
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
+                        (function () {
+                            _this.setLayout(layout);
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else if (layout === undefined && isDoubleBuffered === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var isDoubleBuffered = true;
+                        {
+                            var __args = Array.prototype.slice.call(arguments);
+                            var layout = new java.awt.FlowLayout();
+                            _super.call(this);
+                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
+                            (function () {
+                                _this.setLayout(layout);
+                            })();
+                        }
+                        (function () {
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else
+                    throw new Error('invalid overload');
+            }
+            JPanel.prototype.getGraphics = function () {
+                return new java.awt.WebGraphics2D(this.htmlCanvas);
+            };
+            JPanel.prototype.createHTML = function () {
+                if (this.htmlElement != null) {
+                    return;
+                }
+                this.htmlElement = document.createElement("div");
+            };
+            JPanel.prototype.setBackground = function (background) {
+                _super.prototype.setBackground.call(this, background);
+                if (this.htmlElement != null) {
+                    this.htmlElement.style.backgroundColor = null;
+                }
+                if (this.htmlCanvas != null) {
+                    if (background != null) {
+                        this.htmlCanvas.style.backgroundColor = background.toHTML();
+                    }
+                }
+            };
+            JPanel.prototype.doPaintInternal = function () {
+                if (this.htmlCanvas.width === 0 && this.htmlCanvas.height === 0) {
+                    this.htmlCanvas.width = this.htmlElement.offsetWidth;
+                    this.htmlCanvas.height = this.htmlElement.offsetHeight;
+                }
+                _super.prototype.doPaintInternal.call(this);
+            };
+            JPanel.prototype.initHTML = function () {
+                var _this = this;
+                _super.prototype.initHTML.call(this);
+                console.info("INIT JPANEL");
+                if (this.htmlCanvas == null) {
+                    this.htmlCanvas = document.createElement("canvas");
+                    this.htmlElement.appendChild(this.htmlCanvas);
+                    window.onresize = function (e) {
+                        console.info("resizing");
+                        _this.htmlCanvas.width = _this.htmlElement.offsetWidth;
+                        _this.htmlCanvas.height = _this.htmlElement.offsetHeight;
+                        _this.repaint();
+                        return e;
+                    };
+                }
+                if (this.getBackground() != null) {
+                    this.htmlElement.style.backgroundColor = null;
+                    this.htmlCanvas.style.backgroundColor = this.getBackground().toHTML();
+                }
+                this.htmlCanvas.width = this.htmlElement.offsetWidth;
+                this.htmlCanvas.height = this.htmlElement.offsetHeight;
+                this.htmlCanvas.style.position = "absolute";
+                this.htmlCanvas.style.zIndex = "-1";
+            };
+            /**
+             * Returns a string that specifies the name of the L&amp;F class that
+             * renders this component.
+             *
+             * @return "PanelUI"
+             * @see JComponent#getUIClassID
+             * @see UIDefaults#getUI
+             * @beaninfo expert: true description: A string that specifies the name of
+             * the L&amp;F class.
+             */
+            JPanel.prototype.getUIClassID = function () {
+                return JPanel.uiClassID;
+            };
+            JPanel.prototype.paramString = function () {
+                return _super.prototype.paramString.call(this);
+            };
+            /**
+             * @see #getUIClassID
+             * @see #readObject
+             */
+            JPanel.uiClassID = "PanelUI";
+            return JPanel;
+        }(javax.swing.JComponent));
+        swing.JPanel = JPanel;
+        JPanel["__classname"] = "javax.swing.JPanel";
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        var JRootPane = (function (_super) {
+            __extends(JRootPane, _super);
+            /**
+             * Creates a <code>JRootPane</code>, setting up its <code>glassPane</code>,
+             * <code>layeredPane</code>, and <code>contentPane</code>.
+             */
+            function JRootPane() {
+                _super.call(this);
+                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
+                this.windowDecorationStyle = 0;
+                this.setLayout(new java.awt.NoLayout());
+                this.setContentPane(this.createContentPane());
+            }
+            JRootPane.prototype.createHTML = function () {
+                if (this.htmlElement != null) {
+                    return;
+                }
+                this.htmlElement = document.createElement("div");
+            };
+            /**
+             * Returns a constant identifying the type of Window decorations the
+             * <code>JRootPane</code> is providing.
+             *
+             * @return One of <code>NONE</code>, <code>FRAME</code>,
+             * <code>PLAIN_DIALOG</code>, <code>INFORMATION_DIALOG</code>,
+             * <code>ERROR_DIALOG</code>, <code>COLOR_CHOOSER_DIALOG</code>,
+             * <code>FILE_CHOOSER_DIALOG</code>, <code>QUESTION_DIALOG</code> or
+             * <code>WARNING_DIALOG</code>.
+             * @see #setWindowDecorationStyle
+             * @since 1.4
+             */
+            JRootPane.prototype.getWindowDecorationStyle = function () {
+                return this.windowDecorationStyle;
+            };
+            JRootPane.prototype.setWindowDecorationStyle = function (windowDecorationStyle) {
+                if (windowDecorationStyle < 0 || windowDecorationStyle > JRootPane.WARNING_DIALOG) {
+                    throw new java.lang.IllegalArgumentException("Invalid decoration style");
+                }
+                var oldWindowDecorationStyle = this.getWindowDecorationStyle();
+                this.windowDecorationStyle = windowDecorationStyle;
+                this.firePropertyChange("windowDecorationStyle", oldWindowDecorationStyle, windowDecorationStyle);
+            };
+            /**
+             * Returns a string that specifies the name of the L&amp;F class that
+             * renders this component.
+             *
+             * @return the string "RootPaneUI"
+             *
+             * @see JComponent#getUIClassID
+             * @see UIDefaults#getUI
+             */
+            JRootPane.prototype.getUIClassID = function () {
+                return JRootPane.uiClassID;
+            };
+            JRootPane.prototype.createContentPane = function () {
+                var c = new javax.swing.JPanel();
+                c.setName(this.getName() + ".contentPane");
+                c.setLayout(new java.awt.BorderLayout());
+                return c;
+            };
+            /**
+             * Sets the content pane -- the container that holds the components parented
+             * by the root pane.
+             * <p>
+             * Swing's painting architecture requires an opaque <code>JComponent</code>
+             * in the containment hierarchy. This is typically provided by the content
+             * pane. If you replace the content pane it is recommended you replace it
+             * with an opaque <code>JComponent</code>.
+             *
+             * @param content
+             * the <code>Container</code> to use for component-contents
+             * @exception java.awt.IllegalComponentStateException
+             * (a runtime exception) if the content pane parameter is
+             * <code>null</code>
+             */
+            JRootPane.prototype.setContentPane = function (content) {
+                if (content == null)
+                    throw new java.awt.IllegalComponentStateException("contentPane cannot be set to null.");
+                this.contentPane = content;
+                this.add(this.contentPane);
+            };
+            /**
+             * Returns the content pane -- the container that holds the components
+             * parented by the root pane.
+             *
+             * @return the <code>Container</code> that holds the component-contents
+             */
+            JRootPane.prototype.getContentPane = function () {
+                return this.contentPane;
+            };
+            /**
+             * Sets the <code>defaultButton</code> property, which determines the
+             * current default button for this <code>JRootPane</code>. The default
+             * button is the button which will be activated when a UI-defined activation
+             * event (typically the <b>Enter</b> key) occurs in the root pane regardless
+             * of whether or not the button has keyboard focus (unless there is another
+             * component within the root pane which consumes the activation event, such
+             * as a <code>JTextPane</code>). For default activation to work, the button
+             * must be an enabled descendent of the root pane when activation occurs. To
+             * remove a default button from this root pane, set this property to
+             * <code>null</code>.
+             *
+             * @see JButton#isDefaultButton
+             * @param defaultButton
+             * the <code>JButton</code> which is to be the default button
+             *
+             * @beaninfo description: The button activated by default in this root pane
+             */
+            JRootPane.prototype.setDefaultButton = function (defaultButton) {
+                var oldDefault = this.defaultButton;
+                if (oldDefault !== defaultButton) {
+                    this.defaultButton = defaultButton;
+                    if (oldDefault != null) {
+                        oldDefault.repaint();
+                    }
+                    if (defaultButton != null) {
+                        defaultButton.repaint();
+                    }
+                }
+                this.firePropertyChange("defaultButton", oldDefault, defaultButton);
+            };
+            /**
+             * Returns the value of the <code>defaultButton</code> property.
+             *
+             * @return the <code>JButton</code> which is currently the default button
+             * @see #setDefaultButton
+             */
+            JRootPane.prototype.getDefaultButton = function () {
+                return this.defaultButton;
+            };
+            JRootPane.uiClassID = "RootPaneUI";
+            /**
+             * Constant used for the windowDecorationStyle property. Indicates that the
+             * <code>JRootPane</code> should not provide any sort of Window decorations.
+             *
+             * @since 1.4
+             */
+            JRootPane.NONE = 0;
+            /**
+             * Constant used for the windowDecorationStyle property. Indicates that the
+             * <code>JRootPane</code> should provide decorations appropriate for a
+             * Frame.
+             *
+             * @since 1.4
+             */
+            JRootPane.FRAME = 1;
+            /**
+             * Constant used for the windowDecorationStyle property. Indicates that the
+             * <code>JRootPane</code> should provide decorations appropriate for a
+             * Dialog.
+             *
+             * @since 1.4
+             */
+            JRootPane.PLAIN_DIALOG = 2;
+            /**
+             * Constant used for the windowDecorationStyle property. Indicates that the
+             * <code>JRootPane</code> should provide decorations appropriate for a
+             * Dialog used to display an informational message.
+             *
+             * @since 1.4
+             */
+            JRootPane.INFORMATION_DIALOG = 3;
+            /**
+             * Constant used for the windowDecorationStyle property. Indicates that the
+             * <code>JRootPane</code> should provide decorations appropriate for a
+             * Dialog used to display an error message.
+             *
+             * @since 1.4
+             */
+            JRootPane.ERROR_DIALOG = 4;
+            /**
+             * Constant used for the windowDecorationStyle property. Indicates that the
+             * <code>JRootPane</code> should provide decorations appropriate for a
+             * Dialog used to display a <code>JColorChooser</code>.
+             *
+             * @since 1.4
+             */
+            JRootPane.COLOR_CHOOSER_DIALOG = 5;
+            /**
+             * Constant used for the windowDecorationStyle property. Indicates that the
+             * <code>JRootPane</code> should provide decorations appropriate for a
+             * Dialog used to display a <code>JFileChooser</code>.
+             *
+             * @since 1.4
+             */
+            JRootPane.FILE_CHOOSER_DIALOG = 6;
+            /**
+             * Constant used for the windowDecorationStyle property. Indicates that the
+             * <code>JRootPane</code> should provide decorations appropriate for a
+             * Dialog used to present a question to the user.
+             *
+             * @since 1.4
+             */
+            JRootPane.QUESTION_DIALOG = 7;
+            /**
+             * Constant used for the windowDecorationStyle property. Indicates that the
+             * <code>JRootPane</code> should provide decorations appropriate for a
+             * Dialog used to display a warning message.
+             *
+             * @since 1.4
+             */
+            JRootPane.WARNING_DIALOG = 8;
+            return JRootPane;
+        }(javax.swing.JComponent));
+        swing.JRootPane = JRootPane;
+        JRootPane["__classname"] = "javax.swing.JRootPane";
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        /**
+         * <code>JSeparator</code> provides a general purpose component for
+         * implementing divider lines - most commonly used as a divider
+         * between menu items that breaks them up into logical groupings.
+         * Instead of using <code>JSeparator</code> directly,
+         * you can use the <code>JMenu</code> or <code>JPopupMenu</code>
+         * <code>addSeparator</code> method to create and add a separator.
+         * <code>JSeparator</code>s may also be used elsewhere in a GUI
+         * wherever a visual divider is useful.
+         *
+         * <p>
+         *
+         * For more information and examples see
+         * <a
+         * href="http://docs.oracle.com/javase/tutorial/uiswing/components/menu.html">How to Use Menus</a>,
+         * a section in <em>The Java Tutorial.</em>
+         * <p>
+         * <strong>Warning:</strong> Swing is not thread safe. For more
+         * information see <a
+         * href="package-summary.html#threading">Swing's Threading
+         * Policy</a>.
+         * <p>
+         * <strong>Warning:</strong>
+         * Serialized objects of this class will not be compatible with
+         * future Swing releases. The current serialization support is
+         * appropriate for short term storage or RMI between applications running
+         * the same version of Swing.  As of 1.4, support for long term storage
+         * of all JavaBeans&trade;
+         * has been added to the <code>java.beans</code> package.
+         * Please see {@link java.beans.XMLEncoder}.
+         *
+         * @beaninfo
+         * attribute: isContainer false
+         * description: A divider between menu items.
+         *
+         * @author Georges Saab
+         * @author Jeff Shapiro
+         */
+        var JSeparator = (function (_super) {
+            __extends(JSeparator, _super);
+            /**
+             * Creates a new separator with the specified horizontal or
+             * vertical orientation.
+             *
+             * @param orientation an integer specifying
+             * <code>SwingConstants.HORIZONTAL</code> or
+             * <code>SwingConstants.VERTICAL</code>
+             * @exception IllegalArgumentException if <code>orientation</code>
+             * is neither <code>SwingConstants.HORIZONTAL</code> nor
+             * <code>SwingConstants.VERTICAL</code>
+             */
+            function JSeparator(orientation) {
+                if (orientation === void 0) { orientation = javax.swing.SwingConstants.HORIZONTAL; }
+                _super.call(this);
+                this.orientation = javax.swing.SwingConstants.HORIZONTAL;
+                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
+                this.checkOrientation(orientation);
+                this.orientation = orientation;
+            }
+            JSeparator.prototype.createHTML = function () {
+            };
+            /**
+             * Returns the name of the L&amp;F class that renders this component.
+             *
+             * @return the string "SeparatorUI"
+             * @see JComponent#getUIClassID
+             * @see UIDefaults#getUI
+             */
+            JSeparator.prototype.getUIClassID = function () {
+                return JSeparator.uiClassID;
+            };
+            /**
+             * Returns the orientation of this separator.
+             *
+             * @return   The value of the orientation property, one of the
+             * following constants defined in <code>SwingConstants</code>:
+             * <code>VERTICAL</code>, or
+             * <code>HORIZONTAL</code>.
+             *
+             * @see SwingConstants
+             * @see #setOrientation
+             */
+            JSeparator.prototype.getOrientation = function () {
+                return this.orientation;
+            };
+            /**
+             * Sets the orientation of the separator.
+             * The default value of this property is HORIZONTAL.
+             * @param orientation  either <code>SwingConstants.HORIZONTAL</code>
+             * or <code>SwingConstants.VERTICAL</code>
+             * @exception IllegalArgumentException  if <code>orientation</code>
+             * is neither <code>SwingConstants.HORIZONTAL</code>
+             * nor <code>SwingConstants.VERTICAL</code>
+             *
+             * @see SwingConstants
+             * @see #getOrientation
+             * @beaninfo
+             * bound: true
+             * preferred: true
+             * enum: HORIZONTAL SwingConstants.HORIZONTAL
+             * VERTICAL   SwingConstants.VERTICAL
+             * attribute: visualUpdate true
+             * description: The orientation of the separator.
+             */
+            JSeparator.prototype.setOrientation = function (orientation) {
+                if (this.orientation === orientation) {
+                    return;
+                }
+                var oldValue = this.orientation;
+                this.checkOrientation(orientation);
+                this.orientation = orientation;
+                this.firePropertyChange("orientation", oldValue, orientation);
+                this.revalidate();
+                this.repaint();
+            };
+            JSeparator.prototype.checkOrientation = function (orientation) {
+                switch ((orientation)) {
+                    case javax.swing.SwingConstants.VERTICAL:
+                    case javax.swing.SwingConstants.HORIZONTAL:
+                        break;
+                    default:
+                        throw new java.lang.IllegalArgumentException("orientation must be one of: VERTICAL, HORIZONTAL");
+                }
+            };
+            /**
+             * Returns a string representation of this <code>JSeparator</code>.
+             * This method
+             * is intended to be used only for debugging purposes, and the
+             * content and format of the returned string may vary between
+             * implementations. The returned string may be empty but may not
+             * be <code>null</code>.
+             *
+             * @return  a string representation of this <code>JSeparator</code>
+             */
+            JSeparator.prototype.paramString = function () {
+                var orientationString = (this.orientation === javax.swing.SwingConstants.HORIZONTAL ? "HORIZONTAL" : "VERTICAL");
+                return _super.prototype.paramString.call(this) + ",orientation=" + orientationString;
+            };
+            /**
+             * @see #getUIClassID
+             * @see #readObject
+             */
+            JSeparator.uiClassID = "SeparatorUI";
+            return JSeparator;
+        }(javax.swing.JComponent));
+        swing.JSeparator = JSeparator;
+        JSeparator["__classname"] = "javax.swing.JSeparator";
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        var JSlider = (function (_super) {
+            __extends(JSlider, _super);
+            function JSlider(orientation, min, max, value) {
+                var _this = this;
+                if (((typeof orientation === 'number') || orientation === null) && ((typeof min === 'number') || min === null) && ((typeof max === 'number') || max === null) && ((typeof value === 'number') || value === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    _super.call(this);
+                    this.paintTicks = false;
+                    this.paintTrack = true;
+                    this.paintLabels = false;
+                    this.isInverted = false;
+                    this.snapToTicks = false;
+                    this.snapToValue = true;
+                    this.changeListener = this.createChangeListener();
+                    this.changeEvent = null;
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                    this.majorTickSpacing = 0;
+                    this.minorTickSpacing = 0;
+                    this.orientation = 0;
+                    (function () {
+                        _this.checkOrientation(orientation);
+                        _this.orientation = orientation;
+                        _this.setModel(new javax.swing.DefaultBoundedRangeModel(value, 0, min, max));
+                    })();
+                }
+                else if (((typeof orientation === 'number') || orientation === null) && ((typeof min === 'number') || min === null) && ((typeof max === 'number') || max === null) && value === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    var min = __args[0];
+                    var max = __args[1];
+                    var value = __args[2];
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var orientation = javax.swing.SwingConstants.HORIZONTAL;
+                        _super.call(this);
+                        this.paintTicks = false;
+                        this.paintTrack = true;
+                        this.paintLabels = false;
+                        this.isInverted = false;
+                        this.snapToTicks = false;
+                        this.snapToValue = true;
+                        this.changeListener = this.createChangeListener();
+                        this.changeEvent = null;
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                        this.majorTickSpacing = 0;
+                        this.minorTickSpacing = 0;
+                        this.orientation = 0;
+                        (function () {
+                            _this.checkOrientation(orientation);
+                            _this.orientation = orientation;
+                            _this.setModel(new javax.swing.DefaultBoundedRangeModel(value, 0, min, max));
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else if (((typeof orientation === 'number') || orientation === null) && ((typeof min === 'number') || min === null) && max === undefined && value === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    var min = __args[0];
+                    var max = __args[1];
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var orientation = javax.swing.SwingConstants.HORIZONTAL;
+                        var value = ((min + max) / 2 | 0);
+                        _super.call(this);
+                        this.paintTicks = false;
+                        this.paintTrack = true;
+                        this.paintLabels = false;
+                        this.isInverted = false;
+                        this.snapToTicks = false;
+                        this.snapToValue = true;
+                        this.changeListener = this.createChangeListener();
+                        this.changeEvent = null;
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                        this.majorTickSpacing = 0;
+                        this.minorTickSpacing = 0;
+                        this.orientation = 0;
+                        (function () {
+                            _this.checkOrientation(orientation);
+                            _this.orientation = orientation;
+                            _this.setModel(new javax.swing.DefaultBoundedRangeModel(value, 0, min, max));
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else if (((orientation != null && orientation["__interfaces"] != null && orientation["__interfaces"].indexOf("javax.swing.BoundedRangeModel") >= 0) || orientation === null) && min === undefined && max === undefined && value === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    var brm = __args[0];
+                    _super.call(this);
+                    this.paintTicks = false;
+                    this.paintTrack = true;
+                    this.paintLabels = false;
+                    this.isInverted = false;
+                    this.snapToTicks = false;
+                    this.snapToValue = true;
+                    this.changeListener = this.createChangeListener();
+                    this.changeEvent = null;
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                    this.majorTickSpacing = 0;
+                    this.minorTickSpacing = 0;
+                    this.orientation = 0;
+                    (function () {
+                        _this.orientation = javax.swing.SwingConstants.HORIZONTAL;
+                        _this.setModel(brm);
+                    })();
+                }
+                else if (((typeof orientation === 'number') || orientation === null) && min === undefined && max === undefined && value === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var min = 0;
+                        var max = 100;
+                        var value = 50;
+                        _super.call(this);
+                        this.paintTicks = false;
+                        this.paintTrack = true;
+                        this.paintLabels = false;
+                        this.isInverted = false;
+                        this.snapToTicks = false;
+                        this.snapToValue = true;
+                        this.changeListener = this.createChangeListener();
+                        this.changeEvent = null;
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                        this.majorTickSpacing = 0;
+                        this.minorTickSpacing = 0;
+                        this.orientation = 0;
+                        (function () {
+                            _this.checkOrientation(orientation);
+                            _this.orientation = orientation;
+                            _this.setModel(new javax.swing.DefaultBoundedRangeModel(value, 0, min, max));
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else if (orientation === undefined && min === undefined && max === undefined && value === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var orientation = javax.swing.SwingConstants.HORIZONTAL;
+                        var min = 0;
+                        var max = 100;
+                        var value = 50;
+                        _super.call(this);
+                        this.paintTicks = false;
+                        this.paintTrack = true;
+                        this.paintLabels = false;
+                        this.isInverted = false;
+                        this.snapToTicks = false;
+                        this.snapToValue = true;
+                        this.changeListener = this.createChangeListener();
+                        this.changeEvent = null;
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                        this.majorTickSpacing = 0;
+                        this.minorTickSpacing = 0;
+                        this.orientation = 0;
+                        (function () {
+                            _this.checkOrientation(orientation);
+                            _this.orientation = orientation;
+                            _this.setModel(new javax.swing.DefaultBoundedRangeModel(value, 0, min, max));
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else
+                    throw new Error('invalid overload');
+            }
+            JSlider.prototype.getHTMLElement = function () {
+                return _super.prototype.getHTMLElement.call(this);
+            };
+            JSlider.prototype.createHTML = function () {
+                var _this = this;
+                if (this.htmlElement != null) {
+                    return;
+                }
+                this.htmlElement = document.createElement("input");
+                this.getHTMLElement().type = "range";
+                this.htmlElement.onchange = function (e) {
+                    _this.setValue(javaemul.internal.IntegerHelper.parseInt(_this.getHTMLElement().value));
+                    return null;
+                };
+            };
+            JSlider.prototype.initHTML = function () {
+                _super.prototype.initHTML.call(this);
+                this.getHTMLElement().min = "" + this.getMinimum();
+                this.getHTMLElement().max = "" + this.getMaximum();
+                this.getHTMLElement().step = "" + this.getMajorTickSpacing();
+                this.getHTMLElement().value = "" + this.getValue();
+                try {
+                    if (this.getHTMLElement().hasAttribute("orient")) {
+                        this.getHTMLElement().setAttribute("orient", this.getOrientation() === javax.swing.SwingConstants.VERTICAL ? "vertical" : "horizontal");
+                    }
+                    if (this.getHTMLElement().hasAttribute("-webkit-appearance")) {
+                        this.getHTMLElement().setAttribute("-webkit-appearance", this.getOrientation() === javax.swing.SwingConstants.VERTICAL ? "slider-vertical" : "slider-horizontal");
+                    }
+                    if (this.getHTMLElement().hasAttribute("writing-mode")) {
+                        this.getHTMLElement().setAttribute("writing-mode", this.getOrientation() === javax.swing.SwingConstants.VERTICAL ? "bt-lr" : null);
+                    }
+                }
+                catch (e) {
+                    console.info("cannot apply orientation");
+                }
+                ;
+            };
+            JSlider.prototype.checkOrientation = function (orientation) {
+                switch ((orientation)) {
+                    case javax.swing.SwingConstants.VERTICAL:
+                    case javax.swing.SwingConstants.HORIZONTAL:
+                        break;
+                    default:
+                        throw new java.lang.IllegalArgumentException("orientation must be one of: VERTICAL, HORIZONTAL");
+                }
+            };
+            JSlider.prototype.getUIClassID = function () {
+                return JSlider.uiClassID;
+            };
+            JSlider.prototype.createChangeListener = function () {
+                return new JSlider.ModelListener(this);
+            };
+            JSlider.prototype.addChangeListener = function (l) {
+                this.listenerList.add("javax.swing.event.ChangeListener", l);
+            };
+            JSlider.prototype.removeChangeListener = function (l) {
+                this.listenerList.remove("javax.swing.event.ChangeListener", l);
+            };
+            JSlider.prototype.getChangeListeners = function () {
+                return this.listenerList.getListeners("javax.swing.event.ChangeListener");
+            };
+            JSlider.prototype.fireStateChanged = function () {
+                var listeners = this.listenerList.getListenerList();
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === "javax.swing.event.ChangeListener") {
+                        if (this.changeEvent == null) {
+                            this.changeEvent = new javax.swing.event.ChangeEvent(this);
+                        }
+                        listeners[i + 1].stateChanged(this.changeEvent);
+                    }
+                }
+            };
+            JSlider.prototype.getModel = function () {
+                return this.sliderModel;
+            };
+            JSlider.prototype.setModel = function (newModel) {
+                var oldModel = this.getModel();
+                if (oldModel != null) {
+                    oldModel.removeChangeListener(this.changeListener);
+                }
+                this.sliderModel = newModel;
+                if (newModel != null) {
+                    newModel.addChangeListener(this.changeListener);
+                }
+                if (this.htmlElement != null) {
+                    this.initHTML();
+                }
+                this.firePropertyChange("model", oldModel, this.sliderModel);
+            };
+            JSlider.prototype.getValue = function () {
+                return this.getModel().getValue();
+            };
+            JSlider.prototype.setValue = function (n) {
+                var m = this.getModel();
+                var oldValue = m.getValue();
+                if (oldValue === n) {
+                    return;
+                }
+                m.setValue(n);
+            };
+            JSlider.prototype.getMinimum = function () {
+                return this.getModel().getMinimum();
+            };
+            JSlider.prototype.setMinimum = function (minimum) {
+                var oldMin = this.getModel().getMinimum();
+                this.getModel().setMinimum(minimum);
+                if (this.htmlElement != null) {
+                    this.initHTML();
+                }
+                this.firePropertyChange("minimum", javaemul.internal.IntegerHelper.valueOf(oldMin), javaemul.internal.IntegerHelper.valueOf(minimum));
+            };
+            JSlider.prototype.getMaximum = function () {
+                return this.getModel().getMaximum();
+            };
+            JSlider.prototype.setMaximum = function (maximum) {
+                var oldMax = this.getModel().getMaximum();
+                this.getModel().setMaximum(maximum);
+                if (this.htmlElement != null) {
+                    this.initHTML();
+                }
+                this.firePropertyChange("maximum", javaemul.internal.IntegerHelper.valueOf(oldMax), javaemul.internal.IntegerHelper.valueOf(maximum));
+            };
+            JSlider.prototype.getValueIsAdjusting = function () {
+                return this.getModel().getValueIsAdjusting();
+            };
+            JSlider.prototype.setValueIsAdjusting = function (b) {
+                var m = this.getModel();
+                m.setValueIsAdjusting(b);
+            };
+            JSlider.prototype.getExtent = function () {
+                return this.getModel().getExtent();
+            };
+            JSlider.prototype.setExtent = function (extent) {
+                this.getModel().setExtent(extent);
+            };
+            /**
+             * Return this slider's vertical or horizontal orientation.
+             *
+             * @return {@code SwingConstants.VERTICAL} or
+             * {@code SwingConstants.HORIZONTAL}
+             * @see #setOrientation
+             */
+            JSlider.prototype.getOrientation = function () {
+                return this.orientation;
+            };
+            JSlider.prototype.setOrientation = function (orientation) {
+                this.checkOrientation(orientation);
+                var oldValue = this.orientation;
+                this.orientation = orientation;
+                this.firePropertyChange("orientation", oldValue, orientation);
+                if (orientation !== oldValue) {
+                    if (this.htmlElement != null) {
+                        this.initHTML();
+                    }
+                }
+            };
+            /**
+             * {@inheritDoc}
+             *
+             * @since 1.6
+             */
+            JSlider.prototype.setFont = function (font) {
+                _super.prototype.setFont.call(this, font);
+            };
+            /**
+             * This method returns the major tick spacing. The number that is returned
+             * represents the distance, measured in values, between each major tick
+             * mark. If you have a slider with a range from 0 to 50 and the major tick
+             * spacing is set to 10, you will get major ticks next to the following
+             * values: 0, 10, 20, 30, 40, 50.
+             *
+             * @return the number of values between major ticks
+             * @see #setMajorTickSpacing
+             */
+            JSlider.prototype.getMajorTickSpacing = function () {
+                return this.majorTickSpacing;
+            };
+            JSlider.prototype.setMajorTickSpacing = function (n) {
+                var oldValue = this.majorTickSpacing;
+                this.majorTickSpacing = n;
+                this.firePropertyChange("majorTickSpacing", oldValue, this.majorTickSpacing);
+                if (this.htmlElement != null) {
+                    this.initHTML();
+                }
+            };
+            JSlider.prototype.getMinorTickSpacing = function () {
+                return this.minorTickSpacing;
+            };
+            JSlider.prototype.setMinorTickSpacing = function (n) {
+                var oldValue = this.minorTickSpacing;
+                this.minorTickSpacing = n;
+                this.firePropertyChange("minorTickSpacing", oldValue, this.minorTickSpacing);
+                if (this.htmlElement != null) {
+                    this.initHTML();
+                }
+            };
+            JSlider.prototype.getSnapToTicks = function () {
+                return this.snapToTicks;
+            };
+            JSlider.prototype.getSnapToValue = function () {
+                return this.snapToValue;
+            };
+            JSlider.prototype.setSnapToTicks = function (b) {
+                var oldValue = this.snapToTicks;
+                this.snapToTicks = b;
+                this.firePropertyChange("snapToTicks", oldValue, this.snapToTicks);
+            };
+            JSlider.prototype.setSnapToValue = function (b) {
+                var oldValue = this.snapToValue;
+                this.snapToValue = b;
+                this.firePropertyChange("snapToValue", oldValue, this.snapToValue);
+            };
+            JSlider.prototype.getPaintTicks = function () {
+                return this.paintTicks;
+            };
+            JSlider.prototype.setPaintTicks = function (b) {
+                var oldValue = this.paintTicks;
+                this.paintTicks = b;
+                this.firePropertyChange("paintTicks", oldValue, this.paintTicks);
+                if (this.paintTicks !== oldValue) {
+                    this.revalidate();
+                    this.repaint();
+                }
+            };
+            JSlider.prototype.getPaintTrack = function () {
+                return this.paintTrack;
+            };
+            JSlider.prototype.setPaintTrack = function (b) {
+                var oldValue = this.paintTrack;
+                this.paintTrack = b;
+                this.firePropertyChange("paintTrack", oldValue, this.paintTrack);
+                if (this.paintTrack !== oldValue) {
+                    this.repaint();
+                }
+            };
+            JSlider.prototype.getPaintLabels = function () {
+                return this.paintLabels;
+            };
+            JSlider.prototype.setPaintLabels = function (b) {
+                var oldValue = this.paintLabels;
+                this.paintLabels = b;
+                this.firePropertyChange("paintLabels", oldValue, this.paintLabels);
+                if (this.paintLabels !== oldValue) {
+                    this.revalidate();
+                    this.repaint();
+                }
+            };
+            /**
+             * Returns a string representation of this JSlider. This method is intended
+             * to be used only for debugging purposes, and the content and format of the
+             * returned string may vary between implementations. The returned string may
+             * be empty but may not be <code>null</code>.
+             *
+             * @return a string representation of this JSlider.
+             */
+            JSlider.prototype.paramString = function () {
+                var paintTicksString = (this.paintTicks ? "true" : "false");
+                var paintTrackString = (this.paintTrack ? "true" : "false");
+                var paintLabelsString = (this.paintLabels ? "true" : "false");
+                var isInvertedString = (this.isInverted ? "true" : "false");
+                var snapToTicksString = (this.snapToTicks ? "true" : "false");
+                var snapToValueString = (this.snapToValue ? "true" : "false");
+                var orientationString = (this.orientation === javax.swing.SwingConstants.HORIZONTAL ? "HORIZONTAL" : "VERTICAL");
+                return _super.prototype.paramString.call(this) + ",isInverted=" + isInvertedString + ",majorTickSpacing=" + this.majorTickSpacing + ",minorTickSpacing=" + this.minorTickSpacing + ",orientation=" + orientationString + ",paintLabels=" + paintLabelsString + ",paintTicks=" + paintTicksString + ",paintTrack=" + paintTrackString + ",snapToTicks=" + snapToTicksString + ",snapToValue=" + snapToValueString;
+            };
+            /**
+             * @see #getUIClassID
+             * @see #readObject
+             */
+            JSlider.uiClassID = "SliderUI";
+            return JSlider;
+        }(javax.swing.JComponent));
+        swing.JSlider = JSlider;
+        JSlider["__classname"] = "javax.swing.JSlider";
+        var JSlider;
+        (function (JSlider) {
+            var ModelListener = (function () {
+                function ModelListener(__parent) {
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "javax.swing.event.ChangeListener", "java.io.Serializable"] });
+                    this.__parent = __parent;
+                }
+                ModelListener.prototype.stateChanged = function (e) {
+                    this.__parent.fireStateChanged();
+                };
+                return ModelListener;
+            }());
+            JSlider.ModelListener = ModelListener;
+            ModelListener["__classname"] = "javax.swing.JSlider.ModelListener";
+        })(JSlider = swing.JSlider || (swing.JSlider = {}));
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        var text;
+        (function (text_1) {
+            var JTextComponent = (function (_super) {
+                __extends(JTextComponent, _super);
+                function JTextComponent() {
+                    _super.call(this);
+                    this.text = "";
+                    this.editable = true;
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
+                }
+                JTextComponent.prototype.getText = function () {
+                    return this.text;
+                };
+                JTextComponent.prototype.setText = function (text) {
+                    this.text = text;
+                };
+                JTextComponent.prototype.isEditable = function () {
+                    return this.editable;
+                };
+                JTextComponent.prototype.setEditable = function (editable) {
+                    this.editable = editable;
+                };
+                return JTextComponent;
+            }(javax.swing.JComponent));
+            text_1.JTextComponent = JTextComponent;
+            JTextComponent["__classname"] = "javax.swing.text.JTextComponent";
+        })(text = swing.text || (swing.text = {}));
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        var event;
+        (function (event) {
+            /**
+             * MenuKeyEvent is used to notify interested parties that
+             * the menu element has received a KeyEvent forwarded to it
+             * in a menu tree.
+             * <p>
+             * <strong>Warning:</strong>
+             * Serialized objects of this class will not be compatible with
+             * future Swing releases. The current serialization support is
+             * appropriate for short term storage or RMI between applications running
+             * the same version of Swing.  As of 1.4, support for long term storage
+             * of all JavaBeans&trade;
+             * has been added to the <code>java.beans</code> package.
+             * Please see {@link java.beans.XMLEncoder}.
+             *
+             * @author Georges Saab
+             */
+            var MenuKeyEvent = (function (_super) {
+                __extends(MenuKeyEvent, _super);
+                /**
+                 * Constructs a MenuKeyEvent object.
+                 *
+                 * @param source     the Component that originated the event
+                 * (typically <code>this</code>)
+                 * @param id         an int specifying the type of event, as defined
+                 * in {@link java.awt.event.KeyEvent}
+                 * @param when       a long identifying the time the event occurred
+                 * @param modifiers     an int specifying any modifier keys held down,
+                 * as specified in {@link java.awt.event.InputEvent}
+                 * @param keyCode    an int specifying the specific key that was pressed
+                 * @param keyChar    a char specifying the key's character value, if any
+                 * -- null if the key has no character value
+                 * @param p          an array of MenuElement objects specifying a path
+                 * to a menu item affected by the drag
+                 * @param m          a MenuSelectionManager object that handles selections
+                 */
+                function MenuKeyEvent(source, id, when, modifiers, keyCode, keyChar, p, m) {
+                    _super.call(this, source, id, when, modifiers, keyCode, keyChar);
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
+                    this.path = p;
+                    this.manager = m;
+                }
+                /**
+                 * Returns the path to the menu item referenced by this event.
+                 *
+                 * @return an array of MenuElement objects representing the path value
+                 */
+                MenuKeyEvent.prototype.getPath = function () {
+                    return this.path;
+                };
+                /**
+                 * Returns the current menu selection manager.
+                 *
+                 * @return a MenuSelectionManager object
+                 */
+                MenuKeyEvent.prototype.getMenuSelectionManager = function () {
+                    return this.manager;
+                };
+                return MenuKeyEvent;
+            }(java.awt.event.KeyEvent));
+            event.MenuKeyEvent = MenuKeyEvent;
+            MenuKeyEvent["__classname"] = "javax.swing.event.MenuKeyEvent";
+        })(event = swing.event || (swing.event = {}));
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -32137,6 +41553,7 @@ var java;
                 function MouseWheelEvent(source, id, when, modifiers, x, y, xAbs, yAbs, clickCount, popupTrigger, scrollType, scrollAmount, wheelRotation, preciseWheelRotation) {
                     var _this = this;
                     if (((source != null && source instanceof java.awt.Component) || source === null) && ((typeof id === 'number') || id === null) && ((typeof when === 'number') || when === null) && ((typeof modifiers === 'number') || modifiers === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof xAbs === 'number') || xAbs === null) && ((typeof yAbs === 'number') || yAbs === null) && ((typeof clickCount === 'number') || clickCount === null) && ((typeof popupTrigger === 'boolean') || popupTrigger === null) && ((typeof scrollType === 'number') || scrollType === null) && ((typeof scrollAmount === 'number') || scrollAmount === null) && ((typeof wheelRotation === 'number') || wheelRotation === null) && ((typeof preciseWheelRotation === 'number') || preciseWheelRotation === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
                         _super.call(this, source, id, when, modifiers, x, y, xAbs, yAbs, clickCount, popupTrigger, java.awt.event.MouseEvent.NOBUTTON);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                         this.scrollType = 0;
@@ -32151,7 +41568,9 @@ var java;
                         })();
                     }
                     else if (((source != null && source instanceof java.awt.Component) || source === null) && ((typeof id === 'number') || id === null) && ((typeof when === 'number') || when === null) && ((typeof modifiers === 'number') || modifiers === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof xAbs === 'number') || xAbs === null) && ((typeof yAbs === 'number') || yAbs === null) && ((typeof clickCount === 'number') || clickCount === null) && ((typeof popupTrigger === 'boolean') || popupTrigger === null) && ((typeof scrollType === 'number') || scrollType === null) && ((typeof scrollAmount === 'number') || scrollAmount === null) && ((typeof wheelRotation === 'number') || wheelRotation === null) && preciseWheelRotation === undefined) {
+                        var __args = Array.prototype.slice.call(arguments);
                         {
+                            var __args = Array.prototype.slice.call(arguments);
                             var preciseWheelRotation = wheelRotation;
                             _super.call(this, source, id, when, modifiers, x, y, xAbs, yAbs, clickCount, popupTrigger, java.awt.event.MouseEvent.NOBUTTON);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
@@ -32170,15 +41589,18 @@ var java;
                         })();
                     }
                     else if (((source != null && source instanceof java.awt.Component) || source === null) && ((typeof id === 'number') || id === null) && ((typeof when === 'number') || when === null) && ((typeof modifiers === 'number') || modifiers === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof xAbs === 'number') || xAbs === null) && ((typeof yAbs === 'boolean') || yAbs === null) && ((typeof clickCount === 'number') || clickCount === null) && ((typeof popupTrigger === 'number') || popupTrigger === null) && ((typeof scrollType === 'number') || scrollType === null) && scrollAmount === undefined && wheelRotation === undefined && preciseWheelRotation === undefined) {
-                        var clickCount = xAbs;
-                        var popupTrigger = yAbs;
-                        var scrollType = clickCount;
-                        var scrollAmount = popupTrigger;
-                        var wheelRotation = scrollType;
+                        var __args = Array.prototype.slice.call(arguments);
+                        var clickCount = __args[6];
+                        var popupTrigger = __args[7];
+                        var scrollType = __args[8];
+                        var scrollAmount = __args[9];
+                        var wheelRotation = __args[10];
                         {
+                            var __args = Array.prototype.slice.call(arguments);
                             var xAbs = 0;
                             var yAbs = 0;
                             {
+                                var __args = Array.prototype.slice.call(arguments);
                                 var preciseWheelRotation = wheelRotation;
                                 _super.call(this, source, id, when, modifiers, x, y, xAbs, yAbs, clickCount, popupTrigger, java.awt.event.MouseEvent.NOBUTTON);
                                 Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
@@ -32353,9 +41775,3599 @@ var java;
         })(event = awt.event || (awt.event = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        /**
+         * Simplified version.
+         */
+        var JApplet = (function (_super) {
+            __extends(JApplet, _super);
+            /**
+             * Creates a swing applet instance.
+             * <p>
+             * This constructor sets the component's locale property to the value
+             * returned by <code>JComponent.getDefaultLocale</code>.
+             *
+             * @exception HeadlessException
+             * if GraphicsEnvironment.isHeadless() returns true.
+             * @see java.awt.GraphicsEnvironment#isHeadless
+             * @see JComponent#getDefaultLocale
+             */
+            function JApplet() {
+                _super.call(this);
+                /**
+                 * If true then calls to <code>add</code> and <code>setLayout</code> will be
+                 * forwarded to the <code>contentPane</code>. This is initially false, but
+                 * is set to true when the <code>JApplet</code> is constructed.
+                 *
+                 * @see #isRootPaneCheckingEnabled
+                 * @see #setRootPaneCheckingEnabled
+                 * @see javax.swing.RootPaneContainer
+                 */
+                this.rootPaneCheckingEnabled = false;
+                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.RootPaneContainer"] });
+                this.setForeground(java.awt.Color.black_$LI$());
+                this.setBackground(java.awt.Color.white_$LI$());
+                this.setLayout(new java.awt.BorderLayout());
+                this.setRootPane(this.createRootPane());
+                this.rootPaneCheckingEnabled = true;
+            }
+            /**
+             * Called by the constructor methods to create the default rootPane.
+             */
+            JApplet.prototype.createRootPane = function () {
+                var rp = new javax.swing.JRootPane();
+                return rp;
+            };
+            JApplet.prototype.addImpl = function (comp, constraints, index) {
+                if (this.rootPaneCheckingEnabled && this.getContentPane() != null) {
+                    this.getContentPane().add(comp, constraints, index);
+                }
+                else {
+                    _super.prototype.addImpl.call(this, comp, constraints, index);
+                }
+            };
+            /**
+             * Just calls <code>paint(g)</code>. This method was overridden to prevent
+             * an unnecessary call to clear the background.
+             */
+            JApplet.prototype.update = function (g) {
+                this.paint(g);
+            };
+            /**
+             * Removes the specified component from the container. If <code>comp</code>
+             * is not the <code>rootPane</code>, this will forward the call to the
+             * <code>contentPane</code>. This will do nothing if <code>comp</code> is
+             * not a child of the <code>JFrame</code> or <code>contentPane</code>.
+             *
+             * @param comp
+             * the component to be removed
+             * @throws NullPointerException
+             * if <code>comp</code> is null
+             * @see #add
+             * @see javax.swing.RootPaneContainer
+             */
+            JApplet.prototype.remove = function (comp) {
+                var _this = this;
+                if (((comp != null && comp instanceof java.awt.Component) || comp === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    return (function () {
+                        if (comp === _this.rootPane) {
+                            _super.prototype.remove.call(_this, comp);
+                        }
+                        else {
+                            _this.getContentPane().remove(comp);
+                        }
+                    })();
+                }
+                else if (((typeof comp === 'number') || comp === null)) {
+                    return this.remove$int(comp);
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            /**
+             * Sets the <code>LayoutManager</code>. Overridden to conditionally forward
+             * the call to the <code>contentPane</code>. Refer to
+             * {@link javax.swing.RootPaneContainer} for more information.
+             *
+             * @param manager
+             * the <code>LayoutManager</code>
+             * @see #setRootPaneCheckingEnabled
+             * @see javax.swing.RootPaneContainer
+             */
+            JApplet.prototype.setLayout = function (manager) {
+                if (this.rootPane != null) {
+                    this.getContentPane().setLayout(manager);
+                }
+                else {
+                    _super.prototype.setLayout.call(this, manager);
+                }
+            };
+            /**
+             * Returns the rootPane object for this applet.
+             *
+             * @see #setRootPane
+             * @see RootPaneContainer#getRootPane
+             */
+            JApplet.prototype.getRootPane = function () {
+                return this.rootPane;
+            };
+            /**
+             * Sets the rootPane property. This method is called by the constructor.
+             *
+             * @param root
+             * the rootPane object for this applet
+             *
+             * @see #getRootPane
+             *
+             * @beaninfo hidden: true description: the RootPane object for this applet.
+             */
+            JApplet.prototype.setRootPane = function (root) {
+                if (this.rootPane != null) {
+                    this.remove(this.rootPane);
+                }
+                this.rootPane = root;
+                if (this.rootPane != null) {
+                    this.add(this.rootPane, java.awt.BorderLayout.CENTER);
+                }
+            };
+            /**
+             * Returns the contentPane object for this applet.
+             *
+             * @see #setContentPane
+             * @see RootPaneContainer#getContentPane
+             */
+            JApplet.prototype.getContentPane = function () {
+                if (this.rootPane != null) {
+                    return this.getRootPane().getContentPane();
+                }
+                else {
+                    return null;
+                }
+            };
+            /**
+             * Sets the contentPane property. This method is called by the constructor.
+             *
+             * @param contentPane
+             * the contentPane object for this applet
+             *
+             * @exception java.awt.IllegalComponentStateException
+             * (a runtime exception) if the content pane parameter is
+             * null
+             * @see #getContentPane
+             * @see RootPaneContainer#setContentPane
+             *
+             * @beaninfo hidden: true description: The client area of the applet where
+             * child components are normally inserted.
+             */
+            JApplet.prototype.setContentPane = function (contentPane) {
+                this.getRootPane().setContentPane(contentPane);
+            };
+            /**
+             * Returns a string representation of this JApplet. This method is intended
+             * to be used only for debugging purposes, and the content and format of the
+             * returned string may vary between implementations. The returned string may
+             * be empty but may not be <code>null</code>.
+             *
+             * @return a string representation of this JApplet.
+             */
+            JApplet.prototype.paramString = function () {
+                var rootPaneString = (this.rootPane != null ? this.rootPane.toString() : "");
+                var rootPaneCheckingEnabledString = (this.rootPaneCheckingEnabled ? "true" : "false");
+                return _super.prototype.paramString.call(this) + ",rootPane=" + rootPaneString + ",rootPaneCheckingEnabled=" + rootPaneCheckingEnabledString;
+            };
+            return JApplet;
+        }(java.applet.Applet));
+        swing.JApplet = JApplet;
+        JApplet["__classname"] = "javax.swing.JApplet";
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        var JFrame = (function (_super) {
+            __extends(JFrame, _super);
+            function JFrame(title) {
+                var _this = this;
+                if (((typeof title === 'string') || title === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    _super.call(this, title);
+                    this.defaultCloseOperation = javax.swing.WindowConstants.HIDE_ON_CLOSE;
+                    this.rootPaneCheckingEnabled = false;
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.RootPaneContainer", "javax.swing.WindowConstants"] });
+                    (function () {
+                        _this.frameInit();
+                    })();
+                }
+                else if (title === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    _super.call(this);
+                    this.defaultCloseOperation = javax.swing.WindowConstants.HIDE_ON_CLOSE;
+                    this.rootPaneCheckingEnabled = false;
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.RootPaneContainer", "javax.swing.WindowConstants"] });
+                    (function () {
+                    })();
+                }
+                else
+                    throw new Error('invalid overload');
+            }
+            JFrame.prototype.frameInit = function () {
+                this.setLayout(new java.awt.BorderLayout());
+                this.setRootPane(this.createRootPane());
+                this.rootPaneCheckingEnabled = true;
+            };
+            JFrame.prototype.createRootPane = function () {
+                var rp = new javax.swing.JRootPane();
+                return rp;
+            };
+            JFrame.prototype.setRootPane = function (root) {
+                if (this.rootPane != null) {
+                    this.remove(this.rootPane);
+                }
+                this.rootPane = root;
+                if (this.rootPane != null) {
+                    this.add(this.rootPane, java.awt.BorderLayout.CENTER);
+                }
+            };
+            JFrame.prototype.getContentPane = function () {
+                if (this.rootPane != null) {
+                    return this.getRootPane().getContentPane();
+                }
+                else {
+                    return null;
+                }
+            };
+            JFrame.prototype.getRootPane = function () {
+                return this.rootPane;
+            };
+            JFrame.prototype.setContentPane = function (contentPane) {
+                this.getRootPane().setContentPane(contentPane);
+            };
+            JFrame.prototype.setDefaultCloseOperation = function (operation) {
+                if (operation !== javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE && operation !== javax.swing.WindowConstants.HIDE_ON_CLOSE && operation !== javax.swing.WindowConstants.DISPOSE_ON_CLOSE && operation !== JFrame.EXIT_ON_CLOSE) {
+                    throw new java.lang.IllegalArgumentException("defaultCloseOperation must be one of: DO_NOTHING_ON_CLOSE, HIDE_ON_CLOSE, DISPOSE_ON_CLOSE, or EXIT_ON_CLOSE");
+                }
+                if (this.defaultCloseOperation !== operation) {
+                    var oldValue = this.defaultCloseOperation;
+                    this.defaultCloseOperation = operation;
+                    this.firePropertyChange("defaultCloseOperation", oldValue, operation);
+                }
+            };
+            JFrame.EXIT_ON_CLOSE = 3;
+            return JFrame;
+        }(java.awt.Frame));
+        swing.JFrame = JFrame;
+        JFrame["__classname"] = "javax.swing.JFrame";
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        var JButton = (function (_super) {
+            __extends(JButton, _super);
+            function JButton(label) {
+                _super.call(this);
+                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                this.label = label;
+                this.actionCommand = label;
+            }
+            JButton.prototype.getHTMLElement = function () {
+                return _super.prototype.getHTMLElement.call(this);
+            };
+            JButton.prototype.createHTML = function () {
+                if (this.htmlElement != null) {
+                    return;
+                }
+                this.htmlElement = document.createElement("button");
+            };
+            JButton.prototype.initHTML = function () {
+                _super.prototype.initHTML.call(this);
+                this.htmlElement.innerHTML = this.label;
+                this.initActionListener();
+            };
+            JButton.prototype.initActionListener = function () {
+                var _this = this;
+                if (this.actionListener != null) {
+                    this.htmlElement.onclick = function (e) {
+                        console.log("htmlElement clicked: " + _this.actionCommand);
+                        _this.actionListener.actionPerformed(new java.awt.event.ActionEvent(_this, 0, _this.actionCommand));
+                        return e;
+                    };
+                }
+            };
+            JButton.prototype.addActionListener = function (actionListener) {
+                this.actionListener = actionListener;
+                if (this.htmlElement != null) {
+                    this.initActionListener();
+                }
+            };
+            JButton.prototype.setBackground = function (background) {
+                this.background = background;
+            };
+            return JButton;
+        }(javax.swing.AbstractButton));
+        swing.JButton = JButton;
+        JButton["__classname"] = "javax.swing.JButton";
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        /**
+         * An implementation of an item in a menu. A menu item is essentially a button
+         * sitting in a list. When the user selects the "button", the action
+         * associated with the menu item is performed. A <code>JMenuItem</code>
+         * contained in a <code>JPopupMenu</code> performs exactly that function.
+         * <p>
+         * Menu items can be configured, and to some degree controlled, by
+         * <code><a href="Action.html">Action</a></code>s.  Using an
+         * <code>Action</code> with a menu item has many benefits beyond directly
+         * configuring a menu item.  Refer to <a href="Action.html#buttonActions">
+         * Swing Components Supporting <code>Action</code></a> for more
+         * details, and you can find more information in <a
+         * href="http://docs.oracle.com/javase/tutorial/uiswing/misc/action.html">How
+         * to Use Actions</a>, a section in <em>The Java Tutorial</em>.
+         * <p>
+         * For further documentation and for examples, see
+         * <a
+         * href="http://docs.oracle.com/javase/tutorial/uiswing/components/menu.html">How to Use Menus</a>
+         * in <em>The Java Tutorial.</em>
+         * <p>
+         * <strong>Warning:</strong> Swing is not thread safe. For more
+         * information see <a
+         * href="package-summary.html#threading">Swing's Threading
+         * Policy</a>.
+         * <p>
+         * <strong>Warning:</strong>
+         * Serialized objects of this class will not be compatible with
+         * future Swing releases. The current serialization support is
+         * appropriate for short term storage or RMI between applications running
+         * the same version of Swing.  As of 1.4, support for long term storage
+         * of all JavaBeans&trade;
+         * has been added to the <code>java.beans</code> package.
+         * Please see {@link java.beans.XMLEncoder}.
+         *
+         * @beaninfo
+         * attribute: isContainer false
+         * description: An item which can be selected in a menu.
+         *
+         * @author Georges Saab
+         * @author David Karlton
+         * @see JPopupMenu
+         * @see JMenu
+         * @see JCheckBoxMenuItem
+         * @see JRadioButtonMenuItem
+         */
+        var JMenuItem = (function (_super) {
+            __extends(JMenuItem, _super);
+            /**
+             * Creates a <code>JMenuItem</code> with the specified text and icon.
+             *
+             * @param text the text of the <code>JMenuItem</code>
+             * @param icon the icon of the <code>JMenuItem</code>
+             */
+            function JMenuItem(text, icon) {
+                var _this = this;
+                if (((typeof text === 'string') || text === null) && ((icon != null && icon["__interfaces"] != null && icon["__interfaces"].indexOf("javax.swing.Icon") >= 0) || icon === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    _super.call(this);
+                    this.isMouseDragged = false;
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                    (function () {
+                        _this.setModel(new javax.swing.DefaultButtonModel());
+                        _this.init(text, icon);
+                    })();
+                }
+                else if (((typeof text === 'string') || text === null) && ((typeof icon === 'number') || icon === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    var mnemonic = __args[1];
+                    _super.call(this);
+                    this.isMouseDragged = false;
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                    (function () {
+                        _this.setModel(new javax.swing.DefaultButtonModel());
+                        _this.init(text, null);
+                        _this.setMnemonic(mnemonic);
+                    })();
+                }
+                else if (((text != null && text["__interfaces"] != null && text["__interfaces"].indexOf("javax.swing.Icon") >= 0) || text === null) && icon === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    var icon = __args[0];
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var text = null;
+                        _super.call(this);
+                        this.isMouseDragged = false;
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                        (function () {
+                            _this.setModel(new javax.swing.DefaultButtonModel());
+                            _this.init(text, icon);
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else if (((typeof text === 'string') || text === null) && icon === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var icon = null;
+                        _super.call(this);
+                        this.isMouseDragged = false;
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                        (function () {
+                            _this.setModel(new javax.swing.DefaultButtonModel());
+                            _this.init(text, icon);
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else if (((text != null && text["__interfaces"] != null && text["__interfaces"].indexOf("javax.swing.Action") >= 0) || text === null) && icon === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    var a = __args[0];
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        {
+                            var __args = Array.prototype.slice.call(arguments);
+                            var text = null;
+                            var icon = null;
+                            _super.call(this);
+                            this.isMouseDragged = false;
+                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                            (function () {
+                                _this.setModel(new javax.swing.DefaultButtonModel());
+                                _this.init(text, icon);
+                            })();
+                        }
+                        (function () {
+                        })();
+                    }
+                    (function () {
+                        _this.setAction(a);
+                    })();
+                }
+                else if (text === undefined && icon === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var text = null;
+                        var icon = null;
+                        _super.call(this);
+                        this.isMouseDragged = false;
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                        (function () {
+                            _this.setModel(new javax.swing.DefaultButtonModel());
+                            _this.init(text, icon);
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else
+                    throw new Error('invalid overload');
+            }
+            JMenuItem.prototype.createHTML = function () {
+            };
+            /**
+             * {@inheritDoc}
+             */
+            JMenuItem.prototype.setModel = function (newModel) {
+                _super.prototype.setModel.call(this, newModel);
+                if (newModel != null && newModel instanceof javax.swing.DefaultButtonModel) {
+                    newModel.setMenuItem(true);
+                }
+            };
+            /**
+             * Initializes the menu item with the specified text and icon.
+             *
+             * @param text the text of the <code>JMenuItem</code>
+             * @param icon the icon of the <code>JMenuItem</code>
+             */
+            JMenuItem.prototype.init = function (text, icon) {
+                if (text != null) {
+                    this.setText(text);
+                }
+                if (icon != null) {
+                    this.setIcon(icon);
+                }
+                this.addFocusListener(new JMenuItem.MenuItemFocusListener());
+                this.setFocusPainted(false);
+            };
+            /**
+             * Returns the suffix used to construct the name of the L&amp;F class used to
+             * render this component.
+             *
+             * @return the string "MenuItemUI"
+             * @see JComponent#getUIClassID
+             * @see UIDefaults#getUI
+             */
+            JMenuItem.prototype.getUIClassID = function () {
+                return JMenuItem.uiClassID;
+            };
+            /**
+             * Identifies the menu item as "armed". If the mouse button is
+             * released while it is over this item, the menu's action event
+             * will fire. If the mouse button is released elsewhere, the
+             * event will not fire and the menu item will be disarmed.
+             *
+             * @param b true to arm the menu item so it can be selected
+             * @beaninfo
+             * description: Mouse release will fire an action event
+             * hidden: true
+             */
+            JMenuItem.prototype.setArmed = function (b) {
+                var model = this.getModel();
+                var oldValue = model.isArmed();
+                if (model.isArmed() !== b) {
+                    model.setArmed(b);
+                }
+            };
+            /**
+             * Returns whether the menu item is "armed".
+             *
+             * @return true if the menu item is armed, and it can be selected
+             * @see #setArmed
+             */
+            JMenuItem.prototype.isArmed = function () {
+                var model = this.getModel();
+                return model.isArmed();
+            };
+            /**
+             * Returns the <code>KeyStroke</code> which serves as an accelerator
+             * for the menu item.
+             * @return a <code>KeyStroke</code> object identifying the
+             * accelerator key
+             */
+            JMenuItem.prototype.setIconFromAction = function (a) {
+                var icon = null;
+                if (a != null) {
+                    icon = a.getValue(javax.swing.Action.SMALL_ICON);
+                }
+                this.setIcon(icon);
+            };
+            JMenuItem.prototype.largeIconChanged = function (a) {
+            };
+            JMenuItem.prototype.smallIconChanged = function (a) {
+                this.setIconFromAction(a);
+            };
+            /**
+             * Processes a key event forwarded from the
+             * <code>MenuSelectionManager</code> and changes the menu selection,
+             * if necessary, by using <code>MenuSelectionManager</code>'s API.
+             * <p>
+             * Note: you do not have to forward the event to sub-components.
+             * This is done automatically by the <code>MenuSelectionManager</code>.
+             *
+             * @param e  a <code>KeyEvent</code>
+             * @param path the <code>MenuElement</code> path array
+             * @param manager   the <code>MenuSelectionManager</code>
+             */
+            JMenuItem.prototype.processKeyEvent = function (e, path, manager) {
+                var _this = this;
+                if (((e != null && e instanceof java.awt.event.KeyEvent) || e === null) && ((path != null && path instanceof Array) || path === null) && ((manager != null && manager instanceof javax.swing.MenuSelectionManager) || manager === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    return (function () {
+                        var mke = new javax.swing.event.MenuKeyEvent(e.getComponent(), e.getID(), e.getWhen(), e.getModifiers(), e.getKeyCode(), e.getKeyChar(), path, manager);
+                        _this.processMenuKeyEvent(mke);
+                        if (mke.isConsumed()) {
+                            e.consume();
+                        }
+                    })();
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            /**
+             * Handles a keystroke in a menu.
+             *
+             * @param e  a <code>MenuKeyEvent</code> object
+             */
+            JMenuItem.prototype.processMenuKeyEvent = function (e) {
+                switch ((e.getID())) {
+                    case java.awt.event.KeyEvent.KEY_PRESSED_$LI$():
+                        this.fireMenuKeyPressed(e);
+                        break;
+                    case java.awt.event.KeyEvent.KEY_RELEASED_$LI$():
+                        this.fireMenuKeyReleased(e);
+                        break;
+                    case java.awt.event.KeyEvent.KEY_TYPED_$LI$():
+                        this.fireMenuKeyTyped(e);
+                        break;
+                    default:
+                        break;
+                }
+            };
+            /**
+             * Notifies all listeners that have registered interest for
+             * notification on this event type.
+             *
+             * @param event a <code>MenuKeyEvent</code>
+             * @see EventListenerList
+             */
+            JMenuItem.prototype.fireMenuKeyPressed = function (event) {
+                var listeners = this.listenerList.getListenerList();
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === "javax.swing.event.MenuKeyListener") {
+                        listeners[i + 1].menuKeyPressed(event);
+                    }
+                }
+            };
+            /**
+             * Notifies all listeners that have registered interest for
+             * notification on this event type.
+             *
+             * @param event a <code>MenuKeyEvent</code>
+             * @see EventListenerList
+             */
+            JMenuItem.prototype.fireMenuKeyReleased = function (event) {
+                var listeners = this.listenerList.getListenerList();
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === "javax.swing.event.MenuKeyListener") {
+                        listeners[i + 1].menuKeyReleased(event);
+                    }
+                }
+            };
+            /**
+             * Notifies all listeners that have registered interest for
+             * notification on this event type.
+             *
+             * @param event a <code>MenuKeyEvent</code>
+             * @see EventListenerList
+             */
+            JMenuItem.prototype.fireMenuKeyTyped = function (event) {
+                var listeners = this.listenerList.getListenerList();
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === "javax.swing.event.MenuKeyListener") {
+                        listeners[i + 1].menuKeyTyped(event);
+                    }
+                }
+            };
+            /**
+             * Called by the <code>MenuSelectionManager</code> when the
+             * <code>MenuElement</code> is selected or unselected.
+             *
+             * @param isIncluded  true if this menu item is on the part of the menu
+             * path that changed, false if this menu is part of the
+             * a menu path that changed, but this particular part of
+             * that path is still the same
+             * @see MenuSelectionManager#setSelectedPath(MenuElement[])
+             */
+            JMenuItem.prototype.menuSelectionChanged = function (isIncluded) {
+                this.setArmed(isIncluded);
+            };
+            /**
+             * This method returns an array containing the sub-menu
+             * components for this menu component.
+             *
+             * @return an array of <code>MenuElement</code>s
+             */
+            JMenuItem.prototype.getSubElements = function () {
+                return new Array(0);
+            };
+            /**
+             * Returns the <code>java.awt.Component</code> used to paint
+             * this object. The returned component will be used to convert
+             * events and detect if an event is inside a menu component.
+             *
+             * @return the <code>Component</code> that paints this menu item
+             */
+            JMenuItem.prototype.getComponent$ = function () {
+                return this;
+            };
+            /**
+             * Adds a <code>MenuKeyListener</code> to the menu item.
+             *
+             * @param l the <code>MenuKeyListener</code> to be added
+             */
+            JMenuItem.prototype.addMenuKeyListener = function (l) {
+                this.listenerList.add("javax.swing.event.MenuKeyListener", l);
+            };
+            /**
+             * Removes a <code>MenuKeyListener</code> from the menu item.
+             *
+             * @param l the <code>MenuKeyListener</code> to be removed
+             */
+            JMenuItem.prototype.removeMenuKeyListener = function (l) {
+                this.listenerList.remove("javax.swing.event.MenuKeyListener", l);
+            };
+            /**
+             * Returns an array of all the <code>MenuKeyListener</code>s added
+             * to this JMenuItem with addMenuKeyListener().
+             *
+             * @return all of the <code>MenuKeyListener</code>s added or an empty
+             * array if no listeners have been added
+             * @since 1.4
+             */
+            JMenuItem.prototype.getMenuKeyListeners = function () {
+                return this.listenerList.getListeners("javax.swing.event.MenuKeyListener");
+            };
+            /**
+             * Returns a string representation of this <code>JMenuItem</code>.
+             * This method is intended to be used only for debugging purposes,
+             * and the content and format of the returned string may vary between
+             * implementations. The returned string may be empty but may not
+             * be <code>null</code>.
+             *
+             * @return  a string representation of this <code>JMenuItem</code>
+             */
+            JMenuItem.prototype.paramString = function () {
+                return _super.prototype.paramString.call(this);
+            };
+            /**
+             * @see #getUIClassID
+             * @see #readObject
+             */
+            JMenuItem.uiClassID = "MenuItemUI";
+            JMenuItem.TRACE = false;
+            JMenuItem.VERBOSE = false;
+            JMenuItem.DEBUG = false;
+            return JMenuItem;
+        }(javax.swing.AbstractButton));
+        swing.JMenuItem = JMenuItem;
+        JMenuItem["__classname"] = "javax.swing.JMenuItem";
+        var JMenuItem;
+        (function (JMenuItem) {
+            var MenuItemFocusListener = (function () {
+                function MenuItemFocusListener() {
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "java.awt.event.FocusListener", "java.io.Serializable"] });
+                }
+                MenuItemFocusListener.prototype.focusGained = function (event) {
+                };
+                MenuItemFocusListener.prototype.focusLost = function (event) {
+                    var mi = event.getSource();
+                    if (mi.isFocusPainted()) {
+                        mi.repaint();
+                    }
+                };
+                return MenuItemFocusListener;
+            }());
+            JMenuItem.MenuItemFocusListener = MenuItemFocusListener;
+            MenuItemFocusListener["__classname"] = "javax.swing.JMenuItem.MenuItemFocusListener";
+        })(JMenuItem = swing.JMenuItem || (swing.JMenuItem = {}));
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        var JToggleButton = (function (_super) {
+            __extends(JToggleButton, _super);
+            function JToggleButton(text, icon, selected) {
+                var _this = this;
+                if (((typeof text === 'string') || text === null) && ((icon != null && icon["__interfaces"] != null && icon["__interfaces"].indexOf("javax.swing.Icon") >= 0) || icon === null) && ((typeof selected === 'boolean') || selected === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    _super.call(this);
+                    this.buttonCreated = false;
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                    (function () {
+                        _this.setModel(new JToggleButton.ToggleButtonModel());
+                        _this.model.setSelected(selected);
+                        _this.init(text, icon);
+                    })();
+                }
+                else if (((typeof text === 'string') || text === null) && ((icon != null && icon["__interfaces"] != null && icon["__interfaces"].indexOf("javax.swing.Icon") >= 0) || icon === null) && selected === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var selected = false;
+                        _super.call(this);
+                        this.buttonCreated = false;
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                        (function () {
+                            _this.setModel(new JToggleButton.ToggleButtonModel());
+                            _this.model.setSelected(selected);
+                            _this.init(text, icon);
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else if (((text != null && text["__interfaces"] != null && text["__interfaces"].indexOf("javax.swing.Icon") >= 0) || text === null) && ((typeof icon === 'boolean') || icon === null) && selected === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    var icon = __args[0];
+                    var selected = __args[1];
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var text = null;
+                        _super.call(this);
+                        this.buttonCreated = false;
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                        (function () {
+                            _this.setModel(new JToggleButton.ToggleButtonModel());
+                            _this.model.setSelected(selected);
+                            _this.init(text, icon);
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else if (((typeof text === 'string') || text === null) && ((typeof icon === 'boolean') || icon === null) && selected === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    var selected = __args[1];
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var icon = null;
+                        _super.call(this);
+                        this.buttonCreated = false;
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                        (function () {
+                            _this.setModel(new JToggleButton.ToggleButtonModel());
+                            _this.model.setSelected(selected);
+                            _this.init(text, icon);
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else if (((text != null && text["__interfaces"] != null && text["__interfaces"].indexOf("javax.swing.Icon") >= 0) || text === null) && icon === undefined && selected === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    var icon = __args[0];
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var text = null;
+                        var selected = false;
+                        _super.call(this);
+                        this.buttonCreated = false;
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                        (function () {
+                            _this.setModel(new JToggleButton.ToggleButtonModel());
+                            _this.model.setSelected(selected);
+                            _this.init(text, icon);
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else if (((typeof text === 'string') || text === null) && icon === undefined && selected === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var icon = null;
+                        var selected = false;
+                        _super.call(this);
+                        this.buttonCreated = false;
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                        (function () {
+                            _this.setModel(new JToggleButton.ToggleButtonModel());
+                            _this.model.setSelected(selected);
+                            _this.init(text, icon);
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else if (((text != null && text["__interfaces"] != null && text["__interfaces"].indexOf("javax.swing.Action") >= 0) || text === null) && icon === undefined && selected === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    var a = __args[0];
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        {
+                            var __args = Array.prototype.slice.call(arguments);
+                            var text = null;
+                            var icon = null;
+                            var selected = false;
+                            _super.call(this);
+                            this.buttonCreated = false;
+                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                            (function () {
+                                _this.setModel(new JToggleButton.ToggleButtonModel());
+                                _this.model.setSelected(selected);
+                                _this.init(text, icon);
+                            })();
+                        }
+                        (function () {
+                        })();
+                    }
+                    (function () {
+                        _this.setAction(a);
+                    })();
+                }
+                else if (text === undefined && icon === undefined && selected === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var text = null;
+                        var icon = null;
+                        var selected = false;
+                        _super.call(this);
+                        this.buttonCreated = false;
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                        (function () {
+                            _this.setModel(new JToggleButton.ToggleButtonModel());
+                            _this.model.setSelected(selected);
+                            _this.init(text, icon);
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else
+                    throw new Error('invalid overload');
+            }
+            JToggleButton.prototype.paramString = function () {
+                return _super.prototype.paramString.call(this);
+            };
+            JToggleButton.prototype.createHTML = function () {
+                if (this.htmlElement != null) {
+                    return;
+                }
+                this.htmlElement = document.createElement("button");
+                this.buttonCreated = true;
+            };
+            JToggleButton.prototype.initHTML = function () {
+                _super.prototype.initHTML.call(this);
+                if (this.buttonCreated) {
+                    this.htmlElement.innerHTML = this.getText();
+                }
+            };
+            JToggleButton.serialVersionUID = 1;
+            return JToggleButton;
+        }(javax.swing.AbstractButton));
+        swing.JToggleButton = JToggleButton;
+        JToggleButton["__classname"] = "javax.swing.JToggleButton";
+        var JToggleButton;
+        (function (JToggleButton) {
+            var ToggleButtonModel = (function (_super) {
+                __extends(ToggleButtonModel, _super);
+                /**
+                 * Creates a new ToggleButton Model
+                 */
+                function ToggleButtonModel() {
+                    _super.call(this);
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "javax.swing.ButtonModel", "java.io.Serializable"] });
+                }
+                /**
+                 * Checks if the button is selected.
+                 */
+                ToggleButtonModel.prototype.isSelected = function () {
+                    return (this.stateMask & javax.swing.DefaultButtonModel.SELECTED_$LI$()) !== 0;
+                };
+                /**
+                 * Sets the selected state of the button.
+                 *
+                 * @param b
+                 * true selects the toggle button, false deselects the toggle
+                 * button.
+                 */
+                ToggleButtonModel.prototype.setSelected = function (b) {
+                    var group = this.getGroup();
+                    if (group != null) {
+                        group.setSelected(this, b);
+                        b = group.isSelected(this);
+                    }
+                    if (this.isSelected() === b) {
+                        return;
+                    }
+                    if (b) {
+                        this.stateMask |= javax.swing.DefaultButtonModel.SELECTED_$LI$();
+                    }
+                    else {
+                        this.stateMask &= ~javax.swing.DefaultButtonModel.SELECTED_$LI$();
+                    }
+                    this.fireStateChanged();
+                    this.fireItemStateChanged(new java.awt.event.ItemEvent(this, java.awt.event.ItemEvent.ITEM_STATE_CHANGED_$LI$(), this, this.isSelected() ? java.awt.event.ItemEvent.SELECTED : java.awt.event.ItemEvent.DESELECTED));
+                };
+                /**
+                 * Sets the pressed state of the toggle button.
+                 */
+                ToggleButtonModel.prototype.setPressed = function (b) {
+                    if ((this.isPressed() === b) || !this.isEnabled()) {
+                        return;
+                    }
+                    if (b === false && this.isArmed()) {
+                        this.setSelected(!this.isSelected());
+                    }
+                    if (b) {
+                        this.stateMask |= javax.swing.DefaultButtonModel.PRESSED_$LI$();
+                    }
+                    else {
+                        this.stateMask &= ~javax.swing.DefaultButtonModel.PRESSED_$LI$();
+                    }
+                    this.fireStateChanged();
+                    if (!this.isPressed() && this.isArmed()) {
+                        var modifiers = 0;
+                        this.fireActionPerformed(new java.awt.event.ActionEvent(this, java.awt.event.ActionEvent.ACTION_PERFORMED_$LI$(), this.getActionCommand(), 0, modifiers));
+                    }
+                };
+                return ToggleButtonModel;
+            }(javax.swing.DefaultButtonModel));
+            JToggleButton.ToggleButtonModel = ToggleButtonModel;
+            ToggleButtonModel["__classname"] = "javax.swing.JToggleButton.ToggleButtonModel";
+        })(JToggleButton = swing.JToggleButton || (swing.JToggleButton = {}));
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        var JTextArea = (function (_super) {
+            __extends(JTextArea, _super);
+            function JTextArea(doc, text, rows, columns) {
+                var _this = this;
+                if (((doc != null) || doc === null) && ((typeof text === 'string') || text === null) && ((typeof rows === 'number') || rows === null) && ((typeof columns === 'number') || columns === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    _super.call(this);
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
+                    this.rows = 0;
+                    this.columns = 0;
+                    this.columnWidth = 0;
+                    this.rowHeight = 0;
+                    this.wrap = false;
+                    this.word = false;
+                    (function () {
+                        _this.rows = rows;
+                        _this.columns = columns;
+                        if (text != null) {
+                            _this.setText(text);
+                        }
+                        if (rows < 0) {
+                            throw new java.lang.IllegalArgumentException("rows: " + rows);
+                        }
+                        if (columns < 0) {
+                            throw new java.lang.IllegalArgumentException("columns: " + columns);
+                        }
+                    })();
+                }
+                else if (((typeof doc === 'string') || doc === null) && ((typeof text === 'number') || text === null) && ((typeof rows === 'number') || rows === null) && columns === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    var text = __args[0];
+                    var rows = __args[1];
+                    var columns = __args[2];
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var doc = null;
+                        _super.call(this);
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
+                        this.rows = 0;
+                        this.columns = 0;
+                        this.columnWidth = 0;
+                        this.rowHeight = 0;
+                        this.wrap = false;
+                        this.word = false;
+                        (function () {
+                            _this.rows = rows;
+                            _this.columns = columns;
+                            if (text != null) {
+                                _this.setText(text);
+                            }
+                            if (rows < 0) {
+                                throw new java.lang.IllegalArgumentException("rows: " + rows);
+                            }
+                            if (columns < 0) {
+                                throw new java.lang.IllegalArgumentException("columns: " + columns);
+                            }
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else if (((typeof doc === 'number') || doc === null) && ((typeof text === 'number') || text === null) && rows === undefined && columns === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    var rows = __args[0];
+                    var columns = __args[1];
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var doc = null;
+                        var text = null;
+                        _super.call(this);
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
+                        this.rows = 0;
+                        this.columns = 0;
+                        this.columnWidth = 0;
+                        this.rowHeight = 0;
+                        this.wrap = false;
+                        this.word = false;
+                        (function () {
+                            _this.rows = rows;
+                            _this.columns = columns;
+                            if (text != null) {
+                                _this.setText(text);
+                            }
+                            if (rows < 0) {
+                                throw new java.lang.IllegalArgumentException("rows: " + rows);
+                            }
+                            if (columns < 0) {
+                                throw new java.lang.IllegalArgumentException("columns: " + columns);
+                            }
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else if (((typeof doc === 'string') || doc === null) && text === undefined && rows === undefined && columns === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    var text = __args[0];
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var doc = null;
+                        var rows = 0;
+                        var columns = 0;
+                        _super.call(this);
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
+                        this.rows = 0;
+                        this.columns = 0;
+                        this.columnWidth = 0;
+                        this.rowHeight = 0;
+                        this.wrap = false;
+                        this.word = false;
+                        (function () {
+                            _this.rows = rows;
+                            _this.columns = columns;
+                            if (text != null) {
+                                _this.setText(text);
+                            }
+                            if (rows < 0) {
+                                throw new java.lang.IllegalArgumentException("rows: " + rows);
+                            }
+                            if (columns < 0) {
+                                throw new java.lang.IllegalArgumentException("columns: " + columns);
+                            }
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else if (doc === undefined && text === undefined && rows === undefined && columns === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var doc = null;
+                        var text = null;
+                        var rows = 0;
+                        var columns = 0;
+                        _super.call(this);
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
+                        this.rows = 0;
+                        this.columns = 0;
+                        this.columnWidth = 0;
+                        this.rowHeight = 0;
+                        this.wrap = false;
+                        this.word = false;
+                        (function () {
+                            _this.rows = rows;
+                            _this.columns = columns;
+                            if (text != null) {
+                                _this.setText(text);
+                            }
+                            if (rows < 0) {
+                                throw new java.lang.IllegalArgumentException("rows: " + rows);
+                            }
+                            if (columns < 0) {
+                                throw new java.lang.IllegalArgumentException("columns: " + columns);
+                            }
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else
+                    throw new Error('invalid overload');
+            }
+            JTextArea.prototype.getHTMLElement = function () {
+                return this.htmlElement;
+            };
+            JTextArea.prototype.createHTML = function () {
+                if (this.htmlElement != null) {
+                    return;
+                }
+                this.htmlElement = document.createElement("textarea");
+            };
+            JTextArea.prototype.initHTML = function () {
+                _super.prototype.initHTML.call(this);
+                this.getHTMLElement().value = this.text;
+                this.getHTMLElement().rows = this.rows;
+                this.getHTMLElement().cols = this.columns;
+                this.getHTMLElement().readOnly = !this.editable;
+            };
+            JTextArea.prototype.getUIClassID = function () {
+                return JTextArea.uiClassID;
+            };
+            JTextArea.prototype.setLineWrap = function (wrap) {
+                var old = this.wrap;
+                this.wrap = wrap;
+                this.firePropertyChange("lineWrap", old, wrap);
+            };
+            JTextArea.prototype.getLineWrap = function () {
+                return this.wrap;
+            };
+            JTextArea.prototype.setWrapStyleWord = function (word) {
+                var old = this.word;
+                this.word = word;
+                this.firePropertyChange("wrapStyleWord", old, word);
+            };
+            JTextArea.prototype.getWrapStyleWord = function () {
+                return this.word;
+            };
+            JTextArea.prototype.insert = function (str, pos) {
+                this.setText(([(this.text).slice(0, pos), str, (this.text).slice(pos)]).join(""));
+            };
+            JTextArea.prototype.append = function (str) {
+                this.setText(this.text + str);
+            };
+            JTextArea.prototype.setText = function (text) {
+                _super.prototype.setText.call(this, text);
+                if (this.htmlElement != null) {
+                    this.getHTMLElement().value = text;
+                }
+            };
+            JTextArea.prototype.setEditable = function (editable) {
+                _super.prototype.setEditable.call(this, editable);
+                if (this.htmlElement != null) {
+                    this.getHTMLElement().readOnly = !editable;
+                }
+            };
+            JTextArea.prototype.replaceRange = function (str, start, end) {
+                this.setText(this.text.substring(0, start) + str + this.text.substring(end));
+            };
+            JTextArea.prototype.getRows = function () {
+                return this.rows;
+            };
+            JTextArea.prototype.setRows = function (rows) {
+                var oldVal = this.rows;
+                if (rows < 0) {
+                    throw new java.lang.IllegalArgumentException("rows less than zero.");
+                }
+                if (rows !== oldVal) {
+                    this.rows = rows;
+                    if (this.htmlElement != null) {
+                        this.getHTMLElement().rows = rows;
+                    }
+                    this.invalidate();
+                }
+            };
+            JTextArea.prototype.getColumns = function () {
+                return this.columns;
+            };
+            JTextArea.prototype.setColumns = function (columns) {
+                var oldVal = this.columns;
+                if (columns < 0) {
+                    throw new java.lang.IllegalArgumentException("columns less than zero.");
+                }
+                if (columns !== oldVal) {
+                    this.columns = columns;
+                    if (this.htmlElement != null) {
+                        this.getHTMLElement().cols = columns;
+                    }
+                    this.invalidate();
+                }
+            };
+            JTextArea.prototype.paramString = function () {
+                var wrapString = (this.wrap ? "true" : "false");
+                var wordString = (this.word ? "true" : "false");
+                return _super.prototype.paramString.call(this) + ",colums=" + this.columns + ",columWidth=" + this.columnWidth + ",rows=" + this.rows + ",rowHeight=" + this.rowHeight + ",word=" + wordString + ",wrap=" + wrapString;
+            };
+            JTextArea.uiClassID = "TextAreaUI";
+            return JTextArea;
+        }(javax.swing.text.JTextComponent));
+        swing.JTextArea = JTextArea;
+        JTextArea["__classname"] = "javax.swing.JTextArea";
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        var JTextField = (function (_super) {
+            __extends(JTextField, _super);
+            function JTextField(doc, text, columns) {
+                var _this = this;
+                if (((doc != null) || doc === null) && ((typeof text === 'string') || text === null) && ((typeof columns === 'number') || columns === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    _super.call(this);
+                    this.horizontalAlignment = javax.swing.SwingConstants.LEADING;
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                    this.columns = 0;
+                    this.columnWidth = 0;
+                    (function () {
+                        if (columns < 0) {
+                            throw new java.lang.IllegalArgumentException("columns less than zero.");
+                        }
+                        _this.columns = columns;
+                        if (text != null) {
+                            _this.setText(text);
+                        }
+                    })();
+                }
+                else if (((typeof doc === 'string') || doc === null) && ((typeof text === 'number') || text === null) && columns === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    var text = __args[0];
+                    var columns = __args[1];
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var doc = null;
+                        _super.call(this);
+                        this.horizontalAlignment = javax.swing.SwingConstants.LEADING;
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                        this.columns = 0;
+                        this.columnWidth = 0;
+                        (function () {
+                            if (columns < 0) {
+                                throw new java.lang.IllegalArgumentException("columns less than zero.");
+                            }
+                            _this.columns = columns;
+                            if (text != null) {
+                                _this.setText(text);
+                            }
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else if (((typeof doc === 'string') || doc === null) && text === undefined && columns === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    var text = __args[0];
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var doc = null;
+                        var columns = 0;
+                        _super.call(this);
+                        this.horizontalAlignment = javax.swing.SwingConstants.LEADING;
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                        this.columns = 0;
+                        this.columnWidth = 0;
+                        (function () {
+                            if (columns < 0) {
+                                throw new java.lang.IllegalArgumentException("columns less than zero.");
+                            }
+                            _this.columns = columns;
+                            if (text != null) {
+                                _this.setText(text);
+                            }
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else if (((typeof doc === 'number') || doc === null) && text === undefined && columns === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    var columns = __args[0];
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var doc = null;
+                        var text = null;
+                        _super.call(this);
+                        this.horizontalAlignment = javax.swing.SwingConstants.LEADING;
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                        this.columns = 0;
+                        this.columnWidth = 0;
+                        (function () {
+                            if (columns < 0) {
+                                throw new java.lang.IllegalArgumentException("columns less than zero.");
+                            }
+                            _this.columns = columns;
+                            if (text != null) {
+                                _this.setText(text);
+                            }
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else if (doc === undefined && text === undefined && columns === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var doc = null;
+                        var text = null;
+                        var columns = 0;
+                        _super.call(this);
+                        this.horizontalAlignment = javax.swing.SwingConstants.LEADING;
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                        this.columns = 0;
+                        this.columnWidth = 0;
+                        (function () {
+                            if (columns < 0) {
+                                throw new java.lang.IllegalArgumentException("columns less than zero.");
+                            }
+                            _this.columns = columns;
+                            if (text != null) {
+                                _this.setText(text);
+                            }
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else
+                    throw new Error('invalid overload');
+            }
+            JTextField.prototype.getHTMLElement = function () {
+                return this.htmlElement;
+            };
+            JTextField.prototype.createHTML = function () {
+                if (this.htmlElement != null) {
+                    return;
+                }
+                this.htmlElement = document.createElement("input");
+                this.htmlElement.setAttribute("type", "text");
+            };
+            JTextField.prototype.initHTML = function () {
+                _super.prototype.initHTML.call(this);
+                this.getHTMLElement().value = this.text;
+                this.getHTMLElement().readOnly = !this.editable;
+                this.initActionListeners();
+            };
+            JTextField.prototype.initActionListeners = function () {
+                var _this = this;
+                {
+                    var array141 = this.getActionListeners();
+                    for (var index140 = 0; index140 < array141.length; index140++) {
+                        var actionListener = array141[index140];
+                        {
+                            this.htmlElement.addEventListener("click", (function (actionListener) {
+                                return function (e) {
+                                    actionListener.actionPerformed(new java.awt.event.ActionEvent(_this, 0, null));
+                                    return e;
+                                };
+                            })(actionListener));
+                        }
+                    }
+                }
+            };
+            JTextField.prototype.setText = function (text) {
+                _super.prototype.setText.call(this, text);
+                if (this.htmlElement != null) {
+                    this.getHTMLElement().value = text;
+                }
+            };
+            JTextField.prototype.setEditable = function (editable) {
+                _super.prototype.setEditable.call(this, editable);
+                if (this.htmlElement != null) {
+                    this.getHTMLElement().readOnly = !editable;
+                }
+            };
+            /**
+             * Gets the class ID for a UI.
+             *
+             * @return the string "TextFieldUI"
+             * @see JComponent#getUIClassID
+             * @see UIDefaults#getUI
+             */
+            JTextField.prototype.getUIClassID = function () {
+                return JTextField.uiClassID;
+            };
+            /**
+             * Returns the horizontal alignment of the text. Valid keys are:
+             * <ul>
+             * <li><code>JTextField.LEFT</code>
+             * <li><code>JTextField.CENTER</code>
+             * <li><code>JTextField.RIGHT</code>
+             * <li><code>JTextField.LEADING</code>
+             * <li><code>JTextField.TRAILING</code>
+             * </ul>
+             *
+             * @return the horizontal alignment
+             */
+            JTextField.prototype.getHorizontalAlignment = function () {
+                return this.horizontalAlignment;
+            };
+            JTextField.prototype.setHorizontalAlignment = function (alignment) {
+                if (alignment === this.horizontalAlignment)
+                    return;
+                var oldValue = this.horizontalAlignment;
+                if ((alignment === javax.swing.SwingConstants.LEFT) || (alignment === javax.swing.SwingConstants.CENTER) || (alignment === javax.swing.SwingConstants.RIGHT) || (alignment === javax.swing.SwingConstants.LEADING) || (alignment === javax.swing.SwingConstants.TRAILING)) {
+                    this.horizontalAlignment = alignment;
+                }
+                else {
+                    throw new java.lang.IllegalArgumentException("horizontalAlignment");
+                }
+                this.firePropertyChange("horizontalAlignment", oldValue, this.horizontalAlignment);
+                this.invalidate();
+                this.repaint();
+            };
+            /**
+             * Returns the number of columns in this <code>TextField</code>.
+             *
+             * @return the number of columns &gt;= 0
+             */
+            JTextField.prototype.getColumns = function () {
+                return this.columns;
+            };
+            /**
+             * Sets the number of columns in this <code>TextField</code>, and then
+             * invalidate the layout.
+             *
+             * @param columns
+             * the number of columns &gt;= 0
+             * @exception IllegalArgumentException
+             * if <code>columns</code> is less than 0
+             * @beaninfo description: the number of columns preferred for display
+             */
+            JTextField.prototype.setColumns = function (columns) {
+                var oldVal = this.columns;
+                if (columns < 0) {
+                    throw new java.lang.IllegalArgumentException("columns less than zero.");
+                }
+                if (columns !== oldVal) {
+                    this.columns = columns;
+                    this.invalidate();
+                }
+            };
+            /**
+             * Returns the preferred size <code>Dimensions</code> needed for this
+             * <code>TextField</code>. If a non-zero number of columns has been set, the
+             * width is set to the columns multiplied by the column width.
+             *
+             * @return the dimension of this textfield
+             */
+            JTextField.prototype.getPreferredSize = function () {
+                var size = _super.prototype.getPreferredSize.call(this);
+                return size;
+            };
+            /**
+             * Sets the current font. This removes cached row height and column width so
+             * the new font will be reflected. <code>revalidate</code> is called after
+             * setting the font.
+             *
+             * @param f
+             * the new font
+             */
+            JTextField.prototype.setFont = function (f) {
+                _super.prototype.setFont.call(this, f);
+                this.columnWidth = 0;
+            };
+            /**
+             * Adds the specified action listener to receive action events from this
+             * textfield.
+             *
+             * @param l
+             * the action listener to be added
+             */
+            JTextField.prototype.addActionListener = function (l) {
+                this.listenerList.add("java.awt.event.ActionListener", l);
+            };
+            /**
+             * Removes the specified action listener so that it no longer receives
+             * action events from this textfield.
+             *
+             * @param l
+             * the action listener to be removed
+             */
+            JTextField.prototype.removeActionListener = function (l) {
+                if ((l != null) && (this.getAction() === l)) {
+                    this.setAction(null);
+                }
+                else {
+                    this.listenerList.remove("java.awt.event.ActionListener", l);
+                }
+            };
+            /**
+             * Returns an array of all the <code>ActionListener</code>s added to this
+             * JTextField with addActionListener().
+             *
+             * @return all of the <code>ActionListener</code>s added or an empty array
+             * if no listeners have been added
+             * @since 1.4
+             */
+            JTextField.prototype.getActionListeners = function () {
+                return this.listenerList.getListeners("java.awt.event.ActionListener");
+            };
+            /**
+             * Notifies all listeners that have registered interest for notification on
+             * this event type. The event instance is lazily created. The listener list
+             * is processed in last to first order.
+             *
+             * @see EventListenerList
+             */
+            JTextField.prototype.fireActionPerformed = function () {
+                var listeners = this.listenerList.getListenerList();
+                var modifiers = 0;
+                var e = new java.awt.event.ActionEvent(this, java.awt.event.ActionEvent.ACTION_PERFORMED_$LI$(), (this.command != null) ? this.command : this.getText(), 0, modifiers);
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === "java.awt.event.ActionListener") {
+                        listeners[i + 1].actionPerformed(e);
+                    }
+                }
+            };
+            JTextField.prototype.setActionCommand = function (command) {
+                this.command = command;
+            };
+            JTextField.prototype.setAction = function (a) {
+                var oldValue = this.getAction();
+                if (this.action == null || !this.action.equals(a)) {
+                    this.action = a;
+                    if (oldValue != null) {
+                        this.removeActionListener(oldValue);
+                        oldValue.removePropertyChangeListener(this.actionPropertyChangeListener);
+                        this.actionPropertyChangeListener = null;
+                    }
+                    this.configurePropertiesFromAction(this.action);
+                    if (this.action != null) {
+                        if (!this.isListener("java.awt.event.ActionListener", this.action)) {
+                            this.addActionListener(this.action);
+                        }
+                        this.actionPropertyChangeListener = this.createActionPropertyChangeListener(this.action);
+                        this.action.addPropertyChangeListener(this.actionPropertyChangeListener);
+                    }
+                    this.firePropertyChange("action", oldValue, this.action);
+                }
+            };
+            JTextField.prototype.isListener = function (c, a) {
+                var _this = this;
+                if (((c != null && c instanceof java.lang.Class) || c === null) && ((a != null && a["__interfaces"] != null && a["__interfaces"].indexOf("java.awt.event.ActionListener") >= 0) || a === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    return (function () {
+                        var isListener = false;
+                        var listeners = _this.listenerList.getListenerList();
+                        for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                            if (listeners[i] === c && listeners[i + 1] === a) {
+                                isListener = true;
+                            }
+                        }
+                        return isListener;
+                    })();
+                }
+                else if (((typeof c === 'string') || c === null) && ((a != null && a["__interfaces"] != null && a["__interfaces"].indexOf("java.awt.event.ActionListener") >= 0) || a === null)) {
+                    return this.isListener$java_lang_String$java_awt_event_ActionListener(c, a);
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            JTextField.prototype.isListener$java_lang_String$java_awt_event_ActionListener = function (c, a) {
+                var isListener = false;
+                var listeners = this.listenerList.getListenerList();
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === c && listeners[i + 1] === a) {
+                        isListener = true;
+                    }
+                }
+                return isListener;
+            };
+            JTextField.prototype.getAction = function () {
+                return this.action;
+            };
+            JTextField.prototype.configurePropertiesFromAction = function (a) {
+                javax.swing.AbstractAction.setEnabledFromAction(this, a);
+                javax.swing.AbstractAction.setToolTipTextFromAction(this, a);
+                this.setActionCommandFromAction(a);
+            };
+            JTextField.prototype.actionPropertyChanged = function (action, propertyName) {
+                if (propertyName === javax.swing.Action.ACTION_COMMAND_KEY) {
+                    this.setActionCommandFromAction(action);
+                }
+                else if (propertyName === "enabled") {
+                    javax.swing.AbstractAction.setEnabledFromAction(this, action);
+                }
+                else if (propertyName === javax.swing.Action.SHORT_DESCRIPTION) {
+                    javax.swing.AbstractAction.setToolTipTextFromAction(this, action);
+                }
+            };
+            JTextField.prototype.setActionCommandFromAction = function (action) {
+                this.setActionCommand((action == null) ? null : action.getValue(javax.swing.Action.ACTION_COMMAND_KEY));
+            };
+            JTextField.prototype.createActionPropertyChangeListener = function (a) {
+                return new JTextField.TextFieldActionPropertyChangeListener(this, a);
+            };
+            /**
+             * Fetches the command list for the editor. This is the list of commands
+             * supported by the plugged-in UI augmented by the collection of commands
+             * that the editor itself supports. These are useful for binding to events,
+             * such as in a keymap.
+             *
+             * @return the command list
+             */
+            JTextField.prototype.getActions = function () {
+                return JTextField.defaultActions_$LI$();
+            };
+            /**
+             * Processes action events occurring on this textfield by dispatching them
+             * to any registered <code>ActionListener</code> objects. This is normally
+             * called by the controller registered with textfield.
+             */
+            JTextField.prototype.postActionEvent = function () {
+                this.fireActionPerformed();
+            };
+            /**
+             * Returns true if the receiver has an <code>ActionListener</code>
+             * installed.
+             */
+            JTextField.prototype.hasActionListener = function () {
+                var listeners = this.listenerList.getListenerList();
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === "java.awt.event.ActionListener") {
+                        return true;
+                    }
+                }
+                return false;
+            };
+            JTextField.defaultActions_$LI$ = function () { if (JTextField.defaultActions == null)
+                JTextField.defaultActions = []; return JTextField.defaultActions; };
+            ;
+            /**
+             * Returns a string representation of this <code>JTextField</code>. This
+             * method is intended to be used only for debugging purposes, and the
+             * content and format of the returned string may vary between
+             * implementations. The returned string may be empty but may not be
+             * <code>null</code>.
+             *
+             * @return a string representation of this <code>JTextField</code>
+             */
+            JTextField.prototype.paramString = function () {
+                var horizontalAlignmentString;
+                if (this.horizontalAlignment === javax.swing.SwingConstants.LEFT) {
+                    horizontalAlignmentString = "LEFT";
+                }
+                else if (this.horizontalAlignment === javax.swing.SwingConstants.CENTER) {
+                    horizontalAlignmentString = "CENTER";
+                }
+                else if (this.horizontalAlignment === javax.swing.SwingConstants.RIGHT) {
+                    horizontalAlignmentString = "RIGHT";
+                }
+                else if (this.horizontalAlignment === javax.swing.SwingConstants.LEADING) {
+                    horizontalAlignmentString = "LEADING";
+                }
+                else if (this.horizontalAlignment === javax.swing.SwingConstants.TRAILING) {
+                    horizontalAlignmentString = "TRAILING";
+                }
+                else
+                    horizontalAlignmentString = "";
+                var commandString = (this.command != null ? this.command : "");
+                return _super.prototype.paramString.call(this) + ",columns=" + this.columns + ",columnWidth=" + this.columnWidth + ",command=" + commandString + ",horizontalAlignment=" + horizontalAlignmentString;
+            };
+            /**
+             * Name of the action to send notification that the contents of the field
+             * have been accepted. Typically this is bound to a carriage-return.
+             */
+            JTextField.notifyAction = "notify-field-accept";
+            /**
+             * @see #getUIClassID
+             * @see #readObject
+             */
+            JTextField.uiClassID = "TextFieldUI";
+            return JTextField;
+        }(javax.swing.text.JTextComponent));
+        swing.JTextField = JTextField;
+        JTextField["__classname"] = "javax.swing.JTextField";
+        var JTextField;
+        (function (JTextField) {
+            var TextFieldActionPropertyChangeListener = (function (_super) {
+                __extends(TextFieldActionPropertyChangeListener, _super);
+                function TextFieldActionPropertyChangeListener(tf, a) {
+                    _super.call(this, tf, a);
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "java.beans.PropertyChangeListener", "java.io.Serializable"] });
+                }
+                TextFieldActionPropertyChangeListener.prototype.actionPropertyChanged = function (textField, action, e) {
+                    if (((textField != null && textField instanceof javax.swing.JTextField) || textField === null) && ((action != null && action["__interfaces"] != null && action["__interfaces"].indexOf("javax.swing.Action") >= 0) || action === null) && ((e != null && e instanceof java.beans.PropertyChangeEvent) || e === null)) {
+                        var __args = Array.prototype.slice.call(arguments);
+                        return (function () {
+                            textField.actionPropertyChanged(action, e.getPropertyName());
+                        })();
+                    }
+                    else if (((textField != null) || textField === null) && ((action != null && action["__interfaces"] != null && action["__interfaces"].indexOf("javax.swing.Action") >= 0) || action === null) && ((e != null && e instanceof java.beans.PropertyChangeEvent) || e === null)) {
+                        return this.actionPropertyChanged$javax_swing_JComponent$javax_swing_Action$java_beans_PropertyChangeEvent(textField, action, e);
+                    }
+                    else
+                        throw new Error('invalid overload');
+                };
+                return TextFieldActionPropertyChangeListener;
+            }(javax.swing.ActionPropertyChangeListener));
+            JTextField.TextFieldActionPropertyChangeListener = TextFieldActionPropertyChangeListener;
+            TextFieldActionPropertyChangeListener["__classname"] = "javax.swing.JTextField.TextFieldActionPropertyChangeListener";
+        })(JTextField = swing.JTextField || (swing.JTextField = {}));
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        /**
+         * An implementation of a menu -- a popup window containing
+         * <code>JMenuItem</code>s that is displayed when the user selects an item on
+         * the <code>JMenuBar</code>. In addition to <code>JMenuItem</code>s, a
+         * <code>JMenu</code> can also contain <code>JSeparator</code>s.
+         * <p>
+         * In essence, a menu is a button with an associated <code>JPopupMenu</code>.
+         * When the "button" is pressed, the <code>JPopupMenu</code> appears. If the
+         * "button" is on the <code>JMenuBar</code>, the menu is a top-level window. If
+         * the "button" is another menu item, then the <code>JPopupMenu</code> is
+         * "pull-right" menu.
+         * <p>
+         * Menus can be configured, and to some degree controlled, by
+         * <code><a href="Action.html">Action</a></code>s. Using an <code>Action</code>
+         * with a menu has many benefits beyond directly configuring a menu. Refer to
+         * <a href="Action.html#buttonActions"> Swing Components Supporting
+         * <code>Action</code></a> for more details, and you can find more information
+         * in
+         * <a href="http://docs.oracle.com/javase/tutorial/uiswing/misc/action.html">How
+         * to Use Actions</a>, a section in <em>The Java Tutorial</em>.
+         * <p>
+         * For information and examples of using menus see <a href=
+         * "http://docs.oracle.com/javase/tutorial/uiswing/components/menu.html">How to
+         * Use Menus</a>, a section in <em>The Java Tutorial.</em>
+         * <p>
+         * <strong>Warning:</strong> Swing is not thread safe. For more information see
+         * <a href="package-summary.html#threading">Swing's Threading Policy</a>.
+         * <p>
+         * <strong>Warning:</strong> Serialized objects of this class will not be
+         * compatible with future Swing releases. The current serialization support is
+         * appropriate for short term storage or RMI between applications running the
+         * same version of Swing. As of 1.4, support for long term storage of all
+         * JavaBeans&trade; has been added to the <code>java.beans</code> package.
+         * Please see {@link java.beans.XMLEncoder}.
+         *
+         * @beaninfo attribute: isContainer true description: A popup window containing
+         * menu items displayed in a menu bar.
+         *
+         * @author Georges Saab
+         * @author David Karlton
+         * @author Arnaud Weber
+         * @see JMenuItem
+         * @see JSeparator
+         * @see JMenuBar
+         * @see JPopupMenu
+         */
+        var JMenu = (function (_super) {
+            __extends(JMenu, _super);
+            /**
+             * Constructs a new <code>JMenu</code> with the supplied string as its text
+             * and specified as a tear-off menu or not.
+             *
+             * @param s
+             * the text for the menu label
+             * @param b
+             * can the menu be torn off (not yet implemented)
+             */
+            function JMenu(s, b) {
+                var _this = this;
+                if (((typeof s === 'string') || s === null) && ((typeof b === 'boolean') || b === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        _super.call(this, s);
+                        this.menuChangeListener = null;
+                        this.menuEvent = null;
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                        this.delay = 0;
+                        (function () {
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else if (((typeof s === 'string') || s === null) && b === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    _super.call(this, s);
+                    this.menuChangeListener = null;
+                    this.menuEvent = null;
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                    this.delay = 0;
+                    (function () {
+                    })();
+                }
+                else if (((s != null && s["__interfaces"] != null && s["__interfaces"].indexOf("javax.swing.Action") >= 0) || s === null) && b === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    var a = __args[0];
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        {
+                            var __args = Array.prototype.slice.call(arguments);
+                            var s = "";
+                            _super.call(this, s);
+                            this.menuChangeListener = null;
+                            this.menuEvent = null;
+                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                            this.delay = 0;
+                            (function () {
+                            })();
+                        }
+                        (function () {
+                        })();
+                    }
+                    (function () {
+                        _this.setAction(a);
+                    })();
+                }
+                else if (s === undefined && b === undefined) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    {
+                        var __args = Array.prototype.slice.call(arguments);
+                        var s = "";
+                        _super.call(this, s);
+                        this.menuChangeListener = null;
+                        this.menuEvent = null;
+                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                        this.delay = 0;
+                        (function () {
+                        })();
+                    }
+                    (function () {
+                    })();
+                }
+                else
+                    throw new Error('invalid overload');
+            }
+            /**
+             * Overriden to do nothing. We want JMenu to be focusable, but
+             * <code>JMenuItem</code> doesn't want to be, thus we override this do
+             * nothing. We don't invoke <code>setFocusable(true)</code> after super's
+             * constructor has completed as this has the side effect that
+             * <code>JMenu</code> will be considered traversable via the keyboard, which
+             * we don't want. Making a Component traversable by the keyboard after
+             * invoking <code>setFocusable(true)</code> is OK, as
+             * <code>setFocusable</code> is new API and is speced as such, but
+             * internally we don't want to use it like this else we change the keyboard
+             * traversability.
+             */
+            JMenu.prototype.initFocusability = function () {
+            };
+            /**
+             * Returns the name of the L&amp;F class that renders this component.
+             *
+             * @return the string "MenuUI"
+             * @see JComponent#getUIClassID
+             * @see UIDefaults#getUI
+             */
+            JMenu.prototype.getUIClassID = function () {
+                return JMenu.uiClassID;
+            };
+            /**
+             * Sets the data model for the "menu button" -- the label that the user
+             * clicks to open or close the menu.
+             *
+             * @param newModel
+             * the <code>ButtonModel</code>
+             * @see #getModel
+             * @beaninfo description: The menu's model bound: true expert: true hidden:
+             * true
+             */
+            JMenu.prototype.setModel = function (newModel) {
+                var oldModel = this.getModel();
+                _super.prototype.setModel.call(this, newModel);
+                if (oldModel != null && this.menuChangeListener != null) {
+                    oldModel.removeChangeListener(this.menuChangeListener);
+                    this.menuChangeListener = null;
+                }
+                this.model = newModel;
+                if (newModel != null) {
+                    this.menuChangeListener = this.createMenuChangeListener();
+                    newModel.addChangeListener(this.menuChangeListener);
+                }
+            };
+            /**
+             * Returns true if the menu is currently selected (highlighted).
+             *
+             * @return true if the menu is selected, else false
+             */
+            JMenu.prototype.isSelected = function () {
+                return this.getModel().isSelected();
+            };
+            /**
+             * Sets the selection status of the menu.
+             *
+             * @param b
+             * true to select (highlight) the menu; false to de-select the
+             * menu
+             * @beaninfo description: When the menu is selected, its popup child is
+             * shown. expert: true hidden: true
+             */
+            JMenu.prototype.setSelected = function (b) {
+                var model = this.getModel();
+                if (b !== model.isSelected()) {
+                    this.getModel().setSelected(b);
+                }
+            };
+            /**
+             * Returns true if the menu's popup window is visible.
+             *
+             * @return true if the menu is visible, else false
+             */
+            JMenu.prototype.isPopupMenuVisible = function () {
+                this.ensurePopupMenuCreated();
+                return this.popupMenu.isVisible();
+            };
+            /**
+             * Sets the visibility of the menu's popup. If the menu is not enabled, this
+             * method will have no effect.
+             *
+             * @param b
+             * a boolean value -- true to make the menu visible, false to
+             * hide it
+             * @beaninfo description: The popup menu's visibility expert: true hidden:
+             * true
+             */
+            JMenu.prototype.setPopupMenuVisible = function (b) {
+                if (JMenu.DEBUG) {
+                    console.info("in JMenu.setPopupMenuVisible " + b);
+                }
+            };
+            /**
+             * Computes the origin for the <code>JMenu</code>'s popup menu. This method
+             * uses Look and Feel properties named <code>Menu.menuPopupOffsetX</code>,
+             * <code>Menu.menuPopupOffsetY</code>, <code>Menu.submenuPopupOffsetX</code>
+             * , and <code>Menu.submenuPopupOffsetY</code> to adjust the exact location
+             * of popup.
+             *
+             * @return a <code>Point</code> in the coordinate space of the menu which
+             * should be used as the origin of the <code>JMenu</code>'s popup
+             * menu
+             *
+             * @since 1.3
+             */
+            JMenu.prototype.getPopupMenuOrigin = function () {
+                var x = 0;
+                var y = 0;
+                return new java.awt.Point(x, y);
+            };
+            /**
+             * Returns the suggested delay, in milliseconds, before submenus are popped
+             * up or down. Each look and feel (L&amp;F) may determine its own policy for
+             * observing the <code>delay</code> property. In most cases, the delay is
+             * not observed for top level menus or while dragging. The default for
+             * <code>delay</code> is 0. This method is a property of the look and feel
+             * code and is used to manage the idiosyncrasies of the various UI
+             * implementations.
+             *
+             *
+             * @return the <code>delay</code> property
+             */
+            JMenu.prototype.getDelay = function () {
+                return this.delay;
+            };
+            /**
+             * Sets the suggested delay before the menu's <code>PopupMenu</code> is
+             * popped up or down. Each look and feel (L&amp;F) may determine it's own
+             * policy for observing the delay property. In most cases, the delay is not
+             * observed for top level menus or while dragging. This method is a property
+             * of the look and feel code and is used to manage the idiosyncrasies of the
+             * various UI implementations.
+             *
+             * @param d
+             * the number of milliseconds to delay
+             * @exception IllegalArgumentException
+             * if <code>d</code> is less than 0
+             * @beaninfo description: The delay between menu selection and making the
+             * popup menu visible expert: true
+             */
+            JMenu.prototype.setDelay = function (d) {
+                if (d < 0)
+                    throw new java.lang.IllegalArgumentException("Delay must be a positive integer");
+                this.delay = d;
+            };
+            JMenu.prototype.ensurePopupMenuCreated = function () {
+            };
+            /**
+             * Sets the location of the popup component.
+             *
+             * @param x
+             * the x coordinate of the popup's new position
+             * @param y
+             * the y coordinate of the popup's new position
+             */
+            JMenu.prototype.setMenuLocation = function (x, y) {
+                if (this.popupMenu != null)
+                    this.popupMenu.setLocation(x, y);
+            };
+            /**
+             * Appends a menu item to the end of this menu. Returns the menu item added.
+             *
+             * @param menuItem
+             * the <code>JMenuitem</code> to be added
+             * @return the <code>JMenuItem</code> added
+             */
+            JMenu.prototype.add$javax_swing_JMenuItem = function (menuItem) {
+                this.ensurePopupMenuCreated();
+                return this.popupMenu.add(menuItem);
+            };
+            /**
+             * Appends a component to the end of this menu. Returns the component added.
+             *
+             * @param c
+             * the <code>Component</code> to add
+             * @return the <code>Component</code> added
+             */
+            JMenu.prototype.add$java_awt_Component = function (c) {
+                this.ensurePopupMenuCreated();
+                this.popupMenu.add(c);
+                return c;
+            };
+            /**
+             * Adds the specified component to this container at the given position. If
+             * <code>index</code> equals -1, the component will be appended to the end.
+             *
+             * @param c
+             * the <code>Component</code> to add
+             * @param index
+             * the position at which to insert the component
+             * @return the <code>Component</code> added
+             * @see #remove
+             * @see java.awt.Container#add(Component, int)
+             */
+            JMenu.prototype.add$java_awt_Component$int = function (c, index) {
+                this.ensurePopupMenuCreated();
+                this.popupMenu.add(c, index);
+                return c;
+            };
+            /**
+             * Creates a new menu item with the specified text and appends it to the end
+             * of this menu.
+             *
+             * @param s
+             * the string for the menu item to be added
+             */
+            JMenu.prototype.add$java_lang_String = function (s) {
+                return this.add(new javax.swing.JMenuItem(s));
+            };
+            /**
+             * Creates a new menu item attached to the specified <code>Action</code>
+             * object and appends it to the end of this menu.
+             *
+             * @param a
+             * the <code>Action</code> for the menu item to be added
+             * @see Action
+             */
+            JMenu.prototype.add$javax_swing_Action = function (a) {
+                var mi = this.createActionComponent(a);
+                mi.setAction(a);
+                this.add(mi);
+                return mi;
+            };
+            /**
+             * Factory method which creates the <code>JMenuItem</code> for
+             * <code>Action</code>s added to the <code>JMenu</code>.
+             *
+             * @param a
+             * the <code>Action</code> for the menu item to be added
+             * @return the new menu item
+             * @see Action
+             *
+             * @since 1.3
+             */
+            JMenu.prototype.createActionComponent = function (a) {
+                var mi = (function (target) {
+                    return target;
+                })(new javax.swing.JMenuItem());
+                return mi;
+            };
+            /**
+             * Appends a new separator to the end of the menu.
+             */
+            JMenu.prototype.addSeparator = function () {
+                this.ensurePopupMenuCreated();
+                this.popupMenu.addSeparator();
+            };
+            /**
+             * Inserts a new menu item with the specified text at a given position.
+             *
+             * @param s
+             * the text for the menu item to add
+             * @param pos
+             * an integer specifying the position at which to add the new
+             * menu item
+             * @exception IllegalArgumentException
+             * when the value of <code>pos</code> &lt; 0
+             */
+            JMenu.prototype.insert = function (s, pos) {
+                var _this = this;
+                if (((typeof s === 'string') || s === null) && ((typeof pos === 'number') || pos === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    return (function () {
+                        if (pos < 0) {
+                            throw new java.lang.IllegalArgumentException("index less than zero.");
+                        }
+                        _this.ensurePopupMenuCreated();
+                        _this.popupMenu.insert(new javax.swing.JMenuItem(s), pos);
+                    })();
+                }
+                else if (((s != null && s instanceof javax.swing.JMenuItem) || s === null) && ((typeof pos === 'number') || pos === null)) {
+                    return this.insert$javax_swing_JMenuItem$int(s, pos);
+                }
+                else if (((s != null && s["__interfaces"] != null && s["__interfaces"].indexOf("javax.swing.Action") >= 0) || s === null) && ((typeof pos === 'number') || pos === null)) {
+                    return this.insert$javax_swing_Action$int(s, pos);
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            /**
+             * Inserts the specified <code>JMenuitem</code> at a given position.
+             *
+             * @param mi
+             * the <code>JMenuitem</code> to add
+             * @param pos
+             * an integer specifying the position at which to add the new
+             * <code>JMenuitem</code>
+             * @return the new menu item
+             * @exception IllegalArgumentException
+             * if the value of <code>pos</code> &lt; 0
+             */
+            JMenu.prototype.insert$javax_swing_JMenuItem$int = function (mi, pos) {
+                if (pos < 0) {
+                    throw new java.lang.IllegalArgumentException("index less than zero.");
+                }
+                this.ensurePopupMenuCreated();
+                this.popupMenu.insert(mi, pos);
+                return mi;
+            };
+            /**
+             * Inserts a new menu item attached to the specified <code>Action</code>
+             * object at a given position.
+             *
+             * @param a
+             * the <code>Action</code> object for the menu item to add
+             * @param pos
+             * an integer specifying the position at which to add the new
+             * menu item
+             * @exception IllegalArgumentException
+             * if the value of <code>pos</code> &lt; 0
+             */
+            JMenu.prototype.insert$javax_swing_Action$int = function (a, pos) {
+                if (pos < 0) {
+                    throw new java.lang.IllegalArgumentException("index less than zero.");
+                }
+                this.ensurePopupMenuCreated();
+                var mi = new javax.swing.JMenuItem(a);
+                this.popupMenu.insert(mi, pos);
+                return mi;
+            };
+            /**
+             * Inserts a separator at the specified position.
+             *
+             * @param index
+             * an integer specifying the position at which to insert the menu
+             * separator
+             * @exception IllegalArgumentException
+             * if the value of <code>index</code> &lt; 0
+             */
+            JMenu.prototype.insertSeparator = function (index) {
+                if (index < 0) {
+                    throw new java.lang.IllegalArgumentException("index less than zero.");
+                }
+                this.ensurePopupMenuCreated();
+                this.popupMenu.insert(new javax.swing.JPopupMenu.Separator(), index);
+            };
+            /**
+             * Returns the <code>JMenuItem</code> at the specified position. If the
+             * component at <code>pos</code> is not a menu item, <code>null</code> is
+             * returned. This method is included for AWT compatibility.
+             *
+             * @param pos
+             * an integer specifying the position
+             * @exception IllegalArgumentException
+             * if the value of <code>pos</code> &lt; 0
+             * @return the menu item at the specified position; or <code>null</code> if
+             * the item as the specified position is not a menu item
+             */
+            JMenu.prototype.getItem = function (pos) {
+                if (pos < 0) {
+                    throw new java.lang.IllegalArgumentException("index less than zero.");
+                }
+                var c = this.getMenuComponent(pos);
+                if (c != null && c instanceof javax.swing.JMenuItem) {
+                    var mi = c;
+                    return mi;
+                }
+                return null;
+            };
+            /**
+             * Returns the number of items on the menu, including separators. This
+             * method is included for AWT compatibility.
+             *
+             * @return an integer equal to the number of items on the menu
+             * @see #getMenuComponentCount
+             */
+            JMenu.prototype.getItemCount = function () {
+                return this.getMenuComponentCount();
+            };
+            /**
+             * Returns true if the menu can be torn off. This method is not yet
+             * implemented.
+             *
+             * @return true if the menu can be torn off, else false
+             * @exception Error
+             * if invoked -- this method is not yet implemented
+             */
+            JMenu.prototype.isTearOff = function () {
+                throw new Error("boolean isTearOff() {} not yet implemented");
+            };
+            /**
+             * Removes the specified menu item from this menu. If there is no popup
+             * menu, this method will have no effect.
+             *
+             * @param item
+             * the <code>JMenuItem</code> to be removed from the menu
+             */
+            JMenu.prototype.remove = function (item) {
+                var _this = this;
+                if (((item != null && item instanceof javax.swing.JMenuItem) || item === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    return (function () {
+                        if (_this.popupMenu != null)
+                            _this.popupMenu.remove(item);
+                    })();
+                }
+                else if (((item != null && item instanceof java.awt.Component) || item === null)) {
+                    return this.remove$java_awt_Component(item);
+                }
+                else if (((typeof item === 'number') || item === null)) {
+                    return this.remove$int(item);
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            /**
+             * Removes the menu item at the specified index from this menu.
+             *
+             * @param pos
+             * the position of the item to be removed
+             * @exception IllegalArgumentException
+             * if the value of <code>pos</code> &lt; 0, or if
+             * <code>pos</code> is greater than the number of menu items
+             */
+            JMenu.prototype.remove$int = function (pos) {
+                if (pos < 0) {
+                    throw new java.lang.IllegalArgumentException("index less than zero.");
+                }
+                if (pos > this.getItemCount()) {
+                    throw new java.lang.IllegalArgumentException("index greater than the number of items.");
+                }
+                if (this.popupMenu != null)
+                    this.popupMenu.remove(pos);
+            };
+            /**
+             * Removes the component <code>c</code> from this menu.
+             *
+             * @param c
+             * the component to be removed
+             */
+            JMenu.prototype.remove$java_awt_Component = function (c) {
+                if (this.popupMenu != null)
+                    this.popupMenu.remove(c);
+            };
+            /**
+             * Removes all menu items from this menu.
+             */
+            JMenu.prototype.removeAll = function () {
+                if (this.popupMenu != null)
+                    this.popupMenu.removeAll();
+            };
+            /**
+             * Returns the number of components on the menu.
+             *
+             * @return an integer containing the number of components on the menu
+             */
+            JMenu.prototype.getMenuComponentCount = function () {
+                var componentCount = 0;
+                if (this.popupMenu != null)
+                    componentCount = this.popupMenu.getComponentCount();
+                return componentCount;
+            };
+            /**
+             * Returns the component at position <code>n</code>.
+             *
+             * @param n
+             * the position of the component to be returned
+             * @return the component requested, or <code>null</code> if there is no
+             * popup menu
+             */
+            JMenu.prototype.getMenuComponent = function (n) {
+                if (this.popupMenu != null)
+                    return this.popupMenu.getComponent(n);
+                return null;
+            };
+            /**
+             * Returns an array of <code>Component</code>s of the menu's subcomponents.
+             * Note that this returns all <code>Component</code>s in the popup menu,
+             * including separators.
+             *
+             * @return an array of <code>Component</code>s or an empty array if there is
+             * no popup menu
+             */
+            JMenu.prototype.getMenuComponents = function () {
+                if (this.popupMenu != null)
+                    return this.popupMenu.getComponents();
+                return new Array(0);
+            };
+            /**
+             * Returns true if the menu is a 'top-level menu', that is, if it is the
+             * direct child of a menubar.
+             *
+             * @return true if the menu is activated from the menu bar; false if the
+             * menu is activated from a menu item on another menu
+             */
+            JMenu.prototype.isTopLevelMenu = function () {
+                return false;
+            };
+            /**
+             * Returns true if the specified component exists in the submenu hierarchy.
+             *
+             * @param c
+             * the <code>Component</code> to be tested
+             * @return true if the <code>Component</code> exists, false otherwise
+             */
+            JMenu.prototype.isMenuComponent = function (c) {
+                if (c === this)
+                    return true;
+                if (c != null && c instanceof javax.swing.JPopupMenu) {
+                    var comp = c;
+                    if (comp === this.getPopupMenu())
+                        return true;
+                }
+                var ncomponents = this.getMenuComponentCount();
+                var component = this.getMenuComponents();
+                for (var i = 0; i < ncomponents; i++) {
+                    var comp2 = component[i];
+                    if (comp2 === c)
+                        return true;
+                    if (comp2 != null && comp2 instanceof javax.swing.JMenu) {
+                        var subMenu = comp2;
+                        if (subMenu.isMenuComponent(c))
+                            return true;
+                    }
+                }
+                return false;
+            };
+            /**
+             * Returns the popupmenu associated with this menu. If there is no
+             * popupmenu, it will create one.
+             */
+            JMenu.prototype.getPopupMenu = function () {
+                this.ensurePopupMenuCreated();
+                return this.popupMenu;
+            };
+            /**
+             * Adds a listener for menu events.
+             *
+             * @param l
+             * the listener to be added
+             */
+            JMenu.prototype.addMenuListener = function (l) {
+                this.listenerList.add("javax.swing.event.MenuListener", l);
+            };
+            /**
+             * Removes a listener for menu events.
+             *
+             * @param l
+             * the listener to be removed
+             */
+            JMenu.prototype.removeMenuListener = function (l) {
+                this.listenerList.remove("javax.swing.event.MenuListener", l);
+            };
+            /**
+             * Returns an array of all the <code>MenuListener</code>s added to this
+             * JMenu with addMenuListener().
+             *
+             * @return all of the <code>MenuListener</code>s added or an empty array if
+             * no listeners have been added
+             * @since 1.4
+             */
+            JMenu.prototype.getMenuListeners = function () {
+                return this.listenerList.getListeners("javax.swing.event.MenuListener");
+            };
+            /**
+             * Notifies all listeners that have registered interest for notification on
+             * this event type. The event instance is created lazily.
+             *
+             * @exception Error
+             * if there is a <code>null</code> listener
+             * @see EventListenerList
+             */
+            JMenu.prototype.fireMenuSelected = function () {
+                if (JMenu.DEBUG) {
+                    console.info("In JMenu.fireMenuSelected");
+                }
+                var listeners = this.listenerList.getListenerList();
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === "javax.swing.event.MenuListener") {
+                        if (listeners[i + 1] == null) {
+                            throw new Error(this.getText() + " has a NULL Listener!! " + i);
+                        }
+                        else {
+                            if (this.menuEvent == null)
+                                this.menuEvent = new javax.swing.event.MenuEvent(this);
+                            listeners[i + 1].menuSelected(this.menuEvent);
+                        }
+                    }
+                }
+            };
+            /**
+             * Notifies all listeners that have registered interest for notification on
+             * this event type. The event instance is created lazily.
+             *
+             * @exception Error
+             * if there is a <code>null</code> listener
+             * @see EventListenerList
+             */
+            JMenu.prototype.fireMenuDeselected = function () {
+                if (JMenu.DEBUG) {
+                    console.info("In JMenu.fireMenuDeselected");
+                }
+                var listeners = this.listenerList.getListenerList();
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === "javax.swing.event.MenuListener") {
+                        if (listeners[i + 1] == null) {
+                            throw new Error(this.getText() + " has a NULL Listener!! " + i);
+                        }
+                        else {
+                            if (this.menuEvent == null)
+                                this.menuEvent = new javax.swing.event.MenuEvent(this);
+                            listeners[i + 1].menuDeselected(this.menuEvent);
+                        }
+                    }
+                }
+            };
+            /**
+             * Notifies all listeners that have registered interest for notification on
+             * this event type. The event instance is created lazily.
+             *
+             * @exception Error
+             * if there is a <code>null</code> listener
+             * @see EventListenerList
+             */
+            JMenu.prototype.fireMenuCanceled = function () {
+                if (JMenu.DEBUG) {
+                    console.info("In JMenu.fireMenuCanceled");
+                }
+                var listeners = this.listenerList.getListenerList();
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === "javax.swing.event.MenuListener") {
+                        if (listeners[i + 1] == null) {
+                            throw new Error(this.getText() + " has a NULL Listener!! " + i);
+                        }
+                        else {
+                            if (this.menuEvent == null)
+                                this.menuEvent = new javax.swing.event.MenuEvent(this);
+                            listeners[i + 1].menuCanceled(this.menuEvent);
+                        }
+                    }
+                }
+            };
+            JMenu.prototype.configureAcceleratorFromAction = function (a) {
+            };
+            JMenu.prototype.createMenuChangeListener = function () {
+                return new JMenu.MenuChangeListener(this);
+            };
+            /**
+             * Messaged when the menubar selection changes to activate or deactivate
+             * this menu. Overrides <code>JMenuItem.menuSelectionChanged</code>.
+             *
+             * @param isIncluded
+             * true if this menu is active, false if it is not
+             */
+            JMenu.prototype.menuSelectionChanged = function (isIncluded) {
+                if (JMenu.DEBUG) {
+                    console.info("In JMenu.menuSelectionChanged to " + isIncluded);
+                }
+                this.setSelected(isIncluded);
+            };
+            /**
+             * Returns an array of <code>MenuElement</code>s containing the submenu for
+             * this menu component. If popup menu is <code>null</code> returns an empty
+             * array. This method is required to conform to the <code>MenuElement</code>
+             * interface. Note that since <code>JSeparator</code>s do not conform to the
+             * <code>MenuElement</code> interface, this array will only contain
+             * <code>JMenuItem</code>s.
+             *
+             * @return an array of <code>MenuElement</code> objects
+             */
+            JMenu.prototype.getSubElements = function () {
+                if (this.popupMenu == null)
+                    return new Array(0);
+                else {
+                    var result = new Array(1);
+                    result[0] = this.popupMenu;
+                    return result;
+                }
+            };
+            /**
+             * Returns the <code>java.awt.Component</code> used to paint this
+             * <code>MenuElement</code>. The returned component is used to convert
+             * events and detect if an event is inside a menu component.
+             */
+            JMenu.prototype.getComponent$ = function () {
+                return this;
+            };
+            /**
+             * Processes key stroke events such as mnemonics and accelerators.
+             *
+             * @param evt
+             * the key event to be processed
+             */
+            JMenu.prototype.processKeyEvent$java_awt_event_KeyEvent = function (evt) {
+            };
+            /**
+             * Programmatically performs a "click". This overrides the method
+             * <code>AbstractButton.doClick</code> in order to make the menu pop up.
+             *
+             * @param pressTime
+             * indicates the number of milliseconds the button was pressed
+             * for
+             */
+            JMenu.prototype.doClick = function (pressTime) {
+                if (((typeof pressTime === 'number') || pressTime === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    return (function () {
+                    })();
+                }
+                else if (pressTime === undefined) {
+                    return this.doClick$();
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            /**
+             * Returns a string representation of this <code>JMenu</code>. This method
+             * is intended to be used only for debugging purposes, and the content and
+             * format of the returned string may vary between implementations. The
+             * returned string may be empty but may not be <code>null</code>.
+             *
+             * @return a string representation of this JMenu.
+             */
+            JMenu.prototype.paramString = function () {
+                return _super.prototype.paramString.call(this);
+            };
+            /**
+             * @see #getUIClassID
+             * @see #readObject
+             */
+            JMenu.uiClassID = "MenuUI";
+            JMenu.DEBUG = false;
+            return JMenu;
+        }(javax.swing.JMenuItem));
+        swing.JMenu = JMenu;
+        JMenu["__classname"] = "javax.swing.JMenu";
+        var JMenu;
+        (function (JMenu) {
+            var MenuChangeListener = (function () {
+                function MenuChangeListener(__parent) {
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "javax.swing.event.ChangeListener", "java.io.Serializable"] });
+                    this.__parent = __parent;
+                    this.isSelected = false;
+                }
+                MenuChangeListener.prototype.stateChanged = function (e) {
+                    var model = e.getSource();
+                    var modelSelected = model.isSelected();
+                    if (modelSelected !== this.isSelected) {
+                        if (modelSelected === true) {
+                            this.__parent.fireMenuSelected();
+                        }
+                        else {
+                            this.__parent.fireMenuDeselected();
+                        }
+                        this.isSelected = modelSelected;
+                    }
+                };
+                return MenuChangeListener;
+            }());
+            JMenu.MenuChangeListener = MenuChangeListener;
+            MenuChangeListener["__classname"] = "javax.swing.JMenu.MenuChangeListener";
+        })(JMenu = swing.JMenu || (swing.JMenu = {}));
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        /**
+         * An implementation of a popup menu -- a small window that pops up and displays
+         * a series of choices. A <code>JPopupMenu</code> is used for the menu that
+         * appears when the user selects an item on the menu bar. It is also used for
+         * "pull-right" menu that appears when the selects a menu item that activates
+         * it. Finally, a <code>JPopupMenu</code> can also be used anywhere else you
+         * want a menu to appear. For example, when the user right-clicks in a specified
+         * area.
+         * <p>
+         * For information and examples of using popup menus, see <a href=
+         * "http://docs.oracle.com/javase/tutorial/uiswing/components/menu.html">How to
+         * Use Menus</a> in <em>The Java Tutorial.</em>
+         * <p>
+         * <strong>Warning:</strong> Swing is not thread safe. For more information see
+         * <a href="package-summary.html#threading">Swing's Threading Policy</a>.
+         * <p>
+         * <strong>Warning:</strong> Serialized objects of this class will not be
+         * compatible with future Swing releases. The current serialization support is
+         * appropriate for short term storage or RMI between applications running the
+         * same version of Swing. As of 1.4, support for long term storage of all
+         * JavaBeans&trade; has been added to the <code>java.beans</code> package.
+         * Please see {@link java.beans.XMLEncoder}.
+         *
+         * @beaninfo attribute: isContainer false description: A small window that pops
+         * up and displays a series of choices.
+         *
+         * @author Georges Saab
+         * @author David Karlton
+         * @author Arnaud Weber
+         */
+        var JPopupMenu = (function (_super) {
+            __extends(JPopupMenu, _super);
+            /**
+             * Constructs a <code>JPopupMenu</code> with the specified title.
+             *
+             * @param label
+             * the string that a UI may use to display as a title for the
+             * popup menu.
+             */
+            function JPopupMenu(label) {
+                if (label === void 0) { label = null; }
+                _super.call(this);
+                this.label = null;
+                this.paintBorder = true;
+                this.margin = null;
+                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.MenuElement", "java.io.Serializable"] });
+                this.desiredLocationX = 0;
+                this.desiredLocationY = 0;
+                this.label = label;
+                this.setSelectionModel(new javax.swing.DefaultSingleSelectionModel());
+            }
+            JPopupMenu.prototype.createHTML = function () {
+            };
+            JPopupMenu.classLock_$LI$ = function () { if (JPopupMenu.classLock == null)
+                JPopupMenu.classLock = new Object(); return JPopupMenu.classLock; };
+            ;
+            /**
+             * Returns the name of the L&amp;F class that renders this component.
+             *
+             * @return the string "PopupMenuUI"
+             * @see JComponent#getUIClassID
+             * @see UIDefaults#getUI
+             */
+            JPopupMenu.prototype.getUIClassID = function () {
+                return JPopupMenu.uiClassID;
+            };
+            /**
+             * Returns the model object that handles single selections.
+             *
+             * @return the <code>selectionModel</code> property
+             * @see SingleSelectionModel
+             */
+            JPopupMenu.prototype.getSelectionModel = function () {
+                return this.selectionModel;
+            };
+            /**
+             * Sets the model object to handle single selections.
+             *
+             * @param model
+             * the new <code>SingleSelectionModel</code>
+             * @see SingleSelectionModel
+             * @beaninfo description: The selection model for the popup menu expert:
+             * true
+             */
+            JPopupMenu.prototype.setSelectionModel = function (model) {
+                this.selectionModel = model;
+            };
+            /**
+             * Appends the specified menu item to the end of this menu.
+             *
+             * @param menuItem
+             * the <code>JMenuItem</code> to add
+             * @return the <code>JMenuItem</code> added
+             */
+            JPopupMenu.prototype.add$javax_swing_JMenuItem = function (menuItem) {
+                _super.prototype.add.call(this, menuItem);
+                return menuItem;
+            };
+            /**
+             * Creates a new menu item with the specified text and appends it to the end
+             * of this menu.
+             *
+             * @param s
+             * the string for the menu item to be added
+             */
+            JPopupMenu.prototype.add$java_lang_String = function (s) {
+                return this.add(new javax.swing.JMenuItem(s));
+            };
+            /**
+             * Appends a new menu item to the end of the menu which dispatches the
+             * specified <code>Action</code> object.
+             *
+             * @param a
+             * the <code>Action</code> to add to the menu
+             * @return the new menu item
+             * @see Action
+             */
+            JPopupMenu.prototype.add$javax_swing_Action = function (a) {
+                var mi = this.createActionComponent(a);
+                mi.setAction(a);
+                this.add(mi);
+                return mi;
+            };
+            /**
+             * Factory method which creates the <code>JMenuItem</code> for
+             * <code>Actions</code> added to the <code>JPopupMenu</code>.
+             *
+             * @param a
+             * the <code>Action</code> for the menu item to be added
+             * @return the new menu item
+             * @see Action
+             *
+             * @since 1.3
+             */
+            JPopupMenu.prototype.createActionComponent = function (a) {
+                var mi = (function (target) {
+                    return target;
+                })(new javax.swing.JMenuItem());
+                return mi;
+            };
+            /**
+             * Returns a properly configured <code>PropertyChangeListener</code> which
+             * updates the control as changes to the <code>Action</code> occur.
+             */
+            JPopupMenu.prototype.createActionChangeListener = function (b) {
+                return null;
+            };
+            JPopupMenu.prototype.remove = function (item) {
+                if (((item != null && item instanceof java.awt.Component) || item === null)) {
+                    return this.remove$java_awt_Component(item);
+                }
+                else if (((typeof item === 'number') || item === null)) {
+                    return this.remove$int(item);
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            /**
+             * Removes the component at the specified index from this popup menu.
+             *
+             * @param pos
+             * the position of the item to be removed
+             * @exception IllegalArgumentException
+             * if the value of <code>pos</code> &lt; 0, or if the value
+             * of <code>pos</code> is greater than the number of items
+             */
+            JPopupMenu.prototype.remove$int = function (pos) {
+                if (pos < 0) {
+                    throw new java.lang.IllegalArgumentException("index less than zero.");
+                }
+                if (pos > this.getComponentCount() - 1) {
+                    throw new java.lang.IllegalArgumentException("index greater than the number of items.");
+                }
+                _super.prototype.remove.call(this, pos);
+            };
+            /**
+             * Returns the popup menu's label
+             *
+             * @return a string containing the popup menu's label
+             * @see #setLabel
+             */
+            JPopupMenu.prototype.getLabel = function () {
+                return this.label;
+            };
+            /**
+             * Sets the popup menu's label. Different look and feels may choose to
+             * display or not display this.
+             *
+             * @param label
+             * a string specifying the label for the popup menu
+             *
+             * @see #setLabel
+             * @beaninfo description: The label for the popup menu. bound: true
+             */
+            JPopupMenu.prototype.setLabel = function (label) {
+                var oldValue = this.label;
+                this.label = label;
+                this.firePropertyChange("label", oldValue, label);
+                if (this.htmlElement != null) {
+                    this.initHTML();
+                }
+            };
+            /**
+             * Appends a new separator at the end of the menu.
+             */
+            JPopupMenu.prototype.addSeparator = function () {
+                this.add(new JPopupMenu.Separator());
+            };
+            /**
+             * Inserts a menu item for the specified <code>Action</code> object at a
+             * given position.
+             *
+             * @param a
+             * the <code>Action</code> object to insert
+             * @param index
+             * specifies the position at which to insert the
+             * <code>Action</code>, where 0 is the first
+             * @exception IllegalArgumentException
+             * if <code>index</code> &lt; 0
+             * @see Action
+             */
+            JPopupMenu.prototype.insert = function (a, index) {
+                var _this = this;
+                if (((a != null && a["__interfaces"] != null && a["__interfaces"].indexOf("javax.swing.Action") >= 0) || a === null) && ((typeof index === 'number') || index === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    return (function () {
+                        var mi = _this.createActionComponent(a);
+                        mi.setAction(a);
+                        _this.insert(mi, index);
+                    })();
+                }
+                else if (((a != null && a instanceof java.awt.Component) || a === null) && ((typeof index === 'number') || index === null)) {
+                    return this.insert$java_awt_Component$int(a, index);
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            /**
+             * Inserts the specified component into the menu at a given position.
+             *
+             * @param component
+             * the <code>Component</code> to insert
+             * @param index
+             * specifies the position at which to insert the component, where
+             * 0 is the first
+             * @exception IllegalArgumentException
+             * if <code>index</code> &lt; 0
+             */
+            JPopupMenu.prototype.insert$java_awt_Component$int = function (component, index) {
+                if (index < 0) {
+                    throw new java.lang.IllegalArgumentException("index less than zero.");
+                }
+                var nitems = this.getComponentCount();
+                var tempItems = new java.util.Vector();
+                for (var i = index; i < nitems; i++) {
+                    tempItems.addElement(this.getComponent(index));
+                    this.remove(index);
+                }
+                this.add(component);
+                for (var index142 = tempItems.iterator(); index142.hasNext();) {
+                    var tempItem = index142.next();
+                    {
+                        this.add(tempItem);
+                    }
+                }
+            };
+            /**
+             * Adds a <code>PopupMenu</code> listener.
+             *
+             * @param l
+             * the <code>PopupMenuListener</code> to add
+             */
+            JPopupMenu.prototype.addPopupMenuListener = function (l) {
+                this.listenerList.add("javax.swing.event.PopupMenuListener", l);
+            };
+            /**
+             * Removes a <code>PopupMenu</code> listener.
+             *
+             * @param l
+             * the <code>PopupMenuListener</code> to remove
+             */
+            JPopupMenu.prototype.removePopupMenuListener = function (l) {
+                this.listenerList.remove("javax.swing.event.PopupMenuListener", l);
+            };
+            /**
+             * Returns an array of all the <code>PopupMenuListener</code>s added to this
+             * JMenuItem with addPopupMenuListener().
+             *
+             * @return all of the <code>PopupMenuListener</code>s added or an empty
+             * array if no listeners have been added
+             * @since 1.4
+             */
+            JPopupMenu.prototype.getPopupMenuListeners = function () {
+                return this.listenerList.getListeners("javax.swing.event.PopupMenuListener");
+            };
+            /**
+             * Adds a <code>MenuKeyListener</code> to the popup menu.
+             *
+             * @param l
+             * the <code>MenuKeyListener</code> to be added
+             * @since 1.5
+             */
+            JPopupMenu.prototype.addMenuKeyListener = function (l) {
+                this.listenerList.add("javax.swing.event.MenuKeyListener", l);
+            };
+            /**
+             * Removes a <code>MenuKeyListener</code> from the popup menu.
+             *
+             * @param l
+             * the <code>MenuKeyListener</code> to be removed
+             * @since 1.5
+             */
+            JPopupMenu.prototype.removeMenuKeyListener = function (l) {
+                this.listenerList.remove("javax.swing.event.MenuKeyListener", l);
+            };
+            /**
+             * Returns an array of all the <code>MenuKeyListener</code>s added to this
+             * JPopupMenu with addMenuKeyListener().
+             *
+             * @return all of the <code>MenuKeyListener</code>s added or an empty array
+             * if no listeners have been added
+             * @since 1.5
+             */
+            JPopupMenu.prototype.getMenuKeyListeners = function () {
+                return this.listenerList.getListeners("javax.swing.event.MenuKeyListener");
+            };
+            /**
+             * Notifies <code>PopupMenuListener</code>s that this popup menu will become
+             * visible.
+             */
+            JPopupMenu.prototype.firePopupMenuWillBecomeVisible = function () {
+                var listeners = this.listenerList.getListenerList();
+                var e = null;
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === "javax.swing.event.PopupMenuListener") {
+                        if (e == null)
+                            e = new javax.swing.event.PopupMenuEvent(this);
+                        listeners[i + 1].popupMenuWillBecomeVisible(e);
+                    }
+                }
+            };
+            /**
+             * Notifies <code>PopupMenuListener</code>s that this popup menu will become
+             * invisible.
+             */
+            JPopupMenu.prototype.firePopupMenuWillBecomeInvisible = function () {
+                var listeners = this.listenerList.getListenerList();
+                var e = null;
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === "javax.swing.event.PopupMenuListener") {
+                        if (e == null)
+                            e = new javax.swing.event.PopupMenuEvent(this);
+                        listeners[i + 1].popupMenuWillBecomeInvisible(e);
+                    }
+                }
+            };
+            /**
+             * Notifies <code>PopupMenuListeners</code> that this popup menu is
+             * cancelled.
+             */
+            JPopupMenu.prototype.firePopupMenuCanceled = function () {
+                var listeners = this.listenerList.getListenerList();
+                var e = null;
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === "javax.swing.event.PopupMenuListener") {
+                        if (e == null)
+                            e = new javax.swing.event.PopupMenuEvent(this);
+                        listeners[i + 1].popupMenuCanceled(e);
+                    }
+                }
+            };
+            JPopupMenu.prototype.pack = function () {
+            };
+            /**
+             * Retrieves <code>Popup</code> instance from the <code>PopupMenuUI</code>
+             * that has had <code>show</code> invoked on it. If the current
+             * <code>popup</code> is non-null, this will invoke <code>dispose</code> of
+             * it, and then <code>show</code> the new one.
+             * <p>
+             * This does NOT fire any events, it is up the caller to dispatch the
+             * necessary events.
+             */
+            JPopupMenu.prototype.showPopup = function () {
+            };
+            /**
+             * Sets the location of the upper left corner of the popup menu using x, y
+             * coordinates.
+             * <p>
+             * The method changes the geometry-related data. Therefore, the native
+             * windowing system may ignore such requests, or it may modify the requested
+             * data, so that the {@code JPopupMenu} object is placed and sized in a way
+             * that corresponds closely to the desktop settings.
+             *
+             * @param x
+             * the x coordinate of the popup's new position in the screen's
+             * coordinate space
+             * @param y
+             * the y coordinate of the popup's new position in the screen's
+             * coordinate space
+             * @beaninfo description: The location of the popup menu.
+             */
+            JPopupMenu.prototype.setLocation = function (x, y) {
+                var _this = this;
+                if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    return (function () {
+                        var oldX = _this.desiredLocationX;
+                        var oldY = _this.desiredLocationY;
+                        _this.desiredLocationX = x;
+                        _this.desiredLocationY = y;
+                    })();
+                }
+                else if (((x != null && x instanceof java.awt.Point) || x === null) && y === undefined) {
+                    return this.setLocation$java_awt_Point(x);
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            /**
+             * Returns true if the popup menu is a standalone popup menu rather than the
+             * submenu of a <code>JMenu</code>.
+             *
+             * @return true if this menu is a standalone popup menu, otherwise false
+             */
+            JPopupMenu.prototype.isPopupMenu = function () {
+                return ((this.invoker != null) && !(this.invoker != null && this.invoker instanceof javax.swing.JMenu));
+            };
+            /**
+             * Returns the component which is the 'invoker' of this popup menu.
+             *
+             * @return the <code>Component</code> in which the popup menu is displayed
+             */
+            JPopupMenu.prototype.getInvoker = function () {
+                return this.invoker;
+            };
+            /**
+             * Returns the component at the specified index.
+             *
+             * @param i
+             * the index of the component, where 0 is the first
+             * @return the <code>Component</code> at that index
+             * @deprecated replaced by {@link java.awt.Container#getComponent(int)}
+             */
+            JPopupMenu.prototype.getComponentAtIndex = function (i) {
+                return this.getComponent(i);
+            };
+            /**
+             * Returns the index of the specified component.
+             *
+             * @param c
+             * the <code>Component</code> to find
+             * @return the index of the component, where 0 is the first; or -1 if the
+             * component is not found
+             */
+            JPopupMenu.prototype.getComponentIndex = function (c) {
+                var ncomponents = this.getComponentCount();
+                var component = this.getComponents();
+                for (var i = 0; i < ncomponents; i++) {
+                    var comp = component[i];
+                    if (comp === c)
+                        return i;
+                }
+                return -1;
+            };
+            /**
+             * Sets the currently selected component, This will result in a change to
+             * the selection model.
+             *
+             * @param sel
+             * the <code>Component</code> to select
+             * @beaninfo description: The selected component on the popup menu expert:
+             * true hidden: true
+             */
+            JPopupMenu.prototype.setSelected = function (sel) {
+                var model = this.getSelectionModel();
+                var index = this.getComponentIndex(sel);
+                model.setSelectedIndex(index);
+            };
+            /**
+             * Checks whether the border should be painted.
+             *
+             * @return true if the border is painted, false otherwise
+             * @see #setBorderPainted
+             */
+            JPopupMenu.prototype.isBorderPainted = function () {
+                return this.paintBorder;
+            };
+            /**
+             * Sets whether the border should be painted.
+             *
+             * @param b
+             * if true, the border is painted.
+             * @see #isBorderPainted
+             * @beaninfo description: Is the border of the popup menu painted
+             */
+            JPopupMenu.prototype.setBorderPainted = function (b) {
+                this.paintBorder = b;
+            };
+            /**
+             * Returns the margin, in pixels, between the popup menu's border and its
+             * containers.
+             *
+             * @return an <code>Insets</code> object containing the margin values.
+             */
+            JPopupMenu.prototype.getMargin = function () {
+                if (this.margin == null) {
+                    return new java.awt.Insets(0, 0, 0, 0);
+                }
+                else {
+                    return this.margin;
+                }
+            };
+            /**
+             * Examines the list of menu items to determine whether <code>popup</code>
+             * is a popup menu.
+             *
+             * @param popup
+             * a <code>JPopupMenu</code>
+             * @return true if <code>popup</code>
+             */
+            JPopupMenu.prototype.isSubPopupMenu = function (popup) {
+                var ncomponents = this.getComponentCount();
+                var component = this.getComponents();
+                for (var i = 0; i < ncomponents; i++) {
+                    var comp = component[i];
+                    if (comp != null && comp instanceof javax.swing.JMenu) {
+                        var menu = comp;
+                        var subPopup = menu.getPopupMenu();
+                        if (subPopup === popup)
+                            return true;
+                        if (subPopup.isSubPopupMenu(popup))
+                            return true;
+                    }
+                }
+                return false;
+            };
+            JPopupMenu.getFrame = function (c) {
+                var w = c;
+                while ((!(w != null && w instanceof java.awt.Frame) && (w != null))) {
+                    w = w.getParent();
+                }
+                ;
+                return w;
+            };
+            /**
+             * Returns a string representation of this <code>JPopupMenu</code>. This
+             * method is intended to be used only for debugging purposes, and the
+             * content and format of the returned string may vary between
+             * implementations. The returned string may be empty but may not be
+             * <code>null</code>.
+             *
+             * @return a string representation of this <code>JPopupMenu</code>.
+             */
+            JPopupMenu.prototype.paramString = function () {
+                var labelString = (this.label != null ? this.label : "");
+                var paintBorderString = (this.paintBorder ? "true" : "false");
+                var marginString = (this.margin != null ? this.margin.toString() : "");
+                return _super.prototype.paramString.call(this) + ",desiredLocationX=" + this.desiredLocationX + ",desiredLocationY=" + this.desiredLocationY + ",label=" + labelString + ",margin=" + marginString + ",paintBorder=" + paintBorderString;
+            };
+            /**
+             * This method is required to conform to the <code>MenuElement</code>
+             * interface, but it not implemented.
+             *
+             * @see MenuElement#processMouseEvent(MouseEvent, MenuElement[],
+             * MenuSelectionManager)
+             */
+            JPopupMenu.prototype.processMouseEvent = function (event, path, manager) {
+            };
+            /**
+             * Processes a key event forwarded from the
+             * <code>MenuSelectionManager</code> and changes the menu selection, if
+             * necessary, by using <code>MenuSelectionManager</code>'s API.
+             * <p>
+             * Note: you do not have to forward the event to sub-components. This is
+             * done automatically by the <code>MenuSelectionManager</code>.
+             *
+             * @param e
+             * a <code>KeyEvent</code>
+             * @param path
+             * the <code>MenuElement</code> path array
+             * @param manager
+             * the <code>MenuSelectionManager</code>
+             */
+            JPopupMenu.prototype.processKeyEvent = function (e, path, manager) {
+                var _this = this;
+                if (((e != null && e instanceof java.awt.event.KeyEvent) || e === null) && ((path != null && path instanceof Array) || path === null) && ((manager != null && manager instanceof javax.swing.MenuSelectionManager) || manager === null)) {
+                    var __args = Array.prototype.slice.call(arguments);
+                    return (function () {
+                        var mke = new javax.swing.event.MenuKeyEvent(e.getComponent(), e.getID(), e.getWhen(), e.getModifiers(), e.getKeyCode(), e.getKeyChar(), path, manager);
+                        _this.processMenuKeyEvent(mke);
+                        if (mke.isConsumed()) {
+                            e.consume();
+                        }
+                    })();
+                }
+                else
+                    throw new Error('invalid overload');
+            };
+            /**
+             * Handles a keystroke in a menu.
+             *
+             * @param e
+             * a <code>MenuKeyEvent</code> object
+             * @since 1.5
+             */
+            JPopupMenu.prototype.processMenuKeyEvent = function (e) {
+                switch ((e.getID())) {
+                    case java.awt.event.KeyEvent.KEY_PRESSED_$LI$():
+                        this.fireMenuKeyPressed(e);
+                        break;
+                    case java.awt.event.KeyEvent.KEY_RELEASED_$LI$():
+                        this.fireMenuKeyReleased(e);
+                        break;
+                    case java.awt.event.KeyEvent.KEY_TYPED_$LI$():
+                        this.fireMenuKeyTyped(e);
+                        break;
+                    default:
+                        break;
+                }
+            };
+            /**
+             * Notifies all listeners that have registered interest for notification on
+             * this event type.
+             *
+             * @param event
+             * a <code>MenuKeyEvent</code>
+             * @see EventListenerList
+             */
+            JPopupMenu.prototype.fireMenuKeyPressed = function (event) {
+                var listeners = this.listenerList.getListenerList();
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === "javax.swing.event.MenuKeyListener") {
+                        listeners[i + 1].menuKeyPressed(event);
+                    }
+                }
+            };
+            /**
+             * Notifies all listeners that have registered interest for notification on
+             * this event type.
+             *
+             * @param event
+             * a <code>MenuKeyEvent</code>
+             * @see EventListenerList
+             */
+            JPopupMenu.prototype.fireMenuKeyReleased = function (event) {
+                var listeners = this.listenerList.getListenerList();
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === "javax.swing.event.MenuKeyListener") {
+                        listeners[i + 1].menuKeyReleased(event);
+                    }
+                }
+            };
+            /**
+             * Notifies all listeners that have registered interest for notification on
+             * this event type.
+             *
+             * @param event
+             * a <code>MenuKeyEvent</code>
+             * @see EventListenerList
+             */
+            JPopupMenu.prototype.fireMenuKeyTyped = function (event) {
+                var listeners = this.listenerList.getListenerList();
+                for (var i = listeners.length - 2; i >= 0; i -= 2) {
+                    if (listeners[i] === "javax.swing.event.MenuKeyListener") {
+                        listeners[i + 1].menuKeyTyped(event);
+                    }
+                }
+            };
+            /**
+             * Messaged when the menubar selection changes to activate or deactivate
+             * this menu. This implements the <code>javax.swing.MenuElement</code>
+             * interface. Overrides <code>MenuElement.menuSelectionChanged</code>.
+             *
+             * @param isIncluded
+             * true if this menu is active, false if it is not
+             * @see MenuElement#menuSelectionChanged(boolean)
+             */
+            JPopupMenu.prototype.menuSelectionChanged = function (isIncluded) {
+                if (JPopupMenu.DEBUG) {
+                    console.info("In JPopupMenu.menuSelectionChanged " + isIncluded);
+                }
+                if (this.invoker != null && this.invoker instanceof javax.swing.JMenu) {
+                    var m = this.invoker;
+                    if (isIncluded)
+                        m.setPopupMenuVisible(true);
+                    else
+                        m.setPopupMenuVisible(false);
+                }
+                if (this.isPopupMenu() && !isIncluded)
+                    this.setVisible(false);
+            };
+            /**
+             * Returns an array of <code>MenuElement</code>s containing the submenu for
+             * this menu component. It will only return items conforming to the
+             * <code>JMenuElement</code> interface. If popup menu is <code>null</code>
+             * returns an empty array. This method is required to conform to the
+             * <code>MenuElement</code> interface.
+             *
+             * @return an array of <code>MenuElement</code> objects
+             * @see MenuElement#getSubElements
+             */
+            JPopupMenu.prototype.getSubElements = function () {
+                var result;
+                var tmp = new java.util.Vector();
+                var c = this.getComponentCount();
+                var i;
+                var m;
+                for (i = 0; i < c; i++) {
+                    m = this.getComponent(i);
+                    if (m != null && m["__interfaces"] != null && m["__interfaces"].indexOf("javax.swing.MenuElement") >= 0)
+                        tmp.addElement(m);
+                }
+                result = new Array(tmp.size());
+                for (i = 0, c = tmp.size(); i < c; i++)
+                    result[i] = tmp.elementAt(i);
+                return result;
+            };
+            /**
+             * Returns this <code>JPopupMenu</code> component.
+             *
+             * @return this <code>JPopupMenu</code> object
+             * @see MenuElement#getComponent
+             */
+            JPopupMenu.prototype.getComponent$ = function () {
+                return this;
+            };
+            /**
+             * @see #getUIClassID
+             * @see #readObject
+             */
+            JPopupMenu.uiClassID = "PopupMenuUI";
+            JPopupMenu.TRACE = false;
+            JPopupMenu.VERBOSE = false;
+            JPopupMenu.DEBUG = false;
+            return JPopupMenu;
+        }(javax.swing.JComponent));
+        swing.JPopupMenu = JPopupMenu;
+        JPopupMenu["__classname"] = "javax.swing.JPopupMenu";
+        var JPopupMenu;
+        (function (JPopupMenu) {
+            /**
+             * A popup menu-specific separator.
+             */
+            var Separator = (function (_super) {
+                __extends(Separator, _super);
+                function Separator() {
+                    _super.call(this, javax.swing.SwingConstants.HORIZONTAL);
+                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
+                }
+                /**
+                 * Returns the name of the L&amp;F class that renders this component.
+                 *
+                 * @return the string "PopupMenuSeparatorUI"
+                 * @see JComponent#getUIClassID
+                 * @see UIDefaults#getUI
+                 */
+                Separator.prototype.getUIClassID = function () {
+                    return "PopupMenuSeparatorUI";
+                };
+                return Separator;
+            }(javax.swing.JSeparator));
+            JPopupMenu.Separator = Separator;
+            Separator["__classname"] = "javax.swing.JPopupMenu.Separator";
+        })(JPopupMenu = swing.JPopupMenu || (swing.JPopupMenu = {}));
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+/* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
+var javax;
+(function (javax) {
+    var swing;
+    (function (swing) {
+        var JCheckBox = (function (_super) {
+            __extends(JCheckBox, _super);
+            function JCheckBox(label, state) {
+                if (label === void 0) { label = ""; }
+                if (state === void 0) { state = false; }
+                _super.call(this);
+                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
+                this.state = false;
+                this.label = label;
+                this.state = state;
+                this.itemListeners = new Array();
+            }
+            JCheckBox.prototype.createHTML = function () {
+                console.info("create HTML jcheckbox");
+                if (this.htmlElement != null) {
+                    return;
+                }
+                this.htmlElement = document.createElement("label");
+                this.htmlElement.appendChild(this.htmlLabel = document.createTextNode(""));
+                this.htmlCheckbox = document.createElement("input");
+                this.htmlCheckbox.type = "checkbox";
+                this.htmlElement.appendChild(this.htmlCheckbox);
+            };
+            JCheckBox.prototype.initHTML = function () {
+                var _this = this;
+                console.info("init HTML jcheckbox");
+                _super.prototype.initHTML.call(this);
+                this.htmlCheckbox.checked = this.state;
+                this.htmlLabel.data = this.label;
+                this.htmlCheckbox.onclick = function (e) {
+                    console.info(e + " / " + _this.htmlCheckbox.checked);
+                    _this.setState(_this.htmlCheckbox.checked);
+                    _this.processItemEvent(new java.awt.event.ItemEvent(_this, 0, null, _this.htmlCheckbox.checked ? java.awt.event.ItemEvent.SELECTED : java.awt.event.ItemEvent.DESELECTED));
+                    return e;
+                };
+            };
+            JCheckBox.prototype.constructComponentName = function () {
+                {
+                    return JCheckBox.base + JCheckBox.nameCounter++;
+                }
+                ;
+            };
+            JCheckBox.prototype.getLabel = function () {
+                return this.label;
+            };
+            JCheckBox.prototype.setLabel = function (label) {
+                {
+                    if (label !== this.label && (this.label == null || !(this.label === label))) {
+                        this.label = label;
+                    }
+                }
+                ;
+            };
+            JCheckBox.prototype.getState = function () {
+                return this.state;
+            };
+            JCheckBox.prototype.setStateInternal = function (state) {
+                this.state = state;
+                if (this.htmlCheckbox != null) {
+                    this.htmlCheckbox.checked = state;
+                }
+            };
+            JCheckBox.prototype.setState = function (state) {
+                this.setStateInternal(state);
+            };
+            JCheckBox.prototype.getSelectedObjects = function () {
+                if (this.state) {
+                    var items = new Array(1);
+                    items[0] = this.label;
+                    return items;
+                }
+                return null;
+            };
+            JCheckBox.prototype.addItemListener = function (l) {
+                if (l == null) {
+                    return;
+                }
+                this.itemListeners.push(l);
+            };
+            JCheckBox.prototype.removeItemListener = function (l) {
+                if (l == null) {
+                    return;
+                }
+                var index = (this.itemListeners.indexOf(l) | 0);
+                if (index > -1) {
+                    this.itemListeners.splice(index, 1);
+                }
+            };
+            JCheckBox.prototype.getItemListeners = function () {
+                return this.itemListeners;
+            };
+            JCheckBox.prototype.getListeners = function (listenerType) {
+                var result = new Array();
+                for (var i = 0; i < this.itemListeners.length; i++) {
+                    if (this.itemListeners[i].constructor === listenerType) {
+                        result.push((this.itemListeners[i]));
+                    }
+                }
+                return result;
+            };
+            JCheckBox.prototype.processItemEvent = function (e) {
+                for (var index143 = 0; index143 < this.itemListeners.length; index143++) {
+                    var listener = this.itemListeners[index143];
+                    {
+                        listener.itemStateChanged(e);
+                    }
+                }
+            };
+            JCheckBox.prototype.paramString = function () {
+                var str = _super.prototype.paramString.call(this);
+                var label = this.label;
+                if (label != null) {
+                    str += ",label=" + label;
+                }
+                return str + ",state=" + this.state;
+            };
+            JCheckBox.base = "checkbox";
+            JCheckBox.nameCounter = 0;
+            JCheckBox.serialVersionUID = 7270714317450821763;
+            return JCheckBox;
+        }(javax.swing.JToggleButton));
+        swing.JCheckBox = JCheckBox;
+        JCheckBox["__classname"] = "javax.swing.JCheckBox";
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+javax.swing.JPopupMenu.classLock_$LI$();
+javax.swing.JTextField.defaultActions_$LI$();
 sun.awt.ExtendedKeyCodes.extendedKeyCodesSet_$LI$();
 sun.awt.ExtendedKeyCodes.regularKeyCodesMap_$LI$();
 sun.awt.ExtendedKeyCodes.__static_initialize();
+java.awt.Frame.MAXIMIZED_BOTH_$LI$();
+java.awt.Frame.MOVE_CURSOR_$LI$();
+java.awt.Frame.HAND_CURSOR_$LI$();
+java.awt.Frame.E_RESIZE_CURSOR_$LI$();
+java.awt.Frame.W_RESIZE_CURSOR_$LI$();
+java.awt.Frame.S_RESIZE_CURSOR_$LI$();
+java.awt.Frame.N_RESIZE_CURSOR_$LI$();
+java.awt.Frame.NE_RESIZE_CURSOR_$LI$();
+java.awt.Frame.NW_RESIZE_CURSOR_$LI$();
+java.awt.Frame.SE_RESIZE_CURSOR_$LI$();
+java.awt.Frame.SW_RESIZE_CURSOR_$LI$();
+java.awt.Frame.WAIT_CURSOR_$LI$();
+java.awt.Frame.TEXT_CURSOR_$LI$();
+java.awt.Frame.CROSSHAIR_CURSOR_$LI$();
+java.awt.Frame.DEFAULT_CURSOR_$LI$();
 java.applet.Applet.__static_initialize();
 java.awt.event.MouseEvent.MOUSE_WHEEL_$LI$();
 java.awt.event.MouseEvent.MOUSE_DRAGGED_$LI$();
@@ -32369,6 +45381,17 @@ java.awt.event.KeyEvent.VK_SEPARATOR_$LI$();
 java.awt.event.KeyEvent.KEY_RELEASED_$LI$();
 java.awt.event.KeyEvent.KEY_PRESSED_$LI$();
 java.awt.event.KeyEvent.KEY_TYPED_$LI$();
+java.awt.event.WindowEvent.WINDOW_LAST_$LI$();
+java.awt.event.WindowEvent.WINDOW_STATE_CHANGED_$LI$();
+java.awt.event.WindowEvent.WINDOW_LOST_FOCUS_$LI$();
+java.awt.event.WindowEvent.WINDOW_GAINED_FOCUS_$LI$();
+java.awt.event.WindowEvent.WINDOW_DEACTIVATED_$LI$();
+java.awt.event.WindowEvent.WINDOW_ACTIVATED_$LI$();
+java.awt.event.WindowEvent.WINDOW_DEICONIFIED_$LI$();
+java.awt.event.WindowEvent.WINDOW_ICONIFIED_$LI$();
+java.awt.event.WindowEvent.WINDOW_CLOSED_$LI$();
+java.awt.event.WindowEvent.WINDOW_CLOSING_$LI$();
+java.awt.event.WindowEvent.WINDOW_OPENED_$LI$();
 java.awt.event.InputEvent.HIGH_MODIFIERS_$LI$();
 java.awt.event.InputEvent.JDK_1_3_MODIFIERS_$LI$();
 java.awt.event.InputEvent.FIRST_HIGH_BIT_$LI$();
@@ -32389,11 +45412,14 @@ java.awt.event.InputEvent.ALT_MASK_$LI$();
 java.awt.event.InputEvent.META_MASK_$LI$();
 java.awt.event.InputEvent.CTRL_MASK_$LI$();
 java.awt.event.InputEvent.SHIFT_MASK_$LI$();
+java.awt.event.FocusEvent.FOCUS_LOST_$LI$();
+java.awt.event.FocusEvent.FOCUS_GAINED_$LI$();
 java.awt.event.ContainerEvent.COMPONENT_REMOVED_$LI$();
 java.awt.event.ContainerEvent.COMPONENT_ADDED_$LI$();
 sun.awt.geom.AreaOp.EmptyChainList_$LI$();
 sun.awt.geom.AreaOp.EmptyLinkList_$LI$();
 sun.awt.geom.AreaOp.YXTopComparator_$LI$();
+java.beans.PropertyChangeSupport.PropertyChangeListenerMap.EMPTY_$LI$();
 java.awt.geom.Path2D.Iterator.curvecoords_$LI$();
 java.awt.geom.Path2D.SEG_CLOSE_$LI$();
 java.awt.geom.Path2D.SEG_CUBICTO_$LI$();
@@ -32414,7 +45440,15 @@ java.awt.event.ComponentEvent.COMPONENT_SHOWN_$LI$();
 java.awt.event.ComponentEvent.COMPONENT_RESIZED_$LI$();
 java.awt.event.ComponentEvent.COMPONENT_MOVED_$LI$();
 java.awt.event.AdjustmentEvent.ADJUSTMENT_VALUE_CHANGED_$LI$();
+javax.swing.text.Position.Bias.Backward_$LI$();
+javax.swing.text.Position.Bias.Forward_$LI$();
 javax.swing.event.EventListenerList.NULL_ARRAY_$LI$();
+javax.swing.DefaultListSelectionModel.MAX_$LI$();
+javax.swing.DefaultButtonModel.ROLLOVER_$LI$();
+javax.swing.DefaultButtonModel.ENABLED_$LI$();
+javax.swing.DefaultButtonModel.PRESSED_$LI$();
+javax.swing.DefaultButtonModel.SELECTED_$LI$();
+javax.swing.DefaultButtonModel.ARMED_$LI$();
 java.awt.geom.RoundRectIterator.types_$LI$();
 java.awt.geom.RoundRectIterator.ctrlpts_$LI$();
 java.awt.geom.RoundRectIterator.acv_$LI$();
@@ -32467,6 +45501,9 @@ java.awt.Event.ALT_MASK_$LI$();
 java.awt.Event.META_MASK_$LI$();
 java.awt.Event.CTRL_MASK_$LI$();
 java.awt.Event.SHIFT_MASK_$LI$();
+java.awt.Cursor.cursorProperties_$LI$();
+java.awt.Cursor.predefinedPrivate_$LI$();
+java.awt.Cursor.predefined_$LI$();
 java.awt.Color.BLUE_$LI$();
 java.awt.Color.blue_$LI$();
 java.awt.Color.CYAN_$LI$();
@@ -32493,3 +45530,7 @@ java.awt.Color.LIGHT_GRAY_$LI$();
 java.awt.Color.lightGray_$LI$();
 java.awt.Color.WHITE_$LI$();
 java.awt.Color.white_$LI$();
+java.awt.BorderLayout.LINE_END_$LI$();
+java.awt.BorderLayout.LINE_START_$LI$();
+java.awt.BorderLayout.PAGE_END_$LI$();
+java.awt.BorderLayout.PAGE_START_$LI$();

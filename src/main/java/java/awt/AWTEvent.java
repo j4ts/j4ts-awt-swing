@@ -224,4 +224,12 @@ public abstract class AWTEvent extends EventObject {
 		return consumed;
 	}
 
+    /**
+     * Returns the event type.
+     */
+    public int getID() {
+        return id;
+    }
+
+	
 } // class AWTEvent

@@ -1,11 +1,17 @@
 package java.awt;
 
 import static jsweet.util.Globals.any;
+import static jsweet.util.Globals.array;
 
+import java.awt.event.FocusListener;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseWheelListener;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 import jsweet.dom.HTMLElement;
+import jsweet.dom.Node;
+import jsweet.lang.Array;
 
 public abstract class Component implements HTMLComponent {
 
@@ -37,16 +43,37 @@ public abstract class Component implements HTMLComponent {
 
 	Integer x, y, width, height;
 
+	Dimension preferredSize = new Dimension();
+
+	Dimension minimumSize = new Dimension();
+
+	Container parent;
+
 	@Override
 	public final void bindHTML(HTMLElement htmlElement) {
 		if (this.htmlElement != null) {
-			throw new RuntimeException("already bound");
+			if (htmlElement.tagName == this.htmlElement.tagName) {
+				Array<Node> nodes = new Array<Node>();
+				for (Node n : this.htmlElement.childNodes) {
+					nodes.push(n);
+				}
+				for (Node n : nodes) {
+					this.htmlElement.removeChild(n);
+					htmlElement.appendChild(n);
+				}
+				this.htmlElement = htmlElement;
+				initHTML();
+			} else {
+				throw new RuntimeException("already bound (incompatible node types): " + htmlElement.tagName + " != "
+						+ this.htmlElement.tagName);
+			}
+		} else {
+			this.htmlElement = htmlElement;
+			initHTML();
 		}
-		this.htmlElement = htmlElement;
-		initHTML();
 	}
 
-	@Override	
+	@Override
 	public HTMLElement getHTMLElement() {
 		if (htmlElement == null) {
 			initHTML();
@@ -221,7 +248,7 @@ public abstract class Component implements HTMLComponent {
 	public void setVisible(boolean visible) {
 		this.visible = visible;
 		if (htmlElement != null) {
-			htmlElement.style.display = "none";
+			htmlElement.style.visibility = visible ? "visible" : "hidden";
 		}
 	}
 
@@ -280,6 +307,120 @@ public abstract class Component implements HTMLComponent {
 		if (g != null) {
 			paint(g);
 		}
+	}
+
+	public Dimension getPreferredSize() {
+		return preferredSize;
+	}
+
+	public void setPreferredSize(Dimension preferredSize) {
+		this.preferredSize = preferredSize;
+	}
+
+	public boolean getIgnoreRepaint() {
+		return false;
+	}
+
+	public void setIgnoreRepaint(boolean ignoreRepaint) {
+		// ignored
+	}
+
+	public Container getParent() {
+		return parent;
+	}
+
+	public Dimension getSize() {
+		return new Dimension(width, height);
+	}
+
+	public void revalidate() {
+		if (getHTMLElement() != null) {
+			initHTML();
+		}
+	}
+
+	public void invalidate() {
+		// do nothing
+	}
+
+	public void repaint() {
+		paint(getGraphics());
+	}
+
+	public void addFocusListener(FocusListener l) {
+		// TODO
+	}
+
+	public Dimension getMinimumSize() {
+		return minimumSize;
+	}
+
+	public void setMinimumSize(Dimension minimumSize) {
+		this.minimumSize = minimumSize;
+	}
+
+	public void setLocation(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+
+	public void setLocation(Point p) {
+		this.x = p.x;
+		this.y = p.y;
+	}
+
+	private Cursor cursor;
+
+	public Cursor getCursor() {
+		return cursor;
+	}
+
+	public void setCursor(Cursor cursor) {
+		this.cursor = cursor;
+	}
+
+	MouseWheelListener[] mouseWheelListeners = {};
+
+	public synchronized void addMouseWheelListener(MouseWheelListener l) {
+		if (l == null) {
+			return;
+		}
+		array(mouseWheelListeners).push(l);
+	}
+
+	public synchronized void removeMouseWheelListener(MouseWheelListener l) {
+		if (l == null) {
+			return;
+		}
+		array(mouseWheelListeners).splice(array(mouseWheelListeners).indexOf(l), 1);
+	}
+
+	public synchronized MouseWheelListener[] getMouseWheelListeners() {
+		return mouseWheelListeners;
+	}
+
+	MouseListener[] mouseListeners = {};
+
+	public synchronized void addMouseListener(MouseListener l) {
+		if (l == null) {
+			return;
+		}
+		array(mouseListeners).push(l);
+	}
+
+	public synchronized void removeMouseListener(MouseListener l) {
+		if (l == null) {
+			return;
+		}
+		array(mouseListeners).splice(array(mouseListeners).indexOf(l), 1);
+	}
+
+	public synchronized MouseListener[] getMouseListeners() {
+		return mouseListeners;
+	}
+
+	public void requestFocus() {
+		// ignore
 	}
 
 }

@@ -137,6 +137,344 @@ declare namespace java.awt {
         paramString(): string;
         consume(): void;
         isConsumed(): boolean;
+        /**
+         * Returns the event type.
+         */
+        getID(): number;
+    }
+}
+declare namespace java.awt {
+    class BasicStroke implements java.awt.Stroke {
+        static JOIN_MITER: number;
+        static JOIN_ROUND: number;
+        static JOIN_BEVEL: number;
+        static CAP_BUTT: number;
+        static CAP_ROUND: number;
+        static CAP_SQUARE: number;
+        width: number;
+        join: number;
+        cap: number;
+        miterlimit: number;
+        dash: number[];
+        dash_phase: number;
+        constructor(width?: number, cap?: number, join?: number, miterlimit?: number, dash?: number[], dash_phase?: number);
+        createStrokedShape(s: java.awt.Shape): java.awt.Shape;
+        getLineWidth(): number;
+        getEndCap(): number;
+        getLineJoin(): number;
+        getMiterLimit(): number;
+        getDashArray(): number[];
+        getDashPhase(): number;
+        hashCode(): number;
+        equals(obj: any): boolean;
+    }
+}
+declare namespace java.awt {
+    class BorderLayout implements java.awt.LayoutManager2, java.io.Serializable {
+        created: boolean;
+        parent: java.awt.Container;
+        table: HTMLTableElement;
+        onComponentAdded(parent: java.awt.Container, component: java.awt.Component, position: number): void;
+        /**
+         * Constructs a border layout with the horizontal gaps between components.
+         * The horizontal gap is specified by <code>hgap</code>.
+         *
+         * @see #getHgap()
+         * @see #setHgap(int)
+         *
+         * @serial
+         */
+        hgap: number;
+        /**
+         * Constructs a border layout with the vertical gaps between components. The
+         * vertical gap is specified by <code>vgap</code>.
+         *
+         * @see #getVgap()
+         * @see #setVgap(int)
+         * @serial
+         */
+        vgap: number;
+        /**
+         * Constant to specify components location to be the north portion of the
+         * border layout.
+         *
+         * @serial
+         * @see #getChild(String, boolean)
+         * @see #addLayoutComponent
+         * @see #getLayoutAlignmentX
+         * @see #getLayoutAlignmentY
+         * @see #removeLayoutComponent
+         */
+        north: java.awt.Component;
+        /**
+         * Constant to specify components location to be the west portion of the
+         * border layout.
+         *
+         * @serial
+         * @see #getChild(String, boolean)
+         * @see #addLayoutComponent
+         * @see #getLayoutAlignmentX
+         * @see #getLayoutAlignmentY
+         * @see #removeLayoutComponent
+         */
+        west: java.awt.Component;
+        /**
+         * Constant to specify components location to be the east portion of the
+         * border layout.
+         *
+         * @serial
+         * @see #getChild(String, boolean)
+         * @see #addLayoutComponent
+         * @see #getLayoutAlignmentX
+         * @see #getLayoutAlignmentY
+         * @see #removeLayoutComponent
+         */
+        east: java.awt.Component;
+        /**
+         * Constant to specify components location to be the south portion of the
+         * border layout.
+         *
+         * @serial
+         * @see #getChild(String, boolean)
+         * @see #addLayoutComponent
+         * @see #getLayoutAlignmentX
+         * @see #getLayoutAlignmentY
+         * @see #removeLayoutComponent
+         */
+        south: java.awt.Component;
+        /**
+         * Constant to specify components location to be the center portion of the
+         * border layout.
+         *
+         * @serial
+         * @see #getChild(String, boolean)
+         * @see #addLayoutComponent
+         * @see #getLayoutAlignmentX
+         * @see #getLayoutAlignmentY
+         * @see #removeLayoutComponent
+         */
+        center: java.awt.Component;
+        /**
+         *
+         * A relative positioning constant, that can be used instead of north,
+         * south, east, west or center. mixing the two types of constants can lead
+         * to unpredictable results. If you use both types, the relative constants
+         * will take precedence. For example, if you add components using both the
+         * <code>NORTH</code> and <code>BEFORE_FIRST_LINE</code> constants in a
+         * container whose orientation is <code>LEFT_TO_RIGHT</code>, only the
+         * <code>BEFORE_FIRST_LINE</code> will be layed out. This will be the same
+         * for lastLine, firstItem, lastItem.
+         *
+         * @serial
+         */
+        firstLine: java.awt.Component;
+        /**
+         * A relative positioning constant, that can be used instead of north,
+         * south, east, west or center. Please read Description for firstLine.
+         *
+         * @serial
+         */
+        lastLine: java.awt.Component;
+        /**
+         * A relative positioning constant, that can be used instead of north,
+         * south, east, west or center. Please read Description for firstLine.
+         *
+         * @serial
+         */
+        firstItem: java.awt.Component;
+        /**
+         * A relative positioning constant, that can be used instead of north,
+         * south, east, west or center. Please read Description for firstLine.
+         *
+         * @serial
+         */
+        lastItem: java.awt.Component;
+        /**
+         * The north layout constraint (top of container).
+         */
+        static NORTH: string;
+        /**
+         * The south layout constraint (bottom of container).
+         */
+        static SOUTH: string;
+        /**
+         * The east layout constraint (right side of container).
+         */
+        static EAST: string;
+        /**
+         * The west layout constraint (left side of container).
+         */
+        static WEST: string;
+        /**
+         * The center layout constraint (middle of container).
+         */
+        static CENTER: string;
+        /**
+         * Synonym for PAGE_START. Exists for compatibility with previous versions.
+         * PAGE_START is preferred.
+         *
+         * @see #PAGE_START
+         * @since 1.2
+         */
+        static BEFORE_FIRST_LINE: string;
+        /**
+         * Synonym for PAGE_END. Exists for compatibility with previous versions.
+         * PAGE_END is preferred.
+         *
+         * @see #PAGE_END
+         * @since 1.2
+         */
+        static AFTER_LAST_LINE: string;
+        /**
+         * Synonym for LINE_START. Exists for compatibility with previous versions.
+         * LINE_START is preferred.
+         *
+         * @see #LINE_START
+         * @since 1.2
+         */
+        static BEFORE_LINE_BEGINS: string;
+        /**
+         * Synonym for LINE_END. Exists for compatibility with previous versions.
+         * LINE_END is preferred.
+         *
+         * @see #LINE_END
+         * @since 1.2
+         */
+        static AFTER_LINE_ENDS: string;
+        /**
+         * The component comes before the first line of the layout's content. For
+         * Western, left-to-right and top-to-bottom orientations, this is equivalent
+         * to NORTH.
+         *
+         * @see java.awt.Component#getComponentOrientation
+         * @since 1.4
+         */
+        static PAGE_START: string;
+        static PAGE_START_$LI$(): string;
+        /**
+         * The component comes after the last line of the layout's content. For
+         * Western, left-to-right and top-to-bottom orientations, this is equivalent
+         * to SOUTH.
+         *
+         * @see java.awt.Component#getComponentOrientation
+         * @since 1.4
+         */
+        static PAGE_END: string;
+        static PAGE_END_$LI$(): string;
+        /**
+         * The component goes at the beginning of the line direction for the layout.
+         * For Western, left-to-right and top-to-bottom orientations, this is
+         * equivalent to WEST.
+         *
+         * @see java.awt.Component#getComponentOrientation
+         * @since 1.4
+         */
+        static LINE_START: string;
+        static LINE_START_$LI$(): string;
+        /**
+         * The component goes at the end of the line direction for the layout. For
+         * Western, left-to-right and top-to-bottom orientations, this is equivalent
+         * to EAST.
+         *
+         * @see java.awt.Component#getComponentOrientation
+         * @since 1.4
+         */
+        static LINE_END: string;
+        static LINE_END_$LI$(): string;
+        static serialVersionUID: number;
+        /**
+         * Constructs a border layout with the specified gaps between components.
+         * The horizontal gap is specified by <code>hgap</code> and the vertical gap
+         * is specified by <code>vgap</code>.
+         *
+         * @param hgap
+         * the horizontal gap.
+         * @param vgap
+         * the vertical gap.
+         */
+        constructor(hgap?: number, vgap?: number);
+        /**
+         * Returns the horizontal gap between components.
+         *
+         * @since JDK1.1
+         */
+        getHgap(): number;
+        /**
+         * Sets the horizontal gap between components.
+         *
+         * @param hgap
+         * the horizontal gap between components
+         * @since JDK1.1
+         */
+        setHgap(hgap: number): void;
+        /**
+         * Returns the vertical gap between components.
+         *
+         * @since JDK1.1
+         */
+        getVgap(): number;
+        /**
+         * Sets the vertical gap between components.
+         *
+         * @param vgap
+         * the vertical gap between components
+         * @since JDK1.1
+         */
+        setVgap(vgap: number): void;
+        /**
+         * Adds the specified component to the layout, using the specified
+         * constraint object. For border layouts, the constraint must be one of the
+         * following constants: <code>NORTH</code>, <code>SOUTH</code>,
+         * <code>EAST</code>, <code>WEST</code>, or <code>CENTER</code>.
+         * <p>
+         * Most applications do not call this method directly. This method is called
+         * when a component is added to a container using the
+         * <code>Container.add</code> method with the same argument types.
+         *
+         * @param comp
+         * the component to be added.
+         * @param constraints
+         * an object that specifies how and where the component is added
+         * to the layout.
+         * @see java.awt.Container#add(java.awt.Component, java.lang.Object)
+         * @exception IllegalArgumentException
+         * if the constraint object is not a string, or if it not one
+         * of the five specified constants.
+         * @since JDK1.1
+         */
+        addLayoutComponent$java_awt_Component$java_lang_Object(comp: java.awt.Component, constraints: any): void;
+        /**
+         * @deprecated replaced by
+         * <code>addLayoutComponent(Component, Object)</code>.
+         */
+        addLayoutComponent(name?: any, comp?: any): any;
+        /**
+         * Removes the specified component from this border layout. This method is
+         * called when a container calls its <code>remove</code> or
+         * <code>removeAll</code> methods. Most applications do not call this method
+         * directly.
+         *
+         * @param comp
+         * the component to be removed.
+         * @see java.awt.Container#remove(java.awt.Component)
+         * @see java.awt.Container#removeAll()
+         */
+        removeLayoutComponent(comp: java.awt.Component): void;
+        getLayoutComponent$java_lang_Object(constraints: any): java.awt.Component;
+        getLayoutComponent(target?: any, constraints?: any): any;
+        getConstraints(comp: java.awt.Component): any;
+        maximumLayoutSize(target: java.awt.Container): java.awt.Dimension;
+        getLayoutAlignmentX(parent: java.awt.Container): number;
+        getLayoutAlignmentY(parent: java.awt.Container): number;
+        invalidateLayout(target: java.awt.Container): void;
+        layoutContainer(parent: java.awt.Container): void;
+        private add(component, position);
+        /**
+         * Returns a string representation of the state of this border layout.
+         *
+         * @return a string representation of this border layout.
+         */
+        toString(): string;
     }
 }
 declare namespace java.awt {
@@ -757,6 +1095,9 @@ declare namespace java.awt {
         y: number;
         width: number;
         height: number;
+        preferredSize: java.awt.Dimension;
+        minimumSize: java.awt.Dimension;
+        parent: java.awt.Container;
         bindHTML(htmlElement: HTMLElement): void;
         getHTMLElement(): HTMLElement;
         initHTML(): void;
@@ -798,7 +1139,187 @@ declare namespace java.awt {
         paintAll(g: java.awt.Graphics): void;
         getGraphics(): java.awt.Graphics;
         doPaintInternal(): void;
+        getPreferredSize(): java.awt.Dimension;
+        setPreferredSize(preferredSize: java.awt.Dimension): void;
+        getIgnoreRepaint(): boolean;
+        setIgnoreRepaint(ignoreRepaint: boolean): void;
+        getParent(): java.awt.Container;
+        getSize(): java.awt.Dimension;
+        revalidate(): void;
+        invalidate(): void;
+        repaint(): void;
+        addFocusListener(l: java.awt.event.FocusListener): void;
+        getMinimumSize(): java.awt.Dimension;
+        setMinimumSize(minimumSize: java.awt.Dimension): void;
+        setLocation(x?: any, y?: any): any;
+        setLocation$java_awt_Point(p: java.awt.Point): void;
+        private cursor;
+        getCursor(): java.awt.Cursor;
+        setCursor(cursor: java.awt.Cursor): void;
+        mouseWheelListeners: java.awt.event.MouseWheelListener[];
+        addMouseWheelListener(l: java.awt.event.MouseWheelListener): void;
+        removeMouseWheelListener(l: java.awt.event.MouseWheelListener): void;
+        getMouseWheelListeners(): java.awt.event.MouseWheelListener[];
+        mouseListeners: java.awt.event.MouseListener[];
+        addMouseListener(l: java.awt.event.MouseListener): void;
+        removeMouseListener(l: java.awt.event.MouseListener): void;
+        getMouseListeners(): java.awt.event.MouseListener[];
+        requestFocus(): void;
         constructor();
+    }
+}
+declare namespace java.awt {
+    /**
+     * A class to encapsulate the bitmap representation of the mouse cursor.
+     *
+     * @see Component#setCursor
+     * @author Amy Fowler
+     */
+    class Cursor implements java.io.Serializable {
+        /**
+         * The default cursor type (gets set if no cursor is defined).
+         */
+        static DEFAULT_CURSOR: number;
+        /**
+         * The crosshair cursor type.
+         */
+        static CROSSHAIR_CURSOR: number;
+        /**
+         * The text cursor type.
+         */
+        static TEXT_CURSOR: number;
+        /**
+         * The wait cursor type.
+         */
+        static WAIT_CURSOR: number;
+        /**
+         * The south-west-resize cursor type.
+         */
+        static SW_RESIZE_CURSOR: number;
+        /**
+         * The south-east-resize cursor type.
+         */
+        static SE_RESIZE_CURSOR: number;
+        /**
+         * The north-west-resize cursor type.
+         */
+        static NW_RESIZE_CURSOR: number;
+        /**
+         * The north-east-resize cursor type.
+         */
+        static NE_RESIZE_CURSOR: number;
+        /**
+         * The north-resize cursor type.
+         */
+        static N_RESIZE_CURSOR: number;
+        /**
+         * The south-resize cursor type.
+         */
+        static S_RESIZE_CURSOR: number;
+        /**
+         * The west-resize cursor type.
+         */
+        static W_RESIZE_CURSOR: number;
+        /**
+         * The east-resize cursor type.
+         */
+        static E_RESIZE_CURSOR: number;
+        /**
+         * The hand cursor type.
+         */
+        static HAND_CURSOR: number;
+        /**
+         * The move cursor type.
+         */
+        static MOVE_CURSOR: number;
+        /**
+         * @deprecated As of JDK version 1.7, the {@link #getPredefinedCursor(int)}
+         * method should be used instead.
+         */
+        static predefined: Cursor[];
+        static predefined_$LI$(): Cursor[];
+        /**
+         * This field is a private replacement for 'predefined' array.
+         */
+        static predefinedPrivate: Cursor[];
+        static predefinedPrivate_$LI$(): Cursor[];
+        static cursorProperties: string[][];
+        static cursorProperties_$LI$(): string[][];
+        /**
+         * The chosen cursor type initially set to the <code>DEFAULT_CURSOR</code>.
+         *
+         * @serial
+         * @see #getType()
+         */
+        type: number;
+        /**
+         * The type associated with all custom cursors.
+         */
+        static CUSTOM_CURSOR: number;
+        static serialVersionUID: number;
+        /**
+         * The user-visible name of the cursor.
+         *
+         * @serial
+         * @see #getName()
+         */
+        name: string;
+        /**
+         * Returns a cursor object with the specified predefined type.
+         *
+         * @param type
+         * the type of predefined cursor
+         * @return the specified predefined cursor
+         * @throws IllegalArgumentException
+         * if the specified cursor type is invalid
+         */
+        static getPredefinedCursor(type: number): Cursor;
+        /**
+         * Returns a system-specific custom cursor object matching the specified
+         * name. Cursor names are, for example: "Invalid.16x16"
+         *
+         * @param name
+         * a string describing the desired system-specific custom cursor
+         * @return the system specific custom cursor named
+         * @exception HeadlessException
+         * if <code>GraphicsEnvironment.isHeadless</code> returns
+         * true
+         */
+        static getSystemCustomCursor(name: string): Cursor;
+        /**
+         * Return the system default cursor.
+         */
+        static getDefaultCursor(): Cursor;
+        /**
+         * Creates a new custom cursor object with the specified name.
+         * <p>
+         * Note: this constructor should only be used by AWT implementations as part
+         * of their support for custom cursors. Applications should use
+         * Toolkit.createCustomCursor().
+         *
+         * @param name
+         * the user-visible name of the cursor.
+         * @see java.awt.Toolkit#createCustomCursor
+         */
+        constructor(name?: any);
+        /**
+         * Returns the type for this cursor.
+         */
+        getType(): number;
+        /**
+         * Returns the name of this cursor.
+         *
+         * @return a localized description of this cursor.
+         * @since 1.2
+         */
+        getName(): string;
+        /**
+         * Returns a string representation of this cursor.
+         *
+         * @return a string representation of this cursor.
+         * @since 1.2
+         */
+        toString(): string;
     }
 }
 declare namespace java.awt.event {
@@ -981,6 +1502,38 @@ declare namespace java.awt.event {
          * Invoked when a component has been removed from the container.
          */
         componentRemoved(e: java.awt.event.ContainerEvent): any;
+    }
+}
+declare namespace java.awt.event {
+    /**
+     * The listener interface for receiving keyboard focus events on
+     * a component.
+     * The class that is interested in processing a focus event
+     * either implements this interface (and all the methods it
+     * contains) or extends the abstract <code>FocusAdapter</code> class
+     * (overriding only the methods of interest).
+     * The listener object created from that class is then registered with a
+     * component using the component's <code>addFocusListener</code>
+     * method. When the component gains or loses the keyboard focus,
+     * the relevant method in the listener object
+     * is invoked, and the <code>FocusEvent</code> is passed to it.
+     *
+     * @see FocusAdapter
+     * @see FocusEvent
+     * @see <a href="http://docs.oracle.com/javase/tutorial/uiswing/events/focuslistener.html">Tutorial: Writing a Focus Listener</a>
+     *
+     * @author Carl Quinn
+     * @since 1.1
+     */
+    interface FocusListener extends java.util.EventListener {
+        /**
+         * Invoked when a component gains the keyboard focus.
+         */
+        focusGained(e: java.awt.event.FocusEvent): any;
+        /**
+         * Invoked when a component loses the keyboard focus.
+         */
+        focusLost(e: java.awt.event.FocusEvent): any;
     }
 }
 declare namespace java.awt.event {
@@ -1334,6 +1887,226 @@ declare namespace java.awt.event {
         textValueChanged(e: java.awt.event.TextEvent): any;
     }
 }
+declare namespace java.awt.event {
+    /**
+     * An abstract adapter class for receiving window events.
+     * The methods in this class are empty. This class exists as
+     * convenience for creating listener objects.
+     * <P>
+     * Extend this class to create a <code>WindowEvent</code> listener
+     * and override the methods for the events of interest. (If you implement the
+     * <code>WindowListener</code> interface, you have to define all of
+     * the methods in it. This abstract class defines null methods for them
+     * all, so you can only have to define methods for events you care about.)
+     * <P>
+     * Create a listener object using the extended class and then register it with
+     * a Window using the window's <code>addWindowListener</code>
+     * method. When the window's status changes by virtue of being opened,
+     * closed, activated or deactivated, iconified or deiconified,
+     * the relevant method in the listener
+     * object is invoked, and the <code>WindowEvent</code> is passed to it.
+     *
+     * @see WindowEvent
+     * @see WindowListener
+     * @see <a href="http://docs.oracle.com/javase/tutorial/uiswing/events/windowlistener.html">Tutorial: Writing a Window Listener</a>
+     *
+     * @author Carl Quinn
+     * @author Amy Fowler
+     * @author David Mendenhall
+     * @since 1.1
+     */
+    abstract class WindowAdapter implements java.awt.event.WindowListener, java.awt.event.WindowStateListener, java.awt.event.WindowFocusListener {
+        /**
+         * Invoked when a window has been opened.
+         */
+        windowOpened(e: java.awt.event.WindowEvent): void;
+        /**
+         * Invoked when a window is in the process of being closed.
+         * The close operation can be overridden at this point.
+         */
+        windowClosing(e: java.awt.event.WindowEvent): void;
+        /**
+         * Invoked when a window has been closed.
+         */
+        windowClosed(e: java.awt.event.WindowEvent): void;
+        /**
+         * Invoked when a window is iconified.
+         */
+        windowIconified(e: java.awt.event.WindowEvent): void;
+        /**
+         * Invoked when a window is de-iconified.
+         */
+        windowDeiconified(e: java.awt.event.WindowEvent): void;
+        /**
+         * Invoked when a window is activated.
+         */
+        windowActivated(e: java.awt.event.WindowEvent): void;
+        /**
+         * Invoked when a window is de-activated.
+         */
+        windowDeactivated(e: java.awt.event.WindowEvent): void;
+        /**
+         * Invoked when a window state is changed.
+         * @since 1.4
+         */
+        windowStateChanged(e: java.awt.event.WindowEvent): void;
+        /**
+         * Invoked when the Window is set to be the focused Window, which means
+         * that the Window, or one of its subcomponents, will receive keyboard
+         * events.
+         *
+         * @since 1.4
+         */
+        windowGainedFocus(e: java.awt.event.WindowEvent): void;
+        /**
+         * Invoked when the Window is no longer the focused Window, which means
+         * that keyboard events will no longer be delivered to the Window or any of
+         * its subcomponents.
+         *
+         * @since 1.4
+         */
+        windowLostFocus(e: java.awt.event.WindowEvent): void;
+        constructor();
+    }
+}
+declare namespace java.awt.event {
+    /**
+     * The listener interface for receiving <code>WindowEvents</code>, including
+     * <code>WINDOW_GAINED_FOCUS</code> and <code>WINDOW_LOST_FOCUS</code> events.
+     * The class that is interested in processing a <code>WindowEvent</code>
+     * either implements this interface (and
+     * all the methods it contains) or extends the abstract
+     * <code>WindowAdapter</code> class (overriding only the methods of interest).
+     * The listener object created from that class is then registered with a
+     * <code>Window</code>
+     * using the <code>Window</code>'s <code>addWindowFocusListener</code> method.
+     * When the <code>Window</code>'s
+     * status changes by virtue of it being opened, closed, activated, deactivated,
+     * iconified, or deiconified, or by focus being transfered into or out of the
+     * <code>Window</code>, the relevant method in the listener object is invoked,
+     * and the <code>WindowEvent</code> is passed to it.
+     *
+     * @author David Mendenhall
+     *
+     * @see WindowAdapter
+     * @see WindowEvent
+     * @see <a href="http://docs.oracle.com/javase/tutorial/uiswing/events/windowlistener.html">Tutorial: Writing a Window Listener</a>
+     *
+     * @since 1.4
+     */
+    interface WindowFocusListener extends java.util.EventListener {
+        /**
+         * Invoked when the Window is set to be the focused Window, which means
+         * that the Window, or one of its subcomponents, will receive keyboard
+         * events.
+         */
+        windowGainedFocus(e: java.awt.event.WindowEvent): any;
+        /**
+         * Invoked when the Window is no longer the focused Window, which means
+         * that keyboard events will no longer be delivered to the Window or any of
+         * its subcomponents.
+         */
+        windowLostFocus(e: java.awt.event.WindowEvent): any;
+    }
+}
+declare namespace java.awt.event {
+    /**
+     * The listener interface for receiving window events.
+     * The class that is interested in processing a window event
+     * either implements this interface (and all the methods it
+     * contains) or extends the abstract <code>WindowAdapter</code> class
+     * (overriding only the methods of interest).
+     * The listener object created from that class is then registered with a
+     * Window using the window's <code>addWindowListener</code>
+     * method. When the window's status changes by virtue of being opened,
+     * closed, activated or deactivated, iconified or deiconified,
+     * the relevant method in the listener object is invoked, and the
+     * <code>WindowEvent</code> is passed to it.
+     *
+     * @author Carl Quinn
+     *
+     * @see WindowAdapter
+     * @see WindowEvent
+     * @see <a href="http://docs.oracle.com/javase/tutorial/uiswing/events/windowlistener.html">Tutorial: How to Write Window Listeners</a>
+     *
+     * @since 1.1
+     */
+    interface WindowListener extends java.util.EventListener {
+        /**
+         * Invoked the first time a window is made visible.
+         */
+        windowOpened(e: java.awt.event.WindowEvent): any;
+        /**
+         * Invoked when the user attempts to close the window
+         * from the window's system menu.
+         */
+        windowClosing(e: java.awt.event.WindowEvent): any;
+        /**
+         * Invoked when a window has been closed as the result
+         * of calling dispose on the window.
+         */
+        windowClosed(e: java.awt.event.WindowEvent): any;
+        /**
+         * Invoked when a window is changed from a normal to a
+         * minimized state. For many platforms, a minimized window
+         * is displayed as the icon specified in the window's
+         * iconImage property.
+         * @see java.awt.Frame#setIconImage
+         */
+        windowIconified(e: java.awt.event.WindowEvent): any;
+        /**
+         * Invoked when a window is changed from a minimized
+         * to a normal state.
+         */
+        windowDeiconified(e: java.awt.event.WindowEvent): any;
+        /**
+         * Invoked when the Window is set to be the active Window. Only a Frame or
+         * a Dialog can be the active Window. The native windowing system may
+         * denote the active Window or its children with special decorations, such
+         * as a highlighted title bar. The active Window is always either the
+         * focused Window, or the first Frame or Dialog that is an owner of the
+         * focused Window.
+         */
+        windowActivated(e: java.awt.event.WindowEvent): any;
+        /**
+         * Invoked when a Window is no longer the active Window. Only a Frame or a
+         * Dialog can be the active Window. The native windowing system may denote
+         * the active Window or its children with special decorations, such as a
+         * highlighted title bar. The active Window is always either the focused
+         * Window, or the first Frame or Dialog that is an owner of the focused
+         * Window.
+         */
+        windowDeactivated(e: java.awt.event.WindowEvent): any;
+    }
+}
+declare namespace java.awt.event {
+    /**
+     * The listener interface for receiving window state events.
+     * <p>
+     * The class that is interested in processing a window state event
+     * either implements this interface (and all the methods it contains)
+     * or extends the abstract <code>WindowAdapter</code> class
+     * (overriding only the methods of interest).
+     * <p>
+     * The listener object created from that class is then registered with
+     * a window using the <code>Window</code>'s
+     * <code>addWindowStateListener</code> method.  When the window's
+     * state changes by virtue of being iconified, maximized etc., the
+     * <code>windowStateChanged</code> method in the listener object is
+     * invoked, and the <code>WindowEvent</code> is passed to it.
+     *
+     * @see java.awt.event.WindowAdapter
+     * @see java.awt.event.WindowEvent
+     *
+     * @since 1.4
+     */
+    interface WindowStateListener extends java.util.EventListener {
+        /**
+         * Invoked when window state is changed.
+         */
+        windowStateChanged(e: java.awt.event.WindowEvent): any;
+    }
+}
 declare namespace java.awt {
     class Event implements java.io.Serializable {
         private data;
@@ -1478,7 +2251,7 @@ declare namespace java.awt {
         constructor(align?: number, hgap?: number, vgap?: number);
         getAlignment(): number;
         setAlignment(align: number): void;
-        addLayoutComponent(name: string, component: java.awt.Component): void;
+        addLayoutComponent(name?: any, component?: any): any;
         removeLayoutComponent(component: java.awt.Component): void;
         layoutContainer(parent: java.awt.Container): void;
         onComponentAdded(parent: java.awt.Container, component: java.awt.Component, position: number): void;
@@ -7843,7 +8616,7 @@ declare namespace java.awt {
         cols: number;
         rows: number;
         constructor(rows: number, cols: number);
-        addLayoutComponent(name: string, component: java.awt.Component): void;
+        addLayoutComponent(name?: any, component?: any): any;
         removeLayoutComponent(component: java.awt.Component): void;
         layoutContainer(parent: java.awt.Container): void;
         onComponentAdded(parent: java.awt.Container, component: java.awt.Component, position: number): void;
@@ -7855,6 +8628,24 @@ declare namespace java.awt {
         bindHTML(htmlElement: HTMLElement): any;
         createHTML(): any;
         initHTML(): any;
+    }
+}
+declare namespace java.awt {
+    /**
+     * Signals that an AWT component is not in an appropriate state for
+     * the requested operation.
+     *
+     * @author      Jonni Kanerva
+     */
+    class IllegalComponentStateException extends java.lang.IllegalStateException {
+        static serialVersionUID: number;
+        /**
+         * Constructs an IllegalComponentStateException with the specified detail
+         * message.  A detail message is a String that describes this particular
+         * exception.
+         * @param s the String that contains a detailed message
+         */
+        constructor(s?: any);
     }
 }
 declare namespace java.awt.image {
@@ -7872,11 +8663,23 @@ declare namespace java.awt.image {
         var ABORT: number;
     }
 }
+declare namespace java.awt.image {
+    /**
+     * RenderedImage is a common interface for objects which contain
+     * or can produce image data in the form of Rasters.  The image
+     * data may be stored/produced as a single tile or a regular array
+     * of tiles.
+     */
+    interface RenderedImage {
+        getWidth(observer?: any): any;
+        getHeight(observer?: any): any;
+    }
+}
 declare namespace java.awt {
     class Image {
         constructor(src: string);
-        getWidth(observer: java.awt.image.ImageObserver): number;
-        getHeight(observer: java.awt.image.ImageObserver): number;
+        getWidth(observer?: any): any;
+        getHeight(observer?: any): any;
         source: HTMLImageElement;
         /**
          * Use the default image-scaling algorithm.
@@ -7921,10 +8724,61 @@ declare namespace java.awt {
 }
 declare namespace java.awt {
     interface LayoutManager {
-        addLayoutComponent(name: string, comp: java.awt.Component): any;
+        addLayoutComponent(comp?: any, constraints?: any): any;
         removeLayoutComponent(comp: java.awt.Component): any;
         layoutContainer(parent: java.awt.Container): any;
         onComponentAdded(parent: java.awt.Container, component: java.awt.Component, position: number): any;
+    }
+}
+declare namespace java.awt {
+    /**
+     * Defines an interface for classes that know how to layout Containers
+     * based on a layout constraints object.
+     *
+     * This interface extends the LayoutManager interface to deal with layouts
+     * explicitly in terms of constraint objects that specify how and where
+     * components should be added to the layout.
+     * <p>
+     * This minimal extension to LayoutManager is intended for tool
+     * providers who wish to the creation of constraint-based layouts.
+     * It does not yet provide full, general support for custom
+     * constraint-based layout managers.
+     *
+     * @see LayoutManager
+     * @see Container
+     *
+     * @author      Jonni Kanerva
+     */
+    interface LayoutManager2 extends java.awt.LayoutManager {
+        addLayoutComponent(name?: any, comp?: any): any;
+        /**
+         * Calculates the maximum size dimensions for the specified container,
+         * given the components it contains.
+         * @see java.awt.Component#getMaximumSize
+         * @see LayoutManager
+         */
+        maximumLayoutSize(target: java.awt.Container): java.awt.Dimension;
+        /**
+         * Returns the alignment along the x axis.  This specifies how
+         * the component would like to be aligned relative to other
+         * components.  The value should be a number between 0 and 1
+         * where 0 represents alignment along the origin, 1 is aligned
+         * the furthest away from the origin, 0.5 is centered, etc.
+         */
+        getLayoutAlignmentX(target: java.awt.Container): number;
+        /**
+         * Returns the alignment along the y axis.  This specifies how
+         * the component would like to be aligned relative to other
+         * components.  The value should be a number between 0 and 1
+         * where 0 represents alignment along the origin, 1 is aligned
+         * the furthest away from the origin, 0.5 is centered, etc.
+         */
+        getLayoutAlignmentY(target: java.awt.Container): number;
+        /**
+         * Invalidates the layout, indicating that if the layout manager
+         * has cached information it should be discarded.
+         */
+        invalidateLayout(target: java.awt.Container): any;
     }
 }
 declare namespace java.awt {
@@ -7933,6 +8787,17 @@ declare namespace java.awt {
         getName(): string;
         setName(name: string): void;
         constructor();
+    }
+}
+declare namespace java.awt {
+    class NoLayout implements java.awt.LayoutManager {
+        created: boolean;
+        parent: java.awt.Container;
+        constructor();
+        addLayoutComponent(name?: any, component?: any): any;
+        removeLayoutComponent(component: java.awt.Component): void;
+        layoutContainer(parent: java.awt.Container): void;
+        onComponentAdded(parent: java.awt.Container, component: java.awt.Component, position: number): void;
     }
 }
 declare namespace java.awt {
@@ -8229,9 +9094,421 @@ declare namespace java.awt {
         var TRANSLUCENT: number;
     }
 }
+declare namespace java.beans {
+    abstract class ChangeListenerMap<L extends java.util.EventListener> {
+        private map;
+        abstract newArray(length: number): L[];
+        newProxy(name?: any, listener?: any): any;
+        newProxy$java_lang_String$java_util_EventListener(name: string, listener: L): L;
+        add(name: string, listener: L): void;
+        remove(name: string, listener: L): void;
+        /**
+         * Returns the list of listeners for the specified property.
+         *
+         * @param name
+         * the name of the property
+         * @return the corresponding list of listeners
+         */
+        get(name: string): L[];
+        /**
+         * Sets new list of listeners for the specified property.
+         *
+         * @param name
+         * the name of the property
+         * @param listeners
+         * new list of listeners
+         */
+        set(name: string, listeners: L[]): void;
+        /**
+         * Returns all listeners in the map.
+         *
+         * @return an array of all listeners
+         */
+        getListeners$(): L[];
+        /**
+         * Returns listeners that have been associated with the named property.
+         *
+         * @param name
+         * the name of the property
+         * @return an array of listeners for the named property
+         */
+        getListeners(name?: any): any;
+        /**
+         * Indicates whether the map contains at least one listener to be notified.
+         *
+         * @param name
+         * the name of the property
+         * @return {@code true} if at least one listener exists or {@code false}
+         * otherwise
+         */
+        hasListeners(name: string): boolean;
+        /**
+         * Returns a set of entries from the map. Each entry is a pair consisted of
+         * the property name and the corresponding list of listeners.
+         *
+         * @return a set of entries from the map
+         */
+        getEntries(): java.util.Set<java.util.Map.Entry<string, L[]>>;
+        extract(listener?: any): any;
+        /**
+         * Extracts a real listener from the proxy listener. It is necessary because
+         * default proxy class is not serializable.
+         *
+         * @return a real listener
+         */
+        extract$java_util_EventListener(listener: L): L;
+        constructor();
+    }
+}
+declare namespace java.beans {
+    class PropertyChangeEvent extends java.util.EventObject {
+        static serialVersionUID: number;
+        constructor(source: any, propertyName: string, oldValue: any, newValue: any);
+        getPropertyName(): string;
+        getNewValue(): any;
+        getOldValue(): any;
+        setPropagationId(propagationId: any): void;
+        getPropagationId(): any;
+        private propertyName;
+        private newValue;
+        private oldValue;
+        private propagationId;
+        toString(): string;
+        appendTo(sb: java.lang.StringBuilder): void;
+    }
+}
+declare namespace java.beans {
+    interface PropertyChangeListener extends java.util.EventListener {
+        propertyChange(evt: java.beans.PropertyChangeEvent): any;
+    }
+}
+declare namespace java.beans {
+    class PropertyChangeListenerProxy extends java.util.EventListenerProxy<java.beans.PropertyChangeListener> implements java.beans.PropertyChangeListener {
+        private propertyName;
+        /**
+         * Constructor which binds the {@code PropertyChangeListener}
+         * to a specific property.
+         *
+         * @param propertyName  the name of the property to listen on
+         * @param listener      the listener object
+         */
+        constructor(propertyName: string, listener: java.beans.PropertyChangeListener);
+        /**
+         * Forwards the property change event to the listener delegate.
+         *
+         * @param event  the property change event
+         */
+        propertyChange(event: java.beans.PropertyChangeEvent): void;
+        /**
+         * Returns the name of the named property associated with the listener.
+         *
+         * @return the name of the named property associated with the listener
+         */
+        getPropertyName(): string;
+    }
+}
 declare namespace javax.imageio {
     class ImageIO {
         static read(input: java.io.File): java.awt.image.BufferedImage;
+    }
+}
+declare namespace javax.swing {
+    /**
+     * This class provides default implementations for the JFC <code>Action</code>
+     * interface. Standard behaviors like the get and set methods for
+     * <code>Action</code> object properties (icon, text, and enabled) are defined
+     * here. The developer need only subclass this abstract class and define the
+     * <code>actionPerformed</code> method.
+     * <p>
+     * <strong>Warning:</strong> Serialized objects of this class will not be
+     * compatible with future Swing releases. The current serialization support is
+     * appropriate for short term storage or RMI between applications running the
+     * same version of Swing. As of 1.4, support for long term storage of all
+     * JavaBeans&trade; has been added to the <code>java.beans</code> package.
+     * Please see {@link java.beans.XMLEncoder}.
+     *
+     * @author Georges Saab
+     * @see Action
+     */
+    abstract class AbstractAction implements javax.swing.Action, java.lang.Cloneable, java.io.Serializable {
+        abstract actionPerformed(ae: any): any;
+        /**
+         * Whether or not actions should reconfigure all properties on null.
+         */
+        static RECONFIGURE_ON_NULL: boolean;
+        /**
+         * Specifies whether action is enabled; the default is true.
+         */
+        enabled: boolean;
+        /**
+         * Contains the array of key bindings.
+         */
+        private arrayTable;
+        /**
+         * Sets the enabled state of a component from an Action.
+         *
+         * @param c
+         * the Component to set the enabled state on
+         * @param a
+         * the Action to set the enabled state from, may be null
+         */
+        static setEnabledFromAction(c: javax.swing.JComponent, a: javax.swing.Action): void;
+        /**
+         * Sets the tooltip text of a component from an Action.
+         *
+         * @param c
+         * the Component to set the tooltip text on
+         * @param a
+         * the Action to set the tooltip text from, may be null
+         */
+        static setToolTipTextFromAction(c: javax.swing.JComponent, a: javax.swing.Action): void;
+        static hasSelectedKey(a: javax.swing.Action): boolean;
+        static isSelected(a: javax.swing.Action): boolean;
+        /**
+         * Creates an {@code Action} with the specified name and small icon.
+         *
+         * @param name
+         * the name ({@code Action.NAME}) for the action; a value of
+         * {@code null} is ignored
+         * @param icon
+         * the small icon ({@code Action.SMALL_ICON}) for the action; a
+         * value of {@code null} is ignored
+         */
+        constructor(name?: any, icon?: any);
+        /**
+         * Gets the <code>Object</code> associated with the specified key.
+         *
+         * @param key
+         * a string containing the specified <code>key</code>
+         * @return the binding <code>Object</code> stored with this key; if there
+         * are no keys, it will return <code>null</code>
+         * @see Action#getValue
+         */
+        getValue(key: string): any;
+        /**
+         * Sets the <code>Value</code> associated with the specified key.
+         *
+         * @param key
+         * the <code>String</code> that identifies the stored object
+         * @param newValue
+         * the <code>Object</code> to store using this key
+         * @see Action#putValue
+         */
+        putValue(key: string, newValue: any): void;
+        /**
+         * Returns true if the action is enabled.
+         *
+         * @return true if the action is enabled, false otherwise
+         * @see Action#isEnabled
+         */
+        isEnabled(): boolean;
+        /**
+         * Sets whether the {@code Action} is enabled. The default is {@code true}.
+         *
+         * @param newValue
+         * {@code true} to enable the action, {@code false} to disable it
+         * @see Action#setEnabled
+         */
+        setEnabled(newValue: boolean): void;
+        /**
+         * Returns an array of <code>Object</code>s which are keys for which values
+         * have been set for this <code>AbstractAction</code>, or <code>null</code>
+         * if no keys have values set.
+         *
+         * @return an array of key objects, or <code>null</code> if no keys have
+         * values set
+         * @since 1.3
+         */
+        getKeys(): any[];
+        /**
+         * If any <code>PropertyChangeListeners</code> have been registered, the
+         * <code>changeSupport</code> field describes them.
+         */
+        changeSupport: javax.swing.event.SwingPropertyChangeSupport;
+        /**
+         * Supports reporting bound property changes. This method can be called when
+         * a bound property has changed and it will send the appropriate
+         * <code>PropertyChangeEvent</code> to any registered
+         * <code>PropertyChangeListeners</code>.
+         */
+        firePropertyChange(propertyName: string, oldValue: any, newValue: any): void;
+        /**
+         * Adds a <code>PropertyChangeListener</code> to the listener list. The
+         * listener is registered for all properties.
+         * <p>
+         * A <code>PropertyChangeEvent</code> will get fired in response to setting
+         * a bound property, e.g. <code>setFont</code>, <code>setBackground</code>,
+         * or <code>setForeground</code>. Note that if the current component is
+         * inheriting its foreground, background, or font from its container, then
+         * no event will be fired in response to a change in the inherited property.
+         *
+         * @param listener
+         * The <code>PropertyChangeListener</code> to be added
+         *
+         * @see Action#addPropertyChangeListener
+         */
+        addPropertyChangeListener(listener: java.beans.PropertyChangeListener): void;
+        /**
+         * Removes a <code>PropertyChangeListener</code> from the listener list.
+         * This removes a <code>PropertyChangeListener</code> that was registered
+         * for all properties.
+         *
+         * @param listener
+         * the <code>PropertyChangeListener</code> to be removed
+         *
+         * @see Action#removePropertyChangeListener
+         */
+        removePropertyChangeListener(listener: java.beans.PropertyChangeListener): void;
+        /**
+         * Returns an array of all the <code>PropertyChangeListener</code>s added to
+         * this AbstractAction with addPropertyChangeListener().
+         *
+         * @return all of the <code>PropertyChangeListener</code>s added or an empty
+         * array if no listeners have been added
+         * @since 1.4
+         */
+        getPropertyChangeListeners(): java.beans.PropertyChangeListener[];
+        /**
+         * Clones the abstract action. This gives the clone its own copy of the
+         * key/value list, which is not handled for you by
+         * <code>Object.clone()</code>.
+         */
+        clone(): any;
+    }
+}
+declare namespace javax.swing {
+    /**
+     * The abstract definition for the data model that provides
+     * a <code>List</code> with its contents.
+     * <p>
+     * <strong>Warning:</strong>
+     * Serialized objects of this class will not be compatible with
+     * future Swing releases. The current serialization support is
+     * appropriate for short term storage or RMI between applications running
+     * the same version of Swing.  As of 1.4, support for long term storage
+     * of all JavaBeans&trade;
+     * has been added to the <code>java.beans</code> package.
+     * Please see {@link java.beans.XMLEncoder}.
+     *
+     * @param <E> the type of the elements of this model
+     *
+     * @author Hans Muller
+     */
+    abstract class AbstractListModel<E> implements javax.swing.ListModel<E>, java.io.Serializable {
+        abstract getSize(): any;
+        abstract getElementAt(index: any): any;
+        listenerList: javax.swing.event.EventListenerList;
+        /**
+         * Adds a listener to the list that's notified each time a change
+         * to the data model occurs.
+         *
+         * @param l the <code>ListDataListener</code> to be added
+         */
+        addListDataListener(l: javax.swing.event.ListDataListener): void;
+        /**
+         * Removes a listener from the list that's notified each time a
+         * change to the data model occurs.
+         *
+         * @param l the <code>ListDataListener</code> to be removed
+         */
+        removeListDataListener(l: javax.swing.event.ListDataListener): void;
+        /**
+         * Returns an array of all the list data listeners
+         * registered on this <code>AbstractListModel</code>.
+         *
+         * @return all of this model's <code>ListDataListener</code>s,
+         * or an empty array if no list data listeners
+         * are currently registered
+         *
+         * @see #addListDataListener
+         * @see #removeListDataListener
+         *
+         * @since 1.4
+         */
+        getListDataListeners(): javax.swing.event.ListDataListener[];
+        /**
+         * <code>AbstractListModel</code> subclasses must call this method
+         * <b>after</b>
+         * one or more elements of the list change.  The changed elements
+         * are specified by the closed interval index0, index1 -- the endpoints
+         * are included.  Note that
+         * index0 need not be less than or equal to index1.
+         *
+         * @param source the <code>ListModel</code> that changed, typically "this"
+         * @param index0 one end of the new interval
+         * @param index1 the other end of the new interval
+         * @see EventListenerList
+         * @see DefaultListModel
+         */
+        fireContentsChanged(source: any, index0: number, index1: number): void;
+        /**
+         * <code>AbstractListModel</code> subclasses must call this method
+         * <b>after</b>
+         * one or more elements are added to the model.  The new elements
+         * are specified by a closed interval index0, index1 -- the enpoints
+         * are included.  Note that
+         * index0 need not be less than or equal to index1.
+         *
+         * @param source the <code>ListModel</code> that changed, typically "this"
+         * @param index0 one end of the new interval
+         * @param index1 the other end of the new interval
+         * @see EventListenerList
+         * @see DefaultListModel
+         */
+        fireIntervalAdded(source: any, index0: number, index1: number): void;
+        /**
+         * <code>AbstractListModel</code> subclasses must call this method
+         * <b>after</b> one or more elements are removed from the model.
+         * <code>index0</code> and <code>index1</code> are the end points
+         * of the interval that's been removed.  Note that <code>index0</code>
+         * need not be less than or equal to <code>index1</code>.
+         *
+         * @param source the <code>ListModel</code> that changed, typically "this"
+         * @param index0 one end of the removed interval,
+         * including <code>index0</code>
+         * @param index1 the other end of the removed interval,
+         * including <code>index1</code>
+         * @see EventListenerList
+         * @see DefaultListModel
+         */
+        fireIntervalRemoved(source: any, index0: number, index1: number): void;
+        /**
+         * Returns an array of all the objects currently registered as
+         * <code><em>Foo</em>Listener</code>s
+         * upon this model.
+         * <code><em>Foo</em>Listener</code>s
+         * are registered using the <code>add<em>Foo</em>Listener</code> method.
+         * <p>
+         * You can specify the <code>listenerType</code> argument
+         * with a class literal, such as <code><em>Foo</em>Listener.class</code>.
+         * For example, you can query a list model
+         * <code>m</code>
+         * for its list data listeners
+         * with the following code:
+         *
+         * <pre>ListDataListener[] ldls = (ListDataListener[])(m.getListeners(ListDataListener.class));</pre>
+         *
+         * If no such listeners exist,
+         * this method returns an empty array.
+         *
+         * @param listenerType  the type of listeners requested;
+         * this parameter should specify an interface
+         * that descends from <code>java.util.EventListener</code>
+         * @return an array of all objects registered as
+         * <code><em>Foo</em>Listener</code>s
+         * on this model,
+         * or an empty array if no such
+         * listeners have been added
+         * @exception ClassCastException if <code>listenerType</code> doesn't
+         * specify a class or interface that implements
+         * <code>java.util.EventListener</code>
+         *
+         * @see #getListDataListeners
+         *
+         * @since 1.3
+         */
+        getListeners<T extends java.util.EventListener>(listenerType: any): T[];
+        constructor();
     }
 }
 declare namespace javax.swing {
@@ -8257,6 +9534,1124 @@ declare namespace javax.swing {
         var LARGE_ICON_KEY: string;
     }
 }
+declare namespace javax.swing {
+    /**
+     * A package-private PropertyChangeListener which listens for property changes
+     * on an Action and updates the properties of an ActionEvent source.
+     * <p>
+     * Subclasses must override the actionPropertyChanged method, which is invoked
+     * from the propertyChange method as long as the target is still valid.
+     * </p>
+     * <p>
+     * WARNING WARNING WARNING WARNING WARNING WARNING:<br>
+     * Do NOT create an annonymous inner class that extends this! If you do a strong
+     * reference will be held to the containing class, which in most cases defeats
+     * the purpose of this class.
+     *
+     * @param T
+     * the type of JComponent the underlying Action is attached to
+     *
+     * @author Georges Saab
+     * @see AbstractButton
+     */
+    abstract class ActionPropertyChangeListener<T extends javax.swing.JComponent> implements java.beans.PropertyChangeListener, java.io.Serializable {
+        private target;
+        private action;
+        constructor(c: T, a: javax.swing.Action);
+        propertyChange(e: java.beans.PropertyChangeEvent): void;
+        actionPropertyChanged(cb?: any, action?: any, e?: any): any;
+        actionPropertyChanged$javax_swing_JComponent$javax_swing_Action$java_beans_PropertyChangeEvent(target: T, action: javax.swing.Action, e: java.beans.PropertyChangeEvent): void;
+        private setTarget(c);
+        getTarget(): T;
+        getAction(): javax.swing.Action;
+    }
+}
+declare namespace javax.swing {
+    /**
+     * Defines the data model used by components like <code>Slider</code>s
+     * and <code>ProgressBar</code>s.
+     * Defines four interrelated integer properties: minimum, maximum, extent
+     * and value.  These four integers define two nested ranges like this:
+     * <pre>
+     * minimum &lt;= value &lt;= value+extent &lt;= maximum
+     * </pre>
+     * The outer range is <code>minimum,maximum</code> and the inner
+     * range is <code>value,value+extent</code>.  The inner range
+     * must lie within the outer one, i.e. <code>value</code> must be
+     * less than or equal to <code>maximum</code> and <code>value+extent</code>
+     * must greater than or equal to <code>minimum</code>, and <code>maximum</code>
+     * must be greater than or equal to <code>minimum</code>.
+     * There are a few features of this model that one might find a little
+     * surprising.  These quirks exist for the convenience of the
+     * Swing BoundedRangeModel clients, such as <code>Slider</code> and
+     * <code>ScrollBar</code>.
+     * <ul>
+     * <li>
+     * The minimum and maximum set methods "correct" the other
+     * three properties to accommodate their new value argument.  For
+     * example setting the model's minimum may change its maximum, value,
+     * and extent properties (in that order), to maintain the constraints
+     * specified above.
+     *
+     * <li>
+     * The value and extent set methods "correct" their argument to
+     * fit within the limits defined by the other three properties.
+     * For example if <code>value == maximum</code>, <code>setExtent(10)</code>
+     * would change the extent (back) to zero.
+     *
+     * <li>
+     * The four BoundedRangeModel values are defined as Java Beans properties
+     * however Swing ChangeEvents are used to notify clients of changes rather
+     * than PropertyChangeEvents. This was done to keep the overhead of monitoring
+     * a BoundedRangeModel low. Changes are often reported at MouseDragged rates.
+     * </ul>
+     *
+     * <p>
+     *
+     * For an example of specifying custom bounded range models used by sliders,
+     * see <a
+     * href="http://www.oracle.com/technetwork/java/architecture-142923.html#separable">Separable model architecture</a>
+     * in <em>A Swing Architecture Overview.</em>
+     *
+     * @author Hans Muller
+     * @see DefaultBoundedRangeModel
+     */
+    interface BoundedRangeModel {
+        /**
+         * Returns the minimum acceptable value.
+         *
+         * @return the value of the minimum property
+         * @see #setMinimum
+         */
+        getMinimum(): number;
+        /**
+         * Sets the model's minimum to <I>newMinimum</I>.   The
+         * other three properties may be changed as well, to ensure
+         * that:
+         * <pre>
+         * minimum &lt;= value &lt;= value+extent &lt;= maximum
+         * </pre>
+         * <p>
+         * Notifies any listeners if the model changes.
+         *
+         * @param newMinimum the model's new minimum
+         * @see #getMinimum
+         * @see #addChangeListener
+         */
+        setMinimum(newMinimum: number): any;
+        /**
+         * Returns the model's maximum.  Note that the upper
+         * limit on the model's value is (maximum - extent).
+         *
+         * @return the value of the maximum property.
+         * @see #setMaximum
+         * @see #setExtent
+         */
+        getMaximum(): number;
+        /**
+         * Sets the model's maximum to <I>newMaximum</I>. The other
+         * three properties may be changed as well, to ensure that
+         * <pre>
+         * minimum &lt;= value &lt;= value+extent &lt;= maximum
+         * </pre>
+         * <p>
+         * Notifies any listeners if the model changes.
+         *
+         * @param newMaximum the model's new maximum
+         * @see #getMaximum
+         * @see #addChangeListener
+         */
+        setMaximum(newMaximum: number): any;
+        /**
+         * Returns the model's current value.  Note that the upper
+         * limit on the model's value is <code>maximum - extent</code>
+         * and the lower limit is <code>minimum</code>.
+         *
+         * @return  the model's value
+         * @see     #setValue
+         */
+        getValue(): number;
+        /**
+         * Sets the model's current value to <code>newValue</code> if <code>newValue</code>
+         * satisfies the model's constraints. Those constraints are:
+         * <pre>
+         * minimum &lt;= value &lt;= value+extent &lt;= maximum
+         * </pre>
+         * Otherwise, if <code>newValue</code> is less than <code>minimum</code>
+         * it's set to <code>minimum</code>, if its greater than
+         * <code>maximum</code> then it's set to <code>maximum</code>, and
+         * if it's greater than <code>value+extent</code> then it's set to
+         * <code>value+extent</code>.
+         * <p>
+         * When a BoundedRange model is used with a scrollbar the value
+         * specifies the origin of the scrollbar knob (aka the "thumb" or
+         * "elevator").  The value usually represents the origin of the
+         * visible part of the object being scrolled.
+         * <p>
+         * Notifies any listeners if the model changes.
+         *
+         * @param newValue the model's new value
+         * @see #getValue
+         */
+        setValue(newValue: number): any;
+        /**
+         * This attribute indicates that any upcoming changes to the value
+         * of the model should be considered a single event. This attribute
+         * will be set to true at the start of a series of changes to the value,
+         * and will be set to false when the value has finished changing.  Normally
+         * this allows a listener to only take action when the final value change in
+         * committed, instead of having to do updates for all intermediate values.
+         * <p>
+         * Sliders and scrollbars use this property when a drag is underway.
+         *
+         * @param b true if the upcoming changes to the value property are part of a series
+         */
+        setValueIsAdjusting(b: boolean): any;
+        /**
+         * Returns true if the current changes to the value property are part
+         * of a series of changes.
+         *
+         * @return the valueIsAdjustingProperty.
+         * @see #setValueIsAdjusting
+         */
+        getValueIsAdjusting(): boolean;
+        /**
+         * Returns the model's extent, the length of the inner range that
+         * begins at the model's value.
+         *
+         * @return  the value of the model's extent property
+         * @see     #setExtent
+         * @see     #setValue
+         */
+        getExtent(): number;
+        /**
+         * Sets the model's extent.  The <I>newExtent</I> is forced to
+         * be greater than or equal to zero and less than or equal to
+         * maximum - value.
+         * <p>
+         * When a BoundedRange model is used with a scrollbar the extent
+         * defines the length of the scrollbar knob (aka the "thumb" or
+         * "elevator").  The extent usually represents how much of the
+         * object being scrolled is visible. When used with a slider,
+         * the extent determines how much the value can "jump", for
+         * example when the user presses PgUp or PgDn.
+         * <p>
+         * Notifies any listeners if the model changes.
+         *
+         * @param  newExtent the model's new extent
+         * @see #getExtent
+         * @see #setValue
+         */
+        setExtent(newExtent: number): any;
+        /**
+         * This method sets all of the model's data with a single method call.
+         * The method results in a single change event being generated. This is
+         * convenient when you need to adjust all the model data simultaneously and
+         * do not want individual change events to occur.
+         *
+         * @param value  an int giving the current value
+         * @param extent an int giving the amount by which the value can "jump"
+         * @param min    an int giving the minimum value
+         * @param max    an int giving the maximum value
+         * @param adjusting a boolean, true if a series of changes are in
+         * progress
+         *
+         * @see #setValue
+         * @see #setExtent
+         * @see #setMinimum
+         * @see #setMaximum
+         * @see #setValueIsAdjusting
+         */
+        setRangeProperties(value: number, extent: number, min: number, max: number, adjusting: boolean): any;
+        /**
+         * Adds a ChangeListener to the model's listener list.
+         *
+         * @param x the ChangeListener to add
+         * @see #removeChangeListener
+         */
+        addChangeListener(x: javax.swing.event.ChangeListener): any;
+        /**
+         * Removes a ChangeListener from the model's listener list.
+         *
+         * @param x the ChangeListener to remove
+         * @see #addChangeListener
+         */
+        removeChangeListener(x: javax.swing.event.ChangeListener): any;
+    }
+}
+declare namespace javax.swing {
+    class BoxLayout implements java.awt.LayoutManager2, java.io.Serializable {
+        static X_AXIS: number;
+        static Y_AXIS: number;
+        static LINE_AXIS: number;
+        static PAGE_AXIS: number;
+        private table;
+        constructor(target: java.awt.Container, axis: number);
+        getTarget(): java.awt.Container;
+        getAxis(): number;
+        invalidateLayout(target: java.awt.Container): void;
+        addLayoutComponent(name?: any, comp?: any): any;
+        removeLayoutComponent(comp: java.awt.Component): void;
+        addLayoutComponent$java_awt_Component$java_lang_Object(comp: java.awt.Component, constraints: any): void;
+        maximumLayoutSize(target: java.awt.Container): java.awt.Dimension;
+        getLayoutAlignmentX(target: java.awt.Container): number;
+        getLayoutAlignmentY(target: java.awt.Container): number;
+        layoutContainer(target: java.awt.Container): void;
+        onComponentAdded(parent: java.awt.Container, component: java.awt.Component, position: number): void;
+        private axis;
+        private target;
+    }
+}
+declare namespace javax.swing {
+    class ButtonGroup implements java.io.Serializable {
+        buttons: java.util.Vector<javax.swing.AbstractButton>;
+        selection: javax.swing.ButtonModel;
+        constructor();
+        add(b: javax.swing.AbstractButton): void;
+        remove(b: javax.swing.AbstractButton): void;
+        clearSelection(): void;
+        getElements(): java.util.Enumeration<javax.swing.AbstractButton>;
+        getSelection(): javax.swing.ButtonModel;
+        setSelected(m: javax.swing.ButtonModel, b: boolean): void;
+        isSelected(m: javax.swing.ButtonModel): boolean;
+        getButtonCount(): number;
+    }
+}
+declare namespace javax.swing {
+    interface ButtonModel extends java.awt.ItemSelectable {
+        isArmed(): boolean;
+        isSelected(): boolean;
+        isEnabled(): boolean;
+        isPressed(): boolean;
+        isRollover(): boolean;
+        setArmed(b: boolean): any;
+        setSelected(b: boolean): any;
+        setEnabled(b: boolean): any;
+        setPressed(b: boolean): any;
+        setRollover(b: boolean): any;
+        setMnemonic(key: number): any;
+        getMnemonic(): number;
+        setActionCommand(s: string): any;
+        getActionCommand(): string;
+        setGroup(group: javax.swing.ButtonGroup): any;
+        addActionListener(l: java.awt.event.ActionListener): any;
+        removeActionListener(l: java.awt.event.ActionListener): any;
+        addItemListener(l: java.awt.event.ItemListener): any;
+        removeItemListener(l: java.awt.event.ItemListener): any;
+        addChangeListener(l: javax.swing.event.ChangeListener): any;
+        removeChangeListener(l: javax.swing.event.ChangeListener): any;
+    }
+}
+declare namespace javax.swing {
+    /**
+     * The editor component used for JComboBox components.
+     *
+     * @author Arnaud Weber
+     */
+    interface ComboBoxEditor {
+        /**
+         * Return the component that should be added to the tree hierarchy for
+         * this editor
+         */
+        getEditorComponent(): java.awt.Component;
+        /**
+         * Set the item that should be edited. Cancel any editing if necessary
+         */
+        setItem(anObject: any): any;
+        /**
+         * Return the edited item
+         */
+        getItem(): any;
+        /**
+         * Ask the editor to start editing and to select everything
+         */
+        selectAll(): any;
+        /**
+         * Add an ActionListener. An action event is generated when the edited item changes
+         */
+        addActionListener(l: java.awt.event.ActionListener): any;
+        /**
+         * Remove an ActionListener
+         */
+        removeActionListener(l: java.awt.event.ActionListener): any;
+    }
+}
+declare namespace javax.swing {
+    /**
+     * A data model for a combo box. This interface extends <code>ListDataModel</code>
+     * and adds the concept of a <i>selected item</i>. The selected item is generally
+     * the item which is visible in the combo box display area.
+     * <p>
+     * The selected item may not necessarily be managed by the underlying
+     * <code>ListModel</code>. This disjoint behavior allows for the temporary
+     * storage and retrieval of a selected item in the model.
+     *
+     * @param <E> the type of the elements of this model
+     *
+     * @author Arnaud Weber
+     */
+    interface ComboBoxModel<E> extends javax.swing.ListModel<E> {
+        /**
+         * Set the selected item. The implementation of this  method should notify
+         * all registered <code>ListDataListener</code>s that the contents
+         * have changed.
+         *
+         * @param anItem the list object to select or <code>null</code>
+         * to clear the selection
+         */
+        setSelectedItem(anItem: any): any;
+        /**
+         * Returns the selected item
+         * @return The selected item or <code>null</code> if there is no selection
+         */
+        getSelectedItem(): any;
+    }
+}
+declare namespace javax.swing {
+    /**
+     * A generic implementation of BoundedRangeModel.
+     * <p>
+     * <strong>Warning:</strong>
+     * Serialized objects of this class will not be compatible with
+     * future Swing releases. The current serialization support is
+     * appropriate for short term storage or RMI between applications running
+     * the same version of Swing.  As of 1.4, support for long term storage
+     * of all JavaBeans&trade;
+     * has been added to the <code>java.beans</code> package.
+     * Please see {@link java.beans.XMLEncoder}.
+     *
+     * @author David Kloba
+     * @author Hans Muller
+     * @see BoundedRangeModel
+     */
+    class DefaultBoundedRangeModel implements javax.swing.BoundedRangeModel, java.io.Serializable {
+        /**
+         * Only one <code>ChangeEvent</code> is needed per model instance since the
+         * event's only (read-only) state is the source property.  The source
+         * of events generated here is always "this".
+         */
+        changeEvent: javax.swing.event.ChangeEvent;
+        /**
+         * The listeners waiting for model changes.
+         */
+        listenerList: javax.swing.event.EventListenerList;
+        private value;
+        private extent;
+        private min;
+        private max;
+        private isAdjusting;
+        /**
+         * Initializes value, extent, minimum and maximum. Adjusting is false.
+         * Throws an <code>IllegalArgumentException</code> if the following
+         * constraints aren't satisfied:
+         * <pre>
+         * min &lt;= value &lt;= value+extent &lt;= max
+         * </pre>
+         */
+        constructor(value?: any, extent?: any, min?: any, max?: any);
+        /**
+         * Returns the model's current value.
+         * @return the model's current value
+         * @see #setValue
+         * @see BoundedRangeModel#getValue
+         */
+        getValue(): number;
+        /**
+         * Returns the model's extent.
+         * @return the model's extent
+         * @see #setExtent
+         * @see BoundedRangeModel#getExtent
+         */
+        getExtent(): number;
+        /**
+         * Returns the model's minimum.
+         * @return the model's minimum
+         * @see #setMinimum
+         * @see BoundedRangeModel#getMinimum
+         */
+        getMinimum(): number;
+        /**
+         * Returns the model's maximum.
+         * @return  the model's maximum
+         * @see #setMaximum
+         * @see BoundedRangeModel#getMaximum
+         */
+        getMaximum(): number;
+        /**
+         * Sets the current value of the model. For a slider, that
+         * determines where the knob appears. Ensures that the new
+         * value, <I>n</I> falls within the model's constraints:
+         * <pre>
+         * minimum &lt;= value &lt;= value+extent &lt;= maximum
+         * </pre>
+         *
+         * @see BoundedRangeModel#setValue
+         */
+        setValue(n: number): void;
+        /**
+         * Sets the extent to <I>n</I> after ensuring that <I>n</I>
+         * is greater than or equal to zero and falls within the model's
+         * constraints:
+         * <pre>
+         * minimum &lt;= value &lt;= value+extent &lt;= maximum
+         * </pre>
+         * @see BoundedRangeModel#setExtent
+         */
+        setExtent(n: number): void;
+        /**
+         * Sets the minimum to <I>n</I> after ensuring that <I>n</I>
+         * that the other three properties obey the model's constraints:
+         * <pre>
+         * minimum &lt;= value &lt;= value+extent &lt;= maximum
+         * </pre>
+         * @see #getMinimum
+         * @see BoundedRangeModel#setMinimum
+         */
+        setMinimum(n: number): void;
+        /**
+         * Sets the maximum to <I>n</I> after ensuring that <I>n</I>
+         * that the other three properties obey the model's constraints:
+         * <pre>
+         * minimum &lt;= value &lt;= value+extent &lt;= maximum
+         * </pre>
+         * @see BoundedRangeModel#setMaximum
+         */
+        setMaximum(n: number): void;
+        /**
+         * Sets the <code>valueIsAdjusting</code> property.
+         *
+         * @see #getValueIsAdjusting
+         * @see #setValue
+         * @see BoundedRangeModel#setValueIsAdjusting
+         */
+        setValueIsAdjusting(b: boolean): void;
+        /**
+         * Returns true if the value is in the process of changing
+         * as a result of actions being taken by the user.
+         *
+         * @return the value of the <code>valueIsAdjusting</code> property
+         * @see #setValue
+         * @see BoundedRangeModel#getValueIsAdjusting
+         */
+        getValueIsAdjusting(): boolean;
+        /**
+         * Sets all of the <code>BoundedRangeModel</code> properties after forcing
+         * the arguments to obey the usual constraints:
+         * <pre>
+         * minimum &lt;= value &lt;= value+extent &lt;= maximum
+         * </pre>
+         * <p>
+         * At most, one <code>ChangeEvent</code> is generated.
+         *
+         * @see BoundedRangeModel#setRangeProperties
+         * @see #setValue
+         * @see #setExtent
+         * @see #setMinimum
+         * @see #setMaximum
+         * @see #setValueIsAdjusting
+         */
+        setRangeProperties(newValue: number, newExtent: number, newMin: number, newMax: number, adjusting: boolean): void;
+        /**
+         * Adds a <code>ChangeListener</code>.  The change listeners are run each
+         * time any one of the Bounded Range model properties changes.
+         *
+         * @param l the ChangeListener to add
+         * @see #removeChangeListener
+         * @see BoundedRangeModel#addChangeListener
+         */
+        addChangeListener(l: javax.swing.event.ChangeListener): void;
+        /**
+         * Removes a <code>ChangeListener</code>.
+         *
+         * @param l the <code>ChangeListener</code> to remove
+         * @see #addChangeListener
+         * @see BoundedRangeModel#removeChangeListener
+         */
+        removeChangeListener(l: javax.swing.event.ChangeListener): void;
+        /**
+         * Returns an array of all the change listeners
+         * registered on this <code>DefaultBoundedRangeModel</code>.
+         *
+         * @return all of this model's <code>ChangeListener</code>s
+         * or an empty
+         * array if no change listeners are currently registered
+         *
+         * @see #addChangeListener
+         * @see #removeChangeListener
+         *
+         * @since 1.4
+         */
+        getChangeListeners(): javax.swing.event.ChangeListener[];
+        /**
+         * Runs each <code>ChangeListener</code>'s <code>stateChanged</code> method.
+         *
+         * @see #setRangeProperties
+         * @see EventListenerList
+         */
+        fireStateChanged(): void;
+        /**
+         * Returns a string that displays all of the
+         * <code>BoundedRangeModel</code> properties.
+         */
+        toString(): string;
+        /**
+         * Returns an array of all the objects currently registered as
+         * <code><em>Foo</em>Listener</code>s
+         * upon this model.
+         * <code><em>Foo</em>Listener</code>s
+         * are registered using the <code>add<em>Foo</em>Listener</code> method.
+         * <p>
+         * You can specify the <code>listenerType</code> argument
+         * with a class literal, such as <code><em>Foo</em>Listener.class</code>.
+         * For example, you can query a <code>DefaultBoundedRangeModel</code>
+         * instance <code>m</code>
+         * for its change listeners
+         * with the following code:
+         *
+         * <pre>ChangeListener[] cls = (ChangeListener[])(m.getListeners(ChangeListener.class));</pre>
+         *
+         * If no such listeners exist,
+         * this method returns an empty array.
+         *
+         * @param listenerType  the type of listeners requested;
+         * this parameter should specify an interface
+         * that descends from <code>java.util.EventListener</code>
+         * @return an array of all objects registered as
+         * <code><em>Foo</em>Listener</code>s
+         * on this model,
+         * or an empty array if no such
+         * listeners have been added
+         * @exception ClassCastException if <code>listenerType</code> doesn't
+         * specify a class or interface that implements
+         * <code>java.util.EventListener</code>
+         *
+         * @see #getChangeListeners
+         *
+         * @since 1.3
+         */
+        getListeners<T extends java.util.EventListener>(listenerType: any): T[];
+    }
+}
+declare namespace javax.swing {
+    class DefaultButtonModel implements javax.swing.ButtonModel, java.io.Serializable {
+        stateMask: number;
+        actionCommand: string;
+        group: javax.swing.ButtonGroup;
+        mnemonic: number;
+        changeEvent: javax.swing.event.ChangeEvent;
+        listenerList: javax.swing.event.EventListenerList;
+        private menuItem;
+        constructor();
+        static ARMED: number;
+        static ARMED_$LI$(): number;
+        static SELECTED: number;
+        static SELECTED_$LI$(): number;
+        static PRESSED: number;
+        static PRESSED_$LI$(): number;
+        static ENABLED: number;
+        static ENABLED_$LI$(): number;
+        static ROLLOVER: number;
+        static ROLLOVER_$LI$(): number;
+        setActionCommand(actionCommand: string): void;
+        getActionCommand(): string;
+        isArmed(): boolean;
+        isSelected(): boolean;
+        isEnabled(): boolean;
+        isPressed(): boolean;
+        isRollover(): boolean;
+        setArmed(b: boolean): void;
+        setEnabled(b: boolean): void;
+        setSelected(b: boolean): void;
+        setPressed(b: boolean): void;
+        setRollover(b: boolean): void;
+        setMnemonic(key: number): void;
+        getMnemonic(): number;
+        addChangeListener(l: javax.swing.event.ChangeListener): void;
+        removeChangeListener(l: javax.swing.event.ChangeListener): void;
+        getChangeListeners(): javax.swing.event.ChangeListener[];
+        fireStateChanged(): void;
+        addActionListener(l: java.awt.event.ActionListener): void;
+        removeActionListener(l: java.awt.event.ActionListener): void;
+        getActionListeners(): java.awt.event.ActionListener[];
+        fireActionPerformed(e: java.awt.event.ActionEvent): void;
+        addItemListener(l: java.awt.event.ItemListener): void;
+        removeItemListener(l: java.awt.event.ItemListener): void;
+        getItemListeners(): java.awt.event.ItemListener[];
+        fireItemStateChanged(e: java.awt.event.ItemEvent): void;
+        getListeners<T extends java.util.EventListener>(listenerType: any): T[];
+        getSelectedObjects(): any[];
+        setGroup(group: javax.swing.ButtonGroup): void;
+        getGroup(): javax.swing.ButtonGroup;
+        isMenuItem(): boolean;
+        setMenuItem(menuItem: boolean): void;
+    }
+}
+declare namespace javax.swing {
+    /**
+     * Default data model for list selections.
+     * <p>
+     * <strong>Warning:</strong>
+     * Serialized objects of this class will not be compatible with
+     * future Swing releases. The current serialization support is
+     * appropriate for short term storage or RMI between applications running
+     * the same version of Swing.  As of 1.4, support for long term storage
+     * of all JavaBeans&trade;
+     * has been added to the <code>java.beans</code> package.
+     * Please see {@link java.beans.XMLEncoder}.
+     *
+     * @author Philip Milne
+     * @author Hans Muller
+     * @see ListSelectionModel
+     */
+    class DefaultListSelectionModel implements javax.swing.ListSelectionModel, java.lang.Cloneable, java.io.Serializable {
+        static MIN: number;
+        static MAX: number;
+        static MAX_$LI$(): number;
+        private selectionMode;
+        private minIndex;
+        private maxIndex;
+        private anchorIndex;
+        private leadIndex;
+        private firstAdjustedIndex;
+        private lastAdjustedIndex;
+        private isAdjusting;
+        private firstChangedIndex;
+        private lastChangedIndex;
+        private value;
+        listenerList: javax.swing.event.EventListenerList;
+        leadAnchorNotificationEnabled: boolean;
+        /**
+         * {@inheritDoc}
+         */
+        getMinSelectionIndex(): number;
+        /**
+         * {@inheritDoc}
+         */
+        getMaxSelectionIndex(): number;
+        /**
+         * {@inheritDoc}
+         */
+        getValueIsAdjusting(): boolean;
+        /**
+         * {@inheritDoc}
+         */
+        getSelectionMode(): number;
+        /**
+         * {@inheritDoc}
+         * @throws IllegalArgumentException {@inheritDoc}
+         */
+        setSelectionMode(selectionMode: number): void;
+        /**
+         * {@inheritDoc}
+         */
+        isSelectedIndex(index: number): boolean;
+        /**
+         * {@inheritDoc}
+         */
+        isSelectionEmpty(): boolean;
+        /**
+         * {@inheritDoc}
+         */
+        addListSelectionListener(l: javax.swing.event.ListSelectionListener): void;
+        /**
+         * {@inheritDoc}
+         */
+        removeListSelectionListener(l: javax.swing.event.ListSelectionListener): void;
+        /**
+         * Returns an array of all the list selection listeners
+         * registered on this <code>DefaultListSelectionModel</code>.
+         *
+         * @return all of this model's <code>ListSelectionListener</code>s
+         * or an empty
+         * array if no list selection listeners are currently registered
+         *
+         * @see #addListSelectionListener
+         * @see #removeListSelectionListener
+         *
+         * @since 1.4
+         */
+        getListSelectionListeners(): javax.swing.event.ListSelectionListener[];
+        /**
+         * Notifies listeners that we have ended a series of adjustments.
+         */
+        fireValueChanged$boolean(isAdjusting: boolean): void;
+        /**
+         * Notifies <code>ListSelectionListeners</code> that the value
+         * of the selection, in the closed interval <code>firstIndex</code>,
+         * <code>lastIndex</code>, has changed.
+         */
+        fireValueChanged$int$int(firstIndex: number, lastIndex: number): void;
+        /**
+         * @param firstIndex the first index in the interval
+         * @param lastIndex the last index in the interval
+         * @param isAdjusting true if this is the final change in a series of
+         * adjustments
+         * @see EventListenerList
+         */
+        fireValueChanged(firstIndex?: any, lastIndex?: any, isAdjusting?: any): any;
+        private fireValueChanged$();
+        /**
+         * Returns an array of all the objects currently registered as
+         * <code><em>Foo</em>Listener</code>s
+         * upon this model.
+         * <code><em>Foo</em>Listener</code>s
+         * are registered using the <code>add<em>Foo</em>Listener</code> method.
+         * <p>
+         * You can specify the <code>listenerType</code> argument
+         * with a class literal, such as <code><em>Foo</em>Listener.class</code>.
+         * For example, you can query a <code>DefaultListSelectionModel</code>
+         * instance <code>m</code>
+         * for its list selection listeners
+         * with the following code:
+         *
+         * <pre>ListSelectionListener[] lsls = (ListSelectionListener[])(m.getListeners(ListSelectionListener.class));</pre>
+         *
+         * If no such listeners exist,
+         * this method returns an empty array.
+         *
+         * @param listenerType  the type of listeners requested;
+         * this parameter should specify an interface
+         * that descends from <code>java.util.EventListener</code>
+         * @return an array of all objects registered as
+         * <code><em>Foo</em>Listener</code>s
+         * on this model,
+         * or an empty array if no such
+         * listeners have been added
+         * @exception ClassCastException if <code>listenerType</code> doesn't
+         * specify a class or interface that implements
+         * <code>java.util.EventListener</code>
+         *
+         * @see #getListSelectionListeners
+         *
+         * @since 1.3
+         */
+        getListeners<T extends java.util.EventListener>(listenerType: any): T[];
+        private markAsDirty(r);
+        private set(r);
+        private clear(r);
+        /**
+         * Sets the value of the leadAnchorNotificationEnabled flag.
+         * @see             #isLeadAnchorNotificationEnabled()
+         */
+        setLeadAnchorNotificationEnabled(flag: boolean): void;
+        /**
+         * Returns the value of the <code>leadAnchorNotificationEnabled</code> flag.
+         * When <code>leadAnchorNotificationEnabled</code> is true the model
+         * generates notification events with bounds that cover all the changes to
+         * the selection plus the changes to the lead and anchor indices.
+         * Setting the flag to false causes a narrowing of the event's bounds to
+         * include only the elements that have been selected or deselected since
+         * the last change. Either way, the model continues to maintain the lead
+         * and anchor variables internally. The default is true.
+         * <p>
+         * Note: It is possible for the lead or anchor to be changed without a
+         * change to the selection. Notification of these changes is often
+         * important, such as when the new lead or anchor needs to be updated in
+         * the view. Therefore, caution is urged when changing the default value.
+         *
+         * @return  the value of the <code>leadAnchorNotificationEnabled</code> flag
+         * @see             #setLeadAnchorNotificationEnabled(boolean)
+         */
+        isLeadAnchorNotificationEnabled(): boolean;
+        private updateLeadAnchorIndices(anchorIndex, leadIndex);
+        private contains(a, b, i);
+        changeSelection(clearMin: number, clearMax: number, setMin: number, setMax: number, clearFirst?: boolean): void;
+        /**
+         * {@inheritDoc}
+         */
+        clearSelection(): void;
+        /**
+         * Changes the selection to be between {@code index0} and {@code index1}
+         * inclusive. {@code index0} doesn't have to be less than or equal to
+         * {@code index1}.
+         * <p>
+         * In {@code SINGLE_SELECTION} selection mode, only the second index
+         * is used.
+         * <p>
+         * If this represents a change to the current selection, then each
+         * {@code ListSelectionListener} is notified of the change.
+         * <p>
+         * If either index is {@code -1}, this method does nothing and returns
+         * without exception. Otherwise, if either index is less than {@code -1},
+         * an {@code IndexOutOfBoundsException} is thrown.
+         *
+         * @param index0 one end of the interval.
+         * @param index1 other end of the interval
+         * @throws IndexOutOfBoundsException if either index is less than {@code -1}
+         * (and neither index is {@code -1})
+         * @see #addListSelectionListener
+         */
+        setSelectionInterval(index0: number, index1: number): void;
+        /**
+         * Changes the selection to be the set union of the current selection
+         * and the indices between {@code index0} and {@code index1} inclusive.
+         * <p>
+         * In {@code SINGLE_SELECTION} selection mode, this is equivalent
+         * to calling {@code setSelectionInterval}, and only the second index
+         * is used. In {@code SINGLE_INTERVAL_SELECTION} selection mode, this
+         * method behaves like {@code setSelectionInterval}, unless the given
+         * interval is immediately adjacent to or overlaps the existing selection,
+         * and can therefore be used to grow it.
+         * <p>
+         * If this represents a change to the current selection, then each
+         * {@code ListSelectionListener} is notified of the change. Note that
+         * {@code index0} doesn't have to be less than or equal to {@code index1}.
+         * <p>
+         * If either index is {@code -1}, this method does nothing and returns
+         * without exception. Otherwise, if either index is less than {@code -1},
+         * an {@code IndexOutOfBoundsException} is thrown.
+         *
+         * @param index0 one end of the interval.
+         * @param index1 other end of the interval
+         * @throws IndexOutOfBoundsException if either index is less than {@code -1}
+         * (and neither index is {@code -1})
+         * @see #addListSelectionListener
+         * @see #setSelectionInterval
+         */
+        addSelectionInterval(index0: number, index1: number): void;
+        /**
+         * Changes the selection to be the set difference of the current selection
+         * and the indices between {@code index0} and {@code index1} inclusive.
+         * {@code index0} doesn't have to be less than or equal to {@code index1}.
+         * <p>
+         * In {@code SINGLE_INTERVAL_SELECTION} selection mode, if the removal
+         * would produce two disjoint selections, the removal is extended through
+         * the greater end of the selection. For example, if the selection is
+         * {@code 0-10} and you supply indices {@code 5,6} (in any order) the
+         * resulting selection is {@code 0-4}.
+         * <p>
+         * If this represents a change to the current selection, then each
+         * {@code ListSelectionListener} is notified of the change.
+         * <p>
+         * If either index is {@code -1}, this method does nothing and returns
+         * without exception. Otherwise, if either index is less than {@code -1},
+         * an {@code IndexOutOfBoundsException} is thrown.
+         *
+         * @param index0 one end of the interval
+         * @param index1 other end of the interval
+         * @throws IndexOutOfBoundsException if either index is less than {@code -1}
+         * (and neither index is {@code -1})
+         * @see #addListSelectionListener
+         */
+        removeSelectionInterval(index0: number, index1: number): void;
+        private removeSelectionIntervalImpl(index0, index1, changeLeadAnchor);
+        private setState(index, state);
+        /**
+         * Insert length indices beginning before/after index. If the value
+         * at index is itself selected and the selection mode is not
+         * SINGLE_SELECTION, set all of the newly inserted items as selected.
+         * Otherwise leave them unselected. This method is typically
+         * called to sync the selection model with a corresponding change
+         * in the data model.
+         */
+        insertIndexInterval(index: number, length: number, before: boolean): void;
+        /**
+         * Remove the indices in the interval index0,index1 (inclusive) from
+         * the selection model.  This is typically called to sync the selection
+         * model width a corresponding change in the data model.  Note
+         * that (as always) index0 need not be &lt;= index1.
+         */
+        removeIndexInterval(index0: number, index1: number): void;
+        /**
+         * {@inheritDoc}
+         */
+        setValueIsAdjusting(isAdjusting: boolean): void;
+        /**
+         * Returns a string that displays and identifies this
+         * object's properties.
+         *
+         * @return a <code>String</code> representation of this object
+         */
+        toString(): string;
+        /**
+         * Returns a clone of this selection model with the same selection.
+         * <code>listenerLists</code> are not duplicated.
+         *
+         * @exception CloneNotSupportedException if the selection model does not
+         * both (a) implement the Cloneable interface and (b) define a
+         * <code>clone</code> method.
+         */
+        clone(): any;
+        /**
+         * {@inheritDoc}
+         */
+        getAnchorSelectionIndex(): number;
+        /**
+         * {@inheritDoc}
+         */
+        getLeadSelectionIndex(): number;
+        /**
+         * Set the anchor selection index, leaving all selection values unchanged.
+         * If leadAnchorNotificationEnabled is true, send a notification covering
+         * the old and new anchor cells.
+         *
+         * @see #getAnchorSelectionIndex
+         * @see #setLeadSelectionIndex
+         */
+        setAnchorSelectionIndex(anchorIndex: number): void;
+        /**
+         * Set the lead selection index, leaving all selection values unchanged.
+         * If leadAnchorNotificationEnabled is true, send a notification covering
+         * the old and new lead cells.
+         *
+         * @param leadIndex the new lead selection index
+         *
+         * @see #setAnchorSelectionIndex
+         * @see #setLeadSelectionIndex
+         * @see #getLeadSelectionIndex
+         *
+         * @since 1.5
+         */
+        moveLeadSelectionIndex(leadIndex: number): void;
+        /**
+         * Sets the lead selection index, ensuring that values between the
+         * anchor and the new lead are either all selected or all deselected.
+         * If the value at the anchor index is selected, first clear all the
+         * values in the range [anchor, oldLeadIndex], then select all the values
+         * values in the range [anchor, newLeadIndex], where oldLeadIndex is the old
+         * leadIndex and newLeadIndex is the new one.
+         * <p>
+         * If the value at the anchor index is not selected, do the same thing in
+         * reverse selecting values in the old range and deselecting values in the
+         * new one.
+         * <p>
+         * Generate a single event for this change and notify all listeners.
+         * For the purposes of generating minimal bounds in this event, do the
+         * operation in a single pass; that way the first and last index inside the
+         * ListSelectionEvent that is broadcast will refer to cells that actually
+         * changed value because of this method. If, instead, this operation were
+         * done in two steps the effect on the selection state would be the same
+         * but two events would be generated and the bounds around the changed
+         * values would be wider, including cells that had been first cleared only
+         * to later be set.
+         * <p>
+         * This method can be used in the <code>mouseDragged</code> method
+         * of a UI class to extend a selection.
+         *
+         * @see #getLeadSelectionIndex
+         * @see #setAnchorSelectionIndex
+         */
+        setLeadSelectionIndex(leadIndex: number): void;
+        constructor();
+    }
+}
+declare namespace javax.swing {
+    /**
+     * A generic implementation of SingleSelectionModel.
+     * <p>
+     * <strong>Warning:</strong>
+     * Serialized objects of this class will not be compatible with
+     * future Swing releases. The current serialization support is
+     * appropriate for short term storage or RMI between applications running
+     * the same version of Swing.  As of 1.4, support for long term storage
+     * of all JavaBeans&trade;
+     * has been added to the <code>java.beans</code> package.
+     * Please see {@link java.beans.XMLEncoder}.
+     *
+     * @author Dave Moore
+     */
+    class DefaultSingleSelectionModel implements javax.swing.SingleSelectionModel, java.io.Serializable {
+        changeEvent: javax.swing.event.ChangeEvent;
+        /**
+         * The collection of registered listeners
+         */
+        listenerList: javax.swing.event.EventListenerList;
+        private index;
+        getSelectedIndex(): number;
+        setSelectedIndex(index: number): void;
+        clearSelection(): void;
+        isSelected(): boolean;
+        /**
+         * Adds a <code>ChangeListener</code> to the button.
+         */
+        addChangeListener(l: javax.swing.event.ChangeListener): void;
+        /**
+         * Removes a <code>ChangeListener</code> from the button.
+         */
+        removeChangeListener(l: javax.swing.event.ChangeListener): void;
+        /**
+         * Returns an array of all the change listeners
+         * registered on this <code>DefaultSingleSelectionModel</code>.
+         *
+         * @return all of this model's <code>ChangeListener</code>s
+         * or an empty
+         * array if no change listeners are currently registered
+         *
+         * @see #addChangeListener
+         * @see #removeChangeListener
+         *
+         * @since 1.4
+         */
+        getChangeListeners(): javax.swing.event.ChangeListener[];
+        /**
+         * Notifies all listeners that have registered interest for
+         * notification on this event type.  The event instance
+         * is created lazily.
+         * @see EventListenerList
+         */
+        fireStateChanged(): void;
+        /**
+         * Returns an array of all the objects currently registered as
+         * <code><em>Foo</em>Listener</code>s
+         * upon this model.
+         * <code><em>Foo</em>Listener</code>s
+         * are registered using the <code>add<em>Foo</em>Listener</code> method.
+         * <p>
+         * You can specify the <code>listenerType</code> argument
+         * with a class literal, such as <code><em>Foo</em>Listener.class</code>.
+         * For example, you can query a <code>DefaultSingleSelectionModel</code>
+         * instance <code>m</code>
+         * for its change listeners
+         * with the following code:
+         *
+         * <pre>ChangeListener[] cls = (ChangeListener[])(m.getListeners(ChangeListener.class));</pre>
+         *
+         * If no such listeners exist,
+         * this method returns an empty array.
+         *
+         * @param listenerType  the type of listeners requested;
+         * this parameter should specify an interface
+         * that descends from <code>java.util.EventListener</code>
+         * @return an array of all objects registered as
+         * <code><em>Foo</em>Listener</code>s
+         * on this model,
+         * or an empty array if no such
+         * listeners have been added
+         * @exception ClassCastException if <code>listenerType</code> doesn't
+         * specify a class or interface that implements
+         * <code>java.util.EventListener</code>
+         *
+         * @see #getChangeListeners
+         *
+         * @since 1.3
+         */
+        getListeners<T extends java.util.EventListener>(listenerType: any): T[];
+        constructor();
+    }
+}
+declare namespace javax.swing {
+    /**
+     * Drop modes, used to determine the method by which a component
+     * tracks and indicates a drop location during drag and drop.
+     *
+     * @author Shannon Hickey
+     * @see JTable#setDropMode
+     * @see JList#setDropMode
+     * @see JTree#setDropMode
+     * @see javax.swing.text.JTextComponent#setDropMode
+     * @since 1.6
+     */
+    enum DropMode {
+        USE_SELECTION = 0,
+        ON = 1,
+        INSERT = 2,
+        INSERT_ROWS = 3,
+        INSERT_COLS = 4,
+        ON_OR_INSERT = 5,
+        ON_OR_INSERT_ROWS = 6,
+        ON_OR_INSERT_COLS = 7,
+    }
+}
 declare namespace javax.swing.event {
     class ChangeEvent extends java.util.EventObject {
         constructor(source: any);
@@ -8273,10 +10668,13 @@ declare namespace javax.swing.event {
         static NULL_ARRAY_$LI$(): any[];
         listenerList: any[];
         getListenerList(): any[];
-        getListeners<T extends java.util.EventListener>(t: any): T[];
+        getListeners<T extends java.util.EventListener>(t?: any): any;
+        getListeners$java_lang_String<T extends java.util.EventListener>(t: string): T[];
         getListenerCount$(): number;
         getListenerCount$java_lang_Class(t: any): number;
+        getListenerCount$java_lang_String(t: string): number;
         getListenerCount(list?: any, t?: any): any;
+        private getListenerCount$java_lang_Object_A$java_lang_String(list, t);
         add<T extends java.util.EventListener>(t: any, l: T): void;
         remove<T extends java.util.EventListener>(t: any, l: T): void;
         /**
@@ -8284,6 +10682,243 @@ declare namespace javax.swing.event {
          */
         toString(): string;
         constructor();
+    }
+}
+declare namespace javax.swing.event {
+    class ListDataEvent extends java.util.EventObject {
+        static CONTENTS_CHANGED: number;
+        static INTERVAL_ADDED: number;
+        static INTERVAL_REMOVED: number;
+        private type;
+        private index0;
+        private index1;
+        getType(): number;
+        getIndex0(): number;
+        getIndex1(): number;
+        constructor(source: any, type: number, index0: number, index1: number);
+        toString(): string;
+    }
+}
+declare namespace javax.swing.event {
+    interface ListDataListener extends java.util.EventListener {
+        intervalAdded(e: javax.swing.event.ListDataEvent): any;
+        intervalRemoved(e: javax.swing.event.ListDataEvent): any;
+        contentsChanged(e: javax.swing.event.ListDataEvent): any;
+    }
+}
+declare namespace javax.swing.event {
+    /**
+     * An event that characterizes a change in selection. The change is limited to a
+     * a single inclusive interval. The selection of at least one index within the
+     * range will have changed. A decent {@code ListSelectionModel} implementation
+     * will keep the range as small as possible. {@code ListSelectionListeners} will
+     * generally query the source of the event for the new selected status of each
+     * potentially changed row.
+     * <p>
+     * <strong>Warning:</strong>
+     * Serialized objects of this class will not be compatible with
+     * future Swing releases. The current serialization support is
+     * appropriate for short term storage or RMI between applications running
+     * the same version of Swing.  As of 1.4, support for long term storage
+     * of all JavaBeans&trade;
+     * has been added to the <code>java.beans</code> package.
+     * Please see {@link java.beans.XMLEncoder}.
+     *
+     * @author Hans Muller
+     * @author Ray Ryan
+     * @see ListSelectionModel
+     */
+    class ListSelectionEvent extends java.util.EventObject {
+        private firstIndex;
+        private lastIndex;
+        private isAdjusting;
+        /**
+         * Represents a change in selection status between {@code firstIndex} and
+         * {@code lastIndex}, inclusive. {@code firstIndex} is less than or equal to
+         * {@code lastIndex}. The selection of at least one index within the range will
+         * have changed.
+         *
+         * @param firstIndex the first index in the range, &lt;= lastIndex
+         * @param lastIndex the last index in the range, &gt;= firstIndex
+         * @param isAdjusting whether or not this is one in a series of
+         * multiple events, where changes are still being made
+         */
+        constructor(source: any, firstIndex: number, lastIndex: number, isAdjusting: boolean);
+        /**
+         * Returns the index of the first row whose selection may have changed.
+         * {@code getFirstIndex() &lt;= getLastIndex()}
+         *
+         * @return the first row whose selection value may have changed,
+         * where zero is the first row
+         */
+        getFirstIndex(): number;
+        /**
+         * Returns the index of the last row whose selection may have changed.
+         * {@code getLastIndex() &gt;= getFirstIndex()}
+         *
+         * @return the last row whose selection value may have changed,
+         * where zero is the first row
+         */
+        getLastIndex(): number;
+        /**
+         * Returns whether or not this is one in a series of multiple events,
+         * where changes are still being made. See the documentation for
+         * {@link javax.swing.ListSelectionModel#setValueIsAdjusting} for
+         * more details on how this is used.
+         *
+         * @return {@code true} if this is one in a series of multiple events,
+         * where changes are still being made
+         */
+        getValueIsAdjusting(): boolean;
+        /**
+         * Returns a {@code String} that displays and identifies this
+         * object's properties.
+         *
+         * @return a String representation of this object
+         */
+        toString(): string;
+    }
+}
+declare namespace javax.swing.event {
+    /**
+     * The listener that's notified when a lists selection value
+     * changes.
+     *
+     * @see javax.swing.ListSelectionModel
+     *
+     * @author Hans Muller
+     */
+    interface ListSelectionListener extends java.util.EventListener {
+        /**
+         * Called whenever the value of the selection changes.
+         * @param e the event that characterizes the change.
+         */
+        valueChanged(e: javax.swing.event.ListSelectionEvent): any;
+    }
+}
+declare namespace javax.swing.event {
+    /**
+     * MenuEvent is used to notify interested parties that
+     * the menu which is the event source has been posted,
+     * selected, or canceled.
+     * <p>
+     * <strong>Warning:</strong>
+     * Serialized objects of this class will not be compatible with
+     * future Swing releases. The current serialization support is
+     * appropriate for short term storage or RMI between applications running
+     * the same version of Swing.  As of 1.4, support for long term storage
+     * of all JavaBeans&trade;
+     * has been added to the <code>java.beans</code> package.
+     * Please see {@link java.beans.XMLEncoder}.
+     *
+     * @author Georges Saab
+     * @author David Karlton
+     */
+    class MenuEvent extends java.util.EventObject {
+        /**
+         * Constructs a MenuEvent object.
+         *
+         * @param source  the Object that originated the event
+         * (typically <code>this</code>)
+         */
+        constructor(source: any);
+    }
+}
+declare namespace javax.swing.event {
+    /**
+     * MenuKeyListener
+     *
+     * @author Georges Saab
+     */
+    interface MenuKeyListener extends java.util.EventListener {
+        /**
+         * Invoked when a key has been typed.
+         * This event occurs when a key press is followed by a key release.
+         */
+        menuKeyTyped(e: javax.swing.event.MenuKeyEvent): any;
+        /**
+         * Invoked when a key has been pressed.
+         */
+        menuKeyPressed(e: javax.swing.event.MenuKeyEvent): any;
+        /**
+         * Invoked when a key has been released.
+         */
+        menuKeyReleased(e: javax.swing.event.MenuKeyEvent): any;
+    }
+}
+declare namespace javax.swing.event {
+    /**
+     * Defines a listener for menu events.
+     *
+     * @author Georges Saab
+     */
+    interface MenuListener extends java.util.EventListener {
+        /**
+         * Invoked when a menu is selected.
+         *
+         * @param e  a MenuEvent object
+         */
+        menuSelected(e: javax.swing.event.MenuEvent): any;
+        /**
+         * Invoked when the menu is deselected.
+         *
+         * @param e  a MenuEvent object
+         */
+        menuDeselected(e: javax.swing.event.MenuEvent): any;
+        /**
+         * Invoked when the menu is canceled.
+         *
+         * @param e  a MenuEvent object
+         */
+        menuCanceled(e: javax.swing.event.MenuEvent): any;
+    }
+}
+declare namespace javax.swing.event {
+    /**
+     * PopupMenuEvent only contains the source of the event which is the JPoupMenu
+     * sending the event
+     * <p>
+     * <strong>Warning:</strong>
+     * Serialized objects of this class will not be compatible with
+     * future Swing releases. The current serialization support is
+     * appropriate for short term storage or RMI between applications running
+     * the same version of Swing.  As of 1.4, support for long term storage
+     * of all JavaBeans&trade;
+     * has been added to the <code>java.beans</code> package.
+     * Please see {@link java.beans.XMLEncoder}.
+     *
+     * @author Arnaud Weber
+     */
+    class PopupMenuEvent extends java.util.EventObject {
+        /**
+         * Constructs a PopupMenuEvent object.
+         *
+         * @param source  the Object that originated the event
+         * (typically <code>this</code>)
+         */
+        constructor(source: any);
+    }
+}
+declare namespace javax.swing.event {
+    /**
+     * A popup menu listener
+     *
+     * @author Arnaud Weber
+     */
+    interface PopupMenuListener extends java.util.EventListener {
+        /**
+         * This method is called before the popup menu becomes visible
+         */
+        popupMenuWillBecomeVisible(e: javax.swing.event.PopupMenuEvent): any;
+        /**
+         * This method is called before the popup menu becomes invisible
+         * Note that a JPopupMenu can become invisible any time
+         */
+        popupMenuWillBecomeInvisible(e: javax.swing.event.PopupMenuEvent): any;
+        /**
+         * This method is called when the popup menu is canceled
+         */
+        popupMenuCanceled(e: javax.swing.event.PopupMenuEvent): any;
     }
 }
 declare namespace javax.swing.event {
@@ -8364,6 +10999,596 @@ declare namespace javax.swing {
         setImageObserver(observer: java.awt.image.ImageObserver): void;
         getImageObserver(): java.awt.image.ImageObserver;
         toString(): string;
+    }
+}
+declare namespace javax.swing {
+    /**
+     * Identifies components that can be used as "rubber stamps" to paint
+     * the cells in a JList.  For example, to use a JLabel as a
+     * ListCellRenderer, you would write something like this:
+     * <pre>
+     * {@code
+     * class MyCellRenderer extends JLabel implements ListCellRenderer<Object> {
+     * public MyCellRenderer() {
+     * setOpaque(true);
+     * }
+     *
+     * public Component getListCellRendererComponent(JList<?> list,
+     * Object value,
+     * int index,
+     * boolean isSelected,
+     * boolean cellHasFocus) {
+     *
+     * setText(value.toString());
+     *
+     * Color background;
+     * Color foreground;
+     *
+     * // check if this cell represents the current DnD drop location
+     * JList.DropLocation dropLocation = list.getDropLocation();
+     * if (dropLocation != null
+     * && !dropLocation.isInsert()
+     * && dropLocation.getIndex() == index) {
+     *
+     * background = Color.BLUE;
+     * foreground = Color.WHITE;
+     *
+     * // check if this cell is selected
+     * } else if (isSelected) {
+     * background = Color.RED;
+     * foreground = Color.WHITE;
+     *
+     * // unselected, and not the DnD drop location
+     * } else {
+     * background = Color.WHITE;
+     * foreground = Color.BLACK;
+     * };
+     *
+     * setBackground(background);
+     * setForeground(foreground);
+     *
+     * return this;
+     * }
+     * }
+     * }
+     * </pre>
+     *
+     * @param <E> the type of values this renderer can be used for
+     *
+     * @see JList
+     * @see DefaultListCellRenderer
+     *
+     * @author Hans Muller
+     */
+    interface ListCellRenderer<E> {
+        /**
+         * Return a component that has been configured to display the specified
+         * value. That component's <code>paint</code> method is then called to
+         * "render" the cell.  If it is necessary to compute the dimensions
+         * of a list because the list cells do not have a fixed size, this method
+         * is called to generate a component on which <code>getPreferredSize</code>
+         * can be invoked.
+         *
+         * @param list The JList we're painting.
+         * @param value The value returned by list.getModel().getElementAt(index).
+         * @param index The cells index.
+         * @param isSelected True if the specified cell was selected.
+         * @param cellHasFocus True if the specified cell has the focus.
+         * @return A component whose paint() method will render the specified value.
+         *
+         * @see JList
+         * @see ListSelectionModel
+         * @see ListModel
+         */
+        getListCellRendererComponent(list: javax.swing.JList<any>, value: E, index: number, isSelected: boolean, cellHasFocus: boolean): java.awt.Component;
+    }
+}
+declare namespace javax.swing {
+    /**
+     * This interface defines the methods components like JList use
+     * to get the value of each cell in a list and the length of the list.
+     * Logically the model is a vector, indices vary from 0 to
+     * ListDataModel.getSize() - 1.  Any change to the contents or
+     * length of the data model must be reported to all of the
+     * ListDataListeners.
+     *
+     * @param <E> the type of the elements of this model
+     *
+     * @author Hans Muller
+     * @see JList
+     */
+    interface ListModel<E> {
+        /**
+         * Returns the length of the list.
+         * @return the length of the list
+         */
+        getSize(): number;
+        /**
+         * Returns the value at the specified index.
+         * @param index the requested index
+         * @return the value at <code>index</code>
+         */
+        getElementAt(index: number): E;
+        /**
+         * Adds a listener to the list that's notified each time a change
+         * to the data model occurs.
+         * @param l the <code>ListDataListener</code> to be added
+         */
+        addListDataListener(l: javax.swing.event.ListDataListener): any;
+        /**
+         * Removes a listener from the list that's notified each time a
+         * change to the data model occurs.
+         * @param l the <code>ListDataListener</code> to be removed
+         */
+        removeListDataListener(l: javax.swing.event.ListDataListener): any;
+    }
+}
+declare namespace javax.swing {
+    /**
+     * This interface represents the current state of the
+     * selection for any of the components that display a
+     * list of values with stable indices.  The selection is
+     * modeled as a set of intervals, each interval represents
+     * a contiguous range of selected list elements.
+     * The methods for modifying the set of selected intervals
+     * all take a pair of indices, index0 and index1, that represent
+     * a closed interval, i.e. the interval includes both index0 and
+     * index1.
+     *
+     * @author Hans Muller
+     * @author Philip Milne
+     * @see DefaultListSelectionModel
+     */
+    interface ListSelectionModel {
+        /**
+         * Changes the selection to be between {@code index0} and {@code index1}
+         * inclusive. {@code index0} doesn't have to be less than or equal to
+         * {@code index1}.
+         * <p>
+         * In {@code SINGLE_SELECTION} selection mode, only the second index
+         * is used.
+         * <p>
+         * If this represents a change to the current selection, then each
+         * {@code ListSelectionListener} is notified of the change.
+         *
+         * @param index0 one end of the interval.
+         * @param index1 other end of the interval
+         * @see #addListSelectionListener
+         */
+        setSelectionInterval(index0: number, index1: number): any;
+        /**
+         * Changes the selection to be the set union of the current selection
+         * and the indices between {@code index0} and {@code index1} inclusive.
+         * {@code index0} doesn't have to be less than or equal to {@code index1}.
+         * <p>
+         * In {@code SINGLE_SELECTION} selection mode, this is equivalent
+         * to calling {@code setSelectionInterval}, and only the second index
+         * is used. In {@code SINGLE_INTERVAL_SELECTION} selection mode, this
+         * method behaves like {@code setSelectionInterval}, unless the given
+         * interval is immediately adjacent to or overlaps the existing selection,
+         * and can therefore be used to grow the selection.
+         * <p>
+         * If this represents a change to the current selection, then each
+         * {@code ListSelectionListener} is notified of the change.
+         *
+         * @param index0 one end of the interval.
+         * @param index1 other end of the interval
+         * @see #addListSelectionListener
+         * @see #setSelectionInterval
+         */
+        addSelectionInterval(index0: number, index1: number): any;
+        /**
+         * Changes the selection to be the set difference of the current selection
+         * and the indices between {@code index0} and {@code index1} inclusive.
+         * {@code index0} doesn't have to be less than or equal to {@code index1}.
+         * <p>
+         * In {@code SINGLE_INTERVAL_SELECTION} selection mode, if the removal
+         * would produce two disjoint selections, the removal is extended through
+         * the greater end of the selection. For example, if the selection is
+         * {@code 0-10} and you supply indices {@code 5,6} (in any order) the
+         * resulting selection is {@code 0-4}.
+         * <p>
+         * If this represents a change to the current selection, then each
+         * {@code ListSelectionListener} is notified of the change.
+         *
+         * @param index0 one end of the interval.
+         * @param index1 other end of the interval
+         * @see #addListSelectionListener
+         */
+        removeSelectionInterval(index0: number, index1: number): any;
+        /**
+         * Returns the first selected index or -1 if the selection is empty.
+         */
+        getMinSelectionIndex(): number;
+        /**
+         * Returns the last selected index or -1 if the selection is empty.
+         */
+        getMaxSelectionIndex(): number;
+        /**
+         * Returns true if the specified index is selected.
+         */
+        isSelectedIndex(index: number): boolean;
+        /**
+         * Return the first index argument from the most recent call to
+         * setSelectionInterval(), addSelectionInterval() or removeSelectionInterval().
+         * The most recent index0 is considered the "anchor" and the most recent
+         * index1 is considered the "lead".  Some interfaces display these
+         * indices specially, e.g. Windows95 displays the lead index with a
+         * dotted yellow outline.
+         *
+         * @see #getLeadSelectionIndex
+         * @see #setSelectionInterval
+         * @see #addSelectionInterval
+         */
+        getAnchorSelectionIndex(): number;
+        /**
+         * Set the anchor selection index.
+         *
+         * @see #getAnchorSelectionIndex
+         */
+        setAnchorSelectionIndex(index: number): any;
+        /**
+         * Return the second index argument from the most recent call to
+         * setSelectionInterval(), addSelectionInterval() or removeSelectionInterval().
+         *
+         * @see #getAnchorSelectionIndex
+         * @see #setSelectionInterval
+         * @see #addSelectionInterval
+         */
+        getLeadSelectionIndex(): number;
+        /**
+         * Set the lead selection index.
+         *
+         * @see #getLeadSelectionIndex
+         */
+        setLeadSelectionIndex(index: number): any;
+        /**
+         * Change the selection to the empty set.  If this represents
+         * a change to the current selection then notify each ListSelectionListener.
+         *
+         * @see #addListSelectionListener
+         */
+        clearSelection(): any;
+        /**
+         * Returns true if no indices are selected.
+         */
+        isSelectionEmpty(): boolean;
+        /**
+         * Insert length indices beginning before/after index.  This is typically
+         * called to sync the selection model with a corresponding change
+         * in the data model.
+         */
+        insertIndexInterval(index: number, length: number, before: boolean): any;
+        /**
+         * Remove the indices in the interval index0,index1 (inclusive) from
+         * the selection model.  This is typically called to sync the selection
+         * model width a corresponding change in the data model.
+         */
+        removeIndexInterval(index0: number, index1: number): any;
+        /**
+         * Sets the {@code valueIsAdjusting} property, which indicates whether
+         * or not upcoming selection changes should be considered part of a single
+         * change. The value of this property is used to initialize the
+         * {@code valueIsAdjusting} property of the {@code ListSelectionEvent}s that
+         * are generated.
+         * <p>
+         * For example, if the selection is being updated in response to a user
+         * drag, this property can be set to {@code true} when the drag is initiated
+         * and set to {@code false} when the drag is finished. During the drag,
+         * listeners receive events with a {@code valueIsAdjusting} property
+         * set to {@code true}. At the end of the drag, when the change is
+         * finalized, listeners receive an event with the value set to {@code false}.
+         * Listeners can use this pattern if they wish to update only when a change
+         * has been finalized.
+         * <p>
+         * Setting this property to {@code true} begins a series of changes that
+         * is to be considered part of a single change. When the property is changed
+         * back to {@code false}, an event is sent out characterizing the entire
+         * selection change (if there was one), with the event's
+         * {@code valueIsAdjusting} property set to {@code false}.
+         *
+         * @param valueIsAdjusting the new value of the property
+         * @see #getValueIsAdjusting
+         * @see javax.swing.event.ListSelectionEvent#getValueIsAdjusting
+         */
+        setValueIsAdjusting(valueIsAdjusting: boolean): any;
+        /**
+         * Returns {@code true} if the selection is undergoing a series of changes.
+         *
+         * @return true if the selection is undergoing a series of changes
+         * @see #setValueIsAdjusting
+         */
+        getValueIsAdjusting(): boolean;
+        /**
+         * Sets the selection mode. The following list describes the accepted
+         * selection modes:
+         * <ul>
+         * <li>{@code ListSelectionModel.SINGLE_SELECTION} -
+         * Only one list index can be selected at a time. In this mode,
+         * {@code setSelectionInterval} and {@code addSelectionInterval} are
+         * equivalent, both replacing the current selection with the index
+         * represented by the second argument (the "lead").
+         * <li>{@code ListSelectionModel.SINGLE_INTERVAL_SELECTION} -
+         * Only one contiguous interval can be selected at a time.
+         * In this mode, {@code addSelectionInterval} behaves like
+         * {@code setSelectionInterval} (replacing the current selection),
+         * unless the given interval is immediately adjacent to or overlaps
+         * the existing selection, and can therefore be used to grow it.
+         * <li>{@code ListSelectionModel.MULTIPLE_INTERVAL_SELECTION} -
+         * In this mode, there's no restriction on what can be selected.
+         * </ul>
+         *
+         * @see #getSelectionMode
+         * @throws IllegalArgumentException if the selection mode isn't
+         * one of those allowed
+         */
+        setSelectionMode(selectionMode: number): any;
+        /**
+         * Returns the current selection mode.
+         *
+         * @return the current selection mode
+         * @see #setSelectionMode
+         */
+        getSelectionMode(): number;
+        /**
+         * Add a listener to the list that's notified each time a change
+         * to the selection occurs.
+         *
+         * @param x the ListSelectionListener
+         * @see #removeListSelectionListener
+         * @see #setSelectionInterval
+         * @see #addSelectionInterval
+         * @see #removeSelectionInterval
+         * @see #clearSelection
+         * @see #insertIndexInterval
+         * @see #removeIndexInterval
+         */
+        addListSelectionListener(x: javax.swing.event.ListSelectionListener): any;
+        /**
+         * Remove a listener from the list that's notified each time a
+         * change to the selection occurs.
+         *
+         * @param x the ListSelectionListener
+         * @see #addListSelectionListener
+         */
+        removeListSelectionListener(x: javax.swing.event.ListSelectionListener): any;
+    }
+    namespace ListSelectionModel {
+        /**
+         * A value for the selectionMode property: select one list index
+         * at a time.
+         *
+         * @see #setSelectionMode
+         */
+        var SINGLE_SELECTION: number;
+        /**
+         * A value for the selectionMode property: select one contiguous
+         * range of indices at a time.
+         *
+         * @see #setSelectionMode
+         */
+        var SINGLE_INTERVAL_SELECTION: number;
+        /**
+         * A value for the selectionMode property: select one or more
+         * contiguous ranges of indices at a time.
+         *
+         * @see #setSelectionMode
+         */
+        var MULTIPLE_INTERVAL_SELECTION: number;
+    }
+}
+declare namespace javax.swing {
+    /**
+     * Any component that can be placed into a menu should implement this interface.
+     * This interface is used by <code>MenuSelectionManager</code>
+     * to handle selection and navigation in menu hierarchies.
+     *
+     * @author Arnaud Weber
+     */
+    interface MenuElement {
+        /**
+         * Process a key event.
+         */
+        processKeyEvent(event?: any, path?: any, manager?: any): any;
+        /**
+         * Call by the <code>MenuSelectionManager</code> when the
+         * <code>MenuElement</code> is added or remove from
+         * the menu selection.
+         */
+        menuSelectionChanged(isIncluded: boolean): any;
+        /**
+         * This method should return an array containing the sub-elements for the receiving menu element
+         *
+         * @return an array of MenuElements
+         */
+        getSubElements(): MenuElement[];
+        getComponent(n?: any): any;
+    }
+}
+declare namespace javax.swing {
+    /**
+     * A MenuSelectionManager owns the selection in menu hierarchy.
+     *
+     * @author Arnaud Weber
+     */
+    class MenuSelectionManager {
+    }
+}
+declare namespace javax.swing {
+    /**
+     * A mutable version of <code>ComboBoxModel</code>.
+     *
+     * @param <E> the type of the elements of this model
+     *
+     * @author Tom Santos
+     */
+    interface MutableComboBoxModel<E> extends javax.swing.ComboBoxModel<E> {
+        /**
+         * Adds an item at the end of the model. The implementation of this method
+         * should notify all registered <code>ListDataListener</code>s that the
+         * item has been added.
+         *
+         * @param item the item to be added
+         */
+        addElement(item: E): any;
+        /**
+         * Removes an item from the model. The implementation of this method should
+         * should notify all registered <code>ListDataListener</code>s that the
+         * item has been removed.
+         *
+         * @param obj the <code>Object</code> to be removed
+         */
+        removeElement(obj: any): any;
+        /**
+         * Adds an item at a specific index.  The implementation of this method
+         * should notify all registered <code>ListDataListener</code>s that the
+         * item has been added.
+         *
+         * @param item  the item to be added
+         * @param index  location to add the object
+         */
+        insertElementAt(item: E, index: number): any;
+        /**
+         * Removes an item at a specific index. The implementation of this method
+         * should notify all registered <code>ListDataListener</code>s that the
+         * item has been removed.
+         *
+         * @param index  location of the item to be removed
+         */
+        removeElementAt(index: number): any;
+    }
+}
+declare namespace javax.swing {
+    /**
+     * This interface is implemented by components that have a single
+     * JRootPane child: JDialog, JFrame, JWindow, JApplet, JInternalFrame.
+     * The methods in  this interface are just <i>covers</i> for the JRootPane
+     * properties, e.g. <code>getContentPane()</code> is generally implemented
+     * like this:<pre>
+     * public Container getContentPane() {
+     * return getRootPane().getContentPane();
+     * }
+     * </pre>
+     * This interface serves as a <i>marker</i> for Swing GUI builders
+     * that need to treat components like JFrame, that contain a
+     * single JRootPane, specially.  For example in a GUI builder,
+     * dropping a component on a RootPaneContainer would be interpreted
+     * as <code>frame.getContentPane().add(child)</code>.
+     * <p>
+     * As a convenience, the standard classes that implement this interface
+     * (such as {@code JFrame}, {@code JDialog}, {@code JWindow}, {@code JApplet},
+     * and {@code JInternalFrame}) have their {@code add}, {@code remove},
+     * and {@code setLayout} methods overridden, so that they delegate calls
+     * to the corresponding methods of the {@code ContentPane}.
+     * For example, you can add a child component to a frame as follows:
+     * <pre>
+     * frame.add(child);
+     * </pre>
+     * instead of:
+     * <pre>
+     * frame.getContentPane().add(child);
+     * </pre>
+     * <p>
+     * The behavior of the <code>add</code> and
+     * <code>setLayout</code> methods for
+     * <code>JFrame</code>, <code>JDialog</code>, <code>JWindow</code>,
+     * <code>JApplet</code> and <code>JInternalFrame</code> is controlled by
+     * the <code>rootPaneCheckingEnabled</code> property. If this property is
+     * true (the default), then calls to these methods are
+     * forwarded to the <code>contentPane</code>; if false, these
+     * methods operate directly on the <code>RootPaneContainer</code>. This
+     * property is only intended for subclasses, and is therefore protected.
+     *
+     * @see JRootPane
+     * @see JFrame
+     * @see JDialog
+     * @see JWindow
+     * @see JApplet
+     * @see JInternalFrame
+     *
+     * @author Hans Muller
+     */
+    interface RootPaneContainer {
+        /**
+         * Return this component's single JRootPane child.  A conventional
+         * implementation of this interface will have all of the other
+         * methods indirect through this one.  The rootPane has two
+         * children: the glassPane and the layeredPane.
+         *
+         * @return this components single JRootPane child.
+         * @see JRootPane
+         */
+        getRootPane(): javax.swing.JRootPane;
+        /**
+         * The "contentPane" is the primary container for application
+         * specific components.  Applications should add children to
+         * the contentPane, set its layout manager, and so on.
+         * <p>
+         * The contentPane may not be null.
+         * <p>
+         * Generally implemented with
+         * <code>getRootPane().setContentPane(contentPane);</code>
+         *
+         * @exception java.awt.IllegalComponentStateException (a runtime
+         * exception) if the content pane parameter is null
+         * @param contentPane the Container to use for the contents of this
+         * JRootPane
+         * @see JRootPane#getContentPane
+         * @see #getContentPane
+         */
+        setContentPane(contentPane: java.awt.Container): any;
+        /**
+         * Returns the contentPane.
+         *
+         * @return the value of the contentPane property.
+         * @see #setContentPane
+         */
+        getContentPane(): java.awt.Container;
+    }
+}
+declare namespace javax.swing {
+    /**
+     * A model that supports at most one indexed selection.
+     *
+     * @author Dave Moore
+     */
+    interface SingleSelectionModel {
+        /**
+         * Returns the model's selection.
+         *
+         * @return  the model's selection, or -1 if there is no selection
+         * @see     #setSelectedIndex
+         */
+        getSelectedIndex(): number;
+        /**
+         * Sets the model's selected index to <I>index</I>.
+         *
+         * Notifies any listeners if the model changes
+         *
+         * @param index an int specifying the model selection
+         * @see   #getSelectedIndex
+         * @see   #addChangeListener
+         */
+        setSelectedIndex(index: number): any;
+        /**
+         * Clears the selection (to -1).
+         */
+        clearSelection(): any;
+        /**
+         * Returns true if the selection model currently has a selected value.
+         * @return true if a value is currently selected
+         */
+        isSelected(): boolean;
+        /**
+         * Adds <I>listener</I> as a listener to changes in the model.
+         * @param listener the ChangeListener to add
+         */
+        addChangeListener(listener: javax.swing.event.ChangeListener): any;
+        /**
+         * Removes <I>listener</I> as a listener to changes in the model.
+         * @param listener the ChangeListener to remove
+         */
+        removeChangeListener(listener: javax.swing.event.ChangeListener): any;
     }
 }
 declare namespace javax.swing {
@@ -8461,6 +11686,68 @@ declare namespace javax.swing {
          * @since 1.4
          */
         var PREVIOUS: number;
+    }
+}
+declare namespace javax.swing.text {
+    /**
+     * Represents a location within a document.  It is intended to abstract away
+     * implementation details of the document and enable specification of
+     * positions within the document that are capable of tracking of change as
+     * the document is edited.
+     * <p>
+     * A {@code Position} object points at a location between two characters.
+     * As the surrounding content is altered, the {@code Position} object
+     * adjusts its offset automatically to reflect the changes. If content is
+     * inserted or removed before the {@code Position} object's location, then the
+     * {@code Position} increments or decrements its offset, respectively,
+     * so as to point to the same location. If a portion of the document is removed
+     * that contains a {@code Position}'s offset, then the {@code Position}'s
+     * offset becomes that of the beginning of the removed region. For example, if
+     * a {@code Position} has an offset of 5 and the region 2-10 is removed, then
+     * the {@code Position}'s offset becomes 2.
+     * <p>
+     * {@code Position} with an offset of 0 is a special case. It never changes its
+     * offset while document content is altered.
+     *
+     * @author  Timothy Prinzing
+     */
+    interface Position {
+        /**
+         * Fetches the current offset within the document.
+         *
+         * @return the offset &gt;= 0
+         */
+        getOffset(): number;
+    }
+    namespace Position {
+        /**
+         * A typesafe enumeration to indicate bias to a position
+         * in the model.  A position indicates a location between
+         * two characters.  The bias can be used to indicate an
+         * interest toward one of the two sides of the position
+         * in boundary conditions where a simple offset is
+         * ambiguous.
+         */
+        class Bias {
+            /**
+             * Indicates to bias toward the next character
+             * in the model.
+             */
+            static Forward: Position.Bias;
+            static Forward_$LI$(): Position.Bias;
+            /**
+             * Indicates a bias toward the previous character
+             * in the model.
+             */
+            static Backward: Position.Bias;
+            static Backward_$LI$(): Position.Bias;
+            /**
+             * string representation
+             */
+            toString(): string;
+            constructor(name: string);
+            name: string;
+        }
     }
 }
 declare namespace javax.swing {
@@ -8957,6 +12244,16 @@ declare namespace javax.swing.undo {
          * @return a <code>String</code> representation of this object
          */
         toString(): string;
+    }
+}
+declare namespace javax.swing {
+    interface WindowConstants {
+    }
+    namespace WindowConstants {
+        var DO_NOTHING_ON_CLOSE: number;
+        var HIDE_ON_CLOSE: number;
+        var DISPOSE_ON_CLOSE: number;
+        var EXIT_ON_CLOSE: number;
     }
 }
 declare namespace sun.awt.geom {
@@ -9545,7 +12842,7 @@ declare namespace java.awt {
         static base: string;
         static nameCounter: number;
         static serialVersionUID: number;
-        constructor(label?: string, state?: boolean, group?: java.awt.CheckboxGroup);
+        constructor(label?: any, group?: any, state?: any);
         getHTMLElement(): HTMLLabelElement;
         createHTML(): void;
         initHTML(): void;
@@ -9608,13 +12905,27 @@ declare namespace java.awt {
     abstract class Container extends java.awt.Component {
         layoutMgr: java.awt.LayoutManager;
         components: java.awt.Component[];
+        insets: java.awt.Insets;
         getLayout(): java.awt.LayoutManager;
         setLayout(mgr: java.awt.LayoutManager): void;
         doLayout(): void;
         layout(): void;
         add$java_awt_Component(component: java.awt.Component): java.awt.Component;
-        add(name?: any, component?: any): any;
+        add$java_awt_Component$int(c: java.awt.Component, index: number): java.awt.Component;
+        add$java_lang_String$java_awt_Component(name: string, component: java.awt.Component): java.awt.Component;
+        add$java_awt_Component$java_lang_Object(component: java.awt.Component, constraints: any): void;
+        add(component?: any, constraints?: any, index?: any): any;
+        addImpl(component: java.awt.Component, constraints: any, index: number): void;
         doPaintInternal(): void;
+        getComponentCount(): number;
+        remove(item?: any): any;
+        remove$int(index: number): void;
+        getComponent(n?: any): any;
+        getComponents(): java.awt.Component[];
+        removeAll(): void;
+        remove$java_awt_Component(c: java.awt.Component): void;
+        getInsets(): java.awt.Insets;
+        setInsets(insets: java.awt.Insets): void;
         constructor();
     }
 }
@@ -13210,13 +16521,134 @@ declare namespace java.awt {
     }
 }
 declare namespace java.awt.image {
-    class BufferedImage extends java.awt.Image {
+    class BufferedImage extends java.awt.Image implements java.awt.image.RenderedImage {
         constructor(src: string);
+        getWidth$(): number;
+        getHeight$(): number;
     }
 }
 declare namespace java.awt {
     class RenderedImage extends java.awt.Image {
         constructor(src: string);
+    }
+}
+declare namespace java.beans {
+    class PropertyChangeSupport implements java.io.Serializable {
+        private map;
+        constructor(sourceBean: any);
+        addPropertyChangeListener$java_beans_PropertyChangeListener(listener: java.beans.PropertyChangeListener): void;
+        removePropertyChangeListener$java_beans_PropertyChangeListener(listener: java.beans.PropertyChangeListener): void;
+        getPropertyChangeListeners$(): java.beans.PropertyChangeListener[];
+        addPropertyChangeListener(propertyName?: any, listener?: any): any;
+        removePropertyChangeListener(propertyName?: any, listener?: any): any;
+        getPropertyChangeListeners(propertyName?: any): any;
+        firePropertyChange$java_lang_String$java_lang_Object$java_lang_Object(propertyName: string, oldValue: any, newValue: any): void;
+        firePropertyChange(propertyName?: any, oldValue?: any, newValue?: any): any;
+        firePropertyChange$java_lang_String$boolean$boolean(propertyName: string, oldValue: boolean, newValue: boolean): void;
+        firePropertyChange$java_beans_PropertyChangeEvent(event: java.beans.PropertyChangeEvent): void;
+        static fire(listeners: java.beans.PropertyChangeListener[], event: java.beans.PropertyChangeEvent): void;
+        fireIndexedPropertyChange$java_lang_String$int$java_lang_Object$java_lang_Object(propertyName: string, index: number, oldValue: any, newValue: any): void;
+        fireIndexedPropertyChange(propertyName?: any, index?: any, oldValue?: any, newValue?: any): any;
+        fireIndexedPropertyChange$java_lang_String$int$boolean$boolean(propertyName: string, index: number, oldValue: boolean, newValue: boolean): void;
+        hasListeners(propertyName: string): boolean;
+        private source;
+        static serialVersionUID: number;
+    }
+    namespace PropertyChangeSupport {
+        class PropertyChangeListenerMap extends java.beans.ChangeListenerMap<java.beans.PropertyChangeListener> {
+            static EMPTY: java.beans.PropertyChangeListener[];
+            static EMPTY_$LI$(): java.beans.PropertyChangeListener[];
+            newArray(length: number): java.beans.PropertyChangeListener[];
+            newProxy(name?: any, listener?: any): any;
+            extract(listener?: any): any;
+        }
+    }
+}
+declare namespace java.beans {
+    /**
+     * An "IndexedPropertyChange" event gets delivered whenever a component that
+     * conforms to the JavaBeans&trade; specification (a "bean") changes a bound
+     * indexed property. This class is an extension of <code>PropertyChangeEvent</code>
+     * but contains the index of the property that has changed.
+     * <P>
+     * Null values may be provided for the old and the new values if their
+     * true values are not known.
+     * <P>
+     * An event source may send a null object as the name to indicate that an
+     * arbitrary set of if its properties have changed.  In this case the
+     * old and new values should also be null.
+     *
+     * @since 1.5
+     * @author Mark Davidson
+     */
+    class IndexedPropertyChangeEvent extends java.beans.PropertyChangeEvent {
+        static serialVersionUID: number;
+        private index;
+        /**
+         * Constructs a new <code>IndexedPropertyChangeEvent</code> object.
+         *
+         * @param source  The bean that fired the event.
+         * @param propertyName  The programmatic name of the property that
+         * was changed.
+         * @param oldValue      The old value of the property.
+         * @param newValue      The new value of the property.
+         * @param index index of the property element that was changed.
+         */
+        constructor(source: any, propertyName: string, oldValue: any, newValue: any, index: number);
+        /**
+         * Gets the index of the property that was changed.
+         *
+         * @return The index specifying the property element that was
+         * changed.
+         */
+        getIndex(): number;
+        appendTo(sb: java.lang.StringBuilder): void;
+    }
+}
+declare namespace javax.swing {
+    /**
+     * The default model for combo boxes.
+     *
+     * @param <E> the type of the elements of this model
+     *
+     * @author Arnaud Weber
+     * @author Tom Santos
+     */
+    class DefaultComboBoxModel<E> extends javax.swing.AbstractListModel<E> implements javax.swing.MutableComboBoxModel<E>, java.io.Serializable {
+        objects: java.util.Vector<E>;
+        selectedObject: any;
+        /**
+         * Constructs a DefaultComboBoxModel object initialized with
+         * an array of objects.
+         *
+         * @param items  an array of Object objects
+         */
+        constructor(items?: any);
+        /**
+         * Set the value of the selected item. The selected item may be null.
+         *
+         * @param anObject The combo box value or null for no selection.
+         */
+        setSelectedItem(anObject: any): void;
+        getSelectedItem(): any;
+        getSize(): number;
+        getElementAt(index: number): E;
+        /**
+         * Returns the index-position of the specified object in the list.
+         *
+         * @param anObject
+         * @return an int representing the index position, where 0 is
+         * the first position
+         */
+        getIndexOf(anObject: any): number;
+        addElement(anObject: E): void;
+        insertElementAt(anObject: E, index: number): void;
+        removeElementAt(index: number): void;
+        removeElement(anObject: any): void;
+        /**
+         * Empties the list.
+         */
+        removeAllElements(): void;
     }
 }
 declare namespace javax.swing.undo {
@@ -13766,6 +17198,142 @@ declare namespace java.awt.event {
     }
 }
 declare namespace java.awt.event {
+    /**
+     * A low-level event which indicates that a Component has gained or lost the
+     * input focus. This low-level event is generated by a Component (such as a
+     * TextField). The event is passed to every <code>FocusListener</code> or
+     * <code>FocusAdapter</code> object which registered to receive such events
+     * using the Component's <code>addFocusListener</code> method. (<code>
+     * FocusAdapter</code> objects implement the <code>FocusListener</code>
+     * interface.) Each such listener object gets this <code>FocusEvent</code> when
+     * the event occurs.
+     * <p>
+     * There are two levels of focus events: permanent and temporary. Permanent
+     * focus change events occur when focus is directly moved from one Component to
+     * another, such as through a call to requestFocus() or as the user uses the
+     * TAB key to traverse Components. Temporary focus change events occur when
+     * focus is temporarily lost for a Component as the indirect result of another
+     * operation, such as Window deactivation or a Scrollbar drag. In this case,
+     * the original focus state will automatically be restored once that operation
+     * is finished, or, for the case of Window deactivation, when the Window is
+     * reactivated. Both permanent and temporary focus events are delivered using
+     * the FOCUS_GAINED and FOCUS_LOST event ids; the level may be distinguished in
+     * the event using the isTemporary() method.
+     * <p>
+     * An unspecified behavior will be caused if the {@code id} parameter
+     * of any particular {@code FocusEvent} instance is not
+     * in the range from {@code FOCUS_FIRST} to {@code FOCUS_LAST}.
+     *
+     * @see FocusAdapter
+     * @see FocusListener
+     * @see <a href="http://docs.oracle.com/javase/tutorial/uiswing/events/focuslistener.html">Tutorial: Writing a Focus Listener</a>
+     *
+     * @author Carl Quinn
+     * @author Amy Fowler
+     * @since 1.1
+     */
+    class FocusEvent extends java.awt.event.ComponentEvent {
+        /**
+         * The first number in the range of ids used for focus events.
+         */
+        static FOCUS_FIRST: number;
+        /**
+         * The last number in the range of ids used for focus events.
+         */
+        static FOCUS_LAST: number;
+        /**
+         * This event indicates that the Component is now the focus owner.
+         */
+        static FOCUS_GAINED: number;
+        static FOCUS_GAINED_$LI$(): number;
+        /**
+         * This event indicates that the Component is no longer the focus owner.
+         */
+        static FOCUS_LOST: number;
+        static FOCUS_LOST_$LI$(): number;
+        /**
+         * A focus event can have two different levels, permanent and temporary.
+         * It will be set to true if some operation takes away the focus
+         * temporarily and intends on getting it back once the event is completed.
+         * Otherwise it will be set to false.
+         *
+         * @serial
+         * @see #isTemporary
+         */
+        temporary: boolean;
+        /**
+         * The other Component involved in this focus change. For a FOCUS_GAINED
+         * event, this is the Component that lost focus. For a FOCUS_LOST event,
+         * this is the Component that gained focus. If this focus change occurs
+         * with a native application, a Java application in a different VM, or with
+         * no other Component, then the opposite Component is null.
+         *
+         * @see #getOppositeComponent
+         * @since 1.4
+         */
+        opposite: java.awt.Component;
+        static serialVersionUID: number;
+        /**
+         * Constructs a <code>FocusEvent</code> object with the
+         * specified temporary state and opposite <code>Component</code>.
+         * The opposite <code>Component</code> is the other
+         * <code>Component</code> involved in this focus change.
+         * For a <code>FOCUS_GAINED</code> event, this is the
+         * <code>Component</code> that lost focus. For a
+         * <code>FOCUS_LOST</code> event, this is the <code>Component</code>
+         * that gained focus. If this focus change occurs with a native
+         * application, with a Java application in a different VM,
+         * or with no other <code>Component</code>, then the opposite
+         * <code>Component</code> is <code>null</code>.
+         * <p> This method throws an
+         * <code>IllegalArgumentException</code> if <code>source</code>
+         * is <code>null</code>.
+         *
+         * @param source     The <code>Component</code> that originated the event
+         * @param id         An integer indicating the type of event.
+         * For information on allowable values, see
+         * the class description for {@link FocusEvent}
+         * @param temporary  Equals <code>true</code> if the focus change is temporary;
+         * <code>false</code> otherwise
+         * @param opposite   The other Component involved in the focus change,
+         * or <code>null</code>
+         * @throws IllegalArgumentException if <code>source</code> equals {@code null}
+         * @see #getSource()
+         * @see #getID()
+         * @see #isTemporary()
+         * @see #getOppositeComponent()
+         * @since 1.4
+         */
+        constructor(source: java.awt.Component, id: number, temporary?: boolean, opposite?: java.awt.Component);
+        /**
+         * Identifies the focus change event as temporary or permanent.
+         *
+         * @return <code>true</code> if the focus change is temporary;
+         * <code>false</code> otherwise
+         */
+        isTemporary(): boolean;
+        /**
+         * Returns the other Component involved in this focus change. For a
+         * FOCUS_GAINED event, this is the Component that lost focus. For a
+         * FOCUS_LOST event, this is the Component that gained focus. If this
+         * focus change occurs with a native application, with a Java application
+         * in a different VM or context, or with no other Component, then null is
+         * returned.
+         *
+         * @return the other Component involved in the focus change, or null
+         * @since 1.4
+         */
+        getOppositeComponent(): java.awt.Component;
+        /**
+         * Returns a parameter string identifying this event.
+         * This method is useful for event-logging and for debugging.
+         *
+         * @return a string identifying the event and its attributes
+         */
+        paramString(): string;
+    }
+}
+declare namespace java.awt.event {
     abstract class InputEvent extends java.awt.event.ComponentEvent {
         static SHIFT_MASK: number;
         static SHIFT_MASK_$LI$(): number;
@@ -13825,6 +17393,237 @@ declare namespace java.awt.event {
         static getModifiersExText(modifiers: number): string;
     }
 }
+declare namespace java.awt.event {
+    /**
+     * A low-level event that indicates that a window has changed its status. This
+     * low-level event is generated by a Window object when it is opened, closed,
+     * activated, deactivated, iconified, or deiconified, or when focus is
+     * transfered into or out of the Window.
+     * <P>
+     * The event is passed to every <code>WindowListener</code>
+     * or <code>WindowAdapter</code> object which registered to receive such
+     * events using the window's <code>addWindowListener</code> method.
+     * (<code>WindowAdapter</code> objects implement the
+     * <code>WindowListener</code> interface.) Each such listener object
+     * gets this <code>WindowEvent</code> when the event occurs.
+     * <p>
+     * An unspecified behavior will be caused if the {@code id} parameter
+     * of any particular {@code WindowEvent} instance is not
+     * in the range from {@code WINDOW_FIRST} to {@code WINDOW_LAST}.
+     *
+     * @author Carl Quinn
+     * @author Amy Fowler
+     *
+     * @see WindowAdapter
+     * @see WindowListener
+     * @see <a href="http://docs.oracle.com/javase/tutorial/uiswing/events/windowlistener.html">Tutorial: Writing a Window Listener</a>
+     *
+     * @since JDK1.1
+     */
+    class WindowEvent extends java.awt.event.ComponentEvent {
+        /**
+         * The first number in the range of ids used for window events.
+         */
+        static WINDOW_FIRST: number;
+        /**
+         * The window opened event.  This event is delivered only
+         * the first time a window is made visible.
+         */
+        static WINDOW_OPENED: number;
+        static WINDOW_OPENED_$LI$(): number;
+        /**
+         * The "window is closing" event. This event is delivered when
+         * the user attempts to close the window from the window's system menu.
+         * If the program does not explicitly hide or dispose the window
+         * while processing this event, the window close operation will be
+         * cancelled.
+         */
+        static WINDOW_CLOSING: number;
+        static WINDOW_CLOSING_$LI$(): number;
+        /**
+         * The window closed event. This event is delivered after the displayable
+         * window has been closed as the result of a call to dispose.
+         * @see java.awt.Component#isDisplayable
+         * @see Window#dispose
+         */
+        static WINDOW_CLOSED: number;
+        static WINDOW_CLOSED_$LI$(): number;
+        /**
+         * The window iconified event. This event is delivered when
+         * the window has been changed from a normal to a minimized state.
+         * For many platforms, a minimized window is displayed as
+         * the icon specified in the window's iconImage property.
+         * @see java.awt.Frame#setIconImage
+         */
+        static WINDOW_ICONIFIED: number;
+        static WINDOW_ICONIFIED_$LI$(): number;
+        /**
+         * The window deiconified event type. This event is delivered when
+         * the window has been changed from a minimized to a normal state.
+         */
+        static WINDOW_DEICONIFIED: number;
+        static WINDOW_DEICONIFIED_$LI$(): number;
+        /**
+         * The window-activated event type. This event is delivered when the Window
+         * becomes the active Window. Only a Frame or a Dialog can be the active
+         * Window. The native windowing system may denote the active Window or its
+         * children with special decorations, such as a highlighted title bar. The
+         * active Window is always either the focused Window, or the first Frame or
+         * Dialog that is an owner of the focused Window.
+         */
+        static WINDOW_ACTIVATED: number;
+        static WINDOW_ACTIVATED_$LI$(): number;
+        /**
+         * The window-deactivated event type. This event is delivered when the
+         * Window is no longer the active Window. Only a Frame or a Dialog can be
+         * the active Window. The native windowing system may denote the active
+         * Window or its children with special decorations, such as a highlighted
+         * title bar. The active Window is always either the focused Window, or the
+         * first Frame or Dialog that is an owner of the focused Window.
+         */
+        static WINDOW_DEACTIVATED: number;
+        static WINDOW_DEACTIVATED_$LI$(): number;
+        /**
+         * The window-gained-focus event type. This event is delivered when the
+         * Window becomes the focused Window, which means that the Window, or one
+         * of its subcomponents, will receive keyboard events.
+         */
+        static WINDOW_GAINED_FOCUS: number;
+        static WINDOW_GAINED_FOCUS_$LI$(): number;
+        /**
+         * The window-lost-focus event type. This event is delivered when a Window
+         * is no longer the focused Window, which means keyboard events will no
+         * longer be delivered to the Window or any of its subcomponents.
+         */
+        static WINDOW_LOST_FOCUS: number;
+        static WINDOW_LOST_FOCUS_$LI$(): number;
+        /**
+         * The window-state-changed event type.  This event is delivered
+         * when a Window's state is changed by virtue of it being
+         * iconified, maximized etc.
+         * @since 1.4
+         */
+        static WINDOW_STATE_CHANGED: number;
+        static WINDOW_STATE_CHANGED_$LI$(): number;
+        /**
+         * The last number in the range of ids used for window events.
+         */
+        static WINDOW_LAST: number;
+        static WINDOW_LAST_$LI$(): number;
+        /**
+         * The other Window involved in this focus or activation change. For a
+         * WINDOW_ACTIVATED or WINDOW_GAINED_FOCUS event, this is the Window that
+         * lost activation or focus. For a WINDOW_DEACTIVATED or WINDOW_LOST_FOCUS
+         * event, this is the Window that gained activation or focus. For any other
+         * type of WindowEvent, or if the focus or activation change occurs with a
+         * native application, a Java application in a different VM, or with no
+         * other Window, null is returned.
+         *
+         * @see #getOppositeWindow
+         * @since 1.4
+         */
+        opposite: java.awt.Window;
+        /**
+         * TBS
+         */
+        oldState: number;
+        newState: number;
+        static serialVersionUID: number;
+        /**
+         * Constructs a <code>WindowEvent</code> object.
+         * <p>This method throws an
+         * <code>IllegalArgumentException</code> if <code>source</code>
+         * is <code>null</code>.
+         *
+         * @param source    The <code>Window</code> object
+         * that originated the event
+         * @param id        An integer indicating the type of event.
+         * For information on allowable values, see
+         * the class description for {@link WindowEvent}
+         * @param opposite  The other window involved in the focus or activation
+         * change, or <code>null</code>
+         * @param oldState  Previous state of the window for window state change event.
+         * See {@code #getOldState()} for allowable values
+         * @param newState  New state of the window for window state change event.
+         * See {@code #getNewState()} for allowable values
+         * @throws IllegalArgumentException if <code>source</code> is null
+         * @see #getWindow()
+         * @see #getID()
+         * @see #getOppositeWindow()
+         * @see #getOldState()
+         * @see #getNewState()
+         * @since 1.4
+         */
+        constructor(source?: any, id?: any, opposite?: any, oldState?: any, newState?: any);
+        /**
+         * Returns the originator of the event.
+         *
+         * @return the Window object that originated the event
+         */
+        getWindow(): java.awt.Window;
+        /**
+         * Returns the other Window involved in this focus or activation change.
+         * For a WINDOW_ACTIVATED or WINDOW_GAINED_FOCUS event, this is the Window
+         * that lost activation or focus. For a WINDOW_DEACTIVATED or
+         * WINDOW_LOST_FOCUS event, this is the Window that gained activation or
+         * focus. For any other type of WindowEvent, or if the focus or activation
+         * change occurs with a native application, with a Java application in a
+         * different VM or context, or with no other Window, null is returned.
+         *
+         * @return the other Window involved in the focus or activation change, or
+         * null
+         * @since 1.4
+         */
+        getOppositeWindow(): java.awt.Window;
+        /**
+         * For <code>WINDOW_STATE_CHANGED</code> events returns the
+         * previous state of the window. The state is
+         * represented as a bitwise mask.
+         * <ul>
+         * <li><code>NORMAL</code>
+         * <br>Indicates that no state bits are set.
+         * <li><code>ICONIFIED</code>
+         * <li><code>MAXIMIZED_HORIZ</code>
+         * <li><code>MAXIMIZED_VERT</code>
+         * <li><code>MAXIMIZED_BOTH</code>
+         * <br>Concatenates <code>MAXIMIZED_HORIZ</code>
+         * and <code>MAXIMIZED_VERT</code>.
+         * </ul>
+         *
+         * @return a bitwise mask of the previous window state
+         * @see java.awt.Frame#getExtendedState()
+         * @since 1.4
+         */
+        getOldState(): number;
+        /**
+         * For <code>WINDOW_STATE_CHANGED</code> events returns the
+         * new state of the window. The state is
+         * represented as a bitwise mask.
+         * <ul>
+         * <li><code>NORMAL</code>
+         * <br>Indicates that no state bits are set.
+         * <li><code>ICONIFIED</code>
+         * <li><code>MAXIMIZED_HORIZ</code>
+         * <li><code>MAXIMIZED_VERT</code>
+         * <li><code>MAXIMIZED_BOTH</code>
+         * <br>Concatenates <code>MAXIMIZED_HORIZ</code>
+         * and <code>MAXIMIZED_VERT</code>.
+         * </ul>
+         *
+         * @return a bitwise mask of the new window state
+         * @see java.awt.Frame#getExtendedState()
+         * @since 1.4
+         */
+        getNewState(): number;
+        /**
+         * Returns a parameter string identifying this event.
+         * This method is useful for event-logging and for debugging.
+         *
+         * @return a string identifying the event and its attributes
+         */
+        paramString(): string;
+    }
+}
 declare namespace java.awt {
     class Panel extends java.awt.Container {
         private htmlCanvas;
@@ -13834,6 +17633,110 @@ declare namespace java.awt {
         setBackground(background: java.awt.Color): void;
         doPaintInternal(): void;
         initHTML(): void;
+    }
+}
+declare namespace java.awt {
+    class Window extends java.awt.Container {
+        getElement(): HTMLDivElement;
+        createHTML(): void;
+        initHTML(): void;
+        /**
+         * This represents the warning message that is to be displayed in a non
+         * secure window. ie : a window that has a security manager installed that
+         * denies {@code AWTPermission("showWindowWithoutWarningBanner")}. This
+         * message can be displayed anywhere in the window.
+         *
+         * @serial
+         * @see #getWarningString
+         */
+        warningString: string;
+        /**
+         * {@code icons} is the graphical way we can represent the frames and
+         * dialogs. {@code Window} can't display icon but it's being inherited by
+         * owned {@code Dialog}s.
+         *
+         * @serial
+         * @see #getIconImages
+         * @see #setIconImages
+         */
+        icons: java.util.List<java.awt.Image>;
+        static OPENED: number;
+        state: number;
+        private alwaysOnTop;
+        private focusableWindowState;
+        private autoRequestFocus;
+        isInShow: boolean;
+        private opacity;
+        private shape;
+        static base: string;
+        static nameCounter: number;
+        isTrayIconWindow: boolean;
+        constructor(owner?: any);
+        ownedInit(owner: Window): void;
+        constructComponentName(): string;
+        getIconImages(): java.util.List<java.awt.Image>;
+        setIconImages(icons: java.util.List<any>): void;
+        setIconImage(image: java.awt.Image): void;
+        pack(): void;
+        setMinimumSize(minimumSize: java.awt.Dimension): void;
+        setVisible(visible: boolean): void;
+        dispose(): void;
+        toFront(): void;
+        toBack(): void;
+        getToolkit(): java.awt.Toolkit;
+        getWarningString(): string;
+        setCursor(cursor: java.awt.Cursor): void;
+        windowListeners: Array<java.awt.event.WindowListener>;
+        windowStateListeners: Array<java.awt.event.WindowStateListener>;
+        windowFocusListeners: Array<java.awt.event.WindowFocusListener>;
+        addWindowListener(l: java.awt.event.WindowListener): void;
+        addWindowStateListener(l: java.awt.event.WindowStateListener): void;
+        addWindowFocusListener(l: java.awt.event.WindowFocusListener): void;
+        removeWindowListener(l: java.awt.event.WindowListener): void;
+        removeWindowStateListener(l: java.awt.event.WindowStateListener): void;
+        removeWindowFocusListener(l: java.awt.event.WindowFocusListener): void;
+        getWindowListeners(): java.awt.event.WindowListener[];
+        getWindowFocusListeners(): java.awt.event.WindowFocusListener[];
+        getWindowStateListeners(): java.awt.event.WindowStateListener[];
+        getListeners<T extends java.util.EventListener>(listenerType: any): T[];
+        processWindowEvent(e: java.awt.event.WindowEvent): void;
+        processWindowFocusEvent(e: java.awt.event.WindowEvent): void;
+        processWindowStateEvent(e: java.awt.event.WindowEvent): void;
+        setAlwaysOnTop(alwaysOnTop: boolean): void;
+        isAlwaysOnTopSupported(): boolean;
+        isAlwaysOnTop(): boolean;
+        isActive(): boolean;
+        isFocused(): boolean;
+        setFocusCycleRoot(focusCycleRoot: boolean): void;
+        isFocusCycleRoot(): boolean;
+        getFocusCycleRootAncestor(): java.awt.Container;
+        isFocusableWindow(): boolean;
+        getFocusableWindowState(): boolean;
+        setFocusableWindowState(focusableWindowState: boolean): void;
+        setAutoRequestFocus(autoRequestFocus: boolean): void;
+        isAutoRequestFocus(): boolean;
+        addPropertyChangeListener$java_beans_PropertyChangeListener(listener: java.beans.PropertyChangeListener): void;
+        addPropertyChangeListener(propertyName?: any, listener?: any): any;
+        isShowing(): boolean;
+        /**
+         * Window type.
+         *
+         * Synchronization: ObjectLock
+         */
+        private type;
+        setType(type: Window.Type): void;
+        getType(): Window.Type;
+        getOpacity(): number;
+        setOpacity(opacity: number): void;
+        getShape(): java.awt.Shape;
+        setShape(shape: java.awt.Shape): void;
+    }
+    namespace Window {
+        enum Type {
+            NORMAL = 0,
+            UTILITY = 1,
+            POPUP = 2,
+        }
     }
 }
 declare namespace javax.swing {
@@ -14549,6 +18452,63 @@ declare namespace java.awt {
         setStroke(s: java.awt.Stroke): void;
     }
 }
+declare namespace javax.swing.event {
+    /**
+     * This subclass of {@code java.beans.PropertyChangeSupport} is almost identical
+     * in functionality. The only difference is if constructed with
+     * {@code SwingPropertyChangeSupport(sourceBean, true)} it ensures listeners are
+     * only ever notified on the <i>Event Dispatch Thread</i>.
+     *
+     * @author Igor Kushnirskiy
+     */
+    class SwingPropertyChangeSupport extends java.beans.PropertyChangeSupport {
+        /**
+         * Constructs a SwingPropertyChangeSupport object.
+         *
+         * @param sourceBean
+         * the bean to be given as the source for any events
+         * @param notifyOnEDT
+         * whether to notify listeners on the <i>Event Dispatch
+         * Thread</i> only
+         *
+         * @throws NullPointerException
+         * if {@code sourceBean} is {@code null}
+         * @since 1.6
+         */
+        constructor(sourceBean: any, notifyOnEDT?: boolean);
+        /**
+         * {@inheritDoc}
+         *
+         * <p>
+         * If {@link #isNotifyOnEDT} is {@code true} and called off the <i>Event
+         * Dispatch Thread</i> this implementation uses
+         * {@code SwingUtilities.invokeLater} to send out the notification on the
+         * <i>Event Dispatch Thread</i>. This ensures listeners are only ever
+         * notified on the <i>Event Dispatch Thread</i>.
+         *
+         * @throws NullPointerException
+         * if {@code evt} is {@code null}
+         * @since 1.6
+         */
+        firePropertyChange$java_beans_PropertyChangeEvent(evt: java.beans.PropertyChangeEvent): void;
+        /**
+         * Returns {@code notifyOnEDT} property.
+         *
+         * @return {@code notifyOnEDT} property
+         * @see #SwingPropertyChangeSupport(Object sourceBean, boolean notifyOnEDT)
+         * @since 1.6
+         */
+        isNotifyOnEDT(): boolean;
+        static serialVersionUID: number;
+        /**
+         * whether to notify listeners on EDT
+         *
+         * @serial
+         * @since 1.6
+         */
+        private notifyOnEDT;
+    }
+}
 declare namespace javax.swing.undo {
     /**
      * {@code UndoManager} manages a list of {@code UndoableEdits},
@@ -15206,6 +19166,209 @@ declare namespace java.applet {
         init(): void;
     }
 }
+declare namespace java.awt {
+    class Frame extends java.awt.Window {
+        /**
+         * @deprecated replaced by <code>Cursor.DEFAULT_CURSOR</code>.
+         */
+        static DEFAULT_CURSOR: number;
+        static DEFAULT_CURSOR_$LI$(): number;
+        /**
+         * @deprecated replaced by <code>Cursor.CROSSHAIR_CURSOR</code>.
+         */
+        static CROSSHAIR_CURSOR: number;
+        static CROSSHAIR_CURSOR_$LI$(): number;
+        /**
+         * @deprecated replaced by <code>Cursor.TEXT_CURSOR</code>.
+         */
+        static TEXT_CURSOR: number;
+        static TEXT_CURSOR_$LI$(): number;
+        /**
+         * @deprecated replaced by <code>Cursor.WAIT_CURSOR</code>.
+         */
+        static WAIT_CURSOR: number;
+        static WAIT_CURSOR_$LI$(): number;
+        /**
+         * @deprecated replaced by <code>Cursor.SW_RESIZE_CURSOR</code>.
+         */
+        static SW_RESIZE_CURSOR: number;
+        static SW_RESIZE_CURSOR_$LI$(): number;
+        /**
+         * @deprecated replaced by <code>Cursor.SE_RESIZE_CURSOR</code>.
+         */
+        static SE_RESIZE_CURSOR: number;
+        static SE_RESIZE_CURSOR_$LI$(): number;
+        /**
+         * @deprecated replaced by <code>Cursor.NW_RESIZE_CURSOR</code>.
+         */
+        static NW_RESIZE_CURSOR: number;
+        static NW_RESIZE_CURSOR_$LI$(): number;
+        /**
+         * @deprecated replaced by <code>Cursor.NE_RESIZE_CURSOR</code>.
+         */
+        static NE_RESIZE_CURSOR: number;
+        static NE_RESIZE_CURSOR_$LI$(): number;
+        /**
+         * @deprecated replaced by <code>Cursor.N_RESIZE_CURSOR</code>.
+         */
+        static N_RESIZE_CURSOR: number;
+        static N_RESIZE_CURSOR_$LI$(): number;
+        /**
+         * @deprecated replaced by <code>Cursor.S_RESIZE_CURSOR</code>.
+         */
+        static S_RESIZE_CURSOR: number;
+        static S_RESIZE_CURSOR_$LI$(): number;
+        /**
+         * @deprecated replaced by <code>Cursor.W_RESIZE_CURSOR</code>.
+         */
+        static W_RESIZE_CURSOR: number;
+        static W_RESIZE_CURSOR_$LI$(): number;
+        /**
+         * @deprecated replaced by <code>Cursor.E_RESIZE_CURSOR</code>.
+         */
+        static E_RESIZE_CURSOR: number;
+        static E_RESIZE_CURSOR_$LI$(): number;
+        /**
+         * @deprecated replaced by <code>Cursor.HAND_CURSOR</code>.
+         */
+        static HAND_CURSOR: number;
+        static HAND_CURSOR_$LI$(): number;
+        /**
+         * @deprecated replaced by <code>Cursor.MOVE_CURSOR</code>.
+         */
+        static MOVE_CURSOR: number;
+        static MOVE_CURSOR_$LI$(): number;
+        /**
+         * Frame is in the "normal" state. This symbolic constant names a frame
+         * state with all state bits cleared.
+         *
+         * @see #setExtendedState(int)
+         * @see #getExtendedState
+         */
+        static NORMAL: number;
+        /**
+         * This state bit indicates that frame is iconified.
+         *
+         * @see #setExtendedState(int)
+         * @see #getExtendedState
+         */
+        static ICONIFIED: number;
+        /**
+         * This state bit indicates that frame is maximized in the horizontal
+         * direction.
+         *
+         * @see #setExtendedState(int)
+         * @see #getExtendedState
+         * @since 1.4
+         */
+        static MAXIMIZED_HORIZ: number;
+        /**
+         * This state bit indicates that frame is maximized in the vertical
+         * direction.
+         *
+         * @see #setExtendedState(int)
+         * @see #getExtendedState
+         * @since 1.4
+         */
+        static MAXIMIZED_VERT: number;
+        /**
+         * This state bit mask indicates that frame is fully maximized (that is both
+         * horizontally and vertically). It is just a convenience alias for
+         * <code>MAXIMIZED_VERT&nbsp;|&nbsp;MAXIMIZED_HORIZ</code>.
+         *
+         * <p>
+         * Note that the correct test for frame being fully maximized is
+         *
+         * <pre>
+         * (state &amp; Frame.MAXIMIZED_BOTH) == Frame.MAXIMIZED_BOTH
+         * </pre>
+         *
+         * <p>
+         * To test is frame is maximized in <em>some</em> direction use
+         *
+         * <pre>
+         * (state &amp; Frame.MAXIMIZED_BOTH) != 0
+         * </pre>
+         *
+         * @see #setExtendedState(int)
+         * @see #getExtendedState
+         * @since 1.4
+         */
+        static MAXIMIZED_BOTH: number;
+        static MAXIMIZED_BOTH_$LI$(): number;
+        /**
+         * Maximized bounds for this frame.
+         *
+         * @see #setMaximizedBounds(Rectangle)
+         * @see #getMaximizedBounds
+         * @serial
+         * @since 1.4
+         */
+        maximizedBounds: java.awt.Rectangle;
+        /**
+         * This is the title of the frame. It can be changed at any time.
+         * <code>title</code> can be null and if this is the case the
+         * <code>title</code> = "".
+         *
+         * @serial
+         * @see #getTitle
+         * @see #setTitle(String)
+         */
+        title: string;
+        /**
+         * This field indicates whether the frame is resizable. This property can be
+         * changed at any time. <code>resizable</code> will be true if the frame is
+         * resizable, otherwise it will be false.
+         *
+         * @serial
+         * @see #isResizable()
+         */
+        resizable: boolean;
+        /**
+         * This field indicates whether the frame is undecorated. This property can
+         * only be changed while the frame is not displayable.
+         * <code>undecorated</code> will be true if the frame is undecorated,
+         * otherwise it will be false.
+         *
+         * @serial
+         * @see #setUndecorated(boolean)
+         * @see #isUndecorated()
+         * @see Component#isDisplayable()
+         * @since 1.4
+         */
+        undecorated: boolean;
+        /**
+         * <code>mbManagement</code> is only used by the Motif implementation.
+         *
+         * @serial
+         */
+        mbManagement: boolean;
+        ownedWindows: java.util.Vector<java.awt.Window>;
+        static base: string;
+        static nameCounter: number;
+        constructor(title?: any);
+        private _frameInit(title);
+        constructComponentName(): string;
+        getTitle(): string;
+        setTitle(title: string): void;
+        getIconImage(): java.awt.Image;
+        setIconImage(image: java.awt.Image): void;
+        isResizable(): boolean;
+        setResizable(resizable: boolean): void;
+        setUndecorated(undecorated: boolean): void;
+        isUndecorated(): boolean;
+        /**
+         * Returns a string representing the state of this <code>Frame</code>. This
+         * method is intended to be used only for debugging purposes, and the
+         * content and format of the returned string may vary between
+         * implementations. The returned string may be empty but may not be
+         * <code>null</code>.
+         *
+         * @return the parameter string of this frame
+         */
+        paramString(): string;
+    }
+}
 declare namespace javax.swing {
     abstract class AbstractButton extends javax.swing.JComponent implements java.awt.ItemSelectable, javax.swing.SwingConstants {
         /**
@@ -15336,7 +19499,8 @@ declare namespace javax.swing {
         setText(text: string): void;
         isSelected(): boolean;
         setSelected(b: boolean): void;
-        doClick(): void;
+        doClick(pressTime?: any): any;
+        doClick$(): void;
         setMargin(m: java.awt.Insets): void;
         /**
          * Returns the margin between the button's border and the label.
@@ -15539,6 +19703,9 @@ declare namespace javax.swing {
         init(text: string, icon: javax.swing.Icon): void;
         imageUpdate(img: java.awt.Image, infoflags: number, x: number, y: number, w: number, h: number): boolean;
         getHandler(): AbstractButton.Handler;
+        model: javax.swing.ButtonModel;
+        getModel(): javax.swing.ButtonModel;
+        setModel(newModel: javax.swing.ButtonModel): void;
         constructor();
     }
     namespace AbstractButton {
@@ -15562,6 +19729,168 @@ declare namespace javax.swing {
             stateChanged(e: javax.swing.event.ChangeEvent): void;
             actionPerformed(event: java.awt.event.ActionEvent): void;
             itemStateChanged(event: java.awt.event.ItemEvent): void;
+            constructor(__parent: any);
+        }
+    }
+}
+declare namespace javax.swing {
+    class JComboBox<E> extends javax.swing.JComponent implements java.awt.ItemSelectable, javax.swing.event.ListDataListener, java.awt.event.ActionListener {
+        createHTML(): void;
+        getHTMLElement(): HTMLSelectElement;
+        initHTML(): void;
+        /**
+         * This protected field is implementation specific. Do not access directly
+         * or override. Use the accessor methods instead.
+         *
+         * @see #getModel
+         * @see #setModel
+         */
+        dataModel: javax.swing.ComboBoxModel<E>;
+        /**
+         * This protected field is implementation specific. Do not access directly
+         * or override. Use the accessor methods instead.
+         *
+         * @see #getRenderer
+         * @see #setRenderer
+         */
+        renderer: javax.swing.ListCellRenderer<any>;
+        /**
+         * This protected field is implementation specific. Do not access directly
+         * or override. Use the accessor methods instead.
+         *
+         * @see #getEditor
+         * @see #setEditor
+         */
+        editor: javax.swing.ComboBoxEditor;
+        /**
+         * This protected field is implementation specific. Do not access directly
+         * or override. Use the accessor methods instead.
+         *
+         * @see #getMaximumRowCount
+         * @see #setMaximumRowCount
+         */
+        maximumRowCount: number;
+        /**
+         * This protected field is implementation specific. Do not access directly
+         * or override. Use the accessor methods instead.
+         *
+         * @see #isEditable
+         * @see #setEditable
+         */
+        __isEditable: boolean;
+        /**
+         * This protected field is implementation specific. Do not access directly
+         * or override. Use the accessor methods instead.
+         *
+         * @see #setKeySelectionManager
+         * @see #getKeySelectionManager
+         */
+        keySelectionManager: JComboBox.KeySelectionManager;
+        /**
+         * This protected field is implementation specific. Do not access directly
+         * or override. Use the accessor methods instead.
+         *
+         * @see #setActionCommand
+         * @see #getActionCommand
+         */
+        actionCommand: string;
+        /**
+         * This protected field is implementation specific. Do not access directly
+         * or override.
+         */
+        selectedItemReminder: any;
+        private prototypeDisplayValue;
+        private firingActionEvent;
+        private selectingItem;
+        constructor(aModel?: any);
+        init(): void;
+        setModel(aModel: javax.swing.ComboBoxModel<E>): void;
+        /**
+         * Returns the data model currently used by the <code>JComboBox</code>.
+         *
+         * @return the <code>ComboBoxModel</code> that provides the displayed list
+         * of items
+         */
+        getModel(): javax.swing.ComboBoxModel<E>;
+        setLightWeightPopupEnabled(aFlag: boolean): void;
+        setEditable(aFlag: boolean): void;
+        isEditable(): boolean;
+        setMaximumRowCount(count: number): void;
+        getMaximumRowCount(): number;
+        setRenderer(aRenderer: javax.swing.ListCellRenderer<any>): void;
+        getRenderer(): javax.swing.ListCellRenderer<any>;
+        setEditor(anEditor: javax.swing.ComboBoxEditor): void;
+        getEditor(): javax.swing.ComboBoxEditor;
+        setSelectedItem(anObject: any): void;
+        getSelectedItem(): any;
+        setSelectedIndex(anIndex: number): void;
+        getSelectedIndex(): number;
+        getPrototypeDisplayValue(): E;
+        setPrototypeDisplayValue(prototypeDisplayValue: E): void;
+        addItem(item: E): void;
+        insertItemAt(item: E, index: number): void;
+        removeItem(anObject: any): void;
+        removeItemAt(anIndex: number): void;
+        removeAllItems(): void;
+        checkMutableComboBoxModel(): void;
+        showPopup(): void;
+        hidePopup(): void;
+        setPopupVisible(v: boolean): void;
+        isPopupVisible(): boolean;
+        addItemListener(aListener: java.awt.event.ItemListener): void;
+        removeItemListener(aListener: java.awt.event.ItemListener): void;
+        getItemListeners(): java.awt.event.ItemListener[];
+        addActionListener(l: java.awt.event.ActionListener): void;
+        removeActionListener(l: java.awt.event.ActionListener): void;
+        getActionListeners(): java.awt.event.ActionListener[];
+        addPopupMenuListener(l: javax.swing.event.PopupMenuListener): void;
+        removePopupMenuListener(l: javax.swing.event.PopupMenuListener): void;
+        getPopupMenuListeners(): javax.swing.event.PopupMenuListener[];
+        firePopupMenuWillBecomeVisible(): void;
+        firePopupMenuWillBecomeInvisible(): void;
+        firePopupMenuCanceled(): void;
+        setActionCommand(aCommand: string): void;
+        getActionCommand(): string;
+        private action;
+        private actionPropertyChangeListener;
+        setAction(a: javax.swing.Action): void;
+        isListener(c?: any, a?: any): any;
+        isListener$java_lang_String$java_awt_event_ActionListener(c: string, a: java.awt.event.ActionListener): boolean;
+        getAction(): javax.swing.Action;
+        configurePropertiesFromAction(a: javax.swing.Action): void;
+        createActionPropertyChangeListener(a: javax.swing.Action): java.beans.PropertyChangeListener;
+        actionPropertyChanged(action: javax.swing.Action, propertyName: string): void;
+        setActionCommandFromAction(a: javax.swing.Action): void;
+        fireItemStateChanged(e: java.awt.event.ItemEvent): void;
+        fireActionEvent(): void;
+        selectedItemChanged(): void;
+        getSelectedObjects(): any[];
+        actionPerformed(e: java.awt.event.ActionEvent): void;
+        contentsChanged(e: javax.swing.event.ListDataEvent): void;
+        intervalAdded(e: javax.swing.event.ListDataEvent): void;
+        intervalRemoved(e: javax.swing.event.ListDataEvent): void;
+        selectWithKeyChar(keyChar: string): boolean;
+        setEnabled(b: boolean): void;
+        configureEditor(anEditor: javax.swing.ComboBoxEditor, anItem: any): void;
+        processKeyEvent(e: java.awt.event.KeyEvent): void;
+        setKeySelectionManager(aManager: JComboBox.KeySelectionManager): void;
+        getKeySelectionManager(): JComboBox.KeySelectionManager;
+        getItemCount(): number;
+        getItemAt(index: number): E;
+        createDefaultKeySelectionManager(): JComboBox.KeySelectionManager;
+        paramString(): string;
+    }
+    namespace JComboBox {
+        class ComboBoxActionPropertyChangeListener extends javax.swing.ActionPropertyChangeListener<javax.swing.JComboBox<any>> {
+            constructor(b: javax.swing.JComboBox<any>, a: javax.swing.Action);
+            actionPropertyChanged(cb?: any, action?: any, e?: any): any;
+        }
+        interface KeySelectionManager {
+            selectionForKey(aKey: string, aModel: javax.swing.ComboBoxModel<any>): number;
+        }
+        class DefaultKeySelectionManager implements JComboBox.KeySelectionManager, java.io.Serializable {
+            __parent: any;
+            selectionForKey(aKey: string, aModel: javax.swing.ComboBoxModel<any>): number;
             constructor(__parent: any);
         }
     }
@@ -15610,6 +19939,1782 @@ declare namespace javax.swing {
         getHorizontalTextPosition(): number;
         setHorizontalTextPosition(textPosition: number): void;
         paramString(): string;
+    }
+}
+declare namespace javax.swing {
+    /**
+     * A component that displays a list of objects and allows the user to select one
+     * or more items. A separate model, {@code ListModel}, maintains the contents of
+     * the list.
+     * <p>
+     * It's easy to display an array or Vector of objects, using the {@code JList}
+     * constructor that automatically builds a read-only {@code ListModel} instance
+     * for you:
+     *
+     * <pre>
+     * {
+     * &#64;code
+     * // Create a JList that displays strings from an array
+     *
+     * String[] data = { "one", "two", "three", "four" };
+     * JList<String> myList = new JList<String>(data);
+     *
+     * // Create a JList that displays the superclasses of JList.class, by
+     * // creating it with a Vector populated with this data
+     *
+     * Vector<Class<?>> superClasses = new Vector<Class<?>>();
+     * Class<JList> rootClass = javax.swing.JList.class;
+     * for (Class<?> cls = rootClass; cls != null; cls = cls.getSuperclass()) {
+     * superClasses.addElement(cls);
+     * }
+     * JList<Class<?>> myList = new JList<Class<?>>(superClasses);
+     *
+     * // The automatically created model is stored in JList's "model"
+     * // property, which you can retrieve
+     *
+     * ListModel<Class<?>> model = myList.getModel();
+     * for (int i = 0; i < model.getSize(); i++) {
+     * System.out.println(model.getElementAt(i));
+     * }
+     * }
+     * </pre>
+     * <p>
+     * A {@code ListModel} can be supplied directly to a {@code JList} by way of a
+     * constructor or the {@code setModel} method. The contents need not be static -
+     * the number of items, and the values of items can change over time. A correct
+     * {@code ListModel} implementation notifies the set of
+     * {@code javax.swing.event.ListDataListener}s that have been added to it, each
+     * time a change occurs. These changes are characterized by a
+     * {@code javax.swing.event.ListDataEvent}, which identifies the range of list
+     * indices that have been modified, added, or removed. {@code JList}'s
+     * {@code ListUI} is responsible for keeping the visual representation up to
+     * date with changes, by listening to the model.
+     * <p>
+     * Simple, dynamic-content, {@code JList} applications can use the
+     * {@code DefaultListModel} class to maintain list elements. This class
+     * implements the {@code ListModel} interface and also provides a
+     * <code>java.util.Vector</code>-like API. Applications that need a more custom
+     * <code>ListModel</code> implementation may instead wish to subclass
+     * {@code AbstractListModel}, which provides basic support for managing and
+     * notifying listeners. For example, a read-only implementation of
+     * {@code AbstractListModel}:
+     *
+     * <pre>
+     * {
+     * &#64;code
+     * // This list model has about 2^16 elements. Enjoy scrolling.
+     *
+     * ListModel<String> bigData = new AbstractListModel<String>() {
+     * public int getSize() {
+     * return Short.MAX_VALUE;
+     * }
+     *
+     * public String getElementAt(int index) {
+     * return "Index " + index;
+     * }
+     * };
+     * }
+     * </pre>
+     * <p>
+     * The selection state of a {@code JList} is managed by another separate model,
+     * an instance of {@code ListSelectionModel}. {@code JList} is initialized with
+     * a selection model on construction, and also contains methods to query or set
+     * this selection model. Additionally, {@code JList} provides convenient methods
+     * for easily managing the selection. These methods, such as
+     * {@code setSelectedIndex} and {@code getSelectedValue}, are cover methods that
+     * take care of the details of interacting with the selection model. By default,
+     * {@code JList}'s selection model is configured to allow any combination of
+     * items to be selected at a time; selection mode
+     * {@code MULTIPLE_INTERVAL_SELECTION}. The selection mode can be changed on the
+     * selection model directly, or via {@code JList}'s cover method. Responsibility
+     * for updating the selection model in response to user gestures lies with the
+     * list's {@code ListUI}.
+     * <p>
+     * A correct {@code ListSelectionModel} implementation notifies the set of
+     * {@code javax.swing.event.ListSelectionListener}s that have been added to it
+     * each time a change to the selection occurs. These changes are characterized
+     * by a {@code javax.swing.event.ListSelectionEvent}, which identifies the range
+     * of the selection change.
+     * <p>
+     * The preferred way to listen for changes in list selection is to add
+     * {@code ListSelectionListener}s directly to the {@code JList}. {@code JList}
+     * then takes care of listening to the the selection model and notifying your
+     * listeners of change.
+     * <p>
+     * Responsibility for listening to selection changes in order to keep the list's
+     * visual representation up to date lies with the list's {@code ListUI}.
+     * <p>
+     * <a name="renderer"></a> Painting of cells in a {@code JList} is handled by a
+     * delegate called a cell renderer, installed on the list as the
+     * {@code cellRenderer} property. The renderer provides a
+     * {@code java.awt.Component} that is used like a "rubber stamp" to paint the
+     * cells. Each time a cell needs to be painted, the list's {@code ListUI} asks
+     * the cell renderer for the component, moves it into place, and has it paint
+     * the contents of the cell by way of its {@code paint} method. A default cell
+     * renderer, which uses a {@code JLabel} component to render, is installed by
+     * the lists's {@code ListUI}. You can substitute your own renderer using code
+     * like this:
+     *
+     * <pre>
+     * {
+     * &#64;code
+     * // Display an icon and a string for each object in the list.
+     *
+     * class MyCellRenderer extends JLabel implements ListCellRenderer<Object> {
+     * final static ImageIcon longIcon = new ImageIcon("long.gif");
+     * final static ImageIcon shortIcon = new ImageIcon("short.gif");
+     *
+     * // This is the only method defined by ListCellRenderer.
+     * // We just reconfigure the JLabel each time we're called.
+     *
+     * public Component getListCellRendererComponent(JList<?> list, // the
+     * // list
+     * Object value, // value to display
+     * int index, // cell index
+     * boolean isSelected, // is the cell selected
+     * boolean cellHasFocus) // does the cell have focus
+     * {
+     * String s = value.toString();
+     * setText(s);
+     * setIcon((s.length() > 10) ? longIcon : shortIcon);
+     * if (isSelected) {
+     * setBackground(list.getSelectionBackground());
+     * setForeground(list.getSelectionForeground());
+     * } else {
+     * setBackground(list.getBackground());
+     * setForeground(list.getForeground());
+     * }
+     * setEnabled(list.isEnabled());
+     * setFont(list.getFont());
+     * setOpaque(true);
+     * return this;
+     * }
+     * }
+     *
+     * myList.setCellRenderer(new MyCellRenderer());
+     * }
+     * </pre>
+     * <p>
+     * Another job for the cell renderer is in helping to determine sizing
+     * information for the list. By default, the list's {@code ListUI} determines
+     * the size of cells by asking the cell renderer for its preferred size for each
+     * list item. This can be expensive for large lists of items. To avoid these
+     * calculations, you can set a {@code fixedCellWidth} and
+     * {@code fixedCellHeight} on the list, or have these values calculated
+     * automatically based on a single prototype value:
+     * <a name="prototype_example"></a>
+     *
+     * <pre>
+     * {
+     * &#64;code
+     * JList<String> bigDataList = new JList<String>(bigData);
+     *
+     * // We don't want the JList implementation to compute the width
+     * // or height of all of the list cells, so we give it a string
+     * // that's as big as we'll need for any cell. It uses this to
+     * // compute values for the fixedCellWidth and fixedCellHeight
+     * // properties.
+     *
+     * bigDataList.setPrototypeCellValue("Index 1234567890");
+     * }
+     * </pre>
+     * <p>
+     * {@code JList} doesn't implement scrolling directly. To create a list that
+     * scrolls, make it the viewport view of a {@code JScrollPane}. For example:
+     *
+     * <pre>
+     * JScrollPane scrollPane = new JScrollPane(myList);
+     *
+     * // Or in two steps:
+     * JScrollPane scrollPane = new JScrollPane();
+     * scrollPane.getViewport().setView(myList);
+     * </pre>
+     * <p>
+     * {@code JList} doesn't provide any special handling of double or triple (or N)
+     * mouse clicks, but it's easy to add a {@code MouseListener} if you wish to
+     * take action on these events. Use the {@code locationToIndex} method to
+     * determine what cell was clicked. For example:
+     *
+     * <pre>
+     * MouseListener mouseListener = new MouseAdapter() {
+     * public void mouseClicked(MouseEvent e) {
+     * if (e.getClickCount() == 2) {
+     * int index = list.locationToIndex(e.getPoint());
+     * System.out.println("Double clicked on Item " + index);
+     * }
+     * }
+     * };
+     * list.addMouseListener(mouseListener);
+     * </pre>
+     * <p>
+     * <strong>Warning:</strong> Swing is not thread safe. For more information see
+     * <a href="package-summary.html#threading">Swing's Threading Policy</a>.
+     * <p>
+     * <strong>Warning:</strong> Serialized objects of this class will not be
+     * compatible with future Swing releases. The current serialization support is
+     * appropriate for short term storage or RMI between applications running the
+     * same version of Swing. As of 1.4, support for long term storage of all
+     * JavaBeans&trade; has been added to the <code>java.beans</code> package.
+     * Please see {@link java.beans.XMLEncoder}.
+     * <p>
+     * See <a href=
+     * "http://docs.oracle.com/javase/tutorial/uiswing/components/list.html">How to
+     * Use Lists</a> in <a href="http://docs.oracle.com/javase/tutorial/">
+     * <em>The Java Tutorial</em></a> for further documentation.
+     * <p>
+     *
+     * @see ListModel
+     * @see AbstractListModel
+     * @see DefaultListModel
+     * @see ListSelectionModel
+     * @see DefaultListSelectionModel
+     * @see ListCellRenderer
+     * @see DefaultListCellRenderer
+     *
+     * @param <E>
+     * the type of the elements of this list
+     *
+     * @beaninfo attribute: isContainer false description: A component which allows
+     * for the selection of one or more objects from a list.
+     *
+     * @author Hans Muller
+     */
+    class JList<E> extends javax.swing.JComponent {
+        createHTML(): void;
+        /**
+         * Indicates a vertical layout of cells, in a single column; the default
+         * layout.
+         *
+         * @see #setLayoutOrientation
+         * @since 1.4
+         */
+        static VERTICAL: number;
+        /**
+         * Indicates a "newspaper style" layout with cells flowing vertically then
+         * horizontally.
+         *
+         * @see #setLayoutOrientation
+         * @since 1.4
+         */
+        static VERTICAL_WRAP: number;
+        /**
+         * Indicates a "newspaper style" layout with cells flowing horizontally then
+         * vertically.
+         *
+         * @see #setLayoutOrientation
+         * @since 1.4
+         */
+        static HORIZONTAL_WRAP: number;
+        private fixedCellWidth;
+        private fixedCellHeight;
+        private horizontalScrollIncrement;
+        private prototypeCellValue;
+        private visibleRowCount;
+        private selectionForeground;
+        private selectionBackground;
+        private dragEnabled;
+        private selectionModel;
+        private dataModel;
+        private cellRenderer;
+        private selectionListener;
+        /**
+         * How to lay out the cells; defaults to <code>VERTICAL</code>.
+         */
+        private layoutOrientation;
+        /**
+         * The drop mode for this component.
+         */
+        private dropMode;
+        /**
+         * Constructs a {@code JList} that displays elements from the specified,
+         * {@code non-null}, model. All {@code JList} constructors delegate to this
+         * one.
+         *
+         * @param dataModel
+         * the model for the list
+         * @exception IllegalArgumentException
+         * if the model is {@code null}
+         */
+        constructor(dataModel?: any);
+        updateFixedCellSize(): void;
+        /**
+         * Returns the "prototypical" cell value -- a value used to calculate a
+         * fixed width and height for cells. This can be {@code null} if there is no
+         * such value.
+         *
+         * @return the value of the {@code prototypeCellValue} property
+         * @see #setPrototypeCellValue
+         */
+        getPrototypeCellValue(): E;
+        /**
+         * Sets the {@code prototypeCellValue} property, and then (if the new value
+         * is {@code non-null}), computes the {@code fixedCellWidth} and
+         * {@code fixedCellHeight} properties by requesting the cell renderer
+         * component for the given value (and index 0) from the cell renderer, and
+         * using that component's preferred size.
+         * <p>
+         * This method is useful when the list is too long to allow the
+         * {@code ListUI} to compute the width/height of each cell, and there is a
+         * single cell value that is known to occupy as much space as any of the
+         * others, a so-called prototype.
+         * <p>
+         * While all three of the {@code prototypeCellValue},
+         * {@code fixedCellHeight}, and {@code fixedCellWidth} properties may be
+         * modified by this method, {@code PropertyChangeEvent} notifications are
+         * only sent when the {@code prototypeCellValue} property changes.
+         * <p>
+         * To see an example which sets this property, see the
+         * <a href="#prototype_example">class description</a> above.
+         * <p>
+         * The default value of this property is <code>null</code>.
+         * <p>
+         * This is a JavaBeans bound property.
+         *
+         * @param prototypeCellValue
+         * the value on which to base <code>fixedCellWidth</code> and
+         * <code>fixedCellHeight</code>
+         * @see #getPrototypeCellValue
+         * @see #setFixedCellWidth
+         * @see #setFixedCellHeight
+         * @see JComponent#addPropertyChangeListener
+         * @beaninfo bound: true attribute: visualUpdate true description: The cell
+         * prototype value, used to compute cell width and height.
+         */
+        setPrototypeCellValue(prototypeCellValue: E): void;
+        /**
+         * Returns the value of the {@code fixedCellWidth} property.
+         *
+         * @return the fixed cell width
+         * @see #setFixedCellWidth
+         */
+        getFixedCellWidth(): number;
+        /**
+         * Sets a fixed value to be used for the width of every cell in the list. If
+         * {@code width} is -1, cell widths are computed in the {@code ListUI} by
+         * applying <code>getPreferredSize</code> to the cell renderer component for
+         * each list element.
+         * <p>
+         * The default value of this property is {@code -1}.
+         * <p>
+         * This is a JavaBeans bound property.
+         *
+         * @param width
+         * the width to be used for all cells in the list
+         * @see #setPrototypeCellValue
+         * @see #setFixedCellWidth
+         * @see JComponent#addPropertyChangeListener
+         * @beaninfo bound: true attribute: visualUpdate true description: Defines a
+         * fixed cell width when greater than zero.
+         */
+        setFixedCellWidth(width: number): void;
+        /**
+         * Returns the value of the {@code fixedCellHeight} property.
+         *
+         * @return the fixed cell height
+         * @see #setFixedCellHeight
+         */
+        getFixedCellHeight(): number;
+        /**
+         * Sets a fixed value to be used for the height of every cell in the list.
+         * If {@code height} is -1, cell heights are computed in the {@code ListUI}
+         * by applying <code>getPreferredSize</code> to the cell renderer component
+         * for each list element.
+         * <p>
+         * The default value of this property is {@code -1}.
+         * <p>
+         * This is a JavaBeans bound property.
+         *
+         * @param height
+         * the height to be used for for all cells in the list
+         * @see #setPrototypeCellValue
+         * @see #setFixedCellWidth
+         * @see JComponent#addPropertyChangeListener
+         * @beaninfo bound: true attribute: visualUpdate true description: Defines a
+         * fixed cell height when greater than zero.
+         */
+        setFixedCellHeight(height: number): void;
+        /**
+         * Returns the object responsible for painting list items.
+         *
+         * @return the value of the {@code cellRenderer} property
+         * @see #setCellRenderer
+         */
+        getCellRenderer(): javax.swing.ListCellRenderer<any>;
+        /**
+         * Sets the delegate that is used to paint each cell in the list. The job of
+         * a cell renderer is discussed in detail in the <a href="#renderer">class
+         * level documentation</a>.
+         * <p>
+         * If the {@code prototypeCellValue} property is {@code non-null}, setting
+         * the cell renderer also causes the {@code fixedCellWidth} and
+         * {@code fixedCellHeight} properties to be re-calculated. Only one
+         * <code>PropertyChangeEvent</code> is generated however - for the
+         * <code>cellRenderer</code> property.
+         * <p>
+         * The default value of this property is provided by the {@code ListUI}
+         * delegate, i.e. by the look and feel implementation.
+         * <p>
+         * This is a JavaBeans bound property.
+         *
+         * @param cellRenderer
+         * the <code>ListCellRenderer</code> that paints list cells
+         * @see #getCellRenderer
+         * @beaninfo bound: true attribute: visualUpdate true description: The
+         * component used to draw the cells.
+         */
+        setCellRenderer(cellRenderer: javax.swing.ListCellRenderer<any>): void;
+        /**
+         * Returns the color used to draw the foreground of selected items.
+         * {@code DefaultListCellRenderer} uses this color to draw the foreground of
+         * items in the selected state, as do the renderers installed by most
+         * {@code ListUI} implementations.
+         *
+         * @return the color to draw the foreground of selected items
+         * @see #setSelectionForeground
+         * @see DefaultListCellRenderer
+         */
+        getSelectionForeground(): java.awt.Color;
+        /**
+         * Sets the color used to draw the foreground of selected items, which cell
+         * renderers can use to render text and graphics.
+         * {@code DefaultListCellRenderer} uses this color to draw the foreground of
+         * items in the selected state, as do the renderers installed by most
+         * {@code ListUI} implementations.
+         * <p>
+         * The default value of this property is defined by the look and feel
+         * implementation.
+         * <p>
+         * This is a JavaBeans bound property.
+         *
+         * @param selectionForeground
+         * the {@code Color} to use in the foreground for selected list
+         * items
+         * @see #getSelectionForeground
+         * @see #setSelectionBackground
+         * @see #setForeground
+         * @see #setBackground
+         * @see #setFont
+         * @see DefaultListCellRenderer
+         * @beaninfo bound: true attribute: visualUpdate true description: The
+         * foreground color of selected cells.
+         */
+        setSelectionForeground(selectionForeground: java.awt.Color): void;
+        /**
+         * Returns the color used to draw the background of selected items.
+         * {@code DefaultListCellRenderer} uses this color to draw the background of
+         * items in the selected state, as do the renderers installed by most
+         * {@code ListUI} implementations.
+         *
+         * @return the color to draw the background of selected items
+         * @see #setSelectionBackground
+         * @see DefaultListCellRenderer
+         */
+        getSelectionBackground(): java.awt.Color;
+        /**
+         * Sets the color used to draw the background of selected items, which cell
+         * renderers can use fill selected cells. {@code DefaultListCellRenderer}
+         * uses this color to fill the background of items in the selected state, as
+         * do the renderers installed by most {@code ListUI} implementations.
+         * <p>
+         * The default value of this property is defined by the look and feel
+         * implementation.
+         * <p>
+         * This is a JavaBeans bound property.
+         *
+         * @param selectionBackground
+         * the {@code Color} to use for the background of selected cells
+         * @see #getSelectionBackground
+         * @see #setSelectionForeground
+         * @see #setForeground
+         * @see #setBackground
+         * @see #setFont
+         * @see DefaultListCellRenderer
+         * @beaninfo bound: true attribute: visualUpdate true description: The
+         * background color of selected cells.
+         */
+        setSelectionBackground(selectionBackground: java.awt.Color): void;
+        /**
+         * Returns the value of the {@code visibleRowCount} property. See the
+         * documentation for {@link #setVisibleRowCount} for details on how to
+         * interpret this value.
+         *
+         * @return the value of the {@code visibleRowCount} property.
+         * @see #setVisibleRowCount
+         */
+        getVisibleRowCount(): number;
+        /**
+         * Sets the {@code visibleRowCount} property, which has different meanings
+         * depending on the layout orientation: For a {@code VERTICAL} layout
+         * orientation, this sets the preferred number of rows to display without
+         * requiring scrolling; for other orientations, it affects the wrapping of
+         * cells.
+         * <p>
+         * In {@code VERTICAL} orientation:<br>
+         * Setting this property affects the return value of the
+         * {@link #getPreferredScrollableViewportSize} method, which is used to
+         * calculate the preferred size of an enclosing viewport. See that method's
+         * documentation for more details.
+         * <p>
+         * In {@code HORIZONTAL_WRAP} and {@code VERTICAL_WRAP} orientations:<br>
+         * This affects how cells are wrapped. See the documentation of
+         * {@link #setLayoutOrientation} for more details.
+         * <p>
+         * The default value of this property is {@code 8}.
+         * <p>
+         * Calling this method with a negative value results in the property being
+         * set to {@code 0}.
+         * <p>
+         * This is a JavaBeans bound property.
+         *
+         * @param visibleRowCount
+         * an integer specifying the preferred number of rows to display
+         * without requiring scrolling
+         * @see #getVisibleRowCount
+         * @see #getPreferredScrollableViewportSize
+         * @see #setLayoutOrientation
+         * @see JComponent#getVisibleRect
+         * @see JViewport
+         * @beaninfo bound: true attribute: visualUpdate true description: The
+         * preferred number of rows to display without requiring scrolling
+         */
+        setVisibleRowCount(visibleRowCount: number): void;
+        /**
+         * Returns the layout orientation property for the list: {@code VERTICAL} if
+         * the layout is a single column of cells, {@code VERTICAL_WRAP} if the
+         * layout is "newspaper style" with the content flowing vertically then
+         * horizontally, or {@code HORIZONTAL_WRAP} if the layout is "newspaper
+         * style" with the content flowing horizontally then vertically.
+         *
+         * @return the value of the {@code layoutOrientation} property
+         * @see #setLayoutOrientation
+         * @since 1.4
+         */
+        getLayoutOrientation(): number;
+        /**
+         * Defines the way list cells are layed out. Consider a {@code JList} with
+         * five cells. Cells can be layed out in one of the following ways:
+         *
+         * <pre>
+         * VERTICAL:          0
+         * 1
+         * 2
+         * 3
+         * 4
+         *
+         * HORIZONTAL_WRAP:   0  1  2
+         * 3  4
+         *
+         * VERTICAL_WRAP:     0  3
+         * 1  4
+         * 2
+         * </pre>
+         * <p>
+         * A description of these layouts follows:
+         *
+         * <table border="1" summary=
+         * "Describes layouts VERTICAL, HORIZONTAL_WRAP, and VERTICAL_WRAP">
+         * <tr>
+         * <th>
+         * <p style="text-align:left">
+         * Value
+         * </p>
+         * </th>
+         * <th>
+         * <p style="text-align:left">
+         * Description
+         * </p>
+         * </th>
+         * </tr>
+         * <tr>
+         * <td><code>VERTICAL</code>
+         * <td>Cells are layed out vertically in a single column.
+         * <tr>
+         * <td><code>HORIZONTAL_WRAP</code>
+         * <td>Cells are layed out horizontally, wrapping to a new row as necessary.
+         * If the {@code visibleRowCount} property is less than or equal to zero,
+         * wrapping is determined by the width of the list; otherwise wrapping is
+         * done in such a way as to ensure {@code visibleRowCount} rows in the list.
+         * <tr>
+         * <td><code>VERTICAL_WRAP</code>
+         * <td>Cells are layed out vertically, wrapping to a new column as
+         * necessary. If the {@code visibleRowCount} property is less than or equal
+         * to zero, wrapping is determined by the height of the list; otherwise
+         * wrapping is done at {@code visibleRowCount} rows.
+         * </table>
+         * <p>
+         * The default value of this property is <code>VERTICAL</code>.
+         *
+         * @param layoutOrientation
+         * the new layout orientation, one of: {@code VERTICAL},
+         * {@code HORIZONTAL_WRAP} or {@code VERTICAL_WRAP}
+         * @see #getLayoutOrientation
+         * @see #setVisibleRowCount
+         * @see #getScrollableTracksViewportHeight
+         * @see #getScrollableTracksViewportWidth
+         * @throws IllegalArgumentException
+         * if {@code layoutOrientation} isn't one of the allowable
+         * values
+         * @since 1.4
+         * @beaninfo bound: true attribute: visualUpdate true description: Defines
+         * the way list cells are layed out. enum: VERTICAL JList.VERTICAL
+         * HORIZONTAL_WRAP JList.HORIZONTAL_WRAP VERTICAL_WRAP
+         * JList.VERTICAL_WRAP
+         */
+        setLayoutOrientation(layoutOrientation: number): void;
+        /**
+         * Scrolls the list within an enclosing viewport to make the specified cell
+         * completely visible. This calls {@code scrollRectToVisible} with the
+         * bounds of the specified cell. For this method to work, the {@code JList}
+         * must be within a <code>JViewport</code>.
+         * <p>
+         * If the given index is outside the list's range of cells, this method
+         * results in nothing.
+         *
+         * @param index
+         * the index of the cell to make visible
+         * @see JComponent#scrollRectToVisible
+         * @see #getVisibleRect
+         */
+        ensureIndexIsVisible(index: number): void;
+        /**
+         * Turns on or off automatic drag handling. In order to enable automatic
+         * drag handling, this property should be set to {@code true}, and the
+         * list's {@code TransferHandler} needs to be {@code non-null}. The default
+         * value of the {@code dragEnabled} property is {@code false}.
+         * <p>
+         * The job of honoring this property, and recognizing a user drag gesture,
+         * lies with the look and feel implementation, and in particular, the list's
+         * {@code ListUI}. When automatic drag handling is enabled, most look and
+         * feels (including those that subclass {@code BasicLookAndFeel}) begin a
+         * drag and drop operation whenever the user presses the mouse button over
+         * an item and then moves the mouse a few pixels. Setting this property to
+         * {@code true} can therefore have a subtle effect on how selections behave.
+         * <p>
+         * If a look and feel is used that ignores this property, you can still
+         * begin a drag and drop operation by calling {@code exportAsDrag} on the
+         * list's {@code TransferHandler}.
+         *
+         * @param b
+         * whether or not to enable automatic drag handling
+         * @see java.awt.GraphicsEnvironment#isHeadless
+         * @see #getDragEnabled
+         * @see #setTransferHandler
+         * @see TransferHandler
+         * @since 1.4
+         *
+         * @beaninfo description: determines whether automatic drag handling is
+         * enabled bound: false
+         */
+        setDragEnabled(b: boolean): void;
+        /**
+         * Returns whether or not automatic drag handling is enabled.
+         *
+         * @return the value of the {@code dragEnabled} property
+         * @see #setDragEnabled
+         * @since 1.4
+         */
+        getDragEnabled(): boolean;
+        /**
+         * Sets the drop mode for this component. For backward compatibility, the
+         * default for this property is <code>DropMode.USE_SELECTION</code>. Usage
+         * of one of the other modes is recommended, however, for an improved user
+         * experience. <code>DropMode.ON</code>, for instance, offers similar
+         * behavior of showing items as selected, but does so without affecting the
+         * actual selection in the list.
+         * <p>
+         * <code>JList</code> supports the following drop modes:
+         * <ul>
+         * <li><code>DropMode.USE_SELECTION</code></li>
+         * <li><code>DropMode.ON</code></li>
+         * <li><code>DropMode.INSERT</code></li>
+         * <li><code>DropMode.ON_OR_INSERT</code></li>
+         * </ul>
+         * The drop mode is only meaningful if this component has a
+         * <code>TransferHandler</code> that accepts drops.
+         *
+         * @param dropMode
+         * the drop mode to use
+         * @throws IllegalArgumentException
+         * if the drop mode is unsupported or <code>null</code>
+         * @see #getDropMode
+         * @see #getDropLocation
+         * @see #setTransferHandler
+         * @see TransferHandler
+         * @since 1.6
+         */
+        setDropMode(dropMode: javax.swing.DropMode): void;
+        /**
+         * Returns the drop mode for this component.
+         *
+         * @return the drop mode for this component
+         * @see #setDropMode
+         * @since 1.6
+         */
+        getDropMode(): javax.swing.DropMode;
+        /**
+         * Returns the next list element whose {@code toString} value starts with
+         * the given prefix.
+         *
+         * @param prefix
+         * the string to test for a match
+         * @param startIndex
+         * the index for starting the search
+         * @param bias
+         * the search direction, either Position.Bias.Forward or
+         * Position.Bias.Backward.
+         * @return the index of the next list element that starts with the prefix;
+         * otherwise {@code -1}
+         * @exception IllegalArgumentException
+         * if prefix is {@code null} or startIndex is out of bounds
+         * @since 1.4
+         */
+        getNextMatch(prefix: string, startIndex: number, bias: javax.swing.text.Position.Bias): number;
+        /**
+         * Returns the cell index closest to the given location in the list's
+         * coordinate system. To determine if the cell actually contains the
+         * specified location, compare the point against the cell's bounds, as
+         * provided by {@code getCellBounds}. This method returns {@code -1} if the
+         * model is empty
+         * <p>
+         * This is a cover method that delegates to the method of the same name in
+         * the list's {@code ListUI}. It returns {@code -1} if the list has no
+         * {@code ListUI}.
+         *
+         * @param location
+         * the coordinates of the point
+         * @return the cell index closest to the given location, or {@code -1}
+         */
+        locationToIndex(location: java.awt.Point): number;
+        /**
+         * Returns the origin of the specified item in the list's coordinate system.
+         * This method returns {@code null} if the index isn't valid.
+         * <p>
+         * This is a cover method that delegates to the method of the same name in
+         * the list's {@code ListUI}. It returns {@code null} if the list has no
+         * {@code ListUI}.
+         *
+         * @param index
+         * the cell index
+         * @return the origin of the cell, or {@code null}
+         */
+        indexToLocation(index: number): java.awt.Point;
+        /**
+         * Returns the bounding rectangle, in the list's coordinate system, for the
+         * range of cells specified by the two indices. These indices can be
+         * supplied in any order.
+         * <p>
+         * If the smaller index is outside the list's range of cells, this method
+         * returns {@code null}. If the smaller index is valid, but the larger index
+         * is outside the list's range, the bounds of just the first index is
+         * returned. Otherwise, the bounds of the valid range is returned.
+         * <p>
+         * This is a cover method that delegates to the method of the same name in
+         * the list's {@code ListUI}. It returns {@code null} if the list has no
+         * {@code ListUI}.
+         *
+         * @param index0
+         * the first index in the range
+         * @param index1
+         * the second index in the range
+         * @return the bounding rectangle for the range of cells, or {@code null}
+         */
+        getCellBounds(index0: number, index1: number): java.awt.Rectangle;
+        /**
+         * Returns the data model that holds the list of items displayed by the
+         * <code>JList</code> component.
+         *
+         * @return the <code>ListModel</code> that provides the displayed list of
+         * items
+         * @see #setModel
+         */
+        getModel(): javax.swing.ListModel<E>;
+        /**
+         * Sets the model that represents the contents or "value" of the list,
+         * notifies property change listeners, and then clears the list's selection.
+         * <p>
+         * This is a JavaBeans bound property.
+         *
+         * @param model
+         * the <code>ListModel</code> that provides the list of items for
+         * display
+         * @exception IllegalArgumentException
+         * if <code>model</code> is <code>null</code>
+         * @see #getModel
+         * @see #clearSelection
+         * @beaninfo bound: true attribute: visualUpdate true description: The
+         * object that contains the data to be drawn by this JList.
+         */
+        setModel(model: javax.swing.ListModel<E>): void;
+        /**
+         * Constructs a read-only <code>ListModel</code> from an array of items, and
+         * calls {@code setModel} with this model.
+         * <p>
+         * Attempts to pass a {@code null} value to this method results in undefined
+         * behavior and, most likely, exceptions. The created model references the
+         * given array directly. Attempts to modify the array after invoking this
+         * method results in undefined behavior.
+         *
+         * @param listData
+         * an array of {@code E} containing the items to display in the
+         * list
+         * @see #setModel
+         */
+        setListData(listData?: any): any;
+        /**
+         * Constructs a read-only <code>ListModel</code> from a <code>Vector</code>
+         * and calls {@code setModel} with this model.
+         * <p>
+         * Attempts to pass a {@code null} value to this method results in undefined
+         * behavior and, most likely, exceptions. The created model references the
+         * given {@code Vector} directly. Attempts to modify the {@code Vector}
+         * after invoking this method results in undefined behavior.
+         *
+         * @param listData
+         * a <code>Vector</code> containing the items to display in the
+         * list
+         * @see #setModel
+         */
+        setListData$java_util_Vector(listData: java.util.Vector<any>): void;
+        /**
+         * Returns an instance of {@code DefaultListSelectionModel}; called during
+         * construction to initialize the list's selection model property.
+         *
+         * @return a {@code DefaultListSelecitonModel}, used to initialize the
+         * list's selection model property during construction
+         * @see #setSelectionModel
+         * @see DefaultListSelectionModel
+         */
+        createSelectionModel(): javax.swing.ListSelectionModel;
+        /**
+         * Returns the current selection model. The selection model maintains the
+         * selection state of the list. See the class level documentation for more
+         * details.
+         *
+         * @return the <code>ListSelectionModel</code> that maintains the list's
+         * selections
+         *
+         * @see #setSelectionModel
+         * @see ListSelectionModel
+         */
+        getSelectionModel(): javax.swing.ListSelectionModel;
+        /**
+         * Notifies {@code ListSelectionListener}s added directly to the list of
+         * selection changes made to the selection model. {@code JList} listens for
+         * changes made to the selection in the selection model, and forwards
+         * notification to listeners added to the list directly, by calling this
+         * method.
+         * <p>
+         * This method constructs a {@code ListSelectionEvent} with this list as the
+         * source, and the specified arguments, and sends it to the registered
+         * {@code ListSelectionListeners}.
+         *
+         * @param firstIndex
+         * the first index in the range, {@code <= lastIndex}
+         * @param lastIndex
+         * the last index in the range, {@code >= firstIndex}
+         * @param isAdjusting
+         * whether or not this is one in a series of multiple events,
+         * where changes are still being made
+         *
+         * @see #addListSelectionListener
+         * @see #removeListSelectionListener
+         * @see javax.swing.event.ListSelectionEvent
+         * @see EventListenerList
+         */
+        fireSelectionValueChanged(firstIndex: number, lastIndex: number, isAdjusting: boolean): void;
+        /**
+         * Adds a listener to the list, to be notified each time a change to the
+         * selection occurs; the preferred way of listening for selection state
+         * changes. {@code JList} takes care of listening for selection state
+         * changes in the selection model, and notifies the given listener of each
+         * change. {@code ListSelectionEvent}s sent to the listener have a
+         * {@code source} property set to this list.
+         *
+         * @param listener
+         * the {@code ListSelectionListener} to add
+         * @see #getSelectionModel
+         * @see #getListSelectionListeners
+         */
+        addListSelectionListener(listener: javax.swing.event.ListSelectionListener): void;
+        /**
+         * Removes a selection listener from the list.
+         *
+         * @param listener
+         * the {@code ListSelectionListener} to remove
+         * @see #addListSelectionListener
+         * @see #getSelectionModel
+         */
+        removeListSelectionListener(listener: javax.swing.event.ListSelectionListener): void;
+        /**
+         * Returns an array of all the {@code ListSelectionListener}s added to this
+         * {@code JList} by way of {@code addListSelectionListener}.
+         *
+         * @return all of the {@code ListSelectionListener}s on this list, or an
+         * empty array if no listeners have been added
+         * @see #addListSelectionListener
+         * @since 1.4
+         */
+        getListSelectionListeners(): javax.swing.event.ListSelectionListener[];
+        /**
+         * Sets the <code>selectionModel</code> for the list to a non-
+         * <code>null</code> <code>ListSelectionModel</code> implementation. The
+         * selection model handles the task of making single selections, selections
+         * of contiguous ranges, and non-contiguous selections.
+         * <p>
+         * This is a JavaBeans bound property.
+         *
+         * @param selectionModel
+         * the <code>ListSelectionModel</code> that implements the
+         * selections
+         * @exception IllegalArgumentException
+         * if <code>selectionModel</code> is <code>null</code>
+         * @see #getSelectionModel
+         * @beaninfo bound: true description: The selection model, recording which
+         * cells are selected.
+         */
+        setSelectionModel(selectionModel: javax.swing.ListSelectionModel): void;
+        /**
+         * Sets the selection mode for the list. This is a cover method that sets
+         * the selection mode directly on the selection model.
+         * <p>
+         * The following list describes the accepted selection modes:
+         * <ul>
+         * <li>{@code ListSelectionModel.SINGLE_SELECTION} - Only one list index can
+         * be selected at a time. In this mode, {@code setSelectionInterval} and
+         * {@code addSelectionInterval} are equivalent, both replacing the current
+         * selection with the index represented by the second argument (the "lead").
+         * <li>{@code ListSelectionModel.SINGLE_INTERVAL_SELECTION} - Only one
+         * contiguous interval can be selected at a time. In this mode,
+         * {@code addSelectionInterval} behaves like {@code setSelectionInterval}
+         * (replacing the current selection}, unless the given interval is
+         * immediately adjacent to or overlaps the existing selection, and can be
+         * used to grow the selection.
+         * <li>{@code ListSelectionModel.MULTIPLE_INTERVAL_SELECTION} - In this
+         * mode, there's no restriction on what can be selected. This mode is the
+         * default.
+         * </ul>
+         *
+         * @param selectionMode
+         * the selection mode
+         * @see #getSelectionMode
+         * @throws IllegalArgumentException
+         * if the selection mode isn't one of those allowed
+         * @beaninfo description: The selection mode. enum: SINGLE_SELECTION
+         * ListSelectionModel.SINGLE_SELECTION SINGLE_INTERVAL_SELECTION
+         * ListSelectionModel.SINGLE_INTERVAL_SELECTION
+         * MULTIPLE_INTERVAL_SELECTION
+         * ListSelectionModel.MULTIPLE_INTERVAL_SELECTION
+         */
+        setSelectionMode(selectionMode: number): void;
+        /**
+         * Returns the current selection mode for the list. This is a cover method
+         * that delegates to the method of the same name on the list's selection
+         * model.
+         *
+         * @return the current selection mode
+         * @see #setSelectionMode
+         */
+        getSelectionMode(): number;
+        /**
+         * Returns the anchor selection index. This is a cover method that delegates
+         * to the method of the same name on the list's selection model.
+         *
+         * @return the anchor selection index
+         * @see ListSelectionModel#getAnchorSelectionIndex
+         */
+        getAnchorSelectionIndex(): number;
+        /**
+         * Returns the lead selection index. This is a cover method that delegates
+         * to the method of the same name on the list's selection model.
+         *
+         * @return the lead selection index
+         * @see ListSelectionModel#getLeadSelectionIndex
+         * @beaninfo description: The lead selection index.
+         */
+        getLeadSelectionIndex(): number;
+        /**
+         * Returns the smallest selected cell index, or {@code -1} if the selection
+         * is empty. This is a cover method that delegates to the method of the same
+         * name on the list's selection model.
+         *
+         * @return the smallest selected cell index, or {@code -1}
+         * @see ListSelectionModel#getMinSelectionIndex
+         */
+        getMinSelectionIndex(): number;
+        /**
+         * Returns the largest selected cell index, or {@code -1} if the selection
+         * is empty. This is a cover method that delegates to the method of the same
+         * name on the list's selection model.
+         *
+         * @return the largest selected cell index
+         * @see ListSelectionModel#getMaxSelectionIndex
+         */
+        getMaxSelectionIndex(): number;
+        /**
+         * Returns {@code true} if the specified index is selected, else
+         * {@code false}. This is a cover method that delegates to the method of the
+         * same name on the list's selection model.
+         *
+         * @param index
+         * index to be queried for selection state
+         * @return {@code true} if the specified index is selected, else
+         * {@code false}
+         * @see ListSelectionModel#isSelectedIndex
+         * @see #setSelectedIndex
+         */
+        isSelectedIndex(index: number): boolean;
+        /**
+         * Returns {@code true} if nothing is selected, else {@code false}. This is
+         * a cover method that delegates to the method of the same name on the
+         * list's selection model.
+         *
+         * @return {@code true} if nothing is selected, else {@code false}
+         * @see ListSelectionModel#isSelectionEmpty
+         * @see #clearSelection
+         */
+        isSelectionEmpty(): boolean;
+        /**
+         * Clears the selection; after calling this method, {@code isSelectionEmpty}
+         * will return {@code true}. This is a cover method that delegates to the
+         * method of the same name on the list's selection model.
+         *
+         * @see ListSelectionModel#clearSelection
+         * @see #isSelectionEmpty
+         */
+        clearSelection(): void;
+        /**
+         * Selects the specified interval. Both {@code anchor} and {@code lead}
+         * indices are included. {@code anchor} doesn't have to be less than or
+         * equal to {@code lead}. This is a cover method that delegates to the
+         * method of the same name on the list's selection model.
+         * <p>
+         * Refer to the documentation of the selection model class being used for
+         * details on how values less than {@code 0} are handled.
+         *
+         * @param anchor
+         * the first index to select
+         * @param lead
+         * the last index to select
+         * @see ListSelectionModel#setSelectionInterval
+         * @see DefaultListSelectionModel#setSelectionInterval
+         * @see #createSelectionModel
+         * @see #addSelectionInterval
+         * @see #removeSelectionInterval
+         */
+        setSelectionInterval(anchor: number, lead: number): void;
+        /**
+         * Sets the selection to be the union of the specified interval with current
+         * selection. Both the {@code anchor} and {@code lead} indices are included.
+         * {@code anchor} doesn't have to be less than or equal to {@code lead}.
+         * This is a cover method that delegates to the method of the same name on
+         * the list's selection model.
+         * <p>
+         * Refer to the documentation of the selection model class being used for
+         * details on how values less than {@code 0} are handled.
+         *
+         * @param anchor
+         * the first index to add to the selection
+         * @param lead
+         * the last index to add to the selection
+         * @see ListSelectionModel#addSelectionInterval
+         * @see DefaultListSelectionModel#addSelectionInterval
+         * @see #createSelectionModel
+         * @see #setSelectionInterval
+         * @see #removeSelectionInterval
+         */
+        addSelectionInterval(anchor: number, lead: number): void;
+        /**
+         * Sets the selection to be the set difference of the specified interval and
+         * the current selection. Both the {@code index0} and {@code index1} indices
+         * are removed. {@code index0} doesn't have to be less than or equal to
+         * {@code index1}. This is a cover method that delegates to the method of
+         * the same name on the list's selection model.
+         * <p>
+         * Refer to the documentation of the selection model class being used for
+         * details on how values less than {@code 0} are handled.
+         *
+         * @param index0
+         * the first index to remove from the selection
+         * @param index1
+         * the last index to remove from the selection
+         * @see ListSelectionModel#removeSelectionInterval
+         * @see DefaultListSelectionModel#removeSelectionInterval
+         * @see #createSelectionModel
+         * @see #setSelectionInterval
+         * @see #addSelectionInterval
+         */
+        removeSelectionInterval(index0: number, index1: number): void;
+        /**
+         * Sets the selection model's {@code valueIsAdjusting} property. When
+         * {@code true}, upcoming changes to selection should be considered part of
+         * a single change. This property is used internally and developers
+         * typically need not call this method. For example, when the model is being
+         * updated in response to a user drag, the value of the property is set to
+         * {@code true} when the drag is initiated and set to {@code false} when the
+         * drag is finished. This allows listeners to update only when a change has
+         * been finalized, rather than handling all of the intermediate values.
+         * <p>
+         * You may want to use this directly if making a series of changes that
+         * should be considered part of a single change.
+         * <p>
+         * This is a cover method that delegates to the method of the same name on
+         * the list's selection model. See the documentation for
+         * {@link javax.swing.ListSelectionModel#setValueIsAdjusting} for more
+         * details.
+         *
+         * @param b
+         * the new value for the property
+         * @see ListSelectionModel#setValueIsAdjusting
+         * @see javax.swing.event.ListSelectionEvent#getValueIsAdjusting
+         * @see #getValueIsAdjusting
+         */
+        setValueIsAdjusting(b: boolean): void;
+        /**
+         * Returns the value of the selection model's {@code isAdjusting} property.
+         * <p>
+         * This is a cover method that delegates to the method of the same name on
+         * the list's selection model.
+         *
+         * @return the value of the selection model's {@code isAdjusting} property.
+         *
+         * @see #setValueIsAdjusting
+         * @see ListSelectionModel#getValueIsAdjusting
+         */
+        getValueIsAdjusting(): boolean;
+        /**
+         * Returns an array of all of the selected indices, in increasing order.
+         *
+         * @return all of the selected indices, in increasing order, or an empty
+         * array if nothing is selected
+         * @see #removeSelectionInterval
+         * @see #addListSelectionListener
+         */
+        getSelectedIndices(): number[];
+        /**
+         * Selects a single cell. Does nothing if the given index is greater than or
+         * equal to the model size. This is a convenience method that uses
+         * {@code setSelectionInterval} on the selection model. Refer to the
+         * documentation for the selection model class being used for details on how
+         * values less than {@code 0} are handled.
+         *
+         * @param index
+         * the index of the cell to select
+         * @see ListSelectionModel#setSelectionInterval
+         * @see #isSelectedIndex
+         * @see #addListSelectionListener
+         * @beaninfo description: The index of the selected cell.
+         */
+        setSelectedIndex(index: number): void;
+        /**
+         * Changes the selection to be the set of indices specified by the given
+         * array. Indices greater than or equal to the model size are ignored. This
+         * is a convenience method that clears the selection and then uses
+         * {@code addSelectionInterval} on the selection model to add the indices.
+         * Refer to the documentation of the selection model class being used for
+         * details on how values less than {@code 0} are handled.
+         *
+         * @param indices
+         * an array of the indices of the cells to select,
+         * {@code non-null}
+         * @see ListSelectionModel#addSelectionInterval
+         * @see #isSelectedIndex
+         * @see #addListSelectionListener
+         * @throws NullPointerException
+         * if the given array is {@code null}
+         */
+        setSelectedIndices(indices: number[]): void;
+        /**
+         * Returns an array of all the selected values, in increasing order based on
+         * their indices in the list.
+         *
+         * @return the selected values, or an empty array if nothing is selected
+         * @see #isSelectedIndex
+         * @see #getModel
+         * @see #addListSelectionListener
+         *
+         * @deprecated As of JDK 1.7, replaced by {@link #getSelectedValuesList()}
+         */
+        getSelectedValues(): any[];
+        /**
+         * Returns a list of all the selected items, in increasing order based on
+         * their indices in the list.
+         *
+         * @return the selected items, or an empty list if nothing is selected
+         * @see #isSelectedIndex
+         * @see #getModel
+         * @see #addListSelectionListener
+         *
+         * @since 1.7
+         */
+        getSelectedValuesList(): java.util.List<E>;
+        /**
+         * Returns the smallest selected cell index; <i>the selection</i> when only
+         * a single item is selected in the list. When multiple items are selected,
+         * it is simply the smallest selected index. Returns {@code -1} if there is
+         * no selection.
+         * <p>
+         * This method is a cover that delegates to {@code getMinSelectionIndex}.
+         *
+         * @return the smallest selected cell index
+         * @see #getMinSelectionIndex
+         * @see #addListSelectionListener
+         */
+        getSelectedIndex(): number;
+        /**
+         * Returns the value for the smallest selected cell index; <i>the selected
+         * value</i> when only a single item is selected in the list. When multiple
+         * items are selected, it is simply the value for the smallest selected
+         * index. Returns {@code null} if there is no selection.
+         * <p>
+         * This is a convenience method that simply returns the model value for
+         * {@code getMinSelectionIndex}.
+         *
+         * @return the first selected value
+         * @see #getMinSelectionIndex
+         * @see #getModel
+         * @see #addListSelectionListener
+         */
+        getSelectedValue(): E;
+        /**
+         * Selects the specified object from the list.
+         *
+         * @param anObject
+         * the object to select
+         * @param shouldScroll
+         * {@code true} if the list should scroll to display the selected
+         * object, if one exists; otherwise {@code false}
+         */
+        setSelectedValue(anObject: any, shouldScroll: boolean): void;
+        /**
+         * Returns a {@code String} representation of this {@code JList}. This
+         * method is intended to be used only for debugging purposes, and the
+         * content and format of the returned {@code String} may vary between
+         * implementations. The returned {@code String} may be empty, but may not be
+         * {@code null}.
+         *
+         * @return a {@code String} representation of this {@code JList}.
+         */
+        paramString(): string;
+    }
+    namespace JList {
+        class ListSelectionHandler implements javax.swing.event.ListSelectionListener, java.io.Serializable {
+            __parent: any;
+            valueChanged(e: javax.swing.event.ListSelectionEvent): void;
+            constructor(__parent: any);
+        }
+        class JList$0 extends javax.swing.AbstractListModel<any> {
+            private listData;
+            __parent: any;
+            getSize(): number;
+            getElementAt(i: number): any;
+            constructor(__parent: any, listData: any);
+        }
+        class JList$1 extends javax.swing.AbstractListModel<any> {
+            private listData;
+            __parent: any;
+            getSize(): number;
+            getElementAt(i: number): any;
+            constructor(__parent: any, listData: any);
+        }
+        class JList$2 extends javax.swing.AbstractListModel<any> {
+            __parent: any;
+            getSize(): number;
+            getElementAt(i: number): any;
+            constructor(__parent: any);
+        }
+        class JList$3 extends javax.swing.AbstractListModel<any> {
+            private listData;
+            __parent: any;
+            getSize(): number;
+            getElementAt(i: number): any;
+            constructor(__parent: any, listData: any);
+        }
+        class JList$4 extends javax.swing.AbstractListModel<any> {
+            private listData;
+            __parent: any;
+            getSize(): number;
+            getElementAt(i: number): any;
+            constructor(__parent: any, listData: any);
+        }
+    }
+}
+declare namespace javax.swing {
+    class JPanel extends javax.swing.JComponent {
+        private htmlCanvas;
+        getGraphics(): java.awt.Graphics;
+        createHTML(): void;
+        setBackground(background: java.awt.Color): void;
+        doPaintInternal(): void;
+        initHTML(): void;
+        /**
+         * @see #getUIClassID
+         * @see #readObject
+         */
+        static uiClassID: string;
+        /**
+         * Creates a new JPanel with the specified layout manager and buffering
+         * strategy.
+         *
+         * @param layout
+         * the LayoutManager to use
+         * @param isDoubleBuffered
+         * a boolean, true for double-buffering, which uses additional
+         * memory space to achieve fast, flicker-free updates
+         */
+        constructor(layout?: any, isDoubleBuffered?: any);
+        /**
+         * Returns a string that specifies the name of the L&amp;F class that
+         * renders this component.
+         *
+         * @return "PanelUI"
+         * @see JComponent#getUIClassID
+         * @see UIDefaults#getUI
+         * @beaninfo expert: true description: A string that specifies the name of
+         * the L&amp;F class.
+         */
+        getUIClassID(): string;
+        paramString(): string;
+    }
+}
+declare namespace javax.swing {
+    class JRootPane extends javax.swing.JComponent {
+        createHTML(): void;
+        static uiClassID: string;
+        /**
+         * Constant used for the windowDecorationStyle property. Indicates that the
+         * <code>JRootPane</code> should not provide any sort of Window decorations.
+         *
+         * @since 1.4
+         */
+        static NONE: number;
+        /**
+         * Constant used for the windowDecorationStyle property. Indicates that the
+         * <code>JRootPane</code> should provide decorations appropriate for a
+         * Frame.
+         *
+         * @since 1.4
+         */
+        static FRAME: number;
+        /**
+         * Constant used for the windowDecorationStyle property. Indicates that the
+         * <code>JRootPane</code> should provide decorations appropriate for a
+         * Dialog.
+         *
+         * @since 1.4
+         */
+        static PLAIN_DIALOG: number;
+        /**
+         * Constant used for the windowDecorationStyle property. Indicates that the
+         * <code>JRootPane</code> should provide decorations appropriate for a
+         * Dialog used to display an informational message.
+         *
+         * @since 1.4
+         */
+        static INFORMATION_DIALOG: number;
+        /**
+         * Constant used for the windowDecorationStyle property. Indicates that the
+         * <code>JRootPane</code> should provide decorations appropriate for a
+         * Dialog used to display an error message.
+         *
+         * @since 1.4
+         */
+        static ERROR_DIALOG: number;
+        /**
+         * Constant used for the windowDecorationStyle property. Indicates that the
+         * <code>JRootPane</code> should provide decorations appropriate for a
+         * Dialog used to display a <code>JColorChooser</code>.
+         *
+         * @since 1.4
+         */
+        static COLOR_CHOOSER_DIALOG: number;
+        /**
+         * Constant used for the windowDecorationStyle property. Indicates that the
+         * <code>JRootPane</code> should provide decorations appropriate for a
+         * Dialog used to display a <code>JFileChooser</code>.
+         *
+         * @since 1.4
+         */
+        static FILE_CHOOSER_DIALOG: number;
+        /**
+         * Constant used for the windowDecorationStyle property. Indicates that the
+         * <code>JRootPane</code> should provide decorations appropriate for a
+         * Dialog used to present a question to the user.
+         *
+         * @since 1.4
+         */
+        static QUESTION_DIALOG: number;
+        /**
+         * Constant used for the windowDecorationStyle property. Indicates that the
+         * <code>JRootPane</code> should provide decorations appropriate for a
+         * Dialog used to display a warning message.
+         *
+         * @since 1.4
+         */
+        static WARNING_DIALOG: number;
+        private windowDecorationStyle;
+        /**
+         * The content pane.
+         */
+        contentPane: java.awt.Container;
+        /**
+         * The button that gets activated when the pane has the focus and a
+         * UI-specific action like pressing the <b>Enter</b> key occurs.
+         */
+        defaultButton: javax.swing.JButton;
+        /**
+         * Creates a <code>JRootPane</code>, setting up its <code>glassPane</code>,
+         * <code>layeredPane</code>, and <code>contentPane</code>.
+         */
+        constructor();
+        /**
+         * Returns a constant identifying the type of Window decorations the
+         * <code>JRootPane</code> is providing.
+         *
+         * @return One of <code>NONE</code>, <code>FRAME</code>,
+         * <code>PLAIN_DIALOG</code>, <code>INFORMATION_DIALOG</code>,
+         * <code>ERROR_DIALOG</code>, <code>COLOR_CHOOSER_DIALOG</code>,
+         * <code>FILE_CHOOSER_DIALOG</code>, <code>QUESTION_DIALOG</code> or
+         * <code>WARNING_DIALOG</code>.
+         * @see #setWindowDecorationStyle
+         * @since 1.4
+         */
+        getWindowDecorationStyle(): number;
+        setWindowDecorationStyle(windowDecorationStyle: number): void;
+        /**
+         * Returns a string that specifies the name of the L&amp;F class that
+         * renders this component.
+         *
+         * @return the string "RootPaneUI"
+         *
+         * @see JComponent#getUIClassID
+         * @see UIDefaults#getUI
+         */
+        getUIClassID(): string;
+        createContentPane(): java.awt.Container;
+        /**
+         * Sets the content pane -- the container that holds the components parented
+         * by the root pane.
+         * <p>
+         * Swing's painting architecture requires an opaque <code>JComponent</code>
+         * in the containment hierarchy. This is typically provided by the content
+         * pane. If you replace the content pane it is recommended you replace it
+         * with an opaque <code>JComponent</code>.
+         *
+         * @param content
+         * the <code>Container</code> to use for component-contents
+         * @exception java.awt.IllegalComponentStateException
+         * (a runtime exception) if the content pane parameter is
+         * <code>null</code>
+         */
+        setContentPane(content: java.awt.Container): void;
+        /**
+         * Returns the content pane -- the container that holds the components
+         * parented by the root pane.
+         *
+         * @return the <code>Container</code> that holds the component-contents
+         */
+        getContentPane(): java.awt.Container;
+        /**
+         * Sets the <code>defaultButton</code> property, which determines the
+         * current default button for this <code>JRootPane</code>. The default
+         * button is the button which will be activated when a UI-defined activation
+         * event (typically the <b>Enter</b> key) occurs in the root pane regardless
+         * of whether or not the button has keyboard focus (unless there is another
+         * component within the root pane which consumes the activation event, such
+         * as a <code>JTextPane</code>). For default activation to work, the button
+         * must be an enabled descendent of the root pane when activation occurs. To
+         * remove a default button from this root pane, set this property to
+         * <code>null</code>.
+         *
+         * @see JButton#isDefaultButton
+         * @param defaultButton
+         * the <code>JButton</code> which is to be the default button
+         *
+         * @beaninfo description: The button activated by default in this root pane
+         */
+        setDefaultButton(defaultButton: javax.swing.JButton): void;
+        /**
+         * Returns the value of the <code>defaultButton</code> property.
+         *
+         * @return the <code>JButton</code> which is currently the default button
+         * @see #setDefaultButton
+         */
+        getDefaultButton(): javax.swing.JButton;
+    }
+}
+declare namespace javax.swing {
+    /**
+     * <code>JSeparator</code> provides a general purpose component for
+     * implementing divider lines - most commonly used as a divider
+     * between menu items that breaks them up into logical groupings.
+     * Instead of using <code>JSeparator</code> directly,
+     * you can use the <code>JMenu</code> or <code>JPopupMenu</code>
+     * <code>addSeparator</code> method to create and add a separator.
+     * <code>JSeparator</code>s may also be used elsewhere in a GUI
+     * wherever a visual divider is useful.
+     *
+     * <p>
+     *
+     * For more information and examples see
+     * <a
+     * href="http://docs.oracle.com/javase/tutorial/uiswing/components/menu.html">How to Use Menus</a>,
+     * a section in <em>The Java Tutorial.</em>
+     * <p>
+     * <strong>Warning:</strong> Swing is not thread safe. For more
+     * information see <a
+     * href="package-summary.html#threading">Swing's Threading
+     * Policy</a>.
+     * <p>
+     * <strong>Warning:</strong>
+     * Serialized objects of this class will not be compatible with
+     * future Swing releases. The current serialization support is
+     * appropriate for short term storage or RMI between applications running
+     * the same version of Swing.  As of 1.4, support for long term storage
+     * of all JavaBeans&trade;
+     * has been added to the <code>java.beans</code> package.
+     * Please see {@link java.beans.XMLEncoder}.
+     *
+     * @beaninfo
+     * attribute: isContainer false
+     * description: A divider between menu items.
+     *
+     * @author Georges Saab
+     * @author Jeff Shapiro
+     */
+    class JSeparator extends javax.swing.JComponent {
+        createHTML(): void;
+        /**
+         * @see #getUIClassID
+         * @see #readObject
+         */
+        static uiClassID: string;
+        private orientation;
+        /**
+         * Creates a new separator with the specified horizontal or
+         * vertical orientation.
+         *
+         * @param orientation an integer specifying
+         * <code>SwingConstants.HORIZONTAL</code> or
+         * <code>SwingConstants.VERTICAL</code>
+         * @exception IllegalArgumentException if <code>orientation</code>
+         * is neither <code>SwingConstants.HORIZONTAL</code> nor
+         * <code>SwingConstants.VERTICAL</code>
+         */
+        constructor(orientation?: number);
+        /**
+         * Returns the name of the L&amp;F class that renders this component.
+         *
+         * @return the string "SeparatorUI"
+         * @see JComponent#getUIClassID
+         * @see UIDefaults#getUI
+         */
+        getUIClassID(): string;
+        /**
+         * Returns the orientation of this separator.
+         *
+         * @return   The value of the orientation property, one of the
+         * following constants defined in <code>SwingConstants</code>:
+         * <code>VERTICAL</code>, or
+         * <code>HORIZONTAL</code>.
+         *
+         * @see SwingConstants
+         * @see #setOrientation
+         */
+        getOrientation(): number;
+        /**
+         * Sets the orientation of the separator.
+         * The default value of this property is HORIZONTAL.
+         * @param orientation  either <code>SwingConstants.HORIZONTAL</code>
+         * or <code>SwingConstants.VERTICAL</code>
+         * @exception IllegalArgumentException  if <code>orientation</code>
+         * is neither <code>SwingConstants.HORIZONTAL</code>
+         * nor <code>SwingConstants.VERTICAL</code>
+         *
+         * @see SwingConstants
+         * @see #getOrientation
+         * @beaninfo
+         * bound: true
+         * preferred: true
+         * enum: HORIZONTAL SwingConstants.HORIZONTAL
+         * VERTICAL   SwingConstants.VERTICAL
+         * attribute: visualUpdate true
+         * description: The orientation of the separator.
+         */
+        setOrientation(orientation: number): void;
+        private checkOrientation(orientation);
+        /**
+         * Returns a string representation of this <code>JSeparator</code>.
+         * This method
+         * is intended to be used only for debugging purposes, and the
+         * content and format of the returned string may vary between
+         * implementations. The returned string may be empty but may not
+         * be <code>null</code>.
+         *
+         * @return  a string representation of this <code>JSeparator</code>
+         */
+        paramString(): string;
+    }
+}
+declare namespace javax.swing {
+    class JSlider extends javax.swing.JComponent implements javax.swing.SwingConstants {
+        getHTMLElement(): HTMLInputElement;
+        createHTML(): void;
+        initHTML(): void;
+        /**
+         * @see #getUIClassID
+         * @see #readObject
+         */
+        static uiClassID: string;
+        private paintTicks;
+        private paintTrack;
+        private paintLabels;
+        private isInverted;
+        sliderModel: javax.swing.BoundedRangeModel;
+        majorTickSpacing: number;
+        minorTickSpacing: number;
+        snapToTicks: boolean;
+        snapToValue: boolean;
+        orientation: number;
+        changeListener: javax.swing.event.ChangeListener;
+        changeEvent: javax.swing.event.ChangeEvent;
+        checkOrientation(orientation: number): void;
+        constructor(orientation?: any, min?: any, max?: any, value?: any);
+        getUIClassID(): string;
+        createChangeListener(): javax.swing.event.ChangeListener;
+        addChangeListener(l: javax.swing.event.ChangeListener): void;
+        removeChangeListener(l: javax.swing.event.ChangeListener): void;
+        getChangeListeners(): javax.swing.event.ChangeListener[];
+        fireStateChanged(): void;
+        getModel(): javax.swing.BoundedRangeModel;
+        setModel(newModel: javax.swing.BoundedRangeModel): void;
+        getValue(): number;
+        setValue(n: number): void;
+        getMinimum(): number;
+        setMinimum(minimum: number): void;
+        getMaximum(): number;
+        setMaximum(maximum: number): void;
+        getValueIsAdjusting(): boolean;
+        setValueIsAdjusting(b: boolean): void;
+        getExtent(): number;
+        setExtent(extent: number): void;
+        /**
+         * Return this slider's vertical or horizontal orientation.
+         *
+         * @return {@code SwingConstants.VERTICAL} or
+         * {@code SwingConstants.HORIZONTAL}
+         * @see #setOrientation
+         */
+        getOrientation(): number;
+        setOrientation(orientation: number): void;
+        /**
+         * {@inheritDoc}
+         *
+         * @since 1.6
+         */
+        setFont(font: java.awt.Font): void;
+        /**
+         * This method returns the major tick spacing. The number that is returned
+         * represents the distance, measured in values, between each major tick
+         * mark. If you have a slider with a range from 0 to 50 and the major tick
+         * spacing is set to 10, you will get major ticks next to the following
+         * values: 0, 10, 20, 30, 40, 50.
+         *
+         * @return the number of values between major ticks
+         * @see #setMajorTickSpacing
+         */
+        getMajorTickSpacing(): number;
+        setMajorTickSpacing(n: number): void;
+        getMinorTickSpacing(): number;
+        setMinorTickSpacing(n: number): void;
+        getSnapToTicks(): boolean;
+        getSnapToValue(): boolean;
+        setSnapToTicks(b: boolean): void;
+        setSnapToValue(b: boolean): void;
+        getPaintTicks(): boolean;
+        setPaintTicks(b: boolean): void;
+        getPaintTrack(): boolean;
+        setPaintTrack(b: boolean): void;
+        getPaintLabels(): boolean;
+        setPaintLabels(b: boolean): void;
+        /**
+         * Returns a string representation of this JSlider. This method is intended
+         * to be used only for debugging purposes, and the content and format of the
+         * returned string may vary between implementations. The returned string may
+         * be empty but may not be <code>null</code>.
+         *
+         * @return a string representation of this JSlider.
+         */
+        paramString(): string;
+    }
+    namespace JSlider {
+        class ModelListener implements javax.swing.event.ChangeListener, java.io.Serializable {
+            __parent: any;
+            stateChanged(e: javax.swing.event.ChangeEvent): void;
+            constructor(__parent: any);
+        }
+    }
+}
+declare namespace javax.swing.text {
+    abstract class JTextComponent extends javax.swing.JComponent {
+        text: string;
+        editable: boolean;
+        getText(): string;
+        setText(text: string): void;
+        isEditable(): boolean;
+        setEditable(editable: boolean): void;
+        constructor();
+    }
+}
+declare namespace javax.swing.event {
+    /**
+     * MenuKeyEvent is used to notify interested parties that
+     * the menu element has received a KeyEvent forwarded to it
+     * in a menu tree.
+     * <p>
+     * <strong>Warning:</strong>
+     * Serialized objects of this class will not be compatible with
+     * future Swing releases. The current serialization support is
+     * appropriate for short term storage or RMI between applications running
+     * the same version of Swing.  As of 1.4, support for long term storage
+     * of all JavaBeans&trade;
+     * has been added to the <code>java.beans</code> package.
+     * Please see {@link java.beans.XMLEncoder}.
+     *
+     * @author Georges Saab
+     */
+    class MenuKeyEvent extends java.awt.event.KeyEvent {
+        private path;
+        private manager;
+        /**
+         * Constructs a MenuKeyEvent object.
+         *
+         * @param source     the Component that originated the event
+         * (typically <code>this</code>)
+         * @param id         an int specifying the type of event, as defined
+         * in {@link java.awt.event.KeyEvent}
+         * @param when       a long identifying the time the event occurred
+         * @param modifiers     an int specifying any modifier keys held down,
+         * as specified in {@link java.awt.event.InputEvent}
+         * @param keyCode    an int specifying the specific key that was pressed
+         * @param keyChar    a char specifying the key's character value, if any
+         * -- null if the key has no character value
+         * @param p          an array of MenuElement objects specifying a path
+         * to a menu item affected by the drag
+         * @param m          a MenuSelectionManager object that handles selections
+         */
+        constructor(source: java.awt.Component, id: number, when: number, modifiers: number, keyCode: number, keyChar: string, p: javax.swing.MenuElement[], m: javax.swing.MenuSelectionManager);
+        /**
+         * Returns the path to the menu item referenced by this event.
+         *
+         * @return an array of MenuElement objects representing the path value
+         */
+        getPath(): javax.swing.MenuElement[];
+        /**
+         * Returns the current menu selection manager.
+         *
+         * @return a MenuSelectionManager object
+         */
+        getMenuSelectionManager(): javax.swing.MenuSelectionManager;
     }
 }
 declare namespace sun.awt {
@@ -15898,6 +22003,1611 @@ declare namespace java.awt.event {
          *
          * @return a string identifying the event and its attributes
          */
+        paramString(): string;
+    }
+}
+declare namespace javax.swing {
+    /**
+     * Simplified version.
+     */
+    class JApplet extends java.applet.Applet implements javax.swing.RootPaneContainer {
+        /**
+         * @see #getRootPane
+         * @see #setRootPane
+         */
+        rootPane: javax.swing.JRootPane;
+        /**
+         * If true then calls to <code>add</code> and <code>setLayout</code> will be
+         * forwarded to the <code>contentPane</code>. This is initially false, but
+         * is set to true when the <code>JApplet</code> is constructed.
+         *
+         * @see #isRootPaneCheckingEnabled
+         * @see #setRootPaneCheckingEnabled
+         * @see javax.swing.RootPaneContainer
+         */
+        rootPaneCheckingEnabled: boolean;
+        /**
+         * Creates a swing applet instance.
+         * <p>
+         * This constructor sets the component's locale property to the value
+         * returned by <code>JComponent.getDefaultLocale</code>.
+         *
+         * @exception HeadlessException
+         * if GraphicsEnvironment.isHeadless() returns true.
+         * @see java.awt.GraphicsEnvironment#isHeadless
+         * @see JComponent#getDefaultLocale
+         */
+        constructor();
+        /**
+         * Called by the constructor methods to create the default rootPane.
+         */
+        createRootPane(): javax.swing.JRootPane;
+        addImpl(comp: java.awt.Component, constraints: any, index: number): void;
+        /**
+         * Just calls <code>paint(g)</code>. This method was overridden to prevent
+         * an unnecessary call to clear the background.
+         */
+        update(g: java.awt.Graphics): void;
+        /**
+         * Removes the specified component from the container. If <code>comp</code>
+         * is not the <code>rootPane</code>, this will forward the call to the
+         * <code>contentPane</code>. This will do nothing if <code>comp</code> is
+         * not a child of the <code>JFrame</code> or <code>contentPane</code>.
+         *
+         * @param comp
+         * the component to be removed
+         * @throws NullPointerException
+         * if <code>comp</code> is null
+         * @see #add
+         * @see javax.swing.RootPaneContainer
+         */
+        remove(comp?: any): any;
+        /**
+         * Sets the <code>LayoutManager</code>. Overridden to conditionally forward
+         * the call to the <code>contentPane</code>. Refer to
+         * {@link javax.swing.RootPaneContainer} for more information.
+         *
+         * @param manager
+         * the <code>LayoutManager</code>
+         * @see #setRootPaneCheckingEnabled
+         * @see javax.swing.RootPaneContainer
+         */
+        setLayout(manager: java.awt.LayoutManager): void;
+        /**
+         * Returns the rootPane object for this applet.
+         *
+         * @see #setRootPane
+         * @see RootPaneContainer#getRootPane
+         */
+        getRootPane(): javax.swing.JRootPane;
+        /**
+         * Sets the rootPane property. This method is called by the constructor.
+         *
+         * @param root
+         * the rootPane object for this applet
+         *
+         * @see #getRootPane
+         *
+         * @beaninfo hidden: true description: the RootPane object for this applet.
+         */
+        setRootPane(root: javax.swing.JRootPane): void;
+        /**
+         * Returns the contentPane object for this applet.
+         *
+         * @see #setContentPane
+         * @see RootPaneContainer#getContentPane
+         */
+        getContentPane(): java.awt.Container;
+        /**
+         * Sets the contentPane property. This method is called by the constructor.
+         *
+         * @param contentPane
+         * the contentPane object for this applet
+         *
+         * @exception java.awt.IllegalComponentStateException
+         * (a runtime exception) if the content pane parameter is
+         * null
+         * @see #getContentPane
+         * @see RootPaneContainer#setContentPane
+         *
+         * @beaninfo hidden: true description: The client area of the applet where
+         * child components are normally inserted.
+         */
+        setContentPane(contentPane: java.awt.Container): void;
+        /**
+         * Returns a string representation of this JApplet. This method is intended
+         * to be used only for debugging purposes, and the content and format of the
+         * returned string may vary between implementations. The returned string may
+         * be empty but may not be <code>null</code>.
+         *
+         * @return a string representation of this JApplet.
+         */
+        paramString(): string;
+    }
+}
+declare namespace javax.swing {
+    class JFrame extends java.awt.Frame implements javax.swing.RootPaneContainer, javax.swing.WindowConstants {
+        static EXIT_ON_CLOSE: number;
+        private defaultCloseOperation;
+        rootPane: javax.swing.JRootPane;
+        rootPaneCheckingEnabled: boolean;
+        constructor(title?: any);
+        private frameInit();
+        createRootPane(): javax.swing.JRootPane;
+        setRootPane(root: javax.swing.JRootPane): void;
+        getContentPane(): java.awt.Container;
+        getRootPane(): javax.swing.JRootPane;
+        setContentPane(contentPane: java.awt.Container): void;
+        setDefaultCloseOperation(operation: number): void;
+    }
+}
+declare namespace javax.swing {
+    class JButton extends javax.swing.AbstractButton {
+        actionListener: java.awt.event.ActionListener;
+        actionCommand: string;
+        label: string;
+        background: java.awt.Color;
+        constructor(label: string);
+        getHTMLElement(): HTMLButtonElement;
+        createHTML(): void;
+        initHTML(): void;
+        private initActionListener();
+        addActionListener(actionListener: java.awt.event.ActionListener): void;
+        setBackground(background: java.awt.Color): void;
+    }
+}
+declare namespace javax.swing {
+    /**
+     * An implementation of an item in a menu. A menu item is essentially a button
+     * sitting in a list. When the user selects the "button", the action
+     * associated with the menu item is performed. A <code>JMenuItem</code>
+     * contained in a <code>JPopupMenu</code> performs exactly that function.
+     * <p>
+     * Menu items can be configured, and to some degree controlled, by
+     * <code><a href="Action.html">Action</a></code>s.  Using an
+     * <code>Action</code> with a menu item has many benefits beyond directly
+     * configuring a menu item.  Refer to <a href="Action.html#buttonActions">
+     * Swing Components Supporting <code>Action</code></a> for more
+     * details, and you can find more information in <a
+     * href="http://docs.oracle.com/javase/tutorial/uiswing/misc/action.html">How
+     * to Use Actions</a>, a section in <em>The Java Tutorial</em>.
+     * <p>
+     * For further documentation and for examples, see
+     * <a
+     * href="http://docs.oracle.com/javase/tutorial/uiswing/components/menu.html">How to Use Menus</a>
+     * in <em>The Java Tutorial.</em>
+     * <p>
+     * <strong>Warning:</strong> Swing is not thread safe. For more
+     * information see <a
+     * href="package-summary.html#threading">Swing's Threading
+     * Policy</a>.
+     * <p>
+     * <strong>Warning:</strong>
+     * Serialized objects of this class will not be compatible with
+     * future Swing releases. The current serialization support is
+     * appropriate for short term storage or RMI between applications running
+     * the same version of Swing.  As of 1.4, support for long term storage
+     * of all JavaBeans&trade;
+     * has been added to the <code>java.beans</code> package.
+     * Please see {@link java.beans.XMLEncoder}.
+     *
+     * @beaninfo
+     * attribute: isContainer false
+     * description: An item which can be selected in a menu.
+     *
+     * @author Georges Saab
+     * @author David Karlton
+     * @see JPopupMenu
+     * @see JMenu
+     * @see JCheckBoxMenuItem
+     * @see JRadioButtonMenuItem
+     */
+    class JMenuItem extends javax.swing.AbstractButton implements javax.swing.MenuElement {
+        createHTML(): void;
+        /**
+         * @see #getUIClassID
+         * @see #readObject
+         */
+        static uiClassID: string;
+        static TRACE: boolean;
+        static VERBOSE: boolean;
+        static DEBUG: boolean;
+        private isMouseDragged;
+        /**
+         * Creates a <code>JMenuItem</code> with the specified text and icon.
+         *
+         * @param text the text of the <code>JMenuItem</code>
+         * @param icon the icon of the <code>JMenuItem</code>
+         */
+        constructor(text?: any, icon?: any);
+        /**
+         * {@inheritDoc}
+         */
+        setModel(newModel: javax.swing.ButtonModel): void;
+        /**
+         * Initializes the menu item with the specified text and icon.
+         *
+         * @param text the text of the <code>JMenuItem</code>
+         * @param icon the icon of the <code>JMenuItem</code>
+         */
+        init(text: string, icon: javax.swing.Icon): void;
+        /**
+         * Returns the suffix used to construct the name of the L&amp;F class used to
+         * render this component.
+         *
+         * @return the string "MenuItemUI"
+         * @see JComponent#getUIClassID
+         * @see UIDefaults#getUI
+         */
+        getUIClassID(): string;
+        /**
+         * Identifies the menu item as "armed". If the mouse button is
+         * released while it is over this item, the menu's action event
+         * will fire. If the mouse button is released elsewhere, the
+         * event will not fire and the menu item will be disarmed.
+         *
+         * @param b true to arm the menu item so it can be selected
+         * @beaninfo
+         * description: Mouse release will fire an action event
+         * hidden: true
+         */
+        setArmed(b: boolean): void;
+        /**
+         * Returns whether the menu item is "armed".
+         *
+         * @return true if the menu item is armed, and it can be selected
+         * @see #setArmed
+         */
+        isArmed(): boolean;
+        /**
+         * Returns the <code>KeyStroke</code> which serves as an accelerator
+         * for the menu item.
+         * @return a <code>KeyStroke</code> object identifying the
+         * accelerator key
+         */
+        setIconFromAction(a: javax.swing.Action): void;
+        largeIconChanged(a: javax.swing.Action): void;
+        smallIconChanged(a: javax.swing.Action): void;
+        /**
+         * Processes a key event forwarded from the
+         * <code>MenuSelectionManager</code> and changes the menu selection,
+         * if necessary, by using <code>MenuSelectionManager</code>'s API.
+         * <p>
+         * Note: you do not have to forward the event to sub-components.
+         * This is done automatically by the <code>MenuSelectionManager</code>.
+         *
+         * @param e  a <code>KeyEvent</code>
+         * @param path the <code>MenuElement</code> path array
+         * @param manager   the <code>MenuSelectionManager</code>
+         */
+        processKeyEvent(e?: any, path?: any, manager?: any): any;
+        /**
+         * Handles a keystroke in a menu.
+         *
+         * @param e  a <code>MenuKeyEvent</code> object
+         */
+        processMenuKeyEvent(e: javax.swing.event.MenuKeyEvent): void;
+        /**
+         * Notifies all listeners that have registered interest for
+         * notification on this event type.
+         *
+         * @param event a <code>MenuKeyEvent</code>
+         * @see EventListenerList
+         */
+        fireMenuKeyPressed(event: javax.swing.event.MenuKeyEvent): void;
+        /**
+         * Notifies all listeners that have registered interest for
+         * notification on this event type.
+         *
+         * @param event a <code>MenuKeyEvent</code>
+         * @see EventListenerList
+         */
+        fireMenuKeyReleased(event: javax.swing.event.MenuKeyEvent): void;
+        /**
+         * Notifies all listeners that have registered interest for
+         * notification on this event type.
+         *
+         * @param event a <code>MenuKeyEvent</code>
+         * @see EventListenerList
+         */
+        fireMenuKeyTyped(event: javax.swing.event.MenuKeyEvent): void;
+        /**
+         * Called by the <code>MenuSelectionManager</code> when the
+         * <code>MenuElement</code> is selected or unselected.
+         *
+         * @param isIncluded  true if this menu item is on the part of the menu
+         * path that changed, false if this menu is part of the
+         * a menu path that changed, but this particular part of
+         * that path is still the same
+         * @see MenuSelectionManager#setSelectedPath(MenuElement[])
+         */
+        menuSelectionChanged(isIncluded: boolean): void;
+        /**
+         * This method returns an array containing the sub-menu
+         * components for this menu component.
+         *
+         * @return an array of <code>MenuElement</code>s
+         */
+        getSubElements(): javax.swing.MenuElement[];
+        /**
+         * Returns the <code>java.awt.Component</code> used to paint
+         * this object. The returned component will be used to convert
+         * events and detect if an event is inside a menu component.
+         *
+         * @return the <code>Component</code> that paints this menu item
+         */
+        getComponent$(): java.awt.Component;
+        /**
+         * Adds a <code>MenuKeyListener</code> to the menu item.
+         *
+         * @param l the <code>MenuKeyListener</code> to be added
+         */
+        addMenuKeyListener(l: javax.swing.event.MenuKeyListener): void;
+        /**
+         * Removes a <code>MenuKeyListener</code> from the menu item.
+         *
+         * @param l the <code>MenuKeyListener</code> to be removed
+         */
+        removeMenuKeyListener(l: javax.swing.event.MenuKeyListener): void;
+        /**
+         * Returns an array of all the <code>MenuKeyListener</code>s added
+         * to this JMenuItem with addMenuKeyListener().
+         *
+         * @return all of the <code>MenuKeyListener</code>s added or an empty
+         * array if no listeners have been added
+         * @since 1.4
+         */
+        getMenuKeyListeners(): javax.swing.event.MenuKeyListener[];
+        /**
+         * Returns a string representation of this <code>JMenuItem</code>.
+         * This method is intended to be used only for debugging purposes,
+         * and the content and format of the returned string may vary between
+         * implementations. The returned string may be empty but may not
+         * be <code>null</code>.
+         *
+         * @return  a string representation of this <code>JMenuItem</code>
+         */
+        paramString(): string;
+    }
+    namespace JMenuItem {
+        class MenuItemFocusListener implements java.awt.event.FocusListener, java.io.Serializable {
+            focusGained(event: java.awt.event.FocusEvent): void;
+            focusLost(event: java.awt.event.FocusEvent): void;
+            constructor();
+        }
+    }
+}
+declare namespace javax.swing {
+    class JToggleButton extends javax.swing.AbstractButton {
+        static serialVersionUID: number;
+        constructor(text?: any, icon?: any, selected?: any);
+        paramString(): string;
+        buttonCreated: boolean;
+        createHTML(): void;
+        initHTML(): void;
+    }
+    namespace JToggleButton {
+        class ToggleButtonModel extends javax.swing.DefaultButtonModel {
+            /**
+             * Creates a new ToggleButton Model
+             */
+            constructor();
+            /**
+             * Checks if the button is selected.
+             */
+            isSelected(): boolean;
+            /**
+             * Sets the selected state of the button.
+             *
+             * @param b
+             * true selects the toggle button, false deselects the toggle
+             * button.
+             */
+            setSelected(b: boolean): void;
+            /**
+             * Sets the pressed state of the toggle button.
+             */
+            setPressed(b: boolean): void;
+        }
+    }
+}
+declare namespace javax.swing {
+    class JTextArea extends javax.swing.text.JTextComponent {
+        private rows;
+        private columns;
+        private columnWidth;
+        private rowHeight;
+        private wrap;
+        private word;
+        getHTMLElement(): HTMLTextAreaElement;
+        createHTML(): void;
+        initHTML(): void;
+        static uiClassID: string;
+        constructor(doc?: any, text?: any, rows?: any, columns?: any);
+        getUIClassID(): string;
+        setLineWrap(wrap: boolean): void;
+        getLineWrap(): boolean;
+        setWrapStyleWord(word: boolean): void;
+        getWrapStyleWord(): boolean;
+        insert(str: string, pos: number): void;
+        append(str: string): void;
+        setText(text: string): void;
+        setEditable(editable: boolean): void;
+        replaceRange(str: string, start: number, end: number): void;
+        getRows(): number;
+        setRows(rows: number): void;
+        getColumns(): number;
+        setColumns(columns: number): void;
+        paramString(): string;
+    }
+}
+declare namespace javax.swing {
+    class JTextField extends javax.swing.text.JTextComponent implements javax.swing.SwingConstants {
+        getHTMLElement(): HTMLInputElement;
+        createHTML(): void;
+        initHTML(): void;
+        initActionListeners(): void;
+        constructor(doc?: any, text?: any, columns?: any);
+        setText(text: string): void;
+        setEditable(editable: boolean): void;
+        /**
+         * Gets the class ID for a UI.
+         *
+         * @return the string "TextFieldUI"
+         * @see JComponent#getUIClassID
+         * @see UIDefaults#getUI
+         */
+        getUIClassID(): string;
+        /**
+         * Returns the horizontal alignment of the text. Valid keys are:
+         * <ul>
+         * <li><code>JTextField.LEFT</code>
+         * <li><code>JTextField.CENTER</code>
+         * <li><code>JTextField.RIGHT</code>
+         * <li><code>JTextField.LEADING</code>
+         * <li><code>JTextField.TRAILING</code>
+         * </ul>
+         *
+         * @return the horizontal alignment
+         */
+        getHorizontalAlignment(): number;
+        setHorizontalAlignment(alignment: number): void;
+        /**
+         * Returns the number of columns in this <code>TextField</code>.
+         *
+         * @return the number of columns &gt;= 0
+         */
+        getColumns(): number;
+        /**
+         * Sets the number of columns in this <code>TextField</code>, and then
+         * invalidate the layout.
+         *
+         * @param columns
+         * the number of columns &gt;= 0
+         * @exception IllegalArgumentException
+         * if <code>columns</code> is less than 0
+         * @beaninfo description: the number of columns preferred for display
+         */
+        setColumns(columns: number): void;
+        /**
+         * Returns the preferred size <code>Dimensions</code> needed for this
+         * <code>TextField</code>. If a non-zero number of columns has been set, the
+         * width is set to the columns multiplied by the column width.
+         *
+         * @return the dimension of this textfield
+         */
+        getPreferredSize(): java.awt.Dimension;
+        /**
+         * Sets the current font. This removes cached row height and column width so
+         * the new font will be reflected. <code>revalidate</code> is called after
+         * setting the font.
+         *
+         * @param f
+         * the new font
+         */
+        setFont(f: java.awt.Font): void;
+        /**
+         * Adds the specified action listener to receive action events from this
+         * textfield.
+         *
+         * @param l
+         * the action listener to be added
+         */
+        addActionListener(l: java.awt.event.ActionListener): void;
+        /**
+         * Removes the specified action listener so that it no longer receives
+         * action events from this textfield.
+         *
+         * @param l
+         * the action listener to be removed
+         */
+        removeActionListener(l: java.awt.event.ActionListener): void;
+        /**
+         * Returns an array of all the <code>ActionListener</code>s added to this
+         * JTextField with addActionListener().
+         *
+         * @return all of the <code>ActionListener</code>s added or an empty array
+         * if no listeners have been added
+         * @since 1.4
+         */
+        getActionListeners(): java.awt.event.ActionListener[];
+        /**
+         * Notifies all listeners that have registered interest for notification on
+         * this event type. The event instance is lazily created. The listener list
+         * is processed in last to first order.
+         *
+         * @see EventListenerList
+         */
+        fireActionPerformed(): void;
+        setActionCommand(command: string): void;
+        private action;
+        private actionPropertyChangeListener;
+        setAction(a: javax.swing.Action): void;
+        isListener(c?: any, a?: any): any;
+        isListener$java_lang_String$java_awt_event_ActionListener(c: string, a: java.awt.event.ActionListener): boolean;
+        getAction(): javax.swing.Action;
+        configurePropertiesFromAction(a: javax.swing.Action): void;
+        actionPropertyChanged(action: javax.swing.Action, propertyName: string): void;
+        setActionCommandFromAction(action: javax.swing.Action): void;
+        createActionPropertyChangeListener(a: javax.swing.Action): java.beans.PropertyChangeListener;
+        /**
+         * Fetches the command list for the editor. This is the list of commands
+         * supported by the plugged-in UI augmented by the collection of commands
+         * that the editor itself supports. These are useful for binding to events,
+         * such as in a keymap.
+         *
+         * @return the command list
+         */
+        getActions(): javax.swing.Action[];
+        /**
+         * Processes action events occurring on this textfield by dispatching them
+         * to any registered <code>ActionListener</code> objects. This is normally
+         * called by the controller registered with textfield.
+         */
+        postActionEvent(): void;
+        /**
+         * Returns true if the receiver has an <code>ActionListener</code>
+         * installed.
+         */
+        hasActionListener(): boolean;
+        /**
+         * Name of the action to send notification that the contents of the field
+         * have been accepted. Typically this is bound to a carriage-return.
+         */
+        static notifyAction: string;
+        private horizontalAlignment;
+        private columns;
+        private columnWidth;
+        private command;
+        static defaultActions: javax.swing.Action[];
+        static defaultActions_$LI$(): javax.swing.Action[];
+        /**
+         * @see #getUIClassID
+         * @see #readObject
+         */
+        static uiClassID: string;
+        /**
+         * Returns a string representation of this <code>JTextField</code>. This
+         * method is intended to be used only for debugging purposes, and the
+         * content and format of the returned string may vary between
+         * implementations. The returned string may be empty but may not be
+         * <code>null</code>.
+         *
+         * @return a string representation of this <code>JTextField</code>
+         */
+        paramString(): string;
+    }
+    namespace JTextField {
+        class TextFieldActionPropertyChangeListener extends javax.swing.ActionPropertyChangeListener<javax.swing.JTextField> {
+            constructor(tf: javax.swing.JTextField, a: javax.swing.Action);
+            actionPropertyChanged(textField?: any, action?: any, e?: any): any;
+        }
+    }
+}
+declare namespace javax.swing {
+    /**
+     * An implementation of a menu -- a popup window containing
+     * <code>JMenuItem</code>s that is displayed when the user selects an item on
+     * the <code>JMenuBar</code>. In addition to <code>JMenuItem</code>s, a
+     * <code>JMenu</code> can also contain <code>JSeparator</code>s.
+     * <p>
+     * In essence, a menu is a button with an associated <code>JPopupMenu</code>.
+     * When the "button" is pressed, the <code>JPopupMenu</code> appears. If the
+     * "button" is on the <code>JMenuBar</code>, the menu is a top-level window. If
+     * the "button" is another menu item, then the <code>JPopupMenu</code> is
+     * "pull-right" menu.
+     * <p>
+     * Menus can be configured, and to some degree controlled, by
+     * <code><a href="Action.html">Action</a></code>s. Using an <code>Action</code>
+     * with a menu has many benefits beyond directly configuring a menu. Refer to
+     * <a href="Action.html#buttonActions"> Swing Components Supporting
+     * <code>Action</code></a> for more details, and you can find more information
+     * in
+     * <a href="http://docs.oracle.com/javase/tutorial/uiswing/misc/action.html">How
+     * to Use Actions</a>, a section in <em>The Java Tutorial</em>.
+     * <p>
+     * For information and examples of using menus see <a href=
+     * "http://docs.oracle.com/javase/tutorial/uiswing/components/menu.html">How to
+     * Use Menus</a>, a section in <em>The Java Tutorial.</em>
+     * <p>
+     * <strong>Warning:</strong> Swing is not thread safe. For more information see
+     * <a href="package-summary.html#threading">Swing's Threading Policy</a>.
+     * <p>
+     * <strong>Warning:</strong> Serialized objects of this class will not be
+     * compatible with future Swing releases. The current serialization support is
+     * appropriate for short term storage or RMI between applications running the
+     * same version of Swing. As of 1.4, support for long term storage of all
+     * JavaBeans&trade; has been added to the <code>java.beans</code> package.
+     * Please see {@link java.beans.XMLEncoder}.
+     *
+     * @beaninfo attribute: isContainer true description: A popup window containing
+     * menu items displayed in a menu bar.
+     *
+     * @author Georges Saab
+     * @author David Karlton
+     * @author Arnaud Weber
+     * @see JMenuItem
+     * @see JSeparator
+     * @see JMenuBar
+     * @see JPopupMenu
+     */
+    class JMenu extends javax.swing.JMenuItem implements javax.swing.MenuElement {
+        /**
+         * @see #getUIClassID
+         * @see #readObject
+         */
+        static uiClassID: string;
+        private popupMenu;
+        private menuChangeListener;
+        private menuEvent;
+        private delay;
+        static DEBUG: boolean;
+        /**
+         * Constructs a new <code>JMenu</code> with the supplied string as its text
+         * and specified as a tear-off menu or not.
+         *
+         * @param s
+         * the text for the menu label
+         * @param b
+         * can the menu be torn off (not yet implemented)
+         */
+        constructor(s?: any, b?: any);
+        /**
+         * Overriden to do nothing. We want JMenu to be focusable, but
+         * <code>JMenuItem</code> doesn't want to be, thus we override this do
+         * nothing. We don't invoke <code>setFocusable(true)</code> after super's
+         * constructor has completed as this has the side effect that
+         * <code>JMenu</code> will be considered traversable via the keyboard, which
+         * we don't want. Making a Component traversable by the keyboard after
+         * invoking <code>setFocusable(true)</code> is OK, as
+         * <code>setFocusable</code> is new API and is speced as such, but
+         * internally we don't want to use it like this else we change the keyboard
+         * traversability.
+         */
+        initFocusability(): void;
+        /**
+         * Returns the name of the L&amp;F class that renders this component.
+         *
+         * @return the string "MenuUI"
+         * @see JComponent#getUIClassID
+         * @see UIDefaults#getUI
+         */
+        getUIClassID(): string;
+        /**
+         * Sets the data model for the "menu button" -- the label that the user
+         * clicks to open or close the menu.
+         *
+         * @param newModel
+         * the <code>ButtonModel</code>
+         * @see #getModel
+         * @beaninfo description: The menu's model bound: true expert: true hidden:
+         * true
+         */
+        setModel(newModel: javax.swing.ButtonModel): void;
+        /**
+         * Returns true if the menu is currently selected (highlighted).
+         *
+         * @return true if the menu is selected, else false
+         */
+        isSelected(): boolean;
+        /**
+         * Sets the selection status of the menu.
+         *
+         * @param b
+         * true to select (highlight) the menu; false to de-select the
+         * menu
+         * @beaninfo description: When the menu is selected, its popup child is
+         * shown. expert: true hidden: true
+         */
+        setSelected(b: boolean): void;
+        /**
+         * Returns true if the menu's popup window is visible.
+         *
+         * @return true if the menu is visible, else false
+         */
+        isPopupMenuVisible(): boolean;
+        /**
+         * Sets the visibility of the menu's popup. If the menu is not enabled, this
+         * method will have no effect.
+         *
+         * @param b
+         * a boolean value -- true to make the menu visible, false to
+         * hide it
+         * @beaninfo description: The popup menu's visibility expert: true hidden:
+         * true
+         */
+        setPopupMenuVisible(b: boolean): void;
+        /**
+         * Computes the origin for the <code>JMenu</code>'s popup menu. This method
+         * uses Look and Feel properties named <code>Menu.menuPopupOffsetX</code>,
+         * <code>Menu.menuPopupOffsetY</code>, <code>Menu.submenuPopupOffsetX</code>
+         * , and <code>Menu.submenuPopupOffsetY</code> to adjust the exact location
+         * of popup.
+         *
+         * @return a <code>Point</code> in the coordinate space of the menu which
+         * should be used as the origin of the <code>JMenu</code>'s popup
+         * menu
+         *
+         * @since 1.3
+         */
+        getPopupMenuOrigin(): java.awt.Point;
+        /**
+         * Returns the suggested delay, in milliseconds, before submenus are popped
+         * up or down. Each look and feel (L&amp;F) may determine its own policy for
+         * observing the <code>delay</code> property. In most cases, the delay is
+         * not observed for top level menus or while dragging. The default for
+         * <code>delay</code> is 0. This method is a property of the look and feel
+         * code and is used to manage the idiosyncrasies of the various UI
+         * implementations.
+         *
+         *
+         * @return the <code>delay</code> property
+         */
+        getDelay(): number;
+        /**
+         * Sets the suggested delay before the menu's <code>PopupMenu</code> is
+         * popped up or down. Each look and feel (L&amp;F) may determine it's own
+         * policy for observing the delay property. In most cases, the delay is not
+         * observed for top level menus or while dragging. This method is a property
+         * of the look and feel code and is used to manage the idiosyncrasies of the
+         * various UI implementations.
+         *
+         * @param d
+         * the number of milliseconds to delay
+         * @exception IllegalArgumentException
+         * if <code>d</code> is less than 0
+         * @beaninfo description: The delay between menu selection and making the
+         * popup menu visible expert: true
+         */
+        setDelay(d: number): void;
+        ensurePopupMenuCreated(): void;
+        /**
+         * Sets the location of the popup component.
+         *
+         * @param x
+         * the x coordinate of the popup's new position
+         * @param y
+         * the y coordinate of the popup's new position
+         */
+        setMenuLocation(x: number, y: number): void;
+        /**
+         * Appends a menu item to the end of this menu. Returns the menu item added.
+         *
+         * @param menuItem
+         * the <code>JMenuitem</code> to be added
+         * @return the <code>JMenuItem</code> added
+         */
+        add$javax_swing_JMenuItem(menuItem: javax.swing.JMenuItem): javax.swing.JMenuItem;
+        /**
+         * Appends a component to the end of this menu. Returns the component added.
+         *
+         * @param c
+         * the <code>Component</code> to add
+         * @return the <code>Component</code> added
+         */
+        add$java_awt_Component(c: java.awt.Component): java.awt.Component;
+        /**
+         * Adds the specified component to this container at the given position. If
+         * <code>index</code> equals -1, the component will be appended to the end.
+         *
+         * @param c
+         * the <code>Component</code> to add
+         * @param index
+         * the position at which to insert the component
+         * @return the <code>Component</code> added
+         * @see #remove
+         * @see java.awt.Container#add(Component, int)
+         */
+        add$java_awt_Component$int(c: java.awt.Component, index: number): java.awt.Component;
+        /**
+         * Creates a new menu item with the specified text and appends it to the end
+         * of this menu.
+         *
+         * @param s
+         * the string for the menu item to be added
+         */
+        add$java_lang_String(s: string): javax.swing.JMenuItem;
+        /**
+         * Creates a new menu item attached to the specified <code>Action</code>
+         * object and appends it to the end of this menu.
+         *
+         * @param a
+         * the <code>Action</code> for the menu item to be added
+         * @see Action
+         */
+        add$javax_swing_Action(a: javax.swing.Action): javax.swing.JMenuItem;
+        /**
+         * Factory method which creates the <code>JMenuItem</code> for
+         * <code>Action</code>s added to the <code>JMenu</code>.
+         *
+         * @param a
+         * the <code>Action</code> for the menu item to be added
+         * @return the new menu item
+         * @see Action
+         *
+         * @since 1.3
+         */
+        createActionComponent(a: javax.swing.Action): javax.swing.JMenuItem;
+        /**
+         * Appends a new separator to the end of the menu.
+         */
+        addSeparator(): void;
+        /**
+         * Inserts a new menu item with the specified text at a given position.
+         *
+         * @param s
+         * the text for the menu item to add
+         * @param pos
+         * an integer specifying the position at which to add the new
+         * menu item
+         * @exception IllegalArgumentException
+         * when the value of <code>pos</code> &lt; 0
+         */
+        insert(s?: any, pos?: any): any;
+        /**
+         * Inserts the specified <code>JMenuitem</code> at a given position.
+         *
+         * @param mi
+         * the <code>JMenuitem</code> to add
+         * @param pos
+         * an integer specifying the position at which to add the new
+         * <code>JMenuitem</code>
+         * @return the new menu item
+         * @exception IllegalArgumentException
+         * if the value of <code>pos</code> &lt; 0
+         */
+        insert$javax_swing_JMenuItem$int(mi: javax.swing.JMenuItem, pos: number): javax.swing.JMenuItem;
+        /**
+         * Inserts a new menu item attached to the specified <code>Action</code>
+         * object at a given position.
+         *
+         * @param a
+         * the <code>Action</code> object for the menu item to add
+         * @param pos
+         * an integer specifying the position at which to add the new
+         * menu item
+         * @exception IllegalArgumentException
+         * if the value of <code>pos</code> &lt; 0
+         */
+        insert$javax_swing_Action$int(a: javax.swing.Action, pos: number): javax.swing.JMenuItem;
+        /**
+         * Inserts a separator at the specified position.
+         *
+         * @param index
+         * an integer specifying the position at which to insert the menu
+         * separator
+         * @exception IllegalArgumentException
+         * if the value of <code>index</code> &lt; 0
+         */
+        insertSeparator(index: number): void;
+        /**
+         * Returns the <code>JMenuItem</code> at the specified position. If the
+         * component at <code>pos</code> is not a menu item, <code>null</code> is
+         * returned. This method is included for AWT compatibility.
+         *
+         * @param pos
+         * an integer specifying the position
+         * @exception IllegalArgumentException
+         * if the value of <code>pos</code> &lt; 0
+         * @return the menu item at the specified position; or <code>null</code> if
+         * the item as the specified position is not a menu item
+         */
+        getItem(pos: number): javax.swing.JMenuItem;
+        /**
+         * Returns the number of items on the menu, including separators. This
+         * method is included for AWT compatibility.
+         *
+         * @return an integer equal to the number of items on the menu
+         * @see #getMenuComponentCount
+         */
+        getItemCount(): number;
+        /**
+         * Returns true if the menu can be torn off. This method is not yet
+         * implemented.
+         *
+         * @return true if the menu can be torn off, else false
+         * @exception Error
+         * if invoked -- this method is not yet implemented
+         */
+        isTearOff(): boolean;
+        /**
+         * Removes the specified menu item from this menu. If there is no popup
+         * menu, this method will have no effect.
+         *
+         * @param item
+         * the <code>JMenuItem</code> to be removed from the menu
+         */
+        remove(item?: any): any;
+        /**
+         * Removes the menu item at the specified index from this menu.
+         *
+         * @param pos
+         * the position of the item to be removed
+         * @exception IllegalArgumentException
+         * if the value of <code>pos</code> &lt; 0, or if
+         * <code>pos</code> is greater than the number of menu items
+         */
+        remove$int(pos: number): void;
+        /**
+         * Removes the component <code>c</code> from this menu.
+         *
+         * @param c
+         * the component to be removed
+         */
+        remove$java_awt_Component(c: java.awt.Component): void;
+        /**
+         * Removes all menu items from this menu.
+         */
+        removeAll(): void;
+        /**
+         * Returns the number of components on the menu.
+         *
+         * @return an integer containing the number of components on the menu
+         */
+        getMenuComponentCount(): number;
+        /**
+         * Returns the component at position <code>n</code>.
+         *
+         * @param n
+         * the position of the component to be returned
+         * @return the component requested, or <code>null</code> if there is no
+         * popup menu
+         */
+        getMenuComponent(n: number): java.awt.Component;
+        /**
+         * Returns an array of <code>Component</code>s of the menu's subcomponents.
+         * Note that this returns all <code>Component</code>s in the popup menu,
+         * including separators.
+         *
+         * @return an array of <code>Component</code>s or an empty array if there is
+         * no popup menu
+         */
+        getMenuComponents(): java.awt.Component[];
+        /**
+         * Returns true if the menu is a 'top-level menu', that is, if it is the
+         * direct child of a menubar.
+         *
+         * @return true if the menu is activated from the menu bar; false if the
+         * menu is activated from a menu item on another menu
+         */
+        isTopLevelMenu(): boolean;
+        /**
+         * Returns true if the specified component exists in the submenu hierarchy.
+         *
+         * @param c
+         * the <code>Component</code> to be tested
+         * @return true if the <code>Component</code> exists, false otherwise
+         */
+        isMenuComponent(c: java.awt.Component): boolean;
+        /**
+         * Returns the popupmenu associated with this menu. If there is no
+         * popupmenu, it will create one.
+         */
+        getPopupMenu(): javax.swing.JPopupMenu;
+        /**
+         * Adds a listener for menu events.
+         *
+         * @param l
+         * the listener to be added
+         */
+        addMenuListener(l: javax.swing.event.MenuListener): void;
+        /**
+         * Removes a listener for menu events.
+         *
+         * @param l
+         * the listener to be removed
+         */
+        removeMenuListener(l: javax.swing.event.MenuListener): void;
+        /**
+         * Returns an array of all the <code>MenuListener</code>s added to this
+         * JMenu with addMenuListener().
+         *
+         * @return all of the <code>MenuListener</code>s added or an empty array if
+         * no listeners have been added
+         * @since 1.4
+         */
+        getMenuListeners(): javax.swing.event.MenuListener[];
+        /**
+         * Notifies all listeners that have registered interest for notification on
+         * this event type. The event instance is created lazily.
+         *
+         * @exception Error
+         * if there is a <code>null</code> listener
+         * @see EventListenerList
+         */
+        fireMenuSelected(): void;
+        /**
+         * Notifies all listeners that have registered interest for notification on
+         * this event type. The event instance is created lazily.
+         *
+         * @exception Error
+         * if there is a <code>null</code> listener
+         * @see EventListenerList
+         */
+        fireMenuDeselected(): void;
+        /**
+         * Notifies all listeners that have registered interest for notification on
+         * this event type. The event instance is created lazily.
+         *
+         * @exception Error
+         * if there is a <code>null</code> listener
+         * @see EventListenerList
+         */
+        fireMenuCanceled(): void;
+        configureAcceleratorFromAction(a: javax.swing.Action): void;
+        createMenuChangeListener(): javax.swing.event.ChangeListener;
+        /**
+         * Messaged when the menubar selection changes to activate or deactivate
+         * this menu. Overrides <code>JMenuItem.menuSelectionChanged</code>.
+         *
+         * @param isIncluded
+         * true if this menu is active, false if it is not
+         */
+        menuSelectionChanged(isIncluded: boolean): void;
+        /**
+         * Returns an array of <code>MenuElement</code>s containing the submenu for
+         * this menu component. If popup menu is <code>null</code> returns an empty
+         * array. This method is required to conform to the <code>MenuElement</code>
+         * interface. Note that since <code>JSeparator</code>s do not conform to the
+         * <code>MenuElement</code> interface, this array will only contain
+         * <code>JMenuItem</code>s.
+         *
+         * @return an array of <code>MenuElement</code> objects
+         */
+        getSubElements(): javax.swing.MenuElement[];
+        /**
+         * Returns the <code>java.awt.Component</code> used to paint this
+         * <code>MenuElement</code>. The returned component is used to convert
+         * events and detect if an event is inside a menu component.
+         */
+        getComponent$(): java.awt.Component;
+        /**
+         * Processes key stroke events such as mnemonics and accelerators.
+         *
+         * @param evt
+         * the key event to be processed
+         */
+        processKeyEvent$java_awt_event_KeyEvent(evt: java.awt.event.KeyEvent): void;
+        /**
+         * Programmatically performs a "click". This overrides the method
+         * <code>AbstractButton.doClick</code> in order to make the menu pop up.
+         *
+         * @param pressTime
+         * indicates the number of milliseconds the button was pressed
+         * for
+         */
+        doClick(pressTime?: any): any;
+        /**
+         * Returns a string representation of this <code>JMenu</code>. This method
+         * is intended to be used only for debugging purposes, and the content and
+         * format of the returned string may vary between implementations. The
+         * returned string may be empty but may not be <code>null</code>.
+         *
+         * @return a string representation of this JMenu.
+         */
+        paramString(): string;
+    }
+    namespace JMenu {
+        class MenuChangeListener implements javax.swing.event.ChangeListener, java.io.Serializable {
+            __parent: any;
+            isSelected: boolean;
+            stateChanged(e: javax.swing.event.ChangeEvent): void;
+            constructor(__parent: any);
+        }
+    }
+}
+declare namespace javax.swing {
+    /**
+     * An implementation of a popup menu -- a small window that pops up and displays
+     * a series of choices. A <code>JPopupMenu</code> is used for the menu that
+     * appears when the user selects an item on the menu bar. It is also used for
+     * "pull-right" menu that appears when the selects a menu item that activates
+     * it. Finally, a <code>JPopupMenu</code> can also be used anywhere else you
+     * want a menu to appear. For example, when the user right-clicks in a specified
+     * area.
+     * <p>
+     * For information and examples of using popup menus, see <a href=
+     * "http://docs.oracle.com/javase/tutorial/uiswing/components/menu.html">How to
+     * Use Menus</a> in <em>The Java Tutorial.</em>
+     * <p>
+     * <strong>Warning:</strong> Swing is not thread safe. For more information see
+     * <a href="package-summary.html#threading">Swing's Threading Policy</a>.
+     * <p>
+     * <strong>Warning:</strong> Serialized objects of this class will not be
+     * compatible with future Swing releases. The current serialization support is
+     * appropriate for short term storage or RMI between applications running the
+     * same version of Swing. As of 1.4, support for long term storage of all
+     * JavaBeans&trade; has been added to the <code>java.beans</code> package.
+     * Please see {@link java.beans.XMLEncoder}.
+     *
+     * @beaninfo attribute: isContainer false description: A small window that pops
+     * up and displays a series of choices.
+     *
+     * @author Georges Saab
+     * @author David Karlton
+     * @author Arnaud Weber
+     */
+    class JPopupMenu extends javax.swing.JComponent implements javax.swing.MenuElement {
+        createHTML(): void;
+        /**
+         * @see #getUIClassID
+         * @see #readObject
+         */
+        static uiClassID: string;
+        invoker: java.awt.Component;
+        frame: java.awt.Frame;
+        private desiredLocationX;
+        private desiredLocationY;
+        private label;
+        private paintBorder;
+        private margin;
+        private selectionModel;
+        static classLock: any;
+        static classLock_$LI$(): any;
+        static TRACE: boolean;
+        static VERBOSE: boolean;
+        static DEBUG: boolean;
+        /**
+         * Constructs a <code>JPopupMenu</code> with the specified title.
+         *
+         * @param label
+         * the string that a UI may use to display as a title for the
+         * popup menu.
+         */
+        constructor(label?: string);
+        /**
+         * Returns the name of the L&amp;F class that renders this component.
+         *
+         * @return the string "PopupMenuUI"
+         * @see JComponent#getUIClassID
+         * @see UIDefaults#getUI
+         */
+        getUIClassID(): string;
+        /**
+         * Returns the model object that handles single selections.
+         *
+         * @return the <code>selectionModel</code> property
+         * @see SingleSelectionModel
+         */
+        getSelectionModel(): javax.swing.SingleSelectionModel;
+        /**
+         * Sets the model object to handle single selections.
+         *
+         * @param model
+         * the new <code>SingleSelectionModel</code>
+         * @see SingleSelectionModel
+         * @beaninfo description: The selection model for the popup menu expert:
+         * true
+         */
+        setSelectionModel(model: javax.swing.SingleSelectionModel): void;
+        /**
+         * Appends the specified menu item to the end of this menu.
+         *
+         * @param menuItem
+         * the <code>JMenuItem</code> to add
+         * @return the <code>JMenuItem</code> added
+         */
+        add$javax_swing_JMenuItem(menuItem: javax.swing.JMenuItem): javax.swing.JMenuItem;
+        /**
+         * Creates a new menu item with the specified text and appends it to the end
+         * of this menu.
+         *
+         * @param s
+         * the string for the menu item to be added
+         */
+        add$java_lang_String(s: string): javax.swing.JMenuItem;
+        /**
+         * Appends a new menu item to the end of the menu which dispatches the
+         * specified <code>Action</code> object.
+         *
+         * @param a
+         * the <code>Action</code> to add to the menu
+         * @return the new menu item
+         * @see Action
+         */
+        add$javax_swing_Action(a: javax.swing.Action): javax.swing.JMenuItem;
+        /**
+         * Factory method which creates the <code>JMenuItem</code> for
+         * <code>Actions</code> added to the <code>JPopupMenu</code>.
+         *
+         * @param a
+         * the <code>Action</code> for the menu item to be added
+         * @return the new menu item
+         * @see Action
+         *
+         * @since 1.3
+         */
+        createActionComponent(a: javax.swing.Action): javax.swing.JMenuItem;
+        /**
+         * Returns a properly configured <code>PropertyChangeListener</code> which
+         * updates the control as changes to the <code>Action</code> occur.
+         */
+        createActionChangeListener(b: javax.swing.JMenuItem): java.beans.PropertyChangeListener;
+        remove(item?: any): any;
+        /**
+         * Removes the component at the specified index from this popup menu.
+         *
+         * @param pos
+         * the position of the item to be removed
+         * @exception IllegalArgumentException
+         * if the value of <code>pos</code> &lt; 0, or if the value
+         * of <code>pos</code> is greater than the number of items
+         */
+        remove$int(pos: number): void;
+        /**
+         * Returns the popup menu's label
+         *
+         * @return a string containing the popup menu's label
+         * @see #setLabel
+         */
+        getLabel(): string;
+        /**
+         * Sets the popup menu's label. Different look and feels may choose to
+         * display or not display this.
+         *
+         * @param label
+         * a string specifying the label for the popup menu
+         *
+         * @see #setLabel
+         * @beaninfo description: The label for the popup menu. bound: true
+         */
+        setLabel(label: string): void;
+        /**
+         * Appends a new separator at the end of the menu.
+         */
+        addSeparator(): void;
+        /**
+         * Inserts a menu item for the specified <code>Action</code> object at a
+         * given position.
+         *
+         * @param a
+         * the <code>Action</code> object to insert
+         * @param index
+         * specifies the position at which to insert the
+         * <code>Action</code>, where 0 is the first
+         * @exception IllegalArgumentException
+         * if <code>index</code> &lt; 0
+         * @see Action
+         */
+        insert(a?: any, index?: any): any;
+        /**
+         * Inserts the specified component into the menu at a given position.
+         *
+         * @param component
+         * the <code>Component</code> to insert
+         * @param index
+         * specifies the position at which to insert the component, where
+         * 0 is the first
+         * @exception IllegalArgumentException
+         * if <code>index</code> &lt; 0
+         */
+        insert$java_awt_Component$int(component: java.awt.Component, index: number): void;
+        /**
+         * Adds a <code>PopupMenu</code> listener.
+         *
+         * @param l
+         * the <code>PopupMenuListener</code> to add
+         */
+        addPopupMenuListener(l: javax.swing.event.PopupMenuListener): void;
+        /**
+         * Removes a <code>PopupMenu</code> listener.
+         *
+         * @param l
+         * the <code>PopupMenuListener</code> to remove
+         */
+        removePopupMenuListener(l: javax.swing.event.PopupMenuListener): void;
+        /**
+         * Returns an array of all the <code>PopupMenuListener</code>s added to this
+         * JMenuItem with addPopupMenuListener().
+         *
+         * @return all of the <code>PopupMenuListener</code>s added or an empty
+         * array if no listeners have been added
+         * @since 1.4
+         */
+        getPopupMenuListeners(): javax.swing.event.PopupMenuListener[];
+        /**
+         * Adds a <code>MenuKeyListener</code> to the popup menu.
+         *
+         * @param l
+         * the <code>MenuKeyListener</code> to be added
+         * @since 1.5
+         */
+        addMenuKeyListener(l: javax.swing.event.MenuKeyListener): void;
+        /**
+         * Removes a <code>MenuKeyListener</code> from the popup menu.
+         *
+         * @param l
+         * the <code>MenuKeyListener</code> to be removed
+         * @since 1.5
+         */
+        removeMenuKeyListener(l: javax.swing.event.MenuKeyListener): void;
+        /**
+         * Returns an array of all the <code>MenuKeyListener</code>s added to this
+         * JPopupMenu with addMenuKeyListener().
+         *
+         * @return all of the <code>MenuKeyListener</code>s added or an empty array
+         * if no listeners have been added
+         * @since 1.5
+         */
+        getMenuKeyListeners(): javax.swing.event.MenuKeyListener[];
+        /**
+         * Notifies <code>PopupMenuListener</code>s that this popup menu will become
+         * visible.
+         */
+        firePopupMenuWillBecomeVisible(): void;
+        /**
+         * Notifies <code>PopupMenuListener</code>s that this popup menu will become
+         * invisible.
+         */
+        firePopupMenuWillBecomeInvisible(): void;
+        /**
+         * Notifies <code>PopupMenuListeners</code> that this popup menu is
+         * cancelled.
+         */
+        firePopupMenuCanceled(): void;
+        pack(): void;
+        /**
+         * Retrieves <code>Popup</code> instance from the <code>PopupMenuUI</code>
+         * that has had <code>show</code> invoked on it. If the current
+         * <code>popup</code> is non-null, this will invoke <code>dispose</code> of
+         * it, and then <code>show</code> the new one.
+         * <p>
+         * This does NOT fire any events, it is up the caller to dispatch the
+         * necessary events.
+         */
+        showPopup(): void;
+        /**
+         * Sets the location of the upper left corner of the popup menu using x, y
+         * coordinates.
+         * <p>
+         * The method changes the geometry-related data. Therefore, the native
+         * windowing system may ignore such requests, or it may modify the requested
+         * data, so that the {@code JPopupMenu} object is placed and sized in a way
+         * that corresponds closely to the desktop settings.
+         *
+         * @param x
+         * the x coordinate of the popup's new position in the screen's
+         * coordinate space
+         * @param y
+         * the y coordinate of the popup's new position in the screen's
+         * coordinate space
+         * @beaninfo description: The location of the popup menu.
+         */
+        setLocation(x?: any, y?: any): any;
+        /**
+         * Returns true if the popup menu is a standalone popup menu rather than the
+         * submenu of a <code>JMenu</code>.
+         *
+         * @return true if this menu is a standalone popup menu, otherwise false
+         */
+        isPopupMenu(): boolean;
+        /**
+         * Returns the component which is the 'invoker' of this popup menu.
+         *
+         * @return the <code>Component</code> in which the popup menu is displayed
+         */
+        getInvoker(): java.awt.Component;
+        /**
+         * Returns the component at the specified index.
+         *
+         * @param i
+         * the index of the component, where 0 is the first
+         * @return the <code>Component</code> at that index
+         * @deprecated replaced by {@link java.awt.Container#getComponent(int)}
+         */
+        getComponentAtIndex(i: number): java.awt.Component;
+        /**
+         * Returns the index of the specified component.
+         *
+         * @param c
+         * the <code>Component</code> to find
+         * @return the index of the component, where 0 is the first; or -1 if the
+         * component is not found
+         */
+        getComponentIndex(c: java.awt.Component): number;
+        /**
+         * Sets the currently selected component, This will result in a change to
+         * the selection model.
+         *
+         * @param sel
+         * the <code>Component</code> to select
+         * @beaninfo description: The selected component on the popup menu expert:
+         * true hidden: true
+         */
+        setSelected(sel: java.awt.Component): void;
+        /**
+         * Checks whether the border should be painted.
+         *
+         * @return true if the border is painted, false otherwise
+         * @see #setBorderPainted
+         */
+        isBorderPainted(): boolean;
+        /**
+         * Sets whether the border should be painted.
+         *
+         * @param b
+         * if true, the border is painted.
+         * @see #isBorderPainted
+         * @beaninfo description: Is the border of the popup menu painted
+         */
+        setBorderPainted(b: boolean): void;
+        /**
+         * Returns the margin, in pixels, between the popup menu's border and its
+         * containers.
+         *
+         * @return an <code>Insets</code> object containing the margin values.
+         */
+        getMargin(): java.awt.Insets;
+        /**
+         * Examines the list of menu items to determine whether <code>popup</code>
+         * is a popup menu.
+         *
+         * @param popup
+         * a <code>JPopupMenu</code>
+         * @return true if <code>popup</code>
+         */
+        isSubPopupMenu(popup: JPopupMenu): boolean;
+        static getFrame(c: java.awt.Component): java.awt.Frame;
+        /**
+         * Returns a string representation of this <code>JPopupMenu</code>. This
+         * method is intended to be used only for debugging purposes, and the
+         * content and format of the returned string may vary between
+         * implementations. The returned string may be empty but may not be
+         * <code>null</code>.
+         *
+         * @return a string representation of this <code>JPopupMenu</code>.
+         */
+        paramString(): string;
+        /**
+         * This method is required to conform to the <code>MenuElement</code>
+         * interface, but it not implemented.
+         *
+         * @see MenuElement#processMouseEvent(MouseEvent, MenuElement[],
+         * MenuSelectionManager)
+         */
+        processMouseEvent(event: java.awt.event.MouseEvent, path: javax.swing.MenuElement[], manager: javax.swing.MenuSelectionManager): void;
+        /**
+         * Processes a key event forwarded from the
+         * <code>MenuSelectionManager</code> and changes the menu selection, if
+         * necessary, by using <code>MenuSelectionManager</code>'s API.
+         * <p>
+         * Note: you do not have to forward the event to sub-components. This is
+         * done automatically by the <code>MenuSelectionManager</code>.
+         *
+         * @param e
+         * a <code>KeyEvent</code>
+         * @param path
+         * the <code>MenuElement</code> path array
+         * @param manager
+         * the <code>MenuSelectionManager</code>
+         */
+        processKeyEvent(e?: any, path?: any, manager?: any): any;
+        /**
+         * Handles a keystroke in a menu.
+         *
+         * @param e
+         * a <code>MenuKeyEvent</code> object
+         * @since 1.5
+         */
+        processMenuKeyEvent(e: javax.swing.event.MenuKeyEvent): void;
+        /**
+         * Notifies all listeners that have registered interest for notification on
+         * this event type.
+         *
+         * @param event
+         * a <code>MenuKeyEvent</code>
+         * @see EventListenerList
+         */
+        fireMenuKeyPressed(event: javax.swing.event.MenuKeyEvent): void;
+        /**
+         * Notifies all listeners that have registered interest for notification on
+         * this event type.
+         *
+         * @param event
+         * a <code>MenuKeyEvent</code>
+         * @see EventListenerList
+         */
+        fireMenuKeyReleased(event: javax.swing.event.MenuKeyEvent): void;
+        /**
+         * Notifies all listeners that have registered interest for notification on
+         * this event type.
+         *
+         * @param event
+         * a <code>MenuKeyEvent</code>
+         * @see EventListenerList
+         */
+        fireMenuKeyTyped(event: javax.swing.event.MenuKeyEvent): void;
+        /**
+         * Messaged when the menubar selection changes to activate or deactivate
+         * this menu. This implements the <code>javax.swing.MenuElement</code>
+         * interface. Overrides <code>MenuElement.menuSelectionChanged</code>.
+         *
+         * @param isIncluded
+         * true if this menu is active, false if it is not
+         * @see MenuElement#menuSelectionChanged(boolean)
+         */
+        menuSelectionChanged(isIncluded: boolean): void;
+        /**
+         * Returns an array of <code>MenuElement</code>s containing the submenu for
+         * this menu component. It will only return items conforming to the
+         * <code>JMenuElement</code> interface. If popup menu is <code>null</code>
+         * returns an empty array. This method is required to conform to the
+         * <code>MenuElement</code> interface.
+         *
+         * @return an array of <code>MenuElement</code> objects
+         * @see MenuElement#getSubElements
+         */
+        getSubElements(): javax.swing.MenuElement[];
+        /**
+         * Returns this <code>JPopupMenu</code> component.
+         *
+         * @return this <code>JPopupMenu</code> object
+         * @see MenuElement#getComponent
+         */
+        getComponent$(): java.awt.Component;
+    }
+    namespace JPopupMenu {
+        /**
+         * A popup menu-specific separator.
+         */
+        class Separator extends javax.swing.JSeparator {
+            constructor();
+            /**
+             * Returns the name of the L&amp;F class that renders this component.
+             *
+             * @return the string "PopupMenuSeparatorUI"
+             * @see JComponent#getUIClassID
+             * @see UIDefaults#getUI
+             */
+            getUIClassID(): string;
+        }
+    }
+}
+declare namespace javax.swing {
+    class JCheckBox extends javax.swing.JToggleButton implements java.awt.ItemSelectable {
+        label: string;
+        state: boolean;
+        itemListeners: Array<java.awt.event.ItemListener>;
+        htmlCheckbox: HTMLInputElement;
+        htmlLabel: Text;
+        static base: string;
+        static nameCounter: number;
+        static serialVersionUID: number;
+        constructor(label?: string, state?: boolean);
+        createHTML(): void;
+        initHTML(): void;
+        constructComponentName(): string;
+        getLabel(): string;
+        setLabel(label: string): void;
+        getState(): boolean;
+        setStateInternal(state: boolean): void;
+        setState(state: boolean): void;
+        getSelectedObjects(): any[];
+        addItemListener(l: java.awt.event.ItemListener): void;
+        removeItemListener(l: java.awt.event.ItemListener): void;
+        getItemListeners(): java.awt.event.ItemListener[];
+        getListeners<T extends java.util.EventListener>(listenerType: any): T[];
+        processItemEvent(e: java.awt.event.ItemEvent): void;
         paramString(): string;
     }
 }
