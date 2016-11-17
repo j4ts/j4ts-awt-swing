@@ -99,7 +99,7 @@ public class JPanel extends JComponent {
 		htmlCanvas.width = htmlElement.offsetWidth;
 		htmlCanvas.height = htmlElement.offsetHeight;
 		htmlCanvas.style.position = "absolute";
-		htmlCanvas.style.zIndex = "-1";
+		//htmlCanvas.style.zIndex = "-1";
 	}
 
 	/**

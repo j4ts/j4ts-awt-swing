@@ -77,19 +77,19 @@ var java;
                 }
                 else if (((source != null && source instanceof java.awt.Event) || source === null) && id === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var event = __args[0];
+                    var event_1 = __args[0];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var source = event.target;
-                        var id = event.id;
-                        _super.call(this, source);
+                        var __args_1 = Array.prototype.slice.call(arguments);
+                        var source_1 = event_1.target;
+                        var id_1 = event_1.id;
+                        _super.call(this, source_1);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                         this.id = 0;
                         this.consumed = false;
                         (function () {
-                            _this.id = id;
+                            _this.id = id_1;
                             _this.consumed = false;
-                            switch ((id)) {
+                            switch ((id_1)) {
                                 case java.awt.event.ActionEvent.ACTION_PERFORMED_$LI$():
                                 case java.awt.event.ItemEvent.ITEM_STATE_CHANGED_$LI$():
                                 case java.awt.event.AdjustmentEvent.ADJUSTMENT_VALUE_CHANGED_$LI$():
@@ -937,19 +937,19 @@ var java;
                 else if (((typeof r === 'number') || r === null) && ((typeof g === 'number') || g === null) && ((typeof b === 'number') || b === null) && ((typeof a === 'number') || a === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var r = ((r * 255 + 0.5) | 0);
-                        var g = ((g * 255 + 0.5) | 0);
-                        var b = ((b * 255 + 0.5) | 0);
-                        var a = ((a * 255 + 0.5) | 0);
+                        var __args_2 = Array.prototype.slice.call(arguments);
+                        var r_1 = ((__args_2[0] * 255 + 0.5) | 0);
+                        var g_1 = ((__args_2[1] * 255 + 0.5) | 0);
+                        var b_1 = ((__args_2[2] * 255 + 0.5) | 0);
+                        var a_1 = ((__args_2[3] * 255 + 0.5) | 0);
                         this.frgbvalue = null;
                         this.fvalue = null;
                         this.falpha = 0.0;
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Paint", "java.io.Serializable"] });
                         this.value = 0;
                         (function () {
-                            _this.value = ((a & 255) << 24) | ((r & 255) << 16) | ((g & 255) << 8) | ((b & 255) << 0);
-                            Color.testColorValueRange(r, g, b, a);
+                            _this.value = ((a_1 & 255) << 24) | ((r_1 & 255) << 16) | ((g_1 & 255) << 8) | ((b_1 & 255) << 0);
+                            Color.testColorValueRange(r_1, g_1, b_1, a_1);
                         })();
                     }
                     (function () {
@@ -964,43 +964,39 @@ var java;
                 else if (((typeof r === 'number') || r === null) && ((typeof g === 'number') || g === null) && ((typeof b === 'number') || b === null) && a === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var a = 255;
+                        var __args_3 = Array.prototype.slice.call(arguments);
+                        var a_2 = 255;
                         this.frgbvalue = null;
                         this.fvalue = null;
                         this.falpha = 0.0;
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Paint", "java.io.Serializable"] });
                         this.value = 0;
                         (function () {
-                            _this.value = ((a & 255) << 24) | ((r & 255) << 16) | ((g & 255) << 8) | ((b & 255) << 0);
-                            Color.testColorValueRange(r, g, b, a);
+                            _this.value = ((a_2 & 255) << 24) | ((r & 255) << 16) | ((g & 255) << 8) | ((b & 255) << 0);
+                            Color.testColorValueRange(r, g, b, a_2);
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (((typeof r === 'number') || r === null) && ((typeof g === 'number') || g === null) && ((typeof b === 'number') || b === null) && a === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var r = ((r * 255 + 0.5) | 0);
-                        var g = ((g * 255 + 0.5) | 0);
-                        var b = ((b * 255 + 0.5) | 0);
+                        var __args_4 = Array.prototype.slice.call(arguments);
+                        var r_2 = ((__args_4[0] * 255 + 0.5) | 0);
+                        var g_2 = ((__args_4[1] * 255 + 0.5) | 0);
+                        var b_2 = ((__args_4[2] * 255 + 0.5) | 0);
                         {
-                            var __args = Array.prototype.slice.call(arguments);
-                            var a = 255;
+                            var __args_5 = Array.prototype.slice.call(arguments);
+                            var a_4 = 255;
                             this.frgbvalue = null;
                             this.fvalue = null;
                             this.falpha = 0.0;
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Paint", "java.io.Serializable"] });
                             this.value = 0;
                             (function () {
-                                _this.value = ((a & 255) << 24) | ((r & 255) << 16) | ((g & 255) << 8) | ((b & 255) << 0);
-                                Color.testColorValueRange(r, g, b, a);
+                                _this.value = ((a_4 & 255) << 24) | ((r_2 & 255) << 16) | ((g_2 & 255) << 8) | ((b_2 & 255) << 0);
+                                Color.testColorValueRange(r_2, g_2, b_2, a_4);
                             })();
                         }
-                        (function () {
-                        })();
                     }
                     (function () {
                         Color.testColorValueRange(r, g, b, 1.0);
@@ -1014,32 +1010,32 @@ var java;
                 }
                 else if (((typeof r === 'number') || r === null) && ((typeof g === 'boolean') || g === null) && b === undefined && a === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var rgba = __args[0];
-                    var hasalpha = __args[1];
+                    var rgba_1 = __args[0];
+                    var hasalpha_1 = __args[1];
                     this.frgbvalue = null;
                     this.fvalue = null;
                     this.falpha = 0.0;
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Paint", "java.io.Serializable"] });
                     this.value = 0;
                     (function () {
-                        if (hasalpha) {
-                            _this.value = rgba;
+                        if (hasalpha_1) {
+                            _this.value = rgba_1;
                         }
                         else {
-                            _this.value = -16777216 | rgba;
+                            _this.value = -16777216 | rgba_1;
                         }
                     })();
                 }
                 else if (((typeof r === 'number') || r === null) && g === undefined && b === undefined && a === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var rgb = __args[0];
+                    var rgb_1 = __args[0];
                     this.frgbvalue = null;
                     this.fvalue = null;
                     this.falpha = 0.0;
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Paint", "java.io.Serializable"] });
                     this.value = 0;
                     (function () {
-                        _this.value = -16777216 | rgb;
+                        _this.value = -16777216 | rgb_1;
                     })();
                 }
                 else
@@ -1819,7 +1815,7 @@ var java;
             Component.prototype.bindHTML = function (htmlElement) {
                 if (this.htmlElement != null) {
                     if (htmlElement.tagName === this.htmlElement.tagName) {
-                        var nodes = new Array();
+                        var nodes = (new Array());
                         for (var index121 = 0; index121 < this.htmlElement.childNodes.length; index121++) {
                             var n = this.htmlElement.childNodes[index121];
                             {
@@ -2229,15 +2225,15 @@ var java;
                 }
                 else if (((typeof name === 'number') || name === null)) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var type = __args[0];
+                    var type_1 = __args[0];
                     this.type = Cursor.DEFAULT_CURSOR;
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                     (function () {
-                        if (type < Cursor.DEFAULT_CURSOR || type > Cursor.MOVE_CURSOR) {
+                        if (type_1 < Cursor.DEFAULT_CURSOR || type_1 > Cursor.MOVE_CURSOR) {
                             throw new java.lang.IllegalArgumentException("illegal cursor type");
                         }
-                        _this.type = type;
-                        _this.name = java.awt.Toolkit.getProperty(Cursor.cursorProperties_$LI$()[type][0], Cursor.cursorProperties_$LI$()[type][1]);
+                        _this.type = type_1;
+                        _this.name = java.awt.Toolkit.getProperty(Cursor.cursorProperties_$LI$()[type_1][0], Cursor.cursorProperties_$LI$()[type_1][1]);
                     })();
                 }
                 else
@@ -2824,8 +2820,8 @@ var java;
                 else if (((target != null) || target === null) && ((typeof when === 'number') || when === null) && ((typeof id === 'number') || id === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof key === 'number') || key === null) && ((typeof modifiers === 'number') || modifiers === null) && arg === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var arg = null;
+                        var __args_6 = Array.prototype.slice.call(arguments);
+                        var arg_1 = null;
                         this.consumed = false;
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                         this.data = 0;
@@ -2844,7 +2840,7 @@ var java;
                             _this.y = y;
                             _this.key = key;
                             _this.modifiers = modifiers;
-                            _this.arg = arg;
+                            _this.arg = arg_1;
                             _this.data = 0;
                             _this.clickCount = 0;
                             switch ((id)) {
@@ -2868,20 +2864,18 @@ var java;
                             }
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (((target != null) || target === null) && ((typeof when === 'number') || when === null) && ((id != null) || id === null) && x === undefined && y === undefined && key === undefined && modifiers === undefined && arg === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var id = __args[1];
-                    var arg = __args[2];
+                    var id_2 = __args[1];
+                    var arg_2 = __args[2];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var when = 0;
-                        var x = 0;
-                        var y = 0;
-                        var key = 0;
-                        var modifiers = 0;
+                        var __args_7 = Array.prototype.slice.call(arguments);
+                        var when_1 = 0;
+                        var x_1 = 0;
+                        var y_1 = 0;
+                        var key_1 = 0;
+                        var modifiers_1 = 0;
                         this.consumed = false;
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                         this.data = 0;
@@ -2894,16 +2888,16 @@ var java;
                         this.clickCount = 0;
                         (function () {
                             _this.target = target;
-                            _this.when = when;
-                            _this.id = id;
-                            _this.x = x;
-                            _this.y = y;
-                            _this.key = key;
-                            _this.modifiers = modifiers;
-                            _this.arg = arg;
+                            _this.when = when_1;
+                            _this.id = id_2;
+                            _this.x = x_1;
+                            _this.y = y_1;
+                            _this.key = key_1;
+                            _this.modifiers = modifiers_1;
+                            _this.arg = arg_2;
                             _this.data = 0;
                             _this.clickCount = 0;
-                            switch ((id)) {
+                            switch ((id_2)) {
                                 case Event.ACTION_EVENT_$LI$():
                                 case Event.WINDOW_DESTROY_$LI$():
                                 case Event.WINDOW_ICONIFY_$LI$():
@@ -2924,8 +2918,6 @@ var java;
                             }
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else
                     throw new Error('invalid overload');
@@ -3243,17 +3235,17 @@ var java;
                 }
                 else if (((name != null && name instanceof java.awt.Font) || name === null) && style === undefined && sizePts === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var font = __args[0];
+                    var font_1 = __args[0];
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                     this.style = 0;
                     this.size = 0;
                     this.pointSize = 0;
                     this.hash = 0;
                     (function () {
-                        _this.name = font.name;
-                        _this.style = font.style;
-                        _this.size = font.size;
-                        _this.pointSize = font.pointSize;
+                        _this.name = font_1.name;
+                        _this.style = font_1.style;
+                        _this.size = font_1.size;
+                        _this.pointSize = font_1.pointSize;
                     })();
                 }
                 else
@@ -3682,7 +3674,7 @@ var java;
                     }
                     else if (((m00 != null && m00 instanceof java.awt.geom.AffineTransform) || m00 === null) && m10 === undefined && m01 === undefined && m11 === undefined && m02 === undefined && m12 === undefined && state === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
-                        var Tx = __args[0];
+                        var Tx_1 = __args[0];
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                         this.m00 = 0;
                         this.m10 = 0;
@@ -3693,19 +3685,19 @@ var java;
                         this.state = 0;
                         this.type = 0;
                         (function () {
-                            _this.m00 = Tx.m00;
-                            _this.m10 = Tx.m10;
-                            _this.m01 = Tx.m01;
-                            _this.m11 = Tx.m11;
-                            _this.m02 = Tx.m02;
-                            _this.m12 = Tx.m12;
-                            _this.state = Tx.state;
-                            _this.type = Tx.type;
+                            _this.m00 = Tx_1.m00;
+                            _this.m10 = Tx_1.m10;
+                            _this.m01 = Tx_1.m01;
+                            _this.m11 = Tx_1.m11;
+                            _this.m02 = Tx_1.m02;
+                            _this.m12 = Tx_1.m12;
+                            _this.state = Tx_1.state;
+                            _this.type = Tx_1.type;
                         })();
                     }
                     else if (((m00 != null && m00 instanceof Array) || m00 === null) && m10 === undefined && m01 === undefined && m11 === undefined && m02 === undefined && m12 === undefined && state === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
-                        var flatmatrix = __args[0];
+                        var flatmatrix_1 = __args[0];
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                         this.m00 = 0;
                         this.m10 = 0;
@@ -3716,20 +3708,20 @@ var java;
                         this.state = 0;
                         this.type = 0;
                         (function () {
-                            _this.m00 = flatmatrix[0];
-                            _this.m10 = flatmatrix[1];
-                            _this.m01 = flatmatrix[2];
-                            _this.m11 = flatmatrix[3];
-                            if (flatmatrix.length > 5) {
-                                _this.m02 = flatmatrix[4];
-                                _this.m12 = flatmatrix[5];
+                            _this.m00 = flatmatrix_1[0];
+                            _this.m10 = flatmatrix_1[1];
+                            _this.m01 = flatmatrix_1[2];
+                            _this.m11 = flatmatrix_1[3];
+                            if (flatmatrix_1.length > 5) {
+                                _this.m02 = flatmatrix_1[4];
+                                _this.m12 = flatmatrix_1[5];
                             }
                             _this.updateState();
                         })();
                     }
                     else if (((m00 != null && m00 instanceof Array) || m00 === null) && m10 === undefined && m01 === undefined && m11 === undefined && m02 === undefined && m12 === undefined && state === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
-                        var flatmatrix = __args[0];
+                        var flatmatrix_2 = __args[0];
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                         this.m00 = 0;
                         this.m10 = 0;
@@ -3740,13 +3732,13 @@ var java;
                         this.state = 0;
                         this.type = 0;
                         (function () {
-                            _this.m00 = flatmatrix[0];
-                            _this.m10 = flatmatrix[1];
-                            _this.m01 = flatmatrix[2];
-                            _this.m11 = flatmatrix[3];
-                            if (flatmatrix.length > 5) {
-                                _this.m02 = flatmatrix[4];
-                                _this.m12 = flatmatrix[5];
+                            _this.m00 = flatmatrix_2[0];
+                            _this.m10 = flatmatrix_2[1];
+                            _this.m01 = flatmatrix_2[2];
+                            _this.m11 = flatmatrix_2[3];
+                            if (flatmatrix_2.length > 5) {
+                                _this.m02 = flatmatrix_2[4];
+                                _this.m12 = flatmatrix_2[5];
                             }
                             _this.updateState();
                         })();
@@ -4586,8 +4578,8 @@ var java;
                             this.rotate180();
                         }
                         else if (cos !== 1.0) {
-                            var M0;
-                            var M1;
+                            var M0 = void 0;
+                            var M1 = void 0;
                             M0 = this.m00;
                             M1 = this.m01;
                             this.m00 = cos * M0 + sin * M1;
@@ -4667,8 +4659,8 @@ var java;
                         var len = Math.sqrt(vecx * vecx + vecy * vecy);
                         var sin = vecy / len;
                         var cos = vecx / len;
-                        var M0;
-                        var M1;
+                        var M0 = void 0;
+                        var M1 = void 0;
                         M0 = this.m00;
                         M1 = this.m01;
                         this.m00 = cos * M0 + sin * M1;
@@ -4891,8 +4883,8 @@ var java;
                             return;
                         case (AffineTransform.APPLY_SHEAR | AffineTransform.APPLY_SCALE | AffineTransform.APPLY_TRANSLATE):
                         case (AffineTransform.APPLY_SHEAR | AffineTransform.APPLY_SCALE):
-                            var M0;
-                            var M1;
+                            var M0 = void 0;
+                            var M1 = void 0;
                             M0 = this.m00;
                             M1 = this.m01;
                             this.m00 = M0 + M1 * shy;
@@ -7638,7 +7630,7 @@ var java;
                     Area.EmptyCurves = new java.util.Vector(); return Area.EmptyCurves; };
                 ;
                 Area.pathToCurves = function (pi) {
-                    var curves = new java.util.Vector();
+                    var curves = (new java.util.Vector());
                     var windingRule = pi.getWindingRule();
                     var coords = new Array(23);
                     var movx = 0;
@@ -7842,7 +7834,7 @@ var java;
                  * @since 1.2
                  */
                 Area.prototype.reset = function () {
-                    this.curves = new java.util.Vector();
+                    this.curves = (new java.util.Vector());
                     this.invalidateBounds();
                 };
                 /**
@@ -9271,8 +9263,6 @@ var java;
                             this.ctrly2 = 0;
                             this.x2 = 0;
                             this.y2 = 0;
-                            (function () {
-                            })();
                         }
                         else
                             throw new Error('invalid overload');
@@ -9536,8 +9526,6 @@ var java;
                             this.ctrly2 = 0;
                             this.x2 = 0;
                             this.y2 = 0;
-                            (function () {
-                            })();
                         }
                         else
                             throw new Error('invalid overload');
@@ -10049,9 +10037,9 @@ var java;
                                 return java.awt.geom.PathIterator.SEG_CLOSE;
                             }
                             if (_this.index === 0) {
-                                var ctrls = EllipseIterator.ctrlpts_$LI$()[3];
-                                coords[0] = (_this.x + ctrls[4] * _this.w);
-                                coords[1] = (_this.y + ctrls[5] * _this.h);
+                                var ctrls_1 = EllipseIterator.ctrlpts_$LI$()[3];
+                                coords[0] = (_this.x + ctrls_1[4] * _this.w);
+                                coords[1] = (_this.y + ctrls_1[5] * _this.h);
                                 if (_this.affine != null) {
                                     _this.affine.transform(coords, 0, coords, 0, 1);
                                 }
@@ -10100,9 +10088,9 @@ var java;
                         return java.awt.geom.PathIterator.SEG_CLOSE;
                     }
                     if (this.index === 0) {
-                        var ctrls = EllipseIterator.ctrlpts_$LI$()[3];
-                        coords[0] = this.x + ctrls[4] * this.w;
-                        coords[1] = this.y + ctrls[5] * this.h;
+                        var ctrls_2 = EllipseIterator.ctrlpts_$LI$()[3];
+                        coords[0] = this.x + ctrls_2[4] * this.w;
+                        coords[1] = this.y + ctrls_2[5] * this.h;
                         if (this.affine != null) {
                             this.affine.transform(coords, 0, coords, 0, 1);
                         }
@@ -10461,15 +10449,11 @@ var java;
                         _super.call(this, s);
                         this.message = s;
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
-                        (function () {
-                        })();
                     }
                     else if (s === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
-                        (function () {
-                        })();
                     }
                     else
                         throw new Error('invalid overload');
@@ -11367,8 +11351,8 @@ var java;
                         }
                         else if (((x1 != null && x1 instanceof java.awt.geom.Point2D) || x1 === null) && ((y1 != null && y1 instanceof java.awt.geom.Point2D) || y1 === null) && x2 === undefined && y2 === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
-                            var p1 = __args[0];
-                            var p2 = __args[1];
+                            var p1_1 = __args[0];
+                            var p2_1 = __args[1];
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
@@ -11376,7 +11360,7 @@ var java;
                             this.x2 = 0;
                             this.y2 = 0;
                             (function () {
-                                _this.setLine(p1, p2);
+                                _this.setLine(p1_1, p2_1);
                             })();
                         }
                         else if (x1 === undefined && y1 === undefined && x2 === undefined && y2 === undefined) {
@@ -11387,8 +11371,6 @@ var java;
                             this.y1 = 0;
                             this.x2 = 0;
                             this.y2 = 0;
-                            (function () {
-                            })();
                         }
                         else
                             throw new Error('invalid overload');
@@ -11559,8 +11541,8 @@ var java;
                         }
                         else if (((x1 != null && x1 instanceof java.awt.geom.Point2D) || x1 === null) && ((y1 != null && y1 instanceof java.awt.geom.Point2D) || y1 === null) && x2 === undefined && y2 === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
-                            var p1 = __args[0];
-                            var p2 = __args[1];
+                            var p1_2 = __args[0];
+                            var p2_2 = __args[1];
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
@@ -11568,7 +11550,7 @@ var java;
                             this.x2 = 0;
                             this.y2 = 0;
                             (function () {
-                                _this.setLine(p1, p2);
+                                _this.setLine(p1_2, p2_2);
                             })();
                         }
                         else if (x1 === undefined && y1 === undefined && x2 === undefined && y2 === undefined) {
@@ -11579,8 +11561,6 @@ var java;
                             this.y1 = 0;
                             this.x2 = 0;
                             this.y2 = 0;
-                            (function () {
-                            })();
                         }
                         else
                             throw new Error('invalid overload');
@@ -12260,8 +12240,6 @@ var java;
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
-                            (function () {
-                            })();
                         }
                         else
                             throw new Error('invalid overload');
@@ -12373,8 +12351,6 @@ var java;
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
-                            (function () {
-                            })();
                         }
                         else
                             throw new Error('invalid overload');
@@ -13325,8 +13301,6 @@ var java;
                             this.ctrly = 0;
                             this.x2 = 0;
                             this.y2 = 0;
-                            (function () {
-                            })();
                         }
                         else
                             throw new Error('invalid overload');
@@ -13534,8 +13508,6 @@ var java;
                             this.ctrly = 0;
                             this.x2 = 0;
                             this.y2 = 0;
-                            (function () {
-                            })();
                         }
                         else
                             throw new Error('invalid overload');
@@ -14815,15 +14787,11 @@ var java;
                     var __args = Array.prototype.slice.call(arguments);
                     _super.call(this, s);
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
-                    (function () {
-                    })();
                 }
                 else if (s === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     _super.call(this);
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
-                    (function () {
-                    })();
                 }
                 else
                     throw new Error('invalid overload');
@@ -15165,7 +15133,7 @@ var java;
                     if (cury === lasty) {
                         continue;
                     }
-                    var leftx;
+                    var leftx = void 0;
                     if (curx < lastx) {
                         if (x >= lastx) {
                             continue;
@@ -15178,8 +15146,8 @@ var java;
                         }
                         leftx = lastx;
                     }
-                    var test1;
-                    var test2;
+                    var test1 = void 0;
+                    var test2 = void 0;
                     if (cury < lasty) {
                         if (y < cury || y >= lasty) {
                             continue;
@@ -15381,7 +15349,7 @@ var java;
     (function (awt) {
         var Toolkit = (function () {
             function Toolkit() {
-                this.images = new java.util.HashMap();
+                this.images = (new java.util.HashMap());
             }
             Toolkit.getProperty = function (key, defaultValue) {
                 return defaultValue;
@@ -15394,9 +15362,9 @@ var java;
             };
             Toolkit.prototype.createImage = function (filename) {
                 try {
-                    var image = javax.imageio.ImageIO.read(new java.io.File(filename));
-                    this.images.put(filename, image);
-                    return image;
+                    var image_1 = javax.imageio.ImageIO.read(new java.io.File(filename));
+                    this.images.put(filename, image_1);
+                    return image_1;
                 }
                 catch (e) {
                     return null;
@@ -15443,7 +15411,7 @@ var java;
             ChangeListenerMap.prototype.newProxy$java_lang_String$java_util_EventListener = function (name, listener) { throw new Error('cannot invoke abstract overloaded method... check your argument(s) type(s)'); };
             ChangeListenerMap.prototype.add = function (name, listener) {
                 if (this.map == null) {
-                    this.map = new java.util.HashMap();
+                    this.map = (new java.util.HashMap());
                 }
                 var array = this.map.get(name);
                 var size = (array != null) ? array.length : 0;
@@ -15500,7 +15468,7 @@ var java;
             ChangeListenerMap.prototype.set = function (name, listeners) {
                 if (listeners != null) {
                     if (this.map == null) {
-                        this.map = new java.util.HashMap();
+                        this.map = (new java.util.HashMap());
                     }
                     this.map.put(name, listeners);
                 }
@@ -15520,7 +15488,7 @@ var java;
                 if (this.map == null) {
                     return this.newArray(0);
                 }
-                var list = new java.util.ArrayList();
+                var list = (new java.util.ArrayList());
                 var listeners = this.map.get(null);
                 if (listeners != null) {
                     for (var index123 = 0; index123 < listeners.length; index123++) {
@@ -15533,14 +15501,14 @@ var java;
                 for (var index124 = this.map.entrySet().iterator(); index124.hasNext();) {
                     var entry = index124.next();
                     {
-                        var name = entry.getKey();
-                        if (name != null) {
+                        var name_1 = entry.getKey();
+                        if (name_1 != null) {
                             {
                                 var array126 = entry.getValue();
                                 for (var index125 = 0; index125 < array126.length; index125++) {
                                     var listener = array126[index125];
                                     {
-                                        list.add(this.newProxy(name, listener));
+                                        list.add(this.newProxy(name_1, listener));
                                     }
                                 }
                             }
@@ -15769,7 +15737,7 @@ var javax;
                 if (((typeof name === 'string') || name === null) && ((icon != null && icon["__interfaces"] != null && icon["__interfaces"].indexOf("javax.swing.Icon") >= 0) || icon === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
+                        var __args_8 = Array.prototype.slice.call(arguments);
                         this.enabled = true;
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "java.lang.Cloneable", "java.awt.event.ActionListener", "javax.swing.Action", "java.io.Serializable"] });
                         (function () {
@@ -15792,8 +15760,6 @@ var javax;
                     var __args = Array.prototype.slice.call(arguments);
                     this.enabled = true;
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "java.lang.Cloneable", "java.awt.event.ActionListener", "javax.swing.Action", "java.io.Serializable"] });
-                    (function () {
-                    })();
                 }
                 else
                     throw new Error('invalid overload');
@@ -15863,7 +15829,7 @@ var javax;
                 }
                 else {
                     if (this.arrayTable == null) {
-                        this.arrayTable = new java.util.HashMap();
+                        this.arrayTable = (new java.util.HashMap());
                     }
                     if (this.arrayTable.containsKey(key))
                         oldValue = this.arrayTable.get(key);
@@ -15988,7 +15954,7 @@ var javax;
                 var newAction = javaemul.internal.ObjectHelper.clone(this);
                 {
                     if (this.arrayTable != null) {
-                        newAction.arrayTable = new java.util.Hashtable(this.arrayTable);
+                        newAction.arrayTable = (new java.util.Hashtable(this.arrayTable));
                     }
                 }
                 ;
@@ -16358,7 +16324,7 @@ var javax;
     (function (swing) {
         var ButtonGroup = (function () {
             function ButtonGroup() {
-                this.buttons = new java.util.Vector();
+                this.buttons = (new java.util.Vector());
                 this.selection = null;
                 Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
             }
@@ -16506,8 +16472,6 @@ var javax;
                     this.max = 100;
                     this.isAdjusting = false;
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.BoundedRangeModel", "java.io.Serializable"] });
-                    (function () {
-                    })();
                 }
                 else
                     throw new Error('invalid overload');
@@ -18319,16 +18283,16 @@ var javax;
                 }
                 else if (((filename != null && filename instanceof java.awt.Image) || filename === null) && ((typeof description === 'string') || description === null)) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var image = __args[0];
+                    var image_2 = __args[0];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
+                        var __args_9 = Array.prototype.slice.call(arguments);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.Icon", "java.io.Serializable"] });
                         this.loadStatus = 0;
                         this.width = 0;
                         this.height = 0;
                         (function () {
-                            _this.image = image;
-                            _this.loadImage(image);
+                            _this.image = image_2;
+                            _this.loadImage(image_2);
                         })();
                     }
                     (function () {
@@ -18338,8 +18302,8 @@ var javax;
                 else if (((typeof filename === 'string') || filename === null) && description === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var description = filename;
+                        var __args_10 = Array.prototype.slice.call(arguments);
+                        var description_1 = __args_10[0];
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.Icon", "java.io.Serializable"] });
                         this.loadStatus = 0;
                         this.width = 0;
@@ -18350,23 +18314,21 @@ var javax;
                                 return;
                             }
                             _this.filename = filename;
-                            _this.description = description;
+                            _this.description = description_1;
                             _this.loadImage(_this.image);
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (((filename != null && filename instanceof java.awt.Image) || filename === null) && description === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var image = __args[0];
+                    var image_3 = __args[0];
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.Icon", "java.io.Serializable"] });
                     this.loadStatus = 0;
                     this.width = 0;
                     this.height = 0;
                     (function () {
-                        _this.image = image;
-                        _this.loadImage(image);
+                        _this.image = image_3;
+                        _this.loadImage(image_3);
                     })();
                 }
                 else if (filename === undefined && description === undefined) {
@@ -18375,8 +18337,6 @@ var javax;
                     this.loadStatus = 0;
                     this.width = 0;
                     this.height = 0;
-                    (function () {
-                    })();
                 }
                 else
                     throw new Error('invalid overload');
@@ -18980,7 +18940,7 @@ var javax;
                     this.realSource = r == null ? this : r;
                     this.updateLevel = 0;
                     this.compoundEdit = null;
-                    this.listeners = new java.util.Vector();
+                    this.listeners = (new java.util.Vector());
                 }
                 /**
                  * Registers an <code>UndoableEditListener</code>. The listener is notified
@@ -19203,7 +19163,7 @@ var sun;
                 function Crossings(xlo, ylo, xhi, yhi) {
                     this.limit = 0;
                     this.yranges = new Array(10);
-                    this.tmp = new java.util.Vector();
+                    this.tmp = (new java.util.Vector());
                     this.xlo = 0;
                     this.ylo = 0;
                     this.xhi = 0;
@@ -19491,10 +19451,10 @@ var sun;
                                 yend = yrhi;
                                 continue;
                             }
-                            var yll;
-                            var ylh;
-                            var yhl;
-                            var yhh;
+                            var yll = void 0;
+                            var ylh = void 0;
+                            var yhl = void 0;
+                            var yhh = void 0;
                             if (ystart < yrlo) {
                                 yll = ystart;
                                 ylh = yrlo;
@@ -19851,7 +19811,7 @@ var sun;
                     var yc1 = (yc + y1) / 2;
                     xc = (x0c + xc1) / 2;
                     yc = (y0c + yc1) / 2;
-                    if ((Number.NaN === xc) || (Number.NaN === yc)) {
+                    if (isNaN(xc) || isNaN(yc)) {
                         return 0;
                     }
                     return (Curve.pointCrossingsForQuad(px, py, x0, y0, x0c, y0c, xc, yc, level + 1) + Curve.pointCrossingsForQuad(px, py, xc, yc, xc1, yc1, x1, y1, level + 1));
@@ -19897,7 +19857,7 @@ var sun;
                     var ymc1 = (ymid + yc1) / 2;
                     xmid = (xc0m + xmc1) / 2;
                     ymid = (yc0m + ymc1) / 2;
-                    if ((Number.NaN === xmid) || (Number.NaN === ymid)) {
+                    if (isNaN(xmid) || isNaN(ymid)) {
                         return 0;
                     }
                     return (Curve.pointCrossingsForCubic(px, py, x0, y0, xc0, yc0, xc0m, yc0m, xmid, ymid, level + 1) + Curve.pointCrossingsForCubic(px, py, xmid, ymid, xmc1, ymc1, xc1, yc1, x1, y1, level + 1));
@@ -20081,7 +20041,7 @@ var sun;
                     var yc1 = (yc + y1) / 2;
                     xc = (x0c + xc1) / 2;
                     yc = (y0c + yc1) / 2;
-                    if ((Number.NaN === xc) || (Number.NaN === yc)) {
+                    if (isNaN(xc) || isNaN(yc)) {
                         return 0;
                     }
                     crossings = Curve.rectCrossingsForQuad(crossings, rxmin, rymin, rxmax, rymax, x0, y0, x0c, y0c, xc, yc, level + 1);
@@ -20138,7 +20098,7 @@ var sun;
                     var ymc1 = (ymid + yc1) / 2;
                     xmid = (xc0m + xmc1) / 2;
                     ymid = (yc0m + ymc1) / 2;
-                    if ((Number.NaN === xmid) || (Number.NaN === ymid)) {
+                    if (isNaN(xmid) || isNaN(ymid)) {
                         return 0;
                     }
                     crossings = Curve.rectCrossingsForCubic(crossings, rxmin, rymin, rxmax, rymax, x0, y0, xc0, yc0, xc0m, yc0m, xmid, ymid, level + 1);
@@ -21192,7 +21152,7 @@ var java;
                 if (((typeof label === 'string') || label === null) && ((group != null && group instanceof java.awt.CheckboxGroup) || group === null) && ((typeof state === 'boolean') || state === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
+                        var __args_11 = Array.prototype.slice.call(arguments);
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent"] });
                         this.state = false;
@@ -21200,98 +21160,90 @@ var java;
                             _this.label = label;
                             _this.state = state;
                             _this.group = group;
-                            _this.itemListeners = new Array();
+                            _this.itemListeners = (new Array());
                             if (state && (group != null)) {
                                 group.setSelectedCheckbox(_this);
                             }
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (((typeof label === 'string') || label === null) && ((typeof group === 'boolean') || group === null) && ((state != null && state instanceof java.awt.CheckboxGroup) || state === null)) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var state = __args[1];
-                    var group = __args[2];
+                    var state_1 = __args[1];
+                    var group_1 = __args[2];
                     _super.call(this);
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent"] });
                     this.state = false;
                     (function () {
                         _this.label = label;
-                        _this.state = state;
-                        _this.group = group;
-                        _this.itemListeners = new Array();
-                        if (state && (group != null)) {
-                            group.setSelectedCheckbox(_this);
+                        _this.state = state_1;
+                        _this.group = group_1;
+                        _this.itemListeners = (new Array());
+                        if (state_1 && (group_1 != null)) {
+                            group_1.setSelectedCheckbox(_this);
                         }
                     })();
                 }
                 else if (((typeof label === 'string') || label === null) && ((typeof group === 'boolean') || group === null) && state === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var state = __args[1];
+                    var state_2 = __args[1];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var group = null;
+                        var __args_12 = Array.prototype.slice.call(arguments);
+                        var group_2 = null;
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent"] });
                         this.state = false;
                         (function () {
                             _this.label = label;
-                            _this.state = state;
-                            _this.group = group;
-                            _this.itemListeners = new Array();
-                            if (state && (group != null)) {
-                                group.setSelectedCheckbox(_this);
+                            _this.state = state_2;
+                            _this.group = group_2;
+                            _this.itemListeners = (new Array());
+                            if (state_2 && (group_2 != null)) {
+                                group_2.setSelectedCheckbox(_this);
                             }
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (((typeof label === 'string') || label === null) && group === undefined && state === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var state = false;
-                        var group = null;
+                        var __args_13 = Array.prototype.slice.call(arguments);
+                        var state_3 = false;
+                        var group_3 = null;
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent"] });
                         this.state = false;
                         (function () {
                             _this.label = label;
-                            _this.state = state;
-                            _this.group = group;
-                            _this.itemListeners = new Array();
-                            if (state && (group != null)) {
-                                group.setSelectedCheckbox(_this);
+                            _this.state = state_3;
+                            _this.group = group_3;
+                            _this.itemListeners = (new Array());
+                            if (state_3 && (group_3 != null)) {
+                                group_3.setSelectedCheckbox(_this);
                             }
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (label === undefined && group === undefined && state === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var label = "";
-                        var state = false;
-                        var group = null;
+                        var __args_14 = Array.prototype.slice.call(arguments);
+                        var label_1 = "";
+                        var state_4 = false;
+                        var group_4 = null;
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent"] });
                         this.state = false;
                         (function () {
-                            _this.label = label;
-                            _this.state = state;
-                            _this.group = group;
-                            _this.itemListeners = new Array();
-                            if (state && (group != null)) {
-                                group.setSelectedCheckbox(_this);
+                            _this.label = label_1;
+                            _this.state = state_4;
+                            _this.group = group_4;
+                            _this.itemListeners = (new Array());
+                            if (state_4 && (group_4 != null)) {
+                                group_4.setSelectedCheckbox(_this);
                             }
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else
                     throw new Error('invalid overload');
@@ -21413,7 +21365,7 @@ var java;
                 return this.itemListeners;
             };
             Checkbox.prototype.getListeners = function (listenerType) {
-                var result = new Array();
+                var result = (new Array());
                 for (var i = 0; i < this.itemListeners.length; i++) {
                     if (this.itemListeners[i].constructor === listenerType) {
                         result.push((this.itemListeners[i]));
@@ -21457,8 +21409,8 @@ var java;
                 _super.call(this);
                 this.selectedIndex = -1;
                 Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent"] });
-                this.pItems = new java.util.Vector();
-                this.itemListeners = new Array();
+                this.pItems = (new java.util.Vector());
+                this.itemListeners = (new Array());
             }
             Choice.prototype.createHTML = function () {
                 this.htmlElement = document.createElement("select");
@@ -21655,7 +21607,7 @@ var java;
                 return this.itemListeners;
             };
             Choice.prototype.getListeners = function (listenerType) {
-                var result = new Array();
+                var result = (new Array());
                 for (var i = 0; i < this.itemListeners.length; i++) {
                     if (this.itemListeners[i].constructor === listenerType) {
                         result.push((this.itemListeners[i]));
@@ -22001,46 +21953,40 @@ var java;
                     }
                     else if (((source != null) || source === null) && ((typeof id === 'number') || id === null) && ((typeof command === 'string') || command === null) && ((typeof when === 'number') || when === null) && modifiers === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
-                        var modifiers = __args[3];
+                        var modifiers_2 = __args[3];
                         {
-                            var __args = Array.prototype.slice.call(arguments);
-                            var when = 0;
+                            var __args_15 = Array.prototype.slice.call(arguments);
+                            var when_2 = 0;
                             _super.call(this, source, id);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                             this.when = 0;
                             this.modifiers = 0;
                             (function () {
                                 _this.actionCommand = command;
-                                _this.when = when;
-                                _this.modifiers = modifiers;
+                                _this.when = when_2;
+                                _this.modifiers = modifiers_2;
                             })();
                         }
-                        (function () {
-                        })();
                     }
                     else if (((source != null) || source === null) && ((typeof id === 'number') || id === null) && ((typeof command === 'string') || command === null) && when === undefined && modifiers === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
                         {
-                            var __args = Array.prototype.slice.call(arguments);
-                            var modifiers = 0;
+                            var __args_16 = Array.prototype.slice.call(arguments);
+                            var modifiers_3 = 0;
                             {
-                                var __args = Array.prototype.slice.call(arguments);
-                                var when = 0;
+                                var __args_17 = Array.prototype.slice.call(arguments);
+                                var when_3 = 0;
                                 _super.call(this, source, id);
                                 Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                                 this.when = 0;
                                 this.modifiers = 0;
                                 (function () {
                                     _this.actionCommand = command;
-                                    _this.when = when;
-                                    _this.modifiers = modifiers;
+                                    _this.when = when_3;
+                                    _this.modifiers = modifiers_3;
                                 })();
                             }
-                            (function () {
-                            })();
                         }
-                        (function () {
-                        })();
                     }
                     else
                         throw new Error('invalid overload');
@@ -22144,38 +22090,34 @@ var java;
                     var __args = Array.prototype.slice.call(arguments);
                     var d = __args[0];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var width = d.width;
-                        var height = d.height;
+                        var __args_18 = Array.prototype.slice.call(arguments);
+                        var width_1 = d.width;
+                        var height_1 = d.height;
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                         this.width = 0;
                         this.height = 0;
                         (function () {
-                            _this.width = width;
-                            _this.height = height;
+                            _this.width = width_1;
+                            _this.height = height_1;
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (width === undefined && height === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var width = 0;
-                        var height = 0;
+                        var __args_19 = Array.prototype.slice.call(arguments);
+                        var width_2 = 0;
+                        var height_2 = 0;
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                         this.width = 0;
                         this.height = 0;
                         (function () {
-                            _this.width = width;
-                            _this.height = height;
+                            _this.width = width_2;
+                            _this.height = height_2;
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else
                     throw new Error('invalid overload');
@@ -22376,8 +22318,6 @@ var java;
                         this.numTypes = 0;
                         this.numCoords = 0;
                         this.windingRule = 0;
-                        (function () {
-                        })();
                     }
                     else
                         throw new Error('invalid overload');
@@ -22862,7 +22802,7 @@ var java;
                     if (((pi != null && pi["__interfaces"] != null && pi["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0) || pi === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
                         var __args = Array.prototype.slice.call(arguments);
                         return (function () {
-                            if ((Number.NaN === x + w) || (Number.NaN === y + h)) {
+                            if (isNaN(x + w) || isNaN(y + h)) {
                                 return false;
                             }
                             if (w <= 0 || h <= 0) {
@@ -22938,7 +22878,7 @@ var java;
                     if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
                         var __args = Array.prototype.slice.call(arguments);
                         return (function () {
-                            if ((Number.NaN === x + w) || (Number.NaN === y + h)) {
+                            if (isNaN(x + w) || isNaN(y + h)) {
                                 return false;
                             }
                             if (w <= 0 || h <= 0) {
@@ -23019,7 +22959,7 @@ var java;
                     if (((pi != null && pi["__interfaces"] != null && pi["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0) || pi === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
                         var __args = Array.prototype.slice.call(arguments);
                         return (function () {
-                            if ((Number.NaN === x + w) || (Number.NaN === y + h)) {
+                            if (isNaN(x + w) || isNaN(y + h)) {
                                 return false;
                             }
                             if (w <= 0 || h <= 0) {
@@ -23088,7 +23028,7 @@ var java;
                     if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
                         var __args = Array.prototype.slice.call(arguments);
                         return (function () {
-                            if ((Number.NaN === x + w) || (Number.NaN === y + h)) {
+                            if (isNaN(x + w) || isNaN(y + h)) {
                                 return false;
                             }
                             if (w <= 0 || h <= 0) {
@@ -23233,18 +23173,18 @@ var java;
                         else if (((typeof s === 'number') || s === null) && ((typeof at === 'number') || at === null)) {
                             var __args = Array.prototype.slice.call(arguments);
                             var rule = __args[0];
-                            var initialCapacity = __args[1];
-                            _super.call(this, rule, initialCapacity);
+                            var initialCapacity_1 = __args[1];
+                            _super.call(this, rule, initialCapacity_1);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             (function () {
-                                _this.floatCoords = new Array(initialCapacity * 2);
+                                _this.floatCoords = new Array(initialCapacity_1 * 2);
                             })();
                         }
                         else if (((s != null && s["__interfaces"] != null && s["__interfaces"].indexOf("java.awt.Shape") >= 0) || s === null) && at === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
                             {
-                                var __args = Array.prototype.slice.call(arguments);
-                                var at = null;
+                                var __args_20 = Array.prototype.slice.call(arguments);
+                                var at_1 = null;
                                 _super.call(this);
                                 Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                                 (function () {
@@ -23254,10 +23194,10 @@ var java;
                                         _this.numTypes = p2d.numTypes;
                                         _this.pointTypes = java.util.Arrays.copyOf(p2d.pointTypes, p2d.pointTypes.length);
                                         _this.numCoords = p2d.numCoords;
-                                        _this.floatCoords = p2d.cloneCoordsFloat(at);
+                                        _this.floatCoords = p2d.cloneCoordsFloat(at_1);
                                     }
                                     else {
-                                        var pi = s.getPathIterator(at);
+                                        var pi = s.getPathIterator(at_1);
                                         _this.setWindingRule(pi.getWindingRule());
                                         _this.pointTypes = new Array(java.awt.geom.Path2D.INIT_SIZE);
                                         _this.floatCoords = new Array(java.awt.geom.Path2D.INIT_SIZE * 2);
@@ -23265,38 +23205,32 @@ var java;
                                     }
                                 })();
                             }
-                            (function () {
-                            })();
                         }
                         else if (((typeof s === 'number') || s === null) && at === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
                             var rule = __args[0];
                             {
-                                var __args = Array.prototype.slice.call(arguments);
-                                var initialCapacity = java.awt.geom.Path2D.INIT_SIZE;
-                                _super.call(this, rule, initialCapacity);
+                                var __args_21 = Array.prototype.slice.call(arguments);
+                                var initialCapacity_2 = java.awt.geom.Path2D.INIT_SIZE;
+                                _super.call(this, rule, initialCapacity_2);
                                 Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                                 (function () {
-                                    _this.floatCoords = new Array(initialCapacity * 2);
+                                    _this.floatCoords = new Array(initialCapacity_2 * 2);
                                 })();
                             }
-                            (function () {
-                            })();
                         }
                         else if (s === undefined && at === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
                             {
-                                var __args = Array.prototype.slice.call(arguments);
+                                var __args_22 = Array.prototype.slice.call(arguments);
                                 var rule = java.awt.geom.Path2D.WIND_NON_ZERO_$LI$();
-                                var initialCapacity = java.awt.geom.Path2D.INIT_SIZE;
-                                _super.call(this, rule, initialCapacity);
+                                var initialCapacity_3 = java.awt.geom.Path2D.INIT_SIZE;
+                                _super.call(this, rule, initialCapacity_3);
                                 Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                                 (function () {
-                                    _this.floatCoords = new Array(initialCapacity * 2);
+                                    _this.floatCoords = new Array(initialCapacity_3 * 2);
                                 })();
                             }
-                            (function () {
-                            })();
                         }
                         else
                             throw new Error('invalid overload');
@@ -23933,18 +23867,18 @@ var java;
                         else if (((typeof s === 'number') || s === null) && ((typeof at === 'number') || at === null)) {
                             var __args = Array.prototype.slice.call(arguments);
                             var rule = __args[0];
-                            var initialCapacity = __args[1];
-                            _super.call(this, rule, initialCapacity);
+                            var initialCapacity_4 = __args[1];
+                            _super.call(this, rule, initialCapacity_4);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             (function () {
-                                _this.doubleCoords = new Array(initialCapacity * 2);
+                                _this.doubleCoords = new Array(initialCapacity_4 * 2);
                             })();
                         }
                         else if (((s != null && s["__interfaces"] != null && s["__interfaces"].indexOf("java.awt.Shape") >= 0) || s === null) && at === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
                             {
-                                var __args = Array.prototype.slice.call(arguments);
-                                var at = null;
+                                var __args_23 = Array.prototype.slice.call(arguments);
+                                var at_2 = null;
                                 _super.call(this);
                                 Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                                 (function () {
@@ -23954,10 +23888,10 @@ var java;
                                         _this.numTypes = p2d.numTypes;
                                         _this.pointTypes = java.util.Arrays.copyOf(p2d.pointTypes, p2d.pointTypes.length);
                                         _this.numCoords = p2d.numCoords;
-                                        _this.doubleCoords = p2d.cloneCoordsDouble(at);
+                                        _this.doubleCoords = p2d.cloneCoordsDouble(at_2);
                                     }
                                     else {
-                                        var pi = s.getPathIterator(at);
+                                        var pi = s.getPathIterator(at_2);
                                         _this.setWindingRule(pi.getWindingRule());
                                         _this.pointTypes = new Array(java.awt.geom.Path2D.INIT_SIZE);
                                         _this.doubleCoords = new Array(java.awt.geom.Path2D.INIT_SIZE * 2);
@@ -23965,38 +23899,32 @@ var java;
                                     }
                                 })();
                             }
-                            (function () {
-                            })();
                         }
                         else if (((typeof s === 'number') || s === null) && at === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
                             var rule = __args[0];
                             {
-                                var __args = Array.prototype.slice.call(arguments);
-                                var initialCapacity = java.awt.geom.Path2D.INIT_SIZE;
-                                _super.call(this, rule, initialCapacity);
+                                var __args_24 = Array.prototype.slice.call(arguments);
+                                var initialCapacity_5 = java.awt.geom.Path2D.INIT_SIZE;
+                                _super.call(this, rule, initialCapacity_5);
                                 Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                                 (function () {
-                                    _this.doubleCoords = new Array(initialCapacity * 2);
+                                    _this.doubleCoords = new Array(initialCapacity_5 * 2);
                                 })();
                             }
-                            (function () {
-                            })();
                         }
                         else if (s === undefined && at === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
                             {
-                                var __args = Array.prototype.slice.call(arguments);
+                                var __args_25 = Array.prototype.slice.call(arguments);
                                 var rule = java.awt.geom.Path2D.WIND_NON_ZERO_$LI$();
-                                var initialCapacity = java.awt.geom.Path2D.INIT_SIZE;
-                                _super.call(this, rule, initialCapacity);
+                                var initialCapacity_6 = java.awt.geom.Path2D.INIT_SIZE;
+                                _super.call(this, rule, initialCapacity_6);
                                 Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                                 (function () {
-                                    _this.doubleCoords = new Array(initialCapacity * 2);
+                                    _this.doubleCoords = new Array(initialCapacity_6 * 2);
                                 })();
                             }
-                            (function () {
-                            })();
                         }
                         else
                             throw new Error('invalid overload');
@@ -24576,38 +24504,34 @@ var java;
                     var __args = Array.prototype.slice.call(arguments);
                     var p = __args[0];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var x = p.x;
-                        var y = p.y;
+                        var __args_26 = Array.prototype.slice.call(arguments);
+                        var x_2 = p.x;
+                        var y_2 = p.y;
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                         this.x = 0;
                         this.y = 0;
                         (function () {
-                            _this.x = x;
-                            _this.y = y;
+                            _this.x = x_2;
+                            _this.y = y_2;
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (x === undefined && y === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var x = 0;
-                        var y = 0;
+                        var __args_27 = Array.prototype.slice.call(arguments);
+                        var x_3 = 0;
+                        var y_3 = 0;
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                         this.x = 0;
                         this.y = 0;
                         (function () {
-                            _this.x = x;
-                            _this.y = y;
+                            _this.x = x_3;
+                            _this.y = y_3;
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else
                     throw new Error('invalid overload');
@@ -25590,11 +25514,11 @@ var java;
                         }
                         else if (((x != null && x instanceof java.awt.geom.Rectangle2D) || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null) && start === undefined && extent === undefined && type === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
-                            var ellipseBounds = __args[0];
-                            var start = __args[1];
-                            var extent = __args[2];
-                            var type = __args[3];
-                            _super.call(this, type);
+                            var ellipseBounds_1 = __args[0];
+                            var start_1 = __args[1];
+                            var extent_1 = __args[2];
+                            var type_2 = __args[3];
+                            _super.call(this, type_2);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
@@ -25603,18 +25527,18 @@ var java;
                             this.start = 0;
                             this.extent = 0;
                             (function () {
-                                _this.x = ellipseBounds.getX();
-                                _this.y = ellipseBounds.getY();
-                                _this.width = ellipseBounds.getWidth();
-                                _this.height = ellipseBounds.getHeight();
-                                _this.start = start;
-                                _this.extent = extent;
+                                _this.x = ellipseBounds_1.getX();
+                                _this.y = ellipseBounds_1.getY();
+                                _this.width = ellipseBounds_1.getWidth();
+                                _this.height = ellipseBounds_1.getHeight();
+                                _this.start = start_1;
+                                _this.extent = extent_1;
                             })();
                         }
                         else if (((typeof x === 'number') || x === null) && y === undefined && w === undefined && h === undefined && start === undefined && extent === undefined && type === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
-                            var type = __args[0];
-                            _super.call(this, type);
+                            var type_3 = __args[0];
+                            _super.call(this, type_3);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
@@ -25622,8 +25546,6 @@ var java;
                             this.height = 0;
                             this.start = 0;
                             this.extent = 0;
-                            (function () {
-                            })();
                         }
                         else if (x === undefined && y === undefined && w === undefined && h === undefined && start === undefined && extent === undefined && type === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
@@ -25635,8 +25557,6 @@ var java;
                             this.height = 0;
                             this.start = 0;
                             this.extent = 0;
-                            (function () {
-                            })();
                         }
                         else
                             throw new Error('invalid overload');
@@ -25809,11 +25729,11 @@ var java;
                         }
                         else if (((x != null && x instanceof java.awt.geom.Rectangle2D) || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null) && start === undefined && extent === undefined && type === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
-                            var ellipseBounds = __args[0];
-                            var start = __args[1];
-                            var extent = __args[2];
-                            var type = __args[3];
-                            _super.call(this, type);
+                            var ellipseBounds_2 = __args[0];
+                            var start_2 = __args[1];
+                            var extent_2 = __args[2];
+                            var type_4 = __args[3];
+                            _super.call(this, type_4);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
@@ -25822,18 +25742,18 @@ var java;
                             this.start = 0;
                             this.extent = 0;
                             (function () {
-                                _this.x = ellipseBounds.getX();
-                                _this.y = ellipseBounds.getY();
-                                _this.width = ellipseBounds.getWidth();
-                                _this.height = ellipseBounds.getHeight();
-                                _this.start = start;
-                                _this.extent = extent;
+                                _this.x = ellipseBounds_2.getX();
+                                _this.y = ellipseBounds_2.getY();
+                                _this.width = ellipseBounds_2.getWidth();
+                                _this.height = ellipseBounds_2.getHeight();
+                                _this.start = start_2;
+                                _this.extent = extent_2;
                             })();
                         }
                         else if (((typeof x === 'number') || x === null) && y === undefined && w === undefined && h === undefined && start === undefined && extent === undefined && type === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
-                            var type = __args[0];
-                            _super.call(this, type);
+                            var type_5 = __args[0];
+                            _super.call(this, type_5);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
@@ -25841,8 +25761,6 @@ var java;
                             this.height = 0;
                             this.start = 0;
                             this.extent = 0;
-                            (function () {
-                            })();
                         }
                         else if (x === undefined && y === undefined && w === undefined && h === undefined && start === undefined && extent === undefined && type === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
@@ -25854,8 +25772,6 @@ var java;
                             this.height = 0;
                             this.start = 0;
                             this.extent = 0;
-                            (function () {
-                            })();
                         }
                         else
                             throw new Error('invalid overload');
@@ -26224,8 +26140,6 @@ var java;
                             this.y = 0;
                             this.width = 0;
                             this.height = 0;
-                            (function () {
-                            })();
                         }
                         else
                             throw new Error('invalid overload');
@@ -26379,8 +26293,6 @@ var java;
                             this.y = 0;
                             this.width = 0;
                             this.height = 0;
-                            (function () {
-                            })();
                         }
                         else
                             throw new Error('invalid overload');
@@ -27106,8 +27018,6 @@ var java;
                             this.y = 0;
                             this.width = 0;
                             this.height = 0;
-                            (function () {
-                            })();
                         }
                         else
                             throw new Error('invalid overload');
@@ -27352,8 +27262,6 @@ var java;
                             this.y = 0;
                             this.width = 0;
                             this.height = 0;
-                            (function () {
-                            })();
                         }
                         else
                             throw new Error('invalid overload');
@@ -27899,8 +27807,6 @@ var java;
                             this.height = 0;
                             this.arcwidth = 0;
                             this.archeight = 0;
-                            (function () {
-                            })();
                         }
                         else
                             throw new Error('invalid overload');
@@ -28105,8 +28011,6 @@ var java;
                             this.height = 0;
                             this.arcwidth = 0;
                             this.archeight = 0;
-                            (function () {
-                            })();
                         }
                         else
                             throw new Error('invalid overload');
@@ -28498,9 +28402,9 @@ var java;
                 var oldValue = event.getOldValue();
                 var newValue = event.getNewValue();
                 if (oldValue == null || newValue == null || !(oldValue === newValue)) {
-                    var name = event.getPropertyName();
+                    var name_2 = event.getPropertyName();
                     var common = this.map.get(null);
-                    var named = (name != null) ? this.map.get(name) : null;
+                    var named = (name_2 != null) ? this.map.get(name_2) : null;
                     PropertyChangeSupport.fire(common, event);
                     PropertyChangeSupport.fire(named, event);
                 }
@@ -28688,7 +28592,7 @@ var javax;
                     _super.call(this);
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.MutableComboBoxModel", "javax.swing.ComboBoxModel", "javax.swing.ListModel", "java.io.Serializable"] });
                     (function () {
-                        _this.objects = new java.util.Vector(items.length);
+                        _this.objects = (new java.util.Vector(items.length));
                         var i;
                         var c;
                         for (i = 0, c = items.length; i < c; i++)
@@ -28700,11 +28604,11 @@ var javax;
                 }
                 else if (((items != null && items instanceof java.util.Vector) || items === null)) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var v = __args[0];
+                    var v_1 = __args[0];
                     _super.call(this);
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.MutableComboBoxModel", "javax.swing.ComboBoxModel", "javax.swing.ListModel", "java.io.Serializable"] });
                     (function () {
-                        _this.objects = v;
+                        _this.objects = v_1;
                         if (_this.getSize() > 0) {
                             _this.selectedObject = _this.getElementAt(0);
                         }
@@ -28715,7 +28619,7 @@ var javax;
                     _super.call(this);
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.MutableComboBoxModel", "javax.swing.ComboBoxModel", "javax.swing.ListModel", "java.io.Serializable"] });
                     (function () {
-                        _this.objects = new java.util.Vector();
+                        _this.objects = (new java.util.Vector());
                     })();
                 }
                 else
@@ -28824,7 +28728,7 @@ var javax;
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.undo.UndoableEdit", "java.io.Serializable"] });
                     this.inProgress = false;
                     this.inProgress = true;
-                    this.edits = new java.util.Vector();
+                    this.edits = (new java.util.Vector());
                 }
                 /**
                  * Sends <code>undo</code> to all contained
@@ -29089,7 +28993,7 @@ var javax;
                 }
                 StateEdit.prototype.init = function (anObject, name) {
                     this.object = anObject;
-                    this.preState = new java.util.Hashtable(11);
+                    this.preState = (new java.util.Hashtable(11));
                     this.object.storeState(this.preState);
                     this.postState = null;
                     this.undoRedoName = name;
@@ -29099,7 +29003,7 @@ var javax;
                  * ends the edit.
                  */
                 StateEdit.prototype.end = function () {
-                    this.postState = new java.util.Hashtable(11);
+                    this.postState = (new java.util.Hashtable(11));
                     this.object.storeState(this.postState);
                     this.removeRedundantState();
                 };
@@ -29127,7 +29031,7 @@ var javax;
                  * Remove redundant key/values in state hashtables.
                  */
                 StateEdit.prototype.removeRedundantState = function () {
-                    var uselessKeys = new java.util.Vector();
+                    var uselessKeys = (new java.util.Vector());
                     var myKeys = this.preState.keys();
                     while ((myKeys.hasMoreElements())) {
                         var myKey = myKeys.nextElement();
@@ -30350,7 +30254,7 @@ var sun;
                     this.verbose = false;
                 }
                 AreaOp.prototype.calculate = function (left, right) {
-                    var edges = new java.util.Vector();
+                    var edges = (new java.util.Vector());
                     AreaOp.addEdges(edges, left, AreaOp.CTAG_LEFT);
                     AreaOp.addEdges(edges, right, AreaOp.CTAG_RIGHT);
                     edges = this.pruneEdges(edges);
@@ -30396,9 +30300,9 @@ var sun;
                     var cur = 0;
                     var next = 0;
                     var yrange = new Array(2);
-                    var subcurves = new java.util.Vector();
-                    var chains = new java.util.Vector();
-                    var links = new java.util.Vector();
+                    var subcurves = (new java.util.Vector());
+                    var chains = (new java.util.Vector());
+                    var links = (new java.util.Vector());
                     while ((left < numedges)) {
                         var y = yrange[0];
                         for (cur = next = right - 1; cur >= left; cur--) {
@@ -30478,7 +30382,7 @@ var sun;
                         var yend = yrange[1];
                         for (cur = left; cur < right; cur++) {
                             e = edgelist[cur];
-                            var etag;
+                            var etag = void 0;
                             var eq = e.getEquivalence();
                             if (eq !== 0) {
                                 var origstate = this.getState();
@@ -30546,7 +30450,7 @@ var sun;
                     }
                     ;
                     AreaOp.finalizeSubCurves(subcurves, chains);
-                    var ret = new java.util.Vector();
+                    var ret = (new java.util.Vector());
                     var enum_ = subcurves.elements();
                     while ((enum_.hasMoreElements())) {
                         var link = enum_.nextElement();
@@ -30575,9 +30479,9 @@ var sun;
                     var endlist = new Array(numchains);
                     chains.toArray(endlist);
                     for (var i = 1; i < numchains; i += 2) {
-                        var open = endlist[i - 1];
-                        var close = endlist[i];
-                        var subcurve = open.linkTo(close);
+                        var open_1 = endlist[i - 1];
+                        var close_1 = endlist[i];
+                        var subcurve = open_1.linkTo(close_1);
                         if (subcurve != null) {
                             subcurves.add(subcurve);
                         }
@@ -31342,62 +31246,56 @@ var java;
                     }
                     else if (((source != null && source instanceof java.awt.Window) || source === null) && ((typeof id === 'number') || id === null) && ((typeof opposite === 'number') || opposite === null) && ((typeof oldState === 'number') || oldState === null) && newState === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
-                        var oldState = __args[2];
-                        var newState = __args[3];
+                        var oldState_1 = __args[2];
+                        var newState_1 = __args[3];
                         {
-                            var __args = Array.prototype.slice.call(arguments);
-                            var opposite = null;
+                            var __args_28 = Array.prototype.slice.call(arguments);
+                            var opposite_1 = null;
                             _super.call(this, source, id);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                             this.oldState = 0;
                             this.newState = 0;
                             (function () {
-                                _this.opposite = opposite;
-                                _this.oldState = oldState;
-                                _this.newState = newState;
+                                _this.opposite = opposite_1;
+                                _this.oldState = oldState_1;
+                                _this.newState = newState_1;
                             })();
                         }
-                        (function () {
-                        })();
                     }
                     else if (((source != null && source instanceof java.awt.Window) || source === null) && ((typeof id === 'number') || id === null) && ((opposite != null && opposite instanceof java.awt.Window) || opposite === null) && oldState === undefined && newState === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
                         {
-                            var __args = Array.prototype.slice.call(arguments);
-                            var oldState = 0;
-                            var newState = 0;
+                            var __args_29 = Array.prototype.slice.call(arguments);
+                            var oldState_2 = 0;
+                            var newState_2 = 0;
                             _super.call(this, source, id);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                             this.oldState = 0;
                             this.newState = 0;
                             (function () {
                                 _this.opposite = opposite;
-                                _this.oldState = oldState;
-                                _this.newState = newState;
+                                _this.oldState = oldState_2;
+                                _this.newState = newState_2;
                             })();
                         }
-                        (function () {
-                        })();
                     }
                     else if (((source != null && source instanceof java.awt.Window) || source === null) && ((typeof id === 'number') || id === null) && opposite === undefined && oldState === undefined && newState === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
                         {
-                            var __args = Array.prototype.slice.call(arguments);
-                            var opposite = null;
-                            var oldState = 0;
-                            var newState = 0;
+                            var __args_30 = Array.prototype.slice.call(arguments);
+                            var opposite_2 = null;
+                            var oldState_3 = 0;
+                            var newState_3 = 0;
                             _super.call(this, source, id);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                             this.oldState = 0;
                             this.newState = 0;
                             (function () {
-                                _this.opposite = opposite;
-                                _this.oldState = oldState;
-                                _this.newState = newState;
+                                _this.opposite = opposite_2;
+                                _this.oldState = oldState_3;
+                                _this.newState = newState_3;
                             })();
                         }
-                        (function () {
-                        })();
                     }
                     else
                         throw new Error('invalid overload');
@@ -31580,16 +31478,14 @@ var java;
                 else if (layout === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var layout = new java.awt.FlowLayout();
+                        var __args_31 = Array.prototype.slice.call(arguments);
+                        var layout_1 = new java.awt.FlowLayout();
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent"] });
                         (function () {
-                            _this.setLayout(layout);
+                            _this.setLayout(layout_1);
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else
                     throw new Error('invalid overload');
@@ -31715,8 +31611,6 @@ var java;
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent"] });
                     this.state = 0;
                     this.alwaysOnTop = false;
-                    (function () {
-                    })();
                 }
                 else
                     throw new Error('invalid overload');
@@ -31769,16 +31663,16 @@ var java;
             Window.prototype.getIconImages = function () {
                 var icons = this.icons;
                 if (icons == null || icons.size() === 0) {
-                    return new java.util.ArrayList();
+                    return (new java.util.ArrayList());
                 }
-                return new java.util.ArrayList(icons);
+                return (new java.util.ArrayList(icons));
             };
             Window.prototype.setIconImages = function (icons) {
                 this.icons = (icons == null) ? new java.util.ArrayList() : new java.util.ArrayList(icons);
                 this.firePropertyChange("iconImage", null, null);
             };
             Window.prototype.setIconImage = function (image) {
-                var imageList = new java.util.ArrayList();
+                var imageList = (new java.util.ArrayList());
                 if (image != null) {
                     imageList.add(image);
                 }
@@ -32103,31 +31997,23 @@ var java;
                         var initialCapacity = __args[1];
                         _super.call(this, rule, initialCapacity);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
-                        (function () {
-                        })();
                     }
                     else if (((windingRule != null && windingRule["__interfaces"] != null && windingRule["__interfaces"].indexOf("java.awt.Shape") >= 0) || windingRule === null) && pointTypes === undefined && numTypes === undefined && pointCoords === undefined && numCoords === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
                         var s = __args[0];
                         _super.call(this, s, null);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
-                        (function () {
-                        })();
                     }
                     else if (((typeof windingRule === 'number') || windingRule === null) && pointTypes === undefined && numTypes === undefined && pointCoords === undefined && numCoords === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
                         var rule = __args[0];
                         _super.call(this, rule, java.awt.geom.Path2D.INIT_SIZE);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
-                        (function () {
-                        })();
                     }
                     else if (windingRule === undefined && pointTypes === undefined && numTypes === undefined && pointCoords === undefined && numCoords === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
                         _super.call(this, java.awt.geom.Path2D.WIND_NON_ZERO_$LI$(), java.awt.geom.Path2D.INIT_SIZE);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
-                        (function () {
-                        })();
                     }
                     else
                         throw new Error('invalid overload');
@@ -32268,11 +32154,11 @@ var java;
                     var p = __args[0];
                     var d = __args[1];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var x = p.x;
-                        var y = p.y;
-                        var width = d.width;
-                        var height = d.height;
+                        var __args_32 = Array.prototype.slice.call(arguments);
+                        var x_4 = p.x;
+                        var y_4 = p.y;
+                        var width_3 = d.width;
+                        var height_3 = d.height;
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                         this.x = 0;
@@ -32280,23 +32166,21 @@ var java;
                         this.width = 0;
                         this.height = 0;
                         (function () {
-                            _this.x = x;
-                            _this.y = y;
-                            _this.width = width;
-                            _this.height = height;
+                            _this.x = x_4;
+                            _this.y = y_4;
+                            _this.width = width_3;
+                            _this.height = height_3;
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && width === undefined && height === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var width = __args[0];
-                    var height = __args[1];
+                    var width_4 = __args[0];
+                    var height_4 = __args[1];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var x = 0;
-                        var y = 0;
+                        var __args_33 = Array.prototype.slice.call(arguments);
+                        var x_5 = 0;
+                        var y_5 = 0;
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                         this.x = 0;
@@ -32304,24 +32188,22 @@ var java;
                         this.width = 0;
                         this.height = 0;
                         (function () {
-                            _this.x = x;
-                            _this.y = y;
-                            _this.width = width;
-                            _this.height = height;
+                            _this.x = x_5;
+                            _this.y = y_5;
+                            _this.width = width_4;
+                            _this.height = height_4;
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (((x != null && x instanceof java.awt.Rectangle) || x === null) && y === undefined && width === undefined && height === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     var r = __args[0];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var x = r.x;
-                        var y = r.y;
-                        var width = r.width;
-                        var height = r.height;
+                        var __args_34 = Array.prototype.slice.call(arguments);
+                        var x_6 = r.x;
+                        var y_6 = r.y;
+                        var width_5 = r.width;
+                        var height_5 = r.height;
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                         this.x = 0;
@@ -32329,24 +32211,22 @@ var java;
                         this.width = 0;
                         this.height = 0;
                         (function () {
-                            _this.x = x;
-                            _this.y = y;
-                            _this.width = width;
-                            _this.height = height;
+                            _this.x = x_6;
+                            _this.y = y_6;
+                            _this.width = width_5;
+                            _this.height = height_5;
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (((x != null && x instanceof java.awt.Point) || x === null) && y === undefined && width === undefined && height === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     var p = __args[0];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var x = p.x;
-                        var y = p.y;
-                        var width = 0;
-                        var height = 0;
+                        var __args_35 = Array.prototype.slice.call(arguments);
+                        var x_7 = p.x;
+                        var y_7 = p.y;
+                        var width_6 = 0;
+                        var height_6 = 0;
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                         this.x = 0;
@@ -32354,24 +32234,22 @@ var java;
                         this.width = 0;
                         this.height = 0;
                         (function () {
-                            _this.x = x;
-                            _this.y = y;
-                            _this.width = width;
-                            _this.height = height;
+                            _this.x = x_7;
+                            _this.y = y_7;
+                            _this.width = width_6;
+                            _this.height = height_6;
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (((x != null && x instanceof java.awt.Dimension) || x === null) && y === undefined && width === undefined && height === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     var d = __args[0];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var x = 0;
-                        var y = 0;
-                        var width = d.width;
-                        var height = d.height;
+                        var __args_36 = Array.prototype.slice.call(arguments);
+                        var x_8 = 0;
+                        var y_8 = 0;
+                        var width_7 = d.width;
+                        var height_7 = d.height;
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                         this.x = 0;
@@ -32379,23 +32257,21 @@ var java;
                         this.width = 0;
                         this.height = 0;
                         (function () {
-                            _this.x = x;
-                            _this.y = y;
-                            _this.width = width;
-                            _this.height = height;
+                            _this.x = x_8;
+                            _this.y = y_8;
+                            _this.width = width_7;
+                            _this.height = height_7;
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (x === undefined && y === undefined && width === undefined && height === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var x = 0;
-                        var y = 0;
-                        var width = 0;
-                        var height = 0;
+                        var __args_37 = Array.prototype.slice.call(arguments);
+                        var x_9 = 0;
+                        var y_9 = 0;
+                        var width_8 = 0;
+                        var height_8 = 0;
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                         this.x = 0;
@@ -32403,14 +32279,12 @@ var java;
                         this.width = 0;
                         this.height = 0;
                         (function () {
-                            _this.x = x;
-                            _this.y = y;
-                            _this.width = width;
-                            _this.height = height;
+                            _this.x = x_9;
+                            _this.y = y_9;
+                            _this.width = width_8;
+                            _this.height = height_8;
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else
                     throw new Error('invalid overload');
@@ -34051,7 +33925,7 @@ var javax;
                             e.die();
                         }
                     }
-                    this.edits = new java.util.Vector();
+                    this.edits = (new java.util.Vector());
                     this.indexOfNextAdd = 0;
                 };
                 /**
@@ -34470,7 +34344,7 @@ var java;
                     if (((source != null && source instanceof java.awt.Component) || source === null) && ((typeof id === 'number') || id === null) && ((typeof when === 'number') || when === null) && ((typeof modifiers === 'number') || modifiers === null) && ((typeof keyCode === 'number') || keyCode === null) && ((typeof keyChar === 'string') || keyChar === null) && ((typeof keyLocation === 'number') || keyLocation === null) && ((typeof isProxyActive === 'boolean') || isProxyActive === null)) {
                         var __args = Array.prototype.slice.call(arguments);
                         {
-                            var __args = Array.prototype.slice.call(arguments);
+                            var __args_38 = Array.prototype.slice.call(arguments);
                             _super.call(this, source, id, when, modifiers);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                             this.isProxyActive = false;
@@ -34546,8 +34420,8 @@ var java;
                     else if (((source != null && source instanceof java.awt.Component) || source === null) && ((typeof id === 'number') || id === null) && ((typeof when === 'number') || when === null) && ((typeof modifiers === 'number') || modifiers === null) && ((typeof keyCode === 'number') || keyCode === null) && ((typeof keyChar === 'string') || keyChar === null) && keyLocation === undefined && isProxyActive === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
                         {
-                            var __args = Array.prototype.slice.call(arguments);
-                            var keyLocation = KeyEvent.KEY_LOCATION_UNKNOWN;
+                            var __args_39 = Array.prototype.slice.call(arguments);
+                            var keyLocation_1 = KeyEvent.KEY_LOCATION_UNKNOWN;
                             _super.call(this, source, id, when, modifiers);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                             this.isProxyActive = false;
@@ -34562,16 +34436,16 @@ var java;
                                     if (keyCode !== KeyEvent.VK_UNDEFINED) {
                                         throw new java.lang.IllegalArgumentException("invalid keyCode");
                                     }
-                                    if (keyLocation !== KeyEvent.KEY_LOCATION_UNKNOWN) {
+                                    if (keyLocation_1 !== KeyEvent.KEY_LOCATION_UNKNOWN) {
                                         throw new java.lang.IllegalArgumentException("invalid keyLocation");
                                     }
                                 }
                                 _this.keyCode = keyCode;
                                 _this.keyChar = keyChar;
-                                if ((keyLocation < KeyEvent.KEY_LOCATION_UNKNOWN) || (keyLocation > KeyEvent.KEY_LOCATION_NUMPAD)) {
+                                if ((keyLocation_1 < KeyEvent.KEY_LOCATION_UNKNOWN) || (keyLocation_1 > KeyEvent.KEY_LOCATION_NUMPAD)) {
                                     throw new java.lang.IllegalArgumentException("invalid keyLocation");
                                 }
-                                _this.keyLocation = keyLocation;
+                                _this.keyLocation = keyLocation_1;
                                 if ((_this.getModifiers() !== 0) && (_this.getModifiersEx() === 0)) {
                                     _this.setNewModifiers();
                                 }
@@ -34581,17 +34455,15 @@ var java;
                                 _this.originalSource = source;
                             })();
                         }
-                        (function () {
-                        })();
                     }
                     else if (((source != null && source instanceof java.awt.Component) || source === null) && ((typeof id === 'number') || id === null) && ((typeof when === 'number') || when === null) && ((typeof modifiers === 'number') || modifiers === null) && ((typeof keyCode === 'number') || keyCode === null) && keyChar === undefined && keyLocation === undefined && isProxyActive === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
                         {
-                            var __args = Array.prototype.slice.call(arguments);
-                            var keyChar = String.fromCharCode(keyCode);
+                            var __args_40 = Array.prototype.slice.call(arguments);
+                            var keyChar_1 = String.fromCharCode(__args_40[4]);
                             {
-                                var __args = Array.prototype.slice.call(arguments);
-                                var keyLocation = KeyEvent.KEY_LOCATION_UNKNOWN;
+                                var __args_41 = Array.prototype.slice.call(arguments);
+                                var keyLocation_2 = KeyEvent.KEY_LOCATION_UNKNOWN;
                                 _super.call(this, source, id, when, modifiers);
                                 Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                                 this.isProxyActive = false;
@@ -34600,22 +34472,22 @@ var java;
                                 this.keyLocation = 0;
                                 (function () {
                                     if (id === KeyEvent.KEY_TYPED_$LI$()) {
-                                        if (keyChar === KeyEvent.CHAR_UNDEFINED) {
+                                        if (keyChar_1 === KeyEvent.CHAR_UNDEFINED) {
                                             throw new java.lang.IllegalArgumentException("invalid keyChar");
                                         }
                                         if (keyCode !== KeyEvent.VK_UNDEFINED) {
                                             throw new java.lang.IllegalArgumentException("invalid keyCode");
                                         }
-                                        if (keyLocation !== KeyEvent.KEY_LOCATION_UNKNOWN) {
+                                        if (keyLocation_2 !== KeyEvent.KEY_LOCATION_UNKNOWN) {
                                             throw new java.lang.IllegalArgumentException("invalid keyLocation");
                                         }
                                     }
                                     _this.keyCode = keyCode;
-                                    _this.keyChar = keyChar;
-                                    if ((keyLocation < KeyEvent.KEY_LOCATION_UNKNOWN) || (keyLocation > KeyEvent.KEY_LOCATION_NUMPAD)) {
+                                    _this.keyChar = keyChar_1;
+                                    if ((keyLocation_2 < KeyEvent.KEY_LOCATION_UNKNOWN) || (keyLocation_2 > KeyEvent.KEY_LOCATION_NUMPAD)) {
                                         throw new java.lang.IllegalArgumentException("invalid keyLocation");
                                     }
-                                    _this.keyLocation = keyLocation;
+                                    _this.keyLocation = keyLocation_2;
                                     if ((_this.getModifiers() !== 0) && (_this.getModifiersEx() === 0)) {
                                         _this.setNewModifiers();
                                     }
@@ -34625,11 +34497,7 @@ var java;
                                     _this.originalSource = source;
                                 })();
                             }
-                            (function () {
-                            })();
                         }
-                        (function () {
-                        })();
                     }
                     else
                         throw new Error('invalid overload');
@@ -35479,13 +35347,13 @@ var java;
                     }
                     else if (((source != null && source instanceof java.awt.Component) || source === null) && ((typeof id === 'number') || id === null) && ((typeof when === 'number') || when === null) && ((typeof modifiers === 'number') || modifiers === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof xAbs === 'number') || xAbs === null) && ((typeof yAbs === 'boolean') || yAbs === null) && ((typeof clickCount === 'number') || clickCount === null) && popupTrigger === undefined && button === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
-                        var clickCount = __args[6];
-                        var popupTrigger = __args[7];
-                        var button = __args[8];
+                        var clickCount_1 = __args[6];
+                        var popupTrigger_1 = __args[7];
+                        var button_1 = __args[8];
                         {
-                            var __args = Array.prototype.slice.call(arguments);
-                            var xAbs = 0;
-                            var yAbs = 0;
+                            var __args_42 = Array.prototype.slice.call(arguments);
+                            var xAbs_1 = 0;
+                            var yAbs_1 = 0;
                             _super.call(this, source, id, when, modifiers);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                             this.x = 0;
@@ -35499,26 +35367,26 @@ var java;
                             (function () {
                                 _this.x = x;
                                 _this.y = y;
-                                _this.xAbs = xAbs;
-                                _this.yAbs = yAbs;
-                                _this.clickCount = clickCount;
-                                _this.popupTrigger = popupTrigger;
+                                _this.xAbs = xAbs_1;
+                                _this.yAbs = yAbs_1;
+                                _this.clickCount = clickCount_1;
+                                _this.popupTrigger = popupTrigger_1;
                                 _this.shouldExcludeButtonFromExtModifiers = false;
-                                if (button < MouseEvent.NOBUTTON) {
-                                    throw new java.lang.IllegalArgumentException("Invalid button value :" + button);
+                                if (button_1 < MouseEvent.NOBUTTON) {
+                                    throw new java.lang.IllegalArgumentException("Invalid button value :" + button_1);
                                 }
-                                if (button > MouseEvent.BUTTON3) {
+                                if (button_1 > MouseEvent.BUTTON3) {
                                     if (_this.getModifiersEx() !== 0) {
                                         if (id === MouseEvent.MOUSE_RELEASED_$LI$() || id === MouseEvent.MOUSE_CLICKED_$LI$()) {
                                             _this.shouldExcludeButtonFromExtModifiers = true;
                                         }
                                     }
                                 }
-                                _this.button = button;
+                                _this.button = button_1;
                                 if ((_this.getModifiers() !== 0) && (_this.getModifiersEx() === 0)) {
                                     _this.setNewModifiers();
                                 }
-                                else if ((_this.getModifiers() === 0) && (_this.getModifiersEx() !== 0 || button !== MouseEvent.NOBUTTON) && (button <= MouseEvent.BUTTON3)) {
+                                else if ((_this.getModifiers() === 0) && (_this.getModifiersEx() !== 0 || button_1 !== MouseEvent.NOBUTTON) && (button_1 <= MouseEvent.BUTTON3)) {
                                     _this.setOldModifiers();
                                 }
                             })();
@@ -35539,15 +35407,15 @@ var java;
                     }
                     else if (((source != null && source instanceof java.awt.Component) || source === null) && ((typeof id === 'number') || id === null) && ((typeof when === 'number') || when === null) && ((typeof modifiers === 'number') || modifiers === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof xAbs === 'number') || xAbs === null) && ((typeof yAbs === 'boolean') || yAbs === null) && clickCount === undefined && popupTrigger === undefined && button === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
-                        var clickCount = __args[6];
-                        var popupTrigger = __args[7];
+                        var clickCount_2 = __args[6];
+                        var popupTrigger_2 = __args[7];
                         {
-                            var __args = Array.prototype.slice.call(arguments);
-                            var button = MouseEvent.NOBUTTON;
+                            var __args_43 = Array.prototype.slice.call(arguments);
+                            var button_2 = MouseEvent.NOBUTTON;
                             {
-                                var __args = Array.prototype.slice.call(arguments);
-                                var xAbs = 0;
-                                var yAbs = 0;
+                                var __args_44 = Array.prototype.slice.call(arguments);
+                                var xAbs_2 = 0;
+                                var yAbs_2 = 0;
                                 _super.call(this, source, id, when, modifiers);
                                 Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                                 this.x = 0;
@@ -35561,26 +35429,26 @@ var java;
                                 (function () {
                                     _this.x = x;
                                     _this.y = y;
-                                    _this.xAbs = xAbs;
-                                    _this.yAbs = yAbs;
-                                    _this.clickCount = clickCount;
-                                    _this.popupTrigger = popupTrigger;
+                                    _this.xAbs = xAbs_2;
+                                    _this.yAbs = yAbs_2;
+                                    _this.clickCount = clickCount_2;
+                                    _this.popupTrigger = popupTrigger_2;
                                     _this.shouldExcludeButtonFromExtModifiers = false;
-                                    if (button < MouseEvent.NOBUTTON) {
-                                        throw new java.lang.IllegalArgumentException("Invalid button value :" + button);
+                                    if (button_2 < MouseEvent.NOBUTTON) {
+                                        throw new java.lang.IllegalArgumentException("Invalid button value :" + button_2);
                                     }
-                                    if (button > MouseEvent.BUTTON3) {
+                                    if (button_2 > MouseEvent.BUTTON3) {
                                         if (_this.getModifiersEx() !== 0) {
                                             if (id === MouseEvent.MOUSE_RELEASED_$LI$() || id === MouseEvent.MOUSE_CLICKED_$LI$()) {
                                                 _this.shouldExcludeButtonFromExtModifiers = true;
                                             }
                                         }
                                     }
-                                    _this.button = button;
+                                    _this.button = button_2;
                                     if ((_this.getModifiers() !== 0) && (_this.getModifiersEx() === 0)) {
                                         _this.setNewModifiers();
                                     }
-                                    else if ((_this.getModifiers() === 0) && (_this.getModifiersEx() !== 0 || button !== MouseEvent.NOBUTTON) && (button <= MouseEvent.BUTTON3)) {
+                                    else if ((_this.getModifiers() === 0) && (_this.getModifiersEx() !== 0 || button_2 !== MouseEvent.NOBUTTON) && (button_2 <= MouseEvent.BUTTON3)) {
                                         _this.setOldModifiers();
                                     }
                                 })();
@@ -35599,8 +35467,6 @@ var java;
                                 ;
                             })();
                         }
-                        (function () {
-                        })();
                     }
                     else
                         throw new Error('invalid overload');
@@ -35899,17 +35765,17 @@ var java;
                         var names = div.getAttribute("data-applet").split(".");
                         var constructor = window;
                         for (var index137 = 0; index137 < names.length; index137++) {
-                            var name = names[index137];
+                            var name_3 = names[index137];
                             {
-                                constructor = constructor[name];
-                                console.info("name: " + name + " -> " + constructor);
+                                constructor = constructor[name_3];
+                                console.info("name: " + name_3 + " -> " + constructor);
                             }
                         }
-                        var applet = new constructor();
-                        applet.setSize(javaemul.internal.IntegerHelper.parseInt(div.getAttribute("data-width")), javaemul.internal.IntegerHelper.parseInt(div.getAttribute("data-height")));
-                        applet.bindHTML(div);
-                        applet.init();
-                        applet.doPaintInternal();
+                        var applet_2 = new constructor();
+                        applet_2.setSize(javaemul.internal.IntegerHelper.parseInt(div.getAttribute("data-width")), javaemul.internal.IntegerHelper.parseInt(div.getAttribute("data-height")));
+                        applet_2.bindHTML(div);
+                        applet_2.init();
+                        applet_2.doPaintInternal();
                     }
                     return null;
                 });
@@ -35948,8 +35814,8 @@ var java;
                 else if (title === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var title = "";
+                        var __args_45 = Array.prototype.slice.call(arguments);
+                        var title_1 = "";
                         _super.call(this);
                         this.title = "Untitled";
                         this.resizable = true;
@@ -35957,7 +35823,7 @@ var java;
                         this.mbManagement = false;
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent"] });
                         (function () {
-                            _this._frameInit(title);
+                            _this._frameInit(title_1);
                             _this.state = Frame.NORMAL;
                         })();
                     }
@@ -36429,8 +36295,8 @@ var javax;
                     this.mnemonicIndex = -1;
                 }
                 else {
-                    var text = this.getText();
-                    var textLength = (text == null) ? 0 : text.length;
+                    var text_1 = this.getText();
+                    var textLength = (text_1 == null) ? 0 : text_1.length;
                     if (index < -1 || index >= textLength) {
                         throw new java.lang.IllegalArgumentException("index == " + index);
                     }
@@ -36853,7 +36719,7 @@ var javax;
                 }
                 else if (((aModel != null && aModel instanceof Array) || aModel === null)) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var items = __args[0];
+                    var items_1 = __args[0];
                     _super.call(this);
                     this.maximumRowCount = 8;
                     this.__isEditable = false;
@@ -36864,13 +36730,13 @@ var javax;
                     this.selectingItem = false;
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "javax.swing.event.ListDataListener", "java.awt.event.ActionListener", "java.awt.ItemSelectable", "java.awt.HTMLComponent", "java.io.Serializable"] });
                     (function () {
-                        _this.setModel(new javax.swing.DefaultComboBoxModel(items));
+                        _this.setModel((new javax.swing.DefaultComboBoxModel(items_1)));
                         _this.init();
                     })();
                 }
                 else if (((aModel != null && aModel instanceof java.util.Vector) || aModel === null)) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var items = __args[0];
+                    var items_2 = __args[0];
                     _super.call(this);
                     this.maximumRowCount = 8;
                     this.__isEditable = false;
@@ -36881,7 +36747,7 @@ var javax;
                     this.selectingItem = false;
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "javax.swing.event.ListDataListener", "java.awt.event.ActionListener", "java.awt.ItemSelectable", "java.awt.HTMLComponent", "java.io.Serializable"] });
                     (function () {
-                        _this.setModel(new javax.swing.DefaultComboBoxModel(items));
+                        _this.setModel((new javax.swing.DefaultComboBoxModel(items_2)));
                         _this.init();
                     })();
                 }
@@ -36897,7 +36763,7 @@ var javax;
                     this.selectingItem = false;
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "javax.swing.event.ListDataListener", "java.awt.event.ActionListener", "java.awt.ItemSelectable", "java.awt.HTMLComponent", "java.io.Serializable"] });
                     (function () {
-                        _this.setModel(new javax.swing.DefaultComboBoxModel());
+                        _this.setModel((new javax.swing.DefaultComboBoxModel()));
                         _this.init();
                     })();
                 }
@@ -37485,10 +37351,10 @@ var javax;
                 }
                 else if (((typeof text === 'string') || text === null) && ((typeof icon === 'number') || icon === null) && horizontalAlignment === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var horizontalAlignment = __args[1];
+                    var horizontalAlignment_1 = __args[1];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var icon = null;
+                        var __args_46 = Array.prototype.slice.call(arguments);
+                        var icon_1 = null;
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         this.mnemonic = 0;
@@ -37507,27 +37373,25 @@ var javax;
                             _this.disabledIcon = null;
                             _this.disabledIconSet = false;
                             _this.verticalAlignment = javax.swing.SwingConstants.CENTER;
-                            horizontalAlignment = javax.swing.SwingConstants.LEADING;
+                            horizontalAlignment_1 = javax.swing.SwingConstants.LEADING;
                             _this.verticalTextPosition = javax.swing.SwingConstants.CENTER;
                             _this.horizontalTextPosition = javax.swing.SwingConstants.TRAILING;
                             _this.iconTextGap = 4;
                             _this.labelFor = null;
                             _this.setText(text);
-                            _this.setIcon(icon);
-                            _this.setHorizontalAlignment(horizontalAlignment);
+                            _this.setIcon(icon_1);
+                            _this.setHorizontalAlignment(horizontalAlignment_1);
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (((text != null && text["__interfaces"] != null && text["__interfaces"].indexOf("javax.swing.Icon") >= 0) || text === null) && ((typeof icon === 'number') || icon === null) && horizontalAlignment === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     var image = __args[0];
-                    var horizontalAlignment = __args[1];
+                    var horizontalAlignment_2 = __args[1];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var text = null;
-                        var icon = image;
+                        var __args_47 = Array.prototype.slice.call(arguments);
+                        var text_2 = null;
+                        var icon_2 = image;
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         this.mnemonic = 0;
@@ -37541,30 +37405,28 @@ var javax;
                         (function () {
                             _this.mnemonic = ('\u0000').charCodeAt(0);
                             _this.mnemonicIndex = -1;
-                            text = "";
+                            text_2 = "";
                             _this.defaultIcon = null;
                             _this.disabledIcon = null;
                             _this.disabledIconSet = false;
                             _this.verticalAlignment = javax.swing.SwingConstants.CENTER;
-                            horizontalAlignment = javax.swing.SwingConstants.LEADING;
+                            horizontalAlignment_2 = javax.swing.SwingConstants.LEADING;
                             _this.verticalTextPosition = javax.swing.SwingConstants.CENTER;
                             _this.horizontalTextPosition = javax.swing.SwingConstants.TRAILING;
                             _this.iconTextGap = 4;
                             _this.labelFor = null;
-                            _this.setText(text);
-                            _this.setIcon(icon);
-                            _this.setHorizontalAlignment(horizontalAlignment);
+                            _this.setText(text_2);
+                            _this.setIcon(icon_2);
+                            _this.setHorizontalAlignment(horizontalAlignment_2);
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (((typeof text === 'string') || text === null) && icon === undefined && horizontalAlignment === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var icon = null;
-                        var horizontalAlignment = javax.swing.SwingConstants.LEADING;
+                        var __args_48 = Array.prototype.slice.call(arguments);
+                        var icon_3 = null;
+                        var horizontalAlignment_3 = javax.swing.SwingConstants.LEADING;
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         this.mnemonic = 0;
@@ -37583,27 +37445,25 @@ var javax;
                             _this.disabledIcon = null;
                             _this.disabledIconSet = false;
                             _this.verticalAlignment = javax.swing.SwingConstants.CENTER;
-                            horizontalAlignment = javax.swing.SwingConstants.LEADING;
+                            horizontalAlignment_3 = javax.swing.SwingConstants.LEADING;
                             _this.verticalTextPosition = javax.swing.SwingConstants.CENTER;
                             _this.horizontalTextPosition = javax.swing.SwingConstants.TRAILING;
                             _this.iconTextGap = 4;
                             _this.labelFor = null;
                             _this.setText(text);
-                            _this.setIcon(icon);
-                            _this.setHorizontalAlignment(horizontalAlignment);
+                            _this.setIcon(icon_3);
+                            _this.setHorizontalAlignment(horizontalAlignment_3);
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (((text != null && text["__interfaces"] != null && text["__interfaces"].indexOf("javax.swing.Icon") >= 0) || text === null) && icon === undefined && horizontalAlignment === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     var image = __args[0];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var text = null;
-                        var icon = image;
-                        var horizontalAlignment = javax.swing.SwingConstants.CENTER;
+                        var __args_49 = Array.prototype.slice.call(arguments);
+                        var text_3 = null;
+                        var icon_4 = image;
+                        var horizontalAlignment_4 = javax.swing.SwingConstants.CENTER;
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         this.mnemonic = 0;
@@ -37617,31 +37477,29 @@ var javax;
                         (function () {
                             _this.mnemonic = ('\u0000').charCodeAt(0);
                             _this.mnemonicIndex = -1;
-                            text = "";
+                            text_3 = "";
                             _this.defaultIcon = null;
                             _this.disabledIcon = null;
                             _this.disabledIconSet = false;
                             _this.verticalAlignment = javax.swing.SwingConstants.CENTER;
-                            horizontalAlignment = javax.swing.SwingConstants.LEADING;
+                            horizontalAlignment_4 = javax.swing.SwingConstants.LEADING;
                             _this.verticalTextPosition = javax.swing.SwingConstants.CENTER;
                             _this.horizontalTextPosition = javax.swing.SwingConstants.TRAILING;
                             _this.iconTextGap = 4;
                             _this.labelFor = null;
-                            _this.setText(text);
-                            _this.setIcon(icon);
-                            _this.setHorizontalAlignment(horizontalAlignment);
+                            _this.setText(text_3);
+                            _this.setIcon(icon_4);
+                            _this.setHorizontalAlignment(horizontalAlignment_4);
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (text === undefined && icon === undefined && horizontalAlignment === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var text = "";
-                        var icon = null;
-                        var horizontalAlignment = javax.swing.SwingConstants.LEADING;
+                        var __args_50 = Array.prototype.slice.call(arguments);
+                        var text_4 = "";
+                        var icon_5 = null;
+                        var horizontalAlignment_5 = javax.swing.SwingConstants.LEADING;
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         this.mnemonic = 0;
@@ -37655,23 +37513,21 @@ var javax;
                         (function () {
                             _this.mnemonic = ('\u0000').charCodeAt(0);
                             _this.mnemonicIndex = -1;
-                            text = "";
+                            text_4 = "";
                             _this.defaultIcon = null;
                             _this.disabledIcon = null;
                             _this.disabledIconSet = false;
                             _this.verticalAlignment = javax.swing.SwingConstants.CENTER;
-                            horizontalAlignment = javax.swing.SwingConstants.LEADING;
+                            horizontalAlignment_5 = javax.swing.SwingConstants.LEADING;
                             _this.verticalTextPosition = javax.swing.SwingConstants.CENTER;
                             _this.horizontalTextPosition = javax.swing.SwingConstants.TRAILING;
                             _this.iconTextGap = 4;
                             _this.labelFor = null;
-                            _this.setText(text);
-                            _this.setIcon(icon);
-                            _this.setHorizontalAlignment(horizontalAlignment);
+                            _this.setText(text_4);
+                            _this.setIcon(icon_5);
+                            _this.setHorizontalAlignment(horizontalAlignment_5);
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else
                     throw new Error('invalid overload');
@@ -37763,8 +37619,8 @@ var javax;
                     this.mnemonicIndex = -1;
                 }
                 else {
-                    var text = this.getText();
-                    var textLength = (text == null) ? 0 : text.length;
+                    var text_5 = this.getText();
+                    var textLength = (text_5 == null) ? 0 : text_5.length;
                     if (index < -1 || index >= textLength) {
                         throw new java.lang.IllegalArgumentException("index == " + index);
                     }
@@ -38206,8 +38062,8 @@ var javax;
                     var __args = Array.prototype.slice.call(arguments);
                     var listData = __args[0];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var dataModel = new JList.JList$0(this, listData);
+                        var __args_51 = Array.prototype.slice.call(arguments);
+                        var dataModel_1 = new JList.JList$0(this, listData);
                         _super.call(this);
                         this.fixedCellWidth = -1;
                         this.fixedCellHeight = -1;
@@ -38218,23 +38074,21 @@ var javax;
                         this.dragEnabled = false;
                         this.layoutOrientation = 0;
                         (function () {
-                            if (dataModel == null) {
+                            if (dataModel_1 == null) {
                                 throw new java.lang.IllegalArgumentException("dataModel must be non null");
                             }
                             _this.layoutOrientation = JList.VERTICAL;
-                            _this.dataModel = dataModel;
+                            _this.dataModel = dataModel_1;
                             _this.selectionModel = _this.createSelectionModel();
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (((dataModel != null && dataModel instanceof java.util.Vector) || dataModel === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     var listData = __args[0];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var dataModel = new JList.JList$1(this, listData);
+                        var __args_52 = Array.prototype.slice.call(arguments);
+                        var dataModel_2 = new JList.JList$1(this, listData);
                         _super.call(this);
                         this.fixedCellWidth = -1;
                         this.fixedCellHeight = -1;
@@ -38245,22 +38099,20 @@ var javax;
                         this.dragEnabled = false;
                         this.layoutOrientation = 0;
                         (function () {
-                            if (dataModel == null) {
+                            if (dataModel_2 == null) {
                                 throw new java.lang.IllegalArgumentException("dataModel must be non null");
                             }
                             _this.layoutOrientation = JList.VERTICAL;
-                            _this.dataModel = dataModel;
+                            _this.dataModel = dataModel_2;
                             _this.selectionModel = _this.createSelectionModel();
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (dataModel === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var dataModel = new JList.JList$2(this);
+                        var __args_53 = Array.prototype.slice.call(arguments);
+                        var dataModel_3 = new JList.JList$2(this);
                         _super.call(this);
                         this.fixedCellWidth = -1;
                         this.fixedCellHeight = -1;
@@ -38271,16 +38123,14 @@ var javax;
                         this.dragEnabled = false;
                         this.layoutOrientation = 0;
                         (function () {
-                            if (dataModel == null) {
+                            if (dataModel_3 == null) {
                                 throw new java.lang.IllegalArgumentException("dataModel must be non null");
                             }
                             _this.layoutOrientation = JList.VERTICAL;
-                            _this.dataModel = dataModel;
+                            _this.dataModel = dataModel_3;
                             _this.selectionModel = _this.createSelectionModel();
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else
                     throw new Error('invalid overload');
@@ -38827,7 +38677,7 @@ var javax;
                 do {
                     var element = model.getElementAt(index);
                     if (element != null) {
-                        var str;
+                        var str = void 0;
                         if (typeof element === 'string') {
                             str = element.toUpperCase();
                         }
@@ -39480,7 +39330,7 @@ var javax;
                 if ((iMin < 0) || (iMax < 0)) {
                     return java.util.Collections.emptyList();
                 }
-                var selectedItems = new java.util.ArrayList();
+                var selectedItems = (new java.util.ArrayList());
                 for (var i = iMin; i <= iMax; i++) {
                     if (sm.isSelectedIndex(i)) {
                         selectedItems.add(dm.getElementAt(i));
@@ -39534,8 +39384,8 @@ var javax;
                 if (anObject == null)
                     this.setSelectedIndex(-1);
                 else if (!(anObject === this.getSelectedValue())) {
-                    var i;
-                    var c;
+                    var i = void 0;
+                    var c = void 0;
                     var dm = this.getModel();
                     for (i = 0, c = dm.getSize(); i < c; i++)
                         if ((anObject === dm.getElementAt(i))) {
@@ -39720,51 +39570,43 @@ var javax;
                 else if (((layout != null && layout["__interfaces"] != null && layout["__interfaces"].indexOf("java.awt.LayoutManager") >= 0) || layout === null) && isDoubleBuffered === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var isDoubleBuffered = true;
+                        var __args_54 = Array.prototype.slice.call(arguments);
+                        var isDoubleBuffered_1 = true;
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
                         (function () {
                             _this.setLayout(layout);
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (((typeof layout === 'boolean') || layout === null) && isDoubleBuffered === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var isDoubleBuffered = __args[0];
+                    var isDoubleBuffered_2 = __args[0];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var layout = new java.awt.FlowLayout();
+                        var __args_55 = Array.prototype.slice.call(arguments);
+                        var layout_2 = new java.awt.FlowLayout();
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
                         (function () {
-                            _this.setLayout(layout);
+                            _this.setLayout(layout_2);
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (layout === undefined && isDoubleBuffered === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var isDoubleBuffered = true;
+                        var __args_56 = Array.prototype.slice.call(arguments);
+                        var isDoubleBuffered_3 = true;
                         {
-                            var __args = Array.prototype.slice.call(arguments);
-                            var layout = new java.awt.FlowLayout();
+                            var __args_57 = Array.prototype.slice.call(arguments);
+                            var layout_3 = new java.awt.FlowLayout();
                             _super.call(this);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
                             (function () {
-                                _this.setLayout(layout);
+                                _this.setLayout(layout_3);
                             })();
                         }
-                        (function () {
-                        })();
                     }
-                    (function () {
-                    })();
                 }
                 else
                     throw new Error('invalid overload');
@@ -39818,7 +39660,6 @@ var javax;
                 this.htmlCanvas.width = this.htmlElement.offsetWidth;
                 this.htmlCanvas.height = this.htmlElement.offsetHeight;
                 this.htmlCanvas.style.position = "absolute";
-                this.htmlCanvas.style.zIndex = "-1";
             };
             /**
              * Returns a string that specifies the name of the L&amp;F class that
@@ -40246,12 +40087,12 @@ var javax;
                 }
                 else if (((typeof orientation === 'number') || orientation === null) && ((typeof min === 'number') || min === null) && ((typeof max === 'number') || max === null) && value === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var min = __args[0];
-                    var max = __args[1];
-                    var value = __args[2];
+                    var min_1 = __args[0];
+                    var max_1 = __args[1];
+                    var value_1 = __args[2];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var orientation = javax.swing.SwingConstants.HORIZONTAL;
+                        var __args_58 = Array.prototype.slice.call(arguments);
+                        var orientation_1 = javax.swing.SwingConstants.HORIZONTAL;
                         _super.call(this);
                         this.paintTicks = false;
                         this.paintTrack = true;
@@ -40266,22 +40107,20 @@ var javax;
                         this.minorTickSpacing = 0;
                         this.orientation = 0;
                         (function () {
-                            _this.checkOrientation(orientation);
-                            _this.orientation = orientation;
-                            _this.setModel(new javax.swing.DefaultBoundedRangeModel(value, 0, min, max));
+                            _this.checkOrientation(orientation_1);
+                            _this.orientation = orientation_1;
+                            _this.setModel(new javax.swing.DefaultBoundedRangeModel(value_1, 0, min_1, max_1));
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (((typeof orientation === 'number') || orientation === null) && ((typeof min === 'number') || min === null) && max === undefined && value === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var min = __args[0];
-                    var max = __args[1];
+                    var min_2 = __args[0];
+                    var max_2 = __args[1];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var orientation = javax.swing.SwingConstants.HORIZONTAL;
-                        var value = ((min + max) / 2 | 0);
+                        var __args_59 = Array.prototype.slice.call(arguments);
+                        var orientation_2 = javax.swing.SwingConstants.HORIZONTAL;
+                        var value_2 = ((__args_59[1] + __args_59[2]) / 2 | 0);
                         _super.call(this);
                         this.paintTicks = false;
                         this.paintTrack = true;
@@ -40296,17 +40135,15 @@ var javax;
                         this.minorTickSpacing = 0;
                         this.orientation = 0;
                         (function () {
-                            _this.checkOrientation(orientation);
-                            _this.orientation = orientation;
-                            _this.setModel(new javax.swing.DefaultBoundedRangeModel(value, 0, min, max));
+                            _this.checkOrientation(orientation_2);
+                            _this.orientation = orientation_2;
+                            _this.setModel(new javax.swing.DefaultBoundedRangeModel(value_2, 0, min_2, max_2));
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (((orientation != null && orientation["__interfaces"] != null && orientation["__interfaces"].indexOf("javax.swing.BoundedRangeModel") >= 0) || orientation === null) && min === undefined && max === undefined && value === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var brm = __args[0];
+                    var brm_1 = __args[0];
                     _super.call(this);
                     this.paintTicks = false;
                     this.paintTrack = true;
@@ -40322,16 +40159,16 @@ var javax;
                     this.orientation = 0;
                     (function () {
                         _this.orientation = javax.swing.SwingConstants.HORIZONTAL;
-                        _this.setModel(brm);
+                        _this.setModel(brm_1);
                     })();
                 }
                 else if (((typeof orientation === 'number') || orientation === null) && min === undefined && max === undefined && value === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var min = 0;
-                        var max = 100;
-                        var value = 50;
+                        var __args_60 = Array.prototype.slice.call(arguments);
+                        var min_3 = 0;
+                        var max_3 = 100;
+                        var value_3 = 50;
                         _super.call(this);
                         this.paintTicks = false;
                         this.paintTrack = true;
@@ -40348,20 +40185,18 @@ var javax;
                         (function () {
                             _this.checkOrientation(orientation);
                             _this.orientation = orientation;
-                            _this.setModel(new javax.swing.DefaultBoundedRangeModel(value, 0, min, max));
+                            _this.setModel(new javax.swing.DefaultBoundedRangeModel(value_3, 0, min_3, max_3));
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (orientation === undefined && min === undefined && max === undefined && value === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var orientation = javax.swing.SwingConstants.HORIZONTAL;
-                        var min = 0;
-                        var max = 100;
-                        var value = 50;
+                        var __args_61 = Array.prototype.slice.call(arguments);
+                        var orientation_3 = javax.swing.SwingConstants.HORIZONTAL;
+                        var min_4 = 0;
+                        var max_4 = 100;
+                        var value_4 = 50;
                         _super.call(this);
                         this.paintTicks = false;
                         this.paintTrack = true;
@@ -40376,13 +40211,11 @@ var javax;
                         this.minorTickSpacing = 0;
                         this.orientation = 0;
                         (function () {
-                            _this.checkOrientation(orientation);
-                            _this.orientation = orientation;
-                            _this.setModel(new javax.swing.DefaultBoundedRangeModel(value, 0, min, max));
+                            _this.checkOrientation(orientation_3);
+                            _this.orientation = orientation_3;
+                            _this.setModel(new javax.swing.DefaultBoundedRangeModel(value_4, 0, min_4, max_4));
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else
                     throw new Error('invalid overload');
@@ -40684,7 +40517,7 @@ var javax;
     var swing;
     (function (swing) {
         var text;
-        (function (text_1) {
+        (function (text_6) {
             var JTextComponent = (function (_super) {
                 __extends(JTextComponent, _super);
                 function JTextComponent() {
@@ -40707,7 +40540,7 @@ var javax;
                 };
                 return JTextComponent;
             }(javax.swing.JComponent));
-            text_1.JTextComponent = JTextComponent;
+            text_6.JTextComponent = JTextComponent;
             JTextComponent["__classname"] = "javax.swing.text.JTextComponent";
         })(text = swing.text || (swing.text = {}));
     })(swing = javax.swing || (javax.swing = {}));
@@ -41570,8 +41403,8 @@ var java;
                     else if (((source != null && source instanceof java.awt.Component) || source === null) && ((typeof id === 'number') || id === null) && ((typeof when === 'number') || when === null) && ((typeof modifiers === 'number') || modifiers === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof xAbs === 'number') || xAbs === null) && ((typeof yAbs === 'number') || yAbs === null) && ((typeof clickCount === 'number') || clickCount === null) && ((typeof popupTrigger === 'boolean') || popupTrigger === null) && ((typeof scrollType === 'number') || scrollType === null) && ((typeof scrollAmount === 'number') || scrollAmount === null) && ((typeof wheelRotation === 'number') || wheelRotation === null) && preciseWheelRotation === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
                         {
-                            var __args = Array.prototype.slice.call(arguments);
-                            var preciseWheelRotation = wheelRotation;
+                            var __args_62 = Array.prototype.slice.call(arguments);
+                            var preciseWheelRotation_1 = __args_62[12];
                             _super.call(this, source, id, when, modifiers, x, y, xAbs, yAbs, clickCount, popupTrigger, java.awt.event.MouseEvent.NOBUTTON);
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                             this.scrollType = 0;
@@ -41582,44 +41415,38 @@ var java;
                                 _this.scrollType = scrollType;
                                 _this.scrollAmount = scrollAmount;
                                 _this.wheelRotation = wheelRotation;
-                                _this.preciseWheelRotation = preciseWheelRotation;
+                                _this.preciseWheelRotation = preciseWheelRotation_1;
                             })();
                         }
-                        (function () {
-                        })();
                     }
                     else if (((source != null && source instanceof java.awt.Component) || source === null) && ((typeof id === 'number') || id === null) && ((typeof when === 'number') || when === null) && ((typeof modifiers === 'number') || modifiers === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof xAbs === 'number') || xAbs === null) && ((typeof yAbs === 'boolean') || yAbs === null) && ((typeof clickCount === 'number') || clickCount === null) && ((typeof popupTrigger === 'number') || popupTrigger === null) && ((typeof scrollType === 'number') || scrollType === null) && scrollAmount === undefined && wheelRotation === undefined && preciseWheelRotation === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
-                        var clickCount = __args[6];
-                        var popupTrigger = __args[7];
-                        var scrollType = __args[8];
-                        var scrollAmount = __args[9];
-                        var wheelRotation = __args[10];
+                        var clickCount_3 = __args[6];
+                        var popupTrigger_3 = __args[7];
+                        var scrollType_1 = __args[8];
+                        var scrollAmount_1 = __args[9];
+                        var wheelRotation_1 = __args[10];
                         {
-                            var __args = Array.prototype.slice.call(arguments);
-                            var xAbs = 0;
-                            var yAbs = 0;
+                            var __args_63 = Array.prototype.slice.call(arguments);
+                            var xAbs_3 = 0;
+                            var yAbs_3 = 0;
                             {
-                                var __args = Array.prototype.slice.call(arguments);
-                                var preciseWheelRotation = wheelRotation;
-                                _super.call(this, source, id, when, modifiers, x, y, xAbs, yAbs, clickCount, popupTrigger, java.awt.event.MouseEvent.NOBUTTON);
+                                var __args_64 = Array.prototype.slice.call(arguments);
+                                var preciseWheelRotation_2 = __args_64[12];
+                                _super.call(this, source, id, when, modifiers, x, y, xAbs_3, yAbs_3, clickCount_3, popupTrigger_3, java.awt.event.MouseEvent.NOBUTTON);
                                 Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                                 this.scrollType = 0;
                                 this.scrollAmount = 0;
                                 this.wheelRotation = 0;
                                 this.preciseWheelRotation = 0;
                                 (function () {
-                                    _this.scrollType = scrollType;
-                                    _this.scrollAmount = scrollAmount;
-                                    _this.wheelRotation = wheelRotation;
-                                    _this.preciseWheelRotation = preciseWheelRotation;
+                                    _this.scrollType = scrollType_1;
+                                    _this.scrollAmount = scrollAmount_1;
+                                    _this.wheelRotation = wheelRotation_1;
+                                    _this.preciseWheelRotation = preciseWheelRotation_2;
                                 })();
                             }
-                            (function () {
-                            })();
                         }
-                        (function () {
-                        })();
                     }
                     else
                         throw new Error('invalid overload');
@@ -41991,8 +41818,6 @@ var javax;
                     this.defaultCloseOperation = javax.swing.WindowConstants.HIDE_ON_CLOSE;
                     this.rootPaneCheckingEnabled = false;
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.RootPaneContainer", "javax.swing.WindowConstants"] });
-                    (function () {
-                    })();
                 }
                 else
                     throw new Error('invalid overload');
@@ -42170,89 +41995,81 @@ var javax;
                 }
                 else if (((typeof text === 'string') || text === null) && ((typeof icon === 'number') || icon === null)) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var mnemonic = __args[1];
+                    var mnemonic_1 = __args[1];
                     _super.call(this);
                     this.isMouseDragged = false;
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"] });
                     (function () {
                         _this.setModel(new javax.swing.DefaultButtonModel());
                         _this.init(text, null);
-                        _this.setMnemonic(mnemonic);
+                        _this.setMnemonic(mnemonic_1);
                     })();
                 }
                 else if (((text != null && text["__interfaces"] != null && text["__interfaces"].indexOf("javax.swing.Icon") >= 0) || text === null) && icon === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var icon = __args[0];
+                    var icon_6 = __args[0];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var text = null;
+                        var __args_65 = Array.prototype.slice.call(arguments);
+                        var text_7 = null;
                         _super.call(this);
                         this.isMouseDragged = false;
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         (function () {
                             _this.setModel(new javax.swing.DefaultButtonModel());
-                            _this.init(text, icon);
+                            _this.init(text_7, icon_6);
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (((typeof text === 'string') || text === null) && icon === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var icon = null;
+                        var __args_66 = Array.prototype.slice.call(arguments);
+                        var icon_7 = null;
                         _super.call(this);
                         this.isMouseDragged = false;
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         (function () {
                             _this.setModel(new javax.swing.DefaultButtonModel());
-                            _this.init(text, icon);
+                            _this.init(text, icon_7);
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (((text != null && text["__interfaces"] != null && text["__interfaces"].indexOf("javax.swing.Action") >= 0) || text === null) && icon === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var a = __args[0];
+                    var a_5 = __args[0];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
+                        var __args_67 = Array.prototype.slice.call(arguments);
                         {
-                            var __args = Array.prototype.slice.call(arguments);
-                            var text = null;
-                            var icon = null;
+                            var __args_68 = Array.prototype.slice.call(arguments);
+                            var text_8 = null;
+                            var icon_8 = null;
                             _super.call(this);
                             this.isMouseDragged = false;
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"] });
                             (function () {
                                 _this.setModel(new javax.swing.DefaultButtonModel());
-                                _this.init(text, icon);
+                                _this.init(text_8, icon_8);
                             })();
                         }
-                        (function () {
-                        })();
                     }
                     (function () {
-                        _this.setAction(a);
+                        _this.setAction(a_5);
                     })();
                 }
                 else if (text === undefined && icon === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var text = null;
-                        var icon = null;
+                        var __args_69 = Array.prototype.slice.call(arguments);
+                        var text_9 = null;
+                        var icon_9 = null;
                         _super.call(this);
                         this.isMouseDragged = false;
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         (function () {
                             _this.setModel(new javax.swing.DefaultButtonModel());
-                            _this.init(text, icon);
+                            _this.init(text_9, icon_9);
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else
                     throw new Error('invalid overload');
@@ -42560,138 +42377,124 @@ var javax;
                 else if (((typeof text === 'string') || text === null) && ((icon != null && icon["__interfaces"] != null && icon["__interfaces"].indexOf("javax.swing.Icon") >= 0) || icon === null) && selected === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var selected = false;
+                        var __args_70 = Array.prototype.slice.call(arguments);
+                        var selected_1 = false;
                         _super.call(this);
                         this.buttonCreated = false;
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         (function () {
                             _this.setModel(new JToggleButton.ToggleButtonModel());
-                            _this.model.setSelected(selected);
+                            _this.model.setSelected(selected_1);
                             _this.init(text, icon);
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (((text != null && text["__interfaces"] != null && text["__interfaces"].indexOf("javax.swing.Icon") >= 0) || text === null) && ((typeof icon === 'boolean') || icon === null) && selected === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var icon = __args[0];
-                    var selected = __args[1];
+                    var icon_10 = __args[0];
+                    var selected_2 = __args[1];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var text = null;
+                        var __args_71 = Array.prototype.slice.call(arguments);
+                        var text_10 = null;
                         _super.call(this);
                         this.buttonCreated = false;
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         (function () {
                             _this.setModel(new JToggleButton.ToggleButtonModel());
-                            _this.model.setSelected(selected);
-                            _this.init(text, icon);
+                            _this.model.setSelected(selected_2);
+                            _this.init(text_10, icon_10);
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (((typeof text === 'string') || text === null) && ((typeof icon === 'boolean') || icon === null) && selected === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var selected = __args[1];
+                    var selected_3 = __args[1];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var icon = null;
+                        var __args_72 = Array.prototype.slice.call(arguments);
+                        var icon_11 = null;
                         _super.call(this);
                         this.buttonCreated = false;
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         (function () {
                             _this.setModel(new JToggleButton.ToggleButtonModel());
-                            _this.model.setSelected(selected);
-                            _this.init(text, icon);
+                            _this.model.setSelected(selected_3);
+                            _this.init(text, icon_11);
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (((text != null && text["__interfaces"] != null && text["__interfaces"].indexOf("javax.swing.Icon") >= 0) || text === null) && icon === undefined && selected === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var icon = __args[0];
+                    var icon_12 = __args[0];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var text = null;
-                        var selected = false;
+                        var __args_73 = Array.prototype.slice.call(arguments);
+                        var text_11 = null;
+                        var selected_4 = false;
                         _super.call(this);
                         this.buttonCreated = false;
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         (function () {
                             _this.setModel(new JToggleButton.ToggleButtonModel());
-                            _this.model.setSelected(selected);
-                            _this.init(text, icon);
+                            _this.model.setSelected(selected_4);
+                            _this.init(text_11, icon_12);
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (((typeof text === 'string') || text === null) && icon === undefined && selected === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var icon = null;
-                        var selected = false;
+                        var __args_74 = Array.prototype.slice.call(arguments);
+                        var icon_13 = null;
+                        var selected_5 = false;
                         _super.call(this);
                         this.buttonCreated = false;
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         (function () {
                             _this.setModel(new JToggleButton.ToggleButtonModel());
-                            _this.model.setSelected(selected);
-                            _this.init(text, icon);
+                            _this.model.setSelected(selected_5);
+                            _this.init(text, icon_13);
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (((text != null && text["__interfaces"] != null && text["__interfaces"].indexOf("javax.swing.Action") >= 0) || text === null) && icon === undefined && selected === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var a = __args[0];
+                    var a_6 = __args[0];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
+                        var __args_75 = Array.prototype.slice.call(arguments);
                         {
-                            var __args = Array.prototype.slice.call(arguments);
-                            var text = null;
-                            var icon = null;
-                            var selected = false;
+                            var __args_76 = Array.prototype.slice.call(arguments);
+                            var text_12 = null;
+                            var icon_14 = null;
+                            var selected_6 = false;
                             _super.call(this);
                             this.buttonCreated = false;
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                             (function () {
                                 _this.setModel(new JToggleButton.ToggleButtonModel());
-                                _this.model.setSelected(selected);
-                                _this.init(text, icon);
+                                _this.model.setSelected(selected_6);
+                                _this.init(text_12, icon_14);
                             })();
                         }
-                        (function () {
-                        })();
                     }
                     (function () {
-                        _this.setAction(a);
+                        _this.setAction(a_6);
                     })();
                 }
                 else if (text === undefined && icon === undefined && selected === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var text = null;
-                        var icon = null;
-                        var selected = false;
+                        var __args_77 = Array.prototype.slice.call(arguments);
+                        var text_13 = null;
+                        var icon_15 = null;
+                        var selected_7 = false;
                         _super.call(this);
                         this.buttonCreated = false;
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         (function () {
                             _this.setModel(new JToggleButton.ToggleButtonModel());
-                            _this.model.setSelected(selected);
-                            _this.init(text, icon);
+                            _this.model.setSelected(selected_7);
+                            _this.init(text_13, icon_15);
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else
                     throw new Error('invalid overload');
@@ -42823,12 +42626,12 @@ var javax;
                 }
                 else if (((typeof doc === 'string') || doc === null) && ((typeof text === 'number') || text === null) && ((typeof rows === 'number') || rows === null) && columns === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var text = __args[0];
-                    var rows = __args[1];
-                    var columns = __args[2];
+                    var text_14 = __args[0];
+                    var rows_1 = __args[1];
+                    var columns_1 = __args[2];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var doc = null;
+                        var __args_78 = Array.prototype.slice.call(arguments);
+                        var doc_1 = null;
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
                         this.rows = 0;
@@ -42838,30 +42641,28 @@ var javax;
                         this.wrap = false;
                         this.word = false;
                         (function () {
-                            _this.rows = rows;
-                            _this.columns = columns;
-                            if (text != null) {
-                                _this.setText(text);
+                            _this.rows = rows_1;
+                            _this.columns = columns_1;
+                            if (text_14 != null) {
+                                _this.setText(text_14);
                             }
-                            if (rows < 0) {
-                                throw new java.lang.IllegalArgumentException("rows: " + rows);
+                            if (rows_1 < 0) {
+                                throw new java.lang.IllegalArgumentException("rows: " + rows_1);
                             }
-                            if (columns < 0) {
-                                throw new java.lang.IllegalArgumentException("columns: " + columns);
+                            if (columns_1 < 0) {
+                                throw new java.lang.IllegalArgumentException("columns: " + columns_1);
                             }
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (((typeof doc === 'number') || doc === null) && ((typeof text === 'number') || text === null) && rows === undefined && columns === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var rows = __args[0];
-                    var columns = __args[1];
+                    var rows_2 = __args[0];
+                    var columns_2 = __args[1];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var doc = null;
-                        var text = null;
+                        var __args_79 = Array.prototype.slice.call(arguments);
+                        var doc_2 = null;
+                        var text_15 = null;
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
                         this.rows = 0;
@@ -42871,30 +42672,28 @@ var javax;
                         this.wrap = false;
                         this.word = false;
                         (function () {
-                            _this.rows = rows;
-                            _this.columns = columns;
-                            if (text != null) {
-                                _this.setText(text);
+                            _this.rows = rows_2;
+                            _this.columns = columns_2;
+                            if (text_15 != null) {
+                                _this.setText(text_15);
                             }
-                            if (rows < 0) {
-                                throw new java.lang.IllegalArgumentException("rows: " + rows);
+                            if (rows_2 < 0) {
+                                throw new java.lang.IllegalArgumentException("rows: " + rows_2);
                             }
-                            if (columns < 0) {
-                                throw new java.lang.IllegalArgumentException("columns: " + columns);
+                            if (columns_2 < 0) {
+                                throw new java.lang.IllegalArgumentException("columns: " + columns_2);
                             }
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (((typeof doc === 'string') || doc === null) && text === undefined && rows === undefined && columns === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var text = __args[0];
+                    var text_16 = __args[0];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var doc = null;
-                        var rows = 0;
-                        var columns = 0;
+                        var __args_80 = Array.prototype.slice.call(arguments);
+                        var doc_3 = null;
+                        var rows_3 = 0;
+                        var columns_3 = 0;
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
                         this.rows = 0;
@@ -42904,30 +42703,28 @@ var javax;
                         this.wrap = false;
                         this.word = false;
                         (function () {
-                            _this.rows = rows;
-                            _this.columns = columns;
-                            if (text != null) {
-                                _this.setText(text);
+                            _this.rows = rows_3;
+                            _this.columns = columns_3;
+                            if (text_16 != null) {
+                                _this.setText(text_16);
                             }
-                            if (rows < 0) {
-                                throw new java.lang.IllegalArgumentException("rows: " + rows);
+                            if (rows_3 < 0) {
+                                throw new java.lang.IllegalArgumentException("rows: " + rows_3);
                             }
-                            if (columns < 0) {
-                                throw new java.lang.IllegalArgumentException("columns: " + columns);
+                            if (columns_3 < 0) {
+                                throw new java.lang.IllegalArgumentException("columns: " + columns_3);
                             }
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (doc === undefined && text === undefined && rows === undefined && columns === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var doc = null;
-                        var text = null;
-                        var rows = 0;
-                        var columns = 0;
+                        var __args_81 = Array.prototype.slice.call(arguments);
+                        var doc_4 = null;
+                        var text_17 = null;
+                        var rows_4 = 0;
+                        var columns_4 = 0;
                         _super.call(this);
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
                         this.rows = 0;
@@ -42937,21 +42734,19 @@ var javax;
                         this.wrap = false;
                         this.word = false;
                         (function () {
-                            _this.rows = rows;
-                            _this.columns = columns;
-                            if (text != null) {
-                                _this.setText(text);
+                            _this.rows = rows_4;
+                            _this.columns = columns_4;
+                            if (text_17 != null) {
+                                _this.setText(text_17);
                             }
-                            if (rows < 0) {
-                                throw new java.lang.IllegalArgumentException("rows: " + rows);
+                            if (rows_4 < 0) {
+                                throw new java.lang.IllegalArgumentException("rows: " + rows_4);
                             }
-                            if (columns < 0) {
-                                throw new java.lang.IllegalArgumentException("columns: " + columns);
+                            if (columns_4 < 0) {
+                                throw new java.lang.IllegalArgumentException("columns: " + columns_4);
                             }
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else
                     throw new Error('invalid overload');
@@ -43084,103 +42879,95 @@ var javax;
                 }
                 else if (((typeof doc === 'string') || doc === null) && ((typeof text === 'number') || text === null) && columns === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var text = __args[0];
-                    var columns = __args[1];
+                    var text_18 = __args[0];
+                    var columns_5 = __args[1];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var doc = null;
+                        var __args_82 = Array.prototype.slice.call(arguments);
+                        var doc_5 = null;
                         _super.call(this);
                         this.horizontalAlignment = javax.swing.SwingConstants.LEADING;
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         this.columns = 0;
                         this.columnWidth = 0;
                         (function () {
-                            if (columns < 0) {
+                            if (columns_5 < 0) {
                                 throw new java.lang.IllegalArgumentException("columns less than zero.");
                             }
-                            _this.columns = columns;
-                            if (text != null) {
-                                _this.setText(text);
+                            _this.columns = columns_5;
+                            if (text_18 != null) {
+                                _this.setText(text_18);
                             }
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (((typeof doc === 'string') || doc === null) && text === undefined && columns === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var text = __args[0];
+                    var text_19 = __args[0];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var doc = null;
-                        var columns = 0;
+                        var __args_83 = Array.prototype.slice.call(arguments);
+                        var doc_6 = null;
+                        var columns_6 = 0;
                         _super.call(this);
                         this.horizontalAlignment = javax.swing.SwingConstants.LEADING;
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         this.columns = 0;
                         this.columnWidth = 0;
                         (function () {
-                            if (columns < 0) {
+                            if (columns_6 < 0) {
                                 throw new java.lang.IllegalArgumentException("columns less than zero.");
                             }
-                            _this.columns = columns;
-                            if (text != null) {
-                                _this.setText(text);
+                            _this.columns = columns_6;
+                            if (text_19 != null) {
+                                _this.setText(text_19);
                             }
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (((typeof doc === 'number') || doc === null) && text === undefined && columns === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var columns = __args[0];
+                    var columns_7 = __args[0];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var doc = null;
-                        var text = null;
+                        var __args_84 = Array.prototype.slice.call(arguments);
+                        var doc_7 = null;
+                        var text_20 = null;
                         _super.call(this);
                         this.horizontalAlignment = javax.swing.SwingConstants.LEADING;
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         this.columns = 0;
                         this.columnWidth = 0;
                         (function () {
-                            if (columns < 0) {
+                            if (columns_7 < 0) {
                                 throw new java.lang.IllegalArgumentException("columns less than zero.");
                             }
-                            _this.columns = columns;
-                            if (text != null) {
-                                _this.setText(text);
+                            _this.columns = columns_7;
+                            if (text_20 != null) {
+                                _this.setText(text_20);
                             }
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (doc === undefined && text === undefined && columns === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var doc = null;
-                        var text = null;
-                        var columns = 0;
+                        var __args_85 = Array.prototype.slice.call(arguments);
+                        var doc_8 = null;
+                        var text_21 = null;
+                        var columns_8 = 0;
                         _super.call(this);
                         this.horizontalAlignment = javax.swing.SwingConstants.LEADING;
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         this.columns = 0;
                         this.columnWidth = 0;
                         (function () {
-                            if (columns < 0) {
+                            if (columns_8 < 0) {
                                 throw new java.lang.IllegalArgumentException("columns less than zero.");
                             }
-                            _this.columns = columns;
-                            if (text != null) {
-                                _this.setText(text);
+                            _this.columns = columns_8;
+                            if (text_21 != null) {
+                                _this.setText(text_21);
                             }
                         })();
                     }
-                    (function () {
-                    })();
                 }
                 else
                     throw new Error('invalid overload');
@@ -43627,17 +43414,13 @@ var javax;
                 if (((typeof s === 'string') || s === null) && ((typeof b === 'boolean') || b === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
+                        var __args_86 = Array.prototype.slice.call(arguments);
                         _super.call(this, s);
                         this.menuChangeListener = null;
                         this.menuEvent = null;
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         this.delay = 0;
-                        (function () {
-                        })();
                     }
-                    (function () {
-                    })();
                 }
                 else if (((typeof s === 'string') || s === null) && b === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
@@ -43646,47 +43429,37 @@ var javax;
                     this.menuEvent = null;
                     Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"] });
                     this.delay = 0;
-                    (function () {
-                    })();
                 }
                 else if (((s != null && s["__interfaces"] != null && s["__interfaces"].indexOf("javax.swing.Action") >= 0) || s === null) && b === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
-                    var a = __args[0];
+                    var a_7 = __args[0];
                     {
-                        var __args = Array.prototype.slice.call(arguments);
+                        var __args_87 = Array.prototype.slice.call(arguments);
                         {
-                            var __args = Array.prototype.slice.call(arguments);
-                            var s = "";
-                            _super.call(this, s);
+                            var __args_88 = Array.prototype.slice.call(arguments);
+                            var s_1 = "";
+                            _super.call(this, s_1);
                             this.menuChangeListener = null;
                             this.menuEvent = null;
                             Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"] });
                             this.delay = 0;
-                            (function () {
-                            })();
                         }
-                        (function () {
-                        })();
                     }
                     (function () {
-                        _this.setAction(a);
+                        _this.setAction(a_7);
                     })();
                 }
                 else if (s === undefined && b === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
-                        var __args = Array.prototype.slice.call(arguments);
-                        var s = "";
-                        _super.call(this, s);
+                        var __args_89 = Array.prototype.slice.call(arguments);
+                        var s_2 = "";
+                        _super.call(this, s_2);
                         this.menuChangeListener = null;
                         this.menuEvent = null;
                         Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         this.delay = 0;
-                        (function () {
-                        })();
                     }
-                    (function () {
-                    })();
                 }
                 else
                     throw new Error('invalid overload');
@@ -44705,7 +44478,7 @@ var javax;
                     throw new java.lang.IllegalArgumentException("index less than zero.");
                 }
                 var nitems = this.getComponentCount();
-                var tempItems = new java.util.Vector();
+                var tempItems = (new java.util.Vector());
                 for (var i = index; i < nitems; i++) {
                     tempItems.addElement(this.getComponent(index));
                     this.remove(index);
@@ -45155,7 +44928,7 @@ var javax;
              */
             JPopupMenu.prototype.getSubElements = function () {
                 var result;
-                var tmp = new java.util.Vector();
+                var tmp = (new java.util.Vector());
                 var c = this.getComponentCount();
                 var i;
                 var m;
@@ -45233,7 +45006,7 @@ var javax;
                 this.state = false;
                 this.label = label;
                 this.state = state;
-                this.itemListeners = new Array();
+                this.itemListeners = (new Array());
             }
             JCheckBox.prototype.createHTML = function () {
                 console.info("create HTML jcheckbox");
@@ -45315,7 +45088,7 @@ var javax;
                 return this.itemListeners;
             };
             JCheckBox.prototype.getListeners = function (listenerType) {
-                var result = new Array();
+                var result = (new Array());
                 for (var i = 0; i < this.itemListeners.length; i++) {
                     if (this.itemListeners[i].constructor === listenerType) {
                         result.push((this.itemListeners[i]));

@@ -25,8 +25,6 @@
 
 package java.awt;
 
-import java.awt.image.ColorModel;
-
 public class Color implements Paint, java.io.Serializable {
 
 	/**
@@ -364,7 +362,6 @@ public class Color implements Paint, java.io.Serializable {
 	 *
 	 * @param rgb
 	 *            the combined RGB components
-	 * @see java.awt.image.ColorModel#getRGBdefault
 	 * @see #getRed
 	 * @see #getGreen
 	 * @see #getBlue
@@ -386,7 +383,6 @@ public class Color implements Paint, java.io.Serializable {
 	 * @param hasalpha
 	 *            <code>true</code> if the alpha bits are valid;
 	 *            <code>false</code> otherwise
-	 * @see java.awt.image.ColorModel#getRGBdefault
 	 * @see #getRed
 	 * @see #getGreen
 	 * @see #getBlue
@@ -506,9 +502,8 @@ public class Color implements Paint, java.io.Serializable {
 	}
 
 	/**
-	 * Returns the RGB value representing the color in the default sRGB
-	 * {@link ColorModel}. (Bits 24-31 are alpha, 16-23 are red, 8-15 are green,
-	 * 0-7 are blue).
+	 * Returns the RGB value representing the color in the default sRGB. (Bits
+	 * 24-31 are alpha, 16-23 are red, 8-15 are green, 0-7 are blue).
 	 * 
 	 * @return the RGB value of the color in the default sRGB
 	 *         <code>ColorModel</code>.
@@ -1040,34 +1035,34 @@ public class Color implements Paint, java.io.Serializable {
 	 *            <code>ColorSpace</code> and returns
 	 * @return the color and alpha components in a <code>float</code> array.
 	 */
-//	public float[] getComponents(ColorSpace cspace, float[] compArray) {
-//		if (cs == null) {
-//			cs = ColorSpace.getInstance(ColorSpace.CS_sRGB);
-//		}
-//		float f[];
-//		if (fvalue == null) {
-//			f = new float[3];
-//			f[0] = ((float) getRed()) / 255f;
-//			f[1] = ((float) getGreen()) / 255f;
-//			f[2] = ((float) getBlue()) / 255f;
-//		} else {
-//			f = fvalue;
-//		}
-//		float tmp[] = cs.toCIEXYZ(f);
-//		float tmpout[] = cspace.fromCIEXYZ(tmp);
-//		if (compArray == null) {
-//			compArray = new float[tmpout.length + 1];
-//		}
-//		for (int i = 0; i < tmpout.length; i++) {
-//			compArray[i] = tmpout[i];
-//		}
-//		if (fvalue == null) {
-//			compArray[tmpout.length] = ((float) getAlpha()) / 255f;
-//		} else {
-//			compArray[tmpout.length] = falpha;
-//		}
-//		return compArray;
-//	}
+	// public float[] getComponents(ColorSpace cspace, float[] compArray) {
+	// if (cs == null) {
+	// cs = ColorSpace.getInstance(ColorSpace.CS_sRGB);
+	// }
+	// float f[];
+	// if (fvalue == null) {
+	// f = new float[3];
+	// f[0] = ((float) getRed()) / 255f;
+	// f[1] = ((float) getGreen()) / 255f;
+	// f[2] = ((float) getBlue()) / 255f;
+	// } else {
+	// f = fvalue;
+	// }
+	// float tmp[] = cs.toCIEXYZ(f);
+	// float tmpout[] = cspace.fromCIEXYZ(tmp);
+	// if (compArray == null) {
+	// compArray = new float[tmpout.length + 1];
+	// }
+	// for (int i = 0; i < tmpout.length; i++) {
+	// compArray[i] = tmpout[i];
+	// }
+	// if (fvalue == null) {
+	// compArray[tmpout.length] = ((float) getAlpha()) / 255f;
+	// } else {
+	// compArray[tmpout.length] = falpha;
+	// }
+	// return compArray;
+	// }
 
 	/**
 	 * Returns a <code>float</code> array containing only the color components
@@ -1086,41 +1081,41 @@ public class Color implements Paint, java.io.Serializable {
 	 *            <code>ColorSpace</code>
 	 * @return the color components in a <code>float</code> array.
 	 */
-//	public float[] getColorComponents(ColorSpace cspace, float[] compArray) {
-//		if (cs == null) {
-//			cs = ColorSpace.getInstance(ColorSpace.CS_sRGB);
-//		}
-//		float f[];
-//		if (fvalue == null) {
-//			f = new float[3];
-//			f[0] = ((float) getRed()) / 255f;
-//			f[1] = ((float) getGreen()) / 255f;
-//			f[2] = ((float) getBlue()) / 255f;
-//		} else {
-//			f = fvalue;
-//		}
-//		float tmp[] = cs.toCIEXYZ(f);
-//		float tmpout[] = cspace.fromCIEXYZ(tmp);
-//		if (compArray == null) {
-//			return tmpout;
-//		}
-//		for (int i = 0; i < tmpout.length; i++) {
-//			compArray[i] = tmpout[i];
-//		}
-//		return compArray;
-//	}
+	// public float[] getColorComponents(ColorSpace cspace, float[] compArray) {
+	// if (cs == null) {
+	// cs = ColorSpace.getInstance(ColorSpace.CS_sRGB);
+	// }
+	// float f[];
+	// if (fvalue == null) {
+	// f = new float[3];
+	// f[0] = ((float) getRed()) / 255f;
+	// f[1] = ((float) getGreen()) / 255f;
+	// f[2] = ((float) getBlue()) / 255f;
+	// } else {
+	// f = fvalue;
+	// }
+	// float tmp[] = cs.toCIEXYZ(f);
+	// float tmpout[] = cspace.fromCIEXYZ(tmp);
+	// if (compArray == null) {
+	// return tmpout;
+	// }
+	// for (int i = 0; i < tmpout.length; i++) {
+	// compArray[i] = tmpout[i];
+	// }
+	// return compArray;
+	// }
 
 	/**
 	 * Returns the <code>ColorSpace</code> of this <code>Color</code>.
 	 * 
 	 * @return this <code>Color</code> object's <code>ColorSpace</code>.
 	 */
-//	public ColorSpace getColorSpace() {
-//		if (cs == null) {
-//			cs = ColorSpace.getInstance(ColorSpace.CS_sRGB);
-//		}
-//		return cs;
-//	}
+	// public ColorSpace getColorSpace() {
+	// if (cs == null) {
+	// cs = ColorSpace.getInstance(ColorSpace.CS_sRGB);
+	// }
+	// return cs;
+	// }
 
 	/**
 	 * Creates and returns a {@link PaintContext} used to generate a solid color
@@ -1129,7 +1124,7 @@ public class Color implements Paint, java.io.Serializable {
 	 * handling.
 	 *
 	 * @param cm
-	 *            the preferred {@link ColorModel} which represents the most
+	 *            the preferred ColorModel which represents the most
 	 *            convenient format for the caller to receive the pixel data, or
 	 *            {@code null} if there is no preference.
 	 * @param r
@@ -1146,16 +1141,16 @@ public class Color implements Paint, java.io.Serializable {
 	 * @return the {@code PaintContext} for generating color patterns.
 	 * @see Paint
 	 * @see PaintContext
-	 * @see ColorModel
 	 * @see Rectangle
 	 * @see Rectangle2D
 	 * @see AffineTransform
 	 * @see RenderingHints
 	 */
-//	public synchronized PaintContext createContext(ColorModel cm, Rectangle r, Rectangle2D r2d, AffineTransform xform,
-//			RenderingHints hints) {
-//		return new ColorPaintContext(getRGB(), cm);
-//	}
+	// public synchronized PaintContext createContext(ColorModel cm, Rectangle
+	// r, Rectangle2D r2d, AffineTransform xform,
+	// RenderingHints hints) {
+	// return new ColorPaintContext(getRGB(), cm);
+	// }
 
 	/**
 	 * Returns the transparency mode for this <code>Color</code>. This is

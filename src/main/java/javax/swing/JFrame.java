@@ -3,7 +3,6 @@ package javax.swing;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Frame;
-import java.awt.HeadlessException;
 
 public class JFrame extends Frame implements RootPaneContainer, WindowConstants {
 
@@ -16,7 +15,7 @@ public class JFrame extends Frame implements RootPaneContainer, WindowConstants 
 	public JFrame() {
 	}
 
-	public JFrame(String title) throws HeadlessException {
+	public JFrame(String title) {
 		super(title);
 		frameInit();
 	}

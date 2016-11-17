@@ -29,7 +29,6 @@ import static jsweet.util.Globals.any;
 import static jsweet.util.Globals.array;
 
 import java.awt.Checkbox;
-import java.awt.HeadlessException;
 import java.awt.ItemSelectable;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
@@ -56,15 +55,15 @@ public class JCheckBox extends JToggleButton implements ItemSelectable {
 
 	static final long serialVersionUID = 7270714317450821763L;
 
-	public JCheckBox() throws HeadlessException {
+	public JCheckBox() {
 		this("", false);
 	}
 
-	public JCheckBox(String label) throws HeadlessException {
+	public JCheckBox(String label) {
 		this(label, false);
 	}
 
-	public JCheckBox(String label, boolean state) throws HeadlessException {
+	public JCheckBox(String label, boolean state) {
 		this.label = label;
 		this.state = state;
 		this.itemListeners = new Array<ItemListener>();

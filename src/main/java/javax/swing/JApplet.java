@@ -30,7 +30,6 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Graphics;
-import java.awt.HeadlessException;
 import java.awt.LayoutManager;
 
 /**
@@ -60,12 +59,12 @@ public class JApplet extends Applet implements RootPaneContainer {
 	 * This constructor sets the component's locale property to the value
 	 * returned by <code>JComponent.getDefaultLocale</code>.
 	 *
-	 * @exception HeadlessException
+	 * @exception java.awt.HeadlessException
 	 *                if GraphicsEnvironment.isHeadless() returns true.
 	 * @see java.awt.GraphicsEnvironment#isHeadless
 	 * @see JComponent#getDefaultLocale
 	 */
-	public JApplet() throws HeadlessException {
+	public JApplet() {
 		super();
 		setForeground(Color.black);
 		setBackground(Color.white);

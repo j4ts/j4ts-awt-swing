@@ -27,9 +27,9 @@ declare namespace java.awt {
         removeAdjustmentListener(l: java.awt.event.AdjustmentListener): any;
     }
     namespace Adjustable {
-        var HORIZONTAL: number;
-        var VERTICAL: number;
-        var NO_ORIENTATION: number;
+        let HORIZONTAL: number;
+        let VERTICAL: number;
+        let NO_ORIENTATION: number;
     }
 }
 declare namespace java.awt {
@@ -6796,7 +6796,7 @@ declare namespace java.awt.geom {
          * inside the path if a ray drawn in any direction from that point to
          * infinity is crossed by path segments an odd number of times.
          */
-        var WIND_EVEN_ODD: number;
+        let WIND_EVEN_ODD: number;
         /**
          * The winding rule constant for specifying a non-zero rule for determining
          * the interior of a path. The non-zero rule specifies that a point lies
@@ -6804,17 +6804,17 @@ declare namespace java.awt.geom {
          * infinity is crossed by path segments a different number of times in the
          * counter-clockwise direction than the clockwise direction.
          */
-        var WIND_NON_ZERO: number;
+        let WIND_NON_ZERO: number;
         /**
          * The segment type constant for a point that specifies the starting
          * location for a new subpath.
          */
-        var SEG_MOVETO: number;
+        let SEG_MOVETO: number;
         /**
          * The segment type constant for a point that specifies the end point of a
          * line to be drawn from the most recently specified point.
          */
-        var SEG_LINETO: number;
+        let SEG_LINETO: number;
         /**
          * The segment type constant for the pair of points that specify a quadratic
          * parametric curve to be drawn from the most recently specified point. The
@@ -6833,7 +6833,7 @@ declare namespace java.awt.geom {
          * = n! / (m! * (n-m)!)
          * </pre>
          */
-        var SEG_QUADTO: number;
+        let SEG_QUADTO: number;
         /**
          * The segment type constant for the set of 3 points that specify a cubic
          * parametric curve to be drawn from the most recently specified point. The
@@ -6855,13 +6855,13 @@ declare namespace java.awt.geom {
          *
          * This form of curve is commonly known as a B&eacute;zier curve.
          */
-        var SEG_CUBICTO: number;
+        let SEG_CUBICTO: number;
         /**
          * The segment type constant that specifies that the preceding subpath
          * should be closed by appending a line segment back to the point
          * corresponding to the most recent SEG_MOVETO.
          */
-        var SEG_CLOSE: number;
+        let SEG_CLOSE: number;
     }
 }
 declare namespace java.awt.geom {
@@ -8653,14 +8653,14 @@ declare namespace java.awt.image {
         imageUpdate(img: java.awt.Image, infoflags: number, x: number, y: number, width: number, height: number): boolean;
     }
     namespace ImageObserver {
-        var WIDTH: number;
-        var HEIGHT: number;
-        var PROPERTIES: number;
-        var SOMEBITS: number;
-        var FRAMEBITS: number;
-        var ALLBITS: number;
-        var ERROR: number;
-        var ABORT: number;
+        let WIDTH: number;
+        let HEIGHT: number;
+        let PROPERTIES: number;
+        let SOMEBITS: number;
+        let FRAMEBITS: number;
+        let ALLBITS: number;
+        let ERROR: number;
+        let ABORT: number;
     }
 }
 declare namespace java.awt.image {
@@ -9089,9 +9089,9 @@ declare namespace java.awt {
         getTransparency(): number;
     }
     namespace Transparency {
-        var OPAQUE: number;
-        var BITMASK: number;
-        var TRANSLUCENT: number;
+        let OPAQUE: number;
+        let BITMASK: number;
+        let TRANSLUCENT: number;
     }
 }
 declare namespace java.beans {
@@ -9521,17 +9521,17 @@ declare namespace javax.swing {
         removePropertyChangeListener(listener: java.beans.PropertyChangeListener): any;
     }
     namespace Action {
-        var DEFAULT: string;
-        var NAME: string;
-        var SHORT_DESCRIPTION: string;
-        var LONG_DESCRIPTION: string;
-        var SMALL_ICON: string;
-        var ACTION_COMMAND_KEY: string;
-        var ACCELERATOR_KEY: string;
-        var MNEMONIC_KEY: string;
-        var SELECTED_KEY: string;
-        var DISPLAYED_MNEMONIC_INDEX_KEY: string;
-        var LARGE_ICON_KEY: string;
+        let DEFAULT: string;
+        let NAME: string;
+        let SHORT_DESCRIPTION: string;
+        let LONG_DESCRIPTION: string;
+        let SMALL_ICON: string;
+        let ACTION_COMMAND_KEY: string;
+        let ACCELERATOR_KEY: string;
+        let MNEMONIC_KEY: string;
+        let SELECTED_KEY: string;
+        let DISPLAYED_MNEMONIC_INDEX_KEY: string;
+        let LARGE_ICON_KEY: string;
     }
 }
 declare namespace javax.swing {
@@ -11360,21 +11360,21 @@ declare namespace javax.swing {
          *
          * @see #setSelectionMode
          */
-        var SINGLE_SELECTION: number;
+        let SINGLE_SELECTION: number;
         /**
          * A value for the selectionMode property: select one contiguous
          * range of indices at a time.
          *
          * @see #setSelectionMode
          */
-        var SINGLE_INTERVAL_SELECTION: number;
+        let SINGLE_INTERVAL_SELECTION: number;
         /**
          * A value for the selectionMode property: select one or more
          * contiguous ranges of indices at a time.
          *
          * @see #setSelectionMode
          */
-        var MULTIPLE_INTERVAL_SELECTION: number;
+        let MULTIPLE_INTERVAL_SELECTION: number;
     }
 }
 declare namespace javax.swing {
@@ -11607,85 +11607,85 @@ declare namespace javax.swing {
          * both compass-direction constants (NORTH, etc.)
          * and box-orientation constants (TOP, etc.).
          */
-        var CENTER: number;
+        let CENTER: number;
         /**
          * Box-orientation constant used to specify the top of a box.
          */
-        var TOP: number;
+        let TOP: number;
         /**
          * Box-orientation constant used to specify the left side of a box.
          */
-        var LEFT: number;
+        let LEFT: number;
         /**
          * Box-orientation constant used to specify the bottom of a box.
          */
-        var BOTTOM: number;
+        let BOTTOM: number;
         /**
          * Box-orientation constant used to specify the right side of a box.
          */
-        var RIGHT: number;
+        let RIGHT: number;
         /**
          * Compass-direction North (up).
          */
-        var NORTH: number;
+        let NORTH: number;
         /**
          * Compass-direction north-east (upper right).
          */
-        var NORTH_EAST: number;
+        let NORTH_EAST: number;
         /**
          * Compass-direction east (right).
          */
-        var EAST: number;
+        let EAST: number;
         /**
          * Compass-direction south-east (lower right).
          */
-        var SOUTH_EAST: number;
+        let SOUTH_EAST: number;
         /**
          * Compass-direction south (down).
          */
-        var SOUTH: number;
+        let SOUTH: number;
         /**
          * Compass-direction south-west (lower left).
          */
-        var SOUTH_WEST: number;
+        let SOUTH_WEST: number;
         /**
          * Compass-direction west (left).
          */
-        var WEST: number;
+        let WEST: number;
         /**
          * Compass-direction north west (upper left).
          */
-        var NORTH_WEST: number;
+        let NORTH_WEST: number;
         /**
          * Horizontal orientation. Used for scrollbars and sliders.
          */
-        var HORIZONTAL: number;
+        let HORIZONTAL: number;
         /**
          * Vertical orientation. Used for scrollbars and sliders.
          */
-        var VERTICAL: number;
+        let VERTICAL: number;
         /**
          * Identifies the leading edge of text for use with left-to-right
          * and right-to-left languages. Used by buttons and labels.
          */
-        var LEADING: number;
+        let LEADING: number;
         /**
          * Identifies the trailing edge of text for use with left-to-right
          * and right-to-left languages. Used by buttons and labels.
          */
-        var TRAILING: number;
+        let TRAILING: number;
         /**
          * Identifies the next direction in a sequence.
          *
          * @since 1.4
          */
-        var NEXT: number;
+        let NEXT: number;
         /**
          * Identifies the previous direction in a sequence.
          *
          * @since 1.4
          */
-        var PREVIOUS: number;
+        let PREVIOUS: number;
     }
 }
 declare namespace javax.swing.text {
@@ -11995,7 +11995,7 @@ declare namespace javax.swing.undo {
         /**
          * Resource ID for this class.
          */
-        var RCSID: string;
+        let RCSID: string;
     }
 }
 declare namespace javax.swing.undo {
@@ -12250,10 +12250,10 @@ declare namespace javax.swing {
     interface WindowConstants {
     }
     namespace WindowConstants {
-        var DO_NOTHING_ON_CLOSE: number;
-        var HIDE_ON_CLOSE: number;
-        var DISPOSE_ON_CLOSE: number;
-        var EXIT_ON_CLOSE: number;
+        let DO_NOTHING_ON_CLOSE: number;
+        let HIDE_ON_CLOSE: number;
+        let DISPOSE_ON_CLOSE: number;
+        let EXIT_ON_CLOSE: number;
     }
 }
 declare namespace sun.awt.geom {
