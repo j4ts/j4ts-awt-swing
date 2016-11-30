@@ -10,7 +10,6 @@ var java;
     (function (awt) {
         var AbstractHTMLComponent = (function () {
             function AbstractHTMLComponent() {
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent"] });
             }
             AbstractHTMLComponent.prototype.bindHTML = function (htmlElement) {
                 this.htmlElement = htmlElement;
@@ -30,7 +29,8 @@ var java;
             return AbstractHTMLComponent;
         }());
         awt.AbstractHTMLComponent = AbstractHTMLComponent;
-        AbstractHTMLComponent["__classname"] = "java.awt.AbstractHTMLComponent";
+        AbstractHTMLComponent["__class"] = "java.awt.AbstractHTMLComponent";
+        AbstractHTMLComponent["__interfaces"] = ["java.awt.HTMLComponent"];
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -58,7 +58,6 @@ var java;
                 if (((source != null) || source === null) && ((typeof id === 'number') || id === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     _super.call(this, source);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                     this.id = 0;
                     this.consumed = false;
                     (function () {
@@ -83,7 +82,6 @@ var java;
                         var source_1 = event_1.target;
                         var id_1 = event_1.id;
                         _super.call(this, source_1);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                         this.id = 0;
                         this.consumed = false;
                         (function () {
@@ -124,7 +122,7 @@ var java;
                 else if (this.source != null && this.source instanceof java.awt.MenuComponent) {
                     srcName = this.source.getName();
                 }
-                return this.constructor["__classname"] + "[" + this.paramString() + "] on " + (srcName != null ? srcName : this.source);
+                return (function (c) { return c["__class"] ? c["__class"] : c.name; })(this.constructor) + "[" + this.paramString() + "] on " + (srcName != null ? srcName : this.source);
             };
             AWTEvent.prototype.paramString = function () {
                 return "";
@@ -249,7 +247,8 @@ var java;
             return AWTEvent;
         }(java.util.EventObject));
         awt.AWTEvent = AWTEvent;
-        AWTEvent["__classname"] = "java.awt.AWTEvent";
+        AWTEvent["__class"] = "java.awt.AWTEvent";
+        AWTEvent["__interfaces"] = ["java.io.Serializable"];
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -265,7 +264,6 @@ var java;
                 if (miterlimit === void 0) { miterlimit = 10.0; }
                 if (dash === void 0) { dash = null; }
                 if (dash_phase === void 0) { dash_phase = 0.0; }
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Stroke"] });
                 this.width = 0;
                 this.join = 0;
                 this.cap = 0;
@@ -388,7 +386,8 @@ var java;
             return BasicStroke;
         }());
         awt.BasicStroke = BasicStroke;
-        BasicStroke["__classname"] = "java.awt.BasicStroke";
+        BasicStroke["__class"] = "java.awt.BasicStroke";
+        BasicStroke["__interfaces"] = ["java.awt.Stroke"];
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -411,7 +410,6 @@ var java;
                 if (hgap === void 0) { hgap = 0; }
                 if (vgap === void 0) { vgap = 0; }
                 this.created = false;
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.LayoutManager2", "java.awt.LayoutManager", "java.io.Serializable"] });
                 this.hgap = 0;
                 this.vgap = 0;
                 this.hgap = hgap;
@@ -758,7 +756,7 @@ var java;
              * @return a string representation of this border layout.
              */
             BorderLayout.prototype.toString = function () {
-                return this.constructor["__classname"] + "[hgap=" + this.hgap + ",vgap=" + this.vgap + "]";
+                return (function (c) { return c["__class"] ? c["__class"] : c.name; })(this.constructor) + "[hgap=" + this.hgap + ",vgap=" + this.vgap + "]";
             };
             /**
              * The north layout constraint (top of container).
@@ -816,7 +814,8 @@ var java;
             return BorderLayout;
         }());
         awt.BorderLayout = BorderLayout;
-        BorderLayout["__classname"] = "java.awt.BorderLayout";
+        BorderLayout["__class"] = "java.awt.BorderLayout";
+        BorderLayout["__interfaces"] = ["java.awt.LayoutManager2", "java.awt.LayoutManager", "java.io.Serializable"];
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -827,7 +826,6 @@ var java;
         var CheckboxGroup = (function () {
             function CheckboxGroup() {
                 this.selectedCheckbox = null;
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
             }
             CheckboxGroup.prototype.getSelectedCheckbox = function () {
                 return this.getCurrent();
@@ -852,13 +850,14 @@ var java;
                 }
             };
             CheckboxGroup.prototype.toString = function () {
-                return this.constructor["__classname"] + "[selectedCheckbox=" + this.selectedCheckbox + "]";
+                return (function (c) { return c["__class"] ? c["__class"] : c.name; })(this.constructor) + "[selectedCheckbox=" + this.selectedCheckbox + "]";
             };
             CheckboxGroup.serialVersionUID = 3729780091441768983;
             return CheckboxGroup;
         }());
         awt.CheckboxGroup = CheckboxGroup;
-        CheckboxGroup["__classname"] = "java.awt.CheckboxGroup";
+        CheckboxGroup["__class"] = "java.awt.CheckboxGroup";
+        CheckboxGroup["__interfaces"] = ["java.io.Serializable"];
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -927,7 +926,6 @@ var java;
                     this.frgbvalue = null;
                     this.fvalue = null;
                     this.falpha = 0.0;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Paint", "java.io.Serializable"] });
                     this.value = 0;
                     (function () {
                         _this.value = ((a & 255) << 24) | ((r & 255) << 16) | ((g & 255) << 8) | ((b & 255) << 0);
@@ -945,7 +943,6 @@ var java;
                         this.frgbvalue = null;
                         this.fvalue = null;
                         this.falpha = 0.0;
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Paint", "java.io.Serializable"] });
                         this.value = 0;
                         (function () {
                             _this.value = ((a_1 & 255) << 24) | ((r_1 & 255) << 16) | ((g_1 & 255) << 8) | ((b_1 & 255) << 0);
@@ -969,7 +966,6 @@ var java;
                         this.frgbvalue = null;
                         this.fvalue = null;
                         this.falpha = 0.0;
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Paint", "java.io.Serializable"] });
                         this.value = 0;
                         (function () {
                             _this.value = ((a_2 & 255) << 24) | ((r & 255) << 16) | ((g & 255) << 8) | ((b & 255) << 0);
@@ -990,7 +986,6 @@ var java;
                             this.frgbvalue = null;
                             this.fvalue = null;
                             this.falpha = 0.0;
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Paint", "java.io.Serializable"] });
                             this.value = 0;
                             (function () {
                                 _this.value = ((a_4 & 255) << 24) | ((r_2 & 255) << 16) | ((g_2 & 255) << 8) | ((b_2 & 255) << 0);
@@ -1015,7 +1010,6 @@ var java;
                     this.frgbvalue = null;
                     this.fvalue = null;
                     this.falpha = 0.0;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Paint", "java.io.Serializable"] });
                     this.value = 0;
                     (function () {
                         if (hasalpha_1) {
@@ -1032,7 +1026,6 @@ var java;
                     this.frgbvalue = null;
                     this.fvalue = null;
                     this.falpha = 0.0;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Paint", "java.io.Serializable"] });
                     this.value = 0;
                     (function () {
                         _this.value = -16777216 | rgb_1;
@@ -1235,9 +1228,8 @@ var java;
                 return (this.getRGB() >> 24) & 255;
             };
             /**
-             * Returns the RGB value representing the color in the default sRGB
-             * {@link ColorModel}. (Bits 24-31 are alpha, 16-23 are red, 8-15 are green,
-             * 0-7 are blue).
+             * Returns the RGB value representing the color in the default sRGB. (Bits
+             * 24-31 are alpha, 16-23 are red, 8-15 are green, 0-7 are blue).
              *
              * @return the RGB value of the color in the default sRGB
              * <code>ColorModel</code>.
@@ -1336,7 +1328,7 @@ var java;
              * @return a string representation of this <code>Color</code>.
              */
             Color.prototype.toString = function () {
-                return this.constructor["__classname"] + "[r=" + this.getRed() + ",g=" + this.getGreen() + ",b=" + this.getBlue() + "]";
+                return (function (c) { return c["__class"] ? c["__class"] : c.name; })(this.constructor) + "[r=" + this.getRed() + ",g=" + this.getGreen() + ",b=" + this.getBlue() + "]";
             };
             /**
              * Converts a <code>String</code> to an integer and returns the specified
@@ -1793,7 +1785,8 @@ var java;
             return Color;
         }());
         awt.Color = Color;
-        Color["__classname"] = "java.awt.Color";
+        Color["__class"] = "java.awt.Color";
+        Color["__interfaces"] = ["java.awt.Paint", "java.io.Serializable"];
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -1807,7 +1800,6 @@ var java;
                 this.minimumSize = new java.awt.Dimension();
                 this.mouseWheelListeners = [];
                 this.mouseListeners = [];
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent"] });
                 this.enabled = false;
                 this.valid = false;
                 this.visible = false;
@@ -1948,7 +1940,7 @@ var java;
             };
             Component.prototype.addPropertyChangeListener = function (propertyName, listener) {
                 var _this = this;
-                if (((typeof propertyName === 'string') || propertyName === null) && ((listener != null && listener["__interfaces"] != null && listener["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0) || listener === null)) {
+                if (((typeof propertyName === 'string') || propertyName === null) && ((listener != null && (listener["__interfaces"] != null && listener["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0 || listener.constructor != null && listener.constructor["__interfaces"] != null && listener.constructor["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0)) || listener === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         if (listener == null) {
@@ -1960,7 +1952,7 @@ var java;
                         _this.changeSupport.addPropertyChangeListener(propertyName, listener);
                     })();
                 }
-                else if (((propertyName != null && propertyName["__interfaces"] != null && propertyName["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0) || propertyName === null) && listener === undefined) {
+                else if (((propertyName != null && (propertyName["__interfaces"] != null && propertyName["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0 || propertyName.constructor != null && propertyName.constructor["__interfaces"] != null && propertyName.constructor["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0)) || propertyName === null) && listener === undefined) {
                     return this.addPropertyChangeListener$java_beans_PropertyChangeListener(propertyName);
                 }
                 else
@@ -1968,7 +1960,7 @@ var java;
             };
             Component.prototype.removePropertyChangeListener = function (propertyName, listener) {
                 var _this = this;
-                if (((typeof propertyName === 'string') || propertyName === null) && ((listener != null && listener["__interfaces"] != null && listener["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0) || listener === null)) {
+                if (((typeof propertyName === 'string') || propertyName === null) && ((listener != null && (listener["__interfaces"] != null && listener["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0 || listener.constructor != null && listener.constructor["__interfaces"] != null && listener.constructor["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0)) || listener === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         if (listener == null || _this.changeSupport == null) {
@@ -1977,7 +1969,7 @@ var java;
                         _this.changeSupport.removePropertyChangeListener(propertyName, listener);
                     })();
                 }
-                else if (((propertyName != null && propertyName["__interfaces"] != null && propertyName["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0) || propertyName === null) && listener === undefined) {
+                else if (((propertyName != null && (propertyName["__interfaces"] != null && propertyName["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0 || propertyName.constructor != null && propertyName.constructor["__interfaces"] != null && propertyName.constructor["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0)) || propertyName === null) && listener === undefined) {
                     return this.removePropertyChangeListener$java_beans_PropertyChangeListener(propertyName);
                 }
                 else
@@ -2179,7 +2171,8 @@ var java;
             return Component;
         }());
         awt.Component = Component;
-        Component["__classname"] = "java.awt.Component";
+        Component["__class"] = "java.awt.Component";
+        Component["__interfaces"] = ["java.awt.HTMLComponent"];
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -2217,7 +2210,6 @@ var java;
                 if (((typeof name === 'string') || name === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     this.type = Cursor.DEFAULT_CURSOR;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                     (function () {
                         _this.type = Cursor.CUSTOM_CURSOR;
                         _this.name = name;
@@ -2227,7 +2219,6 @@ var java;
                     var __args = Array.prototype.slice.call(arguments);
                     var type_1 = __args[0];
                     this.type = Cursor.DEFAULT_CURSOR;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                     (function () {
                         if (type_1 < Cursor.DEFAULT_CURSOR || type_1 > Cursor.MOVE_CURSOR) {
                             throw new java.lang.IllegalArgumentException("illegal cursor type");
@@ -2312,7 +2303,7 @@ var java;
              * @since 1.2
              */
             Cursor.prototype.toString = function () {
-                return this.constructor["__classname"] + "[" + this.getName() + "]";
+                return (function (c) { return c["__class"] ? c["__class"] : c.name; })(this.constructor) + "[" + this.getName() + "]";
             };
             /**
              * The default cursor type (gets set if no cursor is defined).
@@ -2378,7 +2369,8 @@ var java;
             return Cursor;
         }());
         awt.Cursor = Cursor;
-        Cursor["__classname"] = "java.awt.Cursor";
+        Cursor["__class"] = "java.awt.Cursor";
+        Cursor["__interfaces"] = ["java.io.Serializable"];
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -2414,7 +2406,6 @@ var java;
              */
             var ComponentAdapter = (function () {
                 function ComponentAdapter() {
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "java.awt.event.ComponentListener"] });
                 }
                 /**
                  * Invoked when the component's size changes.
@@ -2439,7 +2430,8 @@ var java;
                 return ComponentAdapter;
             }());
             event.ComponentAdapter = ComponentAdapter;
-            ComponentAdapter["__classname"] = "java.awt.event.ComponentAdapter";
+            ComponentAdapter["__class"] = "java.awt.event.ComponentAdapter";
+            ComponentAdapter["__interfaces"] = ["java.util.EventListener", "java.awt.event.ComponentListener"];
         })(event = awt.event || (awt.event = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -2476,7 +2468,6 @@ var java;
              */
             var ContainerAdapter = (function () {
                 function ContainerAdapter() {
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "java.awt.event.ContainerListener"] });
                 }
                 /**
                  * Invoked when a component has been added to the container.
@@ -2491,7 +2482,8 @@ var java;
                 return ContainerAdapter;
             }());
             event.ContainerAdapter = ContainerAdapter;
-            ContainerAdapter["__classname"] = "java.awt.event.ContainerAdapter";
+            ContainerAdapter["__class"] = "java.awt.event.ContainerAdapter";
+            ContainerAdapter["__interfaces"] = ["java.util.EventListener", "java.awt.event.ContainerListener"];
         })(event = awt.event || (awt.event = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -2546,7 +2538,6 @@ var java;
              */
             var MouseAdapter = (function () {
                 function MouseAdapter() {
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "java.awt.event.MouseMotionListener", "java.awt.event.MouseWheelListener", "java.awt.event.MouseListener"] });
                 }
                 /**
                  * {@inheritDoc}
@@ -2594,7 +2585,8 @@ var java;
                 return MouseAdapter;
             }());
             event.MouseAdapter = MouseAdapter;
-            MouseAdapter["__classname"] = "java.awt.event.MouseAdapter";
+            MouseAdapter["__class"] = "java.awt.event.MouseAdapter";
+            MouseAdapter["__interfaces"] = ["java.util.EventListener", "java.awt.event.MouseMotionListener", "java.awt.event.MouseWheelListener", "java.awt.event.MouseListener"];
         })(event = awt.event || (awt.event = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -2635,7 +2627,6 @@ var java;
              */
             var MouseMotionAdapter = (function () {
                 function MouseMotionAdapter() {
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "java.awt.event.MouseMotionListener"] });
                 }
                 /**
                  * Invoked when a mouse button is pressed on a component and then
@@ -2655,7 +2646,8 @@ var java;
                 return MouseMotionAdapter;
             }());
             event.MouseMotionAdapter = MouseMotionAdapter;
-            MouseMotionAdapter["__classname"] = "java.awt.event.MouseMotionAdapter";
+            MouseMotionAdapter["__class"] = "java.awt.event.MouseMotionAdapter";
+            MouseMotionAdapter["__interfaces"] = ["java.util.EventListener", "java.awt.event.MouseMotionListener"];
         })(event = awt.event || (awt.event = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -2695,7 +2687,6 @@ var java;
              */
             var WindowAdapter = (function () {
                 function WindowAdapter() {
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "java.awt.event.WindowListener", "java.awt.event.WindowFocusListener", "java.awt.event.WindowStateListener"] });
                 }
                 /**
                  * Invoked when a window has been opened.
@@ -2760,7 +2751,8 @@ var java;
                 return WindowAdapter;
             }());
             event.WindowAdapter = WindowAdapter;
-            WindowAdapter["__classname"] = "java.awt.event.WindowAdapter";
+            WindowAdapter["__class"] = "java.awt.event.WindowAdapter";
+            WindowAdapter["__interfaces"] = ["java.util.EventListener", "java.awt.event.WindowListener", "java.awt.event.WindowFocusListener", "java.awt.event.WindowStateListener"];
         })(event = awt.event || (awt.event = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -2776,7 +2768,6 @@ var java;
                 if (((target != null) || target === null) && ((typeof when === 'number') || when === null) && ((typeof id === 'number') || id === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof key === 'number') || key === null) && ((typeof modifiers === 'number') || modifiers === null) && ((arg != null) || arg === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     this.consumed = false;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                     this.data = 0;
                     this.when = 0;
                     this.id = 0;
@@ -2823,7 +2814,6 @@ var java;
                         var __args_6 = Array.prototype.slice.call(arguments);
                         var arg_1 = null;
                         this.consumed = false;
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                         this.data = 0;
                         this.when = 0;
                         this.id = 0;
@@ -2877,7 +2867,6 @@ var java;
                         var key_1 = 0;
                         var modifiers_1 = 0;
                         this.consumed = false;
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                         this.data = 0;
                         this.when = 0;
                         this.id = 0;
@@ -3071,7 +3060,7 @@ var java;
                 return str;
             };
             Event.prototype.toString = function () {
-                return this.constructor["__classname"] + "[" + this.paramString() + "]";
+                return (function (c) { return c["__class"] ? c["__class"] : c.name; })(this.constructor) + "[" + this.paramString() + "]";
             };
             Event.HOME = 1000;
             Event.END = 1001;
@@ -3113,7 +3102,8 @@ var java;
             return Event;
         }());
         awt.Event = Event;
-        Event["__classname"] = "java.awt.Event";
+        Event["__class"] = "java.awt.Event";
+        Event["__interfaces"] = ["java.io.Serializable"];
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -3127,7 +3117,6 @@ var java;
                 if (hgap === void 0) { hgap = 5; }
                 if (vgap === void 0) { vgap = 5; }
                 this.created = false;
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.LayoutManager"] });
                 this.align = 0;
                 this.hgap = 0;
                 this.vgap = 0;
@@ -3208,7 +3197,8 @@ var java;
             return FlowLayout;
         }());
         awt.FlowLayout = FlowLayout;
-        FlowLayout["__classname"] = "java.awt.FlowLayout";
+        FlowLayout["__class"] = "java.awt.FlowLayout";
+        FlowLayout["__interfaces"] = ["java.awt.LayoutManager"];
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -3221,7 +3211,6 @@ var java;
                 var _this = this;
                 if (((typeof name === 'string') || name === null) && ((typeof style === 'number') || style === null) && ((typeof sizePts === 'number') || sizePts === null)) {
                     var __args = Array.prototype.slice.call(arguments);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                     this.style = 0;
                     this.size = 0;
                     this.pointSize = 0;
@@ -3236,7 +3225,6 @@ var java;
                 else if (((name != null && name instanceof java.awt.Font) || name === null) && style === undefined && sizePts === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     var font_1 = __args[0];
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                     this.style = 0;
                     this.size = 0;
                     this.pointSize = 0;
@@ -3402,7 +3390,7 @@ var java;
                 else {
                     strStyle = this.isItalic() ? "italic" : "plain";
                 }
-                return this.constructor["__classname"] + "[family=" + this.getFamily() + ",name=" + this.name + ",style=" + strStyle + ",size=" + this.size + "]";
+                return (function (c) { return c["__class"] ? c["__class"] : c.name; })(this.constructor) + "[family=" + this.getFamily() + ",name=" + this.name + ",style=" + strStyle + ",size=" + this.size + "]";
             };
             /**
              * A String constant for the canonical family name of the logical font
@@ -3512,7 +3500,8 @@ var java;
             return Font;
         }());
         awt.Font = Font;
-        Font["__classname"] = "java.awt.Font";
+        Font["__class"] = "java.awt.Font";
+        Font["__interfaces"] = ["java.io.Serializable"];
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -3610,7 +3599,6 @@ var java;
                     var _this = this;
                     if (((typeof m00 === 'number') || m00 === null) && ((typeof m10 === 'number') || m10 === null) && ((typeof m01 === 'number') || m01 === null) && ((typeof m11 === 'number') || m11 === null) && ((typeof m02 === 'number') || m02 === null) && ((typeof m12 === 'number') || m12 === null) && ((typeof state === 'number') || state === null)) {
                         var __args = Array.prototype.slice.call(arguments);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                         this.m00 = 0;
                         this.m10 = 0;
                         this.m01 = 0;
@@ -3632,7 +3620,6 @@ var java;
                     }
                     else if (((typeof m00 === 'number') || m00 === null) && ((typeof m10 === 'number') || m10 === null) && ((typeof m01 === 'number') || m01 === null) && ((typeof m11 === 'number') || m11 === null) && ((typeof m02 === 'number') || m02 === null) && ((typeof m12 === 'number') || m12 === null) && state === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                         this.m00 = 0;
                         this.m10 = 0;
                         this.m01 = 0;
@@ -3653,7 +3640,6 @@ var java;
                     }
                     else if (((typeof m00 === 'number') || m00 === null) && ((typeof m10 === 'number') || m10 === null) && ((typeof m01 === 'number') || m01 === null) && ((typeof m11 === 'number') || m11 === null) && ((typeof m02 === 'number') || m02 === null) && ((typeof m12 === 'number') || m12 === null) && state === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                         this.m00 = 0;
                         this.m10 = 0;
                         this.m01 = 0;
@@ -3675,7 +3661,6 @@ var java;
                     else if (((m00 != null && m00 instanceof java.awt.geom.AffineTransform) || m00 === null) && m10 === undefined && m01 === undefined && m11 === undefined && m02 === undefined && m12 === undefined && state === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
                         var Tx_1 = __args[0];
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                         this.m00 = 0;
                         this.m10 = 0;
                         this.m01 = 0;
@@ -3698,7 +3683,6 @@ var java;
                     else if (((m00 != null && m00 instanceof Array) || m00 === null) && m10 === undefined && m01 === undefined && m11 === undefined && m02 === undefined && m12 === undefined && state === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
                         var flatmatrix_1 = __args[0];
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                         this.m00 = 0;
                         this.m10 = 0;
                         this.m01 = 0;
@@ -3722,7 +3706,6 @@ var java;
                     else if (((m00 != null && m00 instanceof Array) || m00 === null) && m10 === undefined && m01 === undefined && m11 === undefined && m02 === undefined && m12 === undefined && state === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
                         var flatmatrix_2 = __args[0];
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                         this.m00 = 0;
                         this.m10 = 0;
                         this.m01 = 0;
@@ -3745,7 +3728,6 @@ var java;
                     }
                     else if (m00 === undefined && m10 === undefined && m01 === undefined && m11 === undefined && m02 === undefined && m12 === undefined && state === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                         this.m00 = 0;
                         this.m10 = 0;
                         this.m01 = 0;
@@ -7301,7 +7283,8 @@ var java;
                 return AffineTransform;
             }());
             geom.AffineTransform = AffineTransform;
-            AffineTransform["__classname"] = "java.awt.geom.AffineTransform";
+            AffineTransform["__class"] = "java.awt.geom.AffineTransform";
+            AffineTransform["__interfaces"] = ["java.lang.Cloneable", "java.io.Serializable"];
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -7320,7 +7303,6 @@ var java;
              */
             var ArcIterator = (function () {
                 function ArcIterator(a, at) {
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.geom.PathIterator"] });
                     this.x = 0;
                     this.y = 0;
                     this.w = 0;
@@ -7527,7 +7509,8 @@ var java;
                 return ArcIterator;
             }());
             geom.ArcIterator = ArcIterator;
-            ArcIterator["__classname"] = "java.awt.geom.ArcIterator";
+            ArcIterator["__class"] = "java.awt.geom.ArcIterator";
+            ArcIterator["__interfaces"] = ["java.awt.geom.PathIterator"];
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -7604,9 +7587,8 @@ var java;
                  */
                 function Area(s) {
                     var _this = this;
-                    if (((s != null && s["__interfaces"] != null && s["__interfaces"].indexOf("java.awt.Shape") >= 0) || s === null)) {
+                    if (((s != null && (s["__interfaces"] != null && s["__interfaces"].indexOf("java.awt.Shape") >= 0 || s.constructor != null && s.constructor["__interfaces"] != null && s.constructor["__interfaces"].indexOf("java.awt.Shape") >= 0)) || s === null)) {
                         var __args = Array.prototype.slice.call(arguments);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable"] });
                         (function () {
                             if (s != null && s instanceof java.awt.geom.Area) {
                                 _this.curves = s.curves;
@@ -7618,7 +7600,6 @@ var java;
                     }
                     else if (s === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable"] });
                         (function () {
                             _this.curves = Area.EmptyCurves_$LI$();
                         })();
@@ -8185,10 +8166,10 @@ var java;
                 return Area;
             }());
             geom.Area = Area;
-            Area["__classname"] = "java.awt.geom.Area";
+            Area["__class"] = "java.awt.geom.Area";
+            Area["__interfaces"] = ["java.awt.Shape", "java.lang.Cloneable"];
             var AreaIterator = (function () {
                 function AreaIterator(curves, at) {
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.geom.PathIterator"] });
                     this.index = 0;
                     this.curves = curves;
                     this.transform = at;
@@ -8270,7 +8251,8 @@ var java;
                 return AreaIterator;
             }());
             geom.AreaIterator = AreaIterator;
-            AreaIterator["__classname"] = "java.awt.geom.AreaIterator";
+            AreaIterator["__class"] = "java.awt.geom.AreaIterator";
+            AreaIterator["__interfaces"] = ["java.awt.geom.PathIterator"];
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -8304,7 +8286,6 @@ var java;
                  * @since 1.2
                  */
                 function CubicCurve2D() {
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable"] });
                 }
                 /**
                  * Sets the location of the end points and control points of this curve
@@ -9192,7 +9173,8 @@ var java;
                 return CubicCurve2D;
             }());
             geom.CubicCurve2D = CubicCurve2D;
-            CubicCurve2D["__classname"] = "java.awt.geom.CubicCurve2D";
+            CubicCurve2D["__class"] = "java.awt.geom.CubicCurve2D";
+            CubicCurve2D["__interfaces"] = ["java.awt.Shape", "java.lang.Cloneable"];
             var CubicCurve2D;
             (function (CubicCurve2D) {
                 /**
@@ -9238,7 +9220,6 @@ var java;
                         if (((typeof x1 === 'number') || x1 === null) && ((typeof y1 === 'number') || y1 === null) && ((typeof ctrlx1 === 'number') || ctrlx1 === null) && ((typeof ctrly1 === 'number') || ctrly1 === null) && ((typeof ctrlx2 === 'number') || ctrlx2 === null) && ((typeof ctrly2 === 'number') || ctrly2 === null) && ((typeof x2 === 'number') || x2 === null) && ((typeof y2 === 'number') || y2 === null)) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
                             this.y1 = 0;
                             this.ctrlx1 = 0;
@@ -9254,7 +9235,6 @@ var java;
                         else if (x1 === undefined && y1 === undefined && ctrlx1 === undefined && ctrly1 === undefined && ctrlx2 === undefined && ctrly2 === undefined && x2 === undefined && y2 === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
                             this.y1 = 0;
                             this.ctrlx1 = 0;
@@ -9457,7 +9437,8 @@ var java;
                     return Float;
                 }(java.awt.geom.CubicCurve2D));
                 CubicCurve2D.Float = Float;
-                Float["__classname"] = "java.awt.geom.CubicCurve2D.Float";
+                Float["__class"] = "java.awt.geom.CubicCurve2D.Float";
+                Float["__interfaces"] = ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"];
                 /**
                  * A cubic parametric curve segment specified with {@code double}
                  * coordinates.
@@ -9501,7 +9482,6 @@ var java;
                         if (((typeof x1 === 'number') || x1 === null) && ((typeof y1 === 'number') || y1 === null) && ((typeof ctrlx1 === 'number') || ctrlx1 === null) && ((typeof ctrly1 === 'number') || ctrly1 === null) && ((typeof ctrlx2 === 'number') || ctrlx2 === null) && ((typeof ctrly2 === 'number') || ctrly2 === null) && ((typeof x2 === 'number') || x2 === null) && ((typeof y2 === 'number') || y2 === null)) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
                             this.y1 = 0;
                             this.ctrlx1 = 0;
@@ -9517,7 +9497,6 @@ var java;
                         else if (x1 === undefined && y1 === undefined && ctrlx1 === undefined && ctrly1 === undefined && ctrlx2 === undefined && ctrly2 === undefined && x2 === undefined && y2 === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
                             this.y1 = 0;
                             this.ctrlx1 = 0;
@@ -9706,7 +9685,8 @@ var java;
                     return Double;
                 }(java.awt.geom.CubicCurve2D));
                 CubicCurve2D.Double = Double;
-                Double["__classname"] = "java.awt.geom.CubicCurve2D.Double";
+                Double["__class"] = "java.awt.geom.CubicCurve2D.Double";
+                Double["__interfaces"] = ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"];
             })(CubicCurve2D = geom.CubicCurve2D || (geom.CubicCurve2D = {}));
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = java.awt || (java.awt = {}));
@@ -9726,7 +9706,6 @@ var java;
              */
             var CubicIterator = (function () {
                 function CubicIterator(q, at) {
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.geom.PathIterator"] });
                     this.index = 0;
                     this.cubic = q;
                     this.affine = at;
@@ -9850,7 +9829,8 @@ var java;
                 return CubicIterator;
             }());
             geom.CubicIterator = CubicIterator;
-            CubicIterator["__classname"] = "java.awt.geom.CubicIterator";
+            CubicIterator["__class"] = "java.awt.geom.CubicIterator";
+            CubicIterator["__interfaces"] = ["java.awt.geom.PathIterator"];
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -9883,7 +9863,6 @@ var java;
                  * @since 1.2
                  */
                 function Dimension2D() {
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable"] });
                 }
                 Dimension2D.prototype.setSize = function (width, height) {
                     if (((typeof width === 'number') || width === null) && ((typeof height === 'number') || height === null)) {
@@ -9941,7 +9920,8 @@ var java;
                 return Dimension2D;
             }());
             geom.Dimension2D = Dimension2D;
-            Dimension2D["__classname"] = "java.awt.geom.Dimension2D";
+            Dimension2D["__class"] = "java.awt.geom.Dimension2D";
+            Dimension2D["__interfaces"] = ["java.lang.Cloneable"];
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -9960,7 +9940,6 @@ var java;
              */
             var EllipseIterator = (function () {
                 function EllipseIterator(e, at) {
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.geom.PathIterator"] });
                     this.x = 0;
                     this.y = 0;
                     this.w = 0;
@@ -10112,7 +10091,8 @@ var java;
                 return EllipseIterator;
             }());
             geom.EllipseIterator = EllipseIterator;
-            EllipseIterator["__classname"] = "java.awt.geom.EllipseIterator";
+            EllipseIterator["__class"] = "java.awt.geom.EllipseIterator";
+            EllipseIterator["__interfaces"] = ["java.awt.geom.PathIterator"];
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -10156,7 +10136,6 @@ var java;
                 function FlatteningPathIterator(src, flatness, limit) {
                     if (limit === void 0) { limit = 10; }
                     this.hold = new Array(14);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.geom.PathIterator"] });
                     this.squareflat = 0;
                     this.limit = 0;
                     this.curx = 0;
@@ -10417,7 +10396,8 @@ var java;
                 return FlatteningPathIterator;
             }());
             geom.FlatteningPathIterator = FlatteningPathIterator;
-            FlatteningPathIterator["__classname"] = "java.awt.geom.FlatteningPathIterator";
+            FlatteningPathIterator["__class"] = "java.awt.geom.FlatteningPathIterator";
+            FlatteningPathIterator["__interfaces"] = ["java.awt.geom.PathIterator"];
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -10448,12 +10428,10 @@ var java;
                         var __args = Array.prototype.slice.call(arguments);
                         _super.call(this, s);
                         this.message = s;
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                     }
                     else if (s === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                     }
                     else
                         throw new Error('invalid overload');
@@ -10461,7 +10439,8 @@ var java;
                 return IllegalPathStateException;
             }(Error));
             geom.IllegalPathStateException = IllegalPathStateException;
-            IllegalPathStateException["__classname"] = "java.awt.geom.IllegalPathStateException";
+            IllegalPathStateException["__class"] = "java.awt.geom.IllegalPathStateException";
+            IllegalPathStateException["__interfaces"] = ["java.io.Serializable"];
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -10500,7 +10479,6 @@ var java;
                  * @since 1.2
                  */
                 function Line2D() {
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable"] });
                 }
                 /**
                  * Sets the location of the end points of this <code>Line2D</code> to
@@ -11312,7 +11290,8 @@ var java;
                 return Line2D;
             }());
             geom.Line2D = Line2D;
-            Line2D["__classname"] = "java.awt.geom.Line2D";
+            Line2D["__class"] = "java.awt.geom.Line2D";
+            Line2D["__interfaces"] = ["java.awt.Shape", "java.lang.Cloneable"];
             var Line2D;
             (function (Line2D) {
                 /**
@@ -11340,7 +11319,6 @@ var java;
                         if (((typeof x1 === 'number') || x1 === null) && ((typeof y1 === 'number') || y1 === null) && ((typeof x2 === 'number') || x2 === null) && ((typeof y2 === 'number') || y2 === null)) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
                             this.y1 = 0;
                             this.x2 = 0;
@@ -11354,7 +11332,6 @@ var java;
                             var p1_1 = __args[0];
                             var p2_1 = __args[1];
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
                             this.y1 = 0;
                             this.x2 = 0;
@@ -11366,7 +11343,6 @@ var java;
                         else if (x1 === undefined && y1 === undefined && x2 === undefined && y2 === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
                             this.y1 = 0;
                             this.x2 = 0;
@@ -11503,7 +11479,8 @@ var java;
                     return Float;
                 }(java.awt.geom.Line2D));
                 Line2D.Float = Float;
-                Float["__classname"] = "java.awt.geom.Line2D.Float";
+                Float["__class"] = "java.awt.geom.Line2D.Float";
+                Float["__interfaces"] = ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"];
                 /**
                  * A line segment specified with double coordinates.
                  *
@@ -11530,7 +11507,6 @@ var java;
                         if (((typeof x1 === 'number') || x1 === null) && ((typeof y1 === 'number') || y1 === null) && ((typeof x2 === 'number') || x2 === null) && ((typeof y2 === 'number') || y2 === null)) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
                             this.y1 = 0;
                             this.x2 = 0;
@@ -11544,7 +11520,6 @@ var java;
                             var p1_2 = __args[0];
                             var p2_2 = __args[1];
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
                             this.y1 = 0;
                             this.x2 = 0;
@@ -11556,7 +11531,6 @@ var java;
                         else if (x1 === undefined && y1 === undefined && x2 === undefined && y2 === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
                             this.y1 = 0;
                             this.x2 = 0;
@@ -11683,7 +11657,8 @@ var java;
                     return Double;
                 }(java.awt.geom.Line2D));
                 Line2D.Double = Double;
-                Double["__classname"] = "java.awt.geom.Line2D.Double";
+                Double["__class"] = "java.awt.geom.Line2D.Double";
+                Double["__interfaces"] = ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"];
             })(Line2D = geom.Line2D || (geom.Line2D = {}));
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = java.awt || (java.awt = {}));
@@ -11703,7 +11678,6 @@ var java;
              */
             var LineIterator = (function () {
                 function LineIterator(l, at) {
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.geom.PathIterator"] });
                     this.index = 0;
                     this.line = l;
                     this.affine = at;
@@ -11826,7 +11800,8 @@ var java;
                 return LineIterator;
             }());
             geom.LineIterator = LineIterator;
-            LineIterator["__classname"] = "java.awt.geom.LineIterator";
+            LineIterator["__class"] = "java.awt.geom.LineIterator";
+            LineIterator["__interfaces"] = ["java.awt.geom.PathIterator"];
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -11856,12 +11831,12 @@ var java;
                 function NoninvertibleTransformException(s) {
                     _super.call(this, s);
                     this.message = s;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                 }
                 return NoninvertibleTransformException;
             }(java.lang.Exception));
             geom.NoninvertibleTransformException = NoninvertibleTransformException;
-            NoninvertibleTransformException["__classname"] = "java.awt.geom.NoninvertibleTransformException";
+            NoninvertibleTransformException["__class"] = "java.awt.geom.NoninvertibleTransformException";
+            NoninvertibleTransformException["__interfaces"] = ["java.io.Serializable"];
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -11981,7 +11956,6 @@ var java;
                  * @since 1.2
                  */
                 function Point2D() {
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable"] });
                 }
                 Point2D.prototype.setLocation = function (x, y) {
                     if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null)) {
@@ -12198,7 +12172,8 @@ var java;
                 return Point2D;
             }());
             geom.Point2D = Point2D;
-            Point2D["__classname"] = "java.awt.geom.Point2D";
+            Point2D["__class"] = "java.awt.geom.Point2D";
+            Point2D["__interfaces"] = ["java.lang.Cloneable"];
             var Point2D;
             (function (Point2D) {
                 /**
@@ -12226,7 +12201,6 @@ var java;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null)) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
                             (function () {
@@ -12237,7 +12211,6 @@ var java;
                         else if (x === undefined && y === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
                         }
@@ -12311,7 +12284,8 @@ var java;
                     return Float;
                 }(java.awt.geom.Point2D));
                 Point2D.Float = Float;
-                Float["__classname"] = "java.awt.geom.Point2D.Float";
+                Float["__class"] = "java.awt.geom.Point2D.Float";
+                Float["__interfaces"] = ["java.lang.Cloneable", "java.io.Serializable"];
                 /**
                  * The <code>Double</code> class defines a point specified in
                  * <code>double</code> precision.
@@ -12337,7 +12311,6 @@ var java;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null)) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
                             (function () {
@@ -12348,7 +12321,6 @@ var java;
                         else if (x === undefined && y === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
                         }
@@ -12414,7 +12386,8 @@ var java;
                     return Double;
                 }(java.awt.geom.Point2D));
                 Point2D.Double = Double;
-                Double["__classname"] = "java.awt.geom.Point2D.Double";
+                Double["__class"] = "java.awt.geom.Point2D.Double";
+                Double["__interfaces"] = ["java.lang.Cloneable", "java.io.Serializable"];
             })(Point2D = geom.Point2D || (geom.Point2D = {}));
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = java.awt || (java.awt = {}));
@@ -12449,7 +12422,6 @@ var java;
                  * @since 1.2
                  */
                 function QuadCurve2D() {
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable"] });
                 }
                 /**
                  * Sets the location of the end points and control point of this curve
@@ -13246,7 +13218,8 @@ var java;
                 return QuadCurve2D;
             }());
             geom.QuadCurve2D = QuadCurve2D;
-            QuadCurve2D["__classname"] = "java.awt.geom.QuadCurve2D";
+            QuadCurve2D["__class"] = "java.awt.geom.QuadCurve2D";
+            QuadCurve2D["__interfaces"] = ["java.awt.Shape", "java.lang.Cloneable"];
             var QuadCurve2D;
             (function (QuadCurve2D) {
                 /**
@@ -13280,7 +13253,6 @@ var java;
                         if (((typeof x1 === 'number') || x1 === null) && ((typeof y1 === 'number') || y1 === null) && ((typeof ctrlx === 'number') || ctrlx === null) && ((typeof ctrly === 'number') || ctrly === null) && ((typeof x2 === 'number') || x2 === null) && ((typeof y2 === 'number') || y2 === null)) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
                             this.y1 = 0;
                             this.ctrlx = 0;
@@ -13294,7 +13266,6 @@ var java;
                         else if (x1 === undefined && y1 === undefined && ctrlx === undefined && ctrly === undefined && x2 === undefined && y2 === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
                             this.y1 = 0;
                             this.ctrlx = 0;
@@ -13455,7 +13426,8 @@ var java;
                     return Float;
                 }(java.awt.geom.QuadCurve2D));
                 QuadCurve2D.Float = Float;
-                Float["__classname"] = "java.awt.geom.QuadCurve2D.Float";
+                Float["__class"] = "java.awt.geom.QuadCurve2D.Float";
+                Float["__interfaces"] = ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"];
                 /**
                  * A quadratic parametric curve segment specified with {@code double}
                  * coordinates.
@@ -13487,7 +13459,6 @@ var java;
                         if (((typeof x1 === 'number') || x1 === null) && ((typeof y1 === 'number') || y1 === null) && ((typeof ctrlx === 'number') || ctrlx === null) && ((typeof ctrly === 'number') || ctrly === null) && ((typeof x2 === 'number') || x2 === null) && ((typeof y2 === 'number') || y2 === null)) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
                             this.y1 = 0;
                             this.ctrlx = 0;
@@ -13501,7 +13472,6 @@ var java;
                         else if (x1 === undefined && y1 === undefined && ctrlx === undefined && ctrly === undefined && x2 === undefined && y2 === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x1 = 0;
                             this.y1 = 0;
                             this.ctrlx = 0;
@@ -13650,7 +13620,8 @@ var java;
                     return Double;
                 }(java.awt.geom.QuadCurve2D));
                 QuadCurve2D.Double = Double;
-                Double["__classname"] = "java.awt.geom.QuadCurve2D.Double";
+                Double["__class"] = "java.awt.geom.QuadCurve2D.Double";
+                Double["__interfaces"] = ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"];
             })(QuadCurve2D = geom.QuadCurve2D || (geom.QuadCurve2D = {}));
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = java.awt || (java.awt = {}));
@@ -13670,7 +13641,6 @@ var java;
              */
             var QuadIterator = (function () {
                 function QuadIterator(q, at) {
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.geom.PathIterator"] });
                     this.index = 0;
                     this.quad = q;
                     this.affine = at;
@@ -13797,7 +13767,8 @@ var java;
                 return QuadIterator;
             }());
             geom.QuadIterator = QuadIterator;
-            QuadIterator["__classname"] = "java.awt.geom.QuadIterator";
+            QuadIterator["__class"] = "java.awt.geom.QuadIterator";
+            QuadIterator["__interfaces"] = ["java.awt.geom.PathIterator"];
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -13831,7 +13802,6 @@ var java;
                  * @since 1.2
                  */
                 function RectangularShape() {
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable"] });
                 }
                 /**
                  * Returns the smallest X coordinate of the framing rectangle of the
@@ -14187,7 +14157,8 @@ var java;
                 return RectangularShape;
             }());
             geom.RectangularShape = RectangularShape;
-            RectangularShape["__classname"] = "java.awt.geom.RectangularShape";
+            RectangularShape["__class"] = "java.awt.geom.RectangularShape";
+            RectangularShape["__interfaces"] = ["java.awt.Shape", "java.lang.Cloneable"];
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -14206,7 +14177,6 @@ var java;
              */
             var RectIterator = (function () {
                 function RectIterator(r, at) {
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.geom.PathIterator"] });
                     this.x = 0;
                     this.y = 0;
                     this.w = 0;
@@ -14339,7 +14309,8 @@ var java;
                 return RectIterator;
             }());
             geom.RectIterator = RectIterator;
-            RectIterator["__classname"] = "java.awt.geom.RectIterator";
+            RectIterator["__class"] = "java.awt.geom.RectIterator";
+            RectIterator["__interfaces"] = ["java.awt.geom.PathIterator"];
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -14358,7 +14329,6 @@ var java;
              */
             var RoundRectIterator = (function () {
                 function RoundRectIterator(rr, at) {
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.geom.PathIterator"] });
                     this.x = 0;
                     this.y = 0;
                     this.w = 0;
@@ -14509,7 +14479,8 @@ var java;
                 return RoundRectIterator;
             }());
             geom.RoundRectIterator = RoundRectIterator;
-            RoundRectIterator["__classname"] = "java.awt.geom.RoundRectIterator";
+            RoundRectIterator["__class"] = "java.awt.geom.RoundRectIterator";
+            RoundRectIterator["__interfaces"] = ["java.awt.geom.PathIterator"];
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -14546,7 +14517,7 @@ var java;
                 if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof width === 'number') || width === null) && ((typeof height === 'number') || height === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                 }
-                else if (((x != null && x["__interfaces"] != null && x["__interfaces"].indexOf("java.awt.Shape") >= 0) || x === null) && y === undefined && width === undefined && height === undefined) {
+                else if (((x != null && (x["__interfaces"] != null && x["__interfaces"].indexOf("java.awt.Shape") >= 0 || x.constructor != null && x.constructor["__interfaces"] != null && x.constructor["__interfaces"].indexOf("java.awt.Shape") >= 0)) || x === null) && y === undefined && width === undefined && height === undefined) {
                     return this.setClip$java_awt_Shape(x);
                 }
                 else
@@ -14627,23 +14598,23 @@ var java;
             Graphics.prototype.drawImage$java_awt_Image$int$int$int$int$java_awt_Color$java_awt_image_ImageObserver = function (img, x, y, width, height, bgcolor, observer) { throw new Error('cannot invoke abstract overloaded method... check your argument(s) type(s)'); };
             Graphics.prototype.drawImage$java_awt_Image$int$int$int$int$int$int$int$int$java_awt_image_ImageObserver = function (img, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, observer) { throw new Error('cannot invoke abstract overloaded method... check your argument(s) type(s)'); };
             Graphics.prototype.drawImage = function (img, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, bgcolor, observer) {
-                if (((img != null && img instanceof java.awt.Image) || img === null) && ((typeof dx1 === 'number') || dx1 === null) && ((typeof dy1 === 'number') || dy1 === null) && ((typeof dx2 === 'number') || dx2 === null) && ((typeof dy2 === 'number') || dy2 === null) && ((typeof sx1 === 'number') || sx1 === null) && ((typeof sy1 === 'number') || sy1 === null) && ((typeof sx2 === 'number') || sx2 === null) && ((typeof sy2 === 'number') || sy2 === null) && ((bgcolor != null && bgcolor instanceof java.awt.Color) || bgcolor === null) && ((observer != null && observer["__interfaces"] != null && observer["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0) || observer === null)) {
+                if (((img != null && img instanceof java.awt.Image) || img === null) && ((typeof dx1 === 'number') || dx1 === null) && ((typeof dy1 === 'number') || dy1 === null) && ((typeof dx2 === 'number') || dx2 === null) && ((typeof dy2 === 'number') || dy2 === null) && ((typeof sx1 === 'number') || sx1 === null) && ((typeof sy1 === 'number') || sy1 === null) && ((typeof sx2 === 'number') || sx2 === null) && ((typeof sy2 === 'number') || sy2 === null) && ((bgcolor != null && bgcolor instanceof java.awt.Color) || bgcolor === null) && ((observer != null && (observer["__interfaces"] != null && observer["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0 || observer.constructor != null && observer.constructor["__interfaces"] != null && observer.constructor["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0)) || observer === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     return false;
                 }
-                else if (((img != null && img instanceof java.awt.Image) || img === null) && ((typeof dx1 === 'number') || dx1 === null) && ((typeof dy1 === 'number') || dy1 === null) && ((typeof dx2 === 'number') || dx2 === null) && ((typeof dy2 === 'number') || dy2 === null) && ((typeof sx1 === 'number') || sx1 === null) && ((typeof sy1 === 'number') || sy1 === null) && ((typeof sx2 === 'number') || sx2 === null) && ((typeof sy2 === 'number') || sy2 === null) && ((bgcolor != null && bgcolor["__interfaces"] != null && bgcolor["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0) || bgcolor === null) && observer === undefined) {
+                else if (((img != null && img instanceof java.awt.Image) || img === null) && ((typeof dx1 === 'number') || dx1 === null) && ((typeof dy1 === 'number') || dy1 === null) && ((typeof dx2 === 'number') || dx2 === null) && ((typeof dy2 === 'number') || dy2 === null) && ((typeof sx1 === 'number') || sx1 === null) && ((typeof sy1 === 'number') || sy1 === null) && ((typeof sx2 === 'number') || sx2 === null) && ((typeof sy2 === 'number') || sy2 === null) && ((bgcolor != null && (bgcolor["__interfaces"] != null && bgcolor["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0 || bgcolor.constructor != null && bgcolor.constructor["__interfaces"] != null && bgcolor.constructor["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0)) || bgcolor === null) && observer === undefined) {
                     return this.drawImage$java_awt_Image$int$int$int$int$int$int$int$int$java_awt_image_ImageObserver(img, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, bgcolor);
                 }
-                else if (((img != null && img instanceof java.awt.Image) || img === null) && ((typeof dx1 === 'number') || dx1 === null) && ((typeof dy1 === 'number') || dy1 === null) && ((typeof dx2 === 'number') || dx2 === null) && ((typeof dy2 === 'number') || dy2 === null) && ((sx1 != null && sx1 instanceof java.awt.Color) || sx1 === null) && ((sy1 != null && sy1["__interfaces"] != null && sy1["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0) || sy1 === null) && sx2 === undefined && sy2 === undefined && bgcolor === undefined && observer === undefined) {
+                else if (((img != null && img instanceof java.awt.Image) || img === null) && ((typeof dx1 === 'number') || dx1 === null) && ((typeof dy1 === 'number') || dy1 === null) && ((typeof dx2 === 'number') || dx2 === null) && ((typeof dy2 === 'number') || dy2 === null) && ((sx1 != null && sx1 instanceof java.awt.Color) || sx1 === null) && ((sy1 != null && (sy1["__interfaces"] != null && sy1["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0 || sy1.constructor != null && sy1.constructor["__interfaces"] != null && sy1.constructor["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0)) || sy1 === null) && sx2 === undefined && sy2 === undefined && bgcolor === undefined && observer === undefined) {
                     return this.drawImage$java_awt_Image$int$int$int$int$java_awt_Color$java_awt_image_ImageObserver(img, dx1, dy1, dx2, dy2, sx1, sy1);
                 }
-                else if (((img != null && img instanceof java.awt.Image) || img === null) && ((typeof dx1 === 'number') || dx1 === null) && ((typeof dy1 === 'number') || dy1 === null) && ((typeof dx2 === 'number') || dx2 === null) && ((typeof dy2 === 'number') || dy2 === null) && ((sx1 != null && sx1["__interfaces"] != null && sx1["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0) || sx1 === null) && sy1 === undefined && sx2 === undefined && sy2 === undefined && bgcolor === undefined && observer === undefined) {
+                else if (((img != null && img instanceof java.awt.Image) || img === null) && ((typeof dx1 === 'number') || dx1 === null) && ((typeof dy1 === 'number') || dy1 === null) && ((typeof dx2 === 'number') || dx2 === null) && ((typeof dy2 === 'number') || dy2 === null) && ((sx1 != null && (sx1["__interfaces"] != null && sx1["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0 || sx1.constructor != null && sx1.constructor["__interfaces"] != null && sx1.constructor["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0)) || sx1 === null) && sy1 === undefined && sx2 === undefined && sy2 === undefined && bgcolor === undefined && observer === undefined) {
                     return this.drawImage$java_awt_Image$int$int$int$int$java_awt_image_ImageObserver(img, dx1, dy1, dx2, dy2, sx1);
                 }
-                else if (((img != null && img instanceof java.awt.Image) || img === null) && ((typeof dx1 === 'number') || dx1 === null) && ((typeof dy1 === 'number') || dy1 === null) && ((dx2 != null && dx2 instanceof java.awt.Color) || dx2 === null) && ((dy2 != null && dy2["__interfaces"] != null && dy2["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0) || dy2 === null) && sx1 === undefined && sy1 === undefined && sx2 === undefined && sy2 === undefined && bgcolor === undefined && observer === undefined) {
+                else if (((img != null && img instanceof java.awt.Image) || img === null) && ((typeof dx1 === 'number') || dx1 === null) && ((typeof dy1 === 'number') || dy1 === null) && ((dx2 != null && dx2 instanceof java.awt.Color) || dx2 === null) && ((dy2 != null && (dy2["__interfaces"] != null && dy2["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0 || dy2.constructor != null && dy2.constructor["__interfaces"] != null && dy2.constructor["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0)) || dy2 === null) && sx1 === undefined && sy1 === undefined && sx2 === undefined && sy2 === undefined && bgcolor === undefined && observer === undefined) {
                     return this.drawImage$java_awt_Image$int$int$java_awt_Color$java_awt_image_ImageObserver(img, dx1, dy1, dx2, dy2);
                 }
-                else if (((img != null && img instanceof java.awt.Image) || img === null) && ((typeof dx1 === 'number') || dx1 === null) && ((typeof dy1 === 'number') || dy1 === null) && ((dx2 != null && dx2["__interfaces"] != null && dx2["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0) || dx2 === null) && dy2 === undefined && sx1 === undefined && sy1 === undefined && sx2 === undefined && sy2 === undefined && bgcolor === undefined && observer === undefined) {
+                else if (((img != null && img instanceof java.awt.Image) || img === null) && ((typeof dx1 === 'number') || dx1 === null) && ((typeof dy1 === 'number') || dy1 === null) && ((dx2 != null && (dx2["__interfaces"] != null && dx2["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0 || dx2.constructor != null && dx2.constructor["__interfaces"] != null && dx2.constructor["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0)) || dx2 === null) && dy2 === undefined && sx1 === undefined && sy1 === undefined && sx2 === undefined && sy2 === undefined && bgcolor === undefined && observer === undefined) {
                     return this.drawImage$java_awt_Image$int$int$java_awt_image_ImageObserver(img, dx1, dy1, dx2);
                 }
                 else
@@ -14653,7 +14624,7 @@ var java;
                 this.dispose();
             };
             Graphics.prototype.toString = function () {
-                return this.constructor["__classname"] + "[font=" + this.getFont() + ",color=" + this.getColor() + "]";
+                return (function (c) { return c["__class"] ? c["__class"] : c.name; })(this.constructor) + "[font=" + this.getFont() + ",color=" + this.getColor() + "]";
             };
             Graphics.prototype.hitClip = function (x, y, width, height) {
                 var clipRect = this.getClipBounds();
@@ -14689,7 +14660,7 @@ var java;
             return Graphics;
         }());
         awt.Graphics = Graphics;
-        Graphics["__classname"] = "java.awt.Graphics";
+        Graphics["__class"] = "java.awt.Graphics";
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -14701,7 +14672,6 @@ var java;
             function GridLayout(rows, cols) {
                 this.created = false;
                 this.currentPosition = 0;
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.LayoutManager"] });
                 this.cols = 0;
                 this.rows = 0;
                 this.rows = rows;
@@ -14760,7 +14730,8 @@ var java;
             return GridLayout;
         }());
         awt.GridLayout = GridLayout;
-        GridLayout["__classname"] = "java.awt.GridLayout";
+        GridLayout["__class"] = "java.awt.GridLayout";
+        GridLayout["__interfaces"] = ["java.awt.LayoutManager"];
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -14786,12 +14757,10 @@ var java;
                 if (((typeof s === 'string') || s === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     _super.call(this, s);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                 }
                 else if (s === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     _super.call(this);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                 }
                 else
                     throw new Error('invalid overload');
@@ -14800,7 +14769,8 @@ var java;
             return IllegalComponentStateException;
         }(java.lang.IllegalStateException));
         awt.IllegalComponentStateException = IllegalComponentStateException;
-        IllegalComponentStateException["__classname"] = "java.awt.IllegalComponentStateException";
+        IllegalComponentStateException["__class"] = "java.awt.IllegalComponentStateException";
+        IllegalComponentStateException["__interfaces"] = ["java.io.Serializable"];
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -14836,7 +14806,7 @@ var java;
             }
             Image.prototype.getWidth = function (observer) {
                 var _this = this;
-                if (((observer != null && observer["__interfaces"] != null && observer["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0) || observer === null)) {
+                if (((observer != null && (observer["__interfaces"] != null && observer["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0 || observer.constructor != null && observer.constructor["__interfaces"] != null && observer.constructor["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0)) || observer === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         return (_this.source.width | 0);
@@ -14847,7 +14817,7 @@ var java;
             };
             Image.prototype.getHeight = function (observer) {
                 var _this = this;
-                if (((observer != null && observer["__interfaces"] != null && observer["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0) || observer === null)) {
+                if (((observer != null && (observer["__interfaces"] != null && observer["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0 || observer.constructor != null && observer.constructor["__interfaces"] != null && observer.constructor["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0)) || observer === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         return (_this.source.height | 0);
@@ -14877,7 +14847,7 @@ var java;
             return Image;
         }());
         awt.Image = Image;
-        Image["__classname"] = "java.awt.Image";
+        Image["__class"] = "java.awt.Image";
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -14887,7 +14857,6 @@ var java;
     (function (awt) {
         var Insets = (function () {
             function Insets(top, left, bottom, right) {
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                 this.top = 0;
                 this.left = 0;
                 this.bottom = 0;
@@ -14919,7 +14888,7 @@ var java;
                 return (sum3 * (sum3 + 1) / 2 | 0) + val2;
             };
             Insets.prototype.toString = function () {
-                return this.constructor["__classname"] + "[top=" + this.top + ",left=" + this.left + ",bottom=" + this.bottom + ",right=" + this.right + "]";
+                return (function (c) { return c["__class"] ? c["__class"] : c.name; })(this.constructor) + "[top=" + this.top + ",left=" + this.left + ",bottom=" + this.bottom + ",right=" + this.right + "]";
             };
             Insets.prototype.clone = function () {
                 try {
@@ -14934,7 +14903,8 @@ var java;
             return Insets;
         }());
         awt.Insets = Insets;
-        Insets["__classname"] = "java.awt.Insets";
+        Insets["__class"] = "java.awt.Insets";
+        Insets["__interfaces"] = ["java.lang.Cloneable", "java.io.Serializable"];
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -14954,7 +14924,7 @@ var java;
             return MenuComponent;
         }());
         awt.MenuComponent = MenuComponent;
-        MenuComponent["__classname"] = "java.awt.MenuComponent";
+        MenuComponent["__class"] = "java.awt.MenuComponent";
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -14965,7 +14935,6 @@ var java;
         var NoLayout = (function () {
             function NoLayout() {
                 this.created = false;
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.LayoutManager"] });
             }
             NoLayout.prototype.addLayoutComponent = function (name, component) {
                 if (((typeof name === 'string') || name === null) && ((component != null && component instanceof java.awt.Component) || component === null)) {
@@ -14989,7 +14958,8 @@ var java;
             return NoLayout;
         }());
         awt.NoLayout = NoLayout;
-        NoLayout["__classname"] = "java.awt.NoLayout";
+        NoLayout["__class"] = "java.awt.NoLayout";
+        NoLayout["__interfaces"] = ["java.awt.LayoutManager"];
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -15002,7 +14972,6 @@ var java;
                 var _this = this;
                 if (((xpoints != null && xpoints instanceof Array) || xpoints === null) && ((ypoints != null && ypoints instanceof Array) || ypoints === null) && ((typeof npoints === 'number') || npoints === null)) {
                     var __args = Array.prototype.slice.call(arguments);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.io.Serializable"] });
                     this.npoints = 0;
                     (function () {
                         if (npoints > xpoints.length || npoints > ypoints.length) {
@@ -15018,7 +14987,6 @@ var java;
                 }
                 else if (xpoints === undefined && ypoints === undefined && npoints === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.io.Serializable"] });
                     this.npoints = 0;
                     (function () {
                         _this.xpoints = new Array(Polygon.MIN_LENGTH);
@@ -15272,12 +15240,12 @@ var java;
             return Polygon;
         }());
         awt.Polygon = Polygon;
-        Polygon["__classname"] = "java.awt.Polygon";
+        Polygon["__class"] = "java.awt.Polygon";
+        Polygon["__interfaces"] = ["java.awt.Shape", "java.io.Serializable"];
         var Polygon;
         (function (Polygon) {
             var PolygonPathIterator = (function () {
                 function PolygonPathIterator(__parent, pg, at) {
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.geom.PathIterator"] });
                     this.__parent = __parent;
                     this.index = 0;
                     this.poly = pg;
@@ -15338,7 +15306,8 @@ var java;
                 return PolygonPathIterator;
             }());
             Polygon.PolygonPathIterator = PolygonPathIterator;
-            PolygonPathIterator["__classname"] = "java.awt.Polygon.PolygonPathIterator";
+            PolygonPathIterator["__class"] = "java.awt.Polygon.PolygonPathIterator";
+            PolygonPathIterator["__interfaces"] = ["java.awt.geom.PathIterator"];
         })(Polygon = awt.Polygon || (awt.Polygon = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -15377,7 +15346,7 @@ var java;
             return Toolkit;
         }());
         awt.Toolkit = Toolkit;
-        Toolkit["__classname"] = "java.awt.Toolkit";
+        Toolkit["__class"] = "java.awt.Toolkit";
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -15585,7 +15554,7 @@ var java;
             return ChangeListenerMap;
         }());
         beans.ChangeListenerMap = ChangeListenerMap;
-        ChangeListenerMap["__classname"] = "java.beans.ChangeListenerMap";
+        ChangeListenerMap["__class"] = "java.beans.ChangeListenerMap";
     })(beans = java.beans || (java.beans = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -15597,7 +15566,6 @@ var java;
             __extends(PropertyChangeEvent, _super);
             function PropertyChangeEvent(source, propertyName, oldValue, newValue) {
                 _super.call(this, source);
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                 this.propertyName = propertyName;
                 this.newValue = newValue;
                 this.oldValue = oldValue;
@@ -15618,7 +15586,7 @@ var java;
                 return this.propagationId;
             };
             PropertyChangeEvent.prototype.toString = function () {
-                var sb = new java.lang.StringBuilder(/* getName */ this.constructor["__classname"]);
+                var sb = new java.lang.StringBuilder(/* getName */ (function (c) { return c["__class"] ? c["__class"] : c.name; })(this.constructor));
                 sb.append("[propertyName=").append(this.getPropertyName());
                 this.appendTo(sb);
                 sb.append("; oldValue=").append(this.getOldValue());
@@ -15633,7 +15601,8 @@ var java;
             return PropertyChangeEvent;
         }(java.util.EventObject));
         beans.PropertyChangeEvent = PropertyChangeEvent;
-        PropertyChangeEvent["__classname"] = "java.beans.PropertyChangeEvent";
+        PropertyChangeEvent["__class"] = "java.beans.PropertyChangeEvent";
+        PropertyChangeEvent["__interfaces"] = ["java.io.Serializable"];
     })(beans = java.beans || (java.beans = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -15652,7 +15621,6 @@ var java;
              */
             function PropertyChangeListenerProxy(propertyName, listener) {
                 _super.call(this, listener);
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "java.beans.PropertyChangeListener"] });
                 this.propertyName = propertyName;
             }
             /**
@@ -15674,7 +15642,8 @@ var java;
             return PropertyChangeListenerProxy;
         }(java.util.EventListenerProxy));
         beans.PropertyChangeListenerProxy = PropertyChangeListenerProxy;
-        PropertyChangeListenerProxy["__classname"] = "java.beans.PropertyChangeListenerProxy";
+        PropertyChangeListenerProxy["__class"] = "java.beans.PropertyChangeListenerProxy";
+        PropertyChangeListenerProxy["__interfaces"] = ["java.util.EventListener", "java.beans.PropertyChangeListener"];
     })(beans = java.beans || (java.beans = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -15692,7 +15661,7 @@ var javax;
             return ImageIO;
         }());
         imageio.ImageIO = ImageIO;
-        ImageIO["__classname"] = "javax.imageio.ImageIO";
+        ImageIO["__class"] = "javax.imageio.ImageIO";
     })(imageio = javax.imageio || (javax.imageio = {}));
 })(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -15734,12 +15703,11 @@ var javax;
                  * Specifies whether action is enabled; the default is true.
                  */
                 this.enabled = true;
-                if (((typeof name === 'string') || name === null) && ((icon != null && icon["__interfaces"] != null && icon["__interfaces"].indexOf("javax.swing.Icon") >= 0) || icon === null)) {
+                if (((typeof name === 'string') || name === null) && ((icon != null && (icon["__interfaces"] != null && icon["__interfaces"].indexOf("javax.swing.Icon") >= 0 || icon.constructor != null && icon.constructor["__interfaces"] != null && icon.constructor["__interfaces"].indexOf("javax.swing.Icon") >= 0)) || icon === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
                         var __args_8 = Array.prototype.slice.call(arguments);
                         this.enabled = true;
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "java.lang.Cloneable", "java.awt.event.ActionListener", "javax.swing.Action", "java.io.Serializable"] });
                         (function () {
                             _this.putValue(javax.swing.Action.NAME, name);
                         })();
@@ -15751,7 +15719,6 @@ var javax;
                 else if (((typeof name === 'string') || name === null) && icon === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     this.enabled = true;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "java.lang.Cloneable", "java.awt.event.ActionListener", "javax.swing.Action", "java.io.Serializable"] });
                     (function () {
                         _this.putValue(javax.swing.Action.NAME, name);
                     })();
@@ -15759,7 +15726,6 @@ var javax;
                 else if (name === undefined && icon === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     this.enabled = true;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "java.lang.Cloneable", "java.awt.event.ActionListener", "javax.swing.Action", "java.io.Serializable"] });
                 }
                 else
                     throw new Error('invalid overload');
@@ -15963,7 +15929,8 @@ var javax;
             return AbstractAction;
         }());
         swing.AbstractAction = AbstractAction;
-        AbstractAction["__classname"] = "javax.swing.AbstractAction";
+        AbstractAction["__class"] = "javax.swing.AbstractAction";
+        AbstractAction["__interfaces"] = ["java.util.EventListener", "java.lang.Cloneable", "java.awt.event.ActionListener", "javax.swing.Action", "java.io.Serializable"];
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -15991,7 +15958,6 @@ var javax;
         var AbstractListModel = (function () {
             function AbstractListModel() {
                 this.listenerList = new javax.swing.event.EventListenerList();
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.ListModel", "java.io.Serializable"] });
             }
             /**
              * Adds a listener to the list that's notified each time a change
@@ -16147,7 +16113,8 @@ var javax;
             return AbstractListModel;
         }());
         swing.AbstractListModel = AbstractListModel;
-        AbstractListModel["__classname"] = "javax.swing.AbstractListModel";
+        AbstractListModel["__class"] = "javax.swing.AbstractListModel";
+        AbstractListModel["__interfaces"] = ["javax.swing.ListModel", "java.io.Serializable"];
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -16197,7 +16164,6 @@ var javax;
          */
         var ActionPropertyChangeListener = (function () {
             function ActionPropertyChangeListener(c, a) {
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "java.beans.PropertyChangeListener", "java.io.Serializable"] });
                 this.setTarget(c);
                 this.action = a;
             }
@@ -16211,7 +16177,7 @@ var javax;
                 }
             };
             ActionPropertyChangeListener.prototype.actionPropertyChanged = function (cb, action, e) {
-                if (((cb != null) || cb === null) && ((action != null && action["__interfaces"] != null && action["__interfaces"].indexOf("javax.swing.Action") >= 0) || action === null) && ((e != null && e instanceof java.beans.PropertyChangeEvent) || e === null)) {
+                if (((cb != null) || cb === null) && ((action != null && (action["__interfaces"] != null && action["__interfaces"].indexOf("javax.swing.Action") >= 0 || action.constructor != null && action.constructor["__interfaces"] != null && action.constructor["__interfaces"].indexOf("javax.swing.Action") >= 0)) || action === null) && ((e != null && e instanceof java.beans.PropertyChangeEvent) || e === null)) {
                     return this.actionPropertyChanged$javax_swing_JComponent$javax_swing_Action$java_beans_PropertyChangeEvent(cb, action, e);
                 }
                 else
@@ -16230,7 +16196,8 @@ var javax;
             return ActionPropertyChangeListener;
         }());
         swing.ActionPropertyChangeListener = ActionPropertyChangeListener;
-        ActionPropertyChangeListener["__classname"] = "javax.swing.ActionPropertyChangeListener";
+        ActionPropertyChangeListener["__class"] = "javax.swing.ActionPropertyChangeListener";
+        ActionPropertyChangeListener["__interfaces"] = ["java.util.EventListener", "java.beans.PropertyChangeListener", "java.io.Serializable"];
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -16240,7 +16207,6 @@ var javax;
     (function (swing) {
         var BoxLayout = (function () {
             function BoxLayout(target, axis) {
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.LayoutManager2", "java.awt.LayoutManager", "java.io.Serializable"] });
                 this.axis = 0;
                 if (axis !== BoxLayout.X_AXIS && axis !== BoxLayout.Y_AXIS && axis !== BoxLayout.LINE_AXIS && axis !== BoxLayout.PAGE_AXIS) {
                     throw new Error("Invalid axis");
@@ -16314,7 +16280,8 @@ var javax;
             return BoxLayout;
         }());
         swing.BoxLayout = BoxLayout;
-        BoxLayout["__classname"] = "javax.swing.BoxLayout";
+        BoxLayout["__class"] = "javax.swing.BoxLayout";
+        BoxLayout["__interfaces"] = ["java.awt.LayoutManager2", "java.awt.LayoutManager", "java.io.Serializable"];
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -16326,7 +16293,6 @@ var javax;
             function ButtonGroup() {
                 this.buttons = (new java.util.Vector());
                 this.selection = null;
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
             }
             ButtonGroup.prototype.add = function (b) {
                 if (b == null) {
@@ -16390,7 +16356,8 @@ var javax;
             return ButtonGroup;
         }());
         swing.ButtonGroup = ButtonGroup;
-        ButtonGroup["__classname"] = "javax.swing.ButtonGroup";
+        ButtonGroup["__class"] = "javax.swing.ButtonGroup";
+        ButtonGroup["__interfaces"] = ["java.io.Serializable"];
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -16449,7 +16416,6 @@ var javax;
                     this.min = 0;
                     this.max = 100;
                     this.isAdjusting = false;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.BoundedRangeModel", "java.io.Serializable"] });
                     (function () {
                         if ((max >= min) && (value >= min) && ((value + extent) >= value) && ((value + extent) <= max)) {
                             _this.value = value;
@@ -16471,7 +16437,6 @@ var javax;
                     this.min = 0;
                     this.max = 100;
                     this.isAdjusting = false;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.BoundedRangeModel", "java.io.Serializable"] });
                 }
                 else
                     throw new Error('invalid overload');
@@ -16698,7 +16663,7 @@ var javax;
              */
             DefaultBoundedRangeModel.prototype.toString = function () {
                 var modelString = "value=" + this.getValue() + ", " + "extent=" + this.getExtent() + ", " + "min=" + this.getMinimum() + ", " + "max=" + this.getMaximum() + ", " + "adj=" + this.getValueIsAdjusting();
-                return this.constructor["__classname"] + "[" + modelString + "]";
+                return (function (c) { return c["__class"] ? c["__class"] : c.name; })(this.constructor) + "[" + modelString + "]";
             };
             /**
              * Returns an array of all the objects currently registered as
@@ -16741,7 +16706,8 @@ var javax;
             return DefaultBoundedRangeModel;
         }());
         swing.DefaultBoundedRangeModel = DefaultBoundedRangeModel;
-        DefaultBoundedRangeModel["__classname"] = "javax.swing.DefaultBoundedRangeModel";
+        DefaultBoundedRangeModel["__class"] = "javax.swing.DefaultBoundedRangeModel";
+        DefaultBoundedRangeModel["__interfaces"] = ["javax.swing.BoundedRangeModel", "java.io.Serializable"];
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -16758,7 +16724,6 @@ var javax;
                 this.changeEvent = null;
                 this.listenerList = new javax.swing.event.EventListenerList();
                 this.menuItem = false;
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "javax.swing.ButtonModel", "java.io.Serializable"] });
                 this.stateMask = 0;
                 this.setEnabled(true);
             }
@@ -16953,7 +16918,8 @@ var javax;
             return DefaultButtonModel;
         }());
         swing.DefaultButtonModel = DefaultButtonModel;
-        DefaultButtonModel["__classname"] = "javax.swing.DefaultButtonModel";
+        DefaultButtonModel["__class"] = "javax.swing.DefaultButtonModel";
+        DefaultButtonModel["__interfaces"] = ["java.awt.ItemSelectable", "javax.swing.ButtonModel", "java.io.Serializable"];
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -16992,7 +16958,6 @@ var javax;
                 this.value = new java.util.BitSet(32);
                 this.listenerList = new javax.swing.event.EventListenerList();
                 this.leadAnchorNotificationEnabled = true;
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.ListSelectionModel", "java.lang.Cloneable", "java.io.Serializable"] });
             }
             DefaultListSelectionModel.MAX_$LI$ = function () { if (DefaultListSelectionModel.MAX == null)
                 DefaultListSelectionModel.MAX = javaemul.internal.IntegerHelper.MAX_VALUE; return DefaultListSelectionModel.MAX; };
@@ -17514,7 +17479,7 @@ var javax;
              */
             DefaultListSelectionModel.prototype.toString = function () {
                 var s = ((this.getValueIsAdjusting()) ? "~" : "=") + this.value.toString();
-                return this.constructor["__classname"] + " " + ('' + this.hashCode()) + " " + s;
+                return (function (c) { return c["__class"] ? c["__class"] : c.name; })(this.constructor) + " " + ('' + this.hashCode()) + " " + s;
             };
             /**
              * Returns a clone of this selection model with the same selection.
@@ -17640,7 +17605,8 @@ var javax;
             return DefaultListSelectionModel;
         }());
         swing.DefaultListSelectionModel = DefaultListSelectionModel;
-        DefaultListSelectionModel["__classname"] = "javax.swing.DefaultListSelectionModel";
+        DefaultListSelectionModel["__class"] = "javax.swing.DefaultListSelectionModel";
+        DefaultListSelectionModel["__interfaces"] = ["javax.swing.ListSelectionModel", "java.lang.Cloneable", "java.io.Serializable"];
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -17670,7 +17636,6 @@ var javax;
                  */
                 this.listenerList = new javax.swing.event.EventListenerList();
                 this.index = -1;
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.SingleSelectionModel", "java.io.Serializable"] });
             }
             DefaultSingleSelectionModel.prototype.getSelectedIndex = function () {
                 return this.index;
@@ -17776,7 +17741,8 @@ var javax;
             return DefaultSingleSelectionModel;
         }());
         swing.DefaultSingleSelectionModel = DefaultSingleSelectionModel;
-        DefaultSingleSelectionModel["__classname"] = "javax.swing.DefaultSingleSelectionModel";
+        DefaultSingleSelectionModel["__class"] = "javax.swing.DefaultSingleSelectionModel";
+        DefaultSingleSelectionModel["__interfaces"] = ["javax.swing.SingleSelectionModel", "java.io.Serializable"];
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -17819,12 +17785,12 @@ var javax;
                 __extends(ChangeEvent, _super);
                 function ChangeEvent(source) {
                     _super.call(this, source);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                 }
                 return ChangeEvent;
             }(java.util.EventObject));
             event.ChangeEvent = ChangeEvent;
-            ChangeEvent["__classname"] = "javax.swing.event.ChangeEvent";
+            ChangeEvent["__class"] = "javax.swing.event.ChangeEvent";
+            ChangeEvent["__interfaces"] = ["java.io.Serializable"];
         })(event = swing.event || (swing.event = {}));
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
@@ -17838,7 +17804,6 @@ var javax;
             var EventListenerList = (function () {
                 function EventListenerList() {
                     this.listenerList = EventListenerList.NULL_ARRAY_$LI$();
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                 }
                 EventListenerList.NULL_ARRAY_$LI$ = function () { if (EventListenerList.NULL_ARRAY == null)
                     EventListenerList.NULL_ARRAY = new Array(0); return EventListenerList.NULL_ARRAY; };
@@ -17970,7 +17935,7 @@ var javax;
                     var s = "EventListenerList: ";
                     s += (lList.length / 2 | 0) + " listeners: ";
                     for (var i = 0; i <= lList.length - 2; i += 2) {
-                        s += " type " + lList[i]["__classname"];
+                        s += " type " + (function (c) { return c["__class"] ? c["__class"] : c.name; })(lList[i]);
                         s += " listener " + lList[i + 1];
                     }
                     return s;
@@ -17978,7 +17943,8 @@ var javax;
                 return EventListenerList;
             }());
             event.EventListenerList = EventListenerList;
-            EventListenerList["__classname"] = "javax.swing.event.EventListenerList";
+            EventListenerList["__class"] = "javax.swing.event.EventListenerList";
+            EventListenerList["__interfaces"] = ["java.io.Serializable"];
         })(event = swing.event || (swing.event = {}));
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
@@ -17993,7 +17959,6 @@ var javax;
                 __extends(ListDataEvent, _super);
                 function ListDataEvent(source, type, index0, index1) {
                     _super.call(this, source);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                     this.type = 0;
                     this.index0 = 0;
                     this.index1 = 0;
@@ -18011,7 +17976,7 @@ var javax;
                     return this.index1;
                 };
                 ListDataEvent.prototype.toString = function () {
-                    return this.constructor["__classname"] + "[type=" + this.type + ",index0=" + this.index0 + ",index1=" + this.index1 + "]";
+                    return (function (c) { return c["__class"] ? c["__class"] : c.name; })(this.constructor) + "[type=" + this.type + ",index0=" + this.index0 + ",index1=" + this.index1 + "]";
                 };
                 ListDataEvent.CONTENTS_CHANGED = 0;
                 ListDataEvent.INTERVAL_ADDED = 1;
@@ -18019,7 +17984,8 @@ var javax;
                 return ListDataEvent;
             }(java.util.EventObject));
             event.ListDataEvent = ListDataEvent;
-            ListDataEvent["__classname"] = "javax.swing.event.ListDataEvent";
+            ListDataEvent["__class"] = "javax.swing.event.ListDataEvent";
+            ListDataEvent["__interfaces"] = ["java.io.Serializable"];
         })(event = swing.event || (swing.event = {}));
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
@@ -18066,7 +18032,6 @@ var javax;
                  */
                 function ListSelectionEvent(source, firstIndex, lastIndex, isAdjusting) {
                     _super.call(this, source);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                     this.firstIndex = 0;
                     this.lastIndex = 0;
                     this.isAdjusting = false;
@@ -18114,12 +18079,13 @@ var javax;
                  */
                 ListSelectionEvent.prototype.toString = function () {
                     var properties = " source=" + this.getSource() + " firstIndex= " + this.firstIndex + " lastIndex= " + this.lastIndex + " isAdjusting= " + this.isAdjusting + " ";
-                    return this.constructor["__classname"] + "[" + properties + "]";
+                    return (function (c) { return c["__class"] ? c["__class"] : c.name; })(this.constructor) + "[" + properties + "]";
                 };
                 return ListSelectionEvent;
             }(java.util.EventObject));
             event.ListSelectionEvent = ListSelectionEvent;
-            ListSelectionEvent["__classname"] = "javax.swing.event.ListSelectionEvent";
+            ListSelectionEvent["__class"] = "javax.swing.event.ListSelectionEvent";
+            ListSelectionEvent["__interfaces"] = ["java.io.Serializable"];
         })(event = swing.event || (swing.event = {}));
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
@@ -18157,12 +18123,12 @@ var javax;
                  */
                 function MenuEvent(source) {
                     _super.call(this, source);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                 }
                 return MenuEvent;
             }(java.util.EventObject));
             event.MenuEvent = MenuEvent;
-            MenuEvent["__classname"] = "javax.swing.event.MenuEvent";
+            MenuEvent["__class"] = "javax.swing.event.MenuEvent";
+            MenuEvent["__interfaces"] = ["java.io.Serializable"];
         })(event = swing.event || (swing.event = {}));
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
@@ -18198,12 +18164,12 @@ var javax;
                  */
                 function PopupMenuEvent(source) {
                     _super.call(this, source);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                 }
                 return PopupMenuEvent;
             }(java.util.EventObject));
             event.PopupMenuEvent = PopupMenuEvent;
-            PopupMenuEvent["__classname"] = "javax.swing.event.PopupMenuEvent";
+            PopupMenuEvent["__class"] = "javax.swing.event.PopupMenuEvent";
+            PopupMenuEvent["__interfaces"] = ["java.io.Serializable"];
         })(event = swing.event || (swing.event = {}));
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
@@ -18239,7 +18205,6 @@ var javax;
                  */
                 function UndoableEditEvent(source, edit) {
                     _super.call(this, source);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                     this.myEdit = edit;
                 }
                 /**
@@ -18253,7 +18218,8 @@ var javax;
                 return UndoableEditEvent;
             }(java.util.EventObject));
             event.UndoableEditEvent = UndoableEditEvent;
-            UndoableEditEvent["__classname"] = "javax.swing.event.UndoableEditEvent";
+            UndoableEditEvent["__class"] = "javax.swing.event.UndoableEditEvent";
+            UndoableEditEvent["__interfaces"] = ["java.io.Serializable"];
         })(event = swing.event || (swing.event = {}));
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
@@ -18267,7 +18233,6 @@ var javax;
                 var _this = this;
                 if (((typeof filename === 'string') || filename === null) && ((typeof description === 'string') || description === null)) {
                     var __args = Array.prototype.slice.call(arguments);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.Icon", "java.io.Serializable"] });
                     this.loadStatus = 0;
                     this.width = 0;
                     this.height = 0;
@@ -18286,7 +18251,6 @@ var javax;
                     var image_2 = __args[0];
                     {
                         var __args_9 = Array.prototype.slice.call(arguments);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.Icon", "java.io.Serializable"] });
                         this.loadStatus = 0;
                         this.width = 0;
                         this.height = 0;
@@ -18304,7 +18268,6 @@ var javax;
                     {
                         var __args_10 = Array.prototype.slice.call(arguments);
                         var description_1 = __args_10[0];
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.Icon", "java.io.Serializable"] });
                         this.loadStatus = 0;
                         this.width = 0;
                         this.height = 0;
@@ -18322,7 +18285,6 @@ var javax;
                 else if (((filename != null && filename instanceof java.awt.Image) || filename === null) && description === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     var image_3 = __args[0];
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.Icon", "java.io.Serializable"] });
                     this.loadStatus = 0;
                     this.width = 0;
                     this.height = 0;
@@ -18333,7 +18295,6 @@ var javax;
                 }
                 else if (filename === undefined && description === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.Icon", "java.io.Serializable"] });
                     this.loadStatus = 0;
                     this.width = 0;
                     this.height = 0;
@@ -18388,7 +18349,8 @@ var javax;
             return ImageIcon;
         }());
         swing.ImageIcon = ImageIcon;
-        ImageIcon["__classname"] = "javax.swing.ImageIcon";
+        ImageIcon["__class"] = "javax.swing.ImageIcon";
+        ImageIcon["__interfaces"] = ["javax.swing.Icon", "java.io.Serializable"];
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -18438,7 +18400,7 @@ var javax;
             return MenuSelectionManager;
         }());
         swing.MenuSelectionManager = MenuSelectionManager;
-        MenuSelectionManager["__classname"] = "javax.swing.MenuSelectionManager";
+        MenuSelectionManager["__class"] = "javax.swing.MenuSelectionManager";
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -18571,7 +18533,7 @@ var javax;
                     return Bias;
                 }());
                 Position.Bias = Bias;
-                Bias["__classname"] = "javax.swing.text.Position.Bias";
+                Bias["__class"] = "javax.swing.text.Position.Bias";
             })(Position = text.Position || (text.Position = {}));
         })(text = swing.text || (swing.text = {}));
     })(swing = javax.swing || (javax.swing = {}));
@@ -18597,7 +18559,7 @@ var javax;
             return UIManager;
         }());
         swing.UIManager = UIManager;
-        UIManager["__classname"] = "javax.swing.UIManager";
+        UIManager["__class"] = "javax.swing.UIManager";
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -18620,7 +18582,6 @@ var javax;
                  * <code>hasBeenDone</code> and <code>alive</code> to <code>true</code>.
                  */
                 function AbstractUndoableEdit() {
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.undo.UndoableEdit", "java.io.Serializable"] });
                     this.hasBeenDone = false;
                     this.alive = false;
                     this.hasBeenDone = true;
@@ -18803,7 +18764,7 @@ var javax;
                  * @return a String representation of this object
                  */
                 AbstractUndoableEdit.prototype.toString = function () {
-                    return this.constructor["__classname"] + " hasBeenDone: " + this.hasBeenDone + " alive: " + this.alive;
+                    return (function (c) { return c["__class"] ? c["__class"] : c.name; })(this.constructor) + " hasBeenDone: " + this.hasBeenDone + " alive: " + this.alive;
                 };
                 /**
                  * String returned by <code>getUndoPresentationName</code>;
@@ -18826,7 +18787,8 @@ var javax;
                 return AbstractUndoableEdit;
             }());
             undo.AbstractUndoableEdit = AbstractUndoableEdit;
-            AbstractUndoableEdit["__classname"] = "javax.swing.undo.AbstractUndoableEdit";
+            AbstractUndoableEdit["__class"] = "javax.swing.undo.AbstractUndoableEdit";
+            AbstractUndoableEdit["__interfaces"] = ["javax.swing.undo.UndoableEdit", "java.io.Serializable"];
         })(undo = swing.undo || (swing.undo = {}));
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
@@ -18855,12 +18817,12 @@ var javax;
                 __extends(CannotRedoException, _super);
                 function CannotRedoException() {
                     _super.call(this);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                 }
                 return CannotRedoException;
             }(Error));
             undo.CannotRedoException = CannotRedoException;
-            CannotRedoException["__classname"] = "javax.swing.undo.CannotRedoException";
+            CannotRedoException["__class"] = "javax.swing.undo.CannotRedoException";
+            CannotRedoException["__interfaces"] = ["java.io.Serializable"];
         })(undo = swing.undo || (swing.undo = {}));
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
@@ -18889,12 +18851,12 @@ var javax;
                 __extends(CannotUndoException, _super);
                 function CannotUndoException() {
                     _super.call(this);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                 }
                 return CannotUndoException;
             }(Error));
             undo.CannotUndoException = CannotUndoException;
-            CannotUndoException["__classname"] = "javax.swing.undo.CannotUndoException";
+            CannotUndoException["__class"] = "javax.swing.undo.CannotUndoException";
+            CannotUndoException["__interfaces"] = ["java.io.Serializable"];
         })(undo = swing.undo || (swing.undo = {}));
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
@@ -19042,12 +19004,12 @@ var javax;
                  * @return a <code>String</code> representation of this object
                  */
                 UndoableEditSupport.prototype.toString = function () {
-                    return this.constructor["__classname"] + " updateLevel: " + this.updateLevel + " listeners: " + this.listeners + " compoundEdit: " + this.compoundEdit;
+                    return (function (c) { return c["__class"] ? c["__class"] : c.name; })(this.constructor) + " updateLevel: " + this.updateLevel + " listeners: " + this.listeners + " compoundEdit: " + this.compoundEdit;
                 };
                 return UndoableEditSupport;
             }());
             undo.UndoableEditSupport = UndoableEditSupport;
-            UndoableEditSupport["__classname"] = "javax.swing.undo.UndoableEditSupport";
+            UndoableEditSupport["__class"] = "javax.swing.undo.UndoableEditSupport";
         })(undo = swing.undo || (swing.undo = {}));
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
@@ -19148,7 +19110,7 @@ var sun;
                 return ChainEnd;
             }());
             geom.ChainEnd = ChainEnd;
-            ChainEnd["__classname"] = "sun.awt.geom.ChainEnd";
+            ChainEnd["__class"] = "sun.awt.geom.ChainEnd";
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = sun.awt || (sun.awt = {}));
 })(sun || (sun = {}));
@@ -19215,7 +19177,7 @@ var sun;
                             return cross;
                         })();
                     }
-                    else if (((curves != null && curves["__interfaces"] != null && curves["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0) || curves === null) && ((typeof xlo === 'number') || xlo === null) && ((typeof ylo === 'number') || ylo === null) && ((typeof xhi === 'number') || xhi === null) && ((typeof yhi === 'number') || yhi === null)) {
+                    else if (((curves != null && (curves["__interfaces"] != null && curves["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0 || curves.constructor != null && curves.constructor["__interfaces"] != null && curves.constructor["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0)) || curves === null) && ((typeof xlo === 'number') || xlo === null) && ((typeof ylo === 'number') || ylo === null) && ((typeof xhi === 'number') || xhi === null) && ((typeof yhi === 'number') || yhi === null)) {
                         return sun.awt.geom.Crossings.findCrossings$java_awt_geom_PathIterator$double$double$double$double(curves, xlo, ylo, xhi, yhi);
                     }
                     else
@@ -19420,7 +19382,7 @@ var sun;
                 return Crossings;
             }());
             geom.Crossings = Crossings;
-            Crossings["__classname"] = "sun.awt.geom.Crossings";
+            Crossings["__class"] = "sun.awt.geom.Crossings";
             var Crossings;
             (function (Crossings) {
                 var EvenOdd = (function (_super) {
@@ -19511,7 +19473,7 @@ var sun;
                     return EvenOdd;
                 }(sun.awt.geom.Crossings));
                 Crossings.EvenOdd = EvenOdd;
-                EvenOdd["__classname"] = "sun.awt.geom.Crossings.EvenOdd";
+                EvenOdd["__class"] = "sun.awt.geom.Crossings.EvenOdd";
                 var NonZero = (function (_super) {
                     __extends(NonZero, _super);
                     function NonZero(xlo, ylo, xhi, yhi) {
@@ -19628,7 +19590,7 @@ var sun;
                     return NonZero;
                 }(sun.awt.geom.Crossings));
                 Crossings.NonZero = NonZero;
-                NonZero["__classname"] = "sun.awt.geom.Crossings.NonZero";
+                NonZero["__class"] = "sun.awt.geom.Crossings.NonZero";
             })(Crossings = geom.Crossings || (geom.Crossings = {}));
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = sun.awt || (sun.awt = {}));
@@ -20523,7 +20485,7 @@ var sun;
                 return Curve;
             }());
             geom.Curve = Curve;
-            Curve["__classname"] = "sun.awt.geom.Curve";
+            Curve["__class"] = "sun.awt.geom.Curve";
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = sun.awt || (sun.awt = {}));
 })(sun || (sun = {}));
@@ -20614,7 +20576,7 @@ var sun;
                 return CurveLink;
             }());
             geom.CurveLink = CurveLink;
-            CurveLink["__classname"] = "sun.awt.geom.CurveLink";
+            CurveLink["__class"] = "sun.awt.geom.CurveLink";
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = sun.awt || (sun.awt = {}));
 })(sun || (sun = {}));
@@ -20690,7 +20652,7 @@ var sun;
                 return Edge;
             }());
             geom.Edge = Edge;
-            Edge["__classname"] = "sun.awt.geom.Edge";
+            Edge["__class"] = "sun.awt.geom.Edge";
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = sun.awt || (sun.awt = {}));
 })(sun || (sun = {}));
@@ -20759,7 +20721,6 @@ var java;
                 function AdjustmentEvent(source, id, type, value, isAdjusting) {
                     if (isAdjusting === void 0) { isAdjusting = false; }
                     _super.call(this, source, id);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                     this.value = 0;
                     this.adjustmentType = 0;
                     this.isAdjusting = false;
@@ -20876,7 +20837,8 @@ var java;
                 return AdjustmentEvent;
             }(java.awt.AWTEvent));
             event.AdjustmentEvent = AdjustmentEvent;
-            AdjustmentEvent["__classname"] = "java.awt.event.AdjustmentEvent";
+            AdjustmentEvent["__class"] = "java.awt.event.AdjustmentEvent";
+            AdjustmentEvent["__interfaces"] = ["java.io.Serializable"];
         })(event = awt.event || (awt.event = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -20891,7 +20853,6 @@ var java;
                 __extends(ComponentEvent, _super);
                 function ComponentEvent(source, id) {
                     _super.call(this, source, id);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                 }
                 ComponentEvent.COMPONENT_MOVED_$LI$ = function () { if (ComponentEvent.COMPONENT_MOVED == null)
                     ComponentEvent.COMPONENT_MOVED = ComponentEvent.COMPONENT_FIRST; return ComponentEvent.COMPONENT_MOVED; };
@@ -20935,7 +20896,8 @@ var java;
                 return ComponentEvent;
             }(java.awt.AWTEvent));
             event.ComponentEvent = ComponentEvent;
-            ComponentEvent["__classname"] = "java.awt.event.ComponentEvent";
+            ComponentEvent["__class"] = "java.awt.event.ComponentEvent";
+            ComponentEvent["__interfaces"] = ["java.io.Serializable"];
         })(event = awt.event || (awt.event = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -20950,7 +20912,6 @@ var java;
                 __extends(ItemEvent, _super);
                 function ItemEvent(source, id, item, stateChange) {
                     _super.call(this, source, id);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                     this.stateChange = 0;
                     this.item = item;
                     this.stateChange = stateChange;
@@ -20997,7 +20958,8 @@ var java;
                 return ItemEvent;
             }(java.awt.AWTEvent));
             event.ItemEvent = ItemEvent;
-            ItemEvent["__classname"] = "java.awt.event.ItemEvent";
+            ItemEvent["__class"] = "java.awt.event.ItemEvent";
+            ItemEvent["__interfaces"] = ["java.io.Serializable"];
         })(event = awt.event || (awt.event = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -21050,7 +21012,6 @@ var java;
                  */
                 function TextEvent(source, id) {
                     _super.call(this, source, id);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                 }
                 TextEvent.TEXT_VALUE_CHANGED_$LI$ = function () { if (TextEvent.TEXT_VALUE_CHANGED == null)
                     TextEvent.TEXT_VALUE_CHANGED = TextEvent.TEXT_FIRST; return TextEvent.TEXT_VALUE_CHANGED; };
@@ -21084,7 +21045,8 @@ var java;
                 return TextEvent;
             }(java.awt.AWTEvent));
             event.TextEvent = TextEvent;
-            TextEvent["__classname"] = "java.awt.event.TextEvent";
+            TextEvent["__class"] = "java.awt.event.TextEvent";
+            TextEvent["__interfaces"] = ["java.io.Serializable"];
         })(event = awt.event || (awt.event = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -21097,7 +21059,6 @@ var java;
             __extends(Button, _super);
             function Button(label) {
                 _super.call(this);
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent"] });
                 this.label = label;
                 this.actionCommand = label;
             }
@@ -21137,7 +21098,8 @@ var java;
             return Button;
         }(java.awt.Component));
         awt.Button = Button;
-        Button["__classname"] = "java.awt.Button";
+        Button["__class"] = "java.awt.Button";
+        Button["__interfaces"] = ["java.awt.HTMLComponent"];
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -21154,7 +21116,6 @@ var java;
                     {
                         var __args_11 = Array.prototype.slice.call(arguments);
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent"] });
                         this.state = false;
                         (function () {
                             _this.label = label;
@@ -21172,7 +21133,6 @@ var java;
                     var state_1 = __args[1];
                     var group_1 = __args[2];
                     _super.call(this);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent"] });
                     this.state = false;
                     (function () {
                         _this.label = label;
@@ -21191,7 +21151,6 @@ var java;
                         var __args_12 = Array.prototype.slice.call(arguments);
                         var group_2 = null;
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent"] });
                         this.state = false;
                         (function () {
                             _this.label = label;
@@ -21211,7 +21170,6 @@ var java;
                         var state_3 = false;
                         var group_3 = null;
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent"] });
                         this.state = false;
                         (function () {
                             _this.label = label;
@@ -21232,7 +21190,6 @@ var java;
                         var state_4 = false;
                         var group_4 = null;
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent"] });
                         this.state = false;
                         (function () {
                             _this.label = label_1;
@@ -21395,7 +21352,8 @@ var java;
             return Checkbox;
         }(java.awt.Component));
         awt.Checkbox = Checkbox;
-        Checkbox["__classname"] = "java.awt.Checkbox";
+        Checkbox["__class"] = "java.awt.Checkbox";
+        Checkbox["__interfaces"] = ["java.awt.ItemSelectable", "java.awt.HTMLComponent"];
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -21408,7 +21366,6 @@ var java;
             function Choice() {
                 _super.call(this);
                 this.selectedIndex = -1;
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent"] });
                 this.pItems = (new java.util.Vector());
                 this.itemListeners = (new Array());
             }
@@ -21632,7 +21589,8 @@ var java;
             return Choice;
         }(java.awt.Component));
         awt.Choice = Choice;
-        Choice["__classname"] = "java.awt.Choice";
+        Choice["__class"] = "java.awt.Choice";
+        Choice["__interfaces"] = ["java.awt.ItemSelectable", "java.awt.HTMLComponent"];
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -21645,7 +21603,6 @@ var java;
             function Container() {
                 _super.call(this);
                 this.components = [];
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent"] });
             }
             Container.prototype.getLayout = function () {
                 return this.layoutMgr;
@@ -21717,7 +21674,7 @@ var java;
                 (this.components).push(component);
                 component.initHTML();
                 if (this.layoutMgr != null) {
-                    if (constraints != null && (this.layoutMgr != null && this.layoutMgr["__interfaces"] != null && this.layoutMgr["__interfaces"].indexOf("java.awt.LayoutManager2") >= 0)) {
+                    if (constraints != null && (this.layoutMgr != null && (this.layoutMgr["__interfaces"] != null && this.layoutMgr["__interfaces"].indexOf("java.awt.LayoutManager2") >= 0 || this.layoutMgr.constructor != null && this.layoutMgr.constructor["__interfaces"] != null && this.layoutMgr.constructor["__interfaces"].indexOf("java.awt.LayoutManager2") >= 0))) {
                         this.layoutMgr.addLayoutComponent(component, constraints);
                     }
                     else {
@@ -21780,7 +21737,8 @@ var java;
             return Container;
         }(java.awt.Component));
         awt.Container = Container;
-        Container["__classname"] = "java.awt.Container";
+        Container["__class"] = "java.awt.Container";
+        Container["__interfaces"] = ["java.awt.HTMLComponent"];
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -21795,7 +21753,6 @@ var java;
                 if (alignment === void 0) { alignment = Label.LEFT; }
                 _super.call(this);
                 this.alignment = Label.LEFT;
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent"] });
                 this.text = text;
                 this.setAlignment(alignment);
             }
@@ -21872,7 +21829,8 @@ var java;
             return Label;
         }(java.awt.Component));
         awt.Label = Label;
-        Label["__classname"] = "java.awt.Label";
+        Label["__class"] = "java.awt.Label";
+        Label["__interfaces"] = ["java.awt.HTMLComponent"];
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -21884,7 +21842,6 @@ var java;
             __extends(TextField, _super);
             function TextField(cols) {
                 _super.call(this);
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent"] });
             }
             TextField.prototype.getHTMLElement = function () {
                 return this.htmlElement;
@@ -21925,7 +21882,8 @@ var java;
             return TextField;
         }(java.awt.Component));
         awt.TextField = TextField;
-        TextField["__classname"] = "java.awt.TextField";
+        TextField["__class"] = "java.awt.TextField";
+        TextField["__interfaces"] = ["java.awt.HTMLComponent"];
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -21942,7 +21900,6 @@ var java;
                     if (((source != null) || source === null) && ((typeof id === 'number') || id === null) && ((typeof command === 'string') || command === null) && ((typeof when === 'number') || when === null) && ((typeof modifiers === 'number') || modifiers === null)) {
                         var __args = Array.prototype.slice.call(arguments);
                         _super.call(this, source, id);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                         this.when = 0;
                         this.modifiers = 0;
                         (function () {
@@ -21958,7 +21915,6 @@ var java;
                             var __args_15 = Array.prototype.slice.call(arguments);
                             var when_2 = 0;
                             _super.call(this, source, id);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                             this.when = 0;
                             this.modifiers = 0;
                             (function () {
@@ -21977,7 +21933,6 @@ var java;
                                 var __args_17 = Array.prototype.slice.call(arguments);
                                 var when_3 = 0;
                                 _super.call(this, source, id);
-                                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                                 this.when = 0;
                                 this.modifiers = 0;
                                 (function () {
@@ -22032,7 +21987,8 @@ var java;
                 return ActionEvent;
             }(java.awt.AWTEvent));
             event.ActionEvent = ActionEvent;
-            ActionEvent["__classname"] = "java.awt.event.ActionEvent";
+            ActionEvent["__class"] = "java.awt.event.ActionEvent";
+            ActionEvent["__interfaces"] = ["java.io.Serializable"];
         })(event = awt.event || (awt.event = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -22078,7 +22034,6 @@ var java;
                 if (((typeof width === 'number') || width === null) && ((typeof height === 'number') || height === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     _super.call(this);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                     this.width = 0;
                     this.height = 0;
                     (function () {
@@ -22094,7 +22049,6 @@ var java;
                         var width_1 = d.width;
                         var height_1 = d.height;
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                         this.width = 0;
                         this.height = 0;
                         (function () {
@@ -22110,7 +22064,6 @@ var java;
                         var width_2 = 0;
                         var height_2 = 0;
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                         this.width = 0;
                         this.height = 0;
                         (function () {
@@ -22241,13 +22194,14 @@ var java;
              * object
              */
             Dimension.prototype.toString = function () {
-                return Dimension["__classname"] + "[width=" + this.width + ",height=" + this.height + "]";
+                return (function (c) { return c["__class"] ? c["__class"] : c.name; })(Dimension) + "[width=" + this.width + ",height=" + this.height + "]";
             };
             Dimension.serialVersionUID = 4723952579491349524;
             return Dimension;
         }(java.awt.geom.Dimension2D));
         awt.Dimension = Dimension;
-        Dimension["__classname"] = "java.awt.Dimension";
+        Dimension["__class"] = "java.awt.Dimension";
+        Dimension["__interfaces"] = ["java.lang.Cloneable", "java.io.Serializable"];
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -22303,7 +22257,6 @@ var java;
                     var _this = this;
                     if (((typeof rule === 'number') || rule === null) && ((typeof initialTypes === 'number') || initialTypes === null)) {
                         var __args = Array.prototype.slice.call(arguments);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable"] });
                         this.numTypes = 0;
                         this.numCoords = 0;
                         this.windingRule = 0;
@@ -22314,7 +22267,6 @@ var java;
                     }
                     else if (rule === undefined && initialTypes === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable"] });
                         this.numTypes = 0;
                         this.numCoords = 0;
                         this.windingRule = 0;
@@ -22546,13 +22498,13 @@ var java;
                  */
                 Path2D.prototype.append = function (s, connect) {
                     var _this = this;
-                    if (((s != null && s["__interfaces"] != null && s["__interfaces"].indexOf("java.awt.Shape") >= 0) || s === null) && ((typeof connect === 'boolean') || connect === null)) {
+                    if (((s != null && (s["__interfaces"] != null && s["__interfaces"].indexOf("java.awt.Shape") >= 0 || s.constructor != null && s.constructor["__interfaces"] != null && s.constructor["__interfaces"].indexOf("java.awt.Shape") >= 0)) || s === null) && ((typeof connect === 'boolean') || connect === null)) {
                         var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             _this.append(s.getPathIterator(null), connect);
                         })();
                     }
-                    else if (((s != null && s["__interfaces"] != null && s["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0) || s === null) && ((typeof connect === 'boolean') || connect === null)) {
+                    else if (((s != null && (s["__interfaces"] != null && s["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0 || s.constructor != null && s.constructor["__interfaces"] != null && s.constructor["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0)) || s === null) && ((typeof connect === 'boolean') || connect === null)) {
                         return this.append$java_awt_geom_PathIterator$boolean(s, connect);
                     }
                     else if (((typeof s === 'number') || s === null) && ((typeof connect === 'number') || connect === null)) {
@@ -22799,7 +22751,7 @@ var java;
                  * @since 1.6
                  */
                 Path2D.contains = function (pi, x, y, w, h) {
-                    if (((pi != null && pi["__interfaces"] != null && pi["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0) || pi === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
+                    if (((pi != null && (pi["__interfaces"] != null && pi["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0 || pi.constructor != null && pi.constructor["__interfaces"] != null && pi.constructor["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0)) || pi === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
                         var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if (isNaN(x + w) || isNaN(y + h)) {
@@ -22813,13 +22765,13 @@ var java;
                             return (crossings !== sun.awt.geom.Curve.RECT_INTERSECTS && (crossings & mask) !== 0);
                         })();
                     }
-                    else if (((pi != null && pi["__interfaces"] != null && pi["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0) || pi === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && w === undefined && h === undefined) {
+                    else if (((pi != null && (pi["__interfaces"] != null && pi["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0 || pi.constructor != null && pi.constructor["__interfaces"] != null && pi.constructor["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0)) || pi === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && w === undefined && h === undefined) {
                         return java.awt.geom.Path2D.contains$java_awt_geom_PathIterator$double$double(pi, x, y);
                     }
-                    else if (((pi != null && pi["__interfaces"] != null && pi["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0) || pi === null) && ((x != null && x instanceof java.awt.geom.Point2D) || x === null) && y === undefined && w === undefined && h === undefined) {
+                    else if (((pi != null && (pi["__interfaces"] != null && pi["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0 || pi.constructor != null && pi.constructor["__interfaces"] != null && pi.constructor["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0)) || pi === null) && ((x != null && x instanceof java.awt.geom.Point2D) || x === null) && y === undefined && w === undefined && h === undefined) {
                         return java.awt.geom.Path2D.contains$java_awt_geom_PathIterator$java_awt_geom_Point2D(pi, x);
                     }
-                    else if (((pi != null && pi["__interfaces"] != null && pi["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0) || pi === null) && ((x != null && x instanceof java.awt.geom.Rectangle2D) || x === null) && y === undefined && w === undefined && h === undefined) {
+                    else if (((pi != null && (pi["__interfaces"] != null && pi["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0 || pi.constructor != null && pi.constructor["__interfaces"] != null && pi.constructor["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0)) || pi === null) && ((x != null && x instanceof java.awt.geom.Rectangle2D) || x === null) && y === undefined && w === undefined && h === undefined) {
                         return java.awt.geom.Path2D.contains$java_awt_geom_PathIterator$java_awt_geom_Rectangle2D(pi, x);
                     }
                     else
@@ -22956,7 +22908,7 @@ var java;
                  * @since 1.6
                  */
                 Path2D.intersects = function (pi, x, y, w, h) {
-                    if (((pi != null && pi["__interfaces"] != null && pi["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0) || pi === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
+                    if (((pi != null && (pi["__interfaces"] != null && pi["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0 || pi.constructor != null && pi.constructor["__interfaces"] != null && pi.constructor["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0)) || pi === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
                         var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             if (isNaN(x + w) || isNaN(y + h)) {
@@ -22970,7 +22922,7 @@ var java;
                             return (crossings === sun.awt.geom.Curve.RECT_INTERSECTS || (crossings & mask) !== 0);
                         })();
                     }
-                    else if (((pi != null && pi["__interfaces"] != null && pi["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0) || pi === null) && ((x != null && x instanceof java.awt.geom.Rectangle2D) || x === null) && y === undefined && w === undefined && h === undefined) {
+                    else if (((pi != null && (pi["__interfaces"] != null && pi["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0 || pi.constructor != null && pi.constructor["__interfaces"] != null && pi.constructor["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0)) || pi === null) && ((x != null && x instanceof java.awt.geom.Rectangle2D) || x === null) && y === undefined && w === undefined && h === undefined) {
                         return java.awt.geom.Path2D.intersects$java_awt_geom_PathIterator$java_awt_geom_Rectangle2D(pi, x);
                     }
                     else
@@ -23090,12 +23042,12 @@ var java;
                 return Path2D;
             }());
             geom.Path2D = Path2D;
-            Path2D["__classname"] = "java.awt.geom.Path2D";
+            Path2D["__class"] = "java.awt.geom.Path2D";
+            Path2D["__interfaces"] = ["java.awt.Shape", "java.lang.Cloneable"];
             var Path2D;
             (function (Path2D) {
                 var Iterator = (function () {
                     function Iterator(path) {
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.geom.PathIterator"] });
                         this.typeIdx = 0;
                         this.pointIdx = 0;
                         this.path = path;
@@ -23123,7 +23075,8 @@ var java;
                     return Iterator;
                 }());
                 Path2D.Iterator = Iterator;
-                Iterator["__classname"] = "java.awt.geom.Path2D.Iterator";
+                Iterator["__class"] = "java.awt.geom.Path2D.Iterator";
+                Iterator["__interfaces"] = ["java.awt.geom.PathIterator"];
                 /**
                  * The {@code Float} class defines a geometric path with coordinates stored
                  * in single precision floating point.
@@ -23148,10 +23101,9 @@ var java;
                      */
                     function Float(s, at) {
                         var _this = this;
-                        if (((s != null && s["__interfaces"] != null && s["__interfaces"].indexOf("java.awt.Shape") >= 0) || s === null) && ((at != null && at instanceof java.awt.geom.AffineTransform) || at === null)) {
+                        if (((s != null && (s["__interfaces"] != null && s["__interfaces"].indexOf("java.awt.Shape") >= 0 || s.constructor != null && s.constructor["__interfaces"] != null && s.constructor["__interfaces"].indexOf("java.awt.Shape") >= 0)) || s === null) && ((at != null && at instanceof java.awt.geom.AffineTransform) || at === null)) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             (function () {
                                 if (s != null && s instanceof java.awt.geom.Path2D) {
                                     var p2d = s;
@@ -23175,18 +23127,16 @@ var java;
                             var rule = __args[0];
                             var initialCapacity_1 = __args[1];
                             _super.call(this, rule, initialCapacity_1);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             (function () {
                                 _this.floatCoords = new Array(initialCapacity_1 * 2);
                             })();
                         }
-                        else if (((s != null && s["__interfaces"] != null && s["__interfaces"].indexOf("java.awt.Shape") >= 0) || s === null) && at === undefined) {
+                        else if (((s != null && (s["__interfaces"] != null && s["__interfaces"].indexOf("java.awt.Shape") >= 0 || s.constructor != null && s.constructor["__interfaces"] != null && s.constructor["__interfaces"].indexOf("java.awt.Shape") >= 0)) || s === null) && at === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
                             {
                                 var __args_20 = Array.prototype.slice.call(arguments);
                                 var at_1 = null;
                                 _super.call(this);
-                                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                                 (function () {
                                     if (s != null && s instanceof java.awt.geom.Path2D) {
                                         var p2d = s;
@@ -23213,7 +23163,6 @@ var java;
                                 var __args_21 = Array.prototype.slice.call(arguments);
                                 var initialCapacity_2 = java.awt.geom.Path2D.INIT_SIZE;
                                 _super.call(this, rule, initialCapacity_2);
-                                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                                 (function () {
                                     _this.floatCoords = new Array(initialCapacity_2 * 2);
                                 })();
@@ -23226,7 +23175,6 @@ var java;
                                 var rule = java.awt.geom.Path2D.WIND_NON_ZERO_$LI$();
                                 var initialCapacity_3 = java.awt.geom.Path2D.INIT_SIZE;
                                 _super.call(this, rule, initialCapacity_3);
-                                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                                 (function () {
                                     _this.floatCoords = new Array(initialCapacity_3 * 2);
                                 })();
@@ -23611,7 +23559,7 @@ var java;
                      */
                     Float.prototype.append = function (pi, connect) {
                         var _this = this;
-                        if (((pi != null && pi["__interfaces"] != null && pi["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0) || pi === null) && ((typeof connect === 'boolean') || connect === null)) {
+                        if (((pi != null && (pi["__interfaces"] != null && pi["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0 || pi.constructor != null && pi.constructor["__interfaces"] != null && pi.constructor["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0)) || pi === null) && ((typeof connect === 'boolean') || connect === null)) {
                             var __args = Array.prototype.slice.call(arguments);
                             return (function () {
                                 var coords = new Array(6);
@@ -23735,14 +23683,14 @@ var java;
                     return Float;
                 }(java.awt.geom.Path2D));
                 Path2D.Float = Float;
-                Float["__classname"] = "java.awt.geom.Path2D.Float";
+                Float["__class"] = "java.awt.geom.Path2D.Float";
+                Float["__interfaces"] = ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"];
                 var Float;
                 (function (Float) {
                     var CopyIterator = (function (_super) {
                         __extends(CopyIterator, _super);
                         function CopyIterator(p2df) {
                             _super.call(this, p2df);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.geom.PathIterator"] });
                             this.floatCoords = p2df.floatCoords;
                         }
                         CopyIterator.prototype.currentSegment = function (coords) {
@@ -23777,12 +23725,12 @@ var java;
                         return CopyIterator;
                     }(java.awt.geom.Path2D.Iterator));
                     Float.CopyIterator = CopyIterator;
-                    CopyIterator["__classname"] = "java.awt.geom.Path2D.Float.CopyIterator";
+                    CopyIterator["__class"] = "java.awt.geom.Path2D.Float.CopyIterator";
+                    CopyIterator["__interfaces"] = ["java.awt.geom.PathIterator"];
                     var TxIterator = (function (_super) {
                         __extends(TxIterator, _super);
                         function TxIterator(p2df, at) {
                             _super.call(this, p2df);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.geom.PathIterator"] });
                             this.floatCoords = p2df.floatCoords;
                             this.affine = at;
                         }
@@ -23816,7 +23764,8 @@ var java;
                         return TxIterator;
                     }(java.awt.geom.Path2D.Iterator));
                     Float.TxIterator = TxIterator;
-                    TxIterator["__classname"] = "java.awt.geom.Path2D.Float.TxIterator";
+                    TxIterator["__class"] = "java.awt.geom.Path2D.Float.TxIterator";
+                    TxIterator["__interfaces"] = ["java.awt.geom.PathIterator"];
                 })(Float = Path2D.Float || (Path2D.Float = {}));
                 /**
                  * The {@code Double} class defines a geometric path with coordinates stored
@@ -23842,10 +23791,9 @@ var java;
                      */
                     function Double(s, at) {
                         var _this = this;
-                        if (((s != null && s["__interfaces"] != null && s["__interfaces"].indexOf("java.awt.Shape") >= 0) || s === null) && ((at != null && at instanceof java.awt.geom.AffineTransform) || at === null)) {
+                        if (((s != null && (s["__interfaces"] != null && s["__interfaces"].indexOf("java.awt.Shape") >= 0 || s.constructor != null && s.constructor["__interfaces"] != null && s.constructor["__interfaces"].indexOf("java.awt.Shape") >= 0)) || s === null) && ((at != null && at instanceof java.awt.geom.AffineTransform) || at === null)) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             (function () {
                                 if (s != null && s instanceof java.awt.geom.Path2D) {
                                     var p2d = s;
@@ -23869,18 +23817,16 @@ var java;
                             var rule = __args[0];
                             var initialCapacity_4 = __args[1];
                             _super.call(this, rule, initialCapacity_4);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             (function () {
                                 _this.doubleCoords = new Array(initialCapacity_4 * 2);
                             })();
                         }
-                        else if (((s != null && s["__interfaces"] != null && s["__interfaces"].indexOf("java.awt.Shape") >= 0) || s === null) && at === undefined) {
+                        else if (((s != null && (s["__interfaces"] != null && s["__interfaces"].indexOf("java.awt.Shape") >= 0 || s.constructor != null && s.constructor["__interfaces"] != null && s.constructor["__interfaces"].indexOf("java.awt.Shape") >= 0)) || s === null) && at === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
                             {
                                 var __args_23 = Array.prototype.slice.call(arguments);
                                 var at_2 = null;
                                 _super.call(this);
-                                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                                 (function () {
                                     if (s != null && s instanceof java.awt.geom.Path2D) {
                                         var p2d = s;
@@ -23907,7 +23853,6 @@ var java;
                                 var __args_24 = Array.prototype.slice.call(arguments);
                                 var initialCapacity_5 = java.awt.geom.Path2D.INIT_SIZE;
                                 _super.call(this, rule, initialCapacity_5);
-                                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                                 (function () {
                                     _this.doubleCoords = new Array(initialCapacity_5 * 2);
                                 })();
@@ -23920,7 +23865,6 @@ var java;
                                 var rule = java.awt.geom.Path2D.WIND_NON_ZERO_$LI$();
                                 var initialCapacity_6 = java.awt.geom.Path2D.INIT_SIZE;
                                 _super.call(this, rule, initialCapacity_6);
-                                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                                 (function () {
                                     _this.doubleCoords = new Array(initialCapacity_6 * 2);
                                 })();
@@ -24255,7 +24199,7 @@ var java;
                      */
                     Double.prototype.append = function (pi, connect) {
                         var _this = this;
-                        if (((pi != null && pi["__interfaces"] != null && pi["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0) || pi === null) && ((typeof connect === 'boolean') || connect === null)) {
+                        if (((pi != null && (pi["__interfaces"] != null && pi["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0 || pi.constructor != null && pi.constructor["__interfaces"] != null && pi.constructor["__interfaces"].indexOf("java.awt.geom.PathIterator") >= 0)) || pi === null) && ((typeof connect === 'boolean') || connect === null)) {
                             var __args = Array.prototype.slice.call(arguments);
                             return (function () {
                                 var coords = new Array(6);
@@ -24379,14 +24323,14 @@ var java;
                     return Double;
                 }(java.awt.geom.Path2D));
                 Path2D.Double = Double;
-                Double["__classname"] = "java.awt.geom.Path2D.Double";
+                Double["__class"] = "java.awt.geom.Path2D.Double";
+                Double["__interfaces"] = ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"];
                 var Double;
                 (function (Double) {
                     var CopyIterator = (function (_super) {
                         __extends(CopyIterator, _super);
                         function CopyIterator(p2dd) {
                             _super.call(this, p2dd);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.geom.PathIterator"] });
                             this.doubleCoords = p2dd.doubleCoords;
                         }
                         CopyIterator.prototype.currentSegment = function (coords) {
@@ -24421,12 +24365,12 @@ var java;
                         return CopyIterator;
                     }(java.awt.geom.Path2D.Iterator));
                     Double.CopyIterator = CopyIterator;
-                    CopyIterator["__classname"] = "java.awt.geom.Path2D.Double.CopyIterator";
+                    CopyIterator["__class"] = "java.awt.geom.Path2D.Double.CopyIterator";
+                    CopyIterator["__interfaces"] = ["java.awt.geom.PathIterator"];
                     var TxIterator = (function (_super) {
                         __extends(TxIterator, _super);
                         function TxIterator(p2dd, at) {
                             _super.call(this, p2dd);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.geom.PathIterator"] });
                             this.doubleCoords = p2dd.doubleCoords;
                             this.affine = at;
                         }
@@ -24460,7 +24404,8 @@ var java;
                         return TxIterator;
                     }(java.awt.geom.Path2D.Iterator));
                     Double.TxIterator = TxIterator;
-                    TxIterator["__classname"] = "java.awt.geom.Path2D.Double.TxIterator";
+                    TxIterator["__class"] = "java.awt.geom.Path2D.Double.TxIterator";
+                    TxIterator["__interfaces"] = ["java.awt.geom.PathIterator"];
                 })(Double = Path2D.Double || (Path2D.Double = {}));
             })(Path2D = geom.Path2D || (geom.Path2D = {}));
         })(geom = awt.geom || (awt.geom = {}));
@@ -24492,7 +24437,6 @@ var java;
                 if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     _super.call(this);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                     this.x = 0;
                     this.y = 0;
                     (function () {
@@ -24508,7 +24452,6 @@ var java;
                         var x_2 = p.x;
                         var y_2 = p.y;
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                         this.x = 0;
                         this.y = 0;
                         (function () {
@@ -24524,7 +24467,6 @@ var java;
                         var x_3 = 0;
                         var y_3 = 0;
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.lang.Cloneable", "java.io.Serializable"] });
                         this.x = 0;
                         this.y = 0;
                         (function () {
@@ -24678,13 +24620,14 @@ var java;
              * @return  a string representation of this point
              */
             Point.prototype.toString = function () {
-                return Point["__classname"] + "[x=" + this.x + ",y=" + this.y + "]";
+                return (function (c) { return c["__class"] ? c["__class"] : c.name; })(Point) + "[x=" + this.x + ",y=" + this.y + "]";
             };
             Point.serialVersionUID = -5276940640259749850;
             return Point;
         }(java.awt.geom.Point2D));
         awt.Point = Point;
-        Point["__classname"] = "java.awt.Point";
+        Point["__class"] = "java.awt.Point";
+        Point["__interfaces"] = ["java.lang.Cloneable", "java.io.Serializable"];
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -24738,7 +24681,6 @@ var java;
                 function Arc2D(type) {
                     if (type === void 0) { type = Arc2D.OPEN; }
                     _super.call(this);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable"] });
                     this.type = 0;
                     this.setArcType(type);
                 }
@@ -25464,7 +25406,8 @@ var java;
                 return Arc2D;
             }(java.awt.geom.RectangularShape));
             geom.Arc2D = Arc2D;
-            Arc2D["__classname"] = "java.awt.geom.Arc2D";
+            Arc2D["__class"] = "java.awt.geom.Arc2D";
+            Arc2D["__interfaces"] = ["java.awt.Shape", "java.lang.Cloneable"];
             var Arc2D;
             (function (Arc2D) {
                 /**
@@ -25496,7 +25439,6 @@ var java;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null) && ((typeof start === 'number') || start === null) && ((typeof extent === 'number') || extent === null) && ((typeof type === 'number') || type === null)) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this, type);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
                             this.width = 0;
@@ -25519,7 +25461,6 @@ var java;
                             var extent_1 = __args[2];
                             var type_2 = __args[3];
                             _super.call(this, type_2);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
                             this.width = 0;
@@ -25539,7 +25480,6 @@ var java;
                             var __args = Array.prototype.slice.call(arguments);
                             var type_3 = __args[0];
                             _super.call(this, type_3);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
                             this.width = 0;
@@ -25550,7 +25490,6 @@ var java;
                         else if (x === undefined && y === undefined && w === undefined && h === undefined && start === undefined && extent === undefined && type === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this, java.awt.geom.Arc2D.OPEN);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
                             this.width = 0;
@@ -25681,7 +25620,8 @@ var java;
                     return Float;
                 }(java.awt.geom.Arc2D));
                 Arc2D.Float = Float;
-                Float["__classname"] = "java.awt.geom.Arc2D.Float";
+                Float["__class"] = "java.awt.geom.Arc2D.Float";
+                Float["__interfaces"] = ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"];
                 /**
                  * This class defines an arc specified in {@code double} precision.
                  * @since 1.2
@@ -25711,7 +25651,6 @@ var java;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null) && ((typeof start === 'number') || start === null) && ((typeof extent === 'number') || extent === null) && ((typeof type === 'number') || type === null)) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this, type);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
                             this.width = 0;
@@ -25734,7 +25673,6 @@ var java;
                             var extent_2 = __args[2];
                             var type_4 = __args[3];
                             _super.call(this, type_4);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
                             this.width = 0;
@@ -25754,7 +25692,6 @@ var java;
                             var __args = Array.prototype.slice.call(arguments);
                             var type_5 = __args[0];
                             _super.call(this, type_5);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
                             this.width = 0;
@@ -25765,7 +25702,6 @@ var java;
                         else if (x === undefined && y === undefined && w === undefined && h === undefined && start === undefined && extent === undefined && type === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this, java.awt.geom.Arc2D.OPEN);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
                             this.width = 0;
@@ -25896,7 +25832,8 @@ var java;
                     return Double;
                 }(java.awt.geom.Arc2D));
                 Arc2D.Double = Double;
-                Double["__classname"] = "java.awt.geom.Arc2D.Double";
+                Double["__class"] = "java.awt.geom.Arc2D.Double";
+                Double["__interfaces"] = ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"];
             })(Arc2D = geom.Arc2D || (geom.Arc2D = {}));
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = java.awt || (java.awt = {}));
@@ -25933,7 +25870,6 @@ var java;
                  */
                 function Ellipse2D() {
                     _super.call(this);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable"] });
                 }
                 Ellipse2D.prototype.contains = function (x, y, w, h, origrect) {
                     if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null) && origrect === undefined) {
@@ -26091,7 +26027,8 @@ var java;
                 return Ellipse2D;
             }(java.awt.geom.RectangularShape));
             geom.Ellipse2D = Ellipse2D;
-            Ellipse2D["__classname"] = "java.awt.geom.Ellipse2D";
+            Ellipse2D["__class"] = "java.awt.geom.Ellipse2D";
+            Ellipse2D["__interfaces"] = ["java.awt.Shape", "java.lang.Cloneable"];
             var Ellipse2D;
             (function (Ellipse2D) {
                 /**
@@ -26123,7 +26060,6 @@ var java;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
                             this.width = 0;
@@ -26135,7 +26071,6 @@ var java;
                         else if (x === undefined && y === undefined && w === undefined && h === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
                             this.width = 0;
@@ -26246,7 +26181,8 @@ var java;
                     return Float;
                 }(java.awt.geom.Ellipse2D));
                 Ellipse2D.Float = Float;
-                Float["__classname"] = "java.awt.geom.Ellipse2D.Float";
+                Float["__class"] = "java.awt.geom.Ellipse2D.Float";
+                Float["__interfaces"] = ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"];
                 /**
                  * The <code>Double</code> class defines an ellipse specified in
                  * <code>double</code> precision.
@@ -26276,7 +26212,6 @@ var java;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
                             this.width = 0;
@@ -26288,7 +26223,6 @@ var java;
                         else if (x === undefined && y === undefined && w === undefined && h === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
                             this.width = 0;
@@ -26389,7 +26323,8 @@ var java;
                     return Double;
                 }(java.awt.geom.Ellipse2D));
                 Ellipse2D.Double = Double;
-                Double["__classname"] = "java.awt.geom.Ellipse2D.Double";
+                Double["__class"] = "java.awt.geom.Ellipse2D.Double";
+                Double["__interfaces"] = ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"];
             })(Ellipse2D = geom.Ellipse2D || (geom.Ellipse2D = {}));
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = java.awt || (java.awt = {}));
@@ -26427,7 +26362,6 @@ var java;
                  */
                 function Rectangle2D() {
                     _super.call(this);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable"] });
                 }
                 /**
                  * Sets the location and size of this <code>Rectangle2D</code> to the
@@ -26967,7 +26901,8 @@ var java;
                 return Rectangle2D;
             }(java.awt.geom.RectangularShape));
             geom.Rectangle2D = Rectangle2D;
-            Rectangle2D["__classname"] = "java.awt.geom.Rectangle2D";
+            Rectangle2D["__class"] = "java.awt.geom.Rectangle2D";
+            Rectangle2D["__interfaces"] = ["java.awt.Shape", "java.lang.Cloneable"];
             var Rectangle2D;
             (function (Rectangle2D) {
                 /**
@@ -27001,7 +26936,6 @@ var java;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
                             this.width = 0;
@@ -27013,7 +26947,6 @@ var java;
                         else if (x === undefined && y === undefined && w === undefined && h === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
                             this.width = 0;
@@ -27207,13 +27140,14 @@ var java;
                      * @since 1.2
                      */
                     Float.prototype.toString = function () {
-                        return Rectangle2D.Float["__classname"] + "[x=" + this.x + ",y=" + this.y + ",w=" + this.width + ",h=" + this.height + "]";
+                        return (function (c) { return c["__class"] ? c["__class"] : c.name; })(Rectangle2D.Float) + "[x=" + this.x + ",y=" + this.y + ",w=" + this.width + ",h=" + this.height + "]";
                     };
                     Float.serialVersionUID = 3798716824173675777;
                     return Float;
                 }(java.awt.geom.Rectangle2D));
                 Rectangle2D.Float = Float;
-                Float["__classname"] = "java.awt.geom.Rectangle2D.Float";
+                Float["__class"] = "java.awt.geom.Rectangle2D.Float";
+                Float["__interfaces"] = ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"];
                 /**
                  * The <code>Double</code> class defines a rectangle specified in double
                  * coordinates.
@@ -27245,7 +27179,6 @@ var java;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null)) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
                             this.width = 0;
@@ -27257,7 +27190,6 @@ var java;
                         else if (x === undefined && y === undefined && w === undefined && h === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
                             this.width = 0;
@@ -27429,13 +27361,14 @@ var java;
                      * @since 1.2
                      */
                     Double.prototype.toString = function () {
-                        return Rectangle2D.Double["__classname"] + "[x=" + this.x + ",y=" + this.y + ",w=" + this.width + ",h=" + this.height + "]";
+                        return (function (c) { return c["__class"] ? c["__class"] : c.name; })(Rectangle2D.Double) + "[x=" + this.x + ",y=" + this.y + ",w=" + this.width + ",h=" + this.height + "]";
                     };
                     Double.serialVersionUID = 7771313791441850493;
                     return Double;
                 }(java.awt.geom.Rectangle2D));
                 Rectangle2D.Double = Double;
-                Double["__classname"] = "java.awt.geom.Rectangle2D.Double";
+                Double["__class"] = "java.awt.geom.Rectangle2D.Double";
+                Double["__interfaces"] = ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"];
             })(Rectangle2D = geom.Rectangle2D || (geom.Rectangle2D = {}));
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = java.awt || (java.awt = {}));
@@ -27473,7 +27406,6 @@ var java;
                  */
                 function RoundRectangle2D() {
                     _super.call(this);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable"] });
                 }
                 /**
                  * Sets the location, size, and corner radii of this
@@ -27746,7 +27678,8 @@ var java;
                 return RoundRectangle2D;
             }(java.awt.geom.RectangularShape));
             geom.RoundRectangle2D = RoundRectangle2D;
-            RoundRectangle2D["__classname"] = "java.awt.geom.RoundRectangle2D";
+            RoundRectangle2D["__class"] = "java.awt.geom.RoundRectangle2D";
+            RoundRectangle2D["__interfaces"] = ["java.awt.Shape", "java.lang.Cloneable"];
             var RoundRectangle2D;
             (function (RoundRectangle2D) {
                 /**
@@ -27786,7 +27719,6 @@ var java;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null) && ((typeof arcw === 'number') || arcw === null) && ((typeof arch === 'number') || arch === null)) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
                             this.width = 0;
@@ -27800,7 +27732,6 @@ var java;
                         else if (x === undefined && y === undefined && w === undefined && h === undefined && arcw === undefined && arch === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
                             this.width = 0;
@@ -27952,7 +27883,8 @@ var java;
                     return Float;
                 }(java.awt.geom.RoundRectangle2D));
                 RoundRectangle2D.Float = Float;
-                Float["__classname"] = "java.awt.geom.RoundRectangle2D.Float";
+                Float["__class"] = "java.awt.geom.RoundRectangle2D.Float";
+                Float["__interfaces"] = ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"];
                 /**
                  * The <code>Double</code> class defines a rectangle with rounded corners
                  * all specified in <code>double</code> coordinates.
@@ -27990,7 +27922,6 @@ var java;
                         if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof w === 'number') || w === null) && ((typeof h === 'number') || h === null) && ((typeof arcw === 'number') || arcw === null) && ((typeof arch === 'number') || arch === null)) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
                             this.width = 0;
@@ -28004,7 +27935,6 @@ var java;
                         else if (x === undefined && y === undefined && w === undefined && h === undefined && arcw === undefined && arch === undefined) {
                             var __args = Array.prototype.slice.call(arguments);
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
                             this.width = 0;
@@ -28144,7 +28074,8 @@ var java;
                     return Double;
                 }(java.awt.geom.RoundRectangle2D));
                 RoundRectangle2D.Double = Double;
-                Double["__classname"] = "java.awt.geom.RoundRectangle2D.Double";
+                Double["__class"] = "java.awt.geom.RoundRectangle2D.Double";
+                Double["__interfaces"] = ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"];
             })(RoundRectangle2D = geom.RoundRectangle2D || (geom.RoundRectangle2D = {}));
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = java.awt || (java.awt = {}));
@@ -28226,7 +28157,7 @@ var java;
             return Graphics2D;
         }(java.awt.Graphics));
         awt.Graphics2D = Graphics2D;
-        Graphics2D["__classname"] = "java.awt.Graphics2D";
+        Graphics2D["__class"] = "java.awt.Graphics2D";
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -28240,7 +28171,6 @@ var java;
                 __extends(BufferedImage, _super);
                 function BufferedImage(src) {
                     _super.call(this, src);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.image.RenderedImage"] });
                 }
                 BufferedImage.prototype.getWidth$ = function () {
                     return _super.prototype.getWidth.call(this, null);
@@ -28251,7 +28181,8 @@ var java;
                 return BufferedImage;
             }(java.awt.Image));
             image.BufferedImage = BufferedImage;
-            BufferedImage["__classname"] = "java.awt.image.BufferedImage";
+            BufferedImage["__class"] = "java.awt.image.BufferedImage";
+            BufferedImage["__interfaces"] = ["java.awt.image.RenderedImage"];
         })(image = awt.image || (awt.image = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -28268,7 +28199,7 @@ var java;
             return RenderedImage;
         }(java.awt.Image));
         awt.RenderedImage = RenderedImage;
-        RenderedImage["__classname"] = "java.awt.RenderedImage";
+        RenderedImage["__class"] = "java.awt.RenderedImage";
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -28279,7 +28210,6 @@ var java;
         var PropertyChangeSupport = (function () {
             function PropertyChangeSupport(sourceBean) {
                 this.map = new PropertyChangeSupport.PropertyChangeListenerMap();
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                 if (sourceBean == null) {
                     throw new java.lang.NullPointerException();
                 }
@@ -28314,7 +28244,7 @@ var java;
             };
             PropertyChangeSupport.prototype.addPropertyChangeListener = function (propertyName, listener) {
                 var _this = this;
-                if (((typeof propertyName === 'string') || propertyName === null) && ((listener != null && listener["__interfaces"] != null && listener["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0) || listener === null)) {
+                if (((typeof propertyName === 'string') || propertyName === null) && ((listener != null && (listener["__interfaces"] != null && listener["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0 || listener.constructor != null && listener.constructor["__interfaces"] != null && listener.constructor["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0)) || listener === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         if (listener == null || propertyName == null) {
@@ -28326,7 +28256,7 @@ var java;
                         }
                     })();
                 }
-                else if (((propertyName != null && propertyName["__interfaces"] != null && propertyName["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0) || propertyName === null) && listener === undefined) {
+                else if (((propertyName != null && (propertyName["__interfaces"] != null && propertyName["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0 || propertyName.constructor != null && propertyName.constructor["__interfaces"] != null && propertyName.constructor["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0)) || propertyName === null) && listener === undefined) {
                     return this.addPropertyChangeListener$java_beans_PropertyChangeListener(propertyName);
                 }
                 else
@@ -28334,7 +28264,7 @@ var java;
             };
             PropertyChangeSupport.prototype.removePropertyChangeListener = function (propertyName, listener) {
                 var _this = this;
-                if (((typeof propertyName === 'string') || propertyName === null) && ((listener != null && listener["__interfaces"] != null && listener["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0) || listener === null)) {
+                if (((typeof propertyName === 'string') || propertyName === null) && ((listener != null && (listener["__interfaces"] != null && listener["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0 || listener.constructor != null && listener.constructor["__interfaces"] != null && listener.constructor["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0)) || listener === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         if (listener == null || propertyName == null) {
@@ -28346,7 +28276,7 @@ var java;
                         }
                     })();
                 }
-                else if (((propertyName != null && propertyName["__interfaces"] != null && propertyName["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0) || propertyName === null) && listener === undefined) {
+                else if (((propertyName != null && (propertyName["__interfaces"] != null && propertyName["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0 || propertyName.constructor != null && propertyName.constructor["__interfaces"] != null && propertyName.constructor["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0)) || propertyName === null) && listener === undefined) {
                     return this.removePropertyChangeListener$java_beans_PropertyChangeListener(propertyName);
                 }
                 else
@@ -28455,7 +28385,8 @@ var java;
             return PropertyChangeSupport;
         }());
         beans.PropertyChangeSupport = PropertyChangeSupport;
-        PropertyChangeSupport["__classname"] = "java.beans.PropertyChangeSupport";
+        PropertyChangeSupport["__class"] = "java.beans.PropertyChangeSupport";
+        PropertyChangeSupport["__interfaces"] = ["java.io.Serializable"];
         var PropertyChangeSupport;
         (function (PropertyChangeSupport) {
             var PropertyChangeListenerMap = (function (_super) {
@@ -28470,7 +28401,7 @@ var java;
                     return (0 < length) ? new Array(length) : PropertyChangeListenerMap.EMPTY_$LI$();
                 };
                 PropertyChangeListenerMap.prototype.newProxy = function (name, listener) {
-                    if (((typeof name === 'string') || name === null) && ((listener != null && listener["__interfaces"] != null && listener["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0) || listener === null)) {
+                    if (((typeof name === 'string') || name === null) && ((listener != null && (listener["__interfaces"] != null && listener["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0 || listener.constructor != null && listener.constructor["__interfaces"] != null && listener.constructor["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0)) || listener === null)) {
                         var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             return new java.beans.PropertyChangeListenerProxy(name, listener);
@@ -28483,7 +28414,7 @@ var java;
                         throw new Error('invalid overload');
                 };
                 PropertyChangeListenerMap.prototype.extract = function (listener) {
-                    if (((listener != null && listener["__interfaces"] != null && listener["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0) || listener === null)) {
+                    if (((listener != null && (listener["__interfaces"] != null && listener["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0 || listener.constructor != null && listener.constructor["__interfaces"] != null && listener.constructor["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0)) || listener === null)) {
                         var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             while ((listener != null && listener instanceof java.beans.PropertyChangeListenerProxy)) {
@@ -28502,7 +28433,7 @@ var java;
                 return PropertyChangeListenerMap;
             }(java.beans.ChangeListenerMap));
             PropertyChangeSupport.PropertyChangeListenerMap = PropertyChangeListenerMap;
-            PropertyChangeListenerMap["__classname"] = "java.beans.PropertyChangeSupport.PropertyChangeListenerMap";
+            PropertyChangeListenerMap["__class"] = "java.beans.PropertyChangeSupport.PropertyChangeListenerMap";
         })(PropertyChangeSupport = beans.PropertyChangeSupport || (beans.PropertyChangeSupport = {}));
     })(beans = java.beans || (java.beans = {}));
 })(java || (java = {}));
@@ -28541,7 +28472,6 @@ var java;
              */
             function IndexedPropertyChangeEvent(source, propertyName, oldValue, newValue, index) {
                 _super.call(this, source, propertyName, oldValue, newValue);
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                 this.index = 0;
                 this.index = index;
             }
@@ -28561,7 +28491,8 @@ var java;
             return IndexedPropertyChangeEvent;
         }(java.beans.PropertyChangeEvent));
         beans.IndexedPropertyChangeEvent = IndexedPropertyChangeEvent;
-        IndexedPropertyChangeEvent["__classname"] = "java.beans.IndexedPropertyChangeEvent";
+        IndexedPropertyChangeEvent["__class"] = "java.beans.IndexedPropertyChangeEvent";
+        IndexedPropertyChangeEvent["__interfaces"] = ["java.io.Serializable"];
     })(beans = java.beans || (java.beans = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -28590,7 +28521,6 @@ var javax;
                 if (((items != null && items instanceof Array) || items === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     _super.call(this);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.MutableComboBoxModel", "javax.swing.ComboBoxModel", "javax.swing.ListModel", "java.io.Serializable"] });
                     (function () {
                         _this.objects = (new java.util.Vector(items.length));
                         var i;
@@ -28606,7 +28536,6 @@ var javax;
                     var __args = Array.prototype.slice.call(arguments);
                     var v_1 = __args[0];
                     _super.call(this);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.MutableComboBoxModel", "javax.swing.ComboBoxModel", "javax.swing.ListModel", "java.io.Serializable"] });
                     (function () {
                         _this.objects = v_1;
                         if (_this.getSize() > 0) {
@@ -28617,7 +28546,6 @@ var javax;
                 else if (items === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     _super.call(this);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.MutableComboBoxModel", "javax.swing.ComboBoxModel", "javax.swing.ListModel", "java.io.Serializable"] });
                     (function () {
                         _this.objects = (new java.util.Vector());
                     })();
@@ -28705,7 +28633,8 @@ var javax;
             return DefaultComboBoxModel;
         }(javax.swing.AbstractListModel));
         swing.DefaultComboBoxModel = DefaultComboBoxModel;
-        DefaultComboBoxModel["__classname"] = "javax.swing.DefaultComboBoxModel";
+        DefaultComboBoxModel["__class"] = "javax.swing.DefaultComboBoxModel";
+        DefaultComboBoxModel["__interfaces"] = ["javax.swing.MutableComboBoxModel", "javax.swing.ComboBoxModel", "javax.swing.ListModel", "java.io.Serializable"];
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -28725,7 +28654,6 @@ var javax;
                 __extends(CompoundEdit, _super);
                 function CompoundEdit() {
                     _super.call(this);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.undo.UndoableEdit", "java.io.Serializable"] });
                     this.inProgress = false;
                     this.inProgress = true;
                     this.edits = (new java.util.Vector());
@@ -28923,7 +28851,8 @@ var javax;
                 return CompoundEdit;
             }(javax.swing.undo.AbstractUndoableEdit));
             undo.CompoundEdit = CompoundEdit;
-            CompoundEdit["__classname"] = "javax.swing.undo.CompoundEdit";
+            CompoundEdit["__class"] = "javax.swing.undo.CompoundEdit";
+            CompoundEdit["__interfaces"] = ["javax.swing.undo.UndoableEdit", "java.io.Serializable"];
         })(undo = swing.undo || (swing.undo = {}));
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
@@ -28972,18 +28901,16 @@ var javax;
                  */
                 function StateEdit(anObject, name) {
                     var _this = this;
-                    if (((anObject != null && anObject["__interfaces"] != null && anObject["__interfaces"].indexOf("javax.swing.undo.StateEditable") >= 0) || anObject === null) && ((typeof name === 'string') || name === null)) {
+                    if (((anObject != null && (anObject["__interfaces"] != null && anObject["__interfaces"].indexOf("javax.swing.undo.StateEditable") >= 0 || anObject.constructor != null && anObject.constructor["__interfaces"] != null && anObject.constructor["__interfaces"].indexOf("javax.swing.undo.StateEditable") >= 0)) || anObject === null) && ((typeof name === 'string') || name === null)) {
                         var __args = Array.prototype.slice.call(arguments);
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.undo.UndoableEdit", "java.io.Serializable"] });
                         (function () {
                             _this.init(anObject, name);
                         })();
                     }
-                    else if (((anObject != null && anObject["__interfaces"] != null && anObject["__interfaces"].indexOf("javax.swing.undo.StateEditable") >= 0) || anObject === null) && name === undefined) {
+                    else if (((anObject != null && (anObject["__interfaces"] != null && anObject["__interfaces"].indexOf("javax.swing.undo.StateEditable") >= 0 || anObject.constructor != null && anObject.constructor["__interfaces"] != null && anObject.constructor["__interfaces"].indexOf("javax.swing.undo.StateEditable") >= 0)) || anObject === null) && name === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.undo.UndoableEdit", "java.io.Serializable"] });
                         (function () {
                             _this.init(anObject, null);
                         })();
@@ -29050,7 +28977,8 @@ var javax;
                 return StateEdit;
             }(javax.swing.undo.AbstractUndoableEdit));
             undo.StateEdit = StateEdit;
-            StateEdit["__classname"] = "javax.swing.undo.StateEdit";
+            StateEdit["__class"] = "javax.swing.undo.StateEdit";
+            StateEdit["__interfaces"] = ["javax.swing.undo.UndoableEdit", "java.io.Serializable"];
         })(undo = swing.undo || (swing.undo = {}));
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
@@ -29158,7 +29086,7 @@ var sun;
                 return Order0;
             }(sun.awt.geom.Curve));
             geom.Order0 = Order0;
-            Order0["__classname"] = "sun.awt.geom.Order0";
+            Order0["__class"] = "sun.awt.geom.Order0";
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = sun.awt || (sun.awt = {}));
 })(sun || (sun = {}));
@@ -29402,7 +29330,7 @@ var sun;
                 return Order1;
             }(sun.awt.geom.Curve));
             geom.Order1 = Order1;
-            Order1["__classname"] = "sun.awt.geom.Order1";
+            Order1["__class"] = "sun.awt.geom.Order1";
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = sun.awt || (sun.awt = {}));
 })(sun || (sun = {}));
@@ -29727,7 +29655,7 @@ var sun;
                 return Order2;
             }(sun.awt.geom.Curve));
             geom.Order2 = Order2;
-            Order2["__classname"] = "sun.awt.geom.Order2";
+            Order2["__class"] = "sun.awt.geom.Order2";
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = sun.awt || (sun.awt = {}));
 })(sun || (sun = {}));
@@ -30238,7 +30166,7 @@ var sun;
                 return Order3;
             }(sun.awt.geom.Curve));
             geom.Order3 = Order3;
-            Order3["__classname"] = "sun.awt.geom.Order3";
+            Order3["__class"] = "sun.awt.geom.Order3";
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = sun.awt || (sun.awt = {}));
 })(sun || (sun = {}));
@@ -30587,7 +30515,7 @@ var sun;
                 return AreaOp;
             }());
             geom.AreaOp = AreaOp;
-            AreaOp["__classname"] = "sun.awt.geom.AreaOp";
+            AreaOp["__class"] = "sun.awt.geom.AreaOp";
             var AreaOp;
             (function (AreaOp) {
                 var CAGOp = (function (_super) {
@@ -30623,7 +30551,7 @@ var sun;
                     return CAGOp;
                 }(sun.awt.geom.AreaOp));
                 AreaOp.CAGOp = CAGOp;
-                CAGOp["__classname"] = "sun.awt.geom.AreaOp.CAGOp";
+                CAGOp["__class"] = "sun.awt.geom.AreaOp.CAGOp";
                 var AddOp = (function (_super) {
                     __extends(AddOp, _super);
                     function AddOp() {
@@ -30635,7 +30563,7 @@ var sun;
                     return AddOp;
                 }(AreaOp.CAGOp));
                 AreaOp.AddOp = AddOp;
-                AddOp["__classname"] = "sun.awt.geom.AreaOp.AddOp";
+                AddOp["__class"] = "sun.awt.geom.AreaOp.AddOp";
                 var SubOp = (function (_super) {
                     __extends(SubOp, _super);
                     function SubOp() {
@@ -30647,7 +30575,7 @@ var sun;
                     return SubOp;
                 }(AreaOp.CAGOp));
                 AreaOp.SubOp = SubOp;
-                SubOp["__classname"] = "sun.awt.geom.AreaOp.SubOp";
+                SubOp["__class"] = "sun.awt.geom.AreaOp.SubOp";
                 var IntOp = (function (_super) {
                     __extends(IntOp, _super);
                     function IntOp() {
@@ -30659,7 +30587,7 @@ var sun;
                     return IntOp;
                 }(AreaOp.CAGOp));
                 AreaOp.IntOp = IntOp;
-                IntOp["__classname"] = "sun.awt.geom.AreaOp.IntOp";
+                IntOp["__class"] = "sun.awt.geom.AreaOp.IntOp";
                 var XorOp = (function (_super) {
                     __extends(XorOp, _super);
                     function XorOp() {
@@ -30671,7 +30599,7 @@ var sun;
                     return XorOp;
                 }(AreaOp.CAGOp));
                 AreaOp.XorOp = XorOp;
-                XorOp["__classname"] = "sun.awt.geom.AreaOp.XorOp";
+                XorOp["__class"] = "sun.awt.geom.AreaOp.XorOp";
                 var NZWindOp = (function (_super) {
                     __extends(NZWindOp, _super);
                     function NZWindOp() {
@@ -30694,7 +30622,7 @@ var sun;
                     return NZWindOp;
                 }(sun.awt.geom.AreaOp));
                 AreaOp.NZWindOp = NZWindOp;
-                NZWindOp["__classname"] = "sun.awt.geom.AreaOp.NZWindOp";
+                NZWindOp["__class"] = "sun.awt.geom.AreaOp.NZWindOp";
                 var EOWindOp = (function (_super) {
                     __extends(EOWindOp, _super);
                     function EOWindOp() {
@@ -30715,10 +30643,9 @@ var sun;
                     return EOWindOp;
                 }(sun.awt.geom.AreaOp));
                 AreaOp.EOWindOp = EOWindOp;
-                EOWindOp["__classname"] = "sun.awt.geom.AreaOp.EOWindOp";
+                EOWindOp["__class"] = "sun.awt.geom.AreaOp.EOWindOp";
                 var AreaOp$0 = (function () {
                     function AreaOp$0() {
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.Comparator"] });
                     }
                     AreaOp$0.prototype.compare = function (o1, o2) {
                         var c1 = o1.getCurve();
@@ -30800,7 +30727,6 @@ var java;
                  */
                 function ContainerEvent(source, id, child) {
                     _super.call(this, source, id);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                     this.child = child;
                 }
                 ContainerEvent.COMPONENT_ADDED_$LI$ = function () { if (ContainerEvent.COMPONENT_ADDED == null)
@@ -30859,7 +30785,8 @@ var java;
                 return ContainerEvent;
             }(java.awt.event.ComponentEvent));
             event.ContainerEvent = ContainerEvent;
-            ContainerEvent["__classname"] = "java.awt.event.ContainerEvent";
+            ContainerEvent["__class"] = "java.awt.event.ContainerEvent";
+            ContainerEvent["__interfaces"] = ["java.io.Serializable"];
         })(event = awt.event || (awt.event = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -30941,7 +30868,6 @@ var java;
                     if (temporary === void 0) { temporary = false; }
                     if (opposite === void 0) { opposite = null; }
                     _super.call(this, source, id);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                     this.temporary = false;
                     this.temporary = temporary;
                     this.opposite = opposite;
@@ -31007,7 +30933,8 @@ var java;
                 return FocusEvent;
             }(java.awt.event.ComponentEvent));
             event.FocusEvent = FocusEvent;
-            FocusEvent["__classname"] = "java.awt.event.FocusEvent";
+            FocusEvent["__class"] = "java.awt.event.FocusEvent";
+            FocusEvent["__interfaces"] = ["java.io.Serializable"];
         })(event = awt.event || (awt.event = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -31022,7 +30949,6 @@ var java;
                 __extends(InputEvent, _super);
                 function InputEvent(source, id, when, modifiers) {
                     _super.call(this, source, id);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                     this.when = 0;
                     this.modifiers = 0;
                     this.when = when;
@@ -31166,7 +31092,8 @@ var java;
                 return InputEvent;
             }(java.awt.event.ComponentEvent));
             event.InputEvent = InputEvent;
-            InputEvent["__classname"] = "java.awt.event.InputEvent";
+            InputEvent["__class"] = "java.awt.event.InputEvent";
+            InputEvent["__interfaces"] = ["java.io.Serializable"];
         })(event = awt.event || (awt.event = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -31235,7 +31162,6 @@ var java;
                     if (((source != null && source instanceof java.awt.Window) || source === null) && ((typeof id === 'number') || id === null) && ((opposite != null && opposite instanceof java.awt.Window) || opposite === null) && ((typeof oldState === 'number') || oldState === null) && ((typeof newState === 'number') || newState === null)) {
                         var __args = Array.prototype.slice.call(arguments);
                         _super.call(this, source, id);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                         this.oldState = 0;
                         this.newState = 0;
                         (function () {
@@ -31252,7 +31178,6 @@ var java;
                             var __args_28 = Array.prototype.slice.call(arguments);
                             var opposite_1 = null;
                             _super.call(this, source, id);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                             this.oldState = 0;
                             this.newState = 0;
                             (function () {
@@ -31269,7 +31194,6 @@ var java;
                             var oldState_2 = 0;
                             var newState_2 = 0;
                             _super.call(this, source, id);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                             this.oldState = 0;
                             this.newState = 0;
                             (function () {
@@ -31287,7 +31211,6 @@ var java;
                             var oldState_3 = 0;
                             var newState_3 = 0;
                             _super.call(this, source, id);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                             this.oldState = 0;
                             this.newState = 0;
                             (function () {
@@ -31454,7 +31377,8 @@ var java;
                 return WindowEvent;
             }(java.awt.event.ComponentEvent));
             event.WindowEvent = WindowEvent;
-            WindowEvent["__classname"] = "java.awt.event.WindowEvent";
+            WindowEvent["__class"] = "java.awt.event.WindowEvent";
+            WindowEvent["__interfaces"] = ["java.io.Serializable"];
         })(event = awt.event || (awt.event = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -31467,10 +31391,9 @@ var java;
             __extends(Panel, _super);
             function Panel(layout) {
                 var _this = this;
-                if (((layout != null && layout["__interfaces"] != null && layout["__interfaces"].indexOf("java.awt.LayoutManager") >= 0) || layout === null)) {
+                if (((layout != null && (layout["__interfaces"] != null && layout["__interfaces"].indexOf("java.awt.LayoutManager") >= 0 || layout.constructor != null && layout.constructor["__interfaces"] != null && layout.constructor["__interfaces"].indexOf("java.awt.LayoutManager") >= 0)) || layout === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     _super.call(this);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent"] });
                     (function () {
                         _this.setLayout(layout);
                     })();
@@ -31481,7 +31404,6 @@ var java;
                         var __args_31 = Array.prototype.slice.call(arguments);
                         var layout_1 = new java.awt.FlowLayout();
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent"] });
                         (function () {
                             _this.setLayout(layout_1);
                         })();
@@ -31543,7 +31465,8 @@ var java;
             return Panel;
         }(java.awt.Container));
         awt.Panel = Panel;
-        Panel["__classname"] = "java.awt.Panel";
+        Panel["__class"] = "java.awt.Panel";
+        Panel["__interfaces"] = ["java.awt.HTMLComponent"];
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -31568,7 +31491,6 @@ var java;
                     this.windowStateListeners = new Array();
                     this.windowFocusListeners = new Array();
                     this.type = Window.Type.NORMAL;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent"] });
                     this.state = 0;
                     this.alwaysOnTop = false;
                     (function () {
@@ -31588,7 +31510,6 @@ var java;
                     this.windowStateListeners = new Array();
                     this.windowFocusListeners = new Array();
                     this.type = Window.Type.NORMAL;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent"] });
                     this.state = 0;
                     this.alwaysOnTop = false;
                     (function () {
@@ -31608,7 +31529,6 @@ var java;
                     this.windowStateListeners = new Array();
                     this.windowFocusListeners = new Array();
                     this.type = Window.Type.NORMAL;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent"] });
                     this.state = 0;
                     this.alwaysOnTop = false;
                 }
@@ -31875,13 +31795,13 @@ var java;
             };
             Window.prototype.addPropertyChangeListener = function (propertyName, listener) {
                 var _this = this;
-                if (((typeof propertyName === 'string') || propertyName === null) && ((listener != null && listener["__interfaces"] != null && listener["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0) || listener === null)) {
+                if (((typeof propertyName === 'string') || propertyName === null) && ((listener != null && (listener["__interfaces"] != null && listener["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0 || listener.constructor != null && listener.constructor["__interfaces"] != null && listener.constructor["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0)) || listener === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         _super.prototype.addPropertyChangeListener.call(_this, propertyName, listener);
                     })();
                 }
-                else if (((propertyName != null && propertyName["__interfaces"] != null && propertyName["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0) || propertyName === null) && listener === undefined) {
+                else if (((propertyName != null && (propertyName["__interfaces"] != null && propertyName["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0 || propertyName.constructor != null && propertyName.constructor["__interfaces"] != null && propertyName.constructor["__interfaces"].indexOf("java.beans.PropertyChangeListener") >= 0)) || propertyName === null) && listener === undefined) {
                     return this.addPropertyChangeListener$java_beans_PropertyChangeListener(propertyName);
                 }
                 else
@@ -31917,7 +31837,8 @@ var java;
             return Window;
         }(java.awt.Container));
         awt.Window = Window;
-        Window["__classname"] = "java.awt.Window";
+        Window["__class"] = "java.awt.Window";
+        Window["__interfaces"] = ["java.awt.HTMLComponent"];
         var Window;
         (function (Window) {
             (function (Type) {
@@ -31939,12 +31860,12 @@ var javax;
             function JComponent() {
                 _super.call(this);
                 this.listenerList = new javax.swing.event.EventListenerList();
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
             }
             return JComponent;
         }(java.awt.Container));
         swing.JComponent = JComponent;
-        JComponent["__classname"] = "javax.swing.JComponent";
+        JComponent["__class"] = "javax.swing.JComponent";
+        JComponent["__interfaces"] = ["java.awt.HTMLComponent", "java.io.Serializable"];
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -31982,7 +31903,6 @@ var java;
                     if (((typeof windingRule === 'number') || windingRule === null) && ((pointTypes != null && pointTypes instanceof Array) || pointTypes === null) && ((typeof numTypes === 'number') || numTypes === null) && ((pointCoords != null && pointCoords instanceof Array) || pointCoords === null) && ((typeof numCoords === 'number') || numCoords === null)) {
                         var __args = Array.prototype.slice.call(arguments);
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                         (function () {
                             _this.windingRule = windingRule;
                             _this.pointTypes = pointTypes;
@@ -31996,24 +31916,20 @@ var java;
                         var rule = __args[0];
                         var initialCapacity = __args[1];
                         _super.call(this, rule, initialCapacity);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                     }
-                    else if (((windingRule != null && windingRule["__interfaces"] != null && windingRule["__interfaces"].indexOf("java.awt.Shape") >= 0) || windingRule === null) && pointTypes === undefined && numTypes === undefined && pointCoords === undefined && numCoords === undefined) {
+                    else if (((windingRule != null && (windingRule["__interfaces"] != null && windingRule["__interfaces"].indexOf("java.awt.Shape") >= 0 || windingRule.constructor != null && windingRule.constructor["__interfaces"] != null && windingRule.constructor["__interfaces"].indexOf("java.awt.Shape") >= 0)) || windingRule === null) && pointTypes === undefined && numTypes === undefined && pointCoords === undefined && numCoords === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
                         var s = __args[0];
                         _super.call(this, s, null);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                     }
                     else if (((typeof windingRule === 'number') || windingRule === null) && pointTypes === undefined && numTypes === undefined && pointCoords === undefined && numCoords === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
                         var rule = __args[0];
                         _super.call(this, rule, java.awt.geom.Path2D.INIT_SIZE);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                     }
                     else if (windingRule === undefined && pointTypes === undefined && numTypes === undefined && pointCoords === undefined && numCoords === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
                         _super.call(this, java.awt.geom.Path2D.WIND_NON_ZERO_$LI$(), java.awt.geom.Path2D.INIT_SIZE);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                     }
                     else
                         throw new Error('invalid overload');
@@ -32022,7 +31938,8 @@ var java;
                 return GeneralPath;
             }(java.awt.geom.Path2D.Float));
             geom.GeneralPath = GeneralPath;
-            GeneralPath["__classname"] = "java.awt.geom.GeneralPath";
+            GeneralPath["__class"] = "java.awt.geom.GeneralPath";
+            GeneralPath["__interfaces"] = ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"];
         })(geom = awt.geom || (awt.geom = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -32137,7 +32054,6 @@ var java;
                 if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof width === 'number') || width === null) && ((typeof height === 'number') || height === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     _super.call(this);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                     this.x = 0;
                     this.y = 0;
                     this.width = 0;
@@ -32160,7 +32076,6 @@ var java;
                         var width_3 = d.width;
                         var height_3 = d.height;
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                         this.x = 0;
                         this.y = 0;
                         this.width = 0;
@@ -32182,7 +32097,6 @@ var java;
                         var x_5 = 0;
                         var y_5 = 0;
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                         this.x = 0;
                         this.y = 0;
                         this.width = 0;
@@ -32205,7 +32119,6 @@ var java;
                         var width_5 = r.width;
                         var height_5 = r.height;
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                         this.x = 0;
                         this.y = 0;
                         this.width = 0;
@@ -32228,7 +32141,6 @@ var java;
                         var width_6 = 0;
                         var height_6 = 0;
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                         this.x = 0;
                         this.y = 0;
                         this.width = 0;
@@ -32251,7 +32163,6 @@ var java;
                         var width_7 = d.width;
                         var height_7 = d.height;
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                         this.x = 0;
                         this.y = 0;
                         this.width = 0;
@@ -32273,7 +32184,6 @@ var java;
                         var width_8 = 0;
                         var height_8 = 0;
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"] });
                         this.x = 0;
                         this.y = 0;
                         this.width = 0;
@@ -33271,13 +33181,14 @@ var java;
              * <code>Rectangle</code> object's coordinate and size values.
              */
             Rectangle.prototype.toString = function () {
-                return Rectangle["__classname"] + "[x=" + this.x + ",y=" + this.y + ",width=" + this.width + ",height=" + this.height + "]";
+                return (function (c) { return c["__class"] ? c["__class"] : c.name; })(Rectangle) + "[x=" + this.x + ",y=" + this.y + ",width=" + this.width + ",height=" + this.height + "]";
             };
             Rectangle.serialVersionUID = -4345857070255674764;
             return Rectangle;
         }(java.awt.geom.Rectangle2D));
         awt.Rectangle = Rectangle;
-        Rectangle["__classname"] = "java.awt.Rectangle";
+        Rectangle["__class"] = "java.awt.Rectangle";
+        Rectangle["__interfaces"] = ["java.awt.Shape", "java.lang.Cloneable", "java.io.Serializable"];
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -33464,29 +33375,29 @@ var java;
             };
             WebGraphics2D.prototype.drawImage = function (img, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, bgcolor, observer) {
                 var _this = this;
-                if (((img != null && img instanceof java.awt.Image) || img === null) && ((typeof dx1 === 'number') || dx1 === null) && ((typeof dy1 === 'number') || dy1 === null) && ((typeof dx2 === 'number') || dx2 === null) && ((typeof dy2 === 'number') || dy2 === null) && ((typeof sx1 === 'number') || sx1 === null) && ((typeof sy1 === 'number') || sy1 === null) && ((typeof sx2 === 'number') || sx2 === null) && ((typeof sy2 === 'number') || sy2 === null) && ((bgcolor != null && bgcolor instanceof java.awt.Color) || bgcolor === null) && ((observer != null && observer["__interfaces"] != null && observer["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0) || observer === null)) {
+                if (((img != null && img instanceof java.awt.Image) || img === null) && ((typeof dx1 === 'number') || dx1 === null) && ((typeof dy1 === 'number') || dy1 === null) && ((typeof dx2 === 'number') || dx2 === null) && ((typeof dy2 === 'number') || dy2 === null) && ((typeof sx1 === 'number') || sx1 === null) && ((typeof sy1 === 'number') || sy1 === null) && ((typeof sx2 === 'number') || sx2 === null) && ((typeof sy2 === 'number') || sy2 === null) && ((bgcolor != null && bgcolor instanceof java.awt.Color) || bgcolor === null) && ((observer != null && (observer["__interfaces"] != null && observer["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0 || observer.constructor != null && observer.constructor["__interfaces"] != null && observer.constructor["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0)) || observer === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         _this.context["drawImage"](img.source, Math.min(sx1, sx2), Math.min(sy1, sy2), Math.abs(sx2 - sx1), Math.abs(sy2 - sy1), Math.min(dx1, dx2), Math.min(dy1, dy2), Math.abs(dx2 - dx1), Math.abs(dy2 - dy1));
                         return true;
                     })();
                 }
-                else if (((img != null && img instanceof java.awt.Image) || img === null) && ((typeof dx1 === 'number') || dx1 === null) && ((typeof dy1 === 'number') || dy1 === null) && ((typeof dx2 === 'number') || dx2 === null) && ((typeof dy2 === 'number') || dy2 === null) && ((typeof sx1 === 'number') || sx1 === null) && ((typeof sy1 === 'number') || sy1 === null) && ((typeof sx2 === 'number') || sx2 === null) && ((typeof sy2 === 'number') || sy2 === null) && ((bgcolor != null && bgcolor["__interfaces"] != null && bgcolor["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0) || bgcolor === null) && observer === undefined) {
+                else if (((img != null && img instanceof java.awt.Image) || img === null) && ((typeof dx1 === 'number') || dx1 === null) && ((typeof dy1 === 'number') || dy1 === null) && ((typeof dx2 === 'number') || dx2 === null) && ((typeof dy2 === 'number') || dy2 === null) && ((typeof sx1 === 'number') || sx1 === null) && ((typeof sy1 === 'number') || sy1 === null) && ((typeof sx2 === 'number') || sx2 === null) && ((typeof sy2 === 'number') || sy2 === null) && ((bgcolor != null && (bgcolor["__interfaces"] != null && bgcolor["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0 || bgcolor.constructor != null && bgcolor.constructor["__interfaces"] != null && bgcolor.constructor["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0)) || bgcolor === null) && observer === undefined) {
                     return this.drawImage$java_awt_Image$int$int$int$int$int$int$int$int$java_awt_image_ImageObserver(img, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, bgcolor);
                 }
-                else if (((img != null && img instanceof java.awt.Image) || img === null) && ((typeof dx1 === 'number') || dx1 === null) && ((typeof dy1 === 'number') || dy1 === null) && ((typeof dx2 === 'number') || dx2 === null) && ((typeof dy2 === 'number') || dy2 === null) && ((sx1 != null && sx1 instanceof java.awt.Color) || sx1 === null) && ((sy1 != null && sy1["__interfaces"] != null && sy1["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0) || sy1 === null) && sx2 === undefined && sy2 === undefined && bgcolor === undefined && observer === undefined) {
+                else if (((img != null && img instanceof java.awt.Image) || img === null) && ((typeof dx1 === 'number') || dx1 === null) && ((typeof dy1 === 'number') || dy1 === null) && ((typeof dx2 === 'number') || dx2 === null) && ((typeof dy2 === 'number') || dy2 === null) && ((sx1 != null && sx1 instanceof java.awt.Color) || sx1 === null) && ((sy1 != null && (sy1["__interfaces"] != null && sy1["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0 || sy1.constructor != null && sy1.constructor["__interfaces"] != null && sy1.constructor["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0)) || sy1 === null) && sx2 === undefined && sy2 === undefined && bgcolor === undefined && observer === undefined) {
                     return this.drawImage$java_awt_Image$int$int$int$int$java_awt_Color$java_awt_image_ImageObserver(img, dx1, dy1, dx2, dy2, sx1, sy1);
                 }
-                else if (((img != null && img instanceof java.awt.Image) || img === null) && ((typeof dx1 === 'number') || dx1 === null) && ((typeof dy1 === 'number') || dy1 === null) && ((typeof dx2 === 'number') || dx2 === null) && ((typeof dy2 === 'number') || dy2 === null) && ((sx1 != null && sx1["__interfaces"] != null && sx1["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0) || sx1 === null) && sy1 === undefined && sx2 === undefined && sy2 === undefined && bgcolor === undefined && observer === undefined) {
+                else if (((img != null && img instanceof java.awt.Image) || img === null) && ((typeof dx1 === 'number') || dx1 === null) && ((typeof dy1 === 'number') || dy1 === null) && ((typeof dx2 === 'number') || dx2 === null) && ((typeof dy2 === 'number') || dy2 === null) && ((sx1 != null && (sx1["__interfaces"] != null && sx1["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0 || sx1.constructor != null && sx1.constructor["__interfaces"] != null && sx1.constructor["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0)) || sx1 === null) && sy1 === undefined && sx2 === undefined && sy2 === undefined && bgcolor === undefined && observer === undefined) {
                     return this.drawImage$java_awt_Image$int$int$int$int$java_awt_image_ImageObserver(img, dx1, dy1, dx2, dy2, sx1);
                 }
-                else if (((img != null && img instanceof java.awt.Image) || img === null) && ((typeof dx1 === 'number') || dx1 === null) && ((typeof dy1 === 'number') || dy1 === null) && ((dx2 != null && dx2 instanceof java.awt.Color) || dx2 === null) && ((dy2 != null && dy2["__interfaces"] != null && dy2["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0) || dy2 === null) && sx1 === undefined && sy1 === undefined && sx2 === undefined && sy2 === undefined && bgcolor === undefined && observer === undefined) {
+                else if (((img != null && img instanceof java.awt.Image) || img === null) && ((typeof dx1 === 'number') || dx1 === null) && ((typeof dy1 === 'number') || dy1 === null) && ((dx2 != null && dx2 instanceof java.awt.Color) || dx2 === null) && ((dy2 != null && (dy2["__interfaces"] != null && dy2["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0 || dy2.constructor != null && dy2.constructor["__interfaces"] != null && dy2.constructor["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0)) || dy2 === null) && sx1 === undefined && sy1 === undefined && sx2 === undefined && sy2 === undefined && bgcolor === undefined && observer === undefined) {
                     return this.drawImage$java_awt_Image$int$int$java_awt_Color$java_awt_image_ImageObserver(img, dx1, dy1, dx2, dy2);
                 }
-                else if (((img != null && img instanceof java.awt.Image) || img === null) && ((typeof dx1 === 'number') || dx1 === null) && ((typeof dy1 === 'number') || dy1 === null) && ((dx2 != null && dx2["__interfaces"] != null && dx2["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0) || dx2 === null) && dy2 === undefined && sx1 === undefined && sy1 === undefined && sx2 === undefined && sy2 === undefined && bgcolor === undefined && observer === undefined) {
+                else if (((img != null && img instanceof java.awt.Image) || img === null) && ((typeof dx1 === 'number') || dx1 === null) && ((typeof dy1 === 'number') || dy1 === null) && ((dx2 != null && (dx2["__interfaces"] != null && dx2["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0 || dx2.constructor != null && dx2.constructor["__interfaces"] != null && dx2.constructor["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0)) || dx2 === null) && dy2 === undefined && sx1 === undefined && sy1 === undefined && sx2 === undefined && sy2 === undefined && bgcolor === undefined && observer === undefined) {
                     return this.drawImage$java_awt_Image$int$int$java_awt_image_ImageObserver(img, dx1, dy1, dx2);
                 }
-                else if (((img != null && img instanceof java.awt.Image) || img === null) && ((dx1 != null && dx1 instanceof java.awt.geom.AffineTransform) || dx1 === null) && ((dy1 != null && dy1["__interfaces"] != null && dy1["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0) || dy1 === null) && dx2 === undefined && dy2 === undefined && sx1 === undefined && sy1 === undefined && sx2 === undefined && sy2 === undefined && bgcolor === undefined && observer === undefined) {
+                else if (((img != null && img instanceof java.awt.Image) || img === null) && ((dx1 != null && dx1 instanceof java.awt.geom.AffineTransform) || dx1 === null) && ((dy1 != null && (dy1["__interfaces"] != null && dy1["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0 || dy1.constructor != null && dy1.constructor["__interfaces"] != null && dy1.constructor["__interfaces"].indexOf("java.awt.image.ImageObserver") >= 0)) || dy1 === null) && dx2 === undefined && dy2 === undefined && sx1 === undefined && sy1 === undefined && sx2 === undefined && sy2 === undefined && bgcolor === undefined && observer === undefined) {
                     return this.drawImage$java_awt_Image$java_awt_geom_AffineTransform$java_awt_image_ImageObserver(img, dx1, dy1);
                 }
                 else
@@ -33570,7 +33481,7 @@ var java;
                         _this.setClip(new java.awt.Rectangle(x, y, width, height));
                     })();
                 }
-                else if (((x != null && x["__interfaces"] != null && x["__interfaces"].indexOf("java.awt.Shape") >= 0) || x === null) && y === undefined && width === undefined && height === undefined) {
+                else if (((x != null && (x["__interfaces"] != null && x["__interfaces"].indexOf("java.awt.Shape") >= 0 || x.constructor != null && x.constructor["__interfaces"] != null && x.constructor["__interfaces"].indexOf("java.awt.Shape") >= 0)) || x === null) && y === undefined && width === undefined && height === undefined) {
                     return this.setClip$java_awt_Shape(x);
                 }
                 else
@@ -33698,7 +33609,7 @@ var java;
             return WebGraphics2D;
         }(java.awt.Graphics2D));
         awt.WebGraphics2D = WebGraphics2D;
-        WebGraphics2D["__classname"] = "java.awt.WebGraphics2D";
+        WebGraphics2D["__class"] = "java.awt.WebGraphics2D";
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -33734,7 +33645,6 @@ var javax;
                 function SwingPropertyChangeSupport(sourceBean, notifyOnEDT) {
                     if (notifyOnEDT === void 0) { notifyOnEDT = false; }
                     _super.call(this, sourceBean);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                     this.notifyOnEDT = false;
                     this.notifyOnEDT = notifyOnEDT;
                 }
@@ -33772,7 +33682,8 @@ var javax;
                 return SwingPropertyChangeSupport;
             }(java.beans.PropertyChangeSupport));
             event.SwingPropertyChangeSupport = SwingPropertyChangeSupport;
-            SwingPropertyChangeSupport["__classname"] = "javax.swing.event.SwingPropertyChangeSupport";
+            SwingPropertyChangeSupport["__class"] = "javax.swing.event.SwingPropertyChangeSupport";
+            SwingPropertyChangeSupport["__interfaces"] = ["java.io.Serializable"];
         })(event = swing.event || (swing.event = {}));
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
@@ -33893,7 +33804,6 @@ var javax;
                  */
                 function UndoManager() {
                     _super.call(this);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "javax.swing.event.UndoableEditListener", "javax.swing.undo.UndoableEdit", "java.io.Serializable"] });
                     this.indexOfNextAdd = 0;
                     this.limit = 0;
                     this.indexOfNextAdd = 0;
@@ -34326,7 +34236,8 @@ var javax;
                 return UndoManager;
             }(javax.swing.undo.CompoundEdit));
             undo.UndoManager = UndoManager;
-            UndoManager["__classname"] = "javax.swing.undo.UndoManager";
+            UndoManager["__class"] = "javax.swing.undo.UndoManager";
+            UndoManager["__interfaces"] = ["java.util.EventListener", "javax.swing.event.UndoableEditListener", "javax.swing.undo.UndoableEdit", "java.io.Serializable"];
         })(undo = swing.undo || (swing.undo = {}));
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
@@ -34346,7 +34257,6 @@ var java;
                         {
                             var __args_38 = Array.prototype.slice.call(arguments);
                             _super.call(this, source, id, when, modifiers);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                             this.isProxyActive = false;
                             this.keyCode = 0;
                             this.keyChar = null;
@@ -34385,7 +34295,6 @@ var java;
                     else if (((source != null && source instanceof java.awt.Component) || source === null) && ((typeof id === 'number') || id === null) && ((typeof when === 'number') || when === null) && ((typeof modifiers === 'number') || modifiers === null) && ((typeof keyCode === 'number') || keyCode === null) && ((typeof keyChar === 'string') || keyChar === null) && ((typeof keyLocation === 'number') || keyLocation === null) && isProxyActive === undefined) {
                         var __args = Array.prototype.slice.call(arguments);
                         _super.call(this, source, id, when, modifiers);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                         this.isProxyActive = false;
                         this.keyCode = 0;
                         this.keyChar = null;
@@ -34423,7 +34332,6 @@ var java;
                             var __args_39 = Array.prototype.slice.call(arguments);
                             var keyLocation_1 = KeyEvent.KEY_LOCATION_UNKNOWN;
                             _super.call(this, source, id, when, modifiers);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                             this.isProxyActive = false;
                             this.keyCode = 0;
                             this.keyChar = null;
@@ -34465,7 +34373,6 @@ var java;
                                 var __args_41 = Array.prototype.slice.call(arguments);
                                 var keyLocation_2 = KeyEvent.KEY_LOCATION_UNKNOWN;
                                 _super.call(this, source, id, when, modifiers);
-                                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                                 this.isProxyActive = false;
                                 this.keyCode = 0;
                                 this.keyChar = null;
@@ -35291,7 +35198,8 @@ var java;
                 return KeyEvent;
             }(java.awt.event.InputEvent));
             event.KeyEvent = KeyEvent;
-            KeyEvent["__classname"] = "java.awt.event.KeyEvent";
+            KeyEvent["__class"] = "java.awt.event.KeyEvent";
+            KeyEvent["__interfaces"] = ["java.io.Serializable"];
         })(event = awt.event || (awt.event = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -35309,7 +35217,6 @@ var java;
                     if (((source != null && source instanceof java.awt.Component) || source === null) && ((typeof id === 'number') || id === null) && ((typeof when === 'number') || when === null) && ((typeof modifiers === 'number') || modifiers === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof xAbs === 'number') || xAbs === null) && ((typeof yAbs === 'number') || yAbs === null) && ((typeof clickCount === 'number') || clickCount === null) && ((typeof popupTrigger === 'boolean') || popupTrigger === null) && ((typeof button === 'number') || button === null)) {
                         var __args = Array.prototype.slice.call(arguments);
                         _super.call(this, source, id, when, modifiers);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                         this.x = 0;
                         this.y = 0;
                         this.xAbs = 0;
@@ -35355,7 +35262,6 @@ var java;
                             var xAbs_1 = 0;
                             var yAbs_1 = 0;
                             _super.call(this, source, id, when, modifiers);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                             this.x = 0;
                             this.y = 0;
                             this.xAbs = 0;
@@ -35417,7 +35323,6 @@ var java;
                                 var xAbs_2 = 0;
                                 var yAbs_2 = 0;
                                 _super.call(this, source, id, when, modifiers);
-                                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                                 this.x = 0;
                                 this.y = 0;
                                 this.xAbs = 0;
@@ -35732,7 +35637,8 @@ var java;
                 return MouseEvent;
             }(java.awt.event.InputEvent));
             event.MouseEvent = MouseEvent;
-            MouseEvent["__classname"] = "java.awt.event.MouseEvent";
+            MouseEvent["__class"] = "java.awt.event.MouseEvent";
+            MouseEvent["__interfaces"] = ["java.io.Serializable"];
         })(event = awt.event || (awt.event = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -35745,7 +35651,6 @@ var java;
             __extends(Applet, _super);
             function Applet() {
                 _super.call(this);
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent"] });
             }
             Applet.__static_initialize = function () { if (!Applet.__static_initialized) {
                 Applet.__static_initialized = true;
@@ -35786,7 +35691,8 @@ var java;
             return Applet;
         }(java.awt.Panel));
         applet_1.Applet = Applet;
-        Applet["__classname"] = "java.applet.Applet";
+        Applet["__class"] = "java.applet.Applet";
+        Applet["__interfaces"] = ["java.awt.HTMLComponent"];
     })(applet = java.applet || (java.applet = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -35805,7 +35711,6 @@ var java;
                     this.resizable = true;
                     this.undecorated = false;
                     this.mbManagement = false;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent"] });
                     (function () {
                         _this._frameInit(title);
                         _this.state = Frame.NORMAL;
@@ -35821,7 +35726,6 @@ var java;
                         this.resizable = true;
                         this.undecorated = false;
                         this.mbManagement = false;
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent"] });
                         (function () {
                             _this._frameInit(title_1);
                             _this.state = Frame.NORMAL;
@@ -35999,7 +35903,8 @@ var java;
             return Frame;
         }(java.awt.Window));
         awt.Frame = Frame;
-        Frame["__classname"] = "java.awt.Frame";
+        Frame["__class"] = "java.awt.Frame";
+        Frame["__interfaces"] = ["java.awt.HTMLComponent"];
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -36051,7 +35956,6 @@ var javax;
                  */
                 this.itemListener = null;
                 this.hideActionText = false;
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                 this.mnemonic = 0;
             }
             /**
@@ -36646,7 +36550,8 @@ var javax;
             return AbstractButton;
         }(javax.swing.JComponent));
         swing.AbstractButton = AbstractButton;
-        AbstractButton["__classname"] = "javax.swing.AbstractButton";
+        AbstractButton["__class"] = "javax.swing.AbstractButton";
+        AbstractButton["__interfaces"] = ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"];
         var AbstractButton;
         (function (AbstractButton) {
             /**
@@ -36661,7 +36566,6 @@ var javax;
              */
             var ButtonChangeListener = (function () {
                 function ButtonChangeListener(__parent) {
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "javax.swing.event.ChangeListener", "java.io.Serializable"] });
                     this.__parent = __parent;
                 }
                 ButtonChangeListener.prototype.stateChanged = function (e) {
@@ -36670,10 +36574,10 @@ var javax;
                 return ButtonChangeListener;
             }());
             AbstractButton.ButtonChangeListener = ButtonChangeListener;
-            ButtonChangeListener["__classname"] = "javax.swing.AbstractButton.ButtonChangeListener";
+            ButtonChangeListener["__class"] = "javax.swing.AbstractButton.ButtonChangeListener";
+            ButtonChangeListener["__interfaces"] = ["java.util.EventListener", "javax.swing.event.ChangeListener", "java.io.Serializable"];
             var Handler = (function () {
                 function Handler(__parent) {
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "java.awt.event.ActionListener", "javax.swing.event.ChangeListener", "java.awt.event.ItemListener", "java.io.Serializable"] });
                     this.__parent = __parent;
                 }
                 Handler.prototype.stateChanged = function (e) {
@@ -36688,7 +36592,8 @@ var javax;
                 return Handler;
             }());
             AbstractButton.Handler = Handler;
-            Handler["__classname"] = "javax.swing.AbstractButton.Handler";
+            Handler["__class"] = "javax.swing.AbstractButton.Handler";
+            Handler["__interfaces"] = ["java.util.EventListener", "java.awt.event.ActionListener", "javax.swing.event.ChangeListener", "java.awt.event.ItemListener", "java.io.Serializable"];
         })(AbstractButton = swing.AbstractButton || (swing.AbstractButton = {}));
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
@@ -36701,7 +36606,7 @@ var javax;
             __extends(JComboBox, _super);
             function JComboBox(aModel) {
                 var _this = this;
-                if (((aModel != null && aModel["__interfaces"] != null && aModel["__interfaces"].indexOf("javax.swing.ComboBoxModel") >= 0) || aModel === null)) {
+                if (((aModel != null && (aModel["__interfaces"] != null && aModel["__interfaces"].indexOf("javax.swing.ComboBoxModel") >= 0 || aModel.constructor != null && aModel.constructor["__interfaces"] != null && aModel.constructor["__interfaces"].indexOf("javax.swing.ComboBoxModel") >= 0)) || aModel === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     _super.call(this);
                     this.maximumRowCount = 8;
@@ -36711,7 +36616,6 @@ var javax;
                     this.selectedItemReminder = null;
                     this.firingActionEvent = false;
                     this.selectingItem = false;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "javax.swing.event.ListDataListener", "java.awt.event.ActionListener", "java.awt.ItemSelectable", "java.awt.HTMLComponent", "java.io.Serializable"] });
                     (function () {
                         _this.setModel(aModel);
                         _this.init();
@@ -36728,7 +36632,6 @@ var javax;
                     this.selectedItemReminder = null;
                     this.firingActionEvent = false;
                     this.selectingItem = false;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "javax.swing.event.ListDataListener", "java.awt.event.ActionListener", "java.awt.ItemSelectable", "java.awt.HTMLComponent", "java.io.Serializable"] });
                     (function () {
                         _this.setModel((new javax.swing.DefaultComboBoxModel(items_1)));
                         _this.init();
@@ -36745,7 +36648,6 @@ var javax;
                     this.selectedItemReminder = null;
                     this.firingActionEvent = false;
                     this.selectingItem = false;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "javax.swing.event.ListDataListener", "java.awt.event.ActionListener", "java.awt.ItemSelectable", "java.awt.HTMLComponent", "java.io.Serializable"] });
                     (function () {
                         _this.setModel((new javax.swing.DefaultComboBoxModel(items_2)));
                         _this.init();
@@ -36761,7 +36663,6 @@ var javax;
                     this.selectedItemReminder = null;
                     this.firingActionEvent = false;
                     this.selectingItem = false;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "javax.swing.event.ListDataListener", "java.awt.event.ActionListener", "java.awt.ItemSelectable", "java.awt.HTMLComponent", "java.io.Serializable"] });
                     (function () {
                         _this.setModel((new javax.swing.DefaultComboBoxModel()));
                         _this.init();
@@ -36958,7 +36859,7 @@ var javax;
                 }
             };
             JComboBox.prototype.checkMutableComboBoxModel = function () {
-                if (!(this.dataModel != null && this.dataModel["__interfaces"] != null && this.dataModel["__interfaces"].indexOf("javax.swing.MutableComboBoxModel") >= 0))
+                if (!(this.dataModel != null && (this.dataModel["__interfaces"] != null && this.dataModel["__interfaces"].indexOf("javax.swing.MutableComboBoxModel") >= 0 || this.dataModel.constructor != null && this.dataModel.constructor["__interfaces"] != null && this.dataModel.constructor["__interfaces"].indexOf("javax.swing.MutableComboBoxModel") >= 0)))
                     throw new Error("Cannot use this method with a non-Mutable data model.");
             };
             JComboBox.prototype.showPopup = function () {
@@ -37065,7 +36966,7 @@ var javax;
             };
             JComboBox.prototype.isListener = function (c, a) {
                 var _this = this;
-                if (((c != null && c instanceof java.lang.Class) || c === null) && ((a != null && a["__interfaces"] != null && a["__interfaces"].indexOf("java.awt.event.ActionListener") >= 0) || a === null)) {
+                if (((c != null && c instanceof java.lang.Class) || c === null) && ((a != null && (a["__interfaces"] != null && a["__interfaces"].indexOf("java.awt.event.ActionListener") >= 0 || a.constructor != null && a.constructor["__interfaces"] != null && a.constructor["__interfaces"].indexOf("java.awt.event.ActionListener") >= 0)) || a === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         var isListener = false;
@@ -37078,7 +36979,7 @@ var javax;
                         return isListener;
                     })();
                 }
-                else if (((typeof c === 'string') || c === null) && ((a != null && a["__interfaces"] != null && a["__interfaces"].indexOf("java.awt.event.ActionListener") >= 0) || a === null)) {
+                else if (((typeof c === 'string') || c === null) && ((a != null && (a["__interfaces"] != null && a["__interfaces"].indexOf("java.awt.event.ActionListener") >= 0 || a.constructor != null && a.constructor["__interfaces"] != null && a.constructor["__interfaces"].indexOf("java.awt.event.ActionListener") >= 0)) || a === null)) {
                     return this.isListener$java_lang_String$java_awt_event_ActionListener(c, a);
                 }
                 else
@@ -37237,23 +37138,23 @@ var javax;
             return JComboBox;
         }(javax.swing.JComponent));
         swing.JComboBox = JComboBox;
-        JComboBox["__classname"] = "javax.swing.JComboBox";
+        JComboBox["__class"] = "javax.swing.JComboBox";
+        JComboBox["__interfaces"] = ["java.util.EventListener", "javax.swing.event.ListDataListener", "java.awt.event.ActionListener", "java.awt.ItemSelectable", "java.awt.HTMLComponent", "java.io.Serializable"];
         var JComboBox;
         (function (JComboBox) {
             var ComboBoxActionPropertyChangeListener = (function (_super) {
                 __extends(ComboBoxActionPropertyChangeListener, _super);
                 function ComboBoxActionPropertyChangeListener(b, a) {
                     _super.call(this, b, a);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "java.beans.PropertyChangeListener", "java.io.Serializable"] });
                 }
                 ComboBoxActionPropertyChangeListener.prototype.actionPropertyChanged = function (cb, action, e) {
-                    if (((cb != null && cb instanceof javax.swing.JComboBox) || cb === null) && ((action != null && action["__interfaces"] != null && action["__interfaces"].indexOf("javax.swing.Action") >= 0) || action === null) && ((e != null && e instanceof java.beans.PropertyChangeEvent) || e === null)) {
+                    if (((cb != null && cb instanceof javax.swing.JComboBox) || cb === null) && ((action != null && (action["__interfaces"] != null && action["__interfaces"].indexOf("javax.swing.Action") >= 0 || action.constructor != null && action.constructor["__interfaces"] != null && action.constructor["__interfaces"].indexOf("javax.swing.Action") >= 0)) || action === null) && ((e != null && e instanceof java.beans.PropertyChangeEvent) || e === null)) {
                         var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             cb.actionPropertyChanged(action, e.getPropertyName());
                         })();
                     }
-                    else if (((cb != null) || cb === null) && ((action != null && action["__interfaces"] != null && action["__interfaces"].indexOf("javax.swing.Action") >= 0) || action === null) && ((e != null && e instanceof java.beans.PropertyChangeEvent) || e === null)) {
+                    else if (((cb != null) || cb === null) && ((action != null && (action["__interfaces"] != null && action["__interfaces"].indexOf("javax.swing.Action") >= 0 || action.constructor != null && action.constructor["__interfaces"] != null && action.constructor["__interfaces"].indexOf("javax.swing.Action") >= 0)) || action === null) && ((e != null && e instanceof java.beans.PropertyChangeEvent) || e === null)) {
                         return this.actionPropertyChanged$javax_swing_JComponent$javax_swing_Action$java_beans_PropertyChangeEvent(cb, action, e);
                     }
                     else
@@ -37262,10 +37163,10 @@ var javax;
                 return ComboBoxActionPropertyChangeListener;
             }(javax.swing.ActionPropertyChangeListener));
             JComboBox.ComboBoxActionPropertyChangeListener = ComboBoxActionPropertyChangeListener;
-            ComboBoxActionPropertyChangeListener["__classname"] = "javax.swing.JComboBox.ComboBoxActionPropertyChangeListener";
+            ComboBoxActionPropertyChangeListener["__class"] = "javax.swing.JComboBox.ComboBoxActionPropertyChangeListener";
+            ComboBoxActionPropertyChangeListener["__interfaces"] = ["java.util.EventListener", "java.beans.PropertyChangeListener", "java.io.Serializable"];
             var DefaultKeySelectionManager = (function () {
                 function DefaultKeySelectionManager(__parent) {
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.JComboBox.KeySelectionManager", "java.io.Serializable"] });
                     this.__parent = __parent;
                 }
                 DefaultKeySelectionManager.prototype.selectionForKey = function (aKey, aModel) {
@@ -37306,7 +37207,8 @@ var javax;
                 return DefaultKeySelectionManager;
             }());
             JComboBox.DefaultKeySelectionManager = DefaultKeySelectionManager;
-            DefaultKeySelectionManager["__classname"] = "javax.swing.JComboBox.DefaultKeySelectionManager";
+            DefaultKeySelectionManager["__class"] = "javax.swing.JComboBox.DefaultKeySelectionManager";
+            DefaultKeySelectionManager["__interfaces"] = ["javax.swing.JComboBox.KeySelectionManager", "java.io.Serializable"];
         })(JComboBox = swing.JComboBox || (swing.JComboBox = {}));
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
@@ -37319,10 +37221,9 @@ var javax;
             __extends(JLabel, _super);
             function JLabel(text, icon, horizontalAlignment) {
                 var _this = this;
-                if (((typeof text === 'string') || text === null) && ((icon != null && icon["__interfaces"] != null && icon["__interfaces"].indexOf("javax.swing.Icon") >= 0) || icon === null) && ((typeof horizontalAlignment === 'number') || horizontalAlignment === null)) {
+                if (((typeof text === 'string') || text === null) && ((icon != null && (icon["__interfaces"] != null && icon["__interfaces"].indexOf("javax.swing.Icon") >= 0 || icon.constructor != null && icon.constructor["__interfaces"] != null && icon.constructor["__interfaces"].indexOf("javax.swing.Icon") >= 0)) || icon === null) && ((typeof horizontalAlignment === 'number') || horizontalAlignment === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     _super.call(this);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                     this.mnemonic = 0;
                     this.mnemonicIndex = 0;
                     this.disabledIconSet = false;
@@ -37356,7 +37257,6 @@ var javax;
                         var __args_46 = Array.prototype.slice.call(arguments);
                         var icon_1 = null;
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         this.mnemonic = 0;
                         this.mnemonicIndex = 0;
                         this.disabledIconSet = false;
@@ -37384,7 +37284,7 @@ var javax;
                         })();
                     }
                 }
-                else if (((text != null && text["__interfaces"] != null && text["__interfaces"].indexOf("javax.swing.Icon") >= 0) || text === null) && ((typeof icon === 'number') || icon === null) && horizontalAlignment === undefined) {
+                else if (((text != null && (text["__interfaces"] != null && text["__interfaces"].indexOf("javax.swing.Icon") >= 0 || text.constructor != null && text.constructor["__interfaces"] != null && text.constructor["__interfaces"].indexOf("javax.swing.Icon") >= 0)) || text === null) && ((typeof icon === 'number') || icon === null) && horizontalAlignment === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     var image = __args[0];
                     var horizontalAlignment_2 = __args[1];
@@ -37393,7 +37293,6 @@ var javax;
                         var text_2 = null;
                         var icon_2 = image;
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         this.mnemonic = 0;
                         this.mnemonicIndex = 0;
                         this.disabledIconSet = false;
@@ -37428,7 +37327,6 @@ var javax;
                         var icon_3 = null;
                         var horizontalAlignment_3 = javax.swing.SwingConstants.LEADING;
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         this.mnemonic = 0;
                         this.mnemonicIndex = 0;
                         this.disabledIconSet = false;
@@ -37456,7 +37354,7 @@ var javax;
                         })();
                     }
                 }
-                else if (((text != null && text["__interfaces"] != null && text["__interfaces"].indexOf("javax.swing.Icon") >= 0) || text === null) && icon === undefined && horizontalAlignment === undefined) {
+                else if (((text != null && (text["__interfaces"] != null && text["__interfaces"].indexOf("javax.swing.Icon") >= 0 || text.constructor != null && text.constructor["__interfaces"] != null && text.constructor["__interfaces"].indexOf("javax.swing.Icon") >= 0)) || text === null) && icon === undefined && horizontalAlignment === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     var image = __args[0];
                     {
@@ -37465,7 +37363,6 @@ var javax;
                         var icon_4 = image;
                         var horizontalAlignment_4 = javax.swing.SwingConstants.CENTER;
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         this.mnemonic = 0;
                         this.mnemonicIndex = 0;
                         this.disabledIconSet = false;
@@ -37501,7 +37398,6 @@ var javax;
                         var icon_5 = null;
                         var horizontalAlignment_5 = javax.swing.SwingConstants.LEADING;
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         this.mnemonic = 0;
                         this.mnemonicIndex = 0;
                         this.disabledIconSet = false;
@@ -37779,7 +37675,8 @@ var javax;
             return JLabel;
         }(javax.swing.JComponent));
         swing.JLabel = JLabel;
-        JLabel["__classname"] = "javax.swing.JLabel";
+        JLabel["__class"] = "javax.swing.JLabel";
+        JLabel["__interfaces"] = ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"];
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -38038,7 +37935,7 @@ var javax;
              */
             function JList(dataModel) {
                 var _this = this;
-                if (((dataModel != null && dataModel["__interfaces"] != null && dataModel["__interfaces"].indexOf("javax.swing.ListModel") >= 0) || dataModel === null)) {
+                if (((dataModel != null && (dataModel["__interfaces"] != null && dataModel["__interfaces"].indexOf("javax.swing.ListModel") >= 0 || dataModel.constructor != null && dataModel.constructor["__interfaces"] != null && dataModel.constructor["__interfaces"].indexOf("javax.swing.ListModel") >= 0)) || dataModel === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     _super.call(this);
                     this.fixedCellWidth = -1;
@@ -38046,7 +37943,6 @@ var javax;
                     this.horizontalScrollIncrement = -1;
                     this.visibleRowCount = 8;
                     this.dropMode = javax.swing.DropMode.USE_SELECTION;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
                     this.dragEnabled = false;
                     this.layoutOrientation = 0;
                     (function () {
@@ -38070,7 +37966,6 @@ var javax;
                         this.horizontalScrollIncrement = -1;
                         this.visibleRowCount = 8;
                         this.dropMode = javax.swing.DropMode.USE_SELECTION;
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
                         this.dragEnabled = false;
                         this.layoutOrientation = 0;
                         (function () {
@@ -38095,7 +37990,6 @@ var javax;
                         this.horizontalScrollIncrement = -1;
                         this.visibleRowCount = 8;
                         this.dropMode = javax.swing.DropMode.USE_SELECTION;
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
                         this.dragEnabled = false;
                         this.layoutOrientation = 0;
                         (function () {
@@ -38119,7 +38013,6 @@ var javax;
                         this.horizontalScrollIncrement = -1;
                         this.visibleRowCount = 8;
                         this.dropMode = javax.swing.DropMode.USE_SELECTION;
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
                         this.dragEnabled = false;
                         this.layoutOrientation = 0;
                         (function () {
@@ -39438,12 +39331,12 @@ var javax;
             return JList;
         }(javax.swing.JComponent));
         swing.JList = JList;
-        JList["__classname"] = "javax.swing.JList";
+        JList["__class"] = "javax.swing.JList";
+        JList["__interfaces"] = ["java.awt.HTMLComponent", "java.io.Serializable"];
         var JList;
         (function (JList) {
             var ListSelectionHandler = (function () {
                 function ListSelectionHandler(__parent) {
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "javax.swing.event.ListSelectionListener", "java.io.Serializable"] });
                     this.__parent = __parent;
                 }
                 ListSelectionHandler.prototype.valueChanged = function (e) {
@@ -39452,13 +39345,13 @@ var javax;
                 return ListSelectionHandler;
             }());
             JList.ListSelectionHandler = ListSelectionHandler;
-            ListSelectionHandler["__classname"] = "javax.swing.JList.ListSelectionHandler";
+            ListSelectionHandler["__class"] = "javax.swing.JList.ListSelectionHandler";
+            ListSelectionHandler["__interfaces"] = ["java.util.EventListener", "javax.swing.event.ListSelectionListener", "java.io.Serializable"];
             var JList$0 = (function (_super) {
                 __extends(JList$0, _super);
                 function JList$0(__parent, listData) {
                     _super.call(this);
                     this.listData = listData;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.ListModel", "java.io.Serializable"] });
                     this.__parent = __parent;
                 }
                 JList$0.prototype.getSize = function () {
@@ -39475,7 +39368,6 @@ var javax;
                 function JList$1(__parent, listData) {
                     _super.call(this);
                     this.listData = listData;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.ListModel", "java.io.Serializable"] });
                     this.__parent = __parent;
                 }
                 JList$1.prototype.getSize = function () {
@@ -39491,7 +39383,6 @@ var javax;
                 __extends(JList$2, _super);
                 function JList$2(__parent) {
                     _super.call(this);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.ListModel", "java.io.Serializable"] });
                     this.__parent = __parent;
                 }
                 JList$2.prototype.getSize = function () {
@@ -39508,7 +39399,6 @@ var javax;
                 function JList$3(__parent, listData) {
                     _super.call(this);
                     this.listData = listData;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.ListModel", "java.io.Serializable"] });
                     this.__parent = __parent;
                 }
                 JList$3.prototype.getSize = function () {
@@ -39525,7 +39415,6 @@ var javax;
                 function JList$4(__parent, listData) {
                     _super.call(this);
                     this.listData = listData;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["javax.swing.ListModel", "java.io.Serializable"] });
                     this.__parent = __parent;
                 }
                 JList$4.prototype.getSize = function () {
@@ -39559,21 +39448,19 @@ var javax;
              */
             function JPanel(layout, isDoubleBuffered) {
                 var _this = this;
-                if (((layout != null && layout["__interfaces"] != null && layout["__interfaces"].indexOf("java.awt.LayoutManager") >= 0) || layout === null) && ((typeof isDoubleBuffered === 'boolean') || isDoubleBuffered === null)) {
+                if (((layout != null && (layout["__interfaces"] != null && layout["__interfaces"].indexOf("java.awt.LayoutManager") >= 0 || layout.constructor != null && layout.constructor["__interfaces"] != null && layout.constructor["__interfaces"].indexOf("java.awt.LayoutManager") >= 0)) || layout === null) && ((typeof isDoubleBuffered === 'boolean') || isDoubleBuffered === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     _super.call(this);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
                     (function () {
                         _this.setLayout(layout);
                     })();
                 }
-                else if (((layout != null && layout["__interfaces"] != null && layout["__interfaces"].indexOf("java.awt.LayoutManager") >= 0) || layout === null) && isDoubleBuffered === undefined) {
+                else if (((layout != null && (layout["__interfaces"] != null && layout["__interfaces"].indexOf("java.awt.LayoutManager") >= 0 || layout.constructor != null && layout.constructor["__interfaces"] != null && layout.constructor["__interfaces"].indexOf("java.awt.LayoutManager") >= 0)) || layout === null) && isDoubleBuffered === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
                         var __args_54 = Array.prototype.slice.call(arguments);
                         var isDoubleBuffered_1 = true;
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
                         (function () {
                             _this.setLayout(layout);
                         })();
@@ -39586,7 +39473,6 @@ var javax;
                         var __args_55 = Array.prototype.slice.call(arguments);
                         var layout_2 = new java.awt.FlowLayout();
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
                         (function () {
                             _this.setLayout(layout_2);
                         })();
@@ -39601,7 +39487,6 @@ var javax;
                             var __args_57 = Array.prototype.slice.call(arguments);
                             var layout_3 = new java.awt.FlowLayout();
                             _super.call(this);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
                             (function () {
                                 _this.setLayout(layout_3);
                             })();
@@ -39685,7 +39570,8 @@ var javax;
             return JPanel;
         }(javax.swing.JComponent));
         swing.JPanel = JPanel;
-        JPanel["__classname"] = "javax.swing.JPanel";
+        JPanel["__class"] = "javax.swing.JPanel";
+        JPanel["__interfaces"] = ["java.awt.HTMLComponent", "java.io.Serializable"];
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -39701,7 +39587,6 @@ var javax;
              */
             function JRootPane() {
                 _super.call(this);
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
                 this.windowDecorationStyle = 0;
                 this.setLayout(new java.awt.NoLayout());
                 this.setContentPane(this.createContentPane());
@@ -39898,7 +39783,8 @@ var javax;
             return JRootPane;
         }(javax.swing.JComponent));
         swing.JRootPane = JRootPane;
-        JRootPane["__classname"] = "javax.swing.JRootPane";
+        JRootPane["__class"] = "javax.swing.JRootPane";
+        JRootPane["__interfaces"] = ["java.awt.HTMLComponent", "java.io.Serializable"];
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -39961,7 +39847,6 @@ var javax;
                 if (orientation === void 0) { orientation = javax.swing.SwingConstants.HORIZONTAL; }
                 _super.call(this);
                 this.orientation = javax.swing.SwingConstants.HORIZONTAL;
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
                 this.checkOrientation(orientation);
                 this.orientation = orientation;
             }
@@ -40052,7 +39937,8 @@ var javax;
             return JSeparator;
         }(javax.swing.JComponent));
         swing.JSeparator = JSeparator;
-        JSeparator["__classname"] = "javax.swing.JSeparator";
+        JSeparator["__class"] = "javax.swing.JSeparator";
+        JSeparator["__interfaces"] = ["java.awt.HTMLComponent", "java.io.Serializable"];
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -40075,7 +39961,6 @@ var javax;
                     this.snapToValue = true;
                     this.changeListener = this.createChangeListener();
                     this.changeEvent = null;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                     this.majorTickSpacing = 0;
                     this.minorTickSpacing = 0;
                     this.orientation = 0;
@@ -40102,7 +39987,6 @@ var javax;
                         this.snapToValue = true;
                         this.changeListener = this.createChangeListener();
                         this.changeEvent = null;
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         this.majorTickSpacing = 0;
                         this.minorTickSpacing = 0;
                         this.orientation = 0;
@@ -40130,7 +40014,6 @@ var javax;
                         this.snapToValue = true;
                         this.changeListener = this.createChangeListener();
                         this.changeEvent = null;
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         this.majorTickSpacing = 0;
                         this.minorTickSpacing = 0;
                         this.orientation = 0;
@@ -40141,7 +40024,7 @@ var javax;
                         })();
                     }
                 }
-                else if (((orientation != null && orientation["__interfaces"] != null && orientation["__interfaces"].indexOf("javax.swing.BoundedRangeModel") >= 0) || orientation === null) && min === undefined && max === undefined && value === undefined) {
+                else if (((orientation != null && (orientation["__interfaces"] != null && orientation["__interfaces"].indexOf("javax.swing.BoundedRangeModel") >= 0 || orientation.constructor != null && orientation.constructor["__interfaces"] != null && orientation.constructor["__interfaces"].indexOf("javax.swing.BoundedRangeModel") >= 0)) || orientation === null) && min === undefined && max === undefined && value === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     var brm_1 = __args[0];
                     _super.call(this);
@@ -40153,7 +40036,6 @@ var javax;
                     this.snapToValue = true;
                     this.changeListener = this.createChangeListener();
                     this.changeEvent = null;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                     this.majorTickSpacing = 0;
                     this.minorTickSpacing = 0;
                     this.orientation = 0;
@@ -40178,7 +40060,6 @@ var javax;
                         this.snapToValue = true;
                         this.changeListener = this.createChangeListener();
                         this.changeEvent = null;
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         this.majorTickSpacing = 0;
                         this.minorTickSpacing = 0;
                         this.orientation = 0;
@@ -40206,7 +40087,6 @@ var javax;
                         this.snapToValue = true;
                         this.changeListener = this.createChangeListener();
                         this.changeEvent = null;
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         this.majorTickSpacing = 0;
                         this.minorTickSpacing = 0;
                         this.orientation = 0;
@@ -40493,12 +40373,12 @@ var javax;
             return JSlider;
         }(javax.swing.JComponent));
         swing.JSlider = JSlider;
-        JSlider["__classname"] = "javax.swing.JSlider";
+        JSlider["__class"] = "javax.swing.JSlider";
+        JSlider["__interfaces"] = ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"];
         var JSlider;
         (function (JSlider) {
             var ModelListener = (function () {
                 function ModelListener(__parent) {
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "javax.swing.event.ChangeListener", "java.io.Serializable"] });
                     this.__parent = __parent;
                 }
                 ModelListener.prototype.stateChanged = function (e) {
@@ -40507,7 +40387,8 @@ var javax;
                 return ModelListener;
             }());
             JSlider.ModelListener = ModelListener;
-            ModelListener["__classname"] = "javax.swing.JSlider.ModelListener";
+            ModelListener["__class"] = "javax.swing.JSlider.ModelListener";
+            ModelListener["__interfaces"] = ["java.util.EventListener", "javax.swing.event.ChangeListener", "java.io.Serializable"];
         })(JSlider = swing.JSlider || (swing.JSlider = {}));
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
@@ -40524,7 +40405,6 @@ var javax;
                     _super.call(this);
                     this.text = "";
                     this.editable = true;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
                 }
                 JTextComponent.prototype.getText = function () {
                     return this.text;
@@ -40541,7 +40421,8 @@ var javax;
                 return JTextComponent;
             }(javax.swing.JComponent));
             text_6.JTextComponent = JTextComponent;
-            JTextComponent["__classname"] = "javax.swing.text.JTextComponent";
+            JTextComponent["__class"] = "javax.swing.text.JTextComponent";
+            JTextComponent["__interfaces"] = ["java.awt.HTMLComponent", "java.io.Serializable"];
         })(text = swing.text || (swing.text = {}));
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
@@ -40589,7 +40470,6 @@ var javax;
                  */
                 function MenuKeyEvent(source, id, when, modifiers, keyCode, keyChar, p, m) {
                     _super.call(this, source, id, when, modifiers, keyCode, keyChar);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                     this.path = p;
                     this.manager = m;
                 }
@@ -40612,7 +40492,8 @@ var javax;
                 return MenuKeyEvent;
             }(java.awt.event.KeyEvent));
             event.MenuKeyEvent = MenuKeyEvent;
-            MenuKeyEvent["__classname"] = "javax.swing.event.MenuKeyEvent";
+            MenuKeyEvent["__class"] = "javax.swing.event.MenuKeyEvent";
+            MenuKeyEvent["__interfaces"] = ["java.io.Serializable"];
         })(event = swing.event || (swing.event = {}));
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
@@ -41258,7 +41139,7 @@ var sun;
             return ExtendedKeyCodes;
         }());
         awt.ExtendedKeyCodes = ExtendedKeyCodes;
-        ExtendedKeyCodes["__classname"] = "sun.awt.ExtendedKeyCodes";
+        ExtendedKeyCodes["__class"] = "sun.awt.ExtendedKeyCodes";
     })(awt = sun.awt || (sun.awt = {}));
 })(sun || (sun = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -41388,7 +41269,6 @@ var java;
                     if (((source != null && source instanceof java.awt.Component) || source === null) && ((typeof id === 'number') || id === null) && ((typeof when === 'number') || when === null) && ((typeof modifiers === 'number') || modifiers === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof xAbs === 'number') || xAbs === null) && ((typeof yAbs === 'number') || yAbs === null) && ((typeof clickCount === 'number') || clickCount === null) && ((typeof popupTrigger === 'boolean') || popupTrigger === null) && ((typeof scrollType === 'number') || scrollType === null) && ((typeof scrollAmount === 'number') || scrollAmount === null) && ((typeof wheelRotation === 'number') || wheelRotation === null) && ((typeof preciseWheelRotation === 'number') || preciseWheelRotation === null)) {
                         var __args = Array.prototype.slice.call(arguments);
                         _super.call(this, source, id, when, modifiers, x, y, xAbs, yAbs, clickCount, popupTrigger, java.awt.event.MouseEvent.NOBUTTON);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                         this.scrollType = 0;
                         this.scrollAmount = 0;
                         this.wheelRotation = 0;
@@ -41406,7 +41286,6 @@ var java;
                             var __args_62 = Array.prototype.slice.call(arguments);
                             var preciseWheelRotation_1 = __args_62[12];
                             _super.call(this, source, id, when, modifiers, x, y, xAbs, yAbs, clickCount, popupTrigger, java.awt.event.MouseEvent.NOBUTTON);
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                             this.scrollType = 0;
                             this.scrollAmount = 0;
                             this.wheelRotation = 0;
@@ -41434,7 +41313,6 @@ var java;
                                 var __args_64 = Array.prototype.slice.call(arguments);
                                 var preciseWheelRotation_2 = __args_64[12];
                                 _super.call(this, source, id, when, modifiers, x, y, xAbs_3, yAbs_3, clickCount_3, popupTrigger_3, java.awt.event.MouseEvent.NOBUTTON);
-                                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.io.Serializable"] });
                                 this.scrollType = 0;
                                 this.scrollAmount = 0;
                                 this.wheelRotation = 0;
@@ -41598,7 +41476,8 @@ var java;
                 return MouseWheelEvent;
             }(java.awt.event.MouseEvent));
             event.MouseWheelEvent = MouseWheelEvent;
-            MouseWheelEvent["__classname"] = "java.awt.event.MouseWheelEvent";
+            MouseWheelEvent["__class"] = "java.awt.event.MouseWheelEvent";
+            MouseWheelEvent["__interfaces"] = ["java.io.Serializable"];
         })(event = awt.event || (awt.event = {}));
     })(awt = java.awt || (java.awt = {}));
 })(java || (java = {}));
@@ -41618,7 +41497,7 @@ var javax;
              * This constructor sets the component's locale property to the value
              * returned by <code>JComponent.getDefaultLocale</code>.
              *
-             * @exception HeadlessException
+             * @exception java.awt.HeadlessException
              * if GraphicsEnvironment.isHeadless() returns true.
              * @see java.awt.GraphicsEnvironment#isHeadless
              * @see JComponent#getDefaultLocale
@@ -41635,7 +41514,6 @@ var javax;
                  * @see javax.swing.RootPaneContainer
                  */
                 this.rootPaneCheckingEnabled = false;
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.RootPaneContainer"] });
                 this.setForeground(java.awt.Color.black_$LI$());
                 this.setBackground(java.awt.Color.white_$LI$());
                 this.setLayout(new java.awt.BorderLayout());
@@ -41790,7 +41668,8 @@ var javax;
             return JApplet;
         }(java.applet.Applet));
         swing.JApplet = JApplet;
-        JApplet["__classname"] = "javax.swing.JApplet";
+        JApplet["__class"] = "javax.swing.JApplet";
+        JApplet["__interfaces"] = ["java.awt.HTMLComponent", "javax.swing.RootPaneContainer"];
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -41807,7 +41686,6 @@ var javax;
                     _super.call(this, title);
                     this.defaultCloseOperation = javax.swing.WindowConstants.HIDE_ON_CLOSE;
                     this.rootPaneCheckingEnabled = false;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.RootPaneContainer", "javax.swing.WindowConstants"] });
                     (function () {
                         _this.frameInit();
                     })();
@@ -41817,7 +41695,6 @@ var javax;
                     _super.call(this);
                     this.defaultCloseOperation = javax.swing.WindowConstants.HIDE_ON_CLOSE;
                     this.rootPaneCheckingEnabled = false;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.RootPaneContainer", "javax.swing.WindowConstants"] });
                 }
                 else
                     throw new Error('invalid overload');
@@ -41868,7 +41745,8 @@ var javax;
             return JFrame;
         }(java.awt.Frame));
         swing.JFrame = JFrame;
-        JFrame["__classname"] = "javax.swing.JFrame";
+        JFrame["__class"] = "javax.swing.JFrame";
+        JFrame["__interfaces"] = ["java.awt.HTMLComponent", "javax.swing.RootPaneContainer", "javax.swing.WindowConstants"];
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -41880,7 +41758,6 @@ var javax;
             __extends(JButton, _super);
             function JButton(label) {
                 _super.call(this);
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                 this.label = label;
                 this.actionCommand = label;
             }
@@ -41920,7 +41797,8 @@ var javax;
             return JButton;
         }(javax.swing.AbstractButton));
         swing.JButton = JButton;
-        JButton["__classname"] = "javax.swing.JButton";
+        JButton["__class"] = "javax.swing.JButton";
+        JButton["__interfaces"] = ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"];
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -41983,11 +41861,10 @@ var javax;
              */
             function JMenuItem(text, icon) {
                 var _this = this;
-                if (((typeof text === 'string') || text === null) && ((icon != null && icon["__interfaces"] != null && icon["__interfaces"].indexOf("javax.swing.Icon") >= 0) || icon === null)) {
+                if (((typeof text === 'string') || text === null) && ((icon != null && (icon["__interfaces"] != null && icon["__interfaces"].indexOf("javax.swing.Icon") >= 0 || icon.constructor != null && icon.constructor["__interfaces"] != null && icon.constructor["__interfaces"].indexOf("javax.swing.Icon") >= 0)) || icon === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     _super.call(this);
                     this.isMouseDragged = false;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"] });
                     (function () {
                         _this.setModel(new javax.swing.DefaultButtonModel());
                         _this.init(text, icon);
@@ -41998,14 +41875,13 @@ var javax;
                     var mnemonic_1 = __args[1];
                     _super.call(this);
                     this.isMouseDragged = false;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"] });
                     (function () {
                         _this.setModel(new javax.swing.DefaultButtonModel());
                         _this.init(text, null);
                         _this.setMnemonic(mnemonic_1);
                     })();
                 }
-                else if (((text != null && text["__interfaces"] != null && text["__interfaces"].indexOf("javax.swing.Icon") >= 0) || text === null) && icon === undefined) {
+                else if (((text != null && (text["__interfaces"] != null && text["__interfaces"].indexOf("javax.swing.Icon") >= 0 || text.constructor != null && text.constructor["__interfaces"] != null && text.constructor["__interfaces"].indexOf("javax.swing.Icon") >= 0)) || text === null) && icon === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     var icon_6 = __args[0];
                     {
@@ -42013,7 +41889,6 @@ var javax;
                         var text_7 = null;
                         _super.call(this);
                         this.isMouseDragged = false;
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         (function () {
                             _this.setModel(new javax.swing.DefaultButtonModel());
                             _this.init(text_7, icon_6);
@@ -42027,14 +41902,13 @@ var javax;
                         var icon_7 = null;
                         _super.call(this);
                         this.isMouseDragged = false;
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         (function () {
                             _this.setModel(new javax.swing.DefaultButtonModel());
                             _this.init(text, icon_7);
                         })();
                     }
                 }
-                else if (((text != null && text["__interfaces"] != null && text["__interfaces"].indexOf("javax.swing.Action") >= 0) || text === null) && icon === undefined) {
+                else if (((text != null && (text["__interfaces"] != null && text["__interfaces"].indexOf("javax.swing.Action") >= 0 || text.constructor != null && text.constructor["__interfaces"] != null && text.constructor["__interfaces"].indexOf("javax.swing.Action") >= 0)) || text === null) && icon === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     var a_5 = __args[0];
                     {
@@ -42045,7 +41919,6 @@ var javax;
                             var icon_8 = null;
                             _super.call(this);
                             this.isMouseDragged = false;
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"] });
                             (function () {
                                 _this.setModel(new javax.swing.DefaultButtonModel());
                                 _this.init(text_8, icon_8);
@@ -42064,7 +41937,6 @@ var javax;
                         var icon_9 = null;
                         _super.call(this);
                         this.isMouseDragged = false;
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         (function () {
                             _this.setModel(new javax.swing.DefaultButtonModel());
                             _this.init(text_9, icon_9);
@@ -42332,12 +42204,12 @@ var javax;
             return JMenuItem;
         }(javax.swing.AbstractButton));
         swing.JMenuItem = JMenuItem;
-        JMenuItem["__classname"] = "javax.swing.JMenuItem";
+        JMenuItem["__class"] = "javax.swing.JMenuItem";
+        JMenuItem["__interfaces"] = ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"];
         var JMenuItem;
         (function (JMenuItem) {
             var MenuItemFocusListener = (function () {
                 function MenuItemFocusListener() {
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "java.awt.event.FocusListener", "java.io.Serializable"] });
                 }
                 MenuItemFocusListener.prototype.focusGained = function (event) {
                 };
@@ -42350,7 +42222,8 @@ var javax;
                 return MenuItemFocusListener;
             }());
             JMenuItem.MenuItemFocusListener = MenuItemFocusListener;
-            MenuItemFocusListener["__classname"] = "javax.swing.JMenuItem.MenuItemFocusListener";
+            MenuItemFocusListener["__class"] = "javax.swing.JMenuItem.MenuItemFocusListener";
+            MenuItemFocusListener["__interfaces"] = ["java.util.EventListener", "java.awt.event.FocusListener", "java.io.Serializable"];
         })(JMenuItem = swing.JMenuItem || (swing.JMenuItem = {}));
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
@@ -42363,25 +42236,23 @@ var javax;
             __extends(JToggleButton, _super);
             function JToggleButton(text, icon, selected) {
                 var _this = this;
-                if (((typeof text === 'string') || text === null) && ((icon != null && icon["__interfaces"] != null && icon["__interfaces"].indexOf("javax.swing.Icon") >= 0) || icon === null) && ((typeof selected === 'boolean') || selected === null)) {
+                if (((typeof text === 'string') || text === null) && ((icon != null && (icon["__interfaces"] != null && icon["__interfaces"].indexOf("javax.swing.Icon") >= 0 || icon.constructor != null && icon.constructor["__interfaces"] != null && icon.constructor["__interfaces"].indexOf("javax.swing.Icon") >= 0)) || icon === null) && ((typeof selected === 'boolean') || selected === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     _super.call(this);
                     this.buttonCreated = false;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                     (function () {
                         _this.setModel(new JToggleButton.ToggleButtonModel());
                         _this.model.setSelected(selected);
                         _this.init(text, icon);
                     })();
                 }
-                else if (((typeof text === 'string') || text === null) && ((icon != null && icon["__interfaces"] != null && icon["__interfaces"].indexOf("javax.swing.Icon") >= 0) || icon === null) && selected === undefined) {
+                else if (((typeof text === 'string') || text === null) && ((icon != null && (icon["__interfaces"] != null && icon["__interfaces"].indexOf("javax.swing.Icon") >= 0 || icon.constructor != null && icon.constructor["__interfaces"] != null && icon.constructor["__interfaces"].indexOf("javax.swing.Icon") >= 0)) || icon === null) && selected === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     {
                         var __args_70 = Array.prototype.slice.call(arguments);
                         var selected_1 = false;
                         _super.call(this);
                         this.buttonCreated = false;
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         (function () {
                             _this.setModel(new JToggleButton.ToggleButtonModel());
                             _this.model.setSelected(selected_1);
@@ -42389,7 +42260,7 @@ var javax;
                         })();
                     }
                 }
-                else if (((text != null && text["__interfaces"] != null && text["__interfaces"].indexOf("javax.swing.Icon") >= 0) || text === null) && ((typeof icon === 'boolean') || icon === null) && selected === undefined) {
+                else if (((text != null && (text["__interfaces"] != null && text["__interfaces"].indexOf("javax.swing.Icon") >= 0 || text.constructor != null && text.constructor["__interfaces"] != null && text.constructor["__interfaces"].indexOf("javax.swing.Icon") >= 0)) || text === null) && ((typeof icon === 'boolean') || icon === null) && selected === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     var icon_10 = __args[0];
                     var selected_2 = __args[1];
@@ -42398,7 +42269,6 @@ var javax;
                         var text_10 = null;
                         _super.call(this);
                         this.buttonCreated = false;
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         (function () {
                             _this.setModel(new JToggleButton.ToggleButtonModel());
                             _this.model.setSelected(selected_2);
@@ -42414,7 +42284,6 @@ var javax;
                         var icon_11 = null;
                         _super.call(this);
                         this.buttonCreated = false;
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         (function () {
                             _this.setModel(new JToggleButton.ToggleButtonModel());
                             _this.model.setSelected(selected_3);
@@ -42422,7 +42291,7 @@ var javax;
                         })();
                     }
                 }
-                else if (((text != null && text["__interfaces"] != null && text["__interfaces"].indexOf("javax.swing.Icon") >= 0) || text === null) && icon === undefined && selected === undefined) {
+                else if (((text != null && (text["__interfaces"] != null && text["__interfaces"].indexOf("javax.swing.Icon") >= 0 || text.constructor != null && text.constructor["__interfaces"] != null && text.constructor["__interfaces"].indexOf("javax.swing.Icon") >= 0)) || text === null) && icon === undefined && selected === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     var icon_12 = __args[0];
                     {
@@ -42431,7 +42300,6 @@ var javax;
                         var selected_4 = false;
                         _super.call(this);
                         this.buttonCreated = false;
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         (function () {
                             _this.setModel(new JToggleButton.ToggleButtonModel());
                             _this.model.setSelected(selected_4);
@@ -42447,7 +42315,6 @@ var javax;
                         var selected_5 = false;
                         _super.call(this);
                         this.buttonCreated = false;
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         (function () {
                             _this.setModel(new JToggleButton.ToggleButtonModel());
                             _this.model.setSelected(selected_5);
@@ -42455,7 +42322,7 @@ var javax;
                         })();
                     }
                 }
-                else if (((text != null && text["__interfaces"] != null && text["__interfaces"].indexOf("javax.swing.Action") >= 0) || text === null) && icon === undefined && selected === undefined) {
+                else if (((text != null && (text["__interfaces"] != null && text["__interfaces"].indexOf("javax.swing.Action") >= 0 || text.constructor != null && text.constructor["__interfaces"] != null && text.constructor["__interfaces"].indexOf("javax.swing.Action") >= 0)) || text === null) && icon === undefined && selected === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     var a_6 = __args[0];
                     {
@@ -42467,7 +42334,6 @@ var javax;
                             var selected_6 = false;
                             _super.call(this);
                             this.buttonCreated = false;
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                             (function () {
                                 _this.setModel(new JToggleButton.ToggleButtonModel());
                                 _this.model.setSelected(selected_6);
@@ -42488,7 +42354,6 @@ var javax;
                         var selected_7 = false;
                         _super.call(this);
                         this.buttonCreated = false;
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         (function () {
                             _this.setModel(new JToggleButton.ToggleButtonModel());
                             _this.model.setSelected(selected_7);
@@ -42519,7 +42384,8 @@ var javax;
             return JToggleButton;
         }(javax.swing.AbstractButton));
         swing.JToggleButton = JToggleButton;
-        JToggleButton["__classname"] = "javax.swing.JToggleButton";
+        JToggleButton["__class"] = "javax.swing.JToggleButton";
+        JToggleButton["__interfaces"] = ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"];
         var JToggleButton;
         (function (JToggleButton) {
             var ToggleButtonModel = (function (_super) {
@@ -42529,7 +42395,6 @@ var javax;
                  */
                 function ToggleButtonModel() {
                     _super.call(this);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "javax.swing.ButtonModel", "java.io.Serializable"] });
                 }
                 /**
                  * Checks if the button is selected.
@@ -42587,7 +42452,8 @@ var javax;
                 return ToggleButtonModel;
             }(javax.swing.DefaultButtonModel));
             JToggleButton.ToggleButtonModel = ToggleButtonModel;
-            ToggleButtonModel["__classname"] = "javax.swing.JToggleButton.ToggleButtonModel";
+            ToggleButtonModel["__class"] = "javax.swing.JToggleButton.ToggleButtonModel";
+            ToggleButtonModel["__interfaces"] = ["java.awt.ItemSelectable", "javax.swing.ButtonModel", "java.io.Serializable"];
         })(JToggleButton = swing.JToggleButton || (swing.JToggleButton = {}));
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
@@ -42603,7 +42469,6 @@ var javax;
                 if (((doc != null) || doc === null) && ((typeof text === 'string') || text === null) && ((typeof rows === 'number') || rows === null) && ((typeof columns === 'number') || columns === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     _super.call(this);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
                     this.rows = 0;
                     this.columns = 0;
                     this.columnWidth = 0;
@@ -42633,7 +42498,6 @@ var javax;
                         var __args_78 = Array.prototype.slice.call(arguments);
                         var doc_1 = null;
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
                         this.rows = 0;
                         this.columns = 0;
                         this.columnWidth = 0;
@@ -42664,7 +42528,6 @@ var javax;
                         var doc_2 = null;
                         var text_15 = null;
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
                         this.rows = 0;
                         this.columns = 0;
                         this.columnWidth = 0;
@@ -42695,7 +42558,6 @@ var javax;
                         var rows_3 = 0;
                         var columns_3 = 0;
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
                         this.rows = 0;
                         this.columns = 0;
                         this.columnWidth = 0;
@@ -42726,7 +42588,6 @@ var javax;
                         var rows_4 = 0;
                         var columns_4 = 0;
                         _super.call(this);
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
                         this.rows = 0;
                         this.columns = 0;
                         this.columnWidth = 0;
@@ -42848,7 +42709,8 @@ var javax;
             return JTextArea;
         }(javax.swing.text.JTextComponent));
         swing.JTextArea = JTextArea;
-        JTextArea["__classname"] = "javax.swing.JTextArea";
+        JTextArea["__class"] = "javax.swing.JTextArea";
+        JTextArea["__interfaces"] = ["java.awt.HTMLComponent", "java.io.Serializable"];
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
 /* Generated from Java with JSweet 1.2.0-SNAPSHOT - http://www.jsweet.org */
@@ -42864,7 +42726,6 @@ var javax;
                     var __args = Array.prototype.slice.call(arguments);
                     _super.call(this);
                     this.horizontalAlignment = javax.swing.SwingConstants.LEADING;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                     this.columns = 0;
                     this.columnWidth = 0;
                     (function () {
@@ -42886,7 +42747,6 @@ var javax;
                         var doc_5 = null;
                         _super.call(this);
                         this.horizontalAlignment = javax.swing.SwingConstants.LEADING;
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         this.columns = 0;
                         this.columnWidth = 0;
                         (function () {
@@ -42909,7 +42769,6 @@ var javax;
                         var columns_6 = 0;
                         _super.call(this);
                         this.horizontalAlignment = javax.swing.SwingConstants.LEADING;
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         this.columns = 0;
                         this.columnWidth = 0;
                         (function () {
@@ -42932,7 +42791,6 @@ var javax;
                         var text_20 = null;
                         _super.call(this);
                         this.horizontalAlignment = javax.swing.SwingConstants.LEADING;
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         this.columns = 0;
                         this.columnWidth = 0;
                         (function () {
@@ -42955,7 +42813,6 @@ var javax;
                         var columns_8 = 0;
                         _super.call(this);
                         this.horizontalAlignment = javax.swing.SwingConstants.LEADING;
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         this.columns = 0;
                         this.columnWidth = 0;
                         (function () {
@@ -43185,7 +43042,7 @@ var javax;
             };
             JTextField.prototype.isListener = function (c, a) {
                 var _this = this;
-                if (((c != null && c instanceof java.lang.Class) || c === null) && ((a != null && a["__interfaces"] != null && a["__interfaces"].indexOf("java.awt.event.ActionListener") >= 0) || a === null)) {
+                if (((c != null && c instanceof java.lang.Class) || c === null) && ((a != null && (a["__interfaces"] != null && a["__interfaces"].indexOf("java.awt.event.ActionListener") >= 0 || a.constructor != null && a.constructor["__interfaces"] != null && a.constructor["__interfaces"].indexOf("java.awt.event.ActionListener") >= 0)) || a === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         var isListener = false;
@@ -43198,7 +43055,7 @@ var javax;
                         return isListener;
                     })();
                 }
-                else if (((typeof c === 'string') || c === null) && ((a != null && a["__interfaces"] != null && a["__interfaces"].indexOf("java.awt.event.ActionListener") >= 0) || a === null)) {
+                else if (((typeof c === 'string') || c === null) && ((a != null && (a["__interfaces"] != null && a["__interfaces"].indexOf("java.awt.event.ActionListener") >= 0 || a.constructor != null && a.constructor["__interfaces"] != null && a.constructor["__interfaces"].indexOf("java.awt.event.ActionListener") >= 0)) || a === null)) {
                     return this.isListener$java_lang_String$java_awt_event_ActionListener(c, a);
                 }
                 else
@@ -43318,23 +43175,23 @@ var javax;
             return JTextField;
         }(javax.swing.text.JTextComponent));
         swing.JTextField = JTextField;
-        JTextField["__classname"] = "javax.swing.JTextField";
+        JTextField["__class"] = "javax.swing.JTextField";
+        JTextField["__interfaces"] = ["java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"];
         var JTextField;
         (function (JTextField) {
             var TextFieldActionPropertyChangeListener = (function (_super) {
                 __extends(TextFieldActionPropertyChangeListener, _super);
                 function TextFieldActionPropertyChangeListener(tf, a) {
                     _super.call(this, tf, a);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "java.beans.PropertyChangeListener", "java.io.Serializable"] });
                 }
                 TextFieldActionPropertyChangeListener.prototype.actionPropertyChanged = function (textField, action, e) {
-                    if (((textField != null && textField instanceof javax.swing.JTextField) || textField === null) && ((action != null && action["__interfaces"] != null && action["__interfaces"].indexOf("javax.swing.Action") >= 0) || action === null) && ((e != null && e instanceof java.beans.PropertyChangeEvent) || e === null)) {
+                    if (((textField != null && textField instanceof javax.swing.JTextField) || textField === null) && ((action != null && (action["__interfaces"] != null && action["__interfaces"].indexOf("javax.swing.Action") >= 0 || action.constructor != null && action.constructor["__interfaces"] != null && action.constructor["__interfaces"].indexOf("javax.swing.Action") >= 0)) || action === null) && ((e != null && e instanceof java.beans.PropertyChangeEvent) || e === null)) {
                         var __args = Array.prototype.slice.call(arguments);
                         return (function () {
                             textField.actionPropertyChanged(action, e.getPropertyName());
                         })();
                     }
-                    else if (((textField != null) || textField === null) && ((action != null && action["__interfaces"] != null && action["__interfaces"].indexOf("javax.swing.Action") >= 0) || action === null) && ((e != null && e instanceof java.beans.PropertyChangeEvent) || e === null)) {
+                    else if (((textField != null) || textField === null) && ((action != null && (action["__interfaces"] != null && action["__interfaces"].indexOf("javax.swing.Action") >= 0 || action.constructor != null && action.constructor["__interfaces"] != null && action.constructor["__interfaces"].indexOf("javax.swing.Action") >= 0)) || action === null) && ((e != null && e instanceof java.beans.PropertyChangeEvent) || e === null)) {
                         return this.actionPropertyChanged$javax_swing_JComponent$javax_swing_Action$java_beans_PropertyChangeEvent(textField, action, e);
                     }
                     else
@@ -43343,7 +43200,8 @@ var javax;
                 return TextFieldActionPropertyChangeListener;
             }(javax.swing.ActionPropertyChangeListener));
             JTextField.TextFieldActionPropertyChangeListener = TextFieldActionPropertyChangeListener;
-            TextFieldActionPropertyChangeListener["__classname"] = "javax.swing.JTextField.TextFieldActionPropertyChangeListener";
+            TextFieldActionPropertyChangeListener["__class"] = "javax.swing.JTextField.TextFieldActionPropertyChangeListener";
+            TextFieldActionPropertyChangeListener["__interfaces"] = ["java.util.EventListener", "java.beans.PropertyChangeListener", "java.io.Serializable"];
         })(JTextField = swing.JTextField || (swing.JTextField = {}));
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
@@ -43418,7 +43276,6 @@ var javax;
                         _super.call(this, s);
                         this.menuChangeListener = null;
                         this.menuEvent = null;
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         this.delay = 0;
                     }
                 }
@@ -43427,10 +43284,9 @@ var javax;
                     _super.call(this, s);
                     this.menuChangeListener = null;
                     this.menuEvent = null;
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"] });
                     this.delay = 0;
                 }
-                else if (((s != null && s["__interfaces"] != null && s["__interfaces"].indexOf("javax.swing.Action") >= 0) || s === null) && b === undefined) {
+                else if (((s != null && (s["__interfaces"] != null && s["__interfaces"].indexOf("javax.swing.Action") >= 0 || s.constructor != null && s.constructor["__interfaces"] != null && s.constructor["__interfaces"].indexOf("javax.swing.Action") >= 0)) || s === null) && b === undefined) {
                     var __args = Array.prototype.slice.call(arguments);
                     var a_7 = __args[0];
                     {
@@ -43441,7 +43297,6 @@ var javax;
                             _super.call(this, s_1);
                             this.menuChangeListener = null;
                             this.menuEvent = null;
-                            Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"] });
                             this.delay = 0;
                         }
                     }
@@ -43457,7 +43312,6 @@ var javax;
                         _super.call(this, s_2);
                         this.menuChangeListener = null;
                         this.menuEvent = null;
-                        Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"] });
                         this.delay = 0;
                     }
                 }
@@ -43739,7 +43593,7 @@ var javax;
                 else if (((s != null && s instanceof javax.swing.JMenuItem) || s === null) && ((typeof pos === 'number') || pos === null)) {
                     return this.insert$javax_swing_JMenuItem$int(s, pos);
                 }
-                else if (((s != null && s["__interfaces"] != null && s["__interfaces"].indexOf("javax.swing.Action") >= 0) || s === null) && ((typeof pos === 'number') || pos === null)) {
+                else if (((s != null && (s["__interfaces"] != null && s["__interfaces"].indexOf("javax.swing.Action") >= 0 || s.constructor != null && s.constructor["__interfaces"] != null && s.constructor["__interfaces"].indexOf("javax.swing.Action") >= 0)) || s === null) && ((typeof pos === 'number') || pos === null)) {
                     return this.insert$javax_swing_Action$int(s, pos);
                 }
                 else
@@ -44191,12 +44045,12 @@ var javax;
             return JMenu;
         }(javax.swing.JMenuItem));
         swing.JMenu = JMenu;
-        JMenu["__classname"] = "javax.swing.JMenu";
+        JMenu["__class"] = "javax.swing.JMenu";
+        JMenu["__interfaces"] = ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.MenuElement", "javax.swing.SwingConstants", "java.io.Serializable"];
         var JMenu;
         (function (JMenu) {
             var MenuChangeListener = (function () {
                 function MenuChangeListener(__parent) {
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.util.EventListener", "javax.swing.event.ChangeListener", "java.io.Serializable"] });
                     this.__parent = __parent;
                     this.isSelected = false;
                 }
@@ -44216,7 +44070,8 @@ var javax;
                 return MenuChangeListener;
             }());
             JMenu.MenuChangeListener = MenuChangeListener;
-            MenuChangeListener["__classname"] = "javax.swing.JMenu.MenuChangeListener";
+            MenuChangeListener["__class"] = "javax.swing.JMenu.MenuChangeListener";
+            MenuChangeListener["__interfaces"] = ["java.util.EventListener", "javax.swing.event.ChangeListener", "java.io.Serializable"];
         })(JMenu = swing.JMenu || (swing.JMenu = {}));
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
@@ -44270,7 +44125,6 @@ var javax;
                 this.label = null;
                 this.paintBorder = true;
                 this.margin = null;
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "javax.swing.MenuElement", "java.io.Serializable"] });
                 this.desiredLocationX = 0;
                 this.desiredLocationY = 0;
                 this.label = label;
@@ -44448,7 +44302,7 @@ var javax;
              */
             JPopupMenu.prototype.insert = function (a, index) {
                 var _this = this;
-                if (((a != null && a["__interfaces"] != null && a["__interfaces"].indexOf("javax.swing.Action") >= 0) || a === null) && ((typeof index === 'number') || index === null)) {
+                if (((a != null && (a["__interfaces"] != null && a["__interfaces"].indexOf("javax.swing.Action") >= 0 || a.constructor != null && a.constructor["__interfaces"] != null && a.constructor["__interfaces"].indexOf("javax.swing.Action") >= 0)) || a === null) && ((typeof index === 'number') || index === null)) {
                     var __args = Array.prototype.slice.call(arguments);
                     return (function () {
                         var mi = _this.createActionComponent(a);
@@ -44934,7 +44788,7 @@ var javax;
                 var m;
                 for (i = 0; i < c; i++) {
                     m = this.getComponent(i);
-                    if (m != null && m["__interfaces"] != null && m["__interfaces"].indexOf("javax.swing.MenuElement") >= 0)
+                    if (m != null && (m["__interfaces"] != null && m["__interfaces"].indexOf("javax.swing.MenuElement") >= 0 || m.constructor != null && m.constructor["__interfaces"] != null && m.constructor["__interfaces"].indexOf("javax.swing.MenuElement") >= 0))
                         tmp.addElement(m);
                 }
                 result = new Array(tmp.size());
@@ -44962,7 +44816,8 @@ var javax;
             return JPopupMenu;
         }(javax.swing.JComponent));
         swing.JPopupMenu = JPopupMenu;
-        JPopupMenu["__classname"] = "javax.swing.JPopupMenu";
+        JPopupMenu["__class"] = "javax.swing.JPopupMenu";
+        JPopupMenu["__interfaces"] = ["java.awt.HTMLComponent", "javax.swing.MenuElement", "java.io.Serializable"];
         var JPopupMenu;
         (function (JPopupMenu) {
             /**
@@ -44972,7 +44827,6 @@ var javax;
                 __extends(Separator, _super);
                 function Separator() {
                     _super.call(this, javax.swing.SwingConstants.HORIZONTAL);
-                    Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.HTMLComponent", "java.io.Serializable"] });
                 }
                 /**
                  * Returns the name of the L&amp;F class that renders this component.
@@ -44987,7 +44841,8 @@ var javax;
                 return Separator;
             }(javax.swing.JSeparator));
             JPopupMenu.Separator = Separator;
-            Separator["__classname"] = "javax.swing.JPopupMenu.Separator";
+            Separator["__class"] = "javax.swing.JPopupMenu.Separator";
+            Separator["__interfaces"] = ["java.awt.HTMLComponent", "java.io.Serializable"];
         })(JPopupMenu = swing.JPopupMenu || (swing.JPopupMenu = {}));
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
@@ -45002,7 +44857,6 @@ var javax;
                 if (label === void 0) { label = ""; }
                 if (state === void 0) { state = false; }
                 _super.call(this);
-                Object.defineProperty(this, '__interfaces', { configurable: true, value: ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"] });
                 this.state = false;
                 this.label = label;
                 this.state = state;
@@ -45118,7 +44972,8 @@ var javax;
             return JCheckBox;
         }(javax.swing.JToggleButton));
         swing.JCheckBox = JCheckBox;
-        JCheckBox["__classname"] = "javax.swing.JCheckBox";
+        JCheckBox["__class"] = "javax.swing.JCheckBox";
+        JCheckBox["__interfaces"] = ["java.awt.ItemSelectable", "java.awt.HTMLComponent", "javax.swing.SwingConstants", "java.io.Serializable"];
     })(swing = javax.swing || (javax.swing = {}));
 })(javax || (javax = {}));
 javax.swing.JPopupMenu.classLock_$LI$();

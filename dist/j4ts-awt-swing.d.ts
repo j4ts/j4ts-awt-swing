@@ -763,9 +763,8 @@ declare namespace java.awt {
          */
         getAlpha(): number;
         /**
-         * Returns the RGB value representing the color in the default sRGB
-         * {@link ColorModel}. (Bits 24-31 are alpha, 16-23 are red, 8-15 are green,
-         * 0-7 are blue).
+         * Returns the RGB value representing the color in the default sRGB. (Bits
+         * 24-31 are alpha, 16-23 are red, 8-15 are green, 0-7 are blue).
          *
          * @return the RGB value of the color in the default sRGB
          * <code>ColorModel</code>.
@@ -22032,7 +22031,7 @@ declare namespace javax.swing {
          * This constructor sets the component's locale property to the value
          * returned by <code>JComponent.getDefaultLocale</code>.
          *
-         * @exception HeadlessException
+         * @exception java.awt.HeadlessException
          * if GraphicsEnvironment.isHeadless() returns true.
          * @see java.awt.GraphicsEnvironment#isHeadless
          * @see JComponent#getDefaultLocale
