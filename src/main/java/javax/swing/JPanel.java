@@ -24,9 +24,9 @@
  */
 package javax.swing;
 
-import static jsweet.dom.Globals.console;
-import static jsweet.dom.Globals.document;
-import static jsweet.dom.Globals.window;
+import static def.dom.Globals.console;
+import static def.dom.Globals.document;
+import static def.dom.Globals.window;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -34,7 +34,7 @@ import java.awt.Graphics;
 import java.awt.LayoutManager;
 import java.awt.WebGraphics2D;
 
-import jsweet.dom.HTMLCanvasElement;
+import def.dom.HTMLCanvasElement;
 import jsweet.util.StringTypes;
 
 @SuppressWarnings("serial")

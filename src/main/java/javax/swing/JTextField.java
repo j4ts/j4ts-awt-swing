@@ -24,8 +24,8 @@
  */
 package javax.swing;
 
-import static jsweet.dom.Globals.document;
-import static jsweet.util.Globals.any;
+import static def.dom.Globals.document;
+import static jsweet.util.Lang.any;
 
 import java.awt.Dimension;
 import java.awt.Font;
@@ -37,7 +37,7 @@ import java.beans.PropertyChangeListener;
 import javax.swing.event.EventListenerList;
 import javax.swing.text.JTextComponent;
 
-import jsweet.dom.HTMLInputElement;
+import def.dom.HTMLInputElement;
 import jsweet.util.StringTypes;
 
 @SuppressWarnings("serial")

@@ -25,14 +25,14 @@
 
 package javax.swing;
 
-import static jsweet.dom.Globals.document;
+import static def.dom.Globals.document;
 
 import java.awt.Component;
 import java.beans.Transient;
 
-import jsweet.dom.HTMLImageElement;
-import jsweet.dom.HTMLLabelElement;
-import jsweet.dom.Node;
+import def.dom.HTMLImageElement;
+import def.dom.HTMLLabelElement;
+import def.dom.Node;
 import jsweet.util.StringTypes;
 
 @SuppressWarnings("serial")

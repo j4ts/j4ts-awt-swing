@@ -24,11 +24,11 @@
  */
 package java.awt;
 
-import static jsweet.dom.Globals.document;
+import static def.dom.Globals.document;
 
 import java.awt.image.ImageObserver;
 
-import jsweet.dom.HTMLImageElement;
+import def.dom.HTMLImageElement;
 import jsweet.util.StringTypes;
 
 public class Image {

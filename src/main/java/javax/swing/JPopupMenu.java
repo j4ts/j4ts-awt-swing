@@ -25,7 +25,7 @@
 
 package javax.swing;
 
-import static jsweet.util.Globals.any;
+import static jsweet.util.Lang.any;
 
 import java.awt.Component;
 import java.awt.Frame;

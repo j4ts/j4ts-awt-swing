@@ -27,7 +27,7 @@ package javax.swing;
 import java.awt.Component;
 import java.awt.Graphics;
 
-import jsweet.dom.HTMLImageElement;
+import def.dom.HTMLImageElement;
 
 
 public interface Icon

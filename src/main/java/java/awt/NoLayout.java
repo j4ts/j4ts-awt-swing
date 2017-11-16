@@ -1,8 +1,8 @@
 package java.awt;
 
-import static jsweet.util.Globals.any;
+import static jsweet.util.Lang.any;
 
-import jsweet.dom.HTMLDivElement;
+import def.dom.HTMLDivElement;
 
 public class NoLayout implements LayoutManager {
 

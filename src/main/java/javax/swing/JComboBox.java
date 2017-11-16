@@ -24,7 +24,7 @@
  */
 package javax.swing;
 
-import static jsweet.dom.Globals.document;
+import static def.dom.Globals.document;
 
 import java.awt.ItemSelectable;
 import java.awt.event.ActionEvent;
@@ -43,9 +43,9 @@ import javax.swing.event.ListDataListener;
 import javax.swing.event.PopupMenuEvent;
 import javax.swing.event.PopupMenuListener;
 
-import jsweet.dom.HTMLOptionElement;
-import jsweet.dom.HTMLSelectElement;
-import jsweet.dom.Node;
+import def.dom.HTMLOptionElement;
+import def.dom.HTMLSelectElement;
+import def.dom.Node;
 import jsweet.util.StringTypes;
 
 @SuppressWarnings("serial")

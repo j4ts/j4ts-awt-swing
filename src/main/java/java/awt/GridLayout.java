@@ -1,13 +1,13 @@
 package java.awt;
 
-import static jsweet.dom.Globals.document;
-import static jsweet.util.Globals.any;
+import static def.dom.Globals.document;
+import static jsweet.util.Lang.any;
 
-import jsweet.dom.HTMLDivElement;
-import jsweet.dom.HTMLTableColElement;
-import jsweet.dom.HTMLTableDataCellElement;
-import jsweet.dom.HTMLTableElement;
-import jsweet.dom.HTMLTableRowElement;
+import def.dom.HTMLDivElement;
+import def.dom.HTMLTableColElement;
+import def.dom.HTMLTableDataCellElement;
+import def.dom.HTMLTableElement;
+import def.dom.HTMLTableRowElement;
 import jsweet.util.StringTypes;
 
 public class GridLayout implements LayoutManager {

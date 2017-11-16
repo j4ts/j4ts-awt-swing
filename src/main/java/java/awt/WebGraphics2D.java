@@ -1,16 +1,15 @@
 package java.awt;
 
-import static jsweet.util.Globals.$apply;
-import static jsweet.util.Globals.$get;
-import static jsweet.util.Globals.union;
+import static jsweet.util.Lang.$apply;
+import static jsweet.util.Lang.union;
 
 import java.awt.geom.AffineTransform;
 import java.awt.geom.PathIterator;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.ImageObserver;
 
-import jsweet.dom.CanvasRenderingContext2D;
-import jsweet.dom.HTMLCanvasElement;
+import def.dom.CanvasRenderingContext2D;
+import def.dom.HTMLCanvasElement;
 import jsweet.util.StringTypes;
 
 public class WebGraphics2D extends Graphics2D {
@@ -45,7 +44,7 @@ public class WebGraphics2D extends Graphics2D {
 	@Override
 	public void drawArc(int x, int y, int width, int height, int startAngle, int arcAngle) {
 		context.beginPath();
-		$apply($get(context, "ellipse"), x - width / 2, y - height / 2, width / 2, height / 2, 0,
+		$apply(context.$get("ellipse"), x - width / 2, y - height / 2, width / 2, height / 2, 0,
 				Math.toRadians(startAngle), Math.toRadians(startAngle) + Math.toRadians(arcAngle));
 		context.stroke();
 	}
@@ -61,7 +60,7 @@ public class WebGraphics2D extends Graphics2D {
 	@Override
 	public void drawOval(int x, int y, int width, int height) {
 		context.beginPath();
-		$apply($get(context, "ellipse"), x - width / 2, y - height / 2, width / 2, height / 2, 0, 0, Math.PI * 2);
+		$apply(context.$get("ellipse"), x - width / 2, y - height / 2, width / 2, height / 2, 0, 0, Math.PI * 2);
 		context.stroke();
 	}
 
@@ -328,7 +327,7 @@ public class WebGraphics2D extends Graphics2D {
 	@Override
 	public void fillArc(int x, int y, int width, int height, int startAngle, int arcAngle) {
 		context.beginPath();
-		$apply($get(context, "ellipse"), x - width / 2, y - height / 2, width / 2, height / 2, 0,
+		$apply(context.$get("ellipse"), x - width / 2, y - height / 2, width / 2, height / 2, 0,
 				Math.toRadians(startAngle), Math.toRadians(startAngle) + Math.toRadians(arcAngle));
 		context.fill();
 	}
@@ -336,7 +335,7 @@ public class WebGraphics2D extends Graphics2D {
 	@Override
 	public void fillOval(int x, int y, int width, int height) {
 		context.beginPath();
-		$apply($get(context, "ellipse"), x - width / 2, y - height / 2, width / 2, height / 2, 0, 0, Math.PI * 2);
+		$apply(context.$get("ellipse"), x - width / 2, y - height / 2, width / 2, height / 2, 0, 0, Math.PI * 2);
 		context.fill();
 	}
 

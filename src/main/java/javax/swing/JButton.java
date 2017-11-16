@@ -1,14 +1,14 @@
 package javax.swing;
 
-import static jsweet.dom.Globals.console;
-import static jsweet.dom.Globals.document;
-import static jsweet.util.Globals.any;
+import static def.dom.Globals.console;
+import static def.dom.Globals.document;
+import static jsweet.util.Lang.any;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import jsweet.dom.HTMLButtonElement;
+import def.dom.HTMLButtonElement;
 import jsweet.util.StringTypes;
 
 @SuppressWarnings("serial")

@@ -1,8 +1,8 @@
 package java.awt;
 
-import static jsweet.util.Globals.any;
+import static jsweet.util.Lang.any;
 
-import jsweet.dom.HTMLElement;
+import def.dom.HTMLElement;
 
 public abstract class AbstractHTMLComponent implements HTMLComponent {
 

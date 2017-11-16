@@ -24,9 +24,9 @@
  */
 package java.awt;
 
-import static jsweet.dom.Globals.document;
+import static def.dom.Globals.document;
 
-import jsweet.dom.HTMLLabelElement;
+import def.dom.HTMLLabelElement;
 import jsweet.util.StringTypes;
 
 public class Label extends Component {

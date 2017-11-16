@@ -33,7 +33,7 @@ import java.beans.ConstructorProperties;
 import java.beans.Transient;
 import java.io.Serializable;
 
-import jsweet.dom.HTMLImageElement;
+import def.dom.HTMLImageElement;
 
 public class ImageIcon implements Icon, Serializable {
 	transient private String filename;

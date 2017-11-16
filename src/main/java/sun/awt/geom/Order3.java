@@ -421,27 +421,27 @@ final class Order3 extends Curve {
 			}
 		}
 		boolean verbose = false;
-		if (false && t >= 0 && t <= 1) {
-			y = YforT(t);
-			long tdiff = diffbits(t, origt);
-			long ydiff = diffbits(y, origy);
-			long yerr = diffbits(y, target);
-			if (yerr > 0 || (verbose && tdiff > 0)) {
-				System.out.println("target was y = " + target);
-				System.out.println("original was y = " + origy + ", t = " + origt);
-				System.out.println("final was y = " + y + ", t = " + t);
-				System.out.println("t diff is " + tdiff);
-				System.out.println("y diff is " + ydiff);
-				System.out.println("y error is " + yerr);
-				double tlow = prev(t);
-				double ylow = YforT(tlow);
-				double thi = next(t);
-				double yhi = YforT(thi);
-				if (Math.abs(target - ylow) < Math.abs(target - y) || Math.abs(target - yhi) < Math.abs(target - y)) {
-					System.out.println("adjacent y's = [" + ylow + ", " + yhi + "]");
-				}
-			}
-		}
+//		if (false && t >= 0 && t <= 1) {
+//			y = YforT(t);
+//			long tdiff = diffbits(t, origt);
+//			long ydiff = diffbits(y, origy);
+//			long yerr = diffbits(y, target);
+//			if (yerr > 0 || (verbose && tdiff > 0)) {
+//				System.out.println("target was y = " + target);
+//				System.out.println("original was y = " + origy + ", t = " + origt);
+//				System.out.println("final was y = " + y + ", t = " + t);
+//				System.out.println("t diff is " + tdiff);
+//				System.out.println("y diff is " + ydiff);
+//				System.out.println("y error is " + yerr);
+//				double tlow = prev(t);
+//				double ylow = YforT(tlow);
+//				double thi = next(t);
+//				double yhi = YforT(thi);
+//				if (Math.abs(target - ylow) < Math.abs(target - y) || Math.abs(target - yhi) < Math.abs(target - y)) {
+//					System.out.println("adjacent y's = [" + ylow + ", " + yhi + "]");
+//				}
+//			}
+//		}
 		return (t > 1) ? -1 : t;
 	}
 

@@ -1,6 +1,6 @@
 package java.awt;
 
-import jsweet.dom.HTMLElement;
+import def.dom.HTMLElement;
 
 public class FlowLayout implements LayoutManager {
 

@@ -24,14 +24,14 @@
  */
 package javax.swing;
 
-import static jsweet.dom.Globals.document;
-import static jsweet.util.Globals.any;
-import static jsweet.util.Globals.array;
-import static jsweet.util.Globals.string;
+import static def.dom.Globals.document;
+import static jsweet.util.Lang.any;
+import static jsweet.util.Lang.array;
+import static jsweet.util.Lang.string;
 
 import javax.swing.text.JTextComponent;
 
-import jsweet.dom.HTMLTextAreaElement;
+import def.dom.HTMLTextAreaElement;
 import jsweet.util.StringTypes;
 
 @SuppressWarnings("serial")
@@ -141,7 +141,7 @@ public class JTextArea extends JTextComponent {
 	}
 
 	public void insert(String str, int pos) {
-		setText(array(new String[] { string(text).slice(0, pos), str, string(text).slice(pos) }).join(""));
+		setText(string(array(new String[] { text.substring(0, pos), str, text.substring(pos) }).join("")));
 	}
 
 	public void append(String str) {

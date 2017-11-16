@@ -24,8 +24,8 @@
  */
 package javax.swing.event;
 
-import static jsweet.util.Globals.any;
-import static jsweet.util.Globals.array;
+import static jsweet.util.Lang.any;
+import static jsweet.util.Lang.array;
 
 import java.io.Serializable;
 import java.util.EventListener;
@@ -44,7 +44,7 @@ public class EventListenerList implements Serializable {
 	public <T extends EventListener> T[] getListeners(Class<T> t) {
 		Object[] lList = listenerList;
 		int n = getListenerCount(lList, t);
-		T[] result = array(new jsweet.lang.Array<T>(n));// (T[])Array.newInstance(t,
+		T[] result = array(new def.js.Array<T>(n));// (T[])Array.newInstance(t,
 														// n);
 		int j = 0;
 		for (int i = lList.length - 2; i >= 0; i -= 2) {
@@ -59,7 +59,7 @@ public class EventListenerList implements Serializable {
 	public <T extends EventListener> T[] getListeners(String t) {
 		Object[] lList = listenerList;
 		int n = getListenerCount(lList, t);
-		T[] result = array(new jsweet.lang.Array<T>(n));// (T[])Array.newInstance(t,
+		T[] result = array(new def.js.Array<T>(n));// (T[])Array.newInstance(t,
 														// n);
 		int j = 0;
 		for (int i = lList.length - 2; i >= 0; i -= 2) {

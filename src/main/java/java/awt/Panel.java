@@ -1,10 +1,10 @@
 package java.awt;
 
-import static jsweet.dom.Globals.console;
-import static jsweet.dom.Globals.document;
-import static jsweet.dom.Globals.window;
+import static def.dom.Globals.console;
+import static def.dom.Globals.document;
+import static def.dom.Globals.window;
 
-import jsweet.dom.HTMLCanvasElement;
+import def.dom.HTMLCanvasElement;
 import jsweet.util.StringTypes;
 
 public class Panel extends Container {

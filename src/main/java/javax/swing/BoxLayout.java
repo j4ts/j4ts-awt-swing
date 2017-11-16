@@ -25,8 +25,8 @@
 
 package javax.swing;
 
-import static jsweet.dom.Globals.document;
-import static jsweet.util.Globals.any;
+import static def.dom.Globals.document;
+import static jsweet.util.Lang.any;
 
 import java.awt.Component;
 import java.awt.Container;
@@ -34,10 +34,10 @@ import java.awt.Dimension;
 import java.awt.LayoutManager2;
 import java.io.Serializable;
 
-import jsweet.dom.HTMLDivElement;
-import jsweet.dom.HTMLTableCellElement;
-import jsweet.dom.HTMLTableElement;
-import jsweet.dom.HTMLTableRowElement;
+import def.dom.HTMLDivElement;
+import def.dom.HTMLTableCellElement;
+import def.dom.HTMLTableElement;
+import def.dom.HTMLTableRowElement;
 import jsweet.util.StringTypes;
 
 @SuppressWarnings("serial")
