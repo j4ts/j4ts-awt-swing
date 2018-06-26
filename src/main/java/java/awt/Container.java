@@ -105,6 +105,10 @@ public abstract class Container extends Component {
 				layoutMgr.addLayoutComponent((String) constraints, this);
 			}
 		}
+
+		if (component.getHTMLElement().parentNode == null) {
+			getHTMLElement().appendChild(component.getHTMLElement());
+		}
 	}
 
 	@Override
@@ -141,6 +145,12 @@ public abstract class Container extends Component {
 	public void remove(Component c) {
 		if (layoutMgr != null) {
 			layoutMgr.removeLayoutComponent(c);
+		}
+
+		c.parent = null;
+
+		if (c.getHTMLElement().parentNode == getHTMLElement()) {
+			getHTMLElement().removeChild(c.getHTMLElement());
 		}
 
 		int i = array(components).indexOf(c);
