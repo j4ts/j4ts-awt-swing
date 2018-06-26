@@ -75,7 +75,7 @@ public abstract class Container extends Component {
 	}
 
 	public Component add(String name, Component component) {
-		addImpl(component, null, -1);
+		addImpl(component, name, -1);
 		return component;
 	}
 
@@ -88,13 +88,21 @@ public abstract class Container extends Component {
 	}
 
 	protected void addImpl(Component component, Object constraints, int index) {
+		if (component.parent != null) {
+			component.parent.remove(component);
+		}
+
 		array(components).push(component);
+
 		component.initHTML();
+
+		component.parent = this;
+
 		if (layoutMgr != null) {
-			if (constraints != null && layoutMgr instanceof LayoutManager2) {
+			if (layoutMgr instanceof LayoutManager2) {
 				((LayoutManager2) layoutMgr).addLayoutComponent(component, constraints);
-			} else {
-				layoutMgr.onComponentAdded(this, component, -1);
+			} else if (constraints instanceof String){
+				layoutMgr.addLayoutComponent((String) constraints, this);
 			}
 		}
 	}
@@ -112,7 +120,7 @@ public abstract class Container extends Component {
 	}
 
 	public void remove(int index) {
-		components = array(components).slice(index, 1);
+		remove(array(components).$get(index));
 	}
 
 	public Component getComponent(int n) {
@@ -124,12 +132,19 @@ public abstract class Container extends Component {
 	}
 
 	public void removeAll() {
+		if (layoutMgr != null) {
+			array(components).forEach(layoutMgr::removeLayoutComponent);
+		}
 		components = new Component[0];
 	}
 
 	public void remove(Component c) {
-		int i = (int) array(components).indexOf(c);
-		remove(i);
+		if (layoutMgr != null) {
+			layoutMgr.removeLayoutComponent(c);
+		}
+
+		int i = array(components).indexOf(c);
+		components = array(components).slice(i, 1);
 	}
 
 	public Insets getInsets() {
