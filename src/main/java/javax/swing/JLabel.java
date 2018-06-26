@@ -32,7 +32,6 @@ import java.beans.Transient;
 
 import jsweet.dom.HTMLImageElement;
 import jsweet.dom.HTMLLabelElement;
-import jsweet.dom.Node;
 import jsweet.util.StringTypes;
 
 @SuppressWarnings("serial")
@@ -59,13 +58,15 @@ public class JLabel extends JComponent implements SwingConstants {
 		mnemonic = '\0';
 		mnemonicIndex = -1;
 
-		text = ""; // "" rather than null, for BeanBox
+		if (text == null) {
+			text = ""; // "" rather than null, for BeanBox
+		}
+
 		defaultIcon = null;
 		disabledIcon = null;
 		disabledIconSet = false;
 
 		verticalAlignment = CENTER;
-		horizontalAlignment = LEADING;
 		verticalTextPosition = CENTER;
 		horizontalTextPosition = TRAILING;
 		iconTextGap = 4;
