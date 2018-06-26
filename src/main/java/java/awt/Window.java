@@ -51,13 +51,16 @@ public class Window extends Container {
 	@Override
 	public void createHTML() {
 		htmlElement = document.createElement(StringTypes.div);
-		htmlElement.style.display = "none";
+		getElement().style.display = "none";
 		window.addEventListener(StringTypes.load, (e) -> {
-			System.out.println("window onload hook");
 			if (document.body == null) {
 				throw new Error("no body found");
 			}
-			document.body.appendChild(htmlElement);
+			document.body.style.margin = "0px";
+			document.body.parentElement.style.height = "100%";
+			document.body.style.height = "100%";
+
+			document.body.appendChild(getElement());
 			doPaintInternal();
 			return null;
 		});
