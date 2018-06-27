@@ -45,7 +45,7 @@ public class JTextField extends JTextComponent implements SwingConstants {
 
 	@Override
 	public HTMLInputElement getHTMLElement() {
-		return any(htmlElement);
+		return any(super.getHTMLElement());
 	}
 
 	@Override
@@ -54,7 +54,10 @@ public class JTextField extends JTextComponent implements SwingConstants {
 			return;
 		}
 		htmlElement = document.createElement(StringTypes.input);
-		htmlElement.setAttribute("type", "text");
+		getHTMLElement().setAttribute("type", "text");
+		getHTMLElement().style.background = "transparent";
+		getHTMLElement().style.border = "none";
+		getHTMLElement().style.padding = "0px";
 	}
 
 	@Override
