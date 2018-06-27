@@ -31,7 +31,7 @@ import java.util.Locale;
 public class Font implements java.io.Serializable {
 
 	public String toHTML() {
-		return style + " " + size + "px " + name;
+		return getStyleInTextRepr() + size + "px " + name;
 	}
 
 	/**
@@ -360,6 +360,15 @@ public class Font implements java.io.Serializable {
 			}
 		}
 		return false;
+	}
+
+	private String getStyleInTextRepr() {
+		String res = "";
+		if (isBold())
+			res += "BOLD ";
+		if (isItalic())
+			res += "ITALIC ";
+		return res;
 	}
 
 	/**
