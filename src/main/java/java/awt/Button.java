@@ -1,14 +1,14 @@
 package java.awt;
 
-import static jsweet.dom.Globals.console;
-import static jsweet.dom.Globals.document;
-import static jsweet.util.Globals.any;
+import static def.dom.Globals.console;
+import static def.dom.Globals.document;
+import static jsweet.util.Lang.any;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import jsweet.dom.HTMLButtonElement;
-import jsweet.dom.HTMLElement;
+import def.dom.HTMLButtonElement;
+import def.dom.HTMLElement;
 import jsweet.util.StringTypes;
 
 public class Button extends Component {

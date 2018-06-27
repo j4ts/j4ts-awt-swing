@@ -1,6 +1,6 @@
 package javax.swing;
 
-import static jsweet.dom.Globals.document;
+import static def.dom.Globals.document;
 
 import java.awt.AWTEvent;
 import java.awt.event.ActionEvent;

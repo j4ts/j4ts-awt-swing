@@ -24,19 +24,19 @@
  */
 package java.awt;
 
-import static jsweet.dom.Globals.document;
-import static jsweet.util.Globals.any;
-import static jsweet.util.Globals.array;
+import static def.dom.Globals.document;
+import static jsweet.util.Lang.any;
+import static jsweet.util.Lang.array;
 
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.EventListener;
 import java.util.Vector;
 
-import jsweet.dom.HTMLOptionElement;
-import jsweet.dom.HTMLSelectElement;
-import jsweet.dom.Node;
-import jsweet.lang.Array;
+import def.dom.HTMLOptionElement;
+import def.dom.HTMLSelectElement;
+import def.dom.Node;
+import def.js.Array;
 import jsweet.util.StringTypes;
 
 public class Choice extends Component implements ItemSelectable {

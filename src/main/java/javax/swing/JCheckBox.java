@@ -24,9 +24,9 @@
  */
 package javax.swing;
 
-import static jsweet.dom.Globals.document;
-import static jsweet.util.Globals.any;
-import static jsweet.util.Globals.array;
+import static def.dom.Globals.document;
+import static jsweet.util.Lang.any;
+import static jsweet.util.Lang.array;
 
 import java.awt.Checkbox;
 import java.awt.ItemSelectable;
@@ -34,9 +34,9 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.EventListener;
 
-import jsweet.dom.HTMLInputElement;
-import jsweet.dom.Text;
-import jsweet.lang.Array;
+import def.dom.HTMLInputElement;
+import def.dom.Text;
+import def.js.Array;
 import jsweet.util.StringTypes;
 
 public class JCheckBox extends JToggleButton implements ItemSelectable {

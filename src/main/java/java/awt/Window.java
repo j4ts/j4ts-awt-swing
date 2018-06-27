@@ -24,10 +24,10 @@
  */
 package java.awt;
 
-import static jsweet.dom.Globals.document;
-import static jsweet.dom.Globals.window;
-import static jsweet.util.Globals.any;
-import static jsweet.util.Globals.array;
+import static def.dom.Globals.document;
+import static def.dom.Globals.window;
+import static jsweet.util.Lang.any;
+import static jsweet.util.Lang.array;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
@@ -38,8 +38,8 @@ import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.EventListener;
 
-import jsweet.dom.HTMLDivElement;
-import jsweet.lang.Array;
+import def.dom.HTMLDivElement;
+import def.js.Array;
 import jsweet.util.StringTypes;
 
 public class Window extends Container {

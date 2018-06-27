@@ -25,7 +25,7 @@
 
 package javax.swing;
 
-import static jsweet.dom.Globals.document;
+import static def.dom.Globals.document;
 
 import java.awt.Font;
 import java.io.Serializable;
@@ -33,7 +33,7 @@ import java.io.Serializable;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import jsweet.dom.HTMLInputElement;
+import def.dom.HTMLInputElement;
 import jsweet.util.StringTypes;
 
 @SuppressWarnings("serial")

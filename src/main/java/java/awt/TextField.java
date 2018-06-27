@@ -1,12 +1,12 @@
 package java.awt;
 
-import static jsweet.dom.Globals.document;
-import static jsweet.util.Globals.any;
+import static def.dom.Globals.document;
+import static jsweet.util.Lang.any;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import jsweet.dom.HTMLInputElement;
+import def.dom.HTMLInputElement;
 import jsweet.util.StringTypes;
 
 public class TextField extends Component {

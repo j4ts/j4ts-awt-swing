@@ -25,8 +25,8 @@
 
 package java.awt;
 
-import static jsweet.util.Globals.any;
-import static jsweet.util.Globals.array;
+import static jsweet.util.Lang.any;
+import static jsweet.util.Lang.array;
 
 public class BasicStroke implements Stroke {
 

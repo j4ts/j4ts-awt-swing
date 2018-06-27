@@ -24,7 +24,7 @@
  */
 package java.beans;
 
-import static jsweet.util.Globals.array;
+import static jsweet.util.Lang.array;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -153,7 +153,7 @@ abstract class ChangeListenerMap<L extends EventListener> {
 		if (name != null) {
 			L[] listeners = get(name);
 			if (listeners != null) {
-				return array(listeners).slice(0);
+				return array(array(listeners).slice(0));
 			}
 		}
 		return newArray(0);

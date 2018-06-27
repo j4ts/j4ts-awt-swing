@@ -25,7 +25,7 @@
 
 package javax.swing;
 
-import static jsweet.dom.Globals.document;
+import static def.dom.Globals.document;
 
 import java.awt.Component;
 import java.beans.Transient;

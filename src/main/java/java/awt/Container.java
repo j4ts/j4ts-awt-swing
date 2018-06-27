@@ -24,7 +24,7 @@
  */
 package java.awt;
 
-import static jsweet.util.Globals.array;
+import static jsweet.util.Lang.array;
 
 public abstract class Container extends Component {
 
@@ -70,7 +70,7 @@ public abstract class Container extends Component {
 	}
 
 	public Component add(Component c, int index) {
-		components = array(components).splice(index, 0, c);
+		components = array(array(components).splice(index, 0, c));
 		return c;
 	}
 
