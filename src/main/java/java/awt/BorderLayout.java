@@ -372,6 +372,11 @@ public class BorderLayout implements LayoutManager2, java.io.Serializable {
 			name = "Center";
 		}
 
+		Component old = getLayoutComponent(name);
+		if (old != null && old.parent != null) {
+			old.parent.remove(old);
+			old.parent = null;
+		}
 		/*
 		 * Assign the component to one of the known regions of the layout.
 		 */
@@ -417,6 +422,8 @@ public class BorderLayout implements LayoutManager2, java.io.Serializable {
 	 * @see java.awt.Container#removeAll()
 	 */
 	public void removeLayoutComponent(Component comp) {
+		comp.getHTMLElement().parentNode.removeChild(comp.getHTMLElement());
+
 		if (comp == center) {
 			center = null;
 		} else if (comp == north) {
@@ -543,18 +550,26 @@ public class BorderLayout implements LayoutManager2, java.io.Serializable {
 			table.style.left = "0px";
 			table.style.right = "0px";
 			table.style.zIndex = "0";
+			table.style.border = "0px";
+			table.cellSpacing = "0px";
+			table.cellPadding = "0px";
 
 			for (int j = 0; j < 3; j++) {
 				HTMLTableRowElement row = document.createElement(StringTypes.tr);
 				table.appendChild(row);
-				if(j==0 || j==2) {
-					row.style.height = "0%";
+				if(j != 1) {
+					row.style.height = "0px";
+				} else {
+					row.style.height = "100%";
 				}
 				for (int i = 0; i < 3; i++) {
 					HTMLTableDataCellElement col = document.createElement(StringTypes.td);
+					col.style.padding = "0px";
 					row.appendChild(col);
-					if(i==0 || i==2) {
-						col.style.width = "0%";
+					if(i != 1 || j != 1) {
+						col.style.width = "0px";
+					} else {
+						col.style.width = "100%";
 					}
 				}
 			}
