@@ -31,8 +31,11 @@ import static jsweet.util.Lang.string;
 
 import javax.swing.text.JTextComponent;
 
+import def.dom.HTMLDivElement;
 import def.dom.HTMLTextAreaElement;
 import jsweet.util.StringTypes;
+
+import java.awt.*;
 
 @SuppressWarnings("serial")
 public class JTextArea extends JTextComponent {
@@ -45,8 +48,8 @@ public class JTextArea extends JTextComponent {
 	private boolean word;
 
 	@Override
-	public HTMLTextAreaElement getHTMLElement() {
-		return any(htmlElement);
+	public HTMLDivElement getHTMLElement() {
+		return any(super.getHTMLElement());
 	}
 
 	@Override
@@ -54,16 +57,18 @@ public class JTextArea extends JTextComponent {
 		if (htmlElement != null) {
 			return;
 		}
-		htmlElement = document.createElement(StringTypes.textarea);
+		htmlElement = document.createElement(StringTypes.div);
 	}
 
 	@Override
 	public void initHTML() {
 		super.initHTML();
-		getHTMLElement().value = text;
-		getHTMLElement().rows = rows;
-		getHTMLElement().cols = columns;
-		getHTMLElement().readOnly = !editable;
+		getHTMLElement().innerText = text;
+		getHTMLElement().contentEditable = String.valueOf(isEditable());
+		getHTMLElement().style.backgroundColor = Color.WHITE.toHTML();
+		getHTMLElement().style.font = Font.decode(null).toHTML();
+		getHTMLElement().style.minHeight = rows * 25 + "px"; // TODO not exact minimum values, need to measure with font metrics.
+		getHTMLElement().style.minWidth = columns * 11 + "px";
 		// initActionListeners();
 	}
 
@@ -150,17 +155,13 @@ public class JTextArea extends JTextComponent {
 
 	public void setText(String text) {
 		super.setText(text);
-		if (htmlElement != null) {
-			getHTMLElement().value = text;
-		}
+		getHTMLElement().innerText = text;
 	}
 
 	@Override
 	public void setEditable(boolean editable) {
 		super.setEditable(editable);
-		if (htmlElement != null) {
-			getHTMLElement().readOnly = !editable;
-		}
+		getHTMLElement().contentEditable = String.valueOf(editable);
 	}
 
 	public void replaceRange(String str, int start, int end) {
@@ -178,9 +179,7 @@ public class JTextArea extends JTextComponent {
 		}
 		if (rows != oldVal) {
 			this.rows = rows;
-			if (htmlElement != null) {
-				getHTMLElement().rows = rows;
-			}
+			// getHTMLElement().rows = rows;
 			invalidate();
 		}
 	}
@@ -196,9 +195,7 @@ public class JTextArea extends JTextComponent {
 		}
 		if (columns != oldVal) {
 			this.columns = columns;
-			if (htmlElement != null) {
-				getHTMLElement().cols = columns;
-			}
+			// getHTMLElement().cols = columns;
 			invalidate();
 		}
 	}

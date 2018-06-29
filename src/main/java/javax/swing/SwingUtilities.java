@@ -8,6 +8,6 @@ public class SwingUtilities implements SwingConstants {
     }
 
     public static void invokeLater(Runnable doRun) {
-        Globals.setTimeout(doRun);
+        Globals.window.requestAnimationFrame(v -> doRun.run());
     }
 }

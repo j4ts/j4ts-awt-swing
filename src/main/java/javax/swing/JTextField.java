@@ -27,8 +27,7 @@ package javax.swing;
 import static def.dom.Globals.document;
 import static jsweet.util.Lang.any;
 
-import java.awt.Dimension;
-import java.awt.Font;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
@@ -55,9 +54,10 @@ public class JTextField extends JTextComponent implements SwingConstants {
 		}
 		htmlElement = document.createElement(StringTypes.input);
 		getHTMLElement().setAttribute("type", "text");
-		getHTMLElement().style.background = "transparent";
-		getHTMLElement().style.border = "none";
+		getHTMLElement().style.backgroundColor = Color.WHITE.toHTML();
+		getHTMLElement().style.border = "2px groove " + new Color(180, 185, 196).toHTML();
 		getHTMLElement().style.padding = "0px";
+		getHTMLElement().style.boxSizing = "border-box";
 	}
 
 	@Override

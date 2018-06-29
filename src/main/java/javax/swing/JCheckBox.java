@@ -71,25 +71,27 @@ public class JCheckBox extends JToggleButton implements ItemSelectable {
 
 	@Override
 	public void createHTML() {
-		System.out.println("create HTML jcheckbox");
 		if (htmlElement != null) {
 			return;
 		}
 		htmlElement = document.createElement(StringTypes.label);
-		htmlElement.appendChild(htmlLabel = document.createTextNode(""));
+
 		htmlCheckbox = document.createElement(StringTypes.input);
 		htmlCheckbox.type = "checkbox";
+
 		htmlElement.appendChild(htmlCheckbox);
+		htmlElement.appendChild(htmlLabel = document.createTextNode(""));
+		htmlElement.style.whiteSpace = "nowrap";
+		htmlElement.style.display = "inline";
 	}
 
 	@Override
 	public void initHTML() {
-		System.out.println("init HTML jcheckbox");
 		super.initHTML();
 		htmlCheckbox.checked = state;
 		htmlLabel.data = label;
+
 		htmlCheckbox.onclick = e -> {
-			System.out.println(e + " / " + htmlCheckbox.checked);
 			setState(htmlCheckbox.checked);
 			processItemEvent(
 					new ItemEvent(this, 0, null, htmlCheckbox.checked ? ItemEvent.SELECTED : ItemEvent.DESELECTED));

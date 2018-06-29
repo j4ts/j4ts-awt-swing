@@ -163,7 +163,7 @@ public class DefaultBoundedRangeModel implements BoundedRangeModel, Serializable
      * @see BoundedRangeModel#setValue
      */
     public void setValue(int n) {
-        n = Math.min(n, Integer.MAX_VALUE - extent);
+        n = Math.min(n, max - extent);
 
         int newValue = Math.max(n, min);
         if (newValue + extent > max) {

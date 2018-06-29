@@ -150,14 +150,14 @@ public abstract class Container extends Component {
 			layoutMgr.removeLayoutComponent(comp);
 		}
 
-		c.parent = null;
+		comp.parent = null;
 
-		if (c.getHTMLElement().parentNode == getHTMLElement()) {
-			getHTMLElement().removeChild(c.getHTMLElement());
+		if (comp.getHTMLElement().parentNode == getHTMLElement()) {
+			getHTMLElement().removeChild(comp.getHTMLElement());
 		}
 
-		int i = array(components).indexOf(c);
-		components = array(components).slice(i, 1);
+		int i = array(components).indexOf(comp);
+		components = array(array(components).slice(i, 1));
 	}
 
 	public Insets getInsets() {

@@ -24,15 +24,10 @@
  */
 package javax.swing;
 
-import static def.dom.Globals.console;
 import static def.dom.Globals.document;
 import static def.dom.Globals.window;
 
-import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.Graphics;
-import java.awt.LayoutManager;
-import java.awt.WebGraphics2D;
+import java.awt.*;
 
 import def.dom.HTMLCanvasElement;
 import jsweet.util.StringTypes;
@@ -80,12 +75,10 @@ public class JPanel extends JComponent {
 	@Override
 	public void initHTML() {
 		super.initHTML();
-		console.info("INIT JPANEL");
 		if (htmlCanvas == null) {
 			htmlCanvas = document.createElement(StringTypes.canvas);
 			htmlElement.appendChild(htmlCanvas);
 			window.onresize = e -> {
-				System.out.println("resizing");
 				htmlCanvas.width = htmlElement.offsetWidth;
 				htmlCanvas.height = htmlElement.offsetHeight;
 				repaint();
@@ -99,7 +92,10 @@ public class JPanel extends JComponent {
 		htmlCanvas.width = htmlElement.offsetWidth;
 		htmlCanvas.height = htmlElement.offsetHeight;
 		htmlCanvas.style.position = "absolute";
+		htmlCanvas.style.font = Font.decode(null).toHTML();
+		getGraphics().setFont(Font.decode(null));
 		//htmlCanvas.style.zIndex = "-1";
+		paint(getGraphics());
 	}
 
 	/**

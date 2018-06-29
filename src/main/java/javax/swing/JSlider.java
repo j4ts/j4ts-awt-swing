@@ -50,8 +50,14 @@ public class JSlider extends JComponent implements SwingConstants {
 			return;
 		}
 		htmlElement = document.createElement(StringTypes.input);
+		getHTMLElement().style.margin = "0px";
+		getHTMLElement().style.padding = "0px";
 		getHTMLElement().type = "range";
-		htmlElement.onchange = e -> {
+		getHTMLElement().onchange = e -> {
+			setValue(Integer.parseInt(getHTMLElement().value));
+			return null;
+		};
+		getHTMLElement().oninput = e -> {
 			setValue(Integer.parseInt(getHTMLElement().value));
 			return null;
 		};
@@ -62,7 +68,7 @@ public class JSlider extends JComponent implements SwingConstants {
 		super.initHTML();
 		getHTMLElement().min = "" + getMinimum();
 		getHTMLElement().max = "" + getMaximum();
-		getHTMLElement().step = "" + getMajorTickSpacing();
+		getHTMLElement().step = "" + 1;
 		getHTMLElement().value = "" + getValue();
 		try {
 			if (getHTMLElement().hasAttribute("orient")) {
@@ -220,6 +226,10 @@ public class JSlider extends JComponent implements SwingConstants {
 			return;
 		}
 		m.setValue(n);
+
+		if (getHTMLElement().valueAsNumber != getValue()) {
+			getHTMLElement().valueAsNumber = getValue();
+		}
 	}
 
 	public int getMinimum() {
@@ -308,6 +318,9 @@ public class JSlider extends JComponent implements SwingConstants {
 	 * @return the number of values between major ticks
 	 * @see #setMajorTickSpacing
 	 */
+
+	/* TODO not working at all :( it need to integrate some fancy lib
+
 	public int getMajorTickSpacing() {
 		return majorTickSpacing;
 	}
@@ -394,6 +407,7 @@ public class JSlider extends JComponent implements SwingConstants {
 			repaint();
 		}
 	}
+	*/
 
 	/**
 	 * Returns a string representation of this JSlider. This method is intended

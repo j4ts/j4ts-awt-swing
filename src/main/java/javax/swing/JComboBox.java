@@ -46,10 +46,12 @@ import javax.swing.event.PopupMenuListener;
 import def.dom.HTMLOptionElement;
 import def.dom.HTMLSelectElement;
 import def.dom.Node;
+import def.dom.NodeList;
 import jsweet.util.StringTypes;
 
 @SuppressWarnings("serial")
 public class JComboBox<E> extends JComponent implements ItemSelectable, ListDataListener, ActionListener {
+	int lastSelected;
 
 	public void createHTML() {
 		htmlElement = document.createElement(StringTypes.select);
@@ -63,11 +65,14 @@ public class JComboBox<E> extends JComponent implements ItemSelectable, ListData
 		super.initHTML();
 		getHTMLElement().onchange = e -> {
 			int i = (int) getHTMLElement().selectedIndex;
+			fireItemStateChanged(new ItemEvent(this, 0, getItemAt(lastSelected), ItemEvent.DESELECTED));
 			fireItemStateChanged(new ItemEvent(this, 0, getItemAt(i), ItemEvent.SELECTED));
+			lastSelected = i;
 			return e;
 		};
-		for (Node n : getHTMLElement().childNodes) {
-			getHTMLElement().removeChild(n);
+		NodeList childNodes = getHTMLElement().childNodes;
+		for (int i = 0; i < childNodes.length; ++i) {
+			getHTMLElement().removeChild(childNodes.$get(i));
 		}
 		for (int i = 0; i < getItemCount(); i++) {
 			HTMLOptionElement option = document.createElement(StringTypes.option);
@@ -76,6 +81,7 @@ public class JComboBox<E> extends JComponent implements ItemSelectable, ListData
 			option.value = getItemAt(i).toString();
 			if (getSelectedIndex() == i) {
 				option.selected = true;
+				lastSelected = i;
 			}
 			getHTMLElement().appendChild(option);
 		}
@@ -516,19 +522,8 @@ public class JComboBox<E> extends JComponent implements ItemSelectable, ListData
 		}
 	}
 
-	private boolean isListener(Class c, ActionListener a) {
-		boolean isListener = false;
-		Object[] listeners = listenerList.getListenerList();
-		for (int i = listeners.length - 2; i >= 0; i -= 2) {
-			if (listeners[i] == c && listeners[i + 1] == a) {
-				isListener = true;
-			}
-		}
-		return isListener;
-	}
 
-	// HACK to accept interfaces for c
-	private boolean isListener(String c, ActionListener a) {
+	private boolean isListener(Class<ActionListener> c, ActionListener a) {
 		boolean isListener = false;
 		Object[] listeners = listenerList.getListenerList();
 		for (int i = listeners.length - 2; i >= 0; i -= 2) {

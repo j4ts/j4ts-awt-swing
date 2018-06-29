@@ -30,8 +30,8 @@ import static def.dom.Globals.document;
 import java.awt.Component;
 import java.beans.Transient;
 
-import jsweet.dom.HTMLImageElement;
-import jsweet.dom.HTMLLabelElement;
+import def.dom.HTMLImageElement;
+import def.dom.HTMLLabelElement;
 import jsweet.util.StringTypes;
 
 @SuppressWarnings("serial")
@@ -121,6 +121,15 @@ public class JLabel extends JComponent implements SwingConstants {
 			htmlElement.appendChild(htmlImageElement);
 		}
 		htmlLabelElement.innerHTML = getText();
+
+		htmlElement.style.display = "table";
+		htmlElement.style.tableLayout = "fixed";
+		htmlLabelElement.style.display = "table-cell";
+		htmlLabelElement.style.verticalAlign = "middle";
+		htmlLabelElement.style.textOverflow = "ellipsis";
+		htmlLabelElement.style.overflow = "hidden";
+		htmlLabelElement.style.whiteSpace = "nowrap";
+
 		htmlElement.appendChild(htmlLabelElement);
 	}
 
