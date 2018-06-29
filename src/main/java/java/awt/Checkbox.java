@@ -105,7 +105,6 @@ public class Checkbox extends Component implements ItemSelectable {
 		htmlCheckbox.checked = state;
 		htmlLabel.data = label;
 		htmlCheckbox.onclick = e -> {
-			System.out.println(e + " / " + htmlCheckbox.checked);
 			setState(htmlCheckbox.checked);
 			processItemEvent(
 					new ItemEvent(this, 0, null, htmlCheckbox.checked ? ItemEvent.SELECTED : ItemEvent.DESELECTED));

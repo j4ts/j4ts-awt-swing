@@ -46,7 +46,6 @@ public class Button extends Component {
 	private void initActionListener() {
 		if (actionListener != null) {
 			htmlElement.onclick = e -> {
-				console.log("htmlElement clicked: " + actionCommand);
 				this.actionListener.actionPerformed(new ActionEvent(this, 0, actionCommand));
 				return e;
 			};

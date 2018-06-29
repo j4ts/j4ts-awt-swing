@@ -37,13 +37,15 @@ import java.awt.geom.Path2D;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.EventListener;
+import java.util.function.Function;
 
+import def.dom.Event;
 import def.dom.HTMLDivElement;
 import def.js.Array;
 import jsweet.util.StringTypes;
 
 public class Window extends Container {
-
+	private static boolean loaded = false;
 	public HTMLDivElement getElement() {
 		return (HTMLDivElement) htmlElement;
 	}
@@ -52,18 +54,40 @@ public class Window extends Container {
 	public void createHTML() {
 		htmlElement = document.createElement(StringTypes.div);
 		getElement().style.display = "none";
-		window.addEventListener(StringTypes.load, (e) -> {
+
+		Function<Event, Object> fun = (e) -> {
+			if(loaded) {
+				return null;
+			}
+			loaded = true;
+
 			if (document.body == null) {
 				throw new Error("no body found");
 			}
 			document.body.style.margin = "0px";
 			document.body.parentElement.style.height = "100%";
 			document.body.style.height = "100%";
+			document.body.style.backgroundColor = new Color(238, 238, 238).toHTML();
+			document.body.style.overflow = "hidden";
+
 
 			document.body.appendChild(getElement());
 			doPaintInternal();
 			return null;
+		};
+
+		window.addEventListener(StringTypes.load, fun);
+		document.addEventListener(StringTypes.load, fun);
+		document.addEventListener(StringTypes.readystatechange, e -> {
+			if ("complete".equals(document.readyState)) {
+				return fun.apply(e);
+			}
+			return null;
 		});
+
+		if (document.body != null) {
+			fun.apply(null);
+		}
 	}
 
 	@Override

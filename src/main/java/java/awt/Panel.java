@@ -57,12 +57,10 @@ public class Panel extends Container {
 	@Override
 	public void initHTML() {
 		super.initHTML();
-		console.info("INIT PANEL");
 		if (htmlCanvas == null) {
 			htmlCanvas = document.createElement(StringTypes.canvas);
 			htmlElement.appendChild(htmlCanvas);
 			window.onresize = e -> {
-				System.out.println("resizing");
 				htmlCanvas.width = htmlElement.offsetWidth;
 				htmlCanvas.height = htmlElement.offsetHeight;
 				return e;

@@ -24,6 +24,8 @@
  */
 package java.awt;
 
+import def.dom.Globals;
+
 import static jsweet.util.Lang.array;
 
 public abstract class Container extends Component {
@@ -92,9 +94,10 @@ public abstract class Container extends Component {
 			component.parent.remove(component);
 		}
 
-		array(components).push(component);
 
 		component.initHTML();
+
+		array(components).push(component);
 
 		component.parent = this;
 
@@ -142,9 +145,9 @@ public abstract class Container extends Component {
 		components = new Component[0];
 	}
 
-	public void remove(Component c) {
+	public void remove(Component comp) {
 		if (layoutMgr != null) {
-			layoutMgr.removeLayoutComponent(c);
+			layoutMgr.removeLayoutComponent(comp);
 		}
 
 		c.parent = null;

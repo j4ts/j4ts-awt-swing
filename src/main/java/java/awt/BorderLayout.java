@@ -563,13 +563,18 @@ public class BorderLayout implements LayoutManager2, java.io.Serializable {
 					row.style.height = "100%";
 				}
 				for (int i = 0; i < 3; i++) {
-					HTMLTableDataCellElement col = document.createElement(StringTypes.td);
-					col.style.padding = "0px";
-					row.appendChild(col);
-					if(i != 1 || j != 1) {
-						col.style.width = "0px";
-					} else {
-						col.style.width = "100%";
+					if (j == 1 || i == 1) {
+						HTMLTableDataCellElement col = document.createElement(StringTypes.td);
+						col.style.padding = "0px";
+						row.appendChild(col);
+						if (i == 1) {
+							col.style.width = "100%";
+							if (j != 1) {
+								col.colSpan = 3;
+							}
+						} else {
+							col.style.width = "0px";
+						}
 					}
 				}
 			}
@@ -580,10 +585,10 @@ public class BorderLayout implements LayoutManager2, java.io.Serializable {
 	private void add(Component component, int position) {
 		int pos = 0;
 		for (int j = 0; j < 3; j++) {
-			HTMLTableRowElement row = (HTMLTableRowElement) table.childNodes.$get(j);
 			for (int i = 0; i < 3; i++) {
-				HTMLTableColElement col = (HTMLTableColElement) row.childNodes.$get(i);
 				if (pos++ == position) {
+					HTMLTableRowElement row = (HTMLTableRowElement) table.childNodes.$get(j);
+					HTMLTableColElement col = (HTMLTableColElement) row.childNodes.$get(j == 1 ? i : 0);
 					col.appendChild(component.getHTMLElement());
 					component.getHTMLElement().style.width = "100%";
 					component.getHTMLElement().style.height = "100%";
