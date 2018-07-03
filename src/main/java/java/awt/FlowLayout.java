@@ -60,6 +60,10 @@ public class FlowLayout implements LayoutManager {
 				element.style.marginBottom = vgap + "px";
 				break;
 		}
+		element.style.width = "auto";
+		element.style.height = "auto";
+		element.style.verticalAlign = "middle";
+
 		// hack: force grid layout table to not take 100% of the height
 		if (component instanceof Container && ((Container) component).getLayout() instanceof GridLayout) {
 			((GridLayout) ((Container) component).getLayout()).table.style.height = "auto";
@@ -75,6 +79,21 @@ public class FlowLayout implements LayoutManager {
 	public void layoutContainer(Container parent) {
 		if (!created) {
 			this.parent = parent;
+
+			switch (align) {
+				case CENTER:
+					this.parent.getHTMLElement().style.textAlign = "center";
+					break;
+				case LEFT:
+				case LEADING:
+					this.parent.getHTMLElement().style.textAlign = "left";
+					break;
+				case RIGHT:
+				case TRAILING:
+					this.parent.getHTMLElement().style.textAlign = "right";
+					break;
+			}
+			this.parent.getHTMLElement().style.position = "absolute";
 			created = true;
 		}
 	}

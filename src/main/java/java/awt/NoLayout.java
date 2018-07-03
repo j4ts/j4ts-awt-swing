@@ -25,5 +25,6 @@ public class NoLayout implements LayoutManager {
 
 	@Override
 	public void layoutContainer(Container parent) {
+		this.parent = parent;
 	}
 }

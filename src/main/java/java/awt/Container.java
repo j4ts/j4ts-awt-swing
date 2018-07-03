@@ -104,8 +104,8 @@ public abstract class Container extends Component {
 		if (layoutMgr != null) {
 			if (layoutMgr instanceof LayoutManager2) {
 				((LayoutManager2) layoutMgr).addLayoutComponent(component, constraints);
-			} else if (constraints instanceof String){
-				layoutMgr.addLayoutComponent((String) constraints, this);
+			} else if (constraints instanceof String || constraints == null){
+				layoutMgr.addLayoutComponent((String) constraints, component);
 			}
 		}
 
