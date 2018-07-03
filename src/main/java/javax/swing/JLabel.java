@@ -27,7 +27,7 @@ package javax.swing;
 
 import static def.dom.Globals.document;
 
-import java.awt.Component;
+import java.awt.*;
 import java.beans.Transient;
 
 import def.dom.HTMLImageElement;
@@ -124,11 +124,15 @@ public class JLabel extends JComponent implements SwingConstants {
 
 		htmlElement.style.display = "table";
 		htmlElement.style.tableLayout = "fixed";
+		htmlElement.style.width = "100%";
+		htmlElement.style.height = "100%";
 		htmlLabelElement.style.display = "table-cell";
 		htmlLabelElement.style.verticalAlign = "middle";
 		htmlLabelElement.style.textOverflow = "ellipsis";
 		htmlLabelElement.style.overflow = "hidden";
 		htmlLabelElement.style.whiteSpace = "nowrap";
+		htmlLabelElement.style.font = Font.decode(null).toHTML();
+
 
 		htmlElement.appendChild(htmlLabelElement);
 	}

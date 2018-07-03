@@ -98,10 +98,6 @@ public class BoxLayout implements LayoutManager2, Serializable {
 		}
 	}
 
-	public Dimension maximumLayoutSize(Container target) {
-		return null;
-	}
-
 	public synchronized float getLayoutAlignmentX(Container target) {
 		return 0;
 	}

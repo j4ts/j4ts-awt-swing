@@ -518,10 +518,6 @@ public class BorderLayout implements LayoutManager2, java.io.Serializable {
 		return null;
 	}
 
-	public Dimension maximumLayoutSize(Container target) {
-		return new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE);
-	}
-
 	public float getLayoutAlignmentX(Container parent) {
 		return 0.5f;
 	}
@@ -585,8 +581,6 @@ public class BorderLayout implements LayoutManager2, java.io.Serializable {
 					HTMLTableRowElement row = (HTMLTableRowElement) table.childNodes.$get(j);
 					HTMLTableColElement col = (HTMLTableColElement) row.childNodes.$get(j == 1 ? i : 0);
 					col.appendChild(component.getHTMLElement());
-					component.getHTMLElement().style.width = "100%";
-					component.getHTMLElement().style.height = "100%";
 					return;
 				}
 			}

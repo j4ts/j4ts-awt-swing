@@ -33,7 +33,6 @@ public class TextField extends Component {
 	@Override
 	public void initHTML() {
 		super.initHTML();
-		htmlElement.id = "cmp" + Component.CURRENT_ID++;
 		initActionListener();
 	}
 

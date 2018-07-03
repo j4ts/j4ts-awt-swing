@@ -3,14 +3,12 @@ package java.awt;
 import static def.dom.Globals.document;
 import static jsweet.util.Lang.any;
 
-import def.dom.HTMLDivElement;
-import def.dom.HTMLTableColElement;
-import def.dom.HTMLTableDataCellElement;
-import def.dom.HTMLTableElement;
-import def.dom.HTMLTableRowElement;
+import def.dom.*;
 import jsweet.util.StringTypes;
 
-public class GridLayout implements LayoutManager {
+import java.util.Arrays;
+
+public class GridLayout implements LayoutManager2 {
 
 	boolean created = false;
 
@@ -27,16 +25,35 @@ public class GridLayout implements LayoutManager {
 	@Override
 	public void addLayoutComponent(String name, Component component) {
 		int pos = 0;
-		for (int j = 0; j < rows; j++) {
-			HTMLTableRowElement row = (HTMLTableRowElement) table.childNodes.$get(j);
-			for (int i = 0; i < cols; i++) {
-				HTMLTableColElement col = (HTMLTableColElement) row.childNodes.$get(i);
-				if (pos++ == currentPosition) {
-					col.appendChild(component.getHTMLElement());
-					component.getHTMLElement().style.width = "100%";
-					component.getHTMLElement().style.height = "100%";
-					currentPosition++;
-					return;
+		if (table.children.$get(0).childNodes.length * rows == currentPosition) {
+			for (int i = 0; i < rows; i++) {
+				HTMLTableDataCellElement col = document.createElement(StringTypes.td);
+				table.children.$get(i).appendChild(col);
+			}
+			Component[] cp = new Component[parent.getComponentCount()];
+			for (int i = 0; i < cp.length; ++i)
+				cp[i] = parent.getComponents()[i];
+
+			for (Component comp : cp) {
+				parent.remove(comp);
+			}
+
+			cols = table.children.$get(0).childNodes.length;
+			currentPosition = 0;
+
+			for (Component comp : cp) {
+				parent.add(comp);
+			}
+		} else {
+			for (int j = 0; j < rows; j++) {
+				HTMLTableRowElement row = (HTMLTableRowElement) table.childNodes.$get(j);
+				for (int i = 0; i < row.childNodes.length; i++) {
+					HTMLTableColElement col = (HTMLTableColElement) row.childNodes.$get(i);
+					if (pos++ == currentPosition) {
+						col.appendChild(component.getHTMLElement());
+						currentPosition++;
+						return;
+					}
 				}
 			}
 		}
@@ -59,17 +76,40 @@ public class GridLayout implements LayoutManager {
 			table.style.left = "0px";
 			table.style.right = "0px";
 			table.style.zIndex = "0";
+			table.style.border = "0px";
+			table.cellSpacing = "0px";
+			table.cellPadding = "0px";
+			table.style.tableLayout = "fixed";
 
 			for (int j = 0; j < rows; j++) {
 				HTMLTableRowElement row = document.createElement(StringTypes.tr);
 				table.appendChild(row);
-				for (int i = 0; i < cols; i++) {
+				for (int i = 0; i < 1; i++) {
 					HTMLTableDataCellElement col = document.createElement(StringTypes.td);
 					row.appendChild(col);
-					col.style.width = "" + ((int) 100 / cols) + "%";
 				}
 			}
 			div.appendChild(table);
 		}
+	}
+
+	@Override
+	public void addLayoutComponent(Component component, Object o) {
+		addLayoutComponent((String) null, component);
+	}
+
+	@Override
+	public float getLayoutAlignmentX(Container container) {
+		return 0;
+	}
+
+	@Override
+	public float getLayoutAlignmentY(Container container) {
+		return 0;
+	}
+
+	@Override
+	public void invalidateLayout(Container container) {
+
 	}
 }

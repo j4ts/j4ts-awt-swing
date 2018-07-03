@@ -53,14 +53,6 @@ public interface LayoutManager2 extends LayoutManager {
     void addLayoutComponent(Component comp, Object constraints);
 
     /**
-     * Calculates the maximum size dimensions for the specified container,
-     * given the components it contains.
-     * @see java.awt.Component#getMaximumSize
-     * @see LayoutManager
-     */
-    public Dimension maximumLayoutSize(Container target);
-
-    /**
      * Returns the alignment along the x axis.  This specifies how
      * the component would like to be aligned relative to other
      * components.  The value should be a number between 0 and 1

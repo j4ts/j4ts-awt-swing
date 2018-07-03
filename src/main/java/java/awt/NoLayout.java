@@ -17,8 +17,6 @@ public class NoLayout implements LayoutManager {
 	public void addLayoutComponent(String name, Component component) {
 		HTMLDivElement div = any(parent.getHTMLElement());
 		div.appendChild(component.getHTMLElement());
-		component.getHTMLElement().style.width = "100%";
-		component.getHTMLElement().style.height = "100%";
 	}
 
 	@Override

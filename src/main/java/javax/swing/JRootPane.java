@@ -45,6 +45,13 @@ public class JRootPane extends JComponent {
 		htmlElement = document.createElement(StringTypes.div);
 	}
 
+	@Override
+	public void initHTML() {
+		super.initHTML();
+		htmlElement.style.width = "100%";
+		htmlElement.style.height = "100%";
+	}
+
 	private static final String uiClassID = "RootPaneUI";
 
 	/**

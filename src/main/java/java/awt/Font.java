@@ -250,13 +250,13 @@ public class Font implements java.io.Serializable {
 	}
 
 	public static Font decode(String str) {
-		String fontName = str;
-		String styleName = "";
+		String fontName;
+		String styleName;
 		int fontSize = 12;
 		int fontStyle = Font.PLAIN;
 
 		if (str == null) {
-			return new Font(DIALOG, fontStyle, fontSize);
+			return new Font(DIALOG, Font.BOLD, fontSize);
 		}
 
 		int lastHyphen = str.lastIndexOf('-');

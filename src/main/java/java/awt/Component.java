@@ -1,7 +1,8 @@
 package java.awt;
 
-import static jsweet.util.Lang.any;
-import static jsweet.util.Lang.array;
+import def.dom.*;
+import def.js.Array;
+import jsweet.util.Lang;
 
 import java.awt.event.FocusListener;
 import java.awt.event.MouseListener;
@@ -9,9 +10,8 @@ import java.awt.event.MouseWheelListener;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-import def.dom.*;
-import def.js.Array;
-import jsweet.util.Lang;
+import static jsweet.util.Lang.any;
+import static jsweet.util.Lang.array;
 
 public abstract class Component implements HTMLComponent {
 

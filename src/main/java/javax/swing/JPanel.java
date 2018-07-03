@@ -89,6 +89,8 @@ public class JPanel extends JComponent {
 			htmlElement.style.backgroundColor = null;
 			htmlCanvas.style.backgroundColor = getBackground().toHTML();
 		}
+		htmlElement.style.width = "100%";
+		htmlElement.style.height = "100%";
 		htmlCanvas.width = htmlElement.offsetWidth;
 		htmlCanvas.height = htmlElement.offsetHeight;
 		htmlCanvas.style.position = "absolute";

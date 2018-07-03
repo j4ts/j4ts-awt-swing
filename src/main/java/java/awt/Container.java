@@ -40,14 +40,15 @@ public abstract class Container extends Component {
 
 	public void setLayout(LayoutManager mgr) {
 		if (layoutMgr != null) {
-			if (components.length == 0) {
-				if (htmlElement != null) {
-					while (htmlElement.firstChild != null) {
-						htmlElement.removeChild(htmlElement.firstChild);
-					}
+			removeAll();
+			if (layoutMgr instanceof LayoutManager2) {
+				((LayoutManager2) layoutMgr).invalidateLayout(this);
+			}
+
+			if (htmlElement != null) {
+				while (htmlElement.firstChild != null) {
+					htmlElement.removeChild(htmlElement.firstChild);
 				}
-			} else {
-				throw new RuntimeException("cannot change layout dynamically with the current implementation");
 			}
 		}
 		layoutMgr = mgr;
@@ -62,7 +63,7 @@ public abstract class Container extends Component {
 	public void layout() {
 		LayoutManager layoutMgr = this.layoutMgr;
 		if (layoutMgr != null) {
-			// layoutMgr.layoutContainer(this);
+			layoutMgr.layoutContainer(this);
 		}
 	}
 
@@ -93,7 +94,6 @@ public abstract class Container extends Component {
 		if (component.parent != null) {
 			component.parent.remove(component);
 		}
-
 
 		component.initHTML();
 
@@ -146,18 +146,21 @@ public abstract class Container extends Component {
 	}
 
 	public void remove(Component comp) {
+		int i = array(components).indexOf(comp);
+		if (i < 0)
+			return;
+
 		if (layoutMgr != null) {
 			layoutMgr.removeLayoutComponent(comp);
 		}
 
 		comp.parent = null;
 
-		if (comp.getHTMLElement().parentNode == getHTMLElement()) {
-			getHTMLElement().removeChild(comp.getHTMLElement());
+		if (comp.getHTMLElement().parentNode != null) {
+			comp.getHTMLElement().parentNode.removeChild(comp.getHTMLElement());
 		}
 
-		int i = array(components).indexOf(comp);
-		components = array(array(components).slice(i, 1));
+		array(components).splice(i, 1);
 	}
 
 	public Insets getInsets() {
