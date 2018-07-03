@@ -15,6 +15,10 @@ public class NoLayout implements LayoutManager {
 
 	@Override
 	public void addLayoutComponent(String name, Component component) {
+		HTMLDivElement div = any(parent.getHTMLElement());
+		div.appendChild(component.getHTMLElement());
+		component.getHTMLElement().style.width = "100%";
+		component.getHTMLElement().style.height = "100%";
 	}
 
 	@Override
@@ -23,13 +27,5 @@ public class NoLayout implements LayoutManager {
 
 	@Override
 	public void layoutContainer(Container parent) {
-	}
-
-	@Override
-	public void onComponentAdded(Container parent, Component component, int position) {
-		HTMLDivElement div = any(parent.getHTMLElement());
-		div.appendChild(component.getHTMLElement());
-		component.getHTMLElement().style.width = "100%";
-		component.getHTMLElement().style.height = "100%";
 	}
 }

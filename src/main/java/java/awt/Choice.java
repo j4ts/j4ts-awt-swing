@@ -35,7 +35,7 @@ import java.util.Vector;
 
 import def.dom.HTMLOptionElement;
 import def.dom.HTMLSelectElement;
-import def.dom.Node;
+import def.dom.NodeList;
 import def.js.Array;
 import jsweet.util.StringTypes;
 
@@ -72,8 +72,9 @@ public class Choice extends Component implements ItemSelectable {
 			processItemEvent(new ItemEvent(this, 0, option.innerHTML, ItemEvent.SELECTED));
 			return e;
 		};
-		for (Node n : getHTMLElement().childNodes) {
-			getHTMLElement().removeChild(n);
+		NodeList childNodes = getHTMLElement().childNodes;
+		for (int i = 0; i < childNodes.length; ++i) {
+			getHTMLElement().removeChild(childNodes.$get(i));
 		}
 		for (int i = 0; i < getItemCount(); i++) {
 			HTMLOptionElement option = document.createElement(StringTypes.option);

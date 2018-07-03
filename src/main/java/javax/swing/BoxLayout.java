@@ -119,10 +119,6 @@ public class BoxLayout implements LayoutManager2, Serializable {
 		}
 	}
 
-	@Override
-	public void onComponentAdded(Container parent, Component component, int position) {
-	}
-	
 	private int axis;
 	private Container target;
 

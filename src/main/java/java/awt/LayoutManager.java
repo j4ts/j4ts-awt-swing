@@ -34,6 +34,4 @@ public interface LayoutManager {
 	// Dimension minimumLayoutSize(Container parent);
 	//
 	void layoutContainer(Container parent);
-	
-	void onComponentAdded(Container parent, Component component, int position);
 }

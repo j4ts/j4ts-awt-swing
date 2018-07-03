@@ -43,6 +43,28 @@ public class FlowLayout implements LayoutManager {
 
 	@Override
 	public void addLayoutComponent(String name, Component component) {
+		HTMLElement element = component.getHTMLElement();
+		switch (align) {
+			case CENTER:
+			case LEFT:
+			case LEADING:
+				element.style.display = "inline-block";
+				element.style.marginRight = hgap + "px";
+				element.style.marginBottom = vgap + "px";
+				element.style.verticalAlign = "top";
+				break;
+			case RIGHT:
+			case TRAILING:
+				element.style.cssFloat = "right";
+				element.style.marginLeft = hgap + "px";
+				element.style.marginBottom = vgap + "px";
+				break;
+		}
+		// hack: force grid layout table to not take 100% of the height
+		if (component instanceof Container && ((Container) component).getLayout() instanceof GridLayout) {
+			((GridLayout) ((Container) component).getLayout()).table.style.height = "auto";
+		}
+		parent.getHTMLElement().appendChild(element);
 	}
 
 	@Override
@@ -55,32 +77,6 @@ public class FlowLayout implements LayoutManager {
 			this.parent = parent;
 			created = true;
 		}
-	}
-
-	@Override
-	public void onComponentAdded(Container parent, Component component, int position) {
-		HTMLElement element = component.getHTMLElement();
-		switch (align) {
-		case CENTER:
-		case LEFT:
-		case LEADING:
-			element.style.display = "inline-block";
-			element.style.marginRight = hgap + "px";
-			element.style.marginBottom = vgap + "px";
-			element.style.verticalAlign = "top";
-			break;
-		case RIGHT:
-		case TRAILING:
-			element.style.cssFloat = "right";
-			element.style.marginLeft = hgap + "px";
-			element.style.marginBottom = vgap + "px";
-			break;
-		}
-		// hack: force grid layout table to not take 100% of the height
-		if (component instanceof Container && ((Container) component).getLayout() instanceof GridLayout) {
-			((GridLayout) ((Container) component).getLayout()).table.style.height = "auto";
-		}
-		parent.getHTMLElement().appendChild(element);
 	}
 
 	public Container getParent() {

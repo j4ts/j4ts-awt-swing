@@ -41,11 +41,6 @@ public class BorderLayout implements LayoutManager2, java.io.Serializable {
 	Container parent;
 	public HTMLTableElement table;
 	
-	@Override
-	public void onComponentAdded(Container parent, Component component, int position) {
-		
-	}
-	
 	/**
 	 * Constructs a border layout with the horizontal gaps between components.
 	 * The horizontal gap is specified by <code>hgap</code>.
@@ -472,7 +467,7 @@ public class BorderLayout implements LayoutManager2, java.io.Serializable {
 
 	public Component getLayoutComponent(Container target, Object constraints) {
 		boolean ltr = true;
-		Component result = null;
+		Component result;
 
 		if (NORTH.equals(constraints)) {
 			result = (firstLine != null) ? firstLine : north;

@@ -26,6 +26,20 @@ public class GridLayout implements LayoutManager {
 
 	@Override
 	public void addLayoutComponent(String name, Component component) {
+		int pos = 0;
+		for (int j = 0; j < rows; j++) {
+			HTMLTableRowElement row = (HTMLTableRowElement) table.childNodes.$get(j);
+			for (int i = 0; i < cols; i++) {
+				HTMLTableColElement col = (HTMLTableColElement) row.childNodes.$get(i);
+				if (pos++ == currentPosition) {
+					col.appendChild(component.getHTMLElement());
+					component.getHTMLElement().style.width = "100%";
+					component.getHTMLElement().style.height = "100%";
+					currentPosition++;
+					return;
+				}
+			}
+		}
 	}
 
 	@Override
@@ -56,24 +70,6 @@ public class GridLayout implements LayoutManager {
 				}
 			}
 			div.appendChild(table);
-		}
-	}
-
-	@Override
-	public void onComponentAdded(Container parent, Component component, int position) {
-		int pos = 0;
-		for (int j = 0; j < rows; j++) {
-			HTMLTableRowElement row = (HTMLTableRowElement) table.childNodes.$get(j);
-			for (int i = 0; i < cols; i++) {
-				HTMLTableColElement col = (HTMLTableColElement) row.childNodes.$get(i);
-				if (pos++ == currentPosition) {
-					col.appendChild(component.getHTMLElement());
-					component.getHTMLElement().style.width = "100%";
-					component.getHTMLElement().style.height = "100%";
-					currentPosition++;
-					return;
-				}
-			}
 		}
 	}
 }

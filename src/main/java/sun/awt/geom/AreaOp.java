@@ -180,10 +180,12 @@ public abstract class AreaOp {
 		}
 	}
 
-	private static Comparator YXTopComparator = new Comparator() {
-		public int compare(Object o1, Object o2) {
-			Curve c1 = ((Edge) o1).getCurve();
-			Curve c2 = ((Edge) o2).getCurve();
+	private static class EdgeComparator implements Comparator<Edge> {
+
+		@Override
+		public int compare(Edge o1, Edge o2) {
+			Curve c1 = o1.getCurve();
+			Curve c2 = o2.getCurve();
 			double v1, v2;
 			if ((v1 = c1.getYTop()) == (v2 = c2.getYTop())) {
 				if ((v1 = c1.getXTop()) == (v2 = c2.getXTop())) {
@@ -195,7 +197,9 @@ public abstract class AreaOp {
 			}
 			return 1;
 		}
-	};
+	}
+
+	private static EdgeComparator YXTopComparator = new EdgeComparator();
 
 	private Vector pruneEdges(Vector edges) {
 		int numedges = edges.size();

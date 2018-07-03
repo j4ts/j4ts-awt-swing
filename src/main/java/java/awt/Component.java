@@ -9,9 +9,9 @@ import java.awt.event.MouseWheelListener;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-import def.dom.HTMLElement;
-import def.dom.Node;
+import def.dom.*;
 import def.js.Array;
+import jsweet.util.Lang;
 
 public abstract class Component implements HTMLComponent {
 
@@ -53,9 +53,10 @@ public abstract class Component implements HTMLComponent {
 	public final void bindHTML(HTMLElement htmlElement) {
 		if (this.htmlElement != null) {
 			if (htmlElement.tagName == this.htmlElement.tagName) {
-				Array<Node> nodes = new Array<Node>();
-				for (Node n : this.htmlElement.childNodes) {
-					nodes.push(n);
+				Array<Node> nodes = new Array<>();
+
+				for (int i = 0; i < this.htmlElement.childNodes.length; ++i) {
+					nodes.push(this.htmlElement.childNodes.$get(i));
 				}
 				for (Node n : nodes) {
 					this.htmlElement.removeChild(n);
@@ -87,6 +88,7 @@ public abstract class Component implements HTMLComponent {
 			createHTML();
 		}
 		htmlElement.id = "cmp" + Component.CURRENT_ID++;
+
 		if (background != null) {
 			htmlElement.style.backgroundColor = background.toHTML();
 		}
@@ -206,6 +208,31 @@ public abstract class Component implements HTMLComponent {
 
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+
+		switch (getHTMLElement().tagName.toLowerCase()) {
+			// https://www.w3schools.com/tags/att_disabled.asp
+			case "button":
+				(Lang.<HTMLButtonElement> any(getHTMLElement())).disabled = !enabled;
+				break;
+			case "fieldset":
+				(Lang.<HTMLFieldSetElement> any(getHTMLElement())).disabled = !enabled;
+				break;
+			case "input":
+				(Lang.<HTMLInputElement> any(getHTMLElement())).disabled = !enabled;
+				break;
+			case "optgroup":
+				(Lang.<HTMLOptGroupElement> any(getHTMLElement())).disabled = !enabled;
+				break;
+			case "option":
+				(Lang.<HTMLOptionElement> any(getHTMLElement())).disabled = !enabled;
+				break;
+			case "select":
+				(Lang.<HTMLSelectElement> any(getHTMLElement())).disabled = !enabled;
+				break;
+			case "textarea":
+				(Lang.<HTMLTextAreaElement> any(getHTMLElement())).disabled = !enabled;
+				break;
+		}
 	}
 
 	public Color getBackground() {
@@ -214,9 +241,7 @@ public abstract class Component implements HTMLComponent {
 
 	public void setBackground(Color background) {
 		this.background = background;
-		if (htmlElement != null) {
-			htmlElement.style.backgroundColor = background.toHTML();
-		}
+		getHTMLElement().style.backgroundColor = background.toHTML();
 	}
 
 	public Color getForeground() {
@@ -225,9 +250,7 @@ public abstract class Component implements HTMLComponent {
 
 	public void setForeground(Color foreground) {
 		this.foreground = foreground;
-		if (htmlElement != null) {
-			htmlElement.style.color = foreground.toHTML();
-		}
+		getHTMLElement().style.color = foreground.toHTML();
 	}
 
 	public Font getFont() {
@@ -236,9 +259,7 @@ public abstract class Component implements HTMLComponent {
 
 	public void setFont(Font font) {
 		this.font = font;
-		if (htmlElement != null) {
-			htmlElement.style.font = font.toHTML();
-		}
+		getHTMLElement().style.font = font.toHTML();
 	}
 
 	public boolean isVisible() {
@@ -247,9 +268,7 @@ public abstract class Component implements HTMLComponent {
 
 	public void setVisible(boolean visible) {
 		this.visible = visible;
-		if (htmlElement != null) {
-			htmlElement.style.visibility = visible ? "visible" : "hidden";
-		}
+		getHTMLElement().style.visibility = visible ? "visible" : "hidden";
 	}
 
 	public String getName() {
