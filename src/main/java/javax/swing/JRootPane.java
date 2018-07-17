@@ -30,6 +30,7 @@ import static jsweet.util.Lang.array;
 import java.awt.*;
 
 import def.dom.HTMLDivElement;
+import def.dom.HTMLElement;
 import jsweet.util.StringTypes;
 
 @SuppressWarnings("serial")
@@ -157,7 +158,7 @@ public class JRootPane extends JComponent {
 
 	public void setGlassPane(Container glassPane) {
 		if (glassPane == null)
-			throw new IllegalComponentStateException("contentPane cannot be set to null.");
+			throw new IllegalComponentStateException("glassPane cannot be set to null.");
 
 		this.glassPane = glassPane;
 		if (glassPane.getParent() != null) {
@@ -165,8 +166,8 @@ public class JRootPane extends JComponent {
 		}
 
 		glassPane.initHTML();
-
 		glassPane.parent = this;
+		glassPane.getHTMLElement().style.zIndex = "1";
 
 		getHTMLElement().appendChild(glassPane.getHTMLElement());
 	}
