@@ -47,7 +47,7 @@ public abstract class Component implements HTMLComponent {
 
 	Dimension minimumSize = new Dimension();
 
-	Container parent;
+	public Container parent;
 
 	@Override
 	public final void bindHTML(HTMLElement htmlElement) {
@@ -87,7 +87,7 @@ public abstract class Component implements HTMLComponent {
 		if (htmlElement == null) {
 			createHTML();
 		}
-		htmlElement.id = "cmp" + Component.CURRENT_ID++;
+		// htmlElement.id = "cmp-" + this.getClass().getName() + "-" + Component.CURRENT_ID++;
 
 		if (background != null) {
 			htmlElement.style.backgroundColor = background.toHTML();
@@ -102,6 +102,12 @@ public abstract class Component implements HTMLComponent {
 		} else {
 			htmlElement.style.height = "auto";
 		}
+		if (x != null) {
+			htmlElement.style.left = x + "px";
+		}
+		if (y != null) {
+			htmlElement.style.top = y + "px";
+		}
 	}
 
 	public Point getLocationOnScreen() {
@@ -110,6 +116,20 @@ public abstract class Component implements HTMLComponent {
 
 	public Rectangle getBounds() {
 		return new Rectangle(getX(), getY(), getWidth(), getHeight());
+	}
+
+	public void setBounds(Rectangle rectangle) {
+		setBounds(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+	}
+
+	public void setBounds(int x, int y, int width, int height) {
+		this.x = x;
+		this.y = y;
+		if (htmlElement != null) {
+			htmlElement.style.top = y + "px";
+			htmlElement.style.left = x + "px";
+		}
+		setSize(width, height);
 	}
 
 	public int getWidth() {

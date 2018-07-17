@@ -52,7 +52,18 @@ public abstract class Container extends Component {
 			}
 		}
 		layoutMgr = mgr;
-		layoutMgr.layoutContainer(this);
+		if (layoutMgr != null) {
+			if (htmlElement != null) {
+				htmlElement.style.position = "";
+				htmlElement.style.top = "";
+				htmlElement.style.left = "";
+			}
+			layoutMgr.layoutContainer(this);
+		} else if (htmlElement != null) {
+			htmlElement.style.position = "absolute";
+			htmlElement.style.top = "0px";
+			htmlElement.style.left = "0px";
+		}
 	}
 
 	public void doLayout() {
@@ -107,6 +118,8 @@ public abstract class Container extends Component {
 			} else if (constraints instanceof String || constraints == null){
 				layoutMgr.addLayoutComponent((String) constraints, component);
 			}
+		} else {
+			component.getHTMLElement().style.position = "absolute";
 		}
 
 		if (component.getHTMLElement().parentNode == null) {

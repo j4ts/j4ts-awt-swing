@@ -3,6 +3,7 @@ package javax.swing;
 import static def.dom.Globals.console;
 import static def.dom.Globals.document;
 import static jsweet.util.Lang.any;
+import static jsweet.util.Lang.number;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -19,10 +20,16 @@ public class JButton extends AbstractButton {
 	String actionCommand;
 	String label;
 	Color background;
+	ImageIcon icon;
 
 	public JButton(String label) {
+		this(label, null);
+	}
+
+	public JButton(String label, ImageIcon icon) {
 		this.label = label;
 		this.actionCommand = label;
+		this.icon = icon;
 
 		this.actionListener = actionEvent -> {
 			for (ActionListener listener : actionListeners) {
@@ -47,7 +54,12 @@ public class JButton extends AbstractButton {
 	@Override
 	public void initHTML() {
 		super.initHTML();
-		htmlElement.innerHTML = label;
+		if (icon != null)
+			getHTMLElement().appendChild(icon.getInternalHTMLImageElement());
+
+		if (!label.isEmpty())
+			htmlElement.innerHTML = label;
+
 		initActionListener();
 	}
 
@@ -73,5 +85,4 @@ public class JButton extends AbstractButton {
 	public final void setBackground(Color background) {
 		this.background = background;
 	}
-
 }

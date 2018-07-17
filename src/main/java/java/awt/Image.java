@@ -46,6 +46,21 @@ public class Image {
 	public Image(String src) {
 		source = document.createElement(StringTypes.img);
 		source.src = src;
+		setScale(SCALE_DEFAULT);
+	}
+
+	private void setScale(int scale) {
+		switch (scale) {
+			case SCALE_DEFAULT:
+			case SCALE_FAST:
+			case SCALE_REPLICATE:
+				source.style.$set("imageRendering", "pixelated");
+				break;
+			case SCALE_SMOOTH:
+			case SCALE_AREA_AVERAGING:
+				source.style.$set("imageRendering", "");
+
+		}
 	}
 
 	public int getWidth(ImageObserver observer) {
@@ -56,12 +71,19 @@ public class Image {
 		return (int) source.height;
 	}
 
-	public HTMLImageElement source;
+	public final HTMLImageElement source;
 
 	// public abstract ImageProducer getSource();
 
 	// public Graphics getGraphics();
 
+	public Image getScaledInstance(int width, int height, int scaleType) {
+		Image image = new Image(source.src);
+		image.source.width = width;
+		image.source.height = height;
+		image.setScale(scaleType);
+		return image;
+	}
 	/**
 	 * Use the default image-scaling algorithm.
 	 * 

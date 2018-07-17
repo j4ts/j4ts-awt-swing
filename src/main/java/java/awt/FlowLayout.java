@@ -93,7 +93,6 @@ public class FlowLayout implements LayoutManager {
 					this.parent.getHTMLElement().style.textAlign = "right";
 					break;
 			}
-			this.parent.getHTMLElement().style.position = "absolute";
 			created = true;
 		}
 	}

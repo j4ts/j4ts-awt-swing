@@ -25,18 +25,15 @@
 package javax.swing;
 
 import static def.dom.Globals.document;
+import static jsweet.util.Lang.array;
 
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.IllegalComponentStateException;
-import java.awt.NoLayout;
+import java.awt.*;
 
+import def.dom.HTMLDivElement;
 import jsweet.util.StringTypes;
 
 @SuppressWarnings("serial")
 public class JRootPane extends JComponent {
-
 	@Override
 	public void createHTML() {
 		if (htmlElement != null) {
@@ -50,6 +47,7 @@ public class JRootPane extends JComponent {
 		super.initHTML();
 		htmlElement.style.width = "100%";
 		htmlElement.style.height = "100%";
+
 	}
 
 	private static final String uiClassID = "RootPaneUI";
@@ -139,6 +137,8 @@ public class JRootPane extends JComponent {
 	/** The content pane. */
 	protected Container contentPane;
 
+	protected Container glassPane;
+
 	/**
 	 * The button that gets activated when the pane has the focus and a
 	 * UI-specific action like pressing the <b>Enter</b> key occurs.
@@ -152,6 +152,35 @@ public class JRootPane extends JComponent {
 	public JRootPane() {
 		setLayout(new NoLayout());
 		setContentPane(createContentPane());
+		setGlassPane(createGlassPane());
+	}
+
+	public void setGlassPane(Container glassPane) {
+		if (glassPane == null)
+			throw new IllegalComponentStateException("contentPane cannot be set to null.");
+
+		this.glassPane = glassPane;
+		if (glassPane.getParent() != null) {
+			glassPane.getParent().remove(glassPane);
+		}
+
+		glassPane.initHTML();
+
+		glassPane.parent = this;
+
+		getHTMLElement().appendChild(glassPane.getHTMLElement());
+	}
+
+	public Container getGlassPane() {
+		return glassPane;
+	}
+
+	protected Container createGlassPane() {
+		JComponent c = new JPanel();
+		c.setName(this.getName() + ".glassPane");
+		c.setVisible(false);
+		c.setLayout(null);
+		return c;
 	}
 
 	/**
@@ -275,5 +304,4 @@ public class JRootPane extends JComponent {
 	public JButton getDefaultButton() {
 		return defaultButton;
 	}
-
 }

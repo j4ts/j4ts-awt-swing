@@ -1,8 +1,6 @@
 package javax.swing;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Frame;
+import java.awt.*;
 
 public class JFrame extends Frame implements RootPaneContainer, WindowConstants {
 
@@ -13,6 +11,7 @@ public class JFrame extends Frame implements RootPaneContainer, WindowConstants 
 	protected boolean rootPaneCheckingEnabled = false;
 
 	public JFrame() {
+		frameInit();
 	}
 
 	public JFrame(String title) {
@@ -58,6 +57,14 @@ public class JFrame extends Frame implements RootPaneContainer, WindowConstants 
 	@Override
 	public void setContentPane(Container contentPane) {
 		getRootPane().setContentPane(contentPane);
+	}
+
+	public void setGlassPane(Container glassPane) {
+		getRootPane().setGlassPane(glassPane);
+	}
+
+	public Component getGlassPane() {
+		return getRootPane().getGlassPane();
 	}
 
 	public void setDefaultCloseOperation(int operation) {

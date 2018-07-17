@@ -32,12 +32,13 @@ import java.awt.image.ImageObserver;
 import java.beans.ConstructorProperties;
 import java.beans.Transient;
 import java.io.Serializable;
+import java.net.URL;
 
 import def.dom.HTMLImageElement;
 
 public class ImageIcon implements Icon, Serializable {
 	transient private String filename;
-	// transient private URL location;
+	transient private URL location;
 
 	transient Image image;
 	transient int loadStatus;
@@ -67,19 +68,16 @@ public class ImageIcon implements Icon, Serializable {
 		this(filename, filename);
 	}
 
-	// public ImageIcon(URL location, String description) {
-	// image = Toolkit.getDefaultToolkit().getImage(location);
-	// if (image == null) {
-	// return;
-	// }
-	// this.location = location;
-	// this.description = description;
-	// loadImage(image);
-	// }
+	public ImageIcon(URL location, String description) {
+		this.image = new Image(location.toString());
+		this.location = location;
+		this.description = description;
+		loadImage(image);
+	}
 
-	// public ImageIcon (URL location) {
-	// this(location, location.toExternalForm());
-	// }
+	public ImageIcon (URL location) {
+		this(location, location.toString());
+	}
 
 	public ImageIcon(Image image, String description) {
 		this(image);

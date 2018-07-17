@@ -93,7 +93,6 @@ public class JPanel extends JComponent {
 		htmlElement.style.height = "100%";
 		htmlCanvas.width = htmlElement.offsetWidth;
 		htmlCanvas.height = htmlElement.offsetHeight;
-		htmlCanvas.style.position = "absolute";
 		htmlCanvas.style.font = Font.decode(null).toHTML();
 		getGraphics().setFont(Font.decode(null));
 		//htmlCanvas.style.zIndex = "-1";
