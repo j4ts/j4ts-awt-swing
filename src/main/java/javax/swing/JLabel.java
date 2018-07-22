@@ -124,8 +124,6 @@ public class JLabel extends JComponent implements SwingConstants {
 
 		htmlElement.style.display = "table";
 		htmlElement.style.tableLayout = "fixed";
-		htmlElement.style.width = "100%";
-		htmlElement.style.height = "100%";
 		htmlElement.style.textAlign = "center";
 		htmlLabelElement.style.display = text == null || text.length() == 0 ? "none" : "table-cell";
 		htmlLabelElement.style.verticalAlign = "middle";
@@ -167,8 +165,13 @@ public class JLabel extends JComponent implements SwingConstants {
 
 		firePropertyChange("icon", oldValue, defaultIcon);
 
-		if (htmlElement != null) {
-			initHTML();
+		if (defaultIcon != oldValue) {
+			if (htmlImageElement != null) {
+				htmlElement.removeChild(htmlImageElement);
+			}
+			if (htmlElement != null) {
+				htmlElement.insertBefore(htmlImageElement = defaultIcon.getInternalHTMLImageElement(), htmlLabelElement);
+			}
 		}
 	}
 

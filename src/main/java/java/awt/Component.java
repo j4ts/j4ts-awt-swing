@@ -95,12 +95,12 @@ public abstract class Component implements HTMLComponent {
 		if (width != null) {
 			htmlElement.style.width = width + "px";
 		} else {
-			htmlElement.style.width = "auto";
+			htmlElement.style.width = "100%";
 		}
 		if (height != null) {
 			htmlElement.style.height = height + "px";
 		} else {
-			htmlElement.style.height = "auto";
+			htmlElement.style.height = "100%";
 		}
 		if (x != null) {
 			htmlElement.style.left = x + "px";
@@ -123,11 +123,17 @@ public abstract class Component implements HTMLComponent {
 	}
 
 	public void setBounds(int x, int y, int width, int height) {
-		this.x = x;
-		this.y = y;
-		if (htmlElement != null) {
-			htmlElement.style.top = y + "px";
-			htmlElement.style.left = x + "px";
+		if (this.x != x) {
+			this.x = x;
+			if (htmlElement != null) {
+				htmlElement.style.left = x + "px";
+			}
+		}
+		if (this.y != y) {
+			this.y = y;
+			if (htmlElement != null) {
+				htmlElement.style.top = y + "px";
+			}
 		}
 		setSize(width, height);
 	}
@@ -149,11 +155,17 @@ public abstract class Component implements HTMLComponent {
 	}
 
 	public void setSize(int width, int height) {
-		this.width = width;
-		this.height = height;
-		if (htmlElement != null) {
-			htmlElement.style.width = width + "px";
-			htmlElement.style.height = height + "px";
+		if (this.width != width) {
+			this.width = width;
+			if (htmlElement != null) {
+				htmlElement.style.width = width + "px";
+			}
+		}
+		if (this.height != height) {
+			this.height = height;
+			if (htmlElement != null) {
+				htmlElement.style.height = height + "px";
+			}
 		}
 	}
 

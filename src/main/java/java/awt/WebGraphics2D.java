@@ -1,6 +1,7 @@
 package java.awt;
 
 import static jsweet.util.Lang.$apply;
+import static jsweet.util.Lang.$new;
 import static jsweet.util.Lang.union;
 
 import java.awt.geom.AffineTransform;
@@ -37,9 +38,21 @@ public class WebGraphics2D extends Graphics2D {
 	@Override
 	public Graphics create() {
 		HTMLCanvasElement canvas = new HTMLCanvasElement();
-		WebGraphics2D graphics = new WebGraphics2D(canvas);
-		return graphics;
+
+		return new WebGraphics2D(canvas);
 	}
+
+	@Override
+	public void setRenderingHint(Object hintKey, Object hintValue) {
+		if (hintKey == RenderingHints.KEY_ANTIALIASING) {
+			if (hintValue == RenderingHints.VALUE_ANTIALIAS_ON) {
+				getContext().$set("imageSmoothingEnabled", true);
+			} else {
+				getContext().$set("imageSmoothingEnabled", false);
+			}
+		}
+	}
+
 
 	@Override
 	public void drawArc(int x, int y, int width, int height, int startAngle, int arcAngle) {
@@ -117,7 +130,7 @@ public class WebGraphics2D extends Graphics2D {
 
 	@Override
 	public boolean hitClip(int x, int y, int width, int height) {
-		return clip.getBounds().intersects(x, y, width, height);
+		return getClipBounds().intersects(x, y, width, height);
 	}
 
 	@Override
@@ -311,7 +324,11 @@ public class WebGraphics2D extends Graphics2D {
 
 	@Override
 	public Rectangle getClipBounds() {
-		return clip.getBounds();
+		if (clip == null) {
+			return new Rectangle(0, 0, (int) context.canvas.width, (int) context.canvas.height);
+		} else {
+			return clip.getBounds();
+		}
 	}
 
 	@Override
@@ -327,8 +344,9 @@ public class WebGraphics2D extends Graphics2D {
 	@Override
 	public void fillArc(int x, int y, int width, int height, int startAngle, int arcAngle) {
 		context.beginPath();
-		$apply(context.$get("ellipse"), x - width / 2, y - height / 2, width / 2, height / 2, 0,
-				Math.toRadians(startAngle), Math.toRadians(startAngle) + Math.toRadians(arcAngle));
+		$apply(context.$get("ellipse"), x + width / 2, y + height / 2, width / 2, height / 2, 0,
+				Math.toRadians(-startAngle), Math.toRadians(-startAngle) + Math.toRadians(-arcAngle), true);
+		context.lineTo(x + width / 2, y + height / 2);
 		context.fill();
 	}
 
@@ -354,6 +372,7 @@ public class WebGraphics2D extends Graphics2D {
 	@Override
 	public void setColor(Color c) {
 		context.strokeStyle = union(c.toHTML());
+		context.fillStyle = union(c.toHTML());
 	}
 
 	@Override

@@ -75,7 +75,8 @@ public class JPanel extends JComponent {
 	@Override
 	public void initHTML() {
 		super.initHTML();
-		if (htmlCanvas == null) {
+		boolean firstTime = htmlCanvas == null;
+		if (firstTime) {
 			htmlCanvas = document.createElement(StringTypes.canvas);
 			htmlElement.appendChild(htmlCanvas);
 			window.onresize = e -> {
@@ -96,7 +97,10 @@ public class JPanel extends JComponent {
 		htmlCanvas.style.font = Font.decode(null).toHTML();
 		getGraphics().setFont(Font.decode(null));
 		//htmlCanvas.style.zIndex = "-1";
-		paint(getGraphics());
+
+		if (!firstTime) {
+			repaint();
+		}
 	}
 
 	/**
@@ -167,4 +171,12 @@ public class JPanel extends JComponent {
 		return super.paramString();
 	}
 
+	@Override
+	public void setSize(int width, int height) {
+		super.setSize(width, height);
+
+		htmlCanvas.width = width;
+		htmlCanvas.height = height;
+		repaint();
+	}
 }

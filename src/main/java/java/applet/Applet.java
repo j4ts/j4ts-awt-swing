@@ -1,28 +1,26 @@
 package java.applet;
 
-import static def.dom.Globals.console;
+import def.dom.HTMLDivElement;
+import def.dom.NodeList;
+import jsweet.util.StringTypes;
+
+import java.awt.*;
+
 import static def.dom.Globals.document;
 import static def.dom.Globals.window;
 import static jsweet.util.Lang.$new;
+import static jsweet.util.Lang.any;
 import static jsweet.util.Lang.object;
-
-import java.awt.Panel;
-
-import def.dom.Element;
-import def.dom.HTMLDivElement;
-import def.dom.NodeList;
-import def.dom.NodeListOf;
-import jsweet.util.StringTypes;
 
 public class Applet extends Panel {
 
 	static {
 		window.addEventListener(StringTypes.load, e -> {
-			NodeList divList = document.getElementsByClassName("applet");
+			def.js.Object[] divList = any(document.getElementsByClassName("applet"));
 			if (divList.length == 0) {
 				return null;
 			}
-			HTMLDivElement div = (HTMLDivElement) divList.$get(0);
+			HTMLDivElement div = (HTMLDivElement) divList[0];
 			if (div.getAttribute("data-applet") != null) {
 				String[] names = div.getAttribute("data-applet").split(".");
 				Object constructor = window;

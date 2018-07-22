@@ -122,7 +122,7 @@ public abstract class Graphics2D extends Graphics {
 
     public abstract void setStroke(Stroke s);
 
-//    public abstract void setRenderingHint(Key hintKey, Object hintValue);
+    public abstract void setRenderingHint(Object hintKey, Object hintValue);
 
 //    public abstract Object getRenderingHint(Key hintKey);
 

@@ -32,7 +32,7 @@ public abstract class Container extends Component {
 
 	LayoutManager layoutMgr;
 	Component[] components = {};
-	Insets insets;
+	Insets insets = new Insets(0, 0, 0, 0);
 
 	public LayoutManager getLayout() {
 		return layoutMgr;
@@ -182,5 +182,11 @@ public abstract class Container extends Component {
 
 	public void setInsets(Insets insets) {
 		this.insets = insets;
+	}
+
+	public void setComponentZOrder(Component component, int zOrder) {
+		String order = Integer.toString(getComponentCount() - zOrder);
+		if (component.getHTMLElement().style.zIndex != order)
+			component.getHTMLElement().style.zIndex = order;
 	}
 }

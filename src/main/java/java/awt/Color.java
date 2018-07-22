@@ -1190,6 +1190,11 @@ public class Color implements Paint, java.io.Serializable {
 			sb.append("0");
 		}
 		sb.append(s);
+		s = Integer.toHexString(getAlpha());
+		if (s.length() == 1) {
+			sb.append("0");
+		}
+		sb.append(s);
 		return sb.toString();
 	}
 
