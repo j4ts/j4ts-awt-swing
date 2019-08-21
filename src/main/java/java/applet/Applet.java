@@ -46,4 +46,9 @@ public class Applet extends Panel {
 	public void init() {
 	}
 
+	public String getParameter(String param) {
+		return this.htmlElement.getAttribute((String)("param-").concat(param));
+	}
+
+
 }
