@@ -1,6 +1,6 @@
 package java.applet;
 
-import def.dom.HTMLElement;
+import def.dom.Element;
 import def.dom.HTMLDivElement;
 import def.dom.NodeList;
 import jsweet.util.StringTypes;
@@ -48,12 +48,13 @@ public class Applet extends Panel {
 	}
 
 	public String getParameter(String param) {
-		NodeList params = this.htmlElement.getElementsByTagName("param");
-		HTMLElement paramNode;
-		for (int i = 0; i < params.length ; i++) {
-			paramNode = (HTMLElement)params.item(i);
-			if (paramNode.getAttribute("name") == param) {
-				return paramNode.getAttribute("value");
+		Element element;
+		for (int i = 0; i < this.htmlElement.children.length ; i++) {
+			element = this.htmlElement.children.item(i);
+			if (element.tagName == "PARAM") {
+				if (element.getAttribute("name") == param) {
+					return element.getAttribute("value");
+				}
 			}
 		}
 		return null;
