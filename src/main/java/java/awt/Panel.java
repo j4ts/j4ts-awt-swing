@@ -61,8 +61,11 @@ public class Panel extends Container {
 			htmlCanvas = document.createElement(StringTypes.canvas);
 			htmlElement.appendChild(htmlCanvas);
 			window.onresize = e -> {
-				htmlCanvas.width = htmlElement.offsetWidth;
-				htmlCanvas.height = htmlElement.offsetHeight;
+				if ((htmlCanvas.width != htmlElement.offsetWidth) || (htmlCanvas.height != htmlElement.offsetHeight)) {
+					htmlCanvas.width = htmlElement.offsetWidth;
+					htmlCanvas.height = htmlElement.offsetHeight;
+					repaint();
+				}
 				return e;
 			};
 		}

@@ -1,5 +1,6 @@
 package java.applet;
 
+import def.dom.Element;
 import def.dom.HTMLDivElement;
 import def.dom.NodeList;
 import jsweet.util.StringTypes;
@@ -45,5 +46,19 @@ public class Applet extends Panel {
 
 	public void init() {
 	}
+
+	public String getParameter(String param) {
+		Element element;
+		for (int i = 0; i < this.htmlElement.children.length ; i++) {
+			element = this.htmlElement.children.item(i);
+			if (element.tagName == "PARAM") {
+				if (element.getAttribute("name") == param) {
+					return element.getAttribute("value");
+				}
+			}
+		}
+		return null;
+	}
+
 
 }
