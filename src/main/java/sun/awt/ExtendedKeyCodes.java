@@ -3,6 +3,7 @@ package sun.awt;
 import java.awt.event.KeyEvent;
 import java.util.HashMap;
 import java.util.HashSet;
+import static jsweet.util.Lang.any;
 
 public class ExtendedKeyCodes {
     /**
@@ -21,7 +22,7 @@ public class ExtendedKeyCodes {
      private final static HashSet<Integer> extendedKeyCodesSet =
                                                   new HashSet<Integer>(501, 1.0f);
      final public static int getExtendedKeyCodeForChar( int c ) {
-         int uc = Character.toUpperCase( c );
+         int uc = any( Character.toUpperCase( c ) );
          int lc = Character.toLowerCase( c );
          if (regularKeyCodesMap.containsKey( c )) {
              if(regularKeyCodesMap.containsKey(uc)) {
