@@ -73,7 +73,7 @@ public class WebGraphics2D extends Graphics2D {
 	@Override
 	public void drawOval(int x, int y, int width, int height) {
 		context.beginPath();
-		$apply(context.$get("ellipse"), x - width / 2, y - height / 2, width / 2, height / 2, 0, 0, Math.PI * 2);
+		$apply(context.$get("ellipse"), x + width / 2, y + height / 2, width / 2, height / 2, 0, 0, Math.PI * 2);
 		context.stroke();
 	}
 
@@ -150,7 +150,7 @@ public class WebGraphics2D extends Graphics2D {
 	public void draw(Shape s) {
 		PathIterator it = s.getPathIterator(AffineTransform.getTranslateInstance(0, 0));
 		double[] coords = new double[6];
-		while (it.isDone()) {
+		while (!it.isDone()) {
 			switch (it.currentSegment(coords)) {
 			case PathIterator.SEG_MOVETO:
 				context.moveTo(coords[0], coords[1]);
@@ -171,6 +171,7 @@ public class WebGraphics2D extends Graphics2D {
 			default:
 				break;
 			}
+			it.next();
 		}
 		context.stroke();
 	}
@@ -353,7 +354,7 @@ public class WebGraphics2D extends Graphics2D {
 	@Override
 	public void fillOval(int x, int y, int width, int height) {
 		context.beginPath();
-		$apply(context.$get("ellipse"), x - width / 2, y - height / 2, width / 2, height / 2, 0, 0, Math.PI * 2);
+		$apply(context.$get("ellipse"), x + width / 2, y + height / 2, width / 2, height / 2, 0, 0, Math.PI * 2);
 		context.fill();
 	}
 
@@ -372,7 +373,6 @@ public class WebGraphics2D extends Graphics2D {
 	@Override
 	public void setColor(Color c) {
 		context.strokeStyle = union(c.toHTML());
-		context.fillStyle = union(c.toHTML());
 	}
 
 	@Override
@@ -475,7 +475,8 @@ public class WebGraphics2D extends Graphics2D {
 
 	@Override
 	public void setPaint(Paint paint) {
-		// ignore
+		if ( paint instanceof Color )
+			context.fillStyle = union( ((Color) paint).toHTML());
 	}
 
 	@Override

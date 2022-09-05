@@ -11,7 +11,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-/* Generated from Java with JSweet 3.1.0 - http://www.jsweet.org */
+/* Generated from Java with JSweet 3.2.0-SNAPSHOT - http://www.jsweet.org */
 var sun;
 (function (sun) {
     var awt;
@@ -1656,7 +1656,7 @@ var sun;
                     }
                     var edgelist = edges.toArray((function (s) { var a = []; while (s-- > 0)
                         a.push(null); return a; })(numedges));
-                    java.util.Arrays.sort(edgelist, ((function (funcInst) { if (typeof funcInst == 'function') {
+                    java.util.Arrays.sort(edgelist, ((function (funcInst) { if (funcInst == null || typeof funcInst == 'function') {
                         return funcInst;
                     } return function (arg0, arg1) { return (funcInst['compare'] ? funcInst['compare'] : funcInst).call(funcInst, arg0, arg1); }; })(AreaOp.YXTopComparator_$LI$())));
                     if (this.verbose) {
@@ -2246,30 +2246,6 @@ var sun;
                             this.curve = c;
                             this.ctag = ctag;
                             this.etag = etag_1;
-                        }
-                        if (this.curve === undefined) {
-                            this.curve = null;
-                        }
-                        if (this.ctag === undefined) {
-                            this.ctag = 0;
-                        }
-                        if (this.etag === undefined) {
-                            this.etag = 0;
-                        }
-                        if (this.activey === undefined) {
-                            this.activey = 0;
-                        }
-                        if (this.equivalence === undefined) {
-                            this.equivalence = 0;
-                        }
-                        if (this.lastEdge === undefined) {
-                            this.lastEdge = null;
-                        }
-                        if (this.lastResult === undefined) {
-                            this.lastResult = 0;
-                        }
-                        if (this.lastLimit === undefined) {
-                            this.lastLimit = 0;
                         }
                     }
                     else
@@ -3379,22 +3355,6 @@ var java;
                         this.vgap = vgap_1;
                         this.setAlignment(align);
                     }
-                    if (this.parent === undefined) {
-                        this.parent = null;
-                    }
-                    if (this.align === undefined) {
-                        this.align = 0;
-                    }
-                    if (this.hgap === undefined) {
-                        this.hgap = 0;
-                    }
-                    if (this.vgap === undefined) {
-                        this.vgap = 0;
-                    }
-                    if (this.alignOnBaseline === undefined) {
-                        this.alignOnBaseline = false;
-                    }
-                    this.created = false;
                 }
                 else if (align === undefined && hgap === undefined && vgap === undefined) {
                     var __args = arguments;
@@ -3423,22 +3383,6 @@ var java;
                         this.vgap = vgap_2;
                         this.setAlignment(align_1);
                     }
-                    if (this.parent === undefined) {
-                        this.parent = null;
-                    }
-                    if (this.align === undefined) {
-                        this.align = 0;
-                    }
-                    if (this.hgap === undefined) {
-                        this.hgap = 0;
-                    }
-                    if (this.vgap === undefined) {
-                        this.vgap = 0;
-                    }
-                    if (this.alignOnBaseline === undefined) {
-                        this.alignOnBaseline = false;
-                    }
-                    this.created = false;
                 }
                 else
                     throw new Error('invalid overload');
@@ -4425,12 +4369,6 @@ var java;
                             default:
                         }
                     }
-                    if (_this.id === undefined) {
-                        _this.id = 0;
-                    }
-                    if (_this.consumed === undefined) {
-                        _this.consumed = false;
-                    }
                     (function () {
                         _this.consumed = false;
                     })();
@@ -4746,40 +4684,6 @@ var java;
                             default:
                         }
                     }
-                    if (this.data === undefined) {
-                        this.data = 0;
-                    }
-                    if (this.target === undefined) {
-                        this.target = null;
-                    }
-                    if (this.when === undefined) {
-                        this.when = 0;
-                    }
-                    if (this.id === undefined) {
-                        this.id = 0;
-                    }
-                    if (this.x === undefined) {
-                        this.x = 0;
-                    }
-                    if (this.y === undefined) {
-                        this.y = 0;
-                    }
-                    if (this.key === undefined) {
-                        this.key = 0;
-                    }
-                    if (this.modifiers === undefined) {
-                        this.modifiers = 0;
-                    }
-                    if (this.clickCount === undefined) {
-                        this.clickCount = 0;
-                    }
-                    if (this.arg === undefined) {
-                        this.arg = null;
-                    }
-                    if (this.evt === undefined) {
-                        this.evt = null;
-                    }
-                    this.consumed = false;
                 }
                 else if (((target != null) || target === null) && ((typeof when === 'number') || when === null) && ((id != null) || id === null) && x === undefined && y === undefined && key === undefined && modifiers === undefined && arg === undefined) {
                     var __args = arguments;
@@ -4856,40 +4760,6 @@ var java;
                             default:
                         }
                     }
-                    if (this.data === undefined) {
-                        this.data = 0;
-                    }
-                    if (this.target === undefined) {
-                        this.target = null;
-                    }
-                    if (this.when === undefined) {
-                        this.when = 0;
-                    }
-                    if (this.id === undefined) {
-                        this.id = 0;
-                    }
-                    if (this.x === undefined) {
-                        this.x = 0;
-                    }
-                    if (this.y === undefined) {
-                        this.y = 0;
-                    }
-                    if (this.key === undefined) {
-                        this.key = 0;
-                    }
-                    if (this.modifiers === undefined) {
-                        this.modifiers = 0;
-                    }
-                    if (this.clickCount === undefined) {
-                        this.clickCount = 0;
-                    }
-                    if (this.arg === undefined) {
-                        this.arg = null;
-                    }
-                    if (this.evt === undefined) {
-                        this.evt = null;
-                    }
-                    this.consumed = false;
                 }
                 else
                     throw new Error('invalid overload');
@@ -5254,24 +5124,6 @@ var java;
                         }
                         this.dash_phase = dash_phase_1;
                     }
-                    if (this.width === undefined) {
-                        this.width = 0;
-                    }
-                    if (this.join === undefined) {
-                        this.join = 0;
-                    }
-                    if (this.cap === undefined) {
-                        this.cap = 0;
-                    }
-                    if (this.miterlimit === undefined) {
-                        this.miterlimit = 0;
-                    }
-                    if (this.dash === undefined) {
-                        this.dash = null;
-                    }
-                    if (this.dash_phase === undefined) {
-                        this.dash_phase = 0;
-                    }
                 }
                 else if (((typeof width === 'number') || width === null) && ((typeof cap === 'number') || cap === null) && ((typeof join === 'number') || join === null) && miterlimit === undefined && dash === undefined && dash_phase === undefined) {
                     var __args = arguments;
@@ -5341,24 +5193,6 @@ var java;
                             this.dash = (dash_2).splice(0, dash_2.length);
                         }
                         this.dash_phase = dash_phase_2;
-                    }
-                    if (this.width === undefined) {
-                        this.width = 0;
-                    }
-                    if (this.join === undefined) {
-                        this.join = 0;
-                    }
-                    if (this.cap === undefined) {
-                        this.cap = 0;
-                    }
-                    if (this.miterlimit === undefined) {
-                        this.miterlimit = 0;
-                    }
-                    if (this.dash === undefined) {
-                        this.dash = null;
-                    }
-                    if (this.dash_phase === undefined) {
-                        this.dash_phase = 0;
                     }
                 }
                 else if (((typeof width === 'number') || width === null) && cap === undefined && join === undefined && miterlimit === undefined && dash === undefined && dash_phase === undefined) {
@@ -5432,24 +5266,6 @@ var java;
                         }
                         this.dash_phase = dash_phase_3;
                     }
-                    if (this.width === undefined) {
-                        this.width = 0;
-                    }
-                    if (this.join === undefined) {
-                        this.join = 0;
-                    }
-                    if (this.cap === undefined) {
-                        this.cap = 0;
-                    }
-                    if (this.miterlimit === undefined) {
-                        this.miterlimit = 0;
-                    }
-                    if (this.dash === undefined) {
-                        this.dash = null;
-                    }
-                    if (this.dash_phase === undefined) {
-                        this.dash_phase = 0;
-                    }
                 }
                 else if (width === undefined && cap === undefined && join === undefined && miterlimit === undefined && dash === undefined && dash_phase === undefined) {
                     var __args = arguments;
@@ -5522,24 +5338,6 @@ var java;
                             this.dash = (dash_4).splice(0, dash_4.length);
                         }
                         this.dash_phase = dash_phase_4;
-                    }
-                    if (this.width === undefined) {
-                        this.width = 0;
-                    }
-                    if (this.join === undefined) {
-                        this.join = 0;
-                    }
-                    if (this.cap === undefined) {
-                        this.cap = 0;
-                    }
-                    if (this.miterlimit === undefined) {
-                        this.miterlimit = 0;
-                    }
-                    if (this.dash === undefined) {
-                        this.dash = null;
-                    }
-                    if (this.dash_phase === undefined) {
-                        this.dash_phase = 0;
                     }
                 }
                 else
@@ -15612,47 +15410,6 @@ var java;
                                 a.push(0); return a; })(limit_1 + 1);
                             this.next$boolean(false);
                         }
-                        if (this.src === undefined) {
-                            this.src = null;
-                        }
-                        if (this.squareflat === undefined) {
-                            this.squareflat = 0;
-                        }
-                        if (this.limit === undefined) {
-                            this.limit = 0;
-                        }
-                        if (this.curx === undefined) {
-                            this.curx = 0;
-                        }
-                        if (this.cury === undefined) {
-                            this.cury = 0;
-                        }
-                        if (this.movx === undefined) {
-                            this.movx = 0;
-                        }
-                        if (this.movy === undefined) {
-                            this.movy = 0;
-                        }
-                        if (this.holdType === undefined) {
-                            this.holdType = 0;
-                        }
-                        if (this.holdEnd === undefined) {
-                            this.holdEnd = 0;
-                        }
-                        if (this.holdIndex === undefined) {
-                            this.holdIndex = 0;
-                        }
-                        if (this.levels === undefined) {
-                            this.levels = null;
-                        }
-                        if (this.levelIndex === undefined) {
-                            this.levelIndex = 0;
-                        }
-                        if (this.done === undefined) {
-                            this.done = false;
-                        }
-                        this.hold = (function (s) { var a = []; while (s-- > 0)
-                            a.push(0); return a; })(14);
                     }
                     else
                         throw new Error('invalid overload');
@@ -16117,46 +15874,6 @@ var java;
                         this.hgap = hgap_3;
                         this.vgap = vgap_3;
                     }
-                    if (this.parent === undefined) {
-                        this.parent = null;
-                    }
-                    if (this.table === undefined) {
-                        this.table = null;
-                    }
-                    if (this.hgap === undefined) {
-                        this.hgap = 0;
-                    }
-                    if (this.vgap === undefined) {
-                        this.vgap = 0;
-                    }
-                    if (this.north === undefined) {
-                        this.north = null;
-                    }
-                    if (this.west === undefined) {
-                        this.west = null;
-                    }
-                    if (this.east === undefined) {
-                        this.east = null;
-                    }
-                    if (this.south === undefined) {
-                        this.south = null;
-                    }
-                    if (this.center === undefined) {
-                        this.center = null;
-                    }
-                    if (this.firstLine === undefined) {
-                        this.firstLine = null;
-                    }
-                    if (this.lastLine === undefined) {
-                        this.lastLine = null;
-                    }
-                    if (this.firstItem === undefined) {
-                        this.firstItem = null;
-                    }
-                    if (this.lastItem === undefined) {
-                        this.lastItem = null;
-                    }
-                    this.created = false;
                 }
                 else
                     throw new Error('invalid overload');
@@ -17309,12 +17026,6 @@ var java;
                         this.value = ((a_1 & 255) << 24) | ((r_1 & 255) << 16) | ((g_1 & 255) << 8) | ((b_1 & 255) << 0);
                         Color.testColorValueRange$int$int$int$int(r_1, g_1, b_1, a_1);
                     }
-                    if (this.value === undefined) {
-                        this.value = 0;
-                    }
-                    this.frgbvalue = null;
-                    this.fvalue = null;
-                    this.falpha = 0.0;
                     (function () {
                         _this.frgbvalue = [0, 0, 0];
                         _this.frgbvalue[0] = r;
@@ -17338,12 +17049,6 @@ var java;
                         this.value = ((a_2 & 255) << 24) | ((r & 255) << 16) | ((g & 255) << 8) | ((b & 255) << 0);
                         Color.testColorValueRange$int$int$int$int(r, g, b, a_2);
                     }
-                    if (this.value === undefined) {
-                        this.value = 0;
-                    }
-                    this.frgbvalue = null;
-                    this.fvalue = null;
-                    this.falpha = 0.0;
                 }
                 else if (((typeof r === 'number') || r === null) && ((typeof g === 'number') || g === null) && ((typeof b === 'number') || b === null) && a === undefined) {
                     var __args = arguments;
@@ -17364,19 +17069,7 @@ var java;
                             this.value = ((a_4 & 255) << 24) | ((r_2 & 255) << 16) | ((g_2 & 255) << 8) | ((b_2 & 255) << 0);
                             Color.testColorValueRange$int$int$int$int(r_2, g_2, b_2, a_4);
                         }
-                        if (this.value === undefined) {
-                            this.value = 0;
-                        }
-                        this.frgbvalue = null;
-                        this.fvalue = null;
-                        this.falpha = 0.0;
                     }
-                    if (this.value === undefined) {
-                        this.value = 0;
-                    }
-                    this.frgbvalue = null;
-                    this.fvalue = null;
-                    this.falpha = 0.0;
                     (function () {
                         Color.testColorValueRange$float$float$float$float(r, g, b, 1.0);
                         _this.frgbvalue = [0, 0, 0];
@@ -19702,18 +19395,6 @@ var javax;
                             this.compoundEdit = null;
                             this.listeners = (new java.util.Vector());
                         }
-                        if (this.updateLevel === undefined) {
-                            this.updateLevel = 0;
-                        }
-                        if (this.compoundEdit === undefined) {
-                            this.compoundEdit = null;
-                        }
-                        if (this.listeners === undefined) {
-                            this.listeners = null;
-                        }
-                        if (this.realSource === undefined) {
-                            this.realSource = null;
-                        }
                     }
                     else
                         throw new Error('invalid overload');
@@ -20529,6 +20210,9 @@ var javax;
             SwingUtilities.invokeLater = function (doRun) {
                 window.requestAnimationFrame(function (v) { return (function (target) { return (typeof target === 'function') ? target() : target.run(); })(doRun); });
             };
+            SwingUtilities.invokeAndWait = function (doRun) {
+                (function (target) { return (typeof target === 'function') ? target() : target.run(); })(doRun);
+            };
             return SwingUtilities;
         }());
         swing.SwingUtilities = SwingUtilities;
@@ -20640,30 +20324,6 @@ var javax;
                         this.image = image;
                         this.loadImage(image);
                     }
-                    if (this.filename === undefined) {
-                        this.filename = null;
-                    }
-                    if (this.location === undefined) {
-                        this.location = null;
-                    }
-                    if (this.image === undefined) {
-                        this.image = null;
-                    }
-                    if (this.loadStatus === undefined) {
-                        this.loadStatus = 0;
-                    }
-                    if (this.imageObserver === undefined) {
-                        this.imageObserver = null;
-                    }
-                    if (this.description === undefined) {
-                        this.description = null;
-                    }
-                    if (this.width === undefined) {
-                        this.width = 0;
-                    }
-                    if (this.height === undefined) {
-                        this.height = 0;
-                    }
                     (function () {
                         _this.description = description;
                     })();
@@ -20705,30 +20365,6 @@ var javax;
                         this.description = description_1;
                         this.loadImage(this.image);
                     }
-                    if (this.filename === undefined) {
-                        this.filename = null;
-                    }
-                    if (this.location === undefined) {
-                        this.location = null;
-                    }
-                    if (this.image === undefined) {
-                        this.image = null;
-                    }
-                    if (this.loadStatus === undefined) {
-                        this.loadStatus = 0;
-                    }
-                    if (this.imageObserver === undefined) {
-                        this.imageObserver = null;
-                    }
-                    if (this.description === undefined) {
-                        this.description = null;
-                    }
-                    if (this.width === undefined) {
-                        this.width = 0;
-                    }
-                    if (this.height === undefined) {
-                        this.height = 0;
-                    }
                 }
                 else if (((filename != null && filename instanceof java.net.URL) || filename === null) && description === undefined) {
                     var __args = arguments;
@@ -20764,30 +20400,6 @@ var javax;
                         this.location = location_2;
                         this.description = description_2;
                         this.loadImage(this.image);
-                    }
-                    if (this.filename === undefined) {
-                        this.filename = null;
-                    }
-                    if (this.location === undefined) {
-                        this.location = null;
-                    }
-                    if (this.image === undefined) {
-                        this.image = null;
-                    }
-                    if (this.loadStatus === undefined) {
-                        this.loadStatus = 0;
-                    }
-                    if (this.imageObserver === undefined) {
-                        this.imageObserver = null;
-                    }
-                    if (this.description === undefined) {
-                        this.description = null;
-                    }
-                    if (this.width === undefined) {
-                        this.width = 0;
-                    }
-                    if (this.height === undefined) {
-                        this.height = 0;
                     }
                 }
                 else if (((filename != null && filename instanceof java.awt.Image) || filename === null) && description === undefined) {
@@ -21224,13 +20836,6 @@ var javax;
                         this.enabled = true;
                         this.putValue(javax.swing.Action.NAME, name);
                     }
-                    if (this.arrayTable === undefined) {
-                        this.arrayTable = null;
-                    }
-                    if (this.changeSupport === undefined) {
-                        this.changeSupport = null;
-                    }
-                    this.enabled = true;
                     (function () {
                         _this.putValue(javax.swing.Action.SMALL_ICON, icon);
                     })();
@@ -23798,10 +23403,6 @@ var javax;
                         _this.text = text;
                         _this.setAlignment(alignment_1);
                     }
-                    if (_this.text === undefined) {
-                        _this.text = null;
-                    }
-                    _this.alignment = Label.LEFT;
                 }
                 else if (text === undefined && alignment === undefined) {
                     var __args = arguments;
@@ -23817,10 +23418,6 @@ var javax;
                         _this.text = text_1;
                         _this.setAlignment(alignment_2);
                     }
-                    if (_this.text === undefined) {
-                        _this.text = null;
-                    }
-                    _this.alignment = Label.LEFT;
                 }
                 else
                     throw new Error('invalid overload');
@@ -24271,24 +23868,6 @@ var javax;
                             group.setSelectedCheckbox(_this);
                         }
                     }
-                    if (_this.label === undefined) {
-                        _this.label = null;
-                    }
-                    if (_this.state === undefined) {
-                        _this.state = false;
-                    }
-                    if (_this.group === undefined) {
-                        _this.group = null;
-                    }
-                    if (_this.itemListeners === undefined) {
-                        _this.itemListeners = null;
-                    }
-                    if (_this.htmlCheckbox === undefined) {
-                        _this.htmlCheckbox = null;
-                    }
-                    if (_this.htmlLabel === undefined) {
-                        _this.htmlLabel = null;
-                    }
                 }
                 else if (((typeof label === 'string') || label === null) && ((typeof group === 'boolean') || group === null) && ((state != null && state instanceof java.awt.CheckboxGroup) || state === null)) {
                     var __args = arguments;
@@ -24354,24 +23933,6 @@ var javax;
                             group_2.setSelectedCheckbox(_this);
                         }
                     }
-                    if (_this.label === undefined) {
-                        _this.label = null;
-                    }
-                    if (_this.state === undefined) {
-                        _this.state = false;
-                    }
-                    if (_this.group === undefined) {
-                        _this.group = null;
-                    }
-                    if (_this.itemListeners === undefined) {
-                        _this.itemListeners = null;
-                    }
-                    if (_this.htmlCheckbox === undefined) {
-                        _this.htmlCheckbox = null;
-                    }
-                    if (_this.htmlLabel === undefined) {
-                        _this.htmlLabel = null;
-                    }
                 }
                 else if (((typeof label === 'string') || label === null) && group === undefined && state === undefined) {
                     var __args = arguments;
@@ -24405,24 +23966,6 @@ var javax;
                         if (state_3 && (group_3 != null)) {
                             group_3.setSelectedCheckbox(_this);
                         }
-                    }
-                    if (_this.label === undefined) {
-                        _this.label = null;
-                    }
-                    if (_this.state === undefined) {
-                        _this.state = false;
-                    }
-                    if (_this.group === undefined) {
-                        _this.group = null;
-                    }
-                    if (_this.itemListeners === undefined) {
-                        _this.itemListeners = null;
-                    }
-                    if (_this.htmlCheckbox === undefined) {
-                        _this.htmlCheckbox = null;
-                    }
-                    if (_this.htmlLabel === undefined) {
-                        _this.htmlLabel = null;
                     }
                 }
                 else if (label === undefined && group === undefined && state === undefined) {
@@ -24458,24 +24001,6 @@ var javax;
                         if (state_4 && (group_4 != null)) {
                             group_4.setSelectedCheckbox(_this);
                         }
-                    }
-                    if (_this.label === undefined) {
-                        _this.label = null;
-                    }
-                    if (_this.state === undefined) {
-                        _this.state = false;
-                    }
-                    if (_this.group === undefined) {
-                        _this.group = null;
-                    }
-                    if (_this.itemListeners === undefined) {
-                        _this.itemListeners = null;
-                    }
-                    if (_this.htmlCheckbox === undefined) {
-                        _this.htmlCheckbox = null;
-                    }
-                    if (_this.htmlLabel === undefined) {
-                        _this.htmlLabel = null;
                     }
                 }
                 else
@@ -25109,18 +24634,6 @@ var javax;
                             _this.value = value;
                             _this.isAdjusting = isAdjusting_1;
                         }
-                        if (_this.adjustable === undefined) {
-                            _this.adjustable = null;
-                        }
-                        if (_this.value === undefined) {
-                            _this.value = 0;
-                        }
-                        if (_this.adjustmentType === undefined) {
-                            _this.adjustmentType = 0;
-                        }
-                        if (_this.isAdjusting === undefined) {
-                            _this.isAdjusting = false;
-                        }
                     }
                     else
                         throw new Error('invalid overload');
@@ -25341,15 +24854,6 @@ var javax;
                             _this.when = when_2;
                             _this.modifiers = modifiers_2;
                         }
-                        if (_this.actionCommand === undefined) {
-                            _this.actionCommand = null;
-                        }
-                        if (_this.when === undefined) {
-                            _this.when = 0;
-                        }
-                        if (_this.modifiers === undefined) {
-                            _this.modifiers = 0;
-                        }
                     }
                     else if (((source != null) || source === null) && ((typeof id === 'number') || id === null) && ((typeof command === 'string') || command === null) && when === undefined && modifiers === undefined) {
                         var __args = arguments;
@@ -25373,24 +24877,6 @@ var javax;
                                 _this.when = when_3;
                                 _this.modifiers = modifiers_3;
                             }
-                            if (_this.actionCommand === undefined) {
-                                _this.actionCommand = null;
-                            }
-                            if (_this.when === undefined) {
-                                _this.when = 0;
-                            }
-                            if (_this.modifiers === undefined) {
-                                _this.modifiers = 0;
-                            }
-                        }
-                        if (_this.actionCommand === undefined) {
-                            _this.actionCommand = null;
-                        }
-                        if (_this.when === undefined) {
-                            _this.when = 0;
-                        }
-                        if (_this.modifiers === undefined) {
-                            _this.modifiers = 0;
                         }
                     }
                     else
@@ -25561,12 +25047,6 @@ var javax;
                         _this.x = x_2;
                         _this.y = y_2;
                     }
-                    if (_this.x === undefined) {
-                        _this.x = 0;
-                    }
-                    if (_this.y === undefined) {
-                        _this.y = 0;
-                    }
                 }
                 else if (x === undefined && y === undefined) {
                     var __args = arguments;
@@ -25583,12 +25063,6 @@ var javax;
                         }
                         _this.x = x_3;
                         _this.y = y_3;
-                    }
-                    if (_this.x === undefined) {
-                        _this.x = 0;
-                    }
-                    if (_this.y === undefined) {
-                        _this.y = 0;
                     }
                 }
                 else
@@ -25773,12 +25247,6 @@ var javax;
                         _this.width = width_2;
                         _this.height = height_1;
                     }
-                    if (_this.width === undefined) {
-                        _this.width = 0;
-                    }
-                    if (_this.height === undefined) {
-                        _this.height = 0;
-                    }
                 }
                 else if (width === undefined && height === undefined) {
                     var __args = arguments;
@@ -25795,12 +25263,6 @@ var javax;
                         }
                         _this.width = width_3;
                         _this.height = height_2;
-                    }
-                    if (_this.width === undefined) {
-                        _this.width = 0;
-                    }
-                    if (_this.height === undefined) {
-                        _this.height = 0;
                     }
                 }
                 else
@@ -26580,9 +26042,6 @@ var javax;
                                     _this.append$java_awt_geom_PathIterator$boolean(pi, false);
                                 }
                             }
-                            if (_this.floatCoords === undefined) {
-                                _this.floatCoords = null;
-                            }
                         }
                         else if (((typeof s === 'number') || s === null) && at === undefined) {
                             var __args = arguments;
@@ -26597,9 +26056,6 @@ var javax;
                                 _this.floatCoords = (function (s) { var a = []; while (s-- > 0)
                                     a.push(0); return a; })(initialCapacity * 2);
                             }
-                            if (_this.floatCoords === undefined) {
-                                _this.floatCoords = null;
-                            }
                         }
                         else if (s === undefined && at === undefined) {
                             var __args = arguments;
@@ -26613,9 +26069,6 @@ var javax;
                                 }
                                 _this.floatCoords = (function (s) { var a = []; while (s-- > 0)
                                     a.push(0); return a; })(initialCapacity * 2);
-                            }
-                            if (_this.floatCoords === undefined) {
-                                _this.floatCoords = null;
                             }
                         }
                         else
@@ -27310,9 +26763,6 @@ var javax;
                                     _this.append$java_awt_geom_PathIterator$boolean(pi, false);
                                 }
                             }
-                            if (_this.doubleCoords === undefined) {
-                                _this.doubleCoords = null;
-                            }
                         }
                         else if (((typeof s === 'number') || s === null) && at === undefined) {
                             var __args = arguments;
@@ -27327,9 +26777,6 @@ var javax;
                                 _this.doubleCoords = (function (s) { var a = []; while (s-- > 0)
                                     a.push(0); return a; })(initialCapacity * 2);
                             }
-                            if (_this.doubleCoords === undefined) {
-                                _this.doubleCoords = null;
-                            }
                         }
                         else if (s === undefined && at === undefined) {
                             var __args = arguments;
@@ -27343,9 +26790,6 @@ var javax;
                                 }
                                 _this.doubleCoords = (function (s) { var a = []; while (s-- > 0)
                                     a.push(0); return a; })(initialCapacity * 2);
-                            }
-                            if (_this.doubleCoords === undefined) {
-                                _this.doubleCoords = null;
                             }
                         }
                         else
@@ -29127,9 +28571,6 @@ var javax;
                                 _this.type = 0;
                             }
                             _this.setArcType(type_1);
-                        }
-                        if (_this.type === undefined) {
-                            _this.type = 0;
                         }
                     }
                     else
@@ -31345,6 +30786,24 @@ var javax;
 (function (javax) {
     var swing;
     (function (swing) {
+        var event;
+        (function (event) {
+            var MouseInputAdapter = /** @class */ (function (_super) {
+                __extends(MouseInputAdapter, _super);
+                function MouseInputAdapter() {
+                    return _super.call(this) || this;
+                }
+                return MouseInputAdapter;
+            }(java.awt.event.MouseAdapter));
+            event.MouseInputAdapter = MouseInputAdapter;
+            MouseInputAdapter["__class"] = "javax.swing.event.MouseInputAdapter";
+            MouseInputAdapter["__interfaces"] = ["java.util.EventListener", "java.awt.event.MouseMotionListener", "javax.swing.event.MouseInputListener", "java.awt.event.MouseWheelListener", "java.awt.event.MouseListener"];
+        })(event = swing.event || (swing.event = {}));
+    })(swing = javax.swing || (javax.swing = {}));
+})(javax || (javax = {}));
+(function (javax) {
+    var swing;
+    (function (swing) {
         /**
          * Constructs a DefaultComboBoxModel object initialized with
          * an array of objects.
@@ -31905,9 +31364,6 @@ var javax;
                             }
                             _this.notifyOnEDT = notifyOnEDT_1;
                         }
-                        if (_this.notifyOnEDT === undefined) {
-                            _this.notifyOnEDT = false;
-                        }
                     }
                     else
                         throw new Error('invalid overload');
@@ -32072,10 +31528,10 @@ var javax;
                     _this.doPaintInternal();
                     return null;
                 };
-                window.addEventListener("load", ((function (funcInst) { if (typeof funcInst == 'function') {
+                window.addEventListener("load", ((function (funcInst) { if (funcInst == null || typeof funcInst == 'function') {
                     return funcInst;
                 } return function (arg0) { return (funcInst['apply'] ? funcInst['apply'] : funcInst).call(funcInst, arg0); }; })(fun)));
-                document.addEventListener("load", ((function (funcInst) { if (typeof funcInst == 'function') {
+                document.addEventListener("load", ((function (funcInst) { if (funcInst == null || typeof funcInst == 'function') {
                     return funcInst;
                 } return function (arg0) { return (funcInst['apply'] ? funcInst['apply'] : funcInst).call(funcInst, arg0); }; })(fun)));
                 document.addEventListener("readystatechange", (function (fun) {
@@ -32441,9 +31897,6 @@ var javax;
                         }
                         _this.setLayout(layout_1);
                     }
-                    if (_this.htmlCanvas === undefined) {
-                        _this.htmlCanvas = null;
-                    }
                 }
                 else
                     throw new Error('invalid overload');
@@ -32615,15 +32068,6 @@ var javax;
                             _this.oldState = oldState_1;
                             _this.newState = newState_1;
                         }
-                        if (_this.opposite === undefined) {
-                            _this.opposite = null;
-                        }
-                        if (_this.oldState === undefined) {
-                            _this.oldState = 0;
-                        }
-                        if (_this.newState === undefined) {
-                            _this.newState = 0;
-                        }
                     }
                     else if (((source != null && source instanceof java.awt.Window) || source === null) && ((typeof id === 'number') || id === null) && ((opposite != null && opposite instanceof java.awt.Window) || opposite === null) && oldState === undefined && newState === undefined) {
                         var __args = arguments;
@@ -32644,15 +32088,6 @@ var javax;
                             _this.opposite = opposite;
                             _this.oldState = oldState_2;
                             _this.newState = newState_2;
-                        }
-                        if (_this.opposite === undefined) {
-                            _this.opposite = null;
-                        }
-                        if (_this.oldState === undefined) {
-                            _this.oldState = 0;
-                        }
-                        if (_this.newState === undefined) {
-                            _this.newState = 0;
                         }
                     }
                     else if (((source != null && source instanceof java.awt.Window) || source === null) && ((typeof id === 'number') || id === null) && opposite === undefined && oldState === undefined && newState === undefined) {
@@ -32675,15 +32110,6 @@ var javax;
                             _this.opposite = opposite_2;
                             _this.oldState = oldState_3;
                             _this.newState = newState_3;
-                        }
-                        if (_this.opposite === undefined) {
-                            _this.opposite = null;
-                        }
-                        if (_this.oldState === undefined) {
-                            _this.oldState = 0;
-                        }
-                        if (_this.newState === undefined) {
-                            _this.newState = 0;
                         }
                     }
                     else
@@ -33155,12 +32581,6 @@ var javax;
                             _this.temporary = temporary;
                             _this.opposite = opposite_3;
                         }
-                        if (_this.temporary === undefined) {
-                            _this.temporary = false;
-                        }
-                        if (_this.opposite === undefined) {
-                            _this.opposite = null;
-                        }
                     }
                     else if (((source != null && source instanceof java.awt.Component) || source === null) && ((typeof id === 'number') || id === null) && temporary === undefined && opposite === undefined) {
                         var __args = arguments;
@@ -33180,18 +32600,6 @@ var javax;
                                 _this.temporary = temporary_1;
                                 _this.opposite = opposite_4;
                             }
-                            if (_this.temporary === undefined) {
-                                _this.temporary = false;
-                            }
-                            if (_this.opposite === undefined) {
-                                _this.opposite = null;
-                            }
-                        }
-                        if (_this.temporary === undefined) {
-                            _this.temporary = false;
-                        }
-                        if (_this.opposite === undefined) {
-                            _this.opposite = null;
                         }
                     }
                     else
@@ -33389,7 +32797,7 @@ var javax;
              */
             WebGraphics2D.prototype.drawOval = function (x, y, width, height) {
                 this.context.beginPath();
-                this.context["ellipse"](x - (width / 2 | 0), y - (height / 2 | 0), (width / 2 | 0), (height / 2 | 0), 0, 0, Math.PI * 2);
+                this.context["ellipse"](x + (width / 2 | 0), y + (height / 2 | 0), (width / 2 | 0), (height / 2 | 0), 0, 0, Math.PI * 2);
                 this.context.stroke();
             };
             /**
@@ -33525,7 +32933,7 @@ var javax;
             WebGraphics2D.prototype.draw = function (s) {
                 var it = s['getPathIterator$java_awt_geom_AffineTransform'](java.awt.geom.AffineTransform.getTranslateInstance(0, 0));
                 var coords = [0, 0, 0, 0, 0, 0];
-                while ((it.isDone())) {
+                while ((!it.isDone())) {
                     {
                         switch ((it['currentSegment$double_A'](coords))) {
                             case java.awt.geom.PathIterator.SEG_MOVETO:
@@ -33544,6 +32952,7 @@ var javax;
                             default:
                                 break;
                         }
+                        it.next();
                     }
                 }
                 ;
@@ -33803,7 +33212,7 @@ var javax;
              */
             WebGraphics2D.prototype.fillOval = function (x, y, width, height) {
                 this.context.beginPath();
-                this.context["ellipse"](x - (width / 2 | 0), y - (height / 2 | 0), (width / 2 | 0), (height / 2 | 0), 0, 0, Math.PI * 2);
+                this.context["ellipse"](x + (width / 2 | 0), y + (height / 2 | 0), (width / 2 | 0), (height / 2 | 0), 0, 0, Math.PI * 2);
                 this.context.fill();
             };
             /**
@@ -33834,7 +33243,6 @@ var javax;
              */
             WebGraphics2D.prototype.setColor = function (c) {
                 this.context.strokeStyle = c.toHTML();
-                this.context.fillStyle = c.toHTML();
             };
             /**
              *
@@ -33966,6 +33374,8 @@ var javax;
              * @param {*} paint
              */
             WebGraphics2D.prototype.setPaint = function (paint) {
+                if (paint != null && paint instanceof java.awt.Color)
+                    this.context.fillStyle = paint.toHTML();
             };
             /**
              *
@@ -34117,18 +33527,6 @@ var javax;
                         _this.width = width_4;
                         _this.height = height_3;
                     }
-                    if (_this.x === undefined) {
-                        _this.x = 0;
-                    }
-                    if (_this.y === undefined) {
-                        _this.y = 0;
-                    }
-                    if (_this.width === undefined) {
-                        _this.width = 0;
-                    }
-                    if (_this.height === undefined) {
-                        _this.height = 0;
-                    }
                 }
                 else if (((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && width === undefined && height === undefined) {
                     var __args = arguments;
@@ -34155,18 +33553,6 @@ var javax;
                         _this.y = y_5;
                         _this.width = width_5;
                         _this.height = height_4;
-                    }
-                    if (_this.x === undefined) {
-                        _this.x = 0;
-                    }
-                    if (_this.y === undefined) {
-                        _this.y = 0;
-                    }
-                    if (_this.width === undefined) {
-                        _this.width = 0;
-                    }
-                    if (_this.height === undefined) {
-                        _this.height = 0;
                     }
                 }
                 else if (((x != null && x instanceof java.awt.Rectangle) || x === null) && y === undefined && width === undefined && height === undefined) {
@@ -34196,18 +33582,6 @@ var javax;
                         _this.width = width_6;
                         _this.height = height_5;
                     }
-                    if (_this.x === undefined) {
-                        _this.x = 0;
-                    }
-                    if (_this.y === undefined) {
-                        _this.y = 0;
-                    }
-                    if (_this.width === undefined) {
-                        _this.width = 0;
-                    }
-                    if (_this.height === undefined) {
-                        _this.height = 0;
-                    }
                 }
                 else if (((x != null && x instanceof java.awt.Point) || x === null) && y === undefined && width === undefined && height === undefined) {
                     var __args = arguments;
@@ -34235,18 +33609,6 @@ var javax;
                         _this.y = y_7;
                         _this.width = width_7;
                         _this.height = height_6;
-                    }
-                    if (_this.x === undefined) {
-                        _this.x = 0;
-                    }
-                    if (_this.y === undefined) {
-                        _this.y = 0;
-                    }
-                    if (_this.width === undefined) {
-                        _this.width = 0;
-                    }
-                    if (_this.height === undefined) {
-                        _this.height = 0;
                     }
                 }
                 else if (((x != null && x instanceof java.awt.Dimension) || x === null) && y === undefined && width === undefined && height === undefined) {
@@ -34276,18 +33638,6 @@ var javax;
                         _this.width = width_8;
                         _this.height = height_7;
                     }
-                    if (_this.x === undefined) {
-                        _this.x = 0;
-                    }
-                    if (_this.y === undefined) {
-                        _this.y = 0;
-                    }
-                    if (_this.width === undefined) {
-                        _this.width = 0;
-                    }
-                    if (_this.height === undefined) {
-                        _this.height = 0;
-                    }
                 }
                 else if (x === undefined && y === undefined && width === undefined && height === undefined) {
                     var __args = arguments;
@@ -34314,18 +33664,6 @@ var javax;
                         _this.y = y_9;
                         _this.width = width_9;
                         _this.height = height_8;
-                    }
-                    if (_this.x === undefined) {
-                        _this.x = 0;
-                    }
-                    if (_this.y === undefined) {
-                        _this.y = 0;
-                    }
-                    if (_this.width === undefined) {
-                        _this.width = 0;
-                    }
-                    if (_this.height === undefined) {
-                        _this.height = 0;
                     }
                 }
                 else
@@ -35739,16 +35077,6 @@ var javax;
                         _this._frameInit(title_1);
                         _this.state = Frame.NORMAL;
                     }
-                    if (_this.maximizedBounds === undefined) {
-                        _this.maximizedBounds = null;
-                    }
-                    if (_this.ownedWindows === undefined) {
-                        _this.ownedWindows = null;
-                    }
-                    _this.title = "Untitled";
-                    _this.resizable = true;
-                    _this.undecorated = false;
-                    _this.mbManagement = false;
                     (function () {
                         _this.state = Frame.NORMAL;
                     })();
@@ -36055,26 +35383,6 @@ var javax;
                         _this.orientation = orientation_1;
                         _this.setModel(new javax.swing.DefaultBoundedRangeModel(value_1, 0, min_1, max_1));
                     }
-                    if (_this.sliderModel === undefined) {
-                        _this.sliderModel = null;
-                    }
-                    if (_this.majorTickSpacing === undefined) {
-                        _this.majorTickSpacing = 0;
-                    }
-                    if (_this.minorTickSpacing === undefined) {
-                        _this.minorTickSpacing = 0;
-                    }
-                    if (_this.orientation === undefined) {
-                        _this.orientation = 0;
-                    }
-                    _this.paintTicks = false;
-                    _this.paintTrack = true;
-                    _this.paintLabels = false;
-                    _this.isInverted = false;
-                    _this.snapToTicks = false;
-                    _this.snapToValue = true;
-                    _this.changeListener = _this.createChangeListener();
-                    _this.changeEvent = null;
                 }
                 else if (((typeof orientation === 'number') || orientation === null) && ((typeof min === 'number') || min === null) && max === undefined && value === undefined) {
                     var __args = arguments;
@@ -36109,26 +35417,6 @@ var javax;
                         _this.orientation = orientation_2;
                         _this.setModel(new javax.swing.DefaultBoundedRangeModel(value_2, 0, min_2, max_2));
                     }
-                    if (_this.sliderModel === undefined) {
-                        _this.sliderModel = null;
-                    }
-                    if (_this.majorTickSpacing === undefined) {
-                        _this.majorTickSpacing = 0;
-                    }
-                    if (_this.minorTickSpacing === undefined) {
-                        _this.minorTickSpacing = 0;
-                    }
-                    if (_this.orientation === undefined) {
-                        _this.orientation = 0;
-                    }
-                    _this.paintTicks = false;
-                    _this.paintTrack = true;
-                    _this.paintLabels = false;
-                    _this.isInverted = false;
-                    _this.snapToTicks = false;
-                    _this.snapToValue = true;
-                    _this.changeListener = _this.createChangeListener();
-                    _this.changeEvent = null;
                 }
                 else if (((orientation != null && (orientation.constructor != null && orientation.constructor["__interfaces"] != null && orientation.constructor["__interfaces"].indexOf("javax.swing.BoundedRangeModel") >= 0)) || orientation === null) && min === undefined && max === undefined && value === undefined) {
                     var __args = arguments;
@@ -36189,26 +35477,6 @@ var javax;
                         _this.orientation = orientation;
                         _this.setModel(new javax.swing.DefaultBoundedRangeModel(value_3, 0, min_3, max_3));
                     }
-                    if (_this.sliderModel === undefined) {
-                        _this.sliderModel = null;
-                    }
-                    if (_this.majorTickSpacing === undefined) {
-                        _this.majorTickSpacing = 0;
-                    }
-                    if (_this.minorTickSpacing === undefined) {
-                        _this.minorTickSpacing = 0;
-                    }
-                    if (_this.orientation === undefined) {
-                        _this.orientation = 0;
-                    }
-                    _this.paintTicks = false;
-                    _this.paintTrack = true;
-                    _this.paintLabels = false;
-                    _this.isInverted = false;
-                    _this.snapToTicks = false;
-                    _this.snapToValue = true;
-                    _this.changeListener = _this.createChangeListener();
-                    _this.changeEvent = null;
                 }
                 else if (orientation === undefined && min === undefined && max === undefined && value === undefined) {
                     var __args = arguments;
@@ -36243,26 +35511,6 @@ var javax;
                         _this.orientation = orientation_3;
                         _this.setModel(new javax.swing.DefaultBoundedRangeModel(value_4, 0, min_4, max_4));
                     }
-                    if (_this.sliderModel === undefined) {
-                        _this.sliderModel = null;
-                    }
-                    if (_this.majorTickSpacing === undefined) {
-                        _this.majorTickSpacing = 0;
-                    }
-                    if (_this.minorTickSpacing === undefined) {
-                        _this.minorTickSpacing = 0;
-                    }
-                    if (_this.orientation === undefined) {
-                        _this.orientation = 0;
-                    }
-                    _this.paintTicks = false;
-                    _this.paintTrack = true;
-                    _this.paintLabels = false;
-                    _this.isInverted = false;
-                    _this.snapToTicks = false;
-                    _this.snapToValue = true;
-                    _this.changeListener = _this.createChangeListener();
-                    _this.changeEvent = null;
                 }
                 else
                     throw new Error('invalid overload');
@@ -37506,9 +36754,6 @@ var javax;
                         }
                         _this.setLayout(layout);
                     }
-                    if (_this.htmlCanvas === undefined) {
-                        _this.htmlCanvas = null;
-                    }
                 }
                 else if (((typeof layout === 'boolean') || layout === null) && isDoubleBuffered === undefined) {
                     var __args = arguments;
@@ -37521,9 +36766,6 @@ var javax;
                             _this.htmlCanvas = null;
                         }
                         _this.setLayout(layout_2);
-                    }
-                    if (_this.htmlCanvas === undefined) {
-                        _this.htmlCanvas = null;
                     }
                 }
                 else if (layout === undefined && isDoubleBuffered === undefined) {
@@ -37540,12 +36782,6 @@ var javax;
                             }
                             _this.setLayout(layout_3);
                         }
-                        if (_this.htmlCanvas === undefined) {
-                            _this.htmlCanvas = null;
-                        }
-                    }
-                    if (_this.htmlCanvas === undefined) {
-                        _this.htmlCanvas = null;
                     }
                 }
                 else
@@ -38530,38 +37766,6 @@ var javax;
                         _this.dataModel = dataModel_1;
                         _this.selectionModel = _this.createSelectionModel();
                     }
-                    if (_this.prototypeCellValue === undefined) {
-                        _this.prototypeCellValue = null;
-                    }
-                    if (_this.selectionForeground === undefined) {
-                        _this.selectionForeground = null;
-                    }
-                    if (_this.selectionBackground === undefined) {
-                        _this.selectionBackground = null;
-                    }
-                    if (_this.dragEnabled === undefined) {
-                        _this.dragEnabled = false;
-                    }
-                    if (_this.selectionModel === undefined) {
-                        _this.selectionModel = null;
-                    }
-                    if (_this.dataModel === undefined) {
-                        _this.dataModel = null;
-                    }
-                    if (_this.cellRenderer === undefined) {
-                        _this.cellRenderer = null;
-                    }
-                    if (_this.selectionListener === undefined) {
-                        _this.selectionListener = null;
-                    }
-                    if (_this.layoutOrientation === undefined) {
-                        _this.layoutOrientation = 0;
-                    }
-                    _this.fixedCellWidth = -1;
-                    _this.fixedCellHeight = -1;
-                    _this.horizontalScrollIncrement = -1;
-                    _this.visibleRowCount = 8;
-                    _this.dropMode = javax.swing.DropMode.USE_SELECTION;
                 }
                 else if (((dataModel != null && dataModel instanceof java.util.Vector) || dataModel === null)) {
                     var __args = arguments;
@@ -38609,38 +37813,6 @@ var javax;
                         _this.dataModel = dataModel_2;
                         _this.selectionModel = _this.createSelectionModel();
                     }
-                    if (_this.prototypeCellValue === undefined) {
-                        _this.prototypeCellValue = null;
-                    }
-                    if (_this.selectionForeground === undefined) {
-                        _this.selectionForeground = null;
-                    }
-                    if (_this.selectionBackground === undefined) {
-                        _this.selectionBackground = null;
-                    }
-                    if (_this.dragEnabled === undefined) {
-                        _this.dragEnabled = false;
-                    }
-                    if (_this.selectionModel === undefined) {
-                        _this.selectionModel = null;
-                    }
-                    if (_this.dataModel === undefined) {
-                        _this.dataModel = null;
-                    }
-                    if (_this.cellRenderer === undefined) {
-                        _this.cellRenderer = null;
-                    }
-                    if (_this.selectionListener === undefined) {
-                        _this.selectionListener = null;
-                    }
-                    if (_this.layoutOrientation === undefined) {
-                        _this.layoutOrientation = 0;
-                    }
-                    _this.fixedCellWidth = -1;
-                    _this.fixedCellHeight = -1;
-                    _this.horizontalScrollIncrement = -1;
-                    _this.visibleRowCount = 8;
-                    _this.dropMode = javax.swing.DropMode.USE_SELECTION;
                 }
                 else if (dataModel === undefined) {
                     var __args = arguments;
@@ -38687,38 +37859,6 @@ var javax;
                         _this.dataModel = dataModel_3;
                         _this.selectionModel = _this.createSelectionModel();
                     }
-                    if (_this.prototypeCellValue === undefined) {
-                        _this.prototypeCellValue = null;
-                    }
-                    if (_this.selectionForeground === undefined) {
-                        _this.selectionForeground = null;
-                    }
-                    if (_this.selectionBackground === undefined) {
-                        _this.selectionBackground = null;
-                    }
-                    if (_this.dragEnabled === undefined) {
-                        _this.dragEnabled = false;
-                    }
-                    if (_this.selectionModel === undefined) {
-                        _this.selectionModel = null;
-                    }
-                    if (_this.dataModel === undefined) {
-                        _this.dataModel = null;
-                    }
-                    if (_this.cellRenderer === undefined) {
-                        _this.cellRenderer = null;
-                    }
-                    if (_this.selectionListener === undefined) {
-                        _this.selectionListener = null;
-                    }
-                    if (_this.layoutOrientation === undefined) {
-                        _this.layoutOrientation = 0;
-                    }
-                    _this.fixedCellWidth = -1;
-                    _this.fixedCellHeight = -1;
-                    _this.horizontalScrollIncrement = -1;
-                    _this.visibleRowCount = 8;
-                    _this.dropMode = javax.swing.DropMode.USE_SELECTION;
                 }
                 else
                     throw new Error('invalid overload');
@@ -40282,48 +39422,6 @@ var javax;
                         _this.setIcon(icon_1);
                         _this.setHorizontalAlignment(horizontalAlignment_1);
                     }
-                    if (_this.mnemonic === undefined) {
-                        _this.mnemonic = 0;
-                    }
-                    if (_this.mnemonicIndex === undefined) {
-                        _this.mnemonicIndex = 0;
-                    }
-                    if (_this.text === undefined) {
-                        _this.text = null;
-                    }
-                    if (_this.defaultIcon === undefined) {
-                        _this.defaultIcon = null;
-                    }
-                    if (_this.disabledIcon === undefined) {
-                        _this.disabledIcon = null;
-                    }
-                    if (_this.disabledIconSet === undefined) {
-                        _this.disabledIconSet = false;
-                    }
-                    if (_this.verticalAlignment === undefined) {
-                        _this.verticalAlignment = 0;
-                    }
-                    if (_this.horizontalAlignment === undefined) {
-                        _this.horizontalAlignment = 0;
-                    }
-                    if (_this.verticalTextPosition === undefined) {
-                        _this.verticalTextPosition = 0;
-                    }
-                    if (_this.horizontalTextPosition === undefined) {
-                        _this.horizontalTextPosition = 0;
-                    }
-                    if (_this.iconTextGap === undefined) {
-                        _this.iconTextGap = 0;
-                    }
-                    if (_this.labelFor === undefined) {
-                        _this.labelFor = null;
-                    }
-                    if (_this.htmlLabelElement === undefined) {
-                        _this.htmlLabelElement = null;
-                    }
-                    if (_this.htmlImageElement === undefined) {
-                        _this.htmlImageElement = null;
-                    }
                 }
                 else if (((text != null && (text.constructor != null && text.constructor["__interfaces"] != null && text.constructor["__interfaces"].indexOf("javax.swing.Icon") >= 0)) || text === null) && ((typeof icon === 'number') || icon === null) && horizontalAlignment === undefined) {
                     var __args = arguments;
@@ -40393,48 +39491,6 @@ var javax;
                         _this.setIcon(icon_2);
                         _this.setHorizontalAlignment(horizontalAlignment_2);
                     }
-                    if (_this.mnemonic === undefined) {
-                        _this.mnemonic = 0;
-                    }
-                    if (_this.mnemonicIndex === undefined) {
-                        _this.mnemonicIndex = 0;
-                    }
-                    if (_this.text === undefined) {
-                        _this.text = null;
-                    }
-                    if (_this.defaultIcon === undefined) {
-                        _this.defaultIcon = null;
-                    }
-                    if (_this.disabledIcon === undefined) {
-                        _this.disabledIcon = null;
-                    }
-                    if (_this.disabledIconSet === undefined) {
-                        _this.disabledIconSet = false;
-                    }
-                    if (_this.verticalAlignment === undefined) {
-                        _this.verticalAlignment = 0;
-                    }
-                    if (_this.horizontalAlignment === undefined) {
-                        _this.horizontalAlignment = 0;
-                    }
-                    if (_this.verticalTextPosition === undefined) {
-                        _this.verticalTextPosition = 0;
-                    }
-                    if (_this.horizontalTextPosition === undefined) {
-                        _this.horizontalTextPosition = 0;
-                    }
-                    if (_this.iconTextGap === undefined) {
-                        _this.iconTextGap = 0;
-                    }
-                    if (_this.labelFor === undefined) {
-                        _this.labelFor = null;
-                    }
-                    if (_this.htmlLabelElement === undefined) {
-                        _this.htmlLabelElement = null;
-                    }
-                    if (_this.htmlImageElement === undefined) {
-                        _this.htmlImageElement = null;
-                    }
                 }
                 else if (((typeof text === 'string') || text === null) && icon === undefined && horizontalAlignment === undefined) {
                     var __args = arguments;
@@ -40501,48 +39557,6 @@ var javax;
                         _this.setText(text);
                         _this.setIcon(icon_3);
                         _this.setHorizontalAlignment(horizontalAlignment_3);
-                    }
-                    if (_this.mnemonic === undefined) {
-                        _this.mnemonic = 0;
-                    }
-                    if (_this.mnemonicIndex === undefined) {
-                        _this.mnemonicIndex = 0;
-                    }
-                    if (_this.text === undefined) {
-                        _this.text = null;
-                    }
-                    if (_this.defaultIcon === undefined) {
-                        _this.defaultIcon = null;
-                    }
-                    if (_this.disabledIcon === undefined) {
-                        _this.disabledIcon = null;
-                    }
-                    if (_this.disabledIconSet === undefined) {
-                        _this.disabledIconSet = false;
-                    }
-                    if (_this.verticalAlignment === undefined) {
-                        _this.verticalAlignment = 0;
-                    }
-                    if (_this.horizontalAlignment === undefined) {
-                        _this.horizontalAlignment = 0;
-                    }
-                    if (_this.verticalTextPosition === undefined) {
-                        _this.verticalTextPosition = 0;
-                    }
-                    if (_this.horizontalTextPosition === undefined) {
-                        _this.horizontalTextPosition = 0;
-                    }
-                    if (_this.iconTextGap === undefined) {
-                        _this.iconTextGap = 0;
-                    }
-                    if (_this.labelFor === undefined) {
-                        _this.labelFor = null;
-                    }
-                    if (_this.htmlLabelElement === undefined) {
-                        _this.htmlLabelElement = null;
-                    }
-                    if (_this.htmlImageElement === undefined) {
-                        _this.htmlImageElement = null;
                     }
                 }
                 else if (((text != null && (text.constructor != null && text.constructor["__interfaces"] != null && text.constructor["__interfaces"].indexOf("javax.swing.Icon") >= 0)) || text === null) && icon === undefined && horizontalAlignment === undefined) {
@@ -40613,48 +39627,6 @@ var javax;
                         _this.setIcon(icon_4);
                         _this.setHorizontalAlignment(horizontalAlignment_4);
                     }
-                    if (_this.mnemonic === undefined) {
-                        _this.mnemonic = 0;
-                    }
-                    if (_this.mnemonicIndex === undefined) {
-                        _this.mnemonicIndex = 0;
-                    }
-                    if (_this.text === undefined) {
-                        _this.text = null;
-                    }
-                    if (_this.defaultIcon === undefined) {
-                        _this.defaultIcon = null;
-                    }
-                    if (_this.disabledIcon === undefined) {
-                        _this.disabledIcon = null;
-                    }
-                    if (_this.disabledIconSet === undefined) {
-                        _this.disabledIconSet = false;
-                    }
-                    if (_this.verticalAlignment === undefined) {
-                        _this.verticalAlignment = 0;
-                    }
-                    if (_this.horizontalAlignment === undefined) {
-                        _this.horizontalAlignment = 0;
-                    }
-                    if (_this.verticalTextPosition === undefined) {
-                        _this.verticalTextPosition = 0;
-                    }
-                    if (_this.horizontalTextPosition === undefined) {
-                        _this.horizontalTextPosition = 0;
-                    }
-                    if (_this.iconTextGap === undefined) {
-                        _this.iconTextGap = 0;
-                    }
-                    if (_this.labelFor === undefined) {
-                        _this.labelFor = null;
-                    }
-                    if (_this.htmlLabelElement === undefined) {
-                        _this.htmlLabelElement = null;
-                    }
-                    if (_this.htmlImageElement === undefined) {
-                        _this.htmlImageElement = null;
-                    }
                 }
                 else if (text === undefined && icon === undefined && horizontalAlignment === undefined) {
                     var __args = arguments;
@@ -40722,48 +39694,6 @@ var javax;
                         _this.setText(text_6);
                         _this.setIcon(icon_5);
                         _this.setHorizontalAlignment(horizontalAlignment_5);
-                    }
-                    if (_this.mnemonic === undefined) {
-                        _this.mnemonic = 0;
-                    }
-                    if (_this.mnemonicIndex === undefined) {
-                        _this.mnemonicIndex = 0;
-                    }
-                    if (_this.text === undefined) {
-                        _this.text = null;
-                    }
-                    if (_this.defaultIcon === undefined) {
-                        _this.defaultIcon = null;
-                    }
-                    if (_this.disabledIcon === undefined) {
-                        _this.disabledIcon = null;
-                    }
-                    if (_this.disabledIconSet === undefined) {
-                        _this.disabledIconSet = false;
-                    }
-                    if (_this.verticalAlignment === undefined) {
-                        _this.verticalAlignment = 0;
-                    }
-                    if (_this.horizontalAlignment === undefined) {
-                        _this.horizontalAlignment = 0;
-                    }
-                    if (_this.verticalTextPosition === undefined) {
-                        _this.verticalTextPosition = 0;
-                    }
-                    if (_this.horizontalTextPosition === undefined) {
-                        _this.horizontalTextPosition = 0;
-                    }
-                    if (_this.iconTextGap === undefined) {
-                        _this.iconTextGap = 0;
-                    }
-                    if (_this.labelFor === undefined) {
-                        _this.labelFor = null;
-                    }
-                    if (_this.htmlLabelElement === undefined) {
-                        _this.htmlLabelElement = null;
-                    }
-                    if (_this.htmlImageElement === undefined) {
-                        _this.htmlImageElement = null;
                     }
                 }
                 else
@@ -41081,7 +40011,6 @@ var javax;
                         _this.checkOrientation(orientation_4);
                         _this.orientation = orientation_4;
                     }
-                    _this.orientation = javax.swing.SwingConstants.HORIZONTAL;
                 }
                 else
                     throw new Error('invalid overload');
@@ -41301,30 +40230,6 @@ var javax;
                                 _this.setOldModifiers();
                             }
                         }
-                        if (_this.x === undefined) {
-                            _this.x = 0;
-                        }
-                        if (_this.y === undefined) {
-                            _this.y = 0;
-                        }
-                        if (_this.xAbs === undefined) {
-                            _this.xAbs = 0;
-                        }
-                        if (_this.yAbs === undefined) {
-                            _this.yAbs = 0;
-                        }
-                        if (_this.clickCount === undefined) {
-                            _this.clickCount = 0;
-                        }
-                        if (_this.button === undefined) {
-                            _this.button = 0;
-                        }
-                        if (_this.popupTrigger === undefined) {
-                            _this.popupTrigger = false;
-                        }
-                        if (_this.shouldExcludeButtonFromExtModifiers === undefined) {
-                            _this.shouldExcludeButtonFromExtModifiers = false;
-                        }
                         (function () {
                             var eventLocationOnScreen = new java.awt.Point(0, 0);
                             try {
@@ -41399,30 +40304,6 @@ var javax;
                                     _this.setOldModifiers();
                                 }
                             }
-                            if (_this.x === undefined) {
-                                _this.x = 0;
-                            }
-                            if (_this.y === undefined) {
-                                _this.y = 0;
-                            }
-                            if (_this.xAbs === undefined) {
-                                _this.xAbs = 0;
-                            }
-                            if (_this.yAbs === undefined) {
-                                _this.yAbs = 0;
-                            }
-                            if (_this.clickCount === undefined) {
-                                _this.clickCount = 0;
-                            }
-                            if (_this.button === undefined) {
-                                _this.button = 0;
-                            }
-                            if (_this.popupTrigger === undefined) {
-                                _this.popupTrigger = false;
-                            }
-                            if (_this.shouldExcludeButtonFromExtModifiers === undefined) {
-                                _this.shouldExcludeButtonFromExtModifiers = false;
-                            }
                             (function () {
                                 var eventLocationOnScreen = new java.awt.Point(0, 0);
                                 try {
@@ -41435,30 +40316,6 @@ var javax;
                                     _this.yAbs = 0;
                                 }
                             })();
-                        }
-                        if (_this.x === undefined) {
-                            _this.x = 0;
-                        }
-                        if (_this.y === undefined) {
-                            _this.y = 0;
-                        }
-                        if (_this.xAbs === undefined) {
-                            _this.xAbs = 0;
-                        }
-                        if (_this.yAbs === undefined) {
-                            _this.yAbs = 0;
-                        }
-                        if (_this.clickCount === undefined) {
-                            _this.clickCount = 0;
-                        }
-                        if (_this.button === undefined) {
-                            _this.button = 0;
-                        }
-                        if (_this.popupTrigger === undefined) {
-                            _this.popupTrigger = false;
-                        }
-                        if (_this.shouldExcludeButtonFromExtModifiers === undefined) {
-                            _this.shouldExcludeButtonFromExtModifiers = false;
                         }
                     }
                     else
@@ -41788,21 +40645,6 @@ var javax;
                             }
                             _this.originalSource = source;
                         }
-                        if (_this.isProxyActive === undefined) {
-                            _this.isProxyActive = false;
-                        }
-                        if (_this.keyCode === undefined) {
-                            _this.keyCode = 0;
-                        }
-                        if (_this.keyChar === undefined) {
-                            _this.keyChar = null;
-                        }
-                        if (_this.keyLocation === undefined) {
-                            _this.keyLocation = 0;
-                        }
-                        if (_this.originalSource === undefined) {
-                            _this.originalSource = null;
-                        }
                         (function () {
                             _this.isProxyActive = isProxyActive;
                         })();
@@ -41896,21 +40738,6 @@ var javax;
                             }
                             _this.originalSource = source;
                         }
-                        if (_this.isProxyActive === undefined) {
-                            _this.isProxyActive = false;
-                        }
-                        if (_this.keyCode === undefined) {
-                            _this.keyCode = 0;
-                        }
-                        if (_this.keyChar === undefined) {
-                            _this.keyChar = null;
-                        }
-                        if (_this.keyLocation === undefined) {
-                            _this.keyLocation = 0;
-                        }
-                        if (_this.originalSource === undefined) {
-                            _this.originalSource = null;
-                        }
                     }
                     else if (((source != null && source instanceof java.awt.Component) || source === null) && ((typeof id === 'number') || id === null) && ((typeof when === 'number') || when === null) && ((typeof modifiers === 'number') || modifiers === null) && ((typeof keyCode === 'number') || keyCode === null) && keyChar === undefined && keyLocation === undefined && isProxyActive === undefined) {
                         var __args = arguments;
@@ -41961,36 +40788,6 @@ var javax;
                                 }
                                 _this.originalSource = source;
                             }
-                            if (_this.isProxyActive === undefined) {
-                                _this.isProxyActive = false;
-                            }
-                            if (_this.keyCode === undefined) {
-                                _this.keyCode = 0;
-                            }
-                            if (_this.keyChar === undefined) {
-                                _this.keyChar = null;
-                            }
-                            if (_this.keyLocation === undefined) {
-                                _this.keyLocation = 0;
-                            }
-                            if (_this.originalSource === undefined) {
-                                _this.originalSource = null;
-                            }
-                        }
-                        if (_this.isProxyActive === undefined) {
-                            _this.isProxyActive = false;
-                        }
-                        if (_this.keyCode === undefined) {
-                            _this.keyCode = 0;
-                        }
-                        if (_this.keyChar === undefined) {
-                            _this.keyChar = null;
-                        }
-                        if (_this.keyLocation === undefined) {
-                            _this.keyLocation = 0;
-                        }
-                        if (_this.originalSource === undefined) {
-                            _this.originalSource = null;
                         }
                     }
                     else
@@ -43121,7 +41918,6 @@ var javax;
                         _this.setModel(new javax.swing.DefaultButtonModel());
                         _this.init(text_8, icon_6);
                     }
-                    _this.isMouseDragged = false;
                 }
                 else if (((typeof text === 'string') || text === null) && icon === undefined) {
                     var __args = arguments;
@@ -43133,7 +41929,6 @@ var javax;
                         _this.setModel(new javax.swing.DefaultButtonModel());
                         _this.init(text, icon_7);
                     }
-                    _this.isMouseDragged = false;
                 }
                 else if (((text != null && (text.constructor != null && text.constructor["__interfaces"] != null && text.constructor["__interfaces"].indexOf("javax.swing.Action") >= 0)) || text === null) && icon === undefined) {
                     var __args = arguments;
@@ -43149,9 +41944,7 @@ var javax;
                             _this.setModel(new javax.swing.DefaultButtonModel());
                             _this.init(text_9, icon_8);
                         }
-                        _this.isMouseDragged = false;
                     }
-                    _this.isMouseDragged = false;
                     (function () {
                         _this.setAction(a_5);
                     })();
@@ -43167,7 +41960,6 @@ var javax;
                         _this.setModel(new javax.swing.DefaultButtonModel());
                         _this.init(text_10, icon_9);
                     }
-                    _this.isMouseDragged = false;
                 }
                 else
                     throw new Error('invalid overload');
@@ -43528,19 +42320,6 @@ var javax;
                                 }
                             } };
                     }
-                    if (_this.actionCommand === undefined) {
-                        _this.actionCommand = null;
-                    }
-                    if (_this.label === undefined) {
-                        _this.label = null;
-                    }
-                    if (_this.background === undefined) {
-                        _this.background = null;
-                    }
-                    if (_this.icon === undefined) {
-                        _this.icon = null;
-                    }
-                    _this.actionListeners = (new Array());
                 }
                 else
                     throw new Error('invalid overload');
@@ -43625,7 +42404,6 @@ var javax;
                         _this.model.setSelected(selected_1);
                         _this.init(text, icon);
                     }
-                    _this.buttonCreated = false;
                 }
                 else if (((text != null && (text.constructor != null && text.constructor["__interfaces"] != null && text.constructor["__interfaces"].indexOf("javax.swing.Icon") >= 0)) || text === null) && ((typeof icon === 'boolean') || icon === null) && selected === undefined) {
                     var __args = arguments;
@@ -43640,7 +42418,6 @@ var javax;
                         _this.model.setSelected(selected_2);
                         _this.init(text_11, icon_11);
                     }
-                    _this.buttonCreated = false;
                 }
                 else if (((typeof text === 'string') || text === null) && ((typeof icon === 'boolean') || icon === null) && selected === undefined) {
                     var __args = arguments;
@@ -43654,7 +42431,6 @@ var javax;
                         _this.model.setSelected(selected_3);
                         _this.init(text, icon_12);
                     }
-                    _this.buttonCreated = false;
                 }
                 else if (((text != null && (text.constructor != null && text.constructor["__interfaces"] != null && text.constructor["__interfaces"].indexOf("javax.swing.Icon") >= 0)) || text === null) && icon === undefined && selected === undefined) {
                     var __args = arguments;
@@ -43669,7 +42445,6 @@ var javax;
                         _this.model.setSelected(selected_4);
                         _this.init(text_12, icon_13);
                     }
-                    _this.buttonCreated = false;
                 }
                 else if (((typeof text === 'string') || text === null) && icon === undefined && selected === undefined) {
                     var __args = arguments;
@@ -43683,7 +42458,6 @@ var javax;
                         _this.model.setSelected(selected_5);
                         _this.init(text, icon_14);
                     }
-                    _this.buttonCreated = false;
                 }
                 else if (((text != null && (text.constructor != null && text.constructor["__interfaces"] != null && text.constructor["__interfaces"].indexOf("javax.swing.Action") >= 0)) || text === null) && icon === undefined && selected === undefined) {
                     var __args = arguments;
@@ -43701,9 +42475,7 @@ var javax;
                             _this.model.setSelected(selected_6);
                             _this.init(text_13, icon_15);
                         }
-                        _this.buttonCreated = false;
                     }
-                    _this.buttonCreated = false;
                     (function () {
                         _this.setAction(a_6);
                     })();
@@ -43721,7 +42493,6 @@ var javax;
                         _this.model.setSelected(selected_7);
                         _this.init(text_14, icon_16);
                     }
-                    _this.buttonCreated = false;
                 }
                 else
                     throw new Error('invalid overload');
@@ -43895,22 +42666,6 @@ var javax;
                             _this.setText(text_15);
                         }
                     }
-                    if (_this.action === undefined) {
-                        _this.action = null;
-                    }
-                    if (_this.actionPropertyChangeListener === undefined) {
-                        _this.actionPropertyChangeListener = null;
-                    }
-                    if (_this.columns === undefined) {
-                        _this.columns = 0;
-                    }
-                    if (_this.columnWidth === undefined) {
-                        _this.columnWidth = 0;
-                    }
-                    if (_this.command === undefined) {
-                        _this.command = null;
-                    }
-                    _this.horizontalAlignment = javax.swing.SwingConstants.LEADING;
                 }
                 else if (((typeof doc === 'string') || doc === null) && text === undefined && columns === undefined) {
                     var __args = arguments;
@@ -43944,22 +42699,6 @@ var javax;
                             _this.setText(text_16);
                         }
                     }
-                    if (_this.action === undefined) {
-                        _this.action = null;
-                    }
-                    if (_this.actionPropertyChangeListener === undefined) {
-                        _this.actionPropertyChangeListener = null;
-                    }
-                    if (_this.columns === undefined) {
-                        _this.columns = 0;
-                    }
-                    if (_this.columnWidth === undefined) {
-                        _this.columnWidth = 0;
-                    }
-                    if (_this.command === undefined) {
-                        _this.command = null;
-                    }
-                    _this.horizontalAlignment = javax.swing.SwingConstants.LEADING;
                 }
                 else if (((typeof doc === 'number') || doc === null) && text === undefined && columns === undefined) {
                     var __args = arguments;
@@ -43993,22 +42732,6 @@ var javax;
                             _this.setText(text_17);
                         }
                     }
-                    if (_this.action === undefined) {
-                        _this.action = null;
-                    }
-                    if (_this.actionPropertyChangeListener === undefined) {
-                        _this.actionPropertyChangeListener = null;
-                    }
-                    if (_this.columns === undefined) {
-                        _this.columns = 0;
-                    }
-                    if (_this.columnWidth === undefined) {
-                        _this.columnWidth = 0;
-                    }
-                    if (_this.command === undefined) {
-                        _this.command = null;
-                    }
-                    _this.horizontalAlignment = javax.swing.SwingConstants.LEADING;
                 }
                 else if (doc === undefined && text === undefined && columns === undefined) {
                     var __args = arguments;
@@ -44042,22 +42765,6 @@ var javax;
                             _this.setText(text_18);
                         }
                     }
-                    if (_this.action === undefined) {
-                        _this.action = null;
-                    }
-                    if (_this.actionPropertyChangeListener === undefined) {
-                        _this.actionPropertyChangeListener = null;
-                    }
-                    if (_this.columns === undefined) {
-                        _this.columns = 0;
-                    }
-                    if (_this.columnWidth === undefined) {
-                        _this.columnWidth = 0;
-                    }
-                    if (_this.command === undefined) {
-                        _this.command = null;
-                    }
-                    _this.horizontalAlignment = javax.swing.SwingConstants.LEADING;
                 }
                 else
                     throw new Error('invalid overload');
@@ -44562,24 +43269,6 @@ var javax;
                             throw new java.lang.IllegalArgumentException("columns: " + columns_5);
                         }
                     }
-                    if (_this.rows === undefined) {
-                        _this.rows = 0;
-                    }
-                    if (_this.columns === undefined) {
-                        _this.columns = 0;
-                    }
-                    if (_this.columnWidth === undefined) {
-                        _this.columnWidth = 0;
-                    }
-                    if (_this.rowHeight === undefined) {
-                        _this.rowHeight = 0;
-                    }
-                    if (_this.wrap === undefined) {
-                        _this.wrap = false;
-                    }
-                    if (_this.word === undefined) {
-                        _this.word = false;
-                    }
                 }
                 else if (((typeof doc === 'number') || doc === null) && ((typeof text === 'number') || text === null) && rows === undefined && columns === undefined) {
                     var __args = arguments;
@@ -44619,24 +43308,6 @@ var javax;
                         if (columns_6 < 0) {
                             throw new java.lang.IllegalArgumentException("columns: " + columns_6);
                         }
-                    }
-                    if (_this.rows === undefined) {
-                        _this.rows = 0;
-                    }
-                    if (_this.columns === undefined) {
-                        _this.columns = 0;
-                    }
-                    if (_this.columnWidth === undefined) {
-                        _this.columnWidth = 0;
-                    }
-                    if (_this.rowHeight === undefined) {
-                        _this.rowHeight = 0;
-                    }
-                    if (_this.wrap === undefined) {
-                        _this.wrap = false;
-                    }
-                    if (_this.word === undefined) {
-                        _this.word = false;
                     }
                 }
                 else if (((typeof doc === 'string') || doc === null) && text === undefined && rows === undefined && columns === undefined) {
@@ -44678,24 +43349,6 @@ var javax;
                             throw new java.lang.IllegalArgumentException("columns: " + columns_7);
                         }
                     }
-                    if (_this.rows === undefined) {
-                        _this.rows = 0;
-                    }
-                    if (_this.columns === undefined) {
-                        _this.columns = 0;
-                    }
-                    if (_this.columnWidth === undefined) {
-                        _this.columnWidth = 0;
-                    }
-                    if (_this.rowHeight === undefined) {
-                        _this.rowHeight = 0;
-                    }
-                    if (_this.wrap === undefined) {
-                        _this.wrap = false;
-                    }
-                    if (_this.word === undefined) {
-                        _this.word = false;
-                    }
                 }
                 else if (doc === undefined && text === undefined && rows === undefined && columns === undefined) {
                     var __args = arguments;
@@ -44735,24 +43388,6 @@ var javax;
                         if (columns_8 < 0) {
                             throw new java.lang.IllegalArgumentException("columns: " + columns_8);
                         }
-                    }
-                    if (_this.rows === undefined) {
-                        _this.rows = 0;
-                    }
-                    if (_this.columns === undefined) {
-                        _this.columns = 0;
-                    }
-                    if (_this.columnWidth === undefined) {
-                        _this.columnWidth = 0;
-                    }
-                    if (_this.rowHeight === undefined) {
-                        _this.rowHeight = 0;
-                    }
-                    if (_this.wrap === undefined) {
-                        _this.wrap = false;
-                    }
-                    if (_this.word === undefined) {
-                        _this.word = false;
                     }
                 }
                 else
@@ -44965,18 +43600,6 @@ var javax;
                             _this.wheelRotation = wheelRotation;
                             _this.preciseWheelRotation = preciseWheelRotation_1;
                         }
-                        if (_this.scrollType === undefined) {
-                            _this.scrollType = 0;
-                        }
-                        if (_this.scrollAmount === undefined) {
-                            _this.scrollAmount = 0;
-                        }
-                        if (_this.wheelRotation === undefined) {
-                            _this.wheelRotation = 0;
-                        }
-                        if (_this.preciseWheelRotation === undefined) {
-                            _this.preciseWheelRotation = 0;
-                        }
                     }
                     else if (((source != null && source instanceof java.awt.Component) || source === null) && ((typeof id === 'number') || id === null) && ((typeof when === 'number') || when === null) && ((typeof modifiers === 'number') || modifiers === null) && ((typeof x === 'number') || x === null) && ((typeof y === 'number') || y === null) && ((typeof xAbs === 'number') || xAbs === null) && ((typeof yAbs === 'boolean') || yAbs === null) && ((typeof clickCount === 'number') || clickCount === null) && ((typeof popupTrigger === 'number') || popupTrigger === null) && ((typeof scrollType === 'number') || scrollType === null) && scrollAmount === undefined && wheelRotation === undefined && preciseWheelRotation === undefined) {
                         var __args = arguments;
@@ -45010,30 +43633,6 @@ var javax;
                                 _this.wheelRotation = wheelRotation_1;
                                 _this.preciseWheelRotation = preciseWheelRotation_2;
                             }
-                            if (_this.scrollType === undefined) {
-                                _this.scrollType = 0;
-                            }
-                            if (_this.scrollAmount === undefined) {
-                                _this.scrollAmount = 0;
-                            }
-                            if (_this.wheelRotation === undefined) {
-                                _this.wheelRotation = 0;
-                            }
-                            if (_this.preciseWheelRotation === undefined) {
-                                _this.preciseWheelRotation = 0;
-                            }
-                        }
-                        if (_this.scrollType === undefined) {
-                            _this.scrollType = 0;
-                        }
-                        if (_this.scrollAmount === undefined) {
-                            _this.scrollAmount = 0;
-                        }
-                        if (_this.wheelRotation === undefined) {
-                            _this.wheelRotation = 0;
-                        }
-                        if (_this.preciseWheelRotation === undefined) {
-                            _this.preciseWheelRotation = 0;
                         }
                     }
                     else
@@ -45966,24 +44565,6 @@ var javax;
                         _this.label = label_2;
                         _this.setSelectionModel(new javax.swing.DefaultSingleSelectionModel());
                     }
-                    if (_this.invoker === undefined) {
-                        _this.invoker = null;
-                    }
-                    if (_this.frame === undefined) {
-                        _this.frame = null;
-                    }
-                    if (_this.desiredLocationX === undefined) {
-                        _this.desiredLocationX = 0;
-                    }
-                    if (_this.desiredLocationY === undefined) {
-                        _this.desiredLocationY = 0;
-                    }
-                    if (_this.selectionModel === undefined) {
-                        _this.selectionModel = null;
-                    }
-                    _this.label = null;
-                    _this.paintBorder = true;
-                    _this.margin = null;
                 }
                 else
                     throw new Error('invalid overload');
@@ -46766,14 +45347,6 @@ var javax;
                         _this.menuChangeListener = null;
                         _this.menuEvent = null;
                     }
-                    if (_this.popupMenu === undefined) {
-                        _this.popupMenu = null;
-                    }
-                    if (_this.delay === undefined) {
-                        _this.delay = 0;
-                    }
-                    _this.menuChangeListener = null;
-                    _this.menuEvent = null;
                 }
                 else if (((typeof s === 'string') || s === null) && b === undefined) {
                     var __args = arguments;
@@ -46805,23 +45378,7 @@ var javax;
                             _this.menuChangeListener = null;
                             _this.menuEvent = null;
                         }
-                        if (_this.popupMenu === undefined) {
-                            _this.popupMenu = null;
-                        }
-                        if (_this.delay === undefined) {
-                            _this.delay = 0;
-                        }
-                        _this.menuChangeListener = null;
-                        _this.menuEvent = null;
                     }
-                    if (_this.popupMenu === undefined) {
-                        _this.popupMenu = null;
-                    }
-                    if (_this.delay === undefined) {
-                        _this.delay = 0;
-                    }
-                    _this.menuChangeListener = null;
-                    _this.menuEvent = null;
                     (function () {
                         _this.setAction(a_7);
                     })();
@@ -46841,14 +45398,6 @@ var javax;
                         _this.menuChangeListener = null;
                         _this.menuEvent = null;
                     }
-                    if (_this.popupMenu === undefined) {
-                        _this.popupMenu = null;
-                    }
-                    if (_this.delay === undefined) {
-                        _this.delay = 0;
-                    }
-                    _this.menuChangeListener = null;
-                    _this.menuEvent = null;
                 }
                 else
                     throw new Error('invalid overload');
@@ -47644,21 +46193,6 @@ var javax;
                         _this.state = state_5;
                         _this.itemListeners = (new Array());
                     }
-                    if (_this.label === undefined) {
-                        _this.label = null;
-                    }
-                    if (_this.state === undefined) {
-                        _this.state = false;
-                    }
-                    if (_this.itemListeners === undefined) {
-                        _this.itemListeners = null;
-                    }
-                    if (_this.htmlCheckbox === undefined) {
-                        _this.htmlCheckbox = null;
-                    }
-                    if (_this.htmlLabel === undefined) {
-                        _this.htmlLabel = null;
-                    }
                 }
                 else if (label === undefined && state === undefined) {
                     var __args = arguments;
@@ -47685,21 +46219,6 @@ var javax;
                         _this.label = label_3;
                         _this.state = state_6;
                         _this.itemListeners = (new Array());
-                    }
-                    if (_this.label === undefined) {
-                        _this.label = null;
-                    }
-                    if (_this.state === undefined) {
-                        _this.state = false;
-                    }
-                    if (_this.itemListeners === undefined) {
-                        _this.itemListeners = null;
-                    }
-                    if (_this.htmlCheckbox === undefined) {
-                        _this.htmlCheckbox = null;
-                    }
-                    if (_this.htmlLabel === undefined) {
-                        _this.htmlLabel = null;
                     }
                 }
                 else

@@ -10845,6 +10845,7 @@ declare namespace javax.swing {
     class SwingUtilities implements javax.swing.SwingConstants {
         constructor();
         static invokeLater(doRun: () => void): void;
+        static invokeAndWait(doRun: () => void): void;
     }
 }
 declare namespace javax.swing {
@@ -11665,6 +11666,10 @@ declare namespace javax.swing.event {
         getIndex1(): number;
         constructor(source: any, type: number, index0: number, index1: number);
         toString(): string;
+    }
+}
+declare namespace javax.swing.event {
+    interface MouseInputListener extends java.awt.event.MouseListener, java.awt.event.MouseMotionListener {
     }
 }
 declare namespace javax.swing.event {
@@ -15488,6 +15493,11 @@ declare namespace java.awt.geom {
             toString(): string;
             static serialVersionUID: number;
         }
+    }
+}
+declare namespace javax.swing.event {
+    abstract class MouseInputAdapter extends java.awt.event.MouseAdapter implements javax.swing.event.MouseInputListener {
+        constructor();
     }
 }
 declare namespace javax.swing {

@@ -5,7 +5,7 @@
 	<artifactId>j4ts-awt-swing</artifactId>
 	<version>0.0.2-SNAPSHOT</version>
 	<properties>
-		<jsweet.transpiler.version>3.1.0</jsweet.transpiler.version>
+		<jsweet.transpiler.version>3.2.0-SNAPSHOT</jsweet.transpiler.version>
 	</properties>
 	<licenses>
 		<license>
@@ -60,16 +60,20 @@
 			<plugin>
 				<groupId>org.jsweet</groupId>
 				<artifactId>jsweet-maven-plugin</artifactId>
-				<version>3.1.0</version>
+				<version>3.2.0-SNAPSHOT</version>
 				<configuration>
 					<verbose>true</verbose>
 					<!-- <sourceMap>true</sourceMap> -->
 					<bundle>true</bundle>
+					<module>none</module>
 					<declaration>true</declaration>
 					<outDir>src/main/resources/META-INF/resources/webjars/${project.artifactId}/${project.version}</outDir>
-					<dtsOut>src/main/resources/src/typings/${project.artifactId}/${project.version}</dtsOut>
+					<dtsOut>src/main/resources/META-INF/resources/typings/${project.artifactId}/${project.version}</dtsOut>
 					<targetVersion>ES3</targetVersion>
 					<javaCompilerExtraOptions>-source,1.8,-target,1.8</javaCompilerExtraOptions>
+					<excludes>
+						<!-- <exclude>**/ImageIO.java</exclude> -->
+					</excludes>
 				</configuration>
 				<executions>
 					<execution>
@@ -86,7 +90,7 @@
 				<version>1.8</version>
 				<executions>
 					<execution>
-						<phase>install</phase>
+						<phase>package</phase>
 						<configuration>
 							<target>
 								<echo message="copying generated bundles to dist..." />
@@ -94,7 +98,7 @@
 									file="src/main/resources/META-INF/resources/webjars/${project.artifactId}/${project.version}/bundle.js"
 									tofile="dist/${project.artifactId}.js" verbose="true" />
 								<copy
-									file="src/main/resources/src/typings/${project.artifactId}/${project.version}/bundle.d.ts"
+									file="src/main/resources/META-INF/resources/typings/${project.artifactId}/${project.version}/bundle.d.ts"
 									tofile="dist/${project.artifactId}.d.ts" verbose="true" />
 							</target>
 						</configuration>
@@ -165,9 +169,9 @@
 			<version>0.0.2-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>org.jsweet.candies</groupId>
+			<groupId>org.jsweet.v3.candies</groupId>
 			<artifactId>jquery</artifactId>
-			<version>1.10.0-SNAPSHOT</version>
+			<version>1.10.0-20220903</version>
 		</dependency>
 	</dependencies>
 
